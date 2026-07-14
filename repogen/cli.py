@@ -59,7 +59,7 @@ def build_parser() -> argparse.ArgumentParser:
     gen.add_argument(
         "--env-file", type=Path, default=None,
         help=".env file with API keys (e.g. cursor_api_key=...); "
-        "defaults to ./.env then <project root>/.env",
+        "defaults to <project root>/.env",
     )
 
     listing = sub.add_parser("list", help="list agents, categories, repos")

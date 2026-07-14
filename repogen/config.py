@@ -39,14 +39,10 @@ def load_repositories(repos_file: Path) -> dict[str, str]:
 def load_env_file(explicit_path: Optional[Path] = None) -> Optional[Path]:
     """Load KEY=VALUE pairs into os.environ (without overriding existing vars).
 
-    Search order: explicit path, ./.env, <project root>/.env. Returns the file
-    that was loaded, or None.
+    Uses the explicit path if given, otherwise ONLY this project's own .env
+    (<project root>/.env). Returns the file that was loaded, or None.
     """
-    candidates = (
-        [explicit_path]
-        if explicit_path
-        else [Path.cwd() / ".env", PROJECT_ROOT / ".env"]
-    )
+    candidates = [explicit_path] if explicit_path else [PROJECT_ROOT / ".env"]
     for candidate in candidates:
         if candidate and candidate.is_file():
             for line in candidate.read_text(encoding="utf-8").splitlines():
