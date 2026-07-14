@@ -7,7 +7,13 @@ import sys
 from pathlib import Path
 
 from .agents import available_backends, create_backend
-from .config import ALL_CATEGORIES, PROJECT_ROOT, RunConfig, load_repositories
+from .config import (
+    ALL_CATEGORIES,
+    PROJECT_ROOT,
+    RunConfig,
+    load_env_file,
+    load_repositories,
+)
 from .orchestrator import Orchestrator
 
 
@@ -50,6 +56,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="reuse a previously scouted targets.json instead of re-scouting",
     )
     gen.add_argument("--keep-container", action="store_true")
+    gen.add_argument(
+        "--env-file", type=Path, default=None,
+        help=".env file with API keys (e.g. cursor_api_key=...); "
+        "defaults to ./.env then <project root>/.env",
+    )
 
     listing = sub.add_parser("list", help="list agents, categories, repos")
     listing.add_argument(
@@ -59,6 +70,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def cmd_generate(args: argparse.Namespace) -> int:
+    loaded = load_env_file(args.env_file)
+    if loaded:
+        print(f"[env] loaded {loaded}")
+    elif args.env_file:
+        print(f"ERROR: env file not found: {args.env_file}", file=sys.stderr)
+        return 2
+
     repos = load_repositories(args.repos_file)
     if args.repo not in repos and not args.image:
         print(

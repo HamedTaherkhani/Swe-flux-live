@@ -36,6 +36,42 @@ def load_repositories(repos_file: Path) -> dict[str, str]:
         return json.load(f)
 
 
+def load_env_file(explicit_path: Optional[Path] = None) -> Optional[Path]:
+    """Load KEY=VALUE pairs into os.environ (without overriding existing vars).
+
+    Search order: explicit path, ./.env, <project root>/.env. Returns the file
+    that was loaded, or None.
+    """
+    candidates = (
+        [explicit_path]
+        if explicit_path
+        else [Path.cwd() / ".env", PROJECT_ROOT / ".env"]
+    )
+    for candidate in candidates:
+        if candidate and candidate.is_file():
+            for line in candidate.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key, _, value = line.partition("=")
+                key = key.strip()
+                value = value.strip().strip("'\"")
+                if key and key not in os.environ:
+                    os.environ[key] = value
+            return candidate
+    return None
+
+
+def env_lookup(*names: str) -> str:
+    """Find the first matching env var, trying exact, upper, and lower forms."""
+    for name in names:
+        for variant in (name, name.upper(), name.lower()):
+            value = os.environ.get(variant)
+            if value:
+                return value
+    return ""
+
+
 def sanitize_slug(text: str) -> str:
     slug = re.sub(r"[^A-Za-z0-9]+", "_", text).strip("_").lower()
     return re.sub(r"_+", "_", slug)

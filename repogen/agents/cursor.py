@@ -10,11 +10,11 @@ stream-json output is persisted as the trajectory.
 from __future__ import annotations
 
 import json
-import os
 import shutil
 import subprocess
 from pathlib import Path
 
+from ..config import env_lookup
 from ..docker_env import Container
 from .base import AgentBackend, AgentResult
 from . import register
@@ -26,9 +26,7 @@ class CursorBackend(AgentBackend):
 
     def __init__(self, model: str, settings=None):
         super().__init__(model, settings)
-        self.api_key = (
-            self.settings.get("api_key") or os.environ.get("CURSOR_API_KEY", "")
-        )
+        self.api_key = self.settings.get("api_key") or env_lookup("CURSOR_API_KEY")
 
     # -- setup ---------------------------------------------------------
 
