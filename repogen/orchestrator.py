@@ -10,6 +10,7 @@ from __future__ import annotations
 import datetime as _dt
 import json
 import shlex
+import shutil
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Optional
@@ -94,6 +95,8 @@ class Orchestrator:
                 print(f"plan-only: wrote plan for {len(plan)} instances")
                 return self.run_dir
 
+            self._write_host_scaffold()
+
             assert self.backend is not None
             print(f"[agent] preparing backend '{self.backend.name}'")
             self.backend.prepare(container)
@@ -133,6 +136,32 @@ class Orchestrator:
             )
         container.cp_to(PAYLOAD_DIR / "qa_pipeline.sh", f"{qa_dir}/qa_pipeline.sh")
         container.exec(f"chmod +x '{qa_dir}/qa_pipeline.sh'")
+
+    def _write_host_scaffold(self) -> None:
+        """Make instances/ a drop-in QA folder, runnable from host exactly like
+        the original benchmark: shared/ tracer files, qa_pipeline.sh, and the
+        two host runners (run_qa_fromhost.sh rendered with this repo's image)."""
+        qa_root = self.instances_dir
+        (qa_root / "shared" / "files").mkdir(parents=True, exist_ok=True)
+        for name in ("trace_plugin.py", "conftest.py"):
+            shutil.copy2(
+                PAYLOAD_DIR / "shared" / "files" / name,
+                qa_root / "shared" / "files" / name,
+            )
+        shutil.copy2(PAYLOAD_DIR / "qa_pipeline.sh", qa_root / "qa_pipeline.sh")
+        shutil.copy2(
+            PAYLOAD_DIR / "run_all_qa_fromhost.sh", qa_root / "run_all_qa_fromhost.sh"
+        )
+        runner = (
+            (PAYLOAD_DIR / "run_qa_fromhost.sh.tpl")
+            .read_text(encoding="utf-8")
+            .replace("{{IMAGE}}", self.config.image)
+            .replace("{{QA_DIR_NAME}}", self.config.qa_dir_name)
+        )
+        (qa_root / "run_qa_fromhost.sh").write_text(runner, encoding="utf-8")
+        for script in ("qa_pipeline.sh", "run_qa_fromhost.sh", "run_all_qa_fromhost.sh"):
+            (qa_root / script).chmod(0o755)
+        print(f"[scaffold] host QA folder ready: {qa_root}")
 
     def _scout(self, container: Container) -> list[dict]:
         if self.config.targets_json:

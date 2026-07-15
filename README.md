@@ -88,8 +88,21 @@ out/<repo>/run_<ts>/
 ├── targets.json           # scout inventory
 ├── plan.json              # category × target allocation
 ├── manifest.json          # per-instance status, updated live
-├── instances/<id>/        # eval.sh, files/, oracle.json  (drop-in format)
+├── instances/             # complete drop-in QA folder (like qa_instances/<repo>)
+│   ├── qa_pipeline.sh     # in-container stage+eval pipeline
+│   ├── run_qa_fromhost.sh # host runner, image pre-rendered for this repo
+│   ├── run_all_qa_fromhost.sh
+│   ├── shared/files/      # trace_plugin.py + conftest.py (same for all repos)
+│   └── <instance_id>/     # eval.sh, files/, oracle.json
 └── logs/<id>/             # prompt.md, agent log + traj, harvest/ logs
+```
+
+`instances/` is runnable from host exactly like the original benchmark:
+
+```bash
+cd out/<repo>/run_<ts>/instances
+./run_qa_fromhost.sh <instance_id>   # re-harvest one instance
+./run_all_qa_fromhost.sh             # re-harvest everything -> qa_artifacts/
 ```
 
 ## Architecture / extension points
