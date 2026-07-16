@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import sys
 from pathlib import Path
+from typing import Optional
 
 from .agents import available_backends, create_backend
 from .config import (
@@ -78,6 +79,43 @@ def build_parser() -> argparse.ArgumentParser:
         help="report verdicts only; do not move excluded instances",
     )
 
+    from .validation import available_validators
+
+    validate = sub.add_parser(
+        "validate",
+        help="post-screening validation stages (default: solver_agent — a code "
+        "agent answers each instance and must match the oracle; failures are discarded)",
+    )
+    vgroup = validate.add_mutually_exclusive_group(required=True)
+    vgroup.add_argument("--run-dir", type=Path, help="run directory to validate")
+    vgroup.add_argument(
+        "--repo", help="validate the latest run of this repo under --output-root"
+    )
+    validate.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "out")
+    validate.add_argument(
+        "--validators", default="solver_agent",
+        help=f"comma-separated validator names to run in order "
+        f"(available: {', '.join(available_validators())})",
+    )
+    validate.add_argument(
+        "--solver-agent", default="claude-code", choices=available_backends(),
+        help="agent backend used by the solver_agent validator",
+    )
+    validate.add_argument(
+        "--solver-model", default="",
+        help="model for the solver agent (required for solver_agent)",
+    )
+    validate.add_argument("--solver-timeout", type=int, default=900)
+    validate.add_argument("--float-tol", type=float, default=1e-6)
+    validate.add_argument(
+        "--dry-run", action="store_true",
+        help="report verdicts only; do not discard instances",
+    )
+    validate.add_argument(
+        "--env-file", type=Path, default=None,
+        help=".env file with API keys; defaults to <project root>/.env",
+    )
+
     listing = sub.add_parser("list", help="list agents, categories, repos")
     listing.add_argument(
         "--repos-file", type=Path, default=PROJECT_ROOT / "repositories.json"
@@ -139,16 +177,8 @@ def cmd_generate(args: argparse.Namespace) -> int:
 def cmd_screen(args: argparse.Namespace) -> int:
     from .screening import Screener
 
-    run_dir = args.run_dir
+    run_dir = _resolve_run_dir(args)
     if run_dir is None:
-        repo_root = args.output_root / args.repo
-        runs = sorted(repo_root.glob("run_*")) if repo_root.is_dir() else []
-        if not runs:
-            print(f"ERROR: no runs found under {repo_root}", file=sys.stderr)
-            return 2
-        run_dir = runs[-1]
-    if not (run_dir / "instances").is_dir():
-        print(f"ERROR: no instances/ directory in {run_dir}", file=sys.stderr)
         return 2
 
     print(f"Screening: {run_dir}{' (dry run)' if args.dry_run else ''}")
@@ -175,6 +205,68 @@ def cmd_screen(args: argparse.Namespace) -> int:
     return 0
 
 
+def _resolve_run_dir(args: argparse.Namespace) -> Optional[Path]:
+    run_dir = args.run_dir
+    if run_dir is None:
+        repo_root = args.output_root / args.repo
+        runs = sorted(repo_root.glob("run_*")) if repo_root.is_dir() else []
+        if not runs:
+            print(f"ERROR: no runs found under {repo_root}", file=sys.stderr)
+            return None
+        run_dir = runs[-1]
+    if not (run_dir / "instances").is_dir():
+        print(f"ERROR: no instances/ directory in {run_dir}", file=sys.stderr)
+        return None
+    return run_dir
+
+
+def cmd_validate(args: argparse.Namespace) -> int:
+    from .validation import ValidationContext, create_validator, run_validators
+
+    loaded = load_env_file(args.env_file)
+    if loaded:
+        print(f"[env] loaded {loaded}")
+
+    run_dir = _resolve_run_dir(args)
+    if run_dir is None:
+        return 2
+
+    names = [n.strip() for n in args.validators.split(",") if n.strip()]
+    if "solver_agent" in names and not args.solver_model:
+        print(
+            "ERROR: --solver-model is required for the solver_agent validator.",
+            file=sys.stderr,
+        )
+        return 2
+
+    validators = []
+    for name in names:
+        settings = {}
+        if name == "solver_agent":
+            settings = {
+                "agent": args.solver_agent,
+                "model": args.solver_model,
+                "timeout_s": args.solver_timeout,
+                "float_tol": args.float_tol,
+            }
+        validators.append(create_validator(name, settings))
+
+    ctx = ValidationContext.from_run_dir(run_dir)
+    print(f"Validating: {run_dir}{' (dry run)' if args.dry_run else ''}")
+    report = run_validators(ctx, validators, dry_run=args.dry_run)
+
+    for stage in report["stages"]:
+        print(f"\nStage '{stage['validator']}': "
+              f"{stage['passed']}/{stage['total']} passed, {stage['failed']} discarded")
+        for verdict in stage["verdicts"]:
+            mark = "PASS   " if verdict["passed"] else "DISCARD"
+            reason = f"  [{verdict['reason']}]" if verdict["reason"] else ""
+            print(f"  {mark} {verdict['instance_id']}{reason}")
+    print(f"\nRemaining instances: {len(report['remaining_instances'])}")
+    print(f"Report: {run_dir / 'validation_report.json'}")
+    return 0
+
+
 def cmd_list(args: argparse.Namespace) -> int:
     print("Agent backends:", ", ".join(available_backends()))
     print("Categories:", ", ".join(ALL_CATEGORIES))
@@ -191,6 +283,8 @@ def main(argv=None) -> int:
         return cmd_generate(args)
     if args.command == "screen":
         return cmd_screen(args)
+    if args.command == "validate":
+        return cmd_validate(args)
     if args.command == "list":
         return cmd_list(args)
     return 1

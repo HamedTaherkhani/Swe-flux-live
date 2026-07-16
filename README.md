@@ -40,13 +40,19 @@ python3 -m repogen generate --repo Keras --agent cursor --model gpt-5.3-codex-hi
 # Discover repos / agents / categories
 python3 -m repogen list
 
-# Generate + screen in one shot
+# Full pipeline: generate + screen + validate in one shot
 ./scripts/generate_and_screen.sh --repo faker_qa --agent cursor \
-  --model gpt-5.3-codex-high --num-instances 40
+  --model gpt-5.3-codex-high --num-instances 40 \
+  --solver-model claude-sonnet-4-6
 
 # Screen an existing run (add --dry-run to only report)
 python3 -m repogen screen --run-dir out/faker_qa/run_<ts>
 python3 -m repogen screen --repo faker_qa            # latest run
+
+# Validate an existing run with a solver agent (needs ANTHROPIC_API_KEY for claude-code)
+python3 -m repogen validate --repo faker_qa --solver-model claude-sonnet-4-6
+python3 -m repogen validate --run-dir out/faker_qa/run_<ts> \
+  --solver-agent claude-code --solver-model claude-sonnet-4-6 --dry-run
 ```
 
 Repo → image mapping lives in `repositories.json` (same format as RepoBehave's
@@ -102,9 +108,22 @@ Each run is a four-stage pipeline; every stage's output is persisted under
    Failing instances are moved to `excluded_instances/` (never deleted) and
    every verdict is recorded in `screening_report.json`.
 
-Deeper validation (independent re-derivation, repair loops, certification) is
-deliberately out of scope; screening only discards instances whose runtime
-behavior is broken or too shallow to be worth keeping.
+6. **Validate** (`repogen validate`, agent-based): configurable validation
+   stages applied in order (`--validators`, registry in `repogen/validation/`).
+   The built-in `solver_agent` validator replays the exact RepoBehave
+   evaluation setting: a fresh container, a leak-free bundle per instance
+   (question.json with the oracle answer stripped, test files without
+   parser/eval.sh), and one isolated solver session (default backend
+   `claude-code`, any registered backend works via `--solver-agent`). The
+   solver's `answer.json` is scored against the oracle with the benchmark's
+   own comparison rules (`repogen/scoring/evaluate_qa_answers.py`, copied
+   verbatim from RepoBehave). Instances the solver cannot answer correctly
+   are moved to `validation_excluded/<stage>/` and recorded in
+   `validation_report.json`; solver answers, logs, and trajectories are kept
+   under `validation/solver_agent/<instance>/`.
+
+Repair loops and certification are deliberately out of scope; screening and
+validation only discard instances — they never modify them.
 
 ## Output layout
 
@@ -136,8 +155,13 @@ cd out/<repo>/run_<ts>/instances
 - **Agent backends** (`repogen/agents/`): Strategy + Registry. Implement
   `AgentBackend.prepare()` (install CLI into container) and `run_task()` (one
   stateless session per prompt), decorate with `@register` — it appears in
-  `--agent` automatically. `cursor` is implemented; `codex` and `claude-code`
-  are registered placeholders.
+  `--agent` / `--solver-agent` automatically. `cursor` and `claude-code` are
+  implemented; `codex` is a registered placeholder.
+- **Validators** (`repogen/validation/`): Strategy + Registry. Implement
+  `Validator.validate(ctx) -> [ValidationVerdict]`, decorate with `@register`,
+  and select stages with `--validators a,b,c` (applied in order; instances
+  discarded by one stage are not seen by later ones). Discarding and
+  reporting are handled by the shared runner — validators only judge.
 - **Categories** (`repogen/prompts/categories/*.md` + `planner.CATEGORY_PROFILES`):
   adding a category = one markdown card + one `CategoryProfile`
   (eligibility + affinity).
