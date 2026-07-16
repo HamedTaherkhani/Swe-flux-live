@@ -39,6 +39,14 @@ python3 -m repogen generate --repo Keras --agent cursor --model gpt-5.3-codex-hi
 
 # Discover repos / agents / categories
 python3 -m repogen list
+
+# Generate + screen in one shot
+./scripts/generate_and_screen.sh --repo faker_qa --agent cursor \
+  --model gpt-5.3-codex-high --num-instances 40
+
+# Screen an existing run (add --dry-run to only report)
+python3 -m repogen screen --run-dir out/faker_qa/run_<ts>
+python3 -m repogen screen --repo faker_qa            # latest run
 ```
 
 Repo → image mapping lives in `repositories.json` (same format as RepoBehave's
@@ -77,8 +85,26 @@ Each run is a four-stage pipeline; every stage's output is persisted under
    (`generated | agent_failed | no_oracle`) to `manifest.json` after every
    instance — the run is crash-safe.
 
-Validation/repair/certification gates are deliberately out of scope here; this
-project only guarantees a well-structured, reproducible *generation* process.
+5. **Screen** (`repogen screen`, deterministic — run separately or via
+   `scripts/generate_and_screen.sh`): post-generation runtime exclusion rules.
+   Every instance must pass ALL of:
+   - `oracle_valid` — oracle.json exists, parses, has the 4 required keys, the
+     `question_kind` matches the plan, and `oracle_answer` is not empty;
+   - `template_valid` — `template_answer` is a well-formed type skeleton
+     (`"str"`/`"int"`/…) and `oracle_answer` structurally conforms to it;
+   - `test_passed` — the harvested pytest run passed;
+   - `answer_rich` — the answer has enough leaf values for its category;
+   - `trace_rich` — the trace shows enough runtime behavior for its category
+     (line events, distinct lines, call events, distinct functions, line
+     repetitions for loop categories, exception events for exception
+     categories). Thresholds live in `screening.CATEGORY_THRESHOLDS`.
+
+   Failing instances are moved to `excluded_instances/` (never deleted) and
+   every verdict is recorded in `screening_report.json`.
+
+Deeper validation (independent re-derivation, repair loops, certification) is
+deliberately out of scope; screening only discards instances whose runtime
+behavior is broken or too shallow to be worth keeping.
 
 ## Output layout
 

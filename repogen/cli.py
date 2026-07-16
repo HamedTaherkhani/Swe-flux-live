@@ -62,6 +62,22 @@ def build_parser() -> argparse.ArgumentParser:
         "defaults to <project root>/.env",
     )
 
+    screen = sub.add_parser(
+        "screen",
+        help="post-generation screening: exclude instances with invalid oracles, "
+        "broken templates, failing tests, or too-shallow runtime behavior",
+    )
+    group = screen.add_mutually_exclusive_group(required=True)
+    group.add_argument("--run-dir", type=Path, help="run directory to screen")
+    group.add_argument(
+        "--repo", help="screen the latest run of this repo under --output-root"
+    )
+    screen.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "out")
+    screen.add_argument(
+        "--dry-run", action="store_true",
+        help="report verdicts only; do not move excluded instances",
+    )
+
     listing = sub.add_parser("list", help="list agents, categories, repos")
     listing.add_argument(
         "--repos-file", type=Path, default=PROJECT_ROOT / "repositories.json"
@@ -120,6 +136,45 @@ def cmd_generate(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_screen(args: argparse.Namespace) -> int:
+    from .screening import Screener
+
+    run_dir = args.run_dir
+    if run_dir is None:
+        repo_root = args.output_root / args.repo
+        runs = sorted(repo_root.glob("run_*")) if repo_root.is_dir() else []
+        if not runs:
+            print(f"ERROR: no runs found under {repo_root}", file=sys.stderr)
+            return 2
+        run_dir = runs[-1]
+    if not (run_dir / "instances").is_dir():
+        print(f"ERROR: no instances/ directory in {run_dir}", file=sys.stderr)
+        return 2
+
+    print(f"Screening: {run_dir}{' (dry run)' if args.dry_run else ''}")
+    verdicts = Screener(run_dir).screen(dry_run=args.dry_run)
+    if not verdicts:
+        print("No instances found to screen.")
+        return 0
+
+    kept = sum(1 for v in verdicts if v.kept)
+    for verdict in verdicts:
+        if verdict.kept:
+            print(f"  KEEP    {verdict.instance_id}")
+        else:
+            reasons = "; ".join(
+                f"{r.rule}: {r.reason}" for r in verdict.results if not r.passed
+            )
+            print(f"  EXCLUDE {verdict.instance_id}  [{reasons}]")
+    print(
+        f"\nKept {kept}/{len(verdicts)} instances "
+        f"({len(verdicts) - kept} excluded"
+        f"{' — would be moved without --dry-run' if args.dry_run else ' — moved to excluded_instances/'})."
+    )
+    print(f"Report: {run_dir / 'screening_report.json'}")
+    return 0
+
+
 def cmd_list(args: argparse.Namespace) -> int:
     print("Agent backends:", ", ".join(available_backends()))
     print("Categories:", ", ".join(ALL_CATEGORIES))
@@ -134,6 +189,8 @@ def main(argv=None) -> int:
     args = build_parser().parse_args(argv)
     if args.command == "generate":
         return cmd_generate(args)
+    if args.command == "screen":
+        return cmd_screen(args)
     if args.command == "list":
         return cmd_list(args)
     return 1
