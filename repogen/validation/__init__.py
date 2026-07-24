@@ -127,6 +127,7 @@ def _discard(
 
 # Import concrete validators so they self-register.
 from . import solver_agent  # noqa: E402,F401
+from . import solver_llm  # noqa: E402,F401
 
 __all__ = [
     "Validator",

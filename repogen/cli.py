@@ -106,6 +106,28 @@ def build_parser() -> argparse.ArgumentParser:
         help="model for the solver agent (required for solver_agent)",
     )
     validate.add_argument("--solver-timeout", type=int, default=900)
+    # --- solver_llm (raw LLM inference, no agent) ---
+    validate.add_argument(
+        "--llm-provider", default="openai",
+        choices=["openai", "anthropic", "gemini", "fireworks", "openrouter", "vllm"],
+        help="provider for the solver_llm validator",
+    )
+    validate.add_argument(
+        "--llm-model", default="",
+        help="model id for the solver_llm validator (required when using solver_llm)",
+    )
+    validate.add_argument(
+        "--repo-map-mode", default="repomap",
+        choices=["repomap", "cheap_repomap", "none"],
+        help="repo context mode for solver_llm (repomap needs aider-chat)",
+    )
+    validate.add_argument(
+        "--container-runtime", default="docker", choices=["docker", "apptainer"],
+        help="runtime used to snapshot the repo for solver_llm",
+    )
+    validate.add_argument("--llm-max-read-lines", type=int, default=250)
+    validate.add_argument("--llm-temperature", type=float, default=0.0)
+    validate.add_argument("--llm-max-repair-rounds", type=int, default=2)
     validate.add_argument("--float-tol", type=float, default=1e-6)
     validate.add_argument(
         "--dry-run", action="store_true",
@@ -243,6 +265,12 @@ def cmd_validate(args: argparse.Namespace) -> int:
             file=sys.stderr,
         )
         return 2
+    if "solver_llm" in names and not args.llm_model:
+        print(
+            "ERROR: --llm-model is required for the solver_llm validator.",
+            file=sys.stderr,
+        )
+        return 2
 
     validators = []
     for name in names:
@@ -252,6 +280,17 @@ def cmd_validate(args: argparse.Namespace) -> int:
                 "agent": args.solver_agent,
                 "model": args.solver_model,
                 "timeout_s": args.solver_timeout,
+                "float_tol": args.float_tol,
+            }
+        elif name == "solver_llm":
+            settings = {
+                "provider": args.llm_provider,
+                "model": args.llm_model,
+                "repo_map_mode": args.repo_map_mode,
+                "container_runtime": args.container_runtime,
+                "max_read_lines": args.llm_max_read_lines,
+                "temperature": args.llm_temperature,
+                "max_repair_rounds": args.llm_max_repair_rounds,
                 "float_tol": args.float_tol,
             }
         validators.append(create_validator(name, settings))

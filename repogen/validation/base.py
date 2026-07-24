@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
 from abc import ABC, abstractmethod
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -96,6 +97,31 @@ def safe_name(name: str) -> str:
     """Filesystem-safe token: replace slashes and whitespace with underscores
     (keeps hyphens/dots), mirroring RepoBehave's model-dir naming."""
     return re.sub(r"[/\s]+", "_", name.strip())
+
+
+def write_eval_bundle(instance_dir: Path, oracle: dict, dest: Path) -> Path:
+    """Stage a leak-free evaluation bundle for a solver (agent or LLM):
+    question.json (oracle minus oracle_answer) plus files/ without parser
+    scripts or pycache. Mirrors RepoBehave's make_qa_instances_eval. Returns
+    the dest directory."""
+    dest.mkdir(parents=True, exist_ok=True)
+    question = {k: v for k, v in oracle.items() if k != "oracle_answer"}
+    (dest / "question.json").write_text(
+        json.dumps(question, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    files_dir = instance_dir / "files"
+    if files_dir.is_dir():
+        for src in files_dir.rglob("*"):
+            if not src.is_file():
+                continue
+            if src.name.startswith("parse") and src.suffix == ".py":
+                continue
+            if "__pycache__" in src.parts or src.suffix == ".pyc":
+                continue
+            out = dest / "files" / src.relative_to(files_dir)
+            out.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, out)
+    return dest
 
 
 def verdicts_to_dicts(verdicts: list[ValidationVerdict]) -> list[dict]:

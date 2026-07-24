@@ -18,7 +18,6 @@ Settings (via CLI):
 from __future__ import annotations
 
 import json
-import shutil
 import tempfile
 from pathlib import Path
 
@@ -26,7 +25,13 @@ from ..agents import create_backend
 from ..docker_env import Container
 from ..scoring import score_answer
 from . import register
-from .base import ValidationContext, ValidationVerdict, Validator, safe_name
+from .base import (
+    ValidationContext,
+    ValidationVerdict,
+    Validator,
+    safe_name,
+    write_eval_bundle,
+)
 
 _PROMPT_TEMPLATE = """You are running a repository QA evaluation instance with full environment access.
 
@@ -129,27 +134,10 @@ class SolverAgentValidator(Validator):
         host_out = out_root / instance_id
         host_out.mkdir(parents=True, exist_ok=True)
 
-        # 1. Stage the leak-free eval bundle (mirrors make_qa_instances_eval:
-        #    question.json = oracle minus oracle_answer; files/ minus parsers).
+        # 1. Stage the leak-free eval bundle (question.json = oracle minus
+        #    oracle_answer; files/ minus parsers).
         with tempfile.TemporaryDirectory(prefix="repogen_eval_") as tmp:
-            bundle = Path(tmp) / instance_id
-            bundle.mkdir()
-            question = {k: v for k, v in oracle.items() if k != "oracle_answer"}
-            (bundle / "question.json").write_text(
-                json.dumps(question, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-            )
-            files_dir = instance_dir / "files"
-            if files_dir.is_dir():
-                for src in files_dir.rglob("*"):
-                    if not src.is_file():
-                        continue
-                    if src.name.startswith("parse") and src.suffix == ".py":
-                        continue
-                    if "__pycache__" in src.parts or src.suffix == ".pyc":
-                        continue
-                    dest = bundle / "files" / src.relative_to(files_dir)
-                    dest.parent.mkdir(parents=True, exist_ok=True)
-                    shutil.copy2(src, dest)
+            bundle = write_eval_bundle(instance_dir, oracle, Path(tmp) / instance_id)
             container.exec(f"rm -rf '{eval_root}/{instance_id}'")
             container.cp_to(bundle, f"{eval_root}/{instance_id}")
 

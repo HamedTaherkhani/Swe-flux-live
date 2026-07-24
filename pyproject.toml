@@ -5,6 +5,17 @@ description = "Automated generator of runtime-behavior QA benchmark instances (R
 requires-python = ">=3.9"
 dependencies = []
 
+[project.optional-dependencies]
+# For the solver_llm validator (raw LLM inference, no agent). Install the
+# provider SDK(s) you use; aider-chat is only needed for repo_map_mode=repomap.
+llm = [
+    "openai>=1.30",          # openai, fireworks, openrouter, vllm (OpenAI-compatible)
+    "anthropic>=0.40",       # anthropic provider
+    "google-genai>=0.3",     # gemini provider
+    "aider-chat>=0.50",      # repo_map_mode=repomap (RepoMap); optional
+    "python-dotenv>=1.0",    # .env loading in the ported runner (optional)
+]
+
 [project.scripts]
 repogen = "repogen.cli:main"
 
@@ -16,4 +27,4 @@ build-backend = "setuptools.build_meta"
 include = ["repogen*"]
 
 [tool.setuptools.package-data]
-repogen = ["payload/**/*", "prompts/**/*"]
+repogen = ["payload/**/*", "prompts/**/*", "llm_eval/provider_model_costs.json"]

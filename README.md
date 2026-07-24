@@ -56,6 +56,11 @@ python3 -m repogen validate --repo faker_qa --solver-model claude-sonnet-4-6
 # --no-discard records it without pruning; drop it to keep only what both pass.
 python3 -m repogen validate --repo faker_qa \
   --solver-agent claude-code --solver-model claude-haiku-4-5-20251001 --no-discard
+
+# Validate with a raw LLM (no agent) via provider APIs + read-only repo tools.
+# Needs the 'llm' extra installed and the provider API key in .env.
+python3 -m repogen validate --repo faker_qa --validators solver_llm \
+  --llm-provider anthropic --llm-model claude-haiku-4-5-20251001 --no-discard
 ```
 
 Repo → image mapping lives in `repositories.json` (same format as RepoBehave's
@@ -136,6 +141,21 @@ Each run is a four-stage pipeline; every stage's output is persisted under
    and verdicts without pruning `instances/` (e.g. to compare models on the
    same set).
 
+   Two solver validators ship:
+   - **`solver_agent`** (default) — a coding agent (`--solver-agent
+     claude-code|cursor`) runs inside the container and can execute the test.
+   - **`solver_llm`** — a raw LLM (no agent), ported from RepoBehave's
+     `llm_eval`. It snapshots the repo from the image once, then answers each
+     instance with provider APIs (`--llm-provider
+     openai|anthropic|gemini|fireworks|openrouter|vllm`, `--llm-model ...`) using
+     read-only repo tools (`get_repo_map`/`list_dir`/`read_file`); it reasons
+     about behavior statically and does **not** execute code. Token usage and
+     cost are recorded per instance (pricing from
+     `repogen/llm_eval/provider_model_costs.json`) and summarized in
+     `validation/solver_llm/<provider>/<model>/run_summary.json`. Requires the
+     `llm` extra: `pip install -e '.[llm]'` (aider-chat only for
+     `--repo-map-mode repomap`; use `cheap_repomap`/`none` otherwise).
+
 Repair loops and certification are deliberately out of scope; screening and
 validation only discard instances — they never modify them.
 
@@ -156,7 +176,8 @@ out/<repo>/run_<ts>/
 ├── logs/<id>/             # prompt.md, agent log + traj, harvest/ logs
 ├── screening_report.json
 ├── excluded_instances/    # screened-out instances
-├── validation/solver_agent/<agent>/<model>/<instance>/   # per-model solver outputs
+├── validation/solver_agent/<agent>/<model>/<instance>/   # per-model agent-solver outputs
+├── validation/solver_llm/<provider>/<model>/<instance>/  # per-model LLM-solver outputs (answer/debug/trace)
 ├── validation_excluded/solver_agent/<agent>/<model>/<instance>/
 └── validation_report.json # accumulates one entry per (agent, model) run
 ```
