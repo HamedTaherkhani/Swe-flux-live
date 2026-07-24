@@ -190,6 +190,9 @@ class ProviderRunner:
         # caller passes FINAL_REASONING_PROMPT for reasoning-format (gemma4) runs.
         self.final_answer_prompt = final_answer_prompt or FINAL_JSON_PROMPT
         self._usage = _empty_usage(provider, model)
+        # Some newer OpenAI models (gpt-5.x, o-series, ...) reject the
+        # `temperature` parameter. Set once we see that error, then omitted.
+        self._omit_temperature = False
 
     def _t(self, msg: str) -> None:
         if self.trace:
@@ -317,6 +320,31 @@ class ProviderRunner:
                     if value:
                         text_parts.append(str(value))
         return "\n".join(x for x in text_parts if x).strip()
+
+    @staticmethod
+    def _is_temperature_unsupported(exc: BaseException) -> bool:
+        text = f"{type(exc).__name__}: {exc}".lower()
+        return "temperature" in text and (
+            "unsupported" in text
+            or "not supported" in text
+            or "does not support" in text
+            or "only the default" in text
+        )
+
+    def _openai_chat_create(self, client: Any, **kwargs: Any):
+        """chat.completions.create with automatic `temperature` fallback for
+        models that reject it (retries once without it, then omits it)."""
+        if not self._omit_temperature and "temperature" not in kwargs:
+            kwargs["temperature"] = self.temperature
+        try:
+            return client.chat.completions.create(**kwargs)
+        except Exception as exc:
+            if "temperature" in kwargs and self._is_temperature_unsupported(exc):
+                self._omit_temperature = True
+                kwargs.pop("temperature", None)
+                self._t(f"[openai] model '{self.model}' rejects temperature; retrying without it")
+                return client.chat.completions.create(**kwargs)
+            raise
 
     def run(
         self,
@@ -449,10 +477,10 @@ class ProviderRunner:
             if enforce_request_cap:
                 self._check_request_cap(counter)
             self._t(f"[{trace_label}] request")
-            resp = client.chat.completions.create(
+            resp = self._openai_chat_create(
+                client,
                 model=self.model,
                 messages=messages,
-                temperature=self.temperature,
             )
             counter[0] = int(counter[0]) + 1
             self._record_usage(usage_source, getattr(resp, "usage", None))
@@ -506,10 +534,9 @@ class ProviderRunner:
                 "messages": messages,
                 "tools": tools,
                 "tool_choice": "auto",
-                "temperature": self.temperature,
             }
             try:
-                resp = client.chat.completions.create(**request_kwargs)
+                resp = self._openai_chat_create(client, **request_kwargs)
             except Exception as exc:
                 err_text = str(exc)
                 auto_tool_choice_err = (
@@ -524,7 +551,7 @@ class ProviderRunner:
                         "and --tool-call-parser <parser>."
                     )
                     request_kwargs.pop("tool_choice", None)
-                    resp = client.chat.completions.create(**request_kwargs)
+                    resp = self._openai_chat_create(client, **request_kwargs)
                 else:
                     raise
             counter[0] = int(counter[0]) + 1
@@ -736,7 +763,20 @@ class ProviderRunner:
         def _responses_create(*, bypass_cap: bool = False, **kwargs):
             if not bypass_cap and enforce_request_cap:
                 self._check_request_cap(counter)
-            resp = client.responses.create(**kwargs)
+            if self._omit_temperature:
+                kwargs.pop("temperature", None)
+            try:
+                resp = client.responses.create(**kwargs)
+            except Exception as exc:
+                if "temperature" in kwargs and self._is_temperature_unsupported(exc):
+                    self._omit_temperature = True
+                    kwargs.pop("temperature", None)
+                    self._t(
+                        f"[openai-responses] model '{self.model}' rejects temperature; retrying without it"
+                    )
+                    resp = client.responses.create(**kwargs)
+                else:
+                    raise
             counter[0] = int(counter[0]) + 1
             return resp
 
