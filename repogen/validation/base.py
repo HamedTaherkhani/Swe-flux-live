@@ -6,6 +6,7 @@ discards failing instances. New validation stages = new Validator subclasses.
 from __future__ import annotations
 
 import json
+import re
 from abc import ABC, abstractmethod
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -78,6 +79,23 @@ class Validator(ABC):
     @abstractmethod
     def validate(self, ctx: ValidationContext) -> list[ValidationVerdict]:
         ...
+
+    def scope_key(self) -> str:
+        """Path-safe sub-namespace identifying THIS run of the validator, so
+        outputs from different agents/models never overwrite each other.
+        Default: the validator name alone (single-scope validators). The
+        solver-agent validator overrides this with "<agent>/<model>"."""
+        return self.name
+
+    def describe(self) -> dict:
+        """Metadata identifying this run (agent, model, ...) for the report."""
+        return {}
+
+
+def safe_name(name: str) -> str:
+    """Filesystem-safe token: replace slashes and whitespace with underscores
+    (keeps hyphens/dots), mirroring RepoBehave's model-dir naming."""
+    return re.sub(r"[/\s]+", "_", name.strip())
 
 
 def verdicts_to_dicts(verdicts: list[ValidationVerdict]) -> list[dict]:

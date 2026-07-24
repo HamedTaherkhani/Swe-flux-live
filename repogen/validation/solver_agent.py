@@ -26,7 +26,7 @@ from ..agents import create_backend
 from ..docker_env import Container
 from ..scoring import score_answer
 from . import register
-from .base import ValidationContext, ValidationVerdict, Validator
+from .base import ValidationContext, ValidationVerdict, Validator, safe_name
 
 _PROMPT_TEMPLATE = """You are running a repository QA evaluation instance with full environment access.
 
@@ -52,9 +52,25 @@ Required workflow:
 class SolverAgentValidator(Validator):
     name = "solver_agent"
 
+    @property
+    def agent_name(self) -> str:
+        return self.settings.get("agent") or "claude-code"
+
+    @property
+    def model(self) -> str:
+        return self.settings.get("model") or ""
+
+    def scope_key(self) -> str:
+        # Namespace outputs by agent AND model so different solvers coexist
+        # (mirrors RepoBehave's evaluations/<tool>/<model>/ layout).
+        return f"{safe_name(self.agent_name)}/{safe_name(self.model or 'unset')}"
+
+    def describe(self) -> dict:
+        return {"agent": self.agent_name, "model": self.model}
+
     def validate(self, ctx: ValidationContext) -> list[ValidationVerdict]:
-        agent_name = self.settings.get("agent") or "claude-code"
-        model = self.settings.get("model")
+        agent_name = self.agent_name
+        model = self.model
         if not model:
             raise ValueError("solver_agent validator requires a model (--solver-model)")
         timeout_s = int(self.settings.get("timeout_s") or 900)
@@ -65,7 +81,7 @@ class SolverAgentValidator(Validator):
             return []
 
         backend = create_backend(agent_name, model)
-        out_root = ctx.run_dir / "validation" / self.name
+        out_root = ctx.run_dir / "validation" / self.name / self.scope_key()
         eval_root = f"{ctx.workdir}/qa_instances_eval/{ctx.repo_key}"
         answers_root = f"{ctx.workdir}/validation_answers"
 

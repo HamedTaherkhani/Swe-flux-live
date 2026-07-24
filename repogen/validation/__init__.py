@@ -5,12 +5,18 @@ decorate with @register, import the module here, and pass its name via
 
 from __future__ import annotations
 
+import datetime as _dt
 import json
 import shutil
 from pathlib import Path
 from typing import Optional, Type
 
-from .base import ValidationContext, ValidationVerdict, Validator, verdicts_to_dicts
+from .base import (
+    ValidationContext,
+    ValidationVerdict,
+    Validator,
+    verdicts_to_dicts,
+)
 
 _REGISTRY: dict[str, Type[Validator]] = {}
 
@@ -37,35 +43,44 @@ def available_validators() -> list[str]:
 def run_validators(
     ctx: ValidationContext,
     validators: list[Validator],
-    dry_run: bool = False,
+    discard: bool = True,
 ) -> dict:
-    """Apply validators sequentially. An instance discarded by one stage is not
-    seen by later stages. Failing instances move to validation_excluded/<stage>/.
-    Returns the report (also written to validation_report.json)."""
-    stages = []
+    """Apply validators sequentially over the current instances/ set.
+
+    Each validator run is namespaced by its scope (for the solver-agent
+    validator: <agent>/<model>), so outputs and discards from different models
+    never overwrite each other and validating with a new model ADDS to the
+    record. When `discard` is on, instances a stage fails move to
+    validation_excluded/<validator>/<scope>/ (so, run sequentially, an instance
+    survives only if every model that validated it passed). The report
+    accumulates all runs across invocations in validation_report.json."""
+    report = _load_report(ctx)
+    timestamp = _dt.datetime.now().isoformat(timespec="seconds")
+
     for validator in validators:
-        print(f"[validate] stage '{validator.name}' "
+        scope = validator.scope_key()
+        print(f"[validate] stage '{validator.name}' scope '{scope}' "
               f"on {len(ctx.instance_dirs())} instances")
         verdicts = validator.validate(ctx)
         failed = [v for v in verdicts if not v.passed]
-        if not dry_run:
+        if discard:
             for verdict in failed:
-                _discard(ctx, validator.name, verdict.instance_id)
-        stages.append(
-            {
-                "validator": validator.name,
-                "total": len(verdicts),
-                "passed": len(verdicts) - len(failed),
-                "failed": len(failed),
-                "verdicts": verdicts_to_dicts(verdicts),
-            }
-        )
-    report = {
-        "run_dir": str(ctx.run_dir),
-        "dry_run": dry_run,
-        "stages": stages,
-        "remaining_instances": [p.name for p in ctx.instance_dirs()],
-    }
+                _discard(ctx, validator.name, scope, verdict.instance_id)
+        run_entry = {
+            "validator": validator.name,
+            "scope": scope,
+            "timestamp": timestamp,
+            "discarded": discard,
+            "total": len(verdicts),
+            "passed": len(verdicts) - len(failed),
+            "failed": len(failed),
+            "verdicts": verdicts_to_dicts(verdicts),
+        }
+        run_entry.update(validator.describe())
+        report["runs"].append(run_entry)
+
+    report["run_dir"] = str(ctx.run_dir)
+    report["remaining_instances"] = [p.name for p in ctx.instance_dirs()]
     report_path = ctx.run_dir / "validation_report.json"
     with report_path.open("w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
@@ -73,11 +88,36 @@ def run_validators(
     return report
 
 
-def _discard(ctx: ValidationContext, stage_name: str, instance_id: str) -> None:
+def _load_report(ctx: ValidationContext) -> dict:
+    """Read the accumulating report, tolerating (and migrating) the old
+    single-run 'stages' format so earlier runs are not lost."""
+    path = ctx.run_dir / "validation_report.json"
+    if not path.is_file():
+        return {"run_dir": str(ctx.run_dir), "runs": []}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {"run_dir": str(ctx.run_dir), "runs": []}
+    if "runs" not in data:
+        migrated = []
+        for stage in data.get("stages", []):
+            stage = dict(stage)
+            stage.setdefault("scope", stage.get("validator", "unknown"))
+            stage.setdefault("model", "unknown")
+            migrated.append(stage)
+        data = {"run_dir": data.get("run_dir", str(ctx.run_dir)), "runs": migrated}
+    return data
+
+
+def _discard(
+    ctx: ValidationContext, stage_name: str, scope: str, instance_id: str
+) -> None:
     source = ctx.instances_dir / instance_id
     if not source.is_dir():
         return
-    destination_root = ctx.run_dir / "validation_excluded" / stage_name
+    # scope (e.g. "<agent>/<model>") is used as a subpath; its components are
+    # already filesystem-safe (see the validator's scope_key).
+    destination_root = ctx.run_dir / "validation_excluded" / stage_name / scope
     destination_root.mkdir(parents=True, exist_ok=True)
     destination = destination_root / instance_id
     if destination.exists():

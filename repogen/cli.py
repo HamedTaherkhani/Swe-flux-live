@@ -112,6 +112,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="report verdicts only; do not discard instances",
     )
     validate.add_argument(
+        "--no-discard", action="store_true",
+        help="run inference and record this model's outputs + verdicts, but keep "
+        "all instances (use to add a model's results without pruning instances/)",
+    )
+    validate.add_argument(
         "--env-file", type=Path, default=None,
         help=".env file with API keys; defaults to <project root>/.env",
     )
@@ -251,18 +256,25 @@ def cmd_validate(args: argparse.Namespace) -> int:
             }
         validators.append(create_validator(name, settings))
 
+    discard = not (args.dry_run or args.no_discard)
     ctx = ValidationContext.from_run_dir(run_dir)
-    print(f"Validating: {run_dir}{' (dry run)' if args.dry_run else ''}")
-    report = run_validators(ctx, validators, dry_run=args.dry_run)
+    mode = "" if discard else "  (no discard — recording only)"
+    print(f"Validating: {run_dir}{mode}")
+    report = run_validators(ctx, validators, discard=discard)
 
-    for stage in report["stages"]:
-        print(f"\nStage '{stage['validator']}': "
-              f"{stage['passed']}/{stage['total']} passed, {stage['failed']} discarded")
-        for verdict in stage["verdicts"]:
-            mark = "PASS   " if verdict["passed"] else "DISCARD"
+    # Show only the runs added by this invocation (the tail of the accumulated log).
+    new_runs = report["runs"][-len(validators):] if validators else []
+    for run in new_runs:
+        scope = run.get("scope", run["validator"])
+        verb = "discarded" if run.get("discarded") else "would discard"
+        print(f"\nStage '{run['validator']}' [{scope}]: "
+              f"{run['passed']}/{run['total']} passed, {run['failed']} {verb}")
+        for verdict in run["verdicts"]:
+            mark = "PASS   " if verdict["passed"] else "FAIL   "
             reason = f"  [{verdict['reason']}]" if verdict["reason"] else ""
             print(f"  {mark} {verdict['instance_id']}{reason}")
-    print(f"\nRemaining instances: {len(report['remaining_instances'])}")
+    print(f"\nTotal recorded runs in this dir: {len(report['runs'])}")
+    print(f"Remaining instances: {len(report['remaining_instances'])}")
     print(f"Report: {run_dir / 'validation_report.json'}")
     return 0
 

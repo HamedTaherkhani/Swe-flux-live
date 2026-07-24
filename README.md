@@ -51,8 +51,11 @@ python3 -m repogen screen --repo faker_qa            # latest run
 
 # Validate an existing run with a solver agent (needs ANTHROPIC_API_KEY for claude-code)
 python3 -m repogen validate --repo faker_qa --solver-model claude-sonnet-4-6
-python3 -m repogen validate --run-dir out/faker_qa/run_<ts> \
-  --solver-agent claude-code --solver-model claude-sonnet-4-6 --dry-run
+
+# Add a SECOND model's validation to the same run (outputs stored separately).
+# --no-discard records it without pruning; drop it to keep only what both pass.
+python3 -m repogen validate --repo faker_qa \
+  --solver-agent claude-code --solver-model claude-haiku-4-5-20251001 --no-discard
 ```
 
 Repo → image mapping lives in `repositories.json` (same format as RepoBehave's
@@ -117,10 +120,21 @@ Each run is a four-stage pipeline; every stage's output is persisted under
    `claude-code`, any registered backend works via `--solver-agent`). The
    solver's `answer.json` is scored against the oracle with the benchmark's
    own comparison rules (`repogen/scoring/evaluate_qa_answers.py`, copied
-   verbatim from RepoBehave). Instances the solver cannot answer correctly
-   are moved to `validation_excluded/<stage>/` and recorded in
-   `validation_report.json`; solver answers, logs, and trajectories are kept
-   under `validation/solver_agent/<instance>/`.
+   verbatim from RepoBehave).
+
+   **Multiple models/agents accumulate — nothing is overwritten.** Every run
+   is namespaced by `<agent>/<model>` (mirroring RepoBehave's
+   `evaluations/<tool>/<model>/`): answers, logs, and trajectories go to
+   `validation/solver_agent/<agent>/<model>/<instance>/`, discards to
+   `validation_excluded/solver_agent/<agent>/<model>/<instance>/`, and each
+   invocation appends its results to the `runs` list in
+   `validation_report.json` (the old single-run format is migrated on read).
+   So you can validate the same run with several models and keep all their
+   outputs side by side. Run sequentially with discarding on (the default), an
+   instance survives only if **every** model that validated it passed — each
+   new model raises the bar. Pass `--no-discard` to record a model's outputs
+   and verdicts without pruning `instances/` (e.g. to compare models on the
+   same set).
 
 Repair loops and certification are deliberately out of scope; screening and
 validation only discard instances — they never modify them.
@@ -139,7 +153,12 @@ out/<repo>/run_<ts>/
 │   ├── run_all_qa_fromhost.sh
 │   ├── shared/files/      # trace_plugin.py + conftest.py (same for all repos)
 │   └── <instance_id>/     # eval.sh, files/, oracle.json
-└── logs/<id>/             # prompt.md, agent log + traj, harvest/ logs
+├── logs/<id>/             # prompt.md, agent log + traj, harvest/ logs
+├── screening_report.json
+├── excluded_instances/    # screened-out instances
+├── validation/solver_agent/<agent>/<model>/<instance>/   # per-model solver outputs
+├── validation_excluded/solver_agent/<agent>/<model>/<instance>/
+└── validation_report.json # accumulates one entry per (agent, model) run
 ```
 
 `instances/` is runnable from host exactly like the original benchmark:
