@@ -12,10 +12,26 @@ so generated instances drop straight into `qa_instances/<repo>/`.
 
 ## Requirements
 
-- Python 3.9+ on the host (stdlib only — nothing to pip install)
-- Docker
+- Python 3.9+ for the core pipeline (stdlib only — nothing to pip install).
+- Docker.
 - For `--agent cursor`: `cursor-agent` installed on the host
   (https://cursor.com/docs/cli/installation) and `CURSOR_API_KEY` set.
+- For `repogen evaluate` (LLM path): the packages in `requirements.txt`.
+  `aider-chat` (RepoMap) needs **Python 3.10–3.12**, so build the venv with one
+  of those; on 3.13 use `--repo-map-mode cheap_repomap` / `none` and drop
+  `aider-chat` from the requirements.
+
+## Setup (virtualenv)
+
+```bash
+cd repobehave-gen
+python3.10 -m venv .venv            # 3.10–3.12 so aider-chat installs
+.venv/bin/pip install -U pip
+.venv/bin/pip install -r requirements.txt
+.venv/bin/pip install -e .          # installs the `repogen` console script
+
+.venv/bin/repogen --help            # or: source .venv/bin/activate
+```
 
 ## Usage
 

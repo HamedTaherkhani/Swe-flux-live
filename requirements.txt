@@ -1,0 +1,15 @@
+# repobehave-gen dependencies.
+#
+# The core pipeline (scout / plan / generate / screen / validate) needs nothing
+# beyond the Python standard library and external CLIs (docker, cursor-agent,
+# claude). The packages below are for the LLM evaluation path (repogen evaluate
+# / the solver_llm validator), ported from RepoBehave's llm_eval.
+
+# --- LLM providers (install the one(s) you use) ---
+openai>=1.30            # openai, fireworks, openrouter, vllm (OpenAI-compatible)
+anthropic>=0.40         # anthropic provider
+google-genai>=0.3       # gemini provider
+
+# --- repo context + env ---
+aider-chat>=0.50        # only needed for --repo-map-mode repomap (RepoMap)
+python-dotenv>=1.0      # optional .env loading inside the ported runner
