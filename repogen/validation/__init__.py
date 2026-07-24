@@ -45,32 +45,70 @@ def run_validators(
     validators: list[Validator],
     discard: bool = True,
 ) -> dict:
-    """Apply validators sequentially over the current instances/ set.
+    """Apply VALIDATION stages sequentially over the current instances/ set.
 
-    Each validator run is namespaced by its scope (for the solver-agent
-    validator: <agent>/<model>), so outputs and discards from different models
-    never overwrite each other and validating with a new model ADDS to the
-    record. When `discard` is on, instances a stage fails move to
+    Each run is namespaced by its scope (for the solver-agent validator:
+    <agent>/<model>), so outputs and discards from different models never
+    overwrite each other and validating with a new model ADDS to the record.
+    When `discard` is on, instances a stage fails move to
     validation_excluded/<validator>/<scope>/ (so, run sequentially, an instance
-    survives only if every model that validated it passed). The report
-    accumulates all runs across invocations in validation_report.json."""
-    report = _load_report(ctx)
+    survives only if every model that validated it passed). Accumulates all
+    runs across invocations in validation_report.json.
+
+    Evaluation-only stages must not be passed here — use run_evaluators."""
+    for validator in validators:
+        if getattr(validator, "evaluation_only", False):
+            raise ValueError(
+                f"validator '{validator.name}' is evaluation-only; run it with "
+                "run_evaluators (the `evaluate` command), not run_validators"
+            )
+    return _run_stage(
+        ctx, validators, discard=discard,
+        report_name="validation_report.json", label="validate",
+    )
+
+
+def run_evaluators(
+    ctx: ValidationContext,
+    evaluators: list[Validator],
+) -> dict:
+    """Apply EVALUATION stages (e.g. solver_llm) over the current instances/ set.
+
+    Evaluation never discards: it only measures how a solver does and records
+    per-instance answers, scores, and costs under evaluation/. Accumulates all
+    runs across invocations in evaluation_report.json."""
+    return _run_stage(
+        ctx, evaluators, discard=False,
+        report_name="evaluation_report.json", label="evaluate",
+    )
+
+
+def _run_stage(
+    ctx: ValidationContext,
+    validators: list[Validator],
+    *,
+    discard: bool,
+    report_name: str,
+    label: str,
+) -> dict:
+    report = _load_report(ctx, report_name)
     timestamp = _dt.datetime.now().isoformat(timespec="seconds")
 
     for validator in validators:
         scope = validator.scope_key()
-        print(f"[validate] stage '{validator.name}' scope '{scope}' "
+        can_discard = discard and not getattr(validator, "evaluation_only", False)
+        print(f"[{label}] stage '{validator.name}' scope '{scope}' "
               f"on {len(ctx.instance_dirs())} instances")
         verdicts = validator.validate(ctx)
         failed = [v for v in verdicts if not v.passed]
-        if discard:
+        if can_discard:
             for verdict in failed:
                 _discard(ctx, validator.name, scope, verdict.instance_id)
         run_entry = {
             "validator": validator.name,
             "scope": scope,
             "timestamp": timestamp,
-            "discarded": discard,
+            "discarded": can_discard,
             "total": len(verdicts),
             "passed": len(verdicts) - len(failed),
             "failed": len(failed),
@@ -81,17 +119,17 @@ def run_validators(
 
     report["run_dir"] = str(ctx.run_dir)
     report["remaining_instances"] = [p.name for p in ctx.instance_dirs()]
-    report_path = ctx.run_dir / "validation_report.json"
+    report_path = ctx.run_dir / report_name
     with report_path.open("w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
         f.write("\n")
     return report
 
 
-def _load_report(ctx: ValidationContext) -> dict:
-    """Read the accumulating report, tolerating (and migrating) the old
+def _load_report(ctx: ValidationContext, report_name: str) -> dict:
+    """Read an accumulating report, tolerating (and migrating) the old
     single-run 'stages' format so earlier runs are not lost."""
-    path = ctx.run_dir / "validation_report.json"
+    path = ctx.run_dir / report_name
     if not path.is_file():
         return {"run_dir": str(ctx.run_dir), "runs": []}
     try:
@@ -129,6 +167,14 @@ def _discard(
 from . import solver_agent  # noqa: E402,F401
 from . import solver_llm  # noqa: E402,F401
 
+def available_evaluators() -> list[str]:
+    return sorted(n for n, cls in _REGISTRY.items() if getattr(cls, "evaluation_only", False))
+
+
+def available_validation_stages() -> list[str]:
+    return sorted(n for n, cls in _REGISTRY.items() if not getattr(cls, "evaluation_only", False))
+
+
 __all__ = [
     "Validator",
     "ValidationContext",
@@ -136,5 +182,8 @@ __all__ = [
     "register",
     "create_validator",
     "available_validators",
+    "available_evaluators",
+    "available_validation_stages",
     "run_validators",
+    "run_evaluators",
 ]

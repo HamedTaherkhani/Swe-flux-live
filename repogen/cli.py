@@ -79,7 +79,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="report verdicts only; do not move excluded instances",
     )
 
-    from .validation import available_validators
+    from .validation import available_evaluators, available_validation_stages
 
     validate = sub.add_parser(
         "validate",
@@ -94,8 +94,8 @@ def build_parser() -> argparse.ArgumentParser:
     validate.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "out")
     validate.add_argument(
         "--validators", default="solver_agent",
-        help=f"comma-separated validator names to run in order "
-        f"(available: {', '.join(available_validators())})",
+        help=f"comma-separated validation stages to run in order "
+        f"(available: {', '.join(available_validation_stages())})",
     )
     validate.add_argument(
         "--solver-agent", default="claude-code", choices=available_backends(),
@@ -106,28 +106,6 @@ def build_parser() -> argparse.ArgumentParser:
         help="model for the solver agent (required for solver_agent)",
     )
     validate.add_argument("--solver-timeout", type=int, default=900)
-    # --- solver_llm (raw LLM inference, no agent) ---
-    validate.add_argument(
-        "--llm-provider", default="openai",
-        choices=["openai", "anthropic", "gemini", "fireworks", "openrouter", "vllm"],
-        help="provider for the solver_llm validator",
-    )
-    validate.add_argument(
-        "--llm-model", default="",
-        help="model id for the solver_llm validator (required when using solver_llm)",
-    )
-    validate.add_argument(
-        "--repo-map-mode", default="repomap",
-        choices=["repomap", "cheap_repomap", "none"],
-        help="repo context mode for solver_llm (repomap needs aider-chat)",
-    )
-    validate.add_argument(
-        "--container-runtime", default="docker", choices=["docker", "apptainer"],
-        help="runtime used to snapshot the repo for solver_llm",
-    )
-    validate.add_argument("--llm-max-read-lines", type=int, default=250)
-    validate.add_argument("--llm-temperature", type=float, default=0.0)
-    validate.add_argument("--llm-max-repair-rounds", type=int, default=2)
     validate.add_argument("--float-tol", type=float, default=1e-6)
     validate.add_argument(
         "--dry-run", action="store_true",
@@ -139,6 +117,51 @@ def build_parser() -> argparse.ArgumentParser:
         "all instances (use to add a model's results without pruning instances/)",
     )
     validate.add_argument(
+        "--env-file", type=Path, default=None,
+        help=".env file with API keys; defaults to <project root>/.env",
+    )
+
+    # --- evaluate: raw-LLM inference for measurement only (never discards) ---
+    evaluate = sub.add_parser(
+        "evaluate",
+        help="evaluate a run with a raw LLM (no agent). Measures how the model "
+        "answers each instance and records answers/scores/costs under "
+        "evaluation/; NEVER discards instances.",
+    )
+    egroup = evaluate.add_mutually_exclusive_group(required=True)
+    egroup.add_argument("--run-dir", type=Path, help="run directory to evaluate")
+    egroup.add_argument(
+        "--repo", help="evaluate the latest run of this repo under --output-root"
+    )
+    evaluate.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "out")
+    evaluate.add_argument(
+        "--evaluators", default="solver_llm",
+        help=f"comma-separated evaluator names (available: "
+        f"{', '.join(available_evaluators())})",
+    )
+    evaluate.add_argument(
+        "--llm-provider", default="openai",
+        choices=["openai", "anthropic", "gemini", "fireworks", "openrouter", "vllm"],
+        help="provider for the solver_llm evaluator",
+    )
+    evaluate.add_argument(
+        "--llm-model", default="",
+        help="model id for the solver_llm evaluator (required)",
+    )
+    evaluate.add_argument(
+        "--repo-map-mode", default="repomap",
+        choices=["repomap", "cheap_repomap", "none"],
+        help="repo context mode (repomap needs aider-chat)",
+    )
+    evaluate.add_argument(
+        "--container-runtime", default="docker", choices=["docker", "apptainer"],
+        help="runtime used to snapshot the repo",
+    )
+    evaluate.add_argument("--llm-max-read-lines", type=int, default=250)
+    evaluate.add_argument("--llm-temperature", type=float, default=0.0)
+    evaluate.add_argument("--llm-max-repair-rounds", type=int, default=2)
+    evaluate.add_argument("--float-tol", type=float, default=1e-6)
+    evaluate.add_argument(
         "--env-file", type=Path, default=None,
         help=".env file with API keys; defaults to <project root>/.env",
     )
@@ -248,7 +271,12 @@ def _resolve_run_dir(args: argparse.Namespace) -> Optional[Path]:
 
 
 def cmd_validate(args: argparse.Namespace) -> int:
-    from .validation import ValidationContext, create_validator, run_validators
+    from .validation import (
+        ValidationContext,
+        available_evaluators,
+        create_validator,
+        run_validators,
+    )
 
     loaded = load_env_file(args.env_file)
     if loaded:
@@ -259,15 +287,17 @@ def cmd_validate(args: argparse.Namespace) -> int:
         return 2
 
     names = [n.strip() for n in args.validators.split(",") if n.strip()]
-    if "solver_agent" in names and not args.solver_model:
+    eval_only = [n for n in names if n in available_evaluators()]
+    if eval_only:
         print(
-            "ERROR: --solver-model is required for the solver_agent validator.",
+            f"ERROR: {eval_only} are evaluation-only; run them with "
+            f"'repogen evaluate', not 'validate'.",
             file=sys.stderr,
         )
         return 2
-    if "solver_llm" in names and not args.llm_model:
+    if "solver_agent" in names and not args.solver_model:
         print(
-            "ERROR: --llm-model is required for the solver_llm validator.",
+            "ERROR: --solver-model is required for the solver_agent validator.",
             file=sys.stderr,
         )
         return 2
@@ -280,17 +310,6 @@ def cmd_validate(args: argparse.Namespace) -> int:
                 "agent": args.solver_agent,
                 "model": args.solver_model,
                 "timeout_s": args.solver_timeout,
-                "float_tol": args.float_tol,
-            }
-        elif name == "solver_llm":
-            settings = {
-                "provider": args.llm_provider,
-                "model": args.llm_model,
-                "repo_map_mode": args.repo_map_mode,
-                "container_runtime": args.container_runtime,
-                "max_read_lines": args.llm_max_read_lines,
-                "temperature": args.llm_temperature,
-                "max_repair_rounds": args.llm_max_repair_rounds,
                 "float_tol": args.float_tol,
             }
         validators.append(create_validator(name, settings))
@@ -318,6 +337,56 @@ def cmd_validate(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_evaluate(args: argparse.Namespace) -> int:
+    from .validation import ValidationContext, create_validator, run_evaluators
+
+    loaded = load_env_file(args.env_file)
+    if loaded:
+        print(f"[env] loaded {loaded}")
+
+    run_dir = _resolve_run_dir(args)
+    if run_dir is None:
+        return 2
+
+    names = [n.strip() for n in args.evaluators.split(",") if n.strip()]
+    if "solver_llm" in names and not args.llm_model:
+        print("ERROR: --llm-model is required for the solver_llm evaluator.", file=sys.stderr)
+        return 2
+
+    evaluators = []
+    for name in names:
+        settings = {}
+        if name == "solver_llm":
+            settings = {
+                "provider": args.llm_provider,
+                "model": args.llm_model,
+                "repo_map_mode": args.repo_map_mode,
+                "container_runtime": args.container_runtime,
+                "max_read_lines": args.llm_max_read_lines,
+                "temperature": args.llm_temperature,
+                "max_repair_rounds": args.llm_max_repair_rounds,
+                "float_tol": args.float_tol,
+            }
+        evaluators.append(create_validator(name, settings))
+
+    ctx = ValidationContext.from_run_dir(run_dir)
+    print(f"Evaluating (no discard): {run_dir}")
+    report = run_evaluators(ctx, evaluators)
+
+    new_runs = report["runs"][-len(evaluators):] if evaluators else []
+    for run in new_runs:
+        scope = run.get("scope", run["validator"])
+        print(f"\nEvaluator '{run['validator']}' [{scope}]: "
+              f"{run['passed']}/{run['total']} correct")
+        for verdict in run["verdicts"]:
+            mark = "CORRECT" if verdict["passed"] else "WRONG  "
+            reason = f"  [{verdict['reason']}]" if verdict["reason"] else ""
+            print(f"  {mark} {verdict['instance_id']}{reason}")
+    print(f"\nEvaluation outputs: {run_dir / 'evaluation'}")
+    print(f"Report: {run_dir / 'evaluation_report.json'}")
+    return 0
+
+
 def cmd_list(args: argparse.Namespace) -> int:
     print("Agent backends:", ", ".join(available_backends()))
     print("Categories:", ", ".join(ALL_CATEGORIES))
@@ -336,6 +405,8 @@ def main(argv=None) -> int:
         return cmd_screen(args)
     if args.command == "validate":
         return cmd_validate(args)
+    if args.command == "evaluate":
+        return cmd_evaluate(args)
     if args.command == "list":
         return cmd_list(args)
     return 1

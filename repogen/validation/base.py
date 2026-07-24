@@ -73,6 +73,10 @@ class Validator(ABC):
     not move or delete anything — discarding is the runner's job."""
 
     name: ClassVar[str] = "abstract"
+    # Evaluation-only stages measure how a solver does; they never discard
+    # instances and their results are recorded under evaluation/ (not
+    # validation/). Validation stages (evaluation_only=False) may prune.
+    evaluation_only: ClassVar[bool] = False
 
     def __init__(self, settings: Optional[dict] = None):
         self.settings = settings or {}

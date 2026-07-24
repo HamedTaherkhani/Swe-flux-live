@@ -45,6 +45,9 @@ from .base import (
 @register
 class SolverLLMValidator(Validator):
     name = "solver_llm"
+    # LLM inference is for EVALUATION only — it never discards instances and its
+    # outputs live under evaluation/ (unlike the agent validator).
+    evaluation_only = True
 
     @property
     def provider(self) -> str:
@@ -84,7 +87,9 @@ class SolverLLMValidator(Validator):
             return []
 
         repo_root = self._ensure_repo_snapshot(ctx, runtime_name)
-        out_root = ctx.run_dir / "validation" / self.name / self.scope_key()
+        # Evaluation outputs (never validation): evaluation/llm/<provider>/<model>/,
+        # mirroring RepoBehave's evaluations/llm/<vendor>/<model>/ layout.
+        out_root = ctx.run_dir / "evaluation" / "llm" / self.scope_key()
         out_root.mkdir(parents=True, exist_ok=True)
 
         verdicts: list[ValidationVerdict] = []

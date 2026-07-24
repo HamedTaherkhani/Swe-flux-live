@@ -57,10 +57,10 @@ python3 -m repogen validate --repo faker_qa --solver-model claude-sonnet-4-6
 python3 -m repogen validate --repo faker_qa \
   --solver-agent claude-code --solver-model claude-haiku-4-5-20251001 --no-discard
 
-# Validate with a raw LLM (no agent) via provider APIs + read-only repo tools.
+# Evaluate a run with a raw LLM (no agent) — measurement only, NEVER discards.
 # Needs the 'llm' extra installed and the provider API key in .env.
-python3 -m repogen validate --repo faker_qa --validators solver_llm \
-  --llm-provider anthropic --llm-model claude-haiku-4-5-20251001 --no-discard
+python3 -m repogen evaluate --repo faker_qa \
+  --llm-provider anthropic --llm-model claude-haiku-4-5-20251001
 ```
 
 Repo → image mapping lives in `repositories.json` (same format as RepoBehave's
@@ -141,23 +141,33 @@ Each run is a four-stage pipeline; every stage's output is persisted under
    and verdicts without pruning `instances/` (e.g. to compare models on the
    same set).
 
-   Two solver validators ship:
-   - **`solver_agent`** (default) — a coding agent (`--solver-agent
-     claude-code|cursor`) runs inside the container and can execute the test.
-   - **`solver_llm`** — a raw LLM (no agent), ported from RepoBehave's
-     `llm_eval`. It snapshots the repo from the image once, then answers each
-     instance with provider APIs (`--llm-provider
-     openai|anthropic|gemini|fireworks|openrouter|vllm`, `--llm-model ...`) using
-     read-only repo tools (`get_repo_map`/`list_dir`/`read_file`); it reasons
-     about behavior statically and does **not** execute code. Token usage and
-     cost are recorded per instance (pricing from
-     `repogen/llm_eval/provider_model_costs.json`) and summarized in
-     `validation/solver_llm/<provider>/<model>/run_summary.json`. Requires the
-     `llm` extra: `pip install -e '.[llm]'` (aider-chat only for
-     `--repo-map-mode repomap`; use `cheap_repomap`/`none` otherwise).
+   The `solver_agent` validator runs a coding agent (`--solver-agent
+   claude-code|cursor`) inside the container; it can execute the test, and
+   instances it fails are **discarded** — this is a real quality gate.
+
+7. **Evaluate** (`repogen evaluate`, LLM-based, **measurement only**): a raw
+   LLM (no agent), ported from RepoBehave's `llm_eval`, that answers each
+   instance and is scored against the oracle — but **never discards** anything.
+   Use it to measure how models do on the benchmark, not to filter it. It
+   snapshots the repo from the image once, then answers with provider APIs
+   (`--llm-provider openai|anthropic|gemini|fireworks|openrouter|vllm`,
+   `--llm-model ...`) using read-only repo tools
+   (`get_repo_map`/`list_dir`/`read_file`); it reasons about behavior
+   statically and does **not** execute code. Per-instance answers, token usage,
+   and USD cost (pricing from `repogen/llm_eval/provider_model_costs.json`) are
+   written under `evaluation/llm/<provider>/<model>/<instance>/`, summarized in
+   that folder's `run_summary.json`, and accumulated across models in
+   `evaluation_report.json`. Requires the `llm` extra: `pip install -e '.[llm]'`
+   (aider-chat only for `--repo-map-mode repomap`; use `cheap_repomap`/`none`
+   otherwise).
+
+   So: **agents validate (and can prune); LLMs only evaluate.** The two write
+   to separate trees (`validation/` vs `evaluation/`) and separate reports, and
+   `validate` refuses evaluation-only stages (and vice versa).
 
 Repair loops and certification are deliberately out of scope; screening and
-validation only discard instances — they never modify them.
+validation only discard instances, evaluation never does — none of them modify
+instances.
 
 ## Output layout
 
@@ -177,7 +187,8 @@ out/<repo>/run_<ts>/
 ├── screening_report.json
 ├── excluded_instances/    # screened-out instances
 ├── validation/solver_agent/<agent>/<model>/<instance>/   # per-model agent-solver outputs
-├── validation/solver_llm/<provider>/<model>/<instance>/  # per-model LLM-solver outputs (answer/debug/trace)
+├── evaluation/llm/<provider>/<model>/<instance>/         # per-model LLM-eval outputs (answer/debug/trace/cost)
+├── evaluation_report.json                                # accumulates LLM evaluation runs
 ├── validation_excluded/solver_agent/<agent>/<model>/<instance>/
 └── validation_report.json # accumulates one entry per (agent, model) run
 ```
