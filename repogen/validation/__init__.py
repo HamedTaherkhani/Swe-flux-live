@@ -171,6 +171,33 @@ def available_evaluators() -> list[str]:
     return sorted(n for n, cls in _REGISTRY.items() if getattr(cls, "evaluation_only", False))
 
 
+def agent_validated_instances(run_dir: Path) -> Optional[set]:
+    """Instance ids that at least one AGENT-validator run marked as passed
+    (union across all non-evaluation validation runs in validation_report.json).
+
+    Returns None if there is no validation report or no agent-validation runs
+    (so callers can distinguish "nothing validated yet" from "validated, none
+    passed" -> empty set)."""
+    path = run_dir / "validation_report.json"
+    if not path.is_file():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+    eval_names = set(available_evaluators())
+    passed: set = set()
+    found_agent_run = False
+    for run in data.get("runs", []):
+        if run.get("validator") in eval_names:
+            continue  # skip LLM-evaluation runs; only agent validation counts
+        found_agent_run = True
+        for verdict in run.get("verdicts", []):
+            if verdict.get("passed") and verdict.get("instance_id"):
+                passed.add(verdict["instance_id"])
+    return passed if found_agent_run else None
+
+
 def available_validation_stages() -> list[str]:
     return sorted(n for n, cls in _REGISTRY.items() if not getattr(cls, "evaluation_only", False))
 
@@ -184,6 +211,7 @@ __all__ = [
     "available_validators",
     "available_evaluators",
     "available_validation_stages",
+    "agent_validated_instances",
     "run_validators",
     "run_evaluators",
 ]

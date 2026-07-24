@@ -83,6 +83,22 @@ class SolverLLMValidator(Validator):
         float_tol = float(self.settings.get("float_tol") or 1e-6)
 
         instance_dirs = ctx.instance_dirs()
+
+        # By default, evaluate only instances at least one agent-validator got
+        # right (evidence the oracle is sound). Turn off with only_agent_validated=False.
+        if self.settings.get("only_agent_validated", True):
+            from . import agent_validated_instances
+
+            allowed = agent_validated_instances(ctx.run_dir)
+            if allowed is None:
+                print("[solver_llm] no agent-validation runs found in "
+                      "validation_report.json; evaluating ALL instances")
+            else:
+                before = len(instance_dirs)
+                instance_dirs = [d for d in instance_dirs if d.name in allowed]
+                print(f"[solver_llm] restricting to agent-validated instances: "
+                      f"{len(instance_dirs)}/{before} (>=1 agent passed)")
+
         if not instance_dirs:
             return []
 

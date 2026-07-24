@@ -75,6 +75,8 @@ python3 -m repogen validate --repo faker_qa \
 
 # Evaluate a run with a raw LLM (no agent) — measurement only, NEVER discards.
 # Needs the 'llm' extra installed and the provider API key in .env.
+# By default only scores instances at least one agent-validator got right
+# (trusted oracles); pass --all-instances to score every instance.
 python3 -m repogen evaluate --repo faker_qa \
   --llm-provider anthropic --llm-model claude-haiku-4-5-20251001
 ```
@@ -180,6 +182,13 @@ Each run is a four-stage pipeline; every stage's output is persisted under
    So: **agents validate (and can prune); LLMs only evaluate.** The two write
    to separate trees (`validation/` vs `evaluation/`) and separate reports, and
    `validate` refuses evaluation-only stages (and vice versa).
+
+   By default `evaluate` only scores instances that **at least one
+   agent-validator got right** (the union of passed instances across
+   `solver_agent` runs in `validation_report.json`) — an agent solving an
+   instance is evidence its oracle is sound, so this skips instances no agent
+   could solve (often buggy oracles). Pass `--all-instances` to score every
+   instance in `instances/` regardless.
 
 Repair loops and certification are deliberately out of scope; screening and
 validation only discard instances, evaluation never does — none of them modify

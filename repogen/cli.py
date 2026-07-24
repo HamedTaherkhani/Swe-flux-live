@@ -163,6 +163,11 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate.add_argument("--llm-max-repair-rounds", type=int, default=2)
     evaluate.add_argument("--float-tol", type=float, default=1e-6)
     evaluate.add_argument(
+        "--all-instances", action="store_true",
+        help="evaluate every instance in instances/ (default: only instances at "
+        "least one agent-validator got right, per validation_report.json)",
+    )
+    evaluate.add_argument(
         "--env-file", type=Path, default=None,
         help=".env file with API keys; defaults to <project root>/.env",
     )
@@ -371,6 +376,7 @@ def cmd_evaluate(args: argparse.Namespace) -> int:
                 "temperature": args.llm_temperature,
                 "max_repair_rounds": args.llm_max_repair_rounds,
                 "float_tol": args.float_tol,
+                "only_agent_validated": not args.all_instances,
             }
         evaluators.append(create_validator(name, settings))
 
