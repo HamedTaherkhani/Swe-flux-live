@@ -123,17 +123,6 @@ def thresholds_for(category: str) -> Thresholds:
 REQUIRED_ORACLE_KEYS = {"question_kind", "question", "template_answer", "oracle_answer"}
 NON_INSTANCE_DIRS = {"shared", "qa_artifacts"}
 
-_TYPE_MAP = {
-    "str": str,
-    "int": int,
-    "float": (int, float),
-    "number": (int, float),
-    "bool": bool,
-    "null": type(None),
-    "none": type(None),
-    "any": object,
-}
-
 
 @dataclass
 class InstanceContext:
@@ -362,40 +351,60 @@ def _count_leaves(value: Any) -> int:
     return 1
 
 
+# Placeholder-key tokens used by RepoBehave templates to describe *maps* with
+# arbitrary runtime keys, e.g. {"str": <value-schema>} or {"<resource_id>": ...}.
+_PLACEHOLDER_KEY_TOKENS = {
+    "str", "int", "float", "number", "bool", "null", "none", "any", "object", "key",
+}
+
+
+def _is_placeholder_key(key: str) -> bool:
+    token = key.strip()
+    if token.startswith("<") and token.endswith(">"):
+        return True
+    return token.lower() in _PLACEHOLDER_KEY_TOKENS
+
+
 def _match_template(template: Any, answer: Any, path: str, errors: list[str]) -> None:
+    """Check STRUCTURAL correspondence between template_answer and oracle_answer.
+
+    Faithful to RepoBehave's loose template convention, so it flags only gross
+    container mismatches, never the schema-hint styles the benchmark itself uses:
+
+    - Leaf type-names are NOT enforced. Leaves are free-form descriptors
+      ("int | str", "null | str", "int|null", "list[{file: str}]", "JSON value").
+      A scalar template leaf matches any answer value.
+    - A single-placeholder-key dict ({"str": ...}, {"<top_key>": ...}) is a MAP:
+      answer keys are unconstrained; every answer value is checked against the
+      one value-schema.
+    - Other dicts are objects: the answer must be a dict, and shared keys are
+      checked recursively. Key sets need NOT be identical (optional fields are
+      common), so only container shape and nested structure are enforced.
+    - A list template describes a list answer element-by-element via template[0].
+    """
     if isinstance(template, dict):
         if not isinstance(answer, dict):
             errors.append(f"{path}: expected object, got {type(answer).__name__}")
             return
-        if set(template) != set(answer):
-            errors.append(
-                f"{path}: keys differ (template {sorted(template)}, answer {sorted(answer)})"
-            )
+        if len(template) == 1 and _is_placeholder_key(next(iter(template))):
+            value_schema = next(iter(template.values()))
+            for key, value in answer.items():
+                _match_template(value_schema, value, f"{path}.{key}", errors)
             return
         for key in template:
-            _match_template(template[key], answer[key], f"{path}.{key}", errors)
+            if key in answer:
+                _match_template(template[key], answer[key], f"{path}.{key}", errors)
     elif isinstance(template, list):
-        if not template:
-            errors.append(f"{path}: template list has no element schema")
-            return
         if not isinstance(answer, list):
             errors.append(f"{path}: expected list, got {type(answer).__name__}")
             return
+        if not template:
+            # No element schema to check against; structure alone is fine.
+            return
         for index, item in enumerate(answer):
             _match_template(template[0], item, f"{path}[{index}]", errors)
-    elif isinstance(template, str):
-        expected = _TYPE_MAP.get(template.strip().lower())
-        if expected is None:
-            errors.append(f"{path}: template leaf {template!r} is not a type name")
-        elif expected in (int, (int, float)) and isinstance(answer, bool):
-            # bool is a subclass of int; reject it for numeric leaves
-            errors.append(f"{path}: expected {template}, got bool")
-        elif expected is not object and not isinstance(answer, expected):
-            errors.append(f"{path}: expected {template}, got {type(answer).__name__}")
-    else:
-        errors.append(
-            f"{path}: template leaf must be a type-name string, got {type(template).__name__}"
-        )
+    # Scalar template leaf (a free-form type descriptor): accept any answer
+    # value. It may legitimately describe a scalar, list, tuple, or object.
 
 
 # --------------------------------------------------------------------------
