@@ -12,6 +12,7 @@ from .config import (
     ALL_CATEGORIES,
     PROJECT_ROOT,
     RunConfig,
+    hydrate_provider_env,
     load_env_file,
     load_repositories,
 )
@@ -281,6 +282,7 @@ def cmd_validate(args: argparse.Namespace) -> int:
     loaded = load_env_file(args.env_file)
     if loaded:
         print(f"[env] loaded {loaded}")
+    hydrate_provider_env()
 
     run_dir = _resolve_run_dir(args)
     if run_dir is None:
@@ -343,6 +345,9 @@ def cmd_evaluate(args: argparse.Namespace) -> int:
     loaded = load_env_file(args.env_file)
     if loaded:
         print(f"[env] loaded {loaded}")
+    filled = hydrate_provider_env()
+    if filled:
+        print(f"[env] provider keys resolved: {', '.join(filled)}")
 
     run_dir = _resolve_run_dir(args)
     if run_dir is None:

@@ -58,6 +58,46 @@ def load_env_file(explicit_path: Optional[Path] = None) -> Optional[Path]:
     return None
 
 
+# Canonical provider API-key env vars -> accepted aliases (matched
+# case-insensitively and hyphen/underscore-insensitively). Lets a .env with
+# names like `anthropic-api-key` or `gemini_key` satisfy the SDKs, which read
+# the canonical uppercase names.
+_PROVIDER_KEY_ALIASES = {
+    "OPENAI_API_KEY": ["openai_api_key", "openai_key"],
+    "ANTHROPIC_API_KEY": ["anthropic_api_key", "anthropic_key"],
+    "GEMINI_API_KEY": ["gemini_api_key", "gemini_key", "google_api_key", "google_gemini_api_key"],
+    "GOOGLE_API_KEY": ["google_api_key", "gemini_api_key", "gemini_key"],
+    "FIREWORKS_API_KEY": ["fireworks_api_key", "fireworks_api_token", "fireworks_key"],
+    "OPENROUTER_API_KEY": ["openrouter_api_key", "openrouter_key"],
+    "CURSOR_API_KEY": ["cursor_api_key"],
+}
+
+
+def _norm_key(name: str) -> str:
+    return name.strip().lower().replace("-", "_")
+
+
+def hydrate_provider_env() -> list[str]:
+    """Populate canonical provider API-key env vars from any alias present in the
+    environment (e.g. `anthropic-api-key` -> `ANTHROPIC_API_KEY`). Existing
+    canonical values are left untouched. Returns the canonical names that were
+    set, for logging."""
+    normalized = {
+        _norm_key(k): v for k, v in os.environ.items() if v and v.strip()
+    }
+    filled: list[str] = []
+    for canonical, aliases in _PROVIDER_KEY_ALIASES.items():
+        if os.environ.get(canonical):
+            continue
+        for alias in [canonical, *aliases]:
+            value = normalized.get(_norm_key(alias))
+            if value:
+                os.environ[canonical] = value
+                filled.append(canonical)
+                break
+    return filled
+
+
 def env_lookup(*names: str) -> str:
     """Find the first matching env var, trying exact, upper, and lower forms."""
     for name in names:
