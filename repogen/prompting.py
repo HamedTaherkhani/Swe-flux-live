@@ -11,6 +11,7 @@ from pathlib import Path
 
 from .config import PROMPTS_DIR, RunConfig
 from .planner import PlannedInstance
+from .screening import screening_contract
 
 
 class PromptBuilder:
@@ -41,6 +42,7 @@ class PromptBuilder:
             "{{TARGET_LINES}}": f"{target['lineno']}-{target['end_lineno']}",
             "{{TARGET_METRICS}}": json.dumps(target["metrics"], sort_keys=True),
             "{{EXISTING_INSTANCES}}": existing,
+            "{{SCREENING_RULES}}": screening_contract(planned.category),
         }
         prompt = self.base_template
         for token, value in tokens.items():

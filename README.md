@@ -243,6 +243,12 @@ cd out/<repo>/run_<ts>/instances
   (eligibility + affinity).
 - **Prompt contract** (`repogen/prompts/base_contract.md`): edit without
   touching code; `{{TOKEN}}` substitution only.
+- **Screening rules are self-describing and fed to the generator.** Each
+  `ScreeningRule` in `repogen/screening.py` has a `guidance(category)` method;
+  `screening_contract(category)` assembles them into the `{{SCREENING_RULES}}`
+  block of the generation prompt, so the agent is told the exact thresholds it
+  must clear (which still run as the post-generation gate). One source of truth
+  — editing a threshold updates both the check and the agent instructions.
 - **Harness payload** (`repogen/payload/`): tracer, conftest, `qa_pipeline.sh`,
   scout — staged into each container verbatim.
 - **Docker** (`docker_env.py`): a single `Container` facade; everything else is

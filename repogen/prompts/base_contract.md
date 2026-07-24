@@ -147,6 +147,18 @@ echo "Oracle json: $ORACLE_JSON"
 9. **Finalize.** Ensure the instance directory contains exactly `eval.sh`,
    `files/testcase.py`, `files/parser.py`, and the synced `oracle.json`.
 
+## Screening rules — your instance MUST pass ALL of these
+
+After you finish, an automated screener re-checks this instance and DISCARDS it
+if any rule below fails. Design the test scenario, parser, and question up front
+so every rule passes. The thresholds are specific to `{{CATEGORY}}`:
+
+{{SCREENING_RULES}}
+
+If you cannot make the target clear these thresholds with a reasonable scenario,
+prefer choosing richer inputs (bigger loops, more branches, more state changes)
+over settling for a thin instance.
+
 ## Hard constraints
 
 - Never modify repository source files, `shared/`, or `qa_pipeline.sh`.

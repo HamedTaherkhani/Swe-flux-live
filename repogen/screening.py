@@ -196,6 +196,13 @@ class ScreeningRule(ABC):
     def check(self, ctx: InstanceContext) -> RuleResult:
         ...
 
+    def guidance(self, category: str) -> str:
+        """One markdown bullet telling the generation agent how to satisfy this
+        rule for `category` (thresholds included). Same source of truth as
+        check(), so prompt guidance and enforcement never drift. Empty string
+        means the rule adds no agent-facing instruction."""
+        return ""
+
     def _fail(self, reason: str) -> RuleResult:
         return RuleResult(self.name, False, reason)
 
@@ -205,6 +212,15 @@ class ScreeningRule(ABC):
 
 class OracleValidRule(ScreeningRule):
     name = "oracle_valid"
+
+    def guidance(self, category: str) -> str:
+        return (
+            "- **oracle_valid**: `oracle.json` must be valid JSON with exactly the "
+            "keys `question_kind`, `question`, `template_answer`, `oracle_answer`; "
+            f"`question_kind` must equal `{category}`; the question text must be "
+            "non-empty; and `oracle_answer` must not be empty (no empty list/dict/"
+            "string at every leaf)."
+        )
 
     def check(self, ctx: InstanceContext) -> RuleResult:
         if ctx.oracle is None:
@@ -229,6 +245,16 @@ class OracleValidRule(ScreeningRule):
 class TemplateValidRule(ScreeningRule):
     name = "template_valid"
 
+    def guidance(self, category: str) -> str:
+        return (
+            "- **template_valid**: `template_answer` must structurally mirror "
+            "`oracle_answer` — same object keys, and a one-element list as the "
+            "schema for each answer list. Leaves are free-form type descriptors "
+            "(`\"int\"`, `\"str\"`, `\"int | null\"`, `\"list[int]\"`, ...); their "
+            "exact text is not checked, but the container shape (object vs list vs "
+            "scalar) must match the answer."
+        )
+
     def check(self, ctx: InstanceContext) -> RuleResult:
         if ctx.oracle is None:
             return self._fail("no oracle to validate")
@@ -246,6 +272,14 @@ class TestPassedRule(ScreeningRule):
 
     _SUMMARY_RE = re.compile(r"=+ (.*?) =+\s*$", re.MULTILINE)
 
+    def guidance(self, category: str) -> str:
+        return (
+            "- **test_passed**: the instance's pytest test must PASS when run by "
+            "`qa_pipeline.sh` (a green pytest summary, no failures/errors). If the "
+            "target is expected to raise, assert it with `assertRaises` so the test "
+            "still passes."
+        )
+
     def check(self, ctx: InstanceContext) -> RuleResult:
         if ctx.pytest_log is None:
             return self._fail("pytest.log not found")
@@ -262,6 +296,15 @@ class TestPassedRule(ScreeningRule):
 class AnswerRichRule(ScreeningRule):
     name = "answer_rich"
 
+    def guidance(self, category: str) -> str:
+        minimum = thresholds_for(category).min_answer_leaves
+        return (
+            f"- **answer_rich**: `oracle_answer` must contain at least "
+            f"**{minimum}** leaf values (scalars, counted through nested lists/"
+            f"objects) for {category}. Choose inputs and an answer shape that make "
+            f"the result substantial — not a single value or a near-empty list."
+        )
+
     def check(self, ctx: InstanceContext) -> RuleResult:
         if ctx.oracle is None:
             return self._fail("no oracle to inspect")
@@ -277,6 +320,31 @@ class AnswerRichRule(ScreeningRule):
 
 class TraceRichRule(ScreeningRule):
     name = "trace_rich"
+
+    def guidance(self, category: str) -> str:
+        t = thresholds_for(category)
+        needs = [
+            f"at least **{t.min_line_events}** executed line events",
+            f"**{t.min_distinct_lines}** distinct executed lines",
+        ]
+        if t.min_call_events > 1:
+            needs.append(f"**{t.min_call_events}** call events")
+        if t.min_distinct_functions > 1:
+            needs.append(f"**{t.min_distinct_functions}** distinct traced functions")
+        if t.min_exception_events > 0:
+            needs.append(f"**{t.min_exception_events}** exception event(s)")
+        if t.min_line_repetition > 1:
+            needs.append(
+                f"a line executed at least **{t.min_line_repetition}** times "
+                "(i.e. a loop that really iterates)"
+            )
+        return (
+            f"- **trace_rich**: the traced run of the target must show " +
+            "; ".join(needs) +
+            ". Pick a scenario (inputs, loop sizes, branch coverage) that exercises "
+            "the function deeply enough to clear these — shallow single-pass runs "
+            "are rejected. A trace with zero events is an automatic failure."
+        )
 
     def check(self, ctx: InstanceContext) -> RuleResult:
         stats = ctx.trace_stats
@@ -324,6 +392,18 @@ DEFAULT_RULES: list[ScreeningRule] = [
     AnswerRichRule(),
     TraceRichRule(),
 ]
+
+
+def screening_contract(
+    category: str, rules: Optional[list[ScreeningRule]] = None
+) -> str:
+    """Assemble the agent-facing screening contract for `category`: the same
+    rules that run after generation, rendered as instructions the generation
+    agent must obey. Single source of truth — thresholds here feed both the
+    checks and this text, so they can never drift."""
+    rules = rules if rules is not None else DEFAULT_RULES
+    bullets = [r.guidance(category) for r in rules]
+    return "\n".join(b for b in bullets if b and b.strip())
 
 
 # --------------------------------------------------------------------------
