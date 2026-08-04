@@ -36,6 +36,12 @@ def load_repositories(repos_file: Path) -> dict[str, str]:
         return json.load(f)
 
 
+# Keys/values as they appear in the loaded .env file (normalized key -> value).
+# Unlike os.environ this is never polluted by the parent process environment,
+# so it represents explicit user configuration (see env_file_lookup).
+ENV_FILE_VALUES: dict[str, str] = {}
+
+
 def load_env_file(explicit_path: Optional[Path] = None) -> Optional[Path]:
     """Load KEY=VALUE pairs into os.environ (without overriding existing vars).
 
@@ -52,10 +58,23 @@ def load_env_file(explicit_path: Optional[Path] = None) -> Optional[Path]:
                 key, _, value = line.partition("=")
                 key = key.strip()
                 value = value.strip().strip("'\"")
+                if key:
+                    ENV_FILE_VALUES[_norm_key(key)] = value
                 if key and key not in os.environ:
                     os.environ[key] = value
             return candidate
     return None
+
+
+def env_file_lookup(*names: str) -> str:
+    """Find the first matching key that was defined in the loaded .env FILE
+    (ignoring inherited process environment). Matching is case- and
+    hyphen/underscore-insensitive."""
+    for name in names:
+        value = ENV_FILE_VALUES.get(_norm_key(name))
+        if value:
+            return value
+    return ""
 
 
 # Canonical provider API-key env vars -> accepted aliases (matched
@@ -70,6 +89,7 @@ _PROVIDER_KEY_ALIASES = {
     "FIREWORKS_API_KEY": ["fireworks_api_key", "fireworks_api_token", "fireworks_key"],
     "OPENROUTER_API_KEY": ["openrouter_api_key", "openrouter_key"],
     "CURSOR_API_KEY": ["cursor_api_key"],
+    "MOONSHOT_API_KEY": ["moonshot_api_key", "kimi_api_key", "moonshot_key", "kimi_key"],
 }
 
 
@@ -130,7 +150,7 @@ class RunConfig:
     workdir: str = "/testbed"
     qa_dir_name: str = ""
     seed: int = 7
-    agent_timeout_s: int = 2400
+    agent_timeout_s: int = 900
     max_targets_per_module: int = 3
     plan_only: bool = False
     keep_container: bool = False

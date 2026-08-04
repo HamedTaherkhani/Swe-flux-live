@@ -2,14 +2,20 @@
 
 Mirrors RepoBehave's run_cursor_eval_in_docker.sh: the host cursor-agent
 bundle (node + index.js) is copied into the container once, a thin wrapper is
-installed at /usr/local/bin/cursor-agent, auth uses CURSOR_API_KEY, and each
-task is one non-interactive `cursor-agent -p --force` session whose
-stream-json output is persisted as the trajectory.
+installed at /usr/local/bin/cursor-agent, and each task is one non-interactive
+`cursor-agent -p --force` session whose stream-json output is persisted as the
+trajectory.
+
+Auth: the host's subscription session (`~/.config/cursor/auth.json`, created by
+`cursor-agent login`) is copied into the container and used when present —
+sessions then bill the Cursor plan instead of API credits. Falls back to
+CURSOR_API_KEY. Pass settings["auth"] = "api_key" to force the key.
 """
 
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 from pathlib import Path
@@ -19,6 +25,11 @@ from ..docker_env import Container
 from .base import AgentBackend, AgentResult
 from . import register
 
+# Where the cursor CLI stores the logged-in session on the host.
+HOST_AUTH_FILE = Path(
+    os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")
+) / "cursor" / "auth.json"
+
 
 @register
 class CursorBackend(AgentBackend):
@@ -27,6 +38,20 @@ class CursorBackend(AgentBackend):
     def __init__(self, model: str, settings=None):
         super().__init__(model, settings)
         self.api_key = self.settings.get("api_key") or env_lookup("CURSOR_API_KEY")
+        # Subscription session wins over the API key (as for claude-code), so
+        # a logged-in machine does not silently spend API credits.
+        forced = (self.settings.get("auth") or "").strip().lower()
+        auth_file = self.settings.get("auth_file")
+        self.auth_file = Path(auth_file) if auth_file else HOST_AUTH_FILE
+        self.use_subscription = (
+            forced != "api_key"
+            and self.auth_file.is_file()
+        )
+        if forced == "subscription" and not self.auth_file.is_file():
+            raise RuntimeError(
+                f"cursor subscription auth requested but {self.auth_file} not found; "
+                "run `cursor-agent login` on the host first"
+            )
 
     # -- setup ---------------------------------------------------------
 
@@ -49,13 +74,34 @@ class CursorBackend(AgentBackend):
         if not container.exec("command -v cursor-agent").ok:
             raise RuntimeError("failed to install cursor-agent into container")
 
-        if self.api_key:
+        if self.use_subscription:
+            self._install_session(container)
+            print("[cursor] auth: subscription session (~/.config/cursor/auth.json)")
+            container.exec(
+                "export NO_OPEN_BROWSER=1; timeout 20s cursor-agent whoami "
+                ">/tmp/cursor-whoami.log 2>&1 || true"
+            )
+        elif self.api_key:
+            print("[cursor] auth: CURSOR_API_KEY (API billing)")
             container.exec(
                 "export NO_OPEN_BROWSER=1; "
                 'timeout 20s cursor-agent --api-key "$CURSOR_API_KEY" whoami '
                 ">/tmp/cursor-whoami.log 2>&1 || true",
                 env={"CURSOR_API_KEY": self.api_key},
             )
+        else:
+            print(
+                "[cursor] WARNING: no auth found — run `cursor-agent login` or set "
+                "CURSOR_API_KEY; sessions will fail to authenticate"
+            )
+
+    def _install_session(self, container: Container) -> None:
+        """Copy the host's logged-in session into the container's cursor config."""
+        home = (container.exec("echo -n $HOME").stdout or "/root").strip() or "/root"
+        dest = f"{home}/.config/cursor/auth.json"
+        container.exec(f"mkdir -p '{home}/.config/cursor'")
+        container.cp_to(self.auth_file, dest)
+        container.exec(f"chmod 600 '{dest}'")
 
     # -- one task == one fresh session ----------------------------------
 
@@ -71,7 +117,11 @@ class CursorBackend(AgentBackend):
         host_log_dir.mkdir(parents=True, exist_ok=True)
         raw_traj = f"/tmp/repogen/{tag}.traj.ndjson"
         run_log = f"/tmp/repogen/{tag}.cursor.log"
-        auth = '--api-key "$CURSOR_API_KEY" ' if self.api_key else ""
+        # With a session installed, cursor-agent reads auth from its config;
+        # passing --api-key would override it and bill API credits instead.
+        auth = "" if self.use_subscription else (
+            '--api-key "$CURSOR_API_KEY" ' if self.api_key else ""
+        )
 
         command = (
             f"mkdir -p /tmp/repogen && "
@@ -82,7 +132,7 @@ class CursorBackend(AgentBackend):
             f">'{raw_traj}' 2>'{run_log}'"
         )
         env = {"CURSOR_MODEL": self.model}
-        if self.api_key:
+        if self.api_key and not self.use_subscription:
             env["CURSOR_API_KEY"] = self.api_key
 
         # host-side timeout is a safety net over the in-container `timeout`

@@ -2,7 +2,9 @@
 
 Mirrors RepoBehave's run_claude_code_eval_in_docker.sh: the `claude` CLI is
 installed inside the container (native installer, npm fallback), auth uses
-ANTHROPIC_API_KEY, and each task is one non-interactive `claude -p` session
+CLAUDE_CODE_OAUTH_TOKEN (subscription; create one with `claude setup-token`)
+or ANTHROPIC_API_KEY (pay-per-token API) — the OAuth token wins when both are
+set — and each task is one non-interactive `claude -p` session
 whose stream-json output is persisted as the trajectory. Root containers get
 `--permission-mode acceptEdits --allowedTools "Bash(*)"` (bypassPermissions is
 blocked for root); non-root gets `--dangerously-skip-permissions`.
@@ -13,7 +15,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from ..config import env_lookup
+from ..config import env_file_lookup, env_lookup
 from ..docker_env import Container
 from .base import AgentBackend, AgentResult
 from . import register
@@ -86,10 +88,50 @@ class ClaudeCodeBackend(AgentBackend):
 
     def __init__(self, model: str, settings=None):
         super().__init__(model, settings)
+        oauth_names = (
+            "CLAUDE_CODE_OAUTH_TOKEN", "claude-code-oauth-token", "claude_code_oauth_token"
+        )
+        # Trust only tokens the user put in the .env FILE. A CLAUDE_CODE_OAUTH_TOKEN
+        # inherited from the process environment is usually the session-internal
+        # token of a Claude Code instance running repogen itself — invalid inside
+        # the solver container (401 Invalid bearer token).
+        self.oauth_token = self.settings.get("oauth_token") or env_file_lookup(*oauth_names)
         self.api_key = self.settings.get("api_key") or env_lookup(
             "ANTHROPIC_API_KEY", "anthropic-api-key", "anthropic_api_key"
         )
+        self._inherited_token_ignored = False
+        if not self.oauth_token:
+            inherited = env_lookup(*oauth_names)
+            if inherited and not self.api_key:
+                self.oauth_token = inherited  # last resort: nothing else to auth with
+            elif inherited:
+                self._inherited_token_ignored = True
+        # Tokens from `claude setup-token` start with sk-ant-oat. Anything else
+        # (a pasted session key, an API key in the wrong slot) guarantees
+        # 401s that would fail EVERY instance — fall back to the API key.
+        self._auth_warning = ""
+        if self.oauth_token and not self.oauth_token.startswith("sk-ant-oat"):
+            hint = (
+                "CLAUDE_CODE_OAUTH_TOKEN does not look like a Claude Code OAuth "
+                "token (expected it to start with 'sk-ant-oat'); create one with "
+                "`claude setup-token`."
+            )
+            if self.api_key:
+                self._auth_warning = hint + " Falling back to ANTHROPIC_API_KEY."
+                self.oauth_token = ""
+            else:
+                self._auth_warning = hint + " No API-key fallback; auth will likely fail."
         self.extra_args = self.settings.get("extra_args", "")
+        # Reasoning effort for the claude CLI (--effort). Empty = CLI default
+        # (high on current Claude models).
+        effort = (self.settings.get("effort") or "").strip()
+        if effort:
+            allowed = {"low", "medium", "high", "xhigh", "max"}
+            if effort not in allowed:
+                raise ValueError(
+                    f"invalid claude-code effort '{effort}'; allowed: {sorted(allowed)}"
+                )
+            self.extra_args = f"{self.extra_args} --effort {effort}".strip()
 
     # -- setup ---------------------------------------------------------
 
@@ -99,10 +141,23 @@ class ClaudeCodeBackend(AgentBackend):
             raise RuntimeError(
                 f"failed to install claude CLI in container: {result.stderr or result.stdout}"
             )
-        if not self.api_key:
+        if self._auth_warning:
+            print(f"[claude-code] WARNING: {self._auth_warning}")
+        if self.oauth_token:
+            print("[claude-code] auth: CLAUDE_CODE_OAUTH_TOKEN (subscription)")
+        elif self.api_key:
+            print("[claude-code] auth: ANTHROPIC_API_KEY (API billing)")
+            if self._inherited_token_ignored:
+                print(
+                    "[claude-code] note: ignoring CLAUDE_CODE_OAUTH_TOKEN inherited "
+                    "from the process environment (not in .env) — add "
+                    "claude-code-oauth-token to .env to use subscription auth"
+                )
+        else:
             print(
-                "[claude-code] WARNING: no ANTHROPIC_API_KEY found (env or .env); "
-                "non-interactive sessions will likely fail to authenticate"
+                "[claude-code] WARNING: no CLAUDE_CODE_OAUTH_TOKEN or "
+                "ANTHROPIC_API_KEY found (env or .env); non-interactive "
+                "sessions will likely fail to authenticate"
             )
 
     # -- one task == one fresh session ----------------------------------
@@ -135,7 +190,11 @@ class ClaudeCodeBackend(AgentBackend):
             f">'{raw_traj}' 2>'{run_log}'"
         )
         env = {"CLAUDE_MODEL": self.model}
-        if self.api_key:
+        # Subscription OAuth token wins over the API key: with both set the CLI
+        # would bill the API key, defeating the point of setting a token.
+        if self.oauth_token:
+            env["CLAUDE_CODE_OAUTH_TOKEN"] = self.oauth_token
+        elif self.api_key:
             env["ANTHROPIC_API_KEY"] = self.api_key
         if self.extra_args:
             env["CLAUDE_EXTRA_ARGS"] = self.extra_args
