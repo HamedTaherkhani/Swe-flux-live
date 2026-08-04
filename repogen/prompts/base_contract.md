@@ -16,6 +16,7 @@ parsing the trace — never written by hand.
   (module `{{TARGET_MODULE}}`, lines {{TARGET_LINES}})
 - Structural metrics of the target (from static analysis):
   {{TARGET_METRICS}}
+- Known same-module callers of the target: {{TARGET_CALLERS}}
 
 Category-specific instructions:
 
@@ -107,6 +108,140 @@ echo "Oracle json: $ORACLE_JSON"
     `oracle_answer`, with type-name strings (`"str"`, `"int"`, ...) as values
   - `oracle_answer`: the computed ground truth
 
+## Canonical answer templates — MANDATORY
+
+`template_answer` (and therefore the shape of `oracle_answer`) must be one of
+the canonical templates below, copied EXACTLY — same keys, same nesting, same
+spelling. These shapes come from the manually verified RepoBehave benchmark;
+consistency across instances is a hard requirement. Never invent new keys,
+never rename keys (`file` never becomes `file_path`, `variable` never becomes
+`var`), never add or drop fields. Only the deviations listed under "what may
+vary" are allowed. If a category card's archetype seems to suggest a different
+shape, the canonical template wins — pick the archetype that fits one of these
+templates.
+
+Canonical templates for `{{CATEGORY}}`:
+
+{{CANONICAL_TEMPLATES}}
+
+Key conventions everywhere: `file` = repo-relative path
+(e.g. `haystack/core/pipeline/base.py`); `func` = dotted `module.qualname`
+(e.g. `haystack.core.pipeline.base.PipelineBase.connect`); tests are referenced
+by pytest id strings.
+
+## The solvability contract — the bar every instance must clear
+
+The finished instance is judged by one test: **a very strong engineer (or
+LLM), given ONLY the question text, the instance test files, and the
+repository — with the ability to run the test and add their own
+instrumentation, but with NO access to your parser, the tracer, or this
+prompt — must be able to produce an answer that is byte-for-byte identical to
+`oracle_answer`.** Scoring is exact string/number comparison. If any leaf
+value could plausibly be written two different ways by such a solver, the
+question is ambiguous and the instance is broken, no matter how correct the
+oracle is.
+
+That means the question must pin down BOTH the semantics and the exact
+serialization of every value. The following conventions have caused real
+solver mismatches; whenever one applies to your answer, the question MUST
+state the rule explicitly (with a short inline example that is NOT taken from
+the answer):
+
+- **Exception type names.** Pick one convention and say it: bare
+  `type(exc).__name__` for built-in exceptions (`ValueError`, never
+  `builtins.ValueError`) and `module.QualName` for non-builtins — or another
+  rule, but stated. The parser must emit exactly the same convention.
+- **Function/callee names.** State the exact format (`module.Class.method`
+  vs `Class.method` vs bare name) and give one example.
+- **Which calls/events count.** For call sequences: only direct calls made by
+  the target's own frame, or transitive ones? Are calls to functions outside
+  the traced set, builtins, comprehension frames, or generator resumptions
+  included? State the inclusion rule; do not leave it to the trace
+  configuration, which the solver cannot see.
+- **Value formatting.** State `repr()` vs `str()` for every reported value;
+  for containers, state Python `repr` of the whole container. Mind JSON vs
+  Python spellings (`null`/`true` vs `None`/`True`) — say which appears
+  inside strings. Empty string `""`, JSON `null`, and an absent key are three
+  different answers; state which one represents "no value".
+- **Line numbers.** Absolute, 1-based, in the named file as it exists in the
+  repo. For multi-line statements, the executed-line event fires on the line
+  where that statement/expression begins — state this when sequences may
+  include multi-line calls. State whether the `def` line, decorator lines, or
+  docstring lines can appear.
+- **Counting.** Invocation = one `call` of the function during the test run,
+  1-based, in chronological order — restate this in the question. Iteration
+  counting: define it (e.g. "iteration N = the Nth time the loop body's first
+  line executes"). 
+- **Ordering and dedup.** Give a total order (every tie-breaker, ascending/
+  descending) and state whether and when duplicates are removed.
+- **Def/use subtleties.** Augmented assignment (`x += 1`) reads then writes —
+  state whether it is a use, a def, or both. State how comprehension-local
+  variables and parameters are treated.
+
+If pinning a convention down makes the question longer — good. Length is
+cheap; ambiguity is fatal.
+
+## Leave no trace of the answer — and make it computed, not copied
+
+The solver sees the question text and `files/testcase.py`. **No distinctive
+value of `oracle_answer` may appear literally in either.** This is enforced by
+the `answer_leak` screening rule below; instances that fail it are discarded.
+The common leaks, and how to avoid them:
+
+- **Test assertions that spell out the answer.** If the question asks for the
+  exception type/message, `self.assertRaises(ValueError)` and
+  `assertRaisesRegex(..., "<the full message>")` hand the solver the answer.
+  Assert *around* the answer instead: use `assertRaisesRegex` with a short
+  partial pattern that is NOT the substring the question asks about, assert a
+  derived property (`len`, type of a field, a checksum-style relation), or
+  prefer scenarios where the target CATCHES the exception internally so the
+  test only asserts the normal return value.
+- **Inputs that equal outputs.** If the answer can be found by copying a
+  literal from the test's inputs (a list length, a string passed in, a
+  constant from the source), the instance is trivial for a static reader.
+  Prefer answers that are **computed by the runtime**: accumulated counts,
+  transformed/merged state, orders of traversal, values that emerge from
+  branch interplay. Rule of thumb: if `grep` over the test + target source
+  can produce the answer value, choose different inputs or a different
+  question; if reproducing the value requires actually simulating the
+  execution, it is a good answer.
+- **Question text that restates answer values.** Name variables, lines, and
+  conventions — never example values that occur in the answer.
+
+After harvesting the oracle, grep every distinctive leaf of `oracle_answer`
+against your question text and `files/testcase.py`. Any hit (outside the
+structurally required enumerations noted in the screening rule) means:
+redesign the assertion or the scenario and re-run.
+
+## Exercise the target INDIRECTLY
+
+Do not import, construct, or call the target head-on. Reach it through a call
+chain: invoke one of the known callers listed in the assignment (two hops up
+is better than one), or a public entry point that leads to it. A direct call
+hands the solver the target's exact arguments for free; through a chain, the
+solver must first work out what the target even receives. Ideally the
+target's name does not appear anywhere in `testcase.py` (screening records
+this). Fall back to a direct call ONLY if no caller or entry point can drive
+the target through the branches this category needs — and then make the
+inputs computed rather than literal. The tracer is unaffected either way
+(TRACE_FUNC matches the target wherever it is called from).
+
+## Make the runtime too big to simulate in the head
+
+A static reader with the test and the source will try to "run" the code
+mentally. Defeat that with volume and data dependence, not obscurity:
+
+- Drive loops through **15+ iterations** whose behavior differs per iteration
+  (data-dependent branches, accumulators), not 2–3 token passes. The
+  trace_rich thresholds below are floors, not targets — exceed them.
+- Build test inputs **programmatically** (seeded generators, comprehensions
+  producing dozens of elements, values derived from prior computation) so the
+  solver must simulate the construction too — never small literal lists.
+- Where the canonical template is a list, prefer answers with **many
+  elements** (long exact sequences punish drift: one slip anywhere is wrong).
+- Prefer behavior that emerges from branch interplay across iterations or
+  recursion depth over anything readable from a single pass.
+
 ## The generation process you must follow, in order
 
 1. **Study the target.** Read `{{TARGET_FILE}}` around lines {{TARGET_LINES}}
@@ -141,10 +276,24 @@ echo "Oracle json: $ORACLE_JSON"
      same answer;
    - states the exact output keys, their types, and the sort order plus
      tie-breaking rules;
+   - states the exact serialization of every value, per the solvability
+     contract's convention list (exception names, repr vs str, empty vs null,
+     name formats, line-number conventions);
    - is answerable from the question + repository + test alone (never
      references the parser, the tracer, env vars, or this prompt);
    - contains no hints that reveal the answer.
-9. **Finalize.** Ensure the instance directory contains exactly `eval.sh`,
+9. **Question ↔ parser consistency audit.** Re-read your `parser.py` and list
+   every transformation it applies between the raw trace and the emitted
+   answer: filtering (which events/frames are dropped), normalization (name or
+   type-string rewriting, message truncation), sorting, dedup, formatting.
+   For EACH transformation, point to the sentence in the question that states
+   the same rule. If the parser does something the question does not say, fix
+   one of them until they match — usually by stating the rule in the question.
+   Then walk every leaf value of `oracle_answer` and ask: "could a competent
+   solver, obeying the question exactly, have written this value differently
+   (extra module prefix, str instead of repr, 0-based index, unsorted,
+   un-deduped)?" If yes for any value, revise the question and re-run step 6.
+10. **Finalize.** Ensure the instance directory contains exactly `eval.sh`,
    `files/testcase.py`, `files/parser.py`, and the synced `oracle.json`.
 
 ## Screening rules — your instance MUST pass ALL of these

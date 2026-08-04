@@ -1,0 +1,197 @@
+{
+  "_comment": "Canonical template_answer shapes per category, extracted from the manually verified RepoBehave benchmark (qa_instances/, 1333 oracles). Generation agents MUST use one of these templates verbatim (exact keys, exact nesting); they must never invent new keys or rename existing ones. 'varies' notes the only allowed deviations. Global key conventions: 'file' = repo-relative path (e.g. 'haystack/core/pipeline/base.py'); 'func' = dotted module.qualname (e.g. 'haystack.core.pipeline.base.PipelineBase.connect'); tests are referenced by pytest id strings.",
+  "S1_IntraProceduralCFG": {
+    "templates": [
+      {
+        "template": {"executed_path": [{"file": "str", "func": "str", "line": "int"}]},
+        "use_for": "the exact ordered sequence of executed line events inside the target for a stated invocation",
+        "varies": "nothing — keys, nesting, and types are fixed"
+      }
+    ]
+  },
+  "S2_Loops": {
+    "templates": [
+      {
+        "template": {"loop_iteration_count": "int"},
+        "use_for": "iteration count of one specific loop (identified by header line) for a stated invocation",
+        "varies": "nothing"
+      },
+      {
+        "template": {"nth_iteration": "int", "variable": "str", "value": "str"},
+        "use_for": "the value of a named loop variable at a specific iteration",
+        "varies": "the type of 'value' may be 'int', 'float', or 'str' to match the actual data"
+      }
+    ]
+  },
+  "S3_ProgramState": {
+    "templates": [
+      {
+        "template": {"observed_state": [{"variable": "str", "value": "str"}]},
+        "use_for": "values of named locals at a precise observation point",
+        "varies": "nothing structural; values are repr strings"
+      },
+      {
+        "template": {"value_history": [{"step": "int", "value": "str"}]},
+        "use_for": "ordered history of one variable's values during an invocation",
+        "varies": "nothing structural; values are repr strings"
+      },
+      {
+        "template": {"temporal_value_history": ["str"]},
+        "use_for": "flat ordered list of repr values a variable takes",
+        "varies": "nothing"
+      }
+    ],
+    "notes": "State questions legitimately vary more than other categories, but prefer these shapes; if none fits, reuse their key style (snake_case, 'variable'/'value' vocabulary, repr-string values) rather than inventing new vocabulary."
+  },
+  "S4_DataFlow": {
+    "templates": [
+      {
+        "template": {"observed_def_use_pairs": [{"def_line": "int", "use_line": "int", "variable": "str"}]},
+        "use_for": "all def-use questions — 114 of 118 verified S4 instances use exactly this shape",
+        "varies": "nothing — keys, nesting, and types are fixed; never use 'var', 'file', or per-invocation maps"
+      }
+    ]
+  },
+  "S5_Exceptions": {
+    "templates": [
+      {
+        "template": {"exception_type": "str", "exception_message": "str"},
+        "use_for": "the single exception raised/propagated in the scenario (type + exact str(exc))",
+        "varies": "nothing"
+      },
+      {
+        "template": {"caught_exception_kinds": ["str"]},
+        "use_for": "the set of exception types caught during the run (state sort order in the question)",
+        "varies": "nothing"
+      }
+    ]
+  },
+  "S6_InterProceduralCFG": {
+    "templates": [
+      {
+        "template": {"function_call_count": "int"},
+        "use_for": "how many times a named function is invoked during the test",
+        "varies": "nothing"
+      },
+      {
+        "template": {"maximum_call_stack_depth": "int"},
+        "use_for": "maximum call depth within a named call chain (define depth counting in the question)",
+        "varies": "nothing"
+      },
+      {
+        "template": {"function_call_order": [{"file": "str", "func": "str"}]},
+        "use_for": "the ordered sequence of tracked function calls (state the tracked set and inclusion rule in the question)",
+        "varies": "nothing"
+      },
+      {
+        "template": {"executed_path": [{"file": "str", "func": "str", "line": "int"}]},
+        "use_for": "cross-function executed line path",
+        "varies": "nothing"
+      }
+    ]
+  },
+  "M1_IntraProceduralCFG": {
+    "templates": [
+      {
+        "template": {"covered_lines": ["int"]},
+        "use_for": "the sorted set of the target's lines executed at least once during the whole test — the dominant verified M1 shape",
+        "varies": "nothing"
+      }
+    ]
+  },
+  "M2_Loops": {
+    "templates": [
+      {
+        "template": {"max_iterations": "int", "min_iterations": "int"},
+        "use_for": "max/min iteration counts of a loop across invocations",
+        "varies": "nothing"
+      },
+      {
+        "template": {"total_iterations": "int"},
+        "use_for": "total iterations of a loop across the whole test",
+        "varies": "nothing"
+      },
+      {
+        "template": {"tests_terminating_at_break": ["str"]},
+        "use_for": "which test cases exit the loop via break (pytest id strings, sorted)",
+        "varies": "nothing"
+      }
+    ]
+  },
+  "M3_ProgramState": {
+    "templates": [
+      {
+        "template": {"min_value": "float", "max_value": "float"},
+        "use_for": "extrema of a traced numeric variable across the run",
+        "varies": "types may be 'int' when the variable is integral"
+      },
+      {
+        "template": {"min_value": "float", "max_value": "float", "variable": "str"},
+        "use_for": "extrema plus the variable name when the question tracks one of several",
+        "varies": "types may be 'int' when the variable is integral"
+      },
+      {
+        "template": {"unique_values": ["str"]},
+        "use_for": "the sorted set of distinct repr values a variable takes",
+        "varies": "nothing"
+      }
+    ],
+    "notes": "Like S3, some structural variation is tolerated, but reuse this vocabulary instead of inventing keys."
+  },
+  "M4_DataFlow": {
+    "templates": [
+      {
+        "template": {"observed_def_use_pairs": [{"def_line": "int", "use_line": "int", "variable": "str"}]},
+        "use_for": "all M4 def-use questions — identical shape to S4; hardness comes from the scenario, not the schema",
+        "varies": "nothing"
+      }
+    ]
+  },
+  "M5_Exceptions": {
+    "templates": [
+      {
+        "template": {"crashing_tests": [{"exception_type": "str", "test": "str"}], "safe_tests": ["str"]},
+        "use_for": "which test cases crash (with what exception type) vs complete safely",
+        "varies": "nothing"
+      },
+      {
+        "template": {"exception_types": ["str"]},
+        "use_for": "the exception types observed during the run (state sort order in the question)",
+        "varies": "nothing"
+      }
+    ]
+  },
+  "M6_InterProceduralCFG": {
+    "templates": [
+      {
+        "template": {"covered_functions": [{"file": "str", "func": "str"}]},
+        "use_for": "the set of tracked functions executed at least once (state sort order) — the dominant verified M6 shape",
+        "varies": "nothing"
+      },
+      {
+        "template": {"dispatched_implementations": [{"file": "str", "func": "str"}]},
+        "use_for": "which concrete implementations a dynamic dispatch site selected, in order",
+        "varies": "nothing"
+      }
+    ]
+  },
+  "M7_Invariants": {
+    "templates": [
+      {
+        "template": {"invariant_exists": "bool"},
+        "use_for": "whether a single stated predicate held at every observation — the dominant verified M7 shape (the predicate goes in the QUESTION, verbatim)",
+        "varies": "nothing"
+      },
+      {
+        "template": {"is_invariant_always_held": "bool", "total_iterations_observed": "int", "violating_iteration_count": "int"},
+        "use_for": "one predicate checked across loop iterations with violation accounting",
+        "varies": "nothing"
+      },
+      {
+        "template": {"monotonicity": "str"},
+        "use_for": "whether a variable was strictly_increasing / non_decreasing / constant / none across iterations (enumerate the allowed strings in the question)",
+        "varies": "nothing"
+      }
+    ]
+  }
+}

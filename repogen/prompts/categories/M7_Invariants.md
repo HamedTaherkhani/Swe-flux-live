@@ -4,28 +4,30 @@ Ask which candidate properties over the target function's variables actually
 held at every observation during the test run.
 
 Good question archetypes (pick ONE):
-- Loop invariant check: given an explicit list of candidate predicates over
-  named variables (e.g. `len(code) == length - 1`, `weighted_sum >= 0`,
-  `i < len(items)`), report for each whether it held at EVERY execution of
-  the loop-body's first line during the test (true/false per predicate).
-- Relational invariants at return: for each invocation, which of the listed
-  relations between parameters and return value held (e.g. `len(result) ==
-  n`, `result.startswith(prefix)`); answer = the subset that held on ALL
-  invocations vs those violated (with the first violating invocation index).
-- Monotonicity/shape: whether a named variable was strictly increasing /
-  non-decreasing / constant across loop iterations, per invocation.
+- Single-predicate invariant check: state ONE candidate predicate verbatim in
+  the question (e.g. `len(code) == length - 1` at every execution of line L)
+  and ask whether it held at every observation — canonical template
+  `invariant_exists`. Pick a predicate that is genuinely hard to decide
+  statically (its truth must depend on the runtime data).
+- Loop invariant with violation accounting: one predicate checked at every
+  iteration, reporting whether it always held, how many iterations were
+  observed, and how many violated it — canonical template
+  `is_invariant_always_held`/`total_iterations_observed`/
+  `violating_iteration_count`.
+- Monotonicity/shape: whether a named variable was `strictly_increasing`,
+  `non_decreasing`, `constant`, or `none` across loop iterations — canonical
+  template `monotonicity` (enumerate the allowed strings verbatim in the
+  question).
 
 Answer definition rules:
-- List every candidate predicate verbatim in the question; predicates are
+- State the candidate predicate verbatim in the question; predicates are
   evaluated on traced local values at the stated observation point.
 - Define the observation point exactly (line + event), and "held" = true at
   every observation, with zero observations counting as NOT evaluable (say
-  how to report that, e.g. "vacuous").
+  how to report that).
 
-Template shape example:
-```json
-{"invariant_results": [{"predicate": "str", "held": "bool", "first_violation_invocation": "int"}]}
-```
+Template: use a canonical template for this category (see the canonical
+answer templates section) — do not invent another shape.
 
 Hardness levers:
 - Mix predicates so that some hold, some are violated only on a late

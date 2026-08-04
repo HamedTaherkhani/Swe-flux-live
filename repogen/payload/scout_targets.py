@@ -203,18 +203,25 @@ def score_function(metrics, body_lines):
     return round(complexity * 2 + richness + size_bonus, 2)
 
 
-def scout(root, out_path):
+def is_qa_dir(name):
+    # The staged QA harness/instances dir (e.g. haystack_qa) is not repo code;
+    # its tracer/parser files must never become benchmark targets.
+    return name.endswith("_qa")
+
+
+def scout(root, out_path, exclude_dirs=()):
+    exclude = EXCLUDE_DIR_PARTS | set(exclude_dirs)
     targets = []
     seen_files = 0
     for dirpath, dirnames, filenames in os.walk(root):
         rel_dir = os.path.relpath(dirpath, root)
-        parts = set(rel_dir.replace("\\", "/").split("/"))
-        if parts & EXCLUDE_DIR_PARTS or is_test_path(rel_dir):
+        parts = rel_dir.replace("\\", "/").split("/")
+        if set(parts) & exclude or any(is_qa_dir(p) for p in parts) or is_test_path(rel_dir):
             dirnames[:] = []
             continue
         dirnames[:] = [
             d for d in dirnames
-            if d not in EXCLUDE_DIR_PARTS and not d.startswith(".")
+            if d not in exclude and not is_qa_dir(d) and not d.startswith(".")
         ]
         for fname in sorted(filenames):
             if not fname.endswith(".py"):
@@ -280,6 +287,7 @@ def scout(root, out_path):
                 }
                 targets.append(record)
 
+    annotate_callers(targets)
     targets.sort(key=lambda t: (-t["score"], t["file"], t["lineno"]))
     out_dir = os.path.dirname(out_path)
     if out_dir and not os.path.isdir(out_dir):
@@ -289,12 +297,49 @@ def scout(root, out_path):
     print("scout: wrote %d targets to %s" % (len(targets), out_path))
 
 
+MAX_CALLERS = 6
+
+
+def annotate_callers(targets):
+    """Invert local_calls into per-target caller lists (same module, among the
+    mined functions), one and two hops up. Lets the generation prompt steer
+    tests to exercise the target INDIRECTLY through a caller instead of
+    invoking it head-on."""
+    by_module = {}
+    for t in targets:
+        by_module.setdefault(t["module"], {}).setdefault(t["name"], []).append(t)
+
+    direct = {}  # id(target) -> list of caller qualnames
+    for u in targets:
+        for callee_name in u["metrics"].get("local_calls", []):
+            for v in by_module.get(u["module"], {}).get(callee_name, []):
+                if v is u:
+                    continue
+                direct.setdefault(id(v), []).append(u)
+
+    for t in targets:
+        one_hop = direct.get(id(t), [])
+        two_hop = []
+        seen = {t["qualname"]} | {c["qualname"] for c in one_hop}
+        for c in one_hop:
+            for cc in direct.get(id(c), []):
+                if cc["qualname"] not in seen:
+                    seen.add(cc["qualname"])
+                    two_hop.append(cc)
+        t["callers"] = sorted({c["qualname"] for c in one_hop})[:MAX_CALLERS]
+        t["callers_2hop"] = sorted({c["qualname"] for c in two_hop})[:MAX_CALLERS]
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", default="/testbed")
     parser.add_argument("--out", required=True)
+    parser.add_argument(
+        "--exclude-dir", action="append", default=[],
+        help="extra directory name to skip (repeatable; e.g. the QA dir)",
+    )
     args = parser.parse_args()
-    scout(args.root, args.out)
+    scout(args.root, args.out, exclude_dirs=args.exclude_dir)
 
 
 if __name__ == "__main__":

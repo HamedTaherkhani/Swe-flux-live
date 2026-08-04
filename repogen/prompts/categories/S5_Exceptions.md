@@ -4,28 +4,38 @@ Ask about the concrete exception behavior of the target function during the
 test run.
 
 Good question archetypes (pick ONE):
-- The exact exception type and message raised at line L, and whether it
-  propagated out of the function or was handled (and at which handler line).
-- The ordered sequence of `exception` events (line, exception type) observed
-  in the function during the test.
-- Given inputs that make an error path reachable, which line raises first and
-  what the final observable outcome of the call is (define "observable
-  outcome": return value repr, or exception type propagated to the caller).
+- The exact exception type and message that reaches the caller (or is raised
+  at a stated point) for inputs driving an error path — canonical template 1
+  (`exception_type`/`exception_message`).
+- The set of exception types caught inside the function during the run —
+  canonical template 2 (`caught_exception_kinds`; state sort order).
 
 Answer definition rules:
-- Exception identity = fully qualified type name plus exact `str(exc)` message
-  (say both are required).
+- Exception type naming MUST use this convention, stated verbatim in the
+  question: bare `type(exc).__name__` for built-in exceptions (e.g.
+  `ValueError` — never `builtins.ValueError`), and `module.QualName` for all
+  others (e.g. `haystack.core.errors.PipelineError`). The parser must emit
+  exactly this convention.
+- Message = exact `str(exc)`, character for character; say so in the question.
 - Distinguish "raised", "caught at line H", "propagated out".
 
-Template shape example:
-```json
-{"exception_events": [{"line": "int", "exception_type": "str", "message": "str", "handled": "bool"}]}
-```
+Template: use a canonical template for this category (see the canonical
+answer templates section) — do not invent another shape.
 
 Hardness levers:
 - Prefer functions where the same exception type can arise from multiple
   lines, so the line number matters.
 - Drive an input through a try/except/finally so handled vs propagated is not
   guessable from the signature.
-- Testcase note: if the call is expected to raise out of the target, the test
-  should assert it (e.g. `assertRaises`) so the test still passes.
+- STRONGLY prefer the caught-exceptions archetype (template 2) with a target
+  that handles errors internally: the test then only asserts the normal
+  return value, so nothing about the exceptions appears in the test file.
+
+Testcase note — do not leak the answer into assertions (`answer_leak` rule):
+if the call must raise out of the target, the test has to assert the raise to
+stay green, but assert it WITHOUT naming what the question asks for. If the
+question asks for the message, use `assertRaises(Type)` alone or
+`assertRaisesRegex` with a short pattern disjoint from the reported message.
+If the question asks for the type, the type must not be spelled in the test —
+catch broadly (`except Exception` bookkeeping in the test, or
+`assertRaises(BaseException)`-style umbrella) or redesign toward template 2.

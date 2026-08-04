@@ -4,21 +4,20 @@ Like S2, but must involve multiple loops, nested loops, or loop behavior
 across multiple invocations, combined into one answer.
 
 Good question archetypes (pick ONE):
-- For every loop in the function (identified by header line), total iteration
-  count during the whole test plus per-invocation breakdown.
-- For a nested loop, the iteration count of the inner loop for EACH iteration
-  of the outer loop (a list of lists or list of {outer_iteration, inner_count}).
-- Early-exit map: for each invocation, whether each loop exited via condition,
-  `break`, or exception, and at which iteration.
+- Max and min iteration counts of a stated loop across all invocations during
+  the test — canonical template `max_iterations`/`min_iterations`.
+- Total iterations of a stated loop summed over the whole test — canonical
+  template `total_iterations`.
+- Which test cases exit the loop via `break` — canonical template
+  `tests_terminating_at_break` (pytest id strings, sorted; requires a
+  multi-case test).
 
 Answer definition rules:
 - Identify each loop by header line number; define iteration = executions of
   the body's first line; 1-based counting; state invocation ordering.
 
-Template shape example:
-```json
-{"inner_iterations_per_outer": [{"outer_iteration": "int", "inner_iterations": "int"}]}
-```
+Template: use a canonical template for this category (see the canonical
+answer templates section) — do not invent another shape.
 
 Hardness levers:
 - Nested loops where the inner bound depends on outer state are ideal.

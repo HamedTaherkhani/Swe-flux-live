@@ -172,7 +172,8 @@ class Orchestrator:
         result = container.exec(
             f"python /tmp/repogen/scout_targets.py "
             f"--root {shlex.quote(self.config.workdir)} "
-            f"--out /tmp/repogen/targets.json",
+            f"--out /tmp/repogen/targets.json "
+            f"--exclude-dir {shlex.quote(self.config.qa_dir_name)}",
             timeout_s=600,
         )
         if not result.ok:

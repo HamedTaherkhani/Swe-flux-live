@@ -91,24 +91,56 @@ class Thresholds:
     min_answer_leaves: int = 4
 
 
+# min_answer_leaves is aligned with the SMALLEST canonical template of each
+# category (prompts/canonical_templates.json): several verified RepoBehave
+# shapes are scalars (loop_iteration_count, invariant_exists, ...), so answer
+# size cannot be a richness gate there — runtime volume is enforced through
+# the TRACE thresholds instead. Volumes are set from measured LLM-eval pass
+# rates (86% on answers <= 5 leaves / short traces vs 55% on 41+ leaves):
+# static solvers "run" the code mentally and drift on long runs, so trace and
+# answer volume are the primary hardness levers.
 CATEGORY_THRESHOLDS: dict[str, Thresholds] = {
-    "S1_IntraProceduralCFG": Thresholds(min_distinct_lines=10, min_answer_leaves=8),
-    "S2_Loops": Thresholds(min_line_events=30, min_line_repetition=3),
-    "S3_ProgramState": Thresholds(min_answer_leaves=6),
-    "S4_DataFlow": Thresholds(min_answer_leaves=12),
-    "S5_Exceptions": Thresholds(min_exception_events=1),
-    "S6_InterProceduralCFG": Thresholds(min_call_events=3, min_distinct_functions=2),
+    # executed_path: long exact sequences are the hardest measured shape —
+    # demand ~10+ path elements from a 50+-event run.
+    "S1_IntraProceduralCFG": Thresholds(
+        min_line_events=50, min_distinct_lines=12, min_answer_leaves=30
+    ),
+    # scalar canonical answers -> hardness lives in the loop itself.
+    "S2_Loops": Thresholds(
+        min_line_events=80, min_line_repetition=15, min_answer_leaves=1
+    ),
+    "S3_ProgramState": Thresholds(min_line_events=40, min_answer_leaves=8),
+    "S4_DataFlow": Thresholds(min_line_events=40, min_answer_leaves=21),
+    "S5_Exceptions": Thresholds(
+        min_line_events=30, min_exception_events=1, min_answer_leaves=2
+    ),
+    "S6_InterProceduralCFG": Thresholds(
+        min_line_events=40, min_call_events=10, min_distinct_functions=2,
+        min_answer_leaves=1,
+    ),
+    # covered_lines over a genuinely broad run.
     "M1_IntraProceduralCFG": Thresholds(
-        min_distinct_lines=12, min_call_events=3, min_answer_leaves=10
+        min_line_events=60, min_distinct_lines=20, min_call_events=3,
+        min_answer_leaves=25,
     ),
-    "M2_Loops": Thresholds(min_line_events=50, min_line_repetition=5),
-    "M3_ProgramState": Thresholds(min_answer_leaves=12),
-    "M4_DataFlow": Thresholds(min_answer_leaves=15),
-    "M5_Exceptions": Thresholds(min_exception_events=2),
+    "M2_Loops": Thresholds(
+        min_line_events=150, min_line_repetition=25, min_answer_leaves=1
+    ),
+    "M3_ProgramState": Thresholds(
+        min_line_events=60, min_line_repetition=5, min_answer_leaves=2
+    ),
+    "M4_DataFlow": Thresholds(min_line_events=60, min_answer_leaves=30),
+    "M5_Exceptions": Thresholds(
+        min_line_events=50, min_exception_events=3, min_answer_leaves=2
+    ),
     "M6_InterProceduralCFG": Thresholds(
-        min_call_events=5, min_distinct_functions=3, min_answer_leaves=6
+        min_line_events=50, min_call_events=15, min_distinct_functions=4,
+        min_answer_leaves=8,
     ),
-    "M7_Invariants": Thresholds(min_line_repetition=3, min_answer_leaves=6),
+    # first_violation demands full-loop simulation only if the loop is long.
+    "M7_Invariants": Thresholds(
+        min_line_events=60, min_line_repetition=20, min_answer_leaves=1
+    ),
 }
 
 
@@ -318,6 +350,148 @@ class AnswerRichRule(ScreeningRule):
         return self._pass(f"{leaves} leaf values")
 
 
+# Answer keys whose values are STRUCTURALLY REQUIRED to appear in the question
+# or test (canonical templates force them there), so their literal presence is
+# not evidence of leakage: call-graph answers enumerate the tracked functions in
+# the question; crash matrices reference pytest ids that necessarily exist in
+# the test file.
+LEAK_EXEMPT_KEYS: dict[str, frozenset] = {
+    "S6_InterProceduralCFG": frozenset({"func", "file"}),
+    "M6_InterProceduralCFG": frozenset({"func", "file"}),
+    "M5_Exceptions": frozenset({"test"}),
+    "M2_Loops": frozenset({"test"}),  # tests_terminating_at_break ids
+}
+# An instance fails when at least this many checkable values exist and at least
+# this fraction of them appear literally in question + testcase.py.
+LEAK_MIN_VALUES = 2
+LEAK_MAX_FRACTION = 0.8
+
+
+def _leak_values(answer, exempt: frozenset, key: str = "") -> list:
+    """Distinctive leaf values of the answer — the ones whose literal presence
+    in the question/test would give the answer away. Skips exempt keys, bools,
+    None, small numbers, and short strings."""
+    out: list = []
+    if isinstance(answer, dict):
+        for k, v in answer.items():
+            if k in exempt:
+                continue
+            out.extend(_leak_values(v, exempt, k))
+    elif isinstance(answer, list):
+        for v in answer:
+            out.extend(_leak_values(v, exempt, key))
+    elif isinstance(answer, bool) or answer is None:
+        pass
+    elif isinstance(answer, (int, float)):
+        if abs(answer) >= 10:
+            out.append(answer)
+    elif isinstance(answer, str):
+        if len(answer.strip()) >= 5:
+            out.append(answer)
+    return out
+
+
+class AnswerLeakRule(ScreeningRule):
+    name = "answer_leak"
+
+    def guidance(self, category: str) -> str:
+        exempt = LEAK_EXEMPT_KEYS.get(category)
+        exempt_note = (
+            f" (values under the {sorted(exempt)} key(s) are exempt — the "
+            "canonical template forces them into the question/test)"
+            if exempt else ""
+        )
+        return (
+            "- **answer_leak**: the answer must not be readable off the materials "
+            "the solver sees. Distinctive values of `oracle_answer` (numbers ≥ 10, "
+            "strings ≥ 5 chars) are searched for literally in the question text "
+            f"and `files/testcase.py`; if ≥ {LEAK_MAX_FRACTION:.0%} of them (and at "
+            f"least {LEAK_MIN_VALUES}) are found, the instance is DISCARDED"
+            f"{exempt_note}. Practical consequences: never assert an exact value "
+            "the question asks for (use `assertRaisesRegex` with a partial "
+            "pattern instead of the full message, assert derived properties "
+            "instead of literal outputs), and never restate answer values in the "
+            "question."
+        )
+
+    def check(self, ctx: InstanceContext) -> RuleResult:
+        if ctx.oracle is None:
+            return self._fail("no oracle to inspect")
+        exempt = LEAK_EXEMPT_KEYS.get(ctx.category, frozenset())
+        values = _leak_values(ctx.oracle.get("oracle_answer"), exempt)
+        # dedup, keep order for reporting
+        seen: list = []
+        for v in values:
+            if v not in seen:
+                seen.append(v)
+        if len(seen) < LEAK_MIN_VALUES:
+            return self._pass(f"only {len(seen)} distinctive value(s) — not checkable")
+        haystack = ctx.oracle.get("question", "") or ""
+        testcase = ctx.instance_dir / "files" / "testcase.py"
+        if testcase.is_file():
+            haystack += "\n" + testcase.read_text(encoding="utf-8", errors="replace")
+        leaked = [
+            v for v in seen
+            if str(v) in haystack
+            or (isinstance(v, str) and v.strip("'\"") and v.strip("'\"") in haystack)
+        ]
+        fraction = len(leaked) / len(seen)
+        if fraction >= LEAK_MAX_FRACTION:
+            sample = ", ".join(repr(v)[:40] for v in leaked[:4])
+            return self._fail(
+                f"{len(leaked)}/{len(seen)} distinctive answer values appear "
+                f"literally in question/testcase ({fraction:.0%} ≥ "
+                f"{LEAK_MAX_FRACTION:.0%}); e.g. {sample}"
+            )
+        return self._pass(f"{len(leaked)}/{len(seen)} values found ({fraction:.0%})")
+
+
+class TargetIndirectionRule(ScreeningRule):
+    """Records whether the test exercises the target directly or through a
+    call chain. NEVER discards — the signal lands in screening_report.json so
+    the direct/indirect ratio of a run is measurable; the generation contract
+    carries the actual instruction."""
+
+    name = "target_indirection"
+
+    def guidance(self, category: str) -> str:
+        return (
+            "- **target_indirection** (recorded, not enforced): the screener "
+            "notes whether `files/testcase.py` invokes the target directly. "
+            "Exercise the target through one of its callers or an entry point, "
+            "per the indirect-exercise rule above — the target's name should "
+            "ideally not appear in the test file at all."
+        )
+
+    def check(self, ctx: InstanceContext) -> RuleResult:
+        target = self._target_name(ctx)
+        if not target:
+            return self._pass("indirect: unknown (no TRACE_FUNC found)")
+        testcase = ctx.instance_dir / "files" / "testcase.py"
+        if not testcase.is_file():
+            return self._pass("indirect: unknown (no testcase.py)")
+        text = testcase.read_text(encoding="utf-8", errors="replace")
+        if re.search(r"(?<![\w])\.?" + re.escape(target) + r"\s*\(", text):
+            return self._pass(f"direct: test calls `{target}` itself")
+        if target in text:
+            return self._pass(f"semi-direct: `{target}` named in test (no call syntax)")
+        return self._pass(f"indirect: `{target}` not present in testcase.py")
+
+    @staticmethod
+    def _target_name(ctx: InstanceContext) -> str:
+        eval_sh = ctx.instance_dir / "eval.sh"
+        if not eval_sh.is_file():
+            return ""
+        m = re.search(
+            r'TRACE_FUNC="([^"]+)"',
+            eval_sh.read_text(encoding="utf-8", errors="replace"),
+        )
+        if not m:
+            return ""
+        first = m.group(1).split(",")[0].strip()
+        return first.split(".")[-1]
+
+
 class TraceRichRule(ScreeningRule):
     name = "trace_rich"
 
@@ -390,7 +564,9 @@ DEFAULT_RULES: list[ScreeningRule] = [
     TemplateValidRule(),
     TestPassedRule(),
     AnswerRichRule(),
+    AnswerLeakRule(),
     TraceRichRule(),
+    TargetIndirectionRule(),
 ]
 
 
