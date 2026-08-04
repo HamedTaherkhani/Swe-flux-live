@@ -65,7 +65,9 @@ python3 -m repogen list
 python3 -m repogen screen --run-dir out/faker_qa/run_<ts>
 python3 -m repogen screen --repo faker_qa            # latest run
 
-# Validate an existing run with a solver agent (needs ANTHROPIC_API_KEY for claude-code)
+# Validate an existing run with a solver agent. claude-code auths with
+# CLAUDE_CODE_OAUTH_TOKEN (subscription — create via `claude setup-token`)
+# or ANTHROPIC_API_KEY (API billing); the OAuth token wins when both are set.
 python3 -m repogen validate --repo faker_qa --solver-model claude-sonnet-4-6
 
 # Add a SECOND model's validation to the same run (outputs stored separately).
@@ -73,16 +75,41 @@ python3 -m repogen validate --repo faker_qa --solver-model claude-sonnet-4-6
 python3 -m repogen validate --repo faker_qa \
   --solver-agent claude-code --solver-model claude-haiku-4-5-20251001 --no-discard
 
+# Difficulty cascade: tiered agent validation, weakest model first. An
+# instance is accepted with the label of the FIRST tier whose agent solves it
+# (with --rollouts N, ALL N independent sessions must match the oracle);
+# failures escalate to the next tier; instances every tier fails are discarded.
+# Labels land in each instance's difficulty.json + difficulty_report.json.
+python3 -m repogen cascade --repo haystack --rollouts 2 \
+  --tier easy=claude-code:claude-haiku-4-5-20251001 \
+  --tier medium=claude-code:claude-sonnet-4-6 \
+  --tier hard=claude-code:claude-fable-5
+
 # Evaluate a run with a raw LLM (no agent) — measurement only, NEVER discards.
 # Needs the 'llm' extra installed and the provider API key in .env.
 # By default only scores instances at least one agent-validator got right
 # (trusted oracles); pass --all-instances to score every instance.
 python3 -m repogen evaluate --repo faker_qa \
   --llm-provider anthropic --llm-model claude-haiku-4-5-20251001
+
+# Kimi / Moonshot (OpenAI-compatible, https://api.moonshot.ai/v1).
+# Needs MOONSHOT_API_KEY (or kimi_api_key) in .env and a funded account.
+# K3 always reasons and fixes its sampling params, so --llm-temperature is
+# ignored. --llm-reasoning-effort defaults to medium; K3 only accepts
+# low|high|max, so medium maps to high (logged when it happens).
+python3 -m repogen evaluate --repo faker_qa \
+  --llm-provider kimi --llm-model kimi-k3 --parallel 6
 ```
 
 Repo → image mapping lives in `repositories.json` (same format as RepoBehave's
 `Repositories.json`; override any image with `--image`).
+
+Answer schemas are standardized: `repogen/prompts/canonical_templates.json`
+holds the canonical `template_answer` shapes per category, extracted from the
+manually verified RepoBehave benchmark. The generation prompt requires the
+agent to use one of them verbatim (exact keys — `file`/`func`/`variable`
+vocabulary, never invented alternatives); screening's `answer_rich` thresholds
+are aligned with the smallest canonical template of each category.
 
 ## The generation process
 
