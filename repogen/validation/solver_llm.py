@@ -17,18 +17,24 @@ Outputs are namespaced by <provider>/<model>, exactly like the solver_agent
 validator's <agent>/<model>, so several models accumulate side by side.
 
 Settings (via CLI):
-  provider     openai | anthropic | gemini | fireworks | openrouter | vllm
+  provider     openai | anthropic | gemini | fireworks | openrouter | vllm | kimi
   model        provider model id (required)
   repo_map_mode  repomap (needs aider-chat) | cheap_repomap | none
   container_runtime  docker | apptainer  (for the one-time repo snapshot)
-  max_read_lines, cheap_repomap_max_files, temperature, max_repair_rounds
+  max_read_lines, cheap_repomap_max_files, temperature, reasoning_effort,
+  max_repair_rounds
   float_tol    scoring tolerance
+  parallel     concurrent instances (default 1). Pure API work over a shared
+               read-only snapshot, so the practical ceiling is the provider's
+               rate limit, not local resources.
 """
 
 from __future__ import annotations
 
 import json
+import queue
 import tempfile
+import threading
 from pathlib import Path
 
 from ..scoring import score_answer
@@ -79,6 +85,7 @@ class SolverLLMValidator(Validator):
         max_read_lines = int(self.settings.get("max_read_lines") or 250)
         cheap_repomap_max_files = int(self.settings.get("cheap_repomap_max_files") or 2000)
         temperature = float(self.settings.get("temperature") or 0.0)
+        reasoning_effort = str(self.settings.get("reasoning_effort") or "")
         max_repair_rounds = int(self.settings.get("max_repair_rounds") or 2)
         float_tol = float(self.settings.get("float_tol") or 1e-6)
 
@@ -108,37 +115,80 @@ class SolverLLMValidator(Validator):
         out_root = ctx.run_dir / "evaluation" / "llm" / self.scope_key()
         out_root.mkdir(parents=True, exist_ok=True)
 
-        verdicts: list[ValidationVerdict] = []
-        total_cost = 0.0
-        cost_known = True
+        total = len(instance_dirs)
+        parallel = max(1, int(self.settings.get("parallel") or 1))
+        workers = min(parallel, total)
 
-        for index, instance_dir in enumerate(instance_dirs, start=1):
-            instance_id = instance_dir.name
-            print(f"[solver_llm][{index}/{len(instance_dirs)}] {instance_id} "
-                  f"({provider}/{model})")
-            verdict, inst_cost = self._validate_one(
-                ctx=ctx,
-                instance_dir=instance_dir,
-                repo_root=repo_root,
-                out_root=out_root,
-                run_single_instance=run_single_instance,
-                provider=provider,
-                model=model,
-                repo_map_mode=repo_map_mode,
-                max_read_lines=max_read_lines,
-                cheap_repomap_max_files=cheap_repomap_max_files,
-                temperature=temperature,
-                max_repair_rounds=max_repair_rounds,
-                float_tol=float_tol,
-            )
-            if inst_cost is None:
-                cost_known = False
-            else:
-                total_cost += inst_cost
-            status = "PASS" if verdict.passed else f"FAIL ({verdict.reason})"
-            cost_str = f"${inst_cost:.4f}" if inst_cost is not None else "cost n/a"
-            print(f"    -> {status}  [{cost_str}]")
-            verdicts.append(verdict)
+        # Shared work queue. Every instance is independent: its own eval bundle,
+        # its own output dir, its own ProviderRunner — the only shared state is
+        # the read-only repo snapshot, which is materialized above.
+        work: queue.Queue = queue.Queue()
+        for item in enumerate(instance_dirs, start=1):
+            work.put(item)
+        results: dict[int, tuple] = {}
+        errors: list[str] = []
+        lock = threading.Lock()
+
+        def run_worker(worker_id: int) -> None:
+            tag = "[solver_llm]" if workers == 1 else f"[solver_llm][w{worker_id}]"
+            while True:
+                try:
+                    index, instance_dir = work.get_nowait()
+                except queue.Empty:
+                    return
+                instance_id = instance_dir.name
+                print(f"{tag}[{index}/{total}] {instance_id} ({provider}/{model})")
+                try:
+                    verdict, inst_cost = self._validate_one(
+                        ctx=ctx,
+                        instance_dir=instance_dir,
+                        repo_root=repo_root,
+                        out_root=out_root,
+                        run_single_instance=run_single_instance,
+                        provider=provider,
+                        model=model,
+                        repo_map_mode=repo_map_mode,
+                        max_read_lines=max_read_lines,
+                        cheap_repomap_max_files=cheap_repomap_max_files,
+                        temperature=temperature,
+                        reasoning_effort=reasoning_effort,
+                        max_repair_rounds=max_repair_rounds,
+                        float_tol=float_tol,
+                    )
+                except Exception as exc:  # noqa: BLE001 — reported after join
+                    with lock:
+                        errors.append(f"{instance_id}: {type(exc).__name__}: {exc}")
+                    print(f"{tag} {instance_id} -> ERROR {type(exc).__name__}: {exc}")
+                    continue
+                status = "PASS" if verdict.passed else f"FAIL ({verdict.reason})"
+                cost_str = f"${inst_cost:.4f}" if inst_cost is not None else "cost n/a"
+                print(f"{tag} {instance_id} -> {status}  [{cost_str}]")
+                with lock:
+                    results[index] = (verdict, inst_cost)
+
+        if workers == 1:
+            run_worker(1)
+        else:
+            print(f"[solver_llm] evaluating {total} instance(s) with {workers} workers")
+            threads = [
+                threading.Thread(target=run_worker, args=(i,), daemon=True)
+                for i in range(1, workers + 1)
+            ]
+            for t in threads:
+                t.start()
+            for t in threads:
+                t.join()
+
+        if len(results) != total:
+            # Evaluation never discards, so a missing instance is a reporting
+            # gap, not a data-loss risk: report loudly and score what we have.
+            print(f"[solver_llm] WARNING: {total - len(results)} instance(s) produced "
+                  f"no verdict: {'; '.join(errors) or 'no error recorded'}")
+
+        verdicts = [results[i][0] for i in sorted(results)]
+        costs = [results[i][1] for i in sorted(results)]
+        cost_known = all(c is not None for c in costs)
+        total_cost = sum(c for c in costs if c is not None)
 
         summary = {
             "provider": provider,
@@ -147,6 +197,8 @@ class SolverLLMValidator(Validator):
             "instances": len(verdicts),
             "passed": sum(1 for v in verdicts if v.passed),
             "total_cost_usd": total_cost if cost_known else None,
+            "parallel": workers,
+            "errors": errors,
         }
         (out_root / "run_summary.json").write_text(
             json.dumps(summary, indent=2) + "\n", encoding="utf-8"
@@ -160,7 +212,7 @@ class SolverLLMValidator(Validator):
     def _validate_one(
         self, *, ctx, instance_dir, repo_root, out_root, run_single_instance,
         provider, model, repo_map_mode, max_read_lines, cheap_repomap_max_files,
-        temperature, max_repair_rounds, float_tol,
+        temperature, reasoning_effort, max_repair_rounds, float_tol,
     ):
         instance_id = instance_dir.name
         oracle = ctx.load_oracle(instance_dir)
@@ -184,6 +236,7 @@ class SolverLLMValidator(Validator):
                     repo_map_mode=repo_map_mode,
                     cheap_repomap_max_files=cheap_repomap_max_files,
                     temperature=temperature,
+                    reasoning_effort=reasoning_effort,
                     max_repair_rounds=max_repair_rounds,
                     trace=trace_lines.append,
                 )

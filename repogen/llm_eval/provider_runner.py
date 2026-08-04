@@ -46,6 +46,13 @@ DEFAULT_FIREWORKS_MAX_RETRIES = int(os.environ.get("REPOBEHAVE_FIREWORKS_MAX_RET
 DEFAULT_VLLM_REQUEST_TIMEOUT_SECONDS = float(
     os.environ.get("REPOBEHAVE_VLLM_REQUEST_TIMEOUT_SECONDS", "600")
 )
+# Kimi (Moonshot) is OpenAI-compatible. Long default timeout: K3 always
+# reasons, so first-token latency is high on big repo contexts.
+DEFAULT_KIMI_REQUEST_TIMEOUT_SECONDS = float(
+    os.environ.get("REPOBEHAVE_KIMI_REQUEST_TIMEOUT_SECONDS", "600")
+)
+DEFAULT_KIMI_MAX_RETRIES = int(os.environ.get("REPOBEHAVE_KIMI_MAX_RETRIES", "2"))
+DEFAULT_KIMI_BASE_URL = "https://api.moonshot.ai/v1"
 TOOL_PHASE_DONE_SENTINEL = "DONE_WITH_FILE_READING"
 TOOL_PHASE_REMINDER_PROMPT = (
     "Do not answer yet. If you still need repository context, continue with tool calls. "
@@ -180,10 +187,12 @@ class ProviderRunner:
         temperature: float = 0.0,
         trace: Optional[Callable[[str], None]] = None,
         final_answer_prompt: Optional[str] = None,
+        reasoning_effort: str = "",
     ):
         self.provider = provider
         self.model = model
         self.temperature = temperature
+        self.reasoning_effort = self._normalize_effort(provider, reasoning_effort)
         self.trace = trace
         # The follow-up prompt that closes the tool phase and requests the final
         # answer. Defaults to bare-JSON (unchanged for all existing models); the
@@ -192,7 +201,28 @@ class ProviderRunner:
         self._usage = _empty_usage(provider, model)
         # Some newer OpenAI models (gpt-5.x, o-series, ...) reject the
         # `temperature` parameter. Set once we see that error, then omitted.
-        self._omit_temperature = False
+        # Kimi fixes sampling params server-side and documents that they must be
+        # omitted, so skip the discover-by-failure round-trip entirely.
+        self._omit_temperature = provider == "kimi"
+
+    # Kimi K3 documents exactly these effort levels (default: max). Anything
+    # else — e.g. the CLI default `medium`, or OpenAI's `minimal` — is mapped to
+    # the nearest supported level instead of being sent and rejected.
+    _KIMI_EFFORTS = ("low", "high", "max")
+    _KIMI_EFFORT_MAP = {"minimal": "low", "medium": "high"}
+
+    @classmethod
+    def _normalize_effort(cls, provider: str, effort: str) -> str:
+        effort = (effort or "").strip().lower()
+        if not effort or provider != "kimi" or effort in cls._KIMI_EFFORTS:
+            return effort
+        mapped = cls._KIMI_EFFORT_MAP.get(effort, "high")
+        print(
+            f"[kimi] reasoning_effort '{effort}' is not supported "
+            f"(low|high|max); using '{mapped}'",
+            flush=True,
+        )
+        return mapped
 
     def _t(self, msg: str) -> None:
         if self.trace:
@@ -336,6 +366,8 @@ class ProviderRunner:
         models that reject it (retries once without it, then omits it)."""
         if not self._omit_temperature and "temperature" not in kwargs:
             kwargs["temperature"] = self.temperature
+        if self.reasoning_effort and "reasoning_effort" not in kwargs:
+            kwargs["reasoning_effort"] = self.reasoning_effort
         try:
             return client.chat.completions.create(**kwargs)
         except Exception as exc:
@@ -398,6 +430,14 @@ class ProviderRunner:
             )
         if self.provider == "vllm":
             return self._run_vllm(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                tool_callback=tool_callback,
+                enable_tools=enable_tools,
+                tool_names=active_tool_names,
+            )
+        if self.provider == "kimi":
+            return self._run_kimi(
                 system_prompt=system_prompt,
                 user_prompt=user_prompt,
                 tool_callback=tool_callback,
@@ -653,6 +693,58 @@ class ProviderRunner:
             tool_names=tool_names,
             trace_label="fireworks-chat",
             usage_source="openai-chat-fireworks",
+            request_counter=request_counter,
+        )
+
+    def _run_kimi(
+        self, *, system_prompt: str, user_prompt: str, tool_callback, enable_tools: bool, tool_names: List[str]
+    ) -> str:
+        """Kimi / Moonshot (https://api.moonshot.ai/v1) — OpenAI-compatible.
+
+        Notes specific to K3: sampling params (temperature, top_p, ...) are fixed
+        server-side and must be omitted; reasoning is always on and tuned with
+        `reasoning_effort` (low | high | max)."""
+        import openai
+
+        api_key = (
+            os.environ.get("MOONSHOT_API_KEY")
+            or os.environ.get("moonshot_api_key")
+            or os.environ.get("KIMI_API_KEY")
+            or os.environ.get("kimi_api_key")
+        )
+        if not api_key:
+            raise RuntimeError(
+                "Kimi API key not found. Set MOONSHOT_API_KEY (or KIMI_API_KEY) in your environment/.env."
+            )
+        if not hasattr(openai, "OpenAI"):
+            raise RuntimeError(
+                "Modern OpenAI SDK required. Install or upgrade the 'openai' package in the host environment."
+            )
+
+        base_url = (
+            os.environ.get("MOONSHOT_BASE_URL")
+            or os.environ.get("KIMI_BASE_URL")
+            or DEFAULT_KIMI_BASE_URL
+        )
+        client = openai.OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+            timeout=max(1.0, float(DEFAULT_KIMI_REQUEST_TIMEOUT_SECONDS)),
+            max_retries=max(0, int(DEFAULT_KIMI_MAX_RETRIES)),
+        )
+        request_counter = [0]
+        messages: List[Dict[str, Any]] = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ]
+        return self._run_openai_chat(
+            client=client,
+            messages=messages,
+            tool_callback=tool_callback,
+            enable_tools=enable_tools,
+            tool_names=tool_names,
+            trace_label="kimi-chat",
+            usage_source="openai-chat-kimi",
             request_counter=request_counter,
         )
 

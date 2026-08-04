@@ -97,8 +97,10 @@ def _run_stage(
     for validator in validators:
         scope = validator.scope_key()
         can_discard = discard and not getattr(validator, "evaluation_only", False)
+        only = validator.settings.get("instance_ids")
+        count = len(only) if only is not None else len(ctx.instance_dirs())
         print(f"[{label}] stage '{validator.name}' scope '{scope}' "
-              f"on {len(ctx.instance_dirs())} instances")
+              f"on {count} instances")
         verdicts = validator.validate(ctx)
         failed = [v for v in verdicts if not v.passed]
         if can_discard:

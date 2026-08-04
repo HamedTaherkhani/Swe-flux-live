@@ -47,7 +47,11 @@ def build_parser() -> argparse.ArgumentParser:
     gen.add_argument("--qa-dir-name", default="", help="QA dir name inside container")
     gen.add_argument("--workdir", default="/testbed")
     gen.add_argument("--seed", type=int, default=7)
-    gen.add_argument("--agent-timeout", type=int, default=2400, help="seconds per instance")
+    gen.add_argument(
+        "--agent-timeout", type=int, default=900,
+        help="seconds per instance (default 900 — caps the cost of hung agent "
+        "sessions; healthy instances finish in 2-5 minutes)",
+    )
     gen.add_argument("--max-per-module", type=int, default=3)
     gen.add_argument(
         "--plan-only", action="store_true",
@@ -107,7 +111,24 @@ def build_parser() -> argparse.ArgumentParser:
         help="model for the solver agent (required for solver_agent)",
     )
     validate.add_argument("--solver-timeout", type=int, default=900)
+    validate.add_argument(
+        "--solver-effort", default="",
+        choices=["", "low", "medium", "high", "xhigh", "max"],
+        help="reasoning effort for claude-code solvers (default: CLI default, "
+        "'high' on current Claude models). For cursor, encode effort in the "
+        "model name instead (e.g. gpt-5.3-codex-high)",
+    )
     validate.add_argument("--float-tol", type=float, default=1e-6)
+    validate.add_argument(
+        "--rollouts", type=int, default=1,
+        help="independent solver sessions per instance; the instance passes "
+        "only if ALL rollouts match the oracle (default 1)",
+    )
+    validate.add_argument(
+        "--parallel", type=int, default=2,
+        help="concurrent solver containers (default 2; budget ~1-1.5GB RAM "
+        "each). All rollouts of one instance stay in one container",
+    )
     validate.add_argument(
         "--dry-run", action="store_true",
         help="report verdicts only; do not discard instances",
@@ -118,6 +139,61 @@ def build_parser() -> argparse.ArgumentParser:
         "all instances (use to add a model's results without pruning instances/)",
     )
     validate.add_argument(
+        "--env-file", type=Path, default=None,
+        help=".env file with API keys; defaults to <project root>/.env",
+    )
+
+    # --- cascade: tiered agent validation that assigns difficulty labels ---
+    cascade = sub.add_parser(
+        "cascade",
+        help="difficulty cascade: run solver agents tier by tier (weakest model "
+        "first). An instance is accepted with the label of the first tier whose "
+        "agent solves it (all rollouts must pass); instances every tier fails "
+        "are discarded.",
+    )
+    cgroup = cascade.add_mutually_exclusive_group(required=True)
+    cgroup.add_argument("--run-dir", type=Path, help="run directory to validate")
+    cgroup.add_argument(
+        "--repo", help="validate the latest run of this repo under --output-root"
+    )
+    cascade.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "out")
+    cascade.add_argument(
+        "--tier", action="append", dest="tiers", metavar="LABEL=AGENT:MODEL",
+        required=True,
+        help="one difficulty tier, weakest model first; repeatable "
+        "(e.g. --tier easy=claude-code:claude-haiku-4-5-20251001 "
+        "--tier hard=claude-code:claude-fable-5)",
+    )
+    cascade.add_argument(
+        "--rollouts", type=int, default=1,
+        help="independent solver sessions per instance per tier; a tier accepts "
+        "an instance only if ALL rollouts match the oracle (default 1)",
+    )
+    cascade.add_argument("--solver-timeout", type=int, default=900)
+    cascade.add_argument(
+        "--parallel", type=int, default=2,
+        help="concurrent solver containers per tier (default 2; budget "
+        "~1-1.5GB RAM each)",
+    )
+    cascade.add_argument(
+        "--solver-effort", default="",
+        choices=["", "low", "medium", "high", "xhigh", "max"],
+        help="reasoning effort for claude-code solvers in every tier "
+        "(default: CLI default, 'high' on current Claude models)",
+    )
+    cascade.add_argument("--float-tol", type=float, default=1e-6)
+    cascade.add_argument(
+        "--no-discard", action="store_true",
+        help="keep instances that fail every tier (recorded as rejected in "
+        "difficulty_report.json but not moved out of instances/)",
+    )
+    cascade.add_argument(
+        "--only-instances", default="",
+        help="comma-separated instance ids to run the cascade on; labels of "
+        "instances outside this set are preserved in difficulty_report.json "
+        "(use to escalate a previous run's rejects to a stronger tier)",
+    )
+    cascade.add_argument(
         "--env-file", type=Path, default=None,
         help=".env file with API keys; defaults to <project root>/.env",
     )
@@ -142,8 +218,15 @@ def build_parser() -> argparse.ArgumentParser:
     )
     evaluate.add_argument(
         "--llm-provider", default="openai",
-        choices=["openai", "anthropic", "gemini", "fireworks", "openrouter", "vllm"],
+        choices=["openai", "anthropic", "gemini", "fireworks", "openrouter", "vllm", "kimi"],
         help="provider for the solver_llm evaluator",
+    )
+    evaluate.add_argument(
+        "--llm-reasoning-effort", default="low",
+        choices=["", "minimal", "low", "medium", "high", "max"],
+        help="reasoning effort for providers that expose it (default low). "
+        "Kimi K3 accepts only low|high|max, so other values are mapped to the "
+        "nearest supported one; pass '' to send no effort at all",
     )
     evaluate.add_argument(
         "--llm-model", default="",
@@ -157,6 +240,12 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate.add_argument(
         "--container-runtime", default="docker", choices=["docker", "apptainer"],
         help="runtime used to snapshot the repo",
+    )
+    evaluate.add_argument(
+        "--parallel", type=int, default=2,
+        help="concurrent instances (default 2). Evaluation is pure API work "
+        "over a shared read-only snapshot, so raise it until you hit the "
+        "provider's rate limit",
     )
     evaluate.add_argument("--llm-max-read-lines", type=int, default=250)
     evaluate.add_argument("--llm-temperature", type=float, default=0.0)
@@ -318,6 +407,9 @@ def cmd_validate(args: argparse.Namespace) -> int:
                 "model": args.solver_model,
                 "timeout_s": args.solver_timeout,
                 "float_tol": args.float_tol,
+                "rollouts": args.rollouts,
+                "effort": args.solver_effort,
+                "parallel": args.parallel,
             }
         validators.append(create_validator(name, settings))
 
@@ -341,6 +433,74 @@ def cmd_validate(args: argparse.Namespace) -> int:
     print(f"\nTotal recorded runs in this dir: {len(report['runs'])}")
     print(f"Remaining instances: {len(report['remaining_instances'])}")
     print(f"Report: {run_dir / 'validation_report.json'}")
+    return 0
+
+
+def cmd_cascade(args: argparse.Namespace) -> int:
+    from .validation import ValidationContext
+    from .validation.cascade import CascadeTier, run_cascade
+
+    loaded = load_env_file(args.env_file)
+    if loaded:
+        print(f"[env] loaded {loaded}")
+    hydrate_provider_env()
+
+    run_dir = _resolve_run_dir(args)
+    if run_dir is None:
+        return 2
+
+    try:
+        tiers = [CascadeTier.parse(spec) for spec in args.tiers]
+    except ValueError as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        return 2
+    backends = set(available_backends())
+    bad = [t.agent for t in tiers if t.agent not in backends]
+    if bad:
+        print(
+            f"ERROR: unknown agent backend(s) {sorted(set(bad))}; "
+            f"available: {', '.join(sorted(backends))}",
+            file=sys.stderr,
+        )
+        return 2
+
+    ctx = ValidationContext.from_run_dir(run_dir)
+    ladder = " -> ".join(f"{t.label}({t.agent}/{t.model})" for t in tiers)
+    print(f"Cascade on {run_dir}\n  ladder: {ladder}\n  rollouts per tier: {args.rollouts}")
+    try:
+        report = run_cascade(
+            ctx, tiers,
+            rollouts=args.rollouts,
+            timeout_s=args.solver_timeout,
+            float_tol=args.float_tol,
+            effort=args.solver_effort,
+            parallel=args.parallel,
+            discard=not args.no_discard,
+            only_instance_ids=(
+                [s.strip() for s in args.only_instances.split(",") if s.strip()]
+                if args.only_instances.strip() else None
+            ),
+        )
+    except (ValueError, RuntimeError) as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        return 2
+
+    print("\nDifficulty assignments:")
+    by_label: dict[str, list[str]] = {}
+    for instance_id, record in sorted(report["assignments"].items()):
+        by_label.setdefault(record["difficulty"], []).append(instance_id)
+    for tier in tiers:
+        ids = by_label.get(tier.label, [])
+        print(f"  {tier.label} ({len(ids)}):")
+        for instance_id in ids:
+            print(f"    {instance_id}")
+    rejected = report["rejected"]
+    verb = "discarded" if report["rejected_discarded"] else "kept (no-discard)"
+    print(f"  rejected — failed every tier ({len(rejected)}, {verb}):")
+    for instance_id in rejected:
+        print(f"    {instance_id}")
+    print(f"\nReport: {run_dir / 'difficulty_report.json'}")
+    print(f"Per-tier runs recorded in: {run_dir / 'validation_report.json'}")
     return 0
 
 
@@ -374,9 +534,11 @@ def cmd_evaluate(args: argparse.Namespace) -> int:
                 "container_runtime": args.container_runtime,
                 "max_read_lines": args.llm_max_read_lines,
                 "temperature": args.llm_temperature,
+                "reasoning_effort": args.llm_reasoning_effort,
                 "max_repair_rounds": args.llm_max_repair_rounds,
                 "float_tol": args.float_tol,
                 "only_agent_validated": not args.all_instances,
+                "parallel": args.parallel,
             }
         evaluators.append(create_validator(name, settings))
 
@@ -416,6 +578,8 @@ def main(argv=None) -> int:
         return cmd_screen(args)
     if args.command == "validate":
         return cmd_validate(args)
+    if args.command == "cascade":
+        return cmd_cascade(args)
     if args.command == "evaluate":
         return cmd_evaluate(args)
     if args.command == "list":

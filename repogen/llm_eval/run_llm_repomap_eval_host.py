@@ -1106,6 +1106,7 @@ def run_single_instance(
     temperature: float,
     max_repair_rounds: int,
     answer_format: str = "json",
+    reasoning_effort: str = "",
     trace: Optional[Callable[[str], None]] = None,
 ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     question_data = load_json(question_path)
@@ -1181,6 +1182,7 @@ def run_single_instance(
         temperature=temperature,
         trace=_emit_trace,
         final_answer_prompt=(FINAL_REASONING_PROMPT if answer_format == "reasoning" else None),
+        reasoning_effort=reasoning_effort,
     )
 
     system_prompt = make_system_prompt(
