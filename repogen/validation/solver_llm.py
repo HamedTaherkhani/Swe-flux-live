@@ -91,6 +91,14 @@ class SolverLLMValidator(Validator):
 
         instance_dirs = ctx.instance_dirs()
 
+        wanted = self.settings.get("instance_ids") or []
+        if wanted:
+            wanted_set = set(wanted)
+            missing = wanted_set - {d.name for d in instance_dirs}
+            if missing:
+                raise ValueError(f"unknown/absent instance ids: {sorted(missing)}")
+            instance_dirs = [d for d in instance_dirs if d.name in wanted_set]
+
         # By default, evaluate only instances at least one agent-validator got
         # right (evidence the oracle is sound). Turn off with only_agent_validated=False.
         if self.settings.get("only_agent_validated", True):

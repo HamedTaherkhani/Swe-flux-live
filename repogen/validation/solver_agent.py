@@ -63,6 +63,43 @@ Required workflow:
 8. Ensure "{answer_out}" is valid JSON before finishing.
 """
 
+# Signatures in an agent's logs that mean the solver never got to reason at all
+# — the provider refused the request. A rollout that dies this way says nothing
+# about the instance, so callers (the cascade) must not count it as a failure.
+_INFRA_SIGNATURES = (
+    ("out of usage credits", "provider usage limit"),
+    ("usage limit reached", "provider usage limit"),
+    ("credit balance is too low", "provider usage limit"),
+    ("rate_limit_error", "provider rate limit"),
+    ("too many requests", "provider rate limit"),
+    ("invalid api key", "auth failure"),
+    ("authentication_error", "auth failure"),
+    ("please run /login", "auth failure"),
+    ("oauth token has expired", "auth failure"),
+)
+
+
+def _detect_infra_failure(host_out: Path) -> str:
+    """Classify a missing answer.json: infrastructure refusal or a real miss.
+
+    Returns a short cause ("provider usage limit", "auth failure", ...) when the
+    agent's logs carry a provider-refusal signature, else "" — the agent ran but
+    produced nothing useful, which IS a solver failure.
+    """
+    for path in sorted(host_out.rglob("*")):
+        if not path.is_file() or path.stat().st_size > 32 * 1024 * 1024:
+            continue
+        if path.suffix not in {".log", ".json", ".txt", ".jsonl"}:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8", errors="ignore").lower()
+        except OSError:
+            continue
+        for needle, cause in _INFRA_SIGNATURES:
+            if needle in text:
+                return cause
+    return ""
+
 
 @register
 class SolverAgentValidator(Validator):
@@ -205,10 +242,19 @@ class SolverAgentValidator(Validator):
             container.exec(f"rm -rf '{eval_root}/{instance_id}'")
             container.cp_to(bundle, f"{eval_root}/{instance_id}")
 
-        # 2. Independent solver sessions; ALL must match the oracle. Stop at
-        #    the first failure — later rollouts can no longer change the verdict.
+        # 2. Independent solver sessions. Verdict passes only if ALL rollouts
+        #    match the oracle. Two stopping strategies:
+        #    - default: fail fast at the first failed rollout (later rollouts
+        #      cannot change an all-must-pass verdict);
+        #    - count_passes: the CALLER also distinguishes partial passes
+        #      (e.g. cascade tiers with a "medium" label for 1-2 of 3), so run
+        #      until the three-way classification (all/none/mixed) is fixed —
+        #      one pass AND one failure seen means "mixed" regardless of the
+        #      remaining rollouts.
         rollouts = self.rollouts
+        count_passes = bool(self.settings.get("count_passes"))
         records: list[dict] = []
+        passes = fails = 0
         for k in range(1, rollouts + 1):
             if rollouts > 1:
                 print(f"    [{instance_id}] rollout {k}/{rollouts}")
@@ -218,23 +264,32 @@ class SolverAgentValidator(Validator):
                 eval_root, answers_root, rollout_out, oracle, timeout_s, float_tol,
             )
             records.append({"rollout": k, "passed": passed, "reason": reason, **details})
-            if not passed:
-                summary = (
-                    f"rollout {k}/{rollouts} failed: {reason}"
-                    if rollouts > 1 else reason
-                )
-                return ValidationVerdict(
-                    instance_id, False, summary,
-                    {"rollouts_required": rollouts, "rollouts": records},
-                )
+            passes += passed
+            fails += (not passed)
+            if not count_passes and fails:
+                break
+            if count_passes and passes and fails:
+                break
+
+        detail = {
+            "rollouts_required": rollouts,
+            "rollouts_run": len(records),
+            "pass_count": passes,
+            "rollouts": records,
+        }
+        if fails == 0:
+            summary = (
+                "solver matched oracle" if rollouts == 1
+                else f"all {rollouts} rollouts matched oracle"
+            )
+            return ValidationVerdict(instance_id, True, summary, detail)
+        first_fail = next(r for r in records if not r["passed"])
         summary = (
-            "solver matched oracle" if rollouts == 1
-            else f"all {rollouts} rollouts matched oracle"
+            f"{passes}/{len(records)} rollouts matched; first failure: "
+            f"{first_fail['reason']}"
+            if rollouts > 1 else first_fail["reason"]
         )
-        return ValidationVerdict(
-            instance_id, True, summary,
-            {"rollouts_required": rollouts, "rollouts": records},
-        )
+        return ValidationVerdict(instance_id, False, summary, detail)
 
     def _run_rollout(
         self,
@@ -279,6 +334,10 @@ class SolverAgentValidator(Validator):
             details["agent_note"] = agent_result.note
 
         if not host_answer.is_file() or host_answer.stat().st_size == 0:
+            infra = _detect_infra_failure(host_out)
+            if infra:
+                details["infra_error"] = infra
+                return False, f"solver could not run ({infra})", details
             return False, "solver produced no answer.json", details
         try:
             predicted = json.loads(host_answer.read_text(encoding="utf-8"))

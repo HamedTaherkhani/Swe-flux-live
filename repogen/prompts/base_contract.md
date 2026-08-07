@@ -213,18 +213,9 @@ against your question text and `files/testcase.py`. Any hit (outside the
 structurally required enumerations noted in the screening rule) means:
 redesign the assertion or the scenario and re-run.
 
-## Exercise the target INDIRECTLY
+## How to reach the target: {{EXERCISE_MODE}}
 
-Do not import, construct, or call the target head-on. Reach it through a call
-chain: invoke one of the known callers listed in the assignment (two hops up
-is better than one), or a public entry point that leads to it. A direct call
-hands the solver the target's exact arguments for free; through a chain, the
-solver must first work out what the target even receives. Ideally the
-target's name does not appear anywhere in `testcase.py` (screening records
-this). Fall back to a direct call ONLY if no caller or entry point can drive
-the target through the branches this category needs — and then make the
-inputs computed rather than literal. The tracer is unaffected either way
-(TRACE_FUNC matches the target wherever it is called from).
+{{EXERCISE_DIRECTIVE}}
 
 ## Make the runtime too big to simulate in the head
 

@@ -39,6 +39,37 @@ class PromptBuilder:
             parts.append("two hops up: " + ", ".join(f"`{c}`" for c in two))
         return "; ".join(parts)
 
+    _EXERCISE_DIRECTIVES = {
+        "indirect": """This instance is assigned **INDIRECT** exercise.
+
+Do not import, construct, or call the target head-on. Reach it through a call
+chain: invoke one of the known callers listed in the assignment (two hops up
+is better than one), or a public entry point that leads to it. A direct call
+hands the solver the target's exact arguments for free; through a chain, the
+solver must first work out what the target even receives. Ideally the
+target's name does not appear anywhere in `testcase.py` (screening records
+this). Fall back to a direct call ONLY if no caller or entry point can drive
+the target through the branches this category needs — and then make the
+inputs computed rather than literal. The tracer is unaffected either way
+(TRACE_FUNC matches the target wherever it is called from).""",
+        "direct": """This instance is assigned **DIRECT** exercise.
+
+Import and call the target itself — do not route through a caller. The
+difficulty here must come from the inputs and the volume of work, not from
+hiding where the call happens. So: build the arguments **programmatically**
+(seeded generators, comprehensions, values derived from earlier computation)
+so the solver still has to simulate how they were constructed, never small
+literals it can read off the page. Drive enough iterations and branches that
+the runtime cannot be traced mentally. Naming the target in `testcase.py` is
+expected for this mode; leaking any part of the ANSWER there is still
+forbidden.""",
+    }
+
+    def _render_exercise_directive(self, mode: str) -> str:
+        return self._EXERCISE_DIRECTIVES.get(
+            mode, self._EXERCISE_DIRECTIVES["indirect"]
+        )
+
     def _render_canonical_templates(self, category: str) -> str:
         """Render the category's canonical template_answer shapes for the prompt."""
         entry = self.canonical_templates.get(category)
@@ -75,6 +106,10 @@ class PromptBuilder:
             "{{TARGET_LINES}}": f"{target['lineno']}-{target['end_lineno']}",
             "{{TARGET_METRICS}}": json.dumps(target["metrics"], sort_keys=True),
             "{{TARGET_CALLERS}}": self._render_callers(target),
+            "{{EXERCISE_MODE}}": planned.exercise_mode.upper(),
+            "{{EXERCISE_DIRECTIVE}}": self._render_exercise_directive(
+                planned.exercise_mode
+            ),
             "{{EXISTING_INSTANCES}}": existing,
             "{{SCREENING_RULES}}": screening_contract(planned.category),
             "{{CANONICAL_TEMPLATES}}": self._render_canonical_templates(planned.category),

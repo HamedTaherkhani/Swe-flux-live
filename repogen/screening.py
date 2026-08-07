@@ -458,9 +458,9 @@ class TargetIndirectionRule(ScreeningRule):
         return (
             "- **target_indirection** (recorded, not enforced): the screener "
             "notes whether `files/testcase.py` invokes the target directly. "
-            "Exercise the target through one of its callers or an entry point, "
-            "per the indirect-exercise rule above — the target's name should "
-            "ideally not appear in the test file at all."
+            "Follow the exercise mode assigned to THIS instance above — it "
+            "decides whether the target is reached head-on or through a call "
+            "chain; this rule only records what you did."
         )
 
     def check(self, ctx: InstanceContext) -> RuleResult:

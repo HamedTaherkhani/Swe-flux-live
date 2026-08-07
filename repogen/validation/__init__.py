@@ -174,8 +174,13 @@ def available_evaluators() -> list[str]:
 
 
 def agent_validated_instances(run_dir: Path) -> Optional[set]:
-    """Instance ids that at least one AGENT-validator run marked as passed
-    (union across all non-evaluation validation runs in validation_report.json).
+    """Instance ids at least one AGENT rollout answered correctly (union across
+    all non-evaluation validation runs in validation_report.json).
+
+    A verdict counts when it passed outright OR when some of its rollouts
+    matched the oracle (pass_count > 0) — the cascade accepts those as its
+    partial-pass band ("medium"), and one correct agent rollout is the evidence
+    that matters here: the oracle is reachable.
 
     Returns None if there is no validation report or no agent-validation runs
     (so callers can distinguish "nothing validated yet" from "validated, none
@@ -195,7 +200,12 @@ def agent_validated_instances(run_dir: Path) -> Optional[set]:
             continue  # skip LLM-evaluation runs; only agent validation counts
         found_agent_run = True
         for verdict in run.get("verdicts", []):
-            if verdict.get("passed") and verdict.get("instance_id"):
+            if not verdict.get("instance_id"):
+                continue
+            solved = verdict.get("passed") or (
+                verdict.get("details", {}).get("pass_count", 0) > 0
+            )
+            if solved:
                 passed.add(verdict["instance_id"])
     return passed if found_agent_run else None
 

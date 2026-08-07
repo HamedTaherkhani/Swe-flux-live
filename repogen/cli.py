@@ -158,11 +158,14 @@ def build_parser() -> argparse.ArgumentParser:
     )
     cascade.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "out")
     cascade.add_argument(
-        "--tier", action="append", dest="tiers", metavar="LABEL=AGENT:MODEL",
+        "--tier", action="append", dest="tiers", metavar="LABEL[/PARTIAL]=AGENT:MODEL",
         required=True,
-        help="one difficulty tier, weakest model first; repeatable "
-        "(e.g. --tier easy=claude-code:claude-haiku-4-5-20251001 "
-        "--tier hard=claude-code:claude-fable-5)",
+        help="one difficulty tier, weakest model first; repeatable. "
+        "LABEL applies when ALL rollouts pass; with /PARTIAL, mixed-rollout "
+        "instances get that label instead of escalating (only zero-pass "
+        "instances move to the next tier). e.g. "
+        "--tier easy/medium=claude-code:claude-haiku-4-5-20251001 "
+        "--tier hard=claude-code:claude-fable-5",
     )
     cascade.add_argument(
         "--rollouts", type=int, default=1,
@@ -251,6 +254,11 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate.add_argument("--llm-temperature", type=float, default=0.0)
     evaluate.add_argument("--llm-max-repair-rounds", type=int, default=2)
     evaluate.add_argument("--float-tol", type=float, default=1e-6)
+    evaluate.add_argument(
+        "--only-instances", default="",
+        help="comma-separated instance ids to evaluate (subset of instances/); "
+        "others are skipped entirely",
+    )
     evaluate.add_argument(
         "--all-instances", action="store_true",
         help="evaluate every instance in instances/ (default: only instances at "
@@ -538,6 +546,9 @@ def cmd_evaluate(args: argparse.Namespace) -> int:
                 "max_repair_rounds": args.llm_max_repair_rounds,
                 "float_tol": args.float_tol,
                 "only_agent_validated": not args.all_instances,
+                "instance_ids": [
+                    i.strip() for i in args.only_instances.split(",") if i.strip()
+                ],
                 "parallel": args.parallel,
             }
         evaluators.append(create_validator(name, settings))
