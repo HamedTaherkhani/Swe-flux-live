@@ -1820,7 +1820,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Run host-side read-only LLM RepoMap QA eval")
     p.add_argument(
         "--provider",
-        choices=["openai", "gemini", "anthropic", "fireworks", "openrouter", "vllm"],
+        choices=["openai", "gemini", "anthropic", "fireworks", "deepseek", "openrouter", "vllm"],
         required=True,
     )
     p.add_argument("--model", required=True)

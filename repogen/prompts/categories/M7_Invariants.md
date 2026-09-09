@@ -1,35 +1,54 @@
 # M7_Invariants — runtime invariants over state
 
 Ask which candidate properties over the target function's variables actually
-held at every observation during the test run.
+held at every observation during the test run, AND how often each was
+violated.
 
-Good question archetypes (pick ONE):
-- Single-predicate invariant check: state ONE candidate predicate verbatim in
-  the question (e.g. `len(code) == length - 1` at every execution of line L)
-  and ask whether it held at every observation — canonical template
-  `invariant_exists`. Pick a predicate that is genuinely hard to decide
-  statically (its truth must depend on the runtime data).
-- Loop invariant with violation accounting: one predicate checked at every
-  iteration, reporting whether it always held, how many iterations were
-  observed, and how many violated it — canonical template
-  `is_invariant_always_held`/`total_iterations_observed`/
-  `violating_iteration_count`.
-- Monotonicity/shape: whether a named variable was `strictly_increasing`,
-  `non_decreasing`, `constant`, or `none` across loop iterations — canonical
-  template `monotonicity` (enumerate the allowed strings verbatim in the
-  question).
+## Never answer with a bare boolean or a bare enum
 
-Answer definition rules:
-- State the candidate predicate verbatim in the question; predicates are
-  evaluated on traced local values at the stated observation point.
-- Define the observation point exactly (line + event), and "held" = true at
-  every observation, with zero observations counting as NOT evaluable (say
-  how to report that).
+A one-bit answer (`{"invariant_exists": true}`) is 50% correct by coin flip; a
+four-way enum (`monotonicity`) is 25%. Neither measures whether the solver
+simulated anything, and extra test methods do not make a boolean harder. Every
+M7 answer MUST carry per-predicate counts, so the solver has to evaluate the
+predicate at every observation and tally.
 
-Template: use a canonical template for this category (see the canonical
-answer templates section) — do not invent another shape.
+## Required question archetype
 
-Hardness levers:
-- Mix predicates so that some hold, some are violated only on a late
-  invocation or iteration, and at least one is violated exactly once.
-- 6–10 candidate predicates; avoid predicates decidable statically.
+Violation accounting over the whole run — canonical template
+`invariant_report`: a list of `{predicate, held_always, observations,
+violations}` objects, one per candidate predicate stated in the question.
+
+- State 3-6 candidate predicates VERBATIM in the question, each genuinely
+  undecidable statically (its truth must depend on runtime data).
+- `observations` = how many times the predicate was evaluated (one per
+  execution of the stated observation point, summed across ALL test methods).
+- `violations` = how many of those evaluations were false.
+- `held_always` = `violations == 0`; it is redundant on purpose, so a solver
+  that guesses the boolean still fails the counts.
+
+Simpler shapes remain available ONLY for a single-predicate loop question:
+`is_invariant_always_held`/`total_iterations_observed`/
+`violating_iteration_count` — it already carries counts. Do not use a
+standalone `invariant_exists` or `monotonicity` answer.
+
+## Answer definition rules
+
+- State each candidate predicate verbatim; predicates are evaluated on traced
+  local values at the stated observation point.
+- Define the observation point exactly (line + event), and say how many test
+  methods contribute (all of them — counts are totals across the class).
+- "Held" = true at every observation. A predicate with ZERO observations is
+  not evaluable: state explicitly how to report it (e.g. `observations: 0`,
+  `violations: 0`, `held_always: false`).
+- Sort the list by `predicate` string ascending; state the tie-break.
+
+## Hardness levers
+
+- Mix predicates so some always hold, some are violated only on a late
+  invocation, and at least one is violated exactly once — the counts then
+  differ per predicate and cannot be guessed as a block.
+- Aim for violation counts spanning a range (e.g. 0, 1, 7, 23) rather than
+  all-zero or all-equal.
+- Include one predicate that is never evaluated (its observation point is not
+  reached), to punish assuming every predicate runs.
+- Avoid predicates decidable from the source alone.

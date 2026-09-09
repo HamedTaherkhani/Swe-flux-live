@@ -9,8 +9,9 @@ Good question archetypes (pick ONE):
 - Total iterations of a stated loop summed over the whole test — canonical
   template `total_iterations`.
 - Which test cases exit the loop via `break` — canonical template
-  `tests_terminating_at_break` (pytest id strings, sorted; requires a
-  multi-case test).
+  `tests_terminating_at_break` (pytest id strings, sorted). This category
+  already requires 10-15 test methods, so the answer is a genuine matrix over
+  them; make sure some methods break and some do not.
 
 Answer definition rules:
 - Identify each loop by header line number; define iteration = executions of

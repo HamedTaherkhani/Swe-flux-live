@@ -3,21 +3,35 @@
   "S1_IntraProceduralCFG": {
     "templates": [
       {
-        "template": {"executed_path": [{"file": "str", "func": "str", "line": "int"}]},
+        "template": {
+          "executed_path": [
+            {
+              "file": "str",
+              "func": "str",
+              "line": "int"
+            }
+          ]
+        },
         "use_for": "the exact ordered sequence of executed line events inside the target for a stated invocation",
-        "varies": "nothing — keys, nesting, and types are fixed"
+        "varies": "nothing \u2014 keys, nesting, and types are fixed"
       }
     ]
   },
   "S2_Loops": {
     "templates": [
       {
-        "template": {"loop_iteration_count": "int"},
+        "template": {
+          "loop_iteration_count": "int"
+        },
         "use_for": "iteration count of one specific loop (identified by header line) for a stated invocation",
         "varies": "nothing"
       },
       {
-        "template": {"nth_iteration": "int", "variable": "str", "value": "str"},
+        "template": {
+          "nth_iteration": "int",
+          "variable": "str",
+          "value": "str"
+        },
         "use_for": "the value of a named loop variable at a specific iteration",
         "varies": "the type of 'value' may be 'int', 'float', or 'str' to match the actual data"
       }
@@ -26,17 +40,35 @@
   "S3_ProgramState": {
     "templates": [
       {
-        "template": {"observed_state": [{"variable": "str", "value": "str"}]},
+        "template": {
+          "observed_state": [
+            {
+              "variable": "str",
+              "value": "str"
+            }
+          ]
+        },
         "use_for": "values of named locals at a precise observation point",
         "varies": "nothing structural; values are repr strings"
       },
       {
-        "template": {"value_history": [{"step": "int", "value": "str"}]},
+        "template": {
+          "value_history": [
+            {
+              "step": "int",
+              "value": "str"
+            }
+          ]
+        },
         "use_for": "ordered history of one variable's values during an invocation",
         "varies": "nothing structural; values are repr strings"
       },
       {
-        "template": {"temporal_value_history": ["str"]},
+        "template": {
+          "temporal_value_history": [
+            "str"
+          ]
+        },
         "use_for": "flat ordered list of repr values a variable takes",
         "varies": "nothing"
       }
@@ -46,21 +78,36 @@
   "S4_DataFlow": {
     "templates": [
       {
-        "template": {"observed_def_use_pairs": [{"def_line": "int", "use_line": "int", "variable": "str"}]},
-        "use_for": "all def-use questions — 114 of 118 verified S4 instances use exactly this shape",
-        "varies": "nothing — keys, nesting, and types are fixed; never use 'var', 'file', or per-invocation maps"
+        "template": {
+          "observed_def_use_pairs": [
+            {
+              "def_line": "int",
+              "use_line": "int",
+              "variable": "str"
+            }
+          ]
+        },
+        "use_for": "all def-use questions \u2014 114 of 118 verified S4 instances use exactly this shape",
+        "varies": "nothing \u2014 keys, nesting, and types are fixed; never use 'var', 'file', or per-invocation maps"
       }
     ]
   },
   "S5_Exceptions": {
     "templates": [
       {
-        "template": {"exception_type": "str", "exception_message": "str"},
+        "template": {
+          "exception_type": "str",
+          "exception_message": "str"
+        },
         "use_for": "the single exception raised/propagated in the scenario (type + exact str(exc))",
         "varies": "nothing"
       },
       {
-        "template": {"caught_exception_kinds": ["str"]},
+        "template": {
+          "caught_exception_kinds": [
+            "str"
+          ]
+        },
         "use_for": "the set of exception types caught during the run (state sort order in the question)",
         "varies": "nothing"
       }
@@ -69,22 +116,41 @@
   "S6_InterProceduralCFG": {
     "templates": [
       {
-        "template": {"function_call_count": "int"},
+        "template": {
+          "function_call_count": "int"
+        },
         "use_for": "how many times a named function is invoked during the test",
         "varies": "nothing"
       },
       {
-        "template": {"maximum_call_stack_depth": "int"},
+        "template": {
+          "maximum_call_stack_depth": "int"
+        },
         "use_for": "maximum call depth within a named call chain (define depth counting in the question)",
         "varies": "nothing"
       },
       {
-        "template": {"function_call_order": [{"file": "str", "func": "str"}]},
+        "template": {
+          "function_call_order": [
+            {
+              "file": "str",
+              "func": "str"
+            }
+          ]
+        },
         "use_for": "the ordered sequence of tracked function calls (state the tracked set and inclusion rule in the question)",
         "varies": "nothing"
       },
       {
-        "template": {"executed_path": [{"file": "str", "func": "str", "line": "int"}]},
+        "template": {
+          "executed_path": [
+            {
+              "file": "str",
+              "func": "str",
+              "line": "int"
+            }
+          ]
+        },
         "use_for": "cross-function executed line path",
         "varies": "nothing"
       }
@@ -93,26 +159,43 @@
   "M1_IntraProceduralCFG": {
     "templates": [
       {
-        "template": {"covered_lines": ["int"]},
-        "use_for": "the sorted set of the target's lines executed at least once during the whole test — the dominant verified M1 shape",
+        "template": {
+          "line_execution_counts": [
+            {
+              "line": "int",
+              "count": "int"
+            }
+          ]
+        },
+        "use_for": "how many times each line of the target executed across the whole test (totals over all test methods); every line of the target body appears, including never-executed ones with count 0; sort by line ascending",
         "varies": "nothing"
       }
-    ]
+    ],
+    "notes": "Do NOT use a bare covered_lines union: across 10-15 test methods the union saturates toward every line of the function, making the answer derivable from the source alone. Report per-line counts instead."
   },
   "M2_Loops": {
     "templates": [
       {
-        "template": {"max_iterations": "int", "min_iterations": "int"},
+        "template": {
+          "max_iterations": "int",
+          "min_iterations": "int"
+        },
         "use_for": "max/min iteration counts of a loop across invocations",
         "varies": "nothing"
       },
       {
-        "template": {"total_iterations": "int"},
+        "template": {
+          "total_iterations": "int"
+        },
         "use_for": "total iterations of a loop across the whole test",
         "varies": "nothing"
       },
       {
-        "template": {"tests_terminating_at_break": ["str"]},
+        "template": {
+          "tests_terminating_at_break": [
+            "str"
+          ]
+        },
         "use_for": "which test cases exit the loop via break (pytest id strings, sorted)",
         "varies": "nothing"
       }
@@ -121,17 +204,28 @@
   "M3_ProgramState": {
     "templates": [
       {
-        "template": {"min_value": "float", "max_value": "float"},
+        "template": {
+          "min_value": "float",
+          "max_value": "float"
+        },
         "use_for": "extrema of a traced numeric variable across the run",
         "varies": "types may be 'int' when the variable is integral"
       },
       {
-        "template": {"min_value": "float", "max_value": "float", "variable": "str"},
+        "template": {
+          "min_value": "float",
+          "max_value": "float",
+          "variable": "str"
+        },
         "use_for": "extrema plus the variable name when the question tracks one of several",
         "varies": "types may be 'int' when the variable is integral"
       },
       {
-        "template": {"unique_values": ["str"]},
+        "template": {
+          "unique_values": [
+            "str"
+          ]
+        },
         "use_for": "the sorted set of distinct repr values a variable takes",
         "varies": "nothing"
       }
@@ -141,57 +235,110 @@
   "M4_DataFlow": {
     "templates": [
       {
-        "template": {"observed_def_use_pairs": [{"def_line": "int", "use_line": "int", "variable": "str"}]},
-        "use_for": "all M4 def-use questions — identical shape to S4; hardness comes from the scenario, not the schema",
+        "template": {
+          "observed_def_use_pairs": [
+            {
+              "def_line": "int",
+              "use_line": "int",
+              "variable": "str",
+              "count": "int"
+            }
+          ]
+        },
+        "use_for": "all observed def-use pairs WITH how many times each was observed across the whole test (totals over all test methods); sort by (variable, def_line, use_line)",
         "varies": "nothing"
       }
-    ]
+    ],
+    "notes": "Include a per-pair count: the bare union of pairs saturates across 10-15 test methods toward every statically possible pair, which a solver can read off the source without simulating."
   },
   "M5_Exceptions": {
     "templates": [
       {
-        "template": {"crashing_tests": [{"exception_type": "str", "test": "str"}], "safe_tests": ["str"]},
-        "use_for": "which test cases crash (with what exception type) vs complete safely",
+        "template": {
+          "exception_type_counts": [
+            {
+              "exception_type": "str",
+              "count": "int"
+            }
+          ]
+        },
+        "use_for": "per-type observation counts in the target frame across the whole run (totals over all invocations and all test methods); sort by exception_type ascending",
         "varies": "nothing"
       },
       {
-        "template": {"exception_types": ["str"]},
-        "use_for": "the exception types observed during the run (state sort order in the question)",
+        "template": {
+          "crashing_tests": [
+            {
+              "exception_type": "str",
+              "test": "str"
+            }
+          ],
+          "safe_tests": [
+            "str"
+          ]
+        },
+        "use_for": "which test cases crash (with what exception type) vs complete safely",
         "varies": "nothing"
       }
-    ]
+    ],
+    "notes": "Do NOT use a bare deduplicated exception_types list for M5: dedup collapses the run into ~7 guessable builtin names (~83% solvable). Report counts, or attribute outcomes per test method."
   },
   "M6_InterProceduralCFG": {
     "templates": [
       {
-        "template": {"covered_functions": [{"file": "str", "func": "str"}]},
-        "use_for": "the set of tracked functions executed at least once (state sort order) — the dominant verified M6 shape",
+        "template": {
+          "invocation_counts": [
+            {
+              "file": "str",
+              "func": "str",
+              "count": "int"
+            }
+          ]
+        },
+        "use_for": "per-function invocation counts over a scope named by FILE/MODULE/CLASS (never by listing member names); every in-scope function appears, including never-called ones with count 0; sort by func ascending",
         "varies": "nothing"
       },
       {
-        "template": {"dispatched_implementations": [{"file": "str", "func": "str"}]},
+        "template": {
+          "dispatched_implementations": [
+            {
+              "file": "str",
+              "func": "str"
+            }
+          ]
+        },
         "use_for": "which concrete implementations a dynamic dispatch site selected, in order",
         "varies": "nothing"
       }
-    ]
+    ],
+    "notes": "Do NOT use a bare membership shape (covered_functions) for M6: enumerating candidates in the question made it ~100% solvable. Report counts instead, over a scope the solver must resolve itself."
   },
   "M7_Invariants": {
     "templates": [
       {
-        "template": {"invariant_exists": "bool"},
-        "use_for": "whether a single stated predicate held at every observation — the dominant verified M7 shape (the predicate goes in the QUESTION, verbatim)",
+        "template": {
+          "invariant_report": [
+            {
+              "predicate": "str",
+              "held_always": "bool",
+              "observations": "int",
+              "violations": "int"
+            }
+          ]
+        },
+        "use_for": "per-predicate violation accounting over the whole run; one entry per candidate predicate stated in the question; counts total across all test methods; sort by predicate ascending",
         "varies": "nothing"
       },
       {
-        "template": {"is_invariant_always_held": "bool", "total_iterations_observed": "int", "violating_iteration_count": "int"},
+        "template": {
+          "is_invariant_always_held": "bool",
+          "total_iterations_observed": "int",
+          "violating_iteration_count": "int"
+        },
         "use_for": "one predicate checked across loop iterations with violation accounting",
         "varies": "nothing"
-      },
-      {
-        "template": {"monotonicity": "str"},
-        "use_for": "whether a variable was strictly_increasing / non_decreasing / constant / none across iterations (enumerate the allowed strings in the question)",
-        "varies": "nothing"
       }
-    ]
+    ],
+    "notes": "Never answer M7 with a bare boolean (invariant_exists) or a bare enum (monotonicity): 50%/25% guessable and unaffected by test volume. Every answer must carry per-predicate observation and violation counts."
   }
 }

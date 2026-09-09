@@ -1,32 +1,32 @@
-"""Difficulty cascade: an ordered ladder of solver agents (weakest model first)
-that both validates instances and assigns difficulty labels.
+"""Tiered solver-agent validation (weakest model first).
 
 Tier 1 runs on every kept instance; instances it solves (ALL rollouts must
-match the oracle) are accepted with tier 1's label (e.g. "easy") and leave the
-cascade. The instances it fails escalate to tier 2, and so on. An instance's
-difficulty is the label of the FIRST tier that solves it. Instances no tier
-solves are rejected — with discarding on they move to
+match the oracle) leave the cascade. Failures escalate to tier 2, and so on.
+The tier band is validation metadata only; intrinsic difficulty is computed
+separately from the instance, trace, and oracle. Instances no tier solves are
+rejected — with discarding on they move to
 validation_excluded/cascade/failed_all_tiers/.
 
-A tier with a PARTIAL label ("easy/medium=agent:model") adds a middle band:
-instances where some but not all rollouts pass are ACCEPTED with the partial
-label and leave the cascade (e.g. haiku 1-2/3 -> "medium"). A partial pass is
+A tier with a PARTIAL band ("haiku_all/haiku_partial=agent:model") records mixed
+rollout success separately:
+instances where some but not all rollouts pass are ACCEPTED with a partial
+validation band and leave the cascade. A partial pass is
 already evidence the oracle is reachable, and the mixed outcome is itself the
-difficulty signal, so these need no confirmation from a stronger tier. Only
-zero-pass instances escalate (e.g. haiku 0/3 -> fable; 3/3 there -> "hard").
+validation signal, so these need no confirmation from a stronger tier. Only
+zero-pass instances escalate.
 
 Each tier is recorded as a normal solver_agent run in validation_report.json
 (namespaced by <agent>/<model> as usual), so cascade passes count as agent
 validation everywhere else (e.g. `repogen evaluate`'s default gating). The
-cascade-level outcome — tiers, per-instance difficulty, rejections — is written
-to difficulty_report.json, and each accepted instance gets a difficulty.json
-next to its oracle.json.
+cascade-level outcome — tiers, validation bands, and rejections — is written to
+``cascade_validation_report.json``. It never writes difficulty artifacts.
 """
 
 from __future__ import annotations
 
 import datetime as _dt
 import json
+import threading
 from dataclasses import dataclass
 from typing import Optional
 
@@ -37,23 +37,24 @@ from .solver_agent import SolverAgentValidator
 
 @dataclass
 class CascadeTier:
-    label: str            # label when ALL rollouts pass, e.g. "easy"
+    label: str            # validation band when ALL rollouts pass
     agent: str            # backend name, e.g. "claude-code"
     model: str            # model id for the backend
-    partial_label: str = ""  # label when SOME (not all, not zero) rollouts pass
+    partial_label: str = ""  # band when SOME (not all, not zero) rollouts pass
 
     @classmethod
     def parse(cls, spec: str) -> "CascadeTier":
         """Parse a CLI tier spec: LABEL[/PARTIAL_LABEL]=AGENT:MODEL.
-        e.g. easy/medium=claude-code:claude-haiku-4-5-20251001 labels all-pass
-        instances "easy", mixed-rollout instances "medium", and escalates only
-        zero-pass instances. Without /PARTIAL_LABEL any failure escalates."""
+        e.g. haiku_all/haiku_partial=claude-code:claude-haiku-4-5-20251001
+        records all-pass and mixed-rollout instances separately and escalates
+        only zero-pass instances. Without /PARTIAL_LABEL any failure escalates."""
         label, sep, rest = spec.partition("=")
         agent, sep2, model = rest.partition(":")
         if not sep or not sep2 or not label.strip() or not agent.strip() or not model.strip():
             raise ValueError(
                 f"bad tier spec '{spec}' (expected LABEL[/PARTIAL]=AGENT:MODEL, "
-                "e.g. easy/medium=claude-code:claude-haiku-4-5-20251001)"
+                "e.g. haiku_all/haiku_partial=claude-code:"
+                "claude-haiku-4-5-20251001)"
             )
         label = label.strip()
         partial = ""
@@ -92,11 +93,13 @@ def run_cascade(
         if missing:
             raise ValueError(f"unknown/absent instance ids: {sorted(missing)}")
         remaining = [i for i in remaining if i in wanted]
-    scope = set(remaining)  # labels outside this scope are preserved on merge
-    # Clean slate: labels from a previous cascade run must not survive if this
-    # run rejects (or relabels) the instance.
+    scope = set(remaining)  # validation bands outside this scope survive merge
+    checkpoint_root = ctx.run_dir / "validation" / "cascade" / "checkpoints"
+    checkpoint_root.mkdir(parents=True, exist_ok=True)
+    # Clean slate for validation checkpoints in this invocation's scope. The
+    # canonical intrinsic difficulty.json files are deliberately untouched.
     for instance_id in remaining:
-        (ctx.instances_dir / instance_id / "difficulty.json").unlink(missing_ok=True)
+        (checkpoint_root / f"{instance_id}.json").unlink(missing_ok=True)
     assignments: dict[str, dict] = {}
     tier_summaries: list[dict] = []
     timestamp = _dt.datetime.now().isoformat(timespec="seconds")
@@ -111,6 +114,37 @@ def run_cascade(
             f"({tier.agent} / {tier.model}) on {len(remaining)} instance(s), "
             f"{rollouts} rollout(s) each"
         )
+        # Persist each instance's label the moment its verdict lands, instead of
+        # waiting for the whole tier. A tier that aborts partway (provider usage
+        # limit) or is killed otherwise loses EVERY decision it had already
+        # made, forcing a full re-run of work that was already paid for.
+        # Zero-pass instances are deliberately not written: they escalate to the
+        # next tier, which is what decides their label.
+        write_lock = threading.Lock()
+
+        def _checkpoint(verdict) -> None:
+            instance_id = verdict.instance_id
+            pass_count = (verdict.details or {}).get("pass_count", 0) or 0
+            if verdict.passed:
+                is_partial = False
+            elif tier.partial_label and pass_count > 0:
+                is_partial = True
+            else:
+                return
+            record = {
+                "validation_band": tier.partial_label if is_partial else tier.label,
+                "tier_index": index,
+                "agent": tier.agent,
+                "model": tier.model,
+                "rollouts": rollouts,
+                "pass_count": pass_count if is_partial else rollouts,
+                "partial_pass": is_partial,
+                "timestamp": timestamp,
+            }
+            with write_lock:
+                assignments[instance_id] = record
+                _write_cascade_assignment(ctx, instance_id, record)
+
         validator = SolverAgentValidator(settings={
             "agent": tier.agent,
             "model": tier.model,
@@ -124,6 +158,7 @@ def run_cascade(
             # (all/mixed/zero), so the solver counts passes instead of
             # failing fast.
             "count_passes": bool(tier.partial_label),
+            "on_verdict": _checkpoint,
         })
         # Record the tier as a normal validation run; the cascade owns
         # discarding, so the per-tier run never prunes.
@@ -192,7 +227,7 @@ def run_cascade(
         for instance_id in passed + partial:
             is_partial = instance_id in partial
             record = {
-                "difficulty": tier.partial_label if is_partial else tier.label,
+                "validation_band": tier.partial_label if is_partial else tier.label,
                 "tier_index": index,
                 "agent": tier.agent,
                 "model": tier.model,
@@ -202,7 +237,7 @@ def run_cascade(
                 "timestamp": timestamp,
             }
             assignments[instance_id] = record
-            _write_difficulty(ctx, instance_id, record)
+            _write_cascade_assignment(ctx, instance_id, record)
         tier_summaries.append(_tier_summary(tier, index, passed, failed, partial))
         partial_note = (
             f", {len(partial)} partial-pass accepted as '{tier.partial_label}'"
@@ -223,11 +258,11 @@ def run_cascade(
             for instance_id in rejected:
                 _discard(ctx, "cascade", "failed_all_tiers", instance_id)
 
-    # Merge with any existing report: this run is authoritative only for the
-    # instances in its scope; labels and rejections of instances outside the
+    # Merge with any existing validation report: this run is authoritative only
+    # for its scope; validation bands and rejections outside the
     # scope (e.g. a previous tier's accepts when re-running only the rejects)
     # are preserved.
-    report_path = ctx.run_dir / "difficulty_report.json"
+    report_path = ctx.run_dir / "cascade_validation_report.json"
     previous: dict = {}
     if report_path.is_file():
         try:
@@ -243,6 +278,9 @@ def run_cascade(
     ] + rejected
 
     cascade_report = {
+        "schema_version": 2,
+        "purpose": "solver_validation_only",
+        "affects_difficulty": False,
         "run_dir": str(ctx.run_dir),
         "timestamp": timestamp,
         "rollouts": rollouts,
@@ -282,8 +320,11 @@ def _tier_summary(
     }
 
 
-def _write_difficulty(ctx: ValidationContext, instance_id: str, record: dict) -> None:
-    path = ctx.instances_dir / instance_id / "difficulty.json"
+def _write_cascade_assignment(
+    ctx: ValidationContext, instance_id: str, record: dict,
+) -> None:
+    path = ctx.run_dir / "validation" / "cascade" / "checkpoints" / f"{instance_id}.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
         json.dump(record, f, indent=2)
         f.write("\n")

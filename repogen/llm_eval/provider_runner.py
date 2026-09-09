@@ -43,6 +43,13 @@ DEFAULT_FIREWORKS_REQUEST_TIMEOUT_SECONDS = float(
     os.environ.get("REPOBEHAVE_FIREWORKS_REQUEST_TIMEOUT_SECONDS", "360")
 )
 DEFAULT_FIREWORKS_MAX_RETRIES = int(os.environ.get("REPOBEHAVE_FIREWORKS_MAX_RETRIES", "0"))
+DEFAULT_DEEPSEEK_REQUEST_TIMEOUT_SECONDS = float(
+    os.environ.get("REPOBEHAVE_DEEPSEEK_REQUEST_TIMEOUT_SECONDS", "600")
+)
+DEFAULT_DEEPSEEK_MAX_RETRIES = int(
+    os.environ.get("REPOBEHAVE_DEEPSEEK_MAX_RETRIES", "2")
+)
+DEFAULT_DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 DEFAULT_VLLM_REQUEST_TIMEOUT_SECONDS = float(
     os.environ.get("REPOBEHAVE_VLLM_REQUEST_TIMEOUT_SECONDS", "600")
 )
@@ -420,6 +427,14 @@ class ProviderRunner:
                 enable_tools=enable_tools,
                 tool_names=active_tool_names,
             )
+        if self.provider == "deepseek":
+            return self._run_deepseek(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                tool_callback=tool_callback,
+                enable_tools=enable_tools,
+                tool_names=active_tool_names,
+            )
         if self.provider == "openrouter":
             return self._run_openrouter(
                 system_prompt=system_prompt,
@@ -602,13 +617,17 @@ class ProviderRunner:
             if msg.tool_calls:
                 for tc in msg.tool_calls:
                     self._t(f"[{trace_label}] tool_call {tc.function.name} args={tc.function.arguments}")
-                messages.append(
-                    {
-                        "role": "assistant",
-                        "content": msg.content or "",
-                        "tool_calls": [tc.model_dump() for tc in msg.tool_calls],
-                    }
-                )
+                assistant_message = {
+                    "role": "assistant",
+                    "content": msg.content or "",
+                    "tool_calls": [tc.model_dump() for tc in msg.tool_calls],
+                }
+                # DeepSeek thinking-mode tool calls require the complete
+                # reasoning_content to be sent back on the next tool turn.
+                reasoning_content = getattr(msg, "reasoning_content", None)
+                if reasoning_content is not None:
+                    assistant_message["reasoning_content"] = reasoning_content
+                messages.append(assistant_message)
 
                 for tc in msg.tool_calls:
                     fn_name = tc.function.name
@@ -694,6 +713,50 @@ class ProviderRunner:
             trace_label="fireworks-chat",
             usage_source="openai-chat-fireworks",
             request_counter=request_counter,
+        )
+
+    def _run_deepseek(
+        self, *, system_prompt: str, user_prompt: str, tool_callback,
+        enable_tools: bool, tool_names: List[str]
+    ) -> str:
+        """Run DeepSeek's OpenAI-compatible Chat Completions API directly."""
+        import openai
+
+        api_key = (
+            os.environ.get("DEEPSEEK_API_KEY")
+            or os.environ.get("deepseek_api_key")
+        )
+        if not api_key:
+            raise RuntimeError(
+                "DeepSeek API key not found. Set DEEPSEEK_API_KEY "
+                "(or deepseek_api_key) in your environment/.env."
+            )
+        if not hasattr(openai, "OpenAI"):
+            raise RuntimeError(
+                "Modern OpenAI SDK required. Install or upgrade the 'openai' "
+                "package in the host environment."
+            )
+
+        base_url = os.environ.get("DEEPSEEK_BASE_URL") or DEFAULT_DEEPSEEK_BASE_URL
+        client = openai.OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+            timeout=max(1.0, float(DEFAULT_DEEPSEEK_REQUEST_TIMEOUT_SECONDS)),
+            max_retries=max(0, int(DEFAULT_DEEPSEEK_MAX_RETRIES)),
+        )
+        messages: List[Dict[str, Any]] = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ]
+        return self._run_openai_chat(
+            client=client,
+            messages=messages,
+            tool_callback=tool_callback,
+            enable_tools=enable_tools,
+            tool_names=tool_names,
+            trace_label="deepseek-chat",
+            usage_source="openai-chat-deepseek",
+            request_counter=[0],
         )
 
     def _run_kimi(

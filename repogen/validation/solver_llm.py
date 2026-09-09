@@ -17,7 +17,7 @@ Outputs are namespaced by <provider>/<model>, exactly like the solver_agent
 validator's <agent>/<model>, so several models accumulate side by side.
 
 Settings (via CLI):
-  provider     openai | anthropic | gemini | fireworks | openrouter | vllm | kimi
+  provider     openai | anthropic | gemini | fireworks | deepseek | openrouter | vllm | kimi
   model        provider model id (required)
   repo_map_mode  repomap (needs aider-chat) | cheap_repomap | none
   container_runtime  docker | apptainer  (for the one-time repo snapshot)
@@ -99,20 +99,22 @@ class SolverLLMValidator(Validator):
                 raise ValueError(f"unknown/absent instance ids: {sorted(missing)}")
             instance_dirs = [d for d in instance_dirs if d.name in wanted_set]
 
-        # By default, evaluate only instances at least one agent-validator got
-        # right (evidence the oracle is sound). Turn off with only_agent_validated=False.
+        # By default, evaluate only instances at least one approved Haiku/Fable
+        # rollout got right. Turn off explicitly with only_agent_validated=False.
         if self.settings.get("only_agent_validated", True):
             from . import agent_validated_instances
 
             allowed = agent_validated_instances(ctx.run_dir)
             if allowed is None:
-                print("[solver_llm] no agent-validation runs found in "
-                      "validation_report.json; evaluating ALL instances")
+                print("[solver_llm] no Haiku/Fable validation runs found; "
+                      "evaluating NO instances (use --all-instances to override)")
+                instance_dirs = []
             else:
                 before = len(instance_dirs)
                 instance_dirs = [d for d in instance_dirs if d.name in allowed]
-                print(f"[solver_llm] restricting to agent-validated instances: "
-                      f"{len(instance_dirs)}/{before} (>=1 agent passed)")
+                print(f"[solver_llm] restricting to validated instances: "
+                      f"{len(instance_dirs)}/{before} "
+                      "(>=1 Haiku/Fable rollout passed)")
 
         if not instance_dirs:
             return []
@@ -201,6 +203,7 @@ class SolverLLMValidator(Validator):
         summary = {
             "provider": provider,
             "model": model,
+            "reasoning_effort": reasoning_effort,
             "repo_map_mode": repo_map_mode,
             "instances": len(verdicts),
             "passed": sum(1 for v in verdicts if v.passed),
@@ -229,6 +232,46 @@ class SolverLLMValidator(Validator):
 
         host_out = out_root / instance_id
         host_out.mkdir(parents=True, exist_ok=True)
+        answer_path = host_out / "answer.json"
+        debug_path = host_out / "debug.json"
+        trace_path = host_out / "trace.log"
+
+        # A process interruption can happen after most expensive API calls have
+        # completed but before evaluation_report.json is assembled. Reuse only
+        # complete per-instance artifacts so a resumed run does not repeat
+        # those calls; incomplete directories fall through to fresh inference.
+        if answer_path.is_file() and debug_path.is_file() and trace_path.is_file():
+            try:
+                parsed = json.loads(answer_path.read_text(encoding="utf-8"))
+                debug = json.loads(debug_path.read_text(encoding="utf-8"))
+            except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+                pass
+            else:
+                cost_obj = debug.get("cost") if isinstance(debug, dict) else None
+                inst_cost = cost_obj.get("cost_usd") if isinstance(cost_obj, dict) else None
+                correct, reason = score_answer(
+                    oracle["oracle_answer"], parsed, float_tol=float_tol
+                )
+                details = {
+                    "provider": provider,
+                    "model": model,
+                    "reasoning_effort": reasoning_effort,
+                    "usage": debug.get("usage") if isinstance(debug, dict) else None,
+                    "cost": cost_obj,
+                    "repair_attempts": (
+                        debug.get("repair_attempts") if isinstance(debug, dict) else None
+                    ),
+                    "score_reason": reason,
+                    "reused_artifact": True,
+                }
+                if correct:
+                    return ValidationVerdict(
+                        instance_id, True, "llm matched oracle", details
+                    ), inst_cost
+                return ValidationVerdict(
+                    instance_id, False, f"llm answer mismatch: {reason}", details
+                ), inst_cost
+
         trace_lines: list[str] = []
 
         with tempfile.TemporaryDirectory(prefix="repogen_llm_") as tmp:
@@ -249,20 +292,20 @@ class SolverLLMValidator(Validator):
                     trace=trace_lines.append,
                 )
             except Exception as exc:  # API error / no valid JSON after repairs
-                (host_out / "trace.log").write_text("\n".join(trace_lines), encoding="utf-8")
+                trace_path.write_text("\n".join(trace_lines), encoding="utf-8")
                 return ValidationVerdict(
                     instance_id, False, f"llm inference failed: {type(exc).__name__}: {exc}",
                     {"provider": provider, "model": model},
                 ), None
 
         # Persist artifacts.
-        (host_out / "answer.json").write_text(
+        answer_path.write_text(
             json.dumps(parsed, indent=2) + "\n", encoding="utf-8"
         )
-        (host_out / "debug.json").write_text(
+        debug_path.write_text(
             json.dumps(debug, indent=2, default=str) + "\n", encoding="utf-8"
         )
-        (host_out / "trace.log").write_text("\n".join(trace_lines), encoding="utf-8")
+        trace_path.write_text("\n".join(trace_lines), encoding="utf-8")
 
         cost_obj = debug.get("cost") if isinstance(debug, dict) else None
         inst_cost = None
@@ -273,6 +316,7 @@ class SolverLLMValidator(Validator):
         details = {
             "provider": provider,
             "model": model,
+            "reasoning_effort": reasoning_effort,
             "usage": debug.get("usage") if isinstance(debug, dict) else None,
             "cost": cost_obj,
             "repair_attempts": debug.get("repair_attempts") if isinstance(debug, dict) else None,

@@ -9,8 +9,10 @@ from __future__ import annotations
 
 import datetime as _dt
 import json
+import queue
 import shlex
 import shutil
+import threading
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Optional
@@ -59,6 +61,7 @@ class Orchestrator:
         self.run_dir = config.run_dir(timestamp)
         self.instances_dir = self.run_dir / "instances"
         self.logs_dir = self.run_dir / "logs"
+        self._manifest_lock = threading.Lock()
         self.manifest = RunManifest(
             repo_key=config.repo_key,
             image=config.image,
@@ -101,27 +104,116 @@ class Orchestrator:
             print(f"[agent] preparing backend '{self.backend.name}'")
             self.backend.prepare(container)
 
-            generated_ids: list[str] = []
             prompt_builder = PromptBuilder(config)
-            for index, planned in enumerate(plan, start=1):
-                print(
-                    f"[{index}/{len(plan)}] {planned.instance_id} "
-                    f"({planned.category} on {planned.target['qualname']})"
-                )
-                record = self._generate_one(
-                    container, prompt_builder, planned, generated_ids
-                )
-                if record.status == "generated":
-                    generated_ids.append(planned.instance_id)
-                self.manifest.instances.append(asdict(record))
-                self.manifest.save(self.run_dir / "manifest.json")
-                print(f"    -> {record.status} {record.note}".rstrip())
+            parallel = max(1, int(getattr(config, "parallel", 1) or 1))
+            if parallel == 1:
+                self._generate_serial(container, prompt_builder, plan)
+            else:
+                self._generate_parallel(prompt_builder, plan, parallel)
+            self._refresh_intrinsic_difficulty()
             return self.run_dir
         finally:
             if config.keep_container:
                 print(f"[container] kept alive: {container.name}")
             else:
                 container.stop()
+
+    # -- generation drivers ------------------------------------------------
+
+    def _record(self, record: InstanceRecord) -> None:
+        """Append one instance record and persist the manifest (crash-safe).
+
+        Called from worker threads, so the append+save pair is locked: two
+        threads saving at once could interleave into a truncated manifest.
+        """
+        with self._manifest_lock:
+            self.manifest.instances.append(asdict(record))
+            self.manifest.save(self.run_dir / "manifest.json")
+
+    def _generate_serial(
+        self, container: Container, prompt_builder: PromptBuilder,
+        plan: list[PlannedInstance],
+    ) -> None:
+        generated_ids: list[str] = []
+        for index, planned in enumerate(plan, start=1):
+            print(
+                f"[{index}/{len(plan)}] {planned.instance_id} "
+                f"({planned.category} on {planned.target['qualname']})"
+            )
+            record = self._generate_one(
+                container, prompt_builder, planned, generated_ids
+            )
+            if record.status == "generated":
+                generated_ids.append(planned.instance_id)
+            self._record(record)
+            print(f"    -> {record.status} {record.note}".rstrip())
+
+    def _generate_parallel(
+        self, prompt_builder: PromptBuilder, plan: list[PlannedInstance],
+        parallel: int,
+    ) -> None:
+        """Generate across N containers, one owned by each worker.
+
+        The run's own container is not reused: it holds the scouting state and
+        would serialise workers anyway. Each worker starts a fresh container
+        from the same image and stages the harness itself.
+        """
+        config = self.config
+        workers = min(parallel, len(plan))
+        total = len(plan)
+        work: queue.Queue = queue.Queue()
+        for item in enumerate(plan, start=1):
+            work.put(item)
+        # Instance ids already generated, shown to later prompts so they do not
+        # duplicate earlier questions. Under parallelism a worker sees whatever
+        # has finished so far rather than all predecessors — ids only, so the
+        # cost is a slightly smaller de-duplication list, not correctness.
+        generated_ids: list[str] = []
+        errors: list[str] = []
+
+        def run_worker(worker_id: int) -> None:
+            container = Container(config.image, workdir=config.workdir)
+            tag = f"[gen][w{worker_id}]"
+            try:
+                print(f"{tag} starting fresh container from {config.image}")
+                container.start()
+                self._stage_harness(container)
+                assert self.backend is not None
+                print(f"{tag} preparing backend '{self.backend.name}'")
+                self.backend.prepare(container)
+                while True:
+                    try:
+                        index, planned = work.get_nowait()
+                    except queue.Empty:
+                        return
+                    print(
+                        f"{tag}[{index}/{total}] {planned.instance_id} "
+                        f"({planned.category} on {planned.target['qualname']})"
+                    )
+                    record = self._generate_one(
+                        container, prompt_builder, planned, list(generated_ids)
+                    )
+                    if record.status == "generated":
+                        generated_ids.append(planned.instance_id)
+                    self._record(record)
+                    print(f"{tag} {planned.instance_id} -> {record.status} "
+                          f"{record.note}".rstrip())
+            except Exception as e:  # noqa: BLE001 — reported after join
+                errors.append(f"worker {worker_id}: {e}")
+            finally:
+                container.stop()
+
+        print(f"[gen] generating {total} instance(s) across {workers} containers")
+        threads = [
+            threading.Thread(target=run_worker, args=(i,), daemon=True)
+            for i in range(1, workers + 1)
+        ]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+        if errors:
+            raise RuntimeError("; ".join(errors))
 
     # -- pipeline stages -------------------------------------------------
 
@@ -257,6 +349,25 @@ class Orchestrator:
         return record
 
     # -- persistence -------------------------------------------------------
+
+    def _refresh_intrinsic_difficulty(self) -> None:
+        """Make intrinsic metrics the canonical post-generation difficulty."""
+        from .complexity import refresh_intrinsic_difficulties
+
+        run_dirs = sorted(
+            path for path in self.config.output_root.glob("*/run_*")
+            if (path / "instances").is_dir()
+        )
+        if self.run_dir not in run_dirs:
+            run_dirs.append(self.run_dir)
+        report_path = self.config.output_root / "complexity_report.json"
+        report = refresh_intrinsic_difficulties(
+            run_dirs, aggregate_report_path=report_path,
+        )
+        print(
+            f"[difficulty] intrinsic labels written for "
+            f"{report['instance_count']} instance(s) -> {report_path}"
+        )
 
     def _save_config(self) -> None:
         data = {

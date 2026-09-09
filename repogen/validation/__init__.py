@@ -173,18 +173,22 @@ def available_evaluators() -> list[str]:
     return sorted(n for n, cls in _REGISTRY.items() if getattr(cls, "evaluation_only", False))
 
 
-def agent_validated_instances(run_dir: Path) -> Optional[set]:
-    """Instance ids at least one AGENT rollout answered correctly (union across
-    all non-evaluation validation runs in validation_report.json).
+VALIDATION_MODEL_FAMILIES = ("haiku", "fable")
 
-    A verdict counts when it passed outright OR when some of its rollouts
-    matched the oracle (pass_count > 0) — the cascade accepts those as its
-    partial-pass band ("medium"), and one correct agent rollout is the evidence
-    that matters here: the oracle is reachable.
 
-    Returns None if there is no validation report or no agent-validation runs
-    (so callers can distinguish "nothing validated yet" from "validated, none
-    passed" -> empty set)."""
+def agent_validated_instances(
+    run_dir: Path, model_families: tuple[str, ...] = VALIDATION_MODEL_FAMILIES,
+) -> Optional[set]:
+    """Instance ids at least one approved solver rollout answered correctly.
+
+    By default only Haiku and Fable solver-agent runs count. A verdict is valid
+    when it passed outright OR at least one constituent rollout matched the
+    oracle (pass_count > 0). One correct rollout is evidence the oracle is
+    reachable; it does not determine intrinsic difficulty.
+
+    Returns None if there is no report or no run from an approved model family,
+    allowing callers to distinguish "not validated" from "validated, none
+    passed" (an empty set)."""
     path = run_dir / "validation_report.json"
     if not path.is_file():
         return None
@@ -192,12 +196,18 @@ def agent_validated_instances(run_dir: Path) -> Optional[set]:
         data = json.loads(path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError):
         return None
-    eval_names = set(available_evaluators())
     passed: set = set()
     found_agent_run = False
     for run in data.get("runs", []):
-        if run.get("validator") in eval_names:
-            continue  # skip LLM-evaluation runs; only agent validation counts
+        if run.get("validator") != "solver_agent":
+            continue
+        identity = " ".join(
+            str(run.get(key, "")) for key in ("agent", "model", "scope")
+        ).lower()
+        if model_families and not any(
+            family.lower() in identity for family in model_families
+        ):
+            continue
         found_agent_run = True
         for verdict in run.get("verdicts", []):
             if not verdict.get("instance_id"):
@@ -224,6 +234,7 @@ __all__ = [
     "available_evaluators",
     "available_validation_stages",
     "agent_validated_instances",
+    "VALIDATION_MODEL_FAMILIES",
     "run_validators",
     "run_evaluators",
 ]

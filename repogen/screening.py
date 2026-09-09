@@ -118,14 +118,18 @@ CATEGORY_THRESHOLDS: dict[str, Thresholds] = {
         min_line_events=40, min_call_events=10, min_distinct_functions=2,
         min_answer_leaves=1,
     ),
-    # covered_lines over a genuinely broad run.
+    # line_execution_counts: {line, count} per line of the target body.
     "M1_IntraProceduralCFG": Thresholds(
         min_line_events=60, min_distinct_lines=20, min_call_events=3,
         min_answer_leaves=25,
     ),
+    # max/min or total iterations are 1-2 scalars by design; the difficulty is
+    # the magnitude, not the leaf count, so the floor stays low here. The
+    # tests_terminating_at_break matrix clears it comfortably.
     "M2_Loops": Thresholds(
         min_line_events=150, min_line_repetition=25, min_answer_leaves=1
     ),
+    # extrema alone (2 leaves) is thin; unique_values is the richer shape.
     "M3_ProgramState": Thresholds(
         min_line_events=60, min_line_repetition=5, min_answer_leaves=2
     ),
@@ -137,9 +141,11 @@ CATEGORY_THRESHOLDS: dict[str, Thresholds] = {
         min_line_events=50, min_call_events=15, min_distinct_functions=4,
         min_answer_leaves=8,
     ),
-    # first_violation demands full-loop simulation only if the loop is long.
+    # invariant_report: >=3 predicates x {predicate, held_always, observations,
+    # violations} = 12+ leaves. The old floor of 1 admitted a bare boolean
+    # answer, which is 50% correct by coin flip regardless of test volume.
     "M7_Invariants": Thresholds(
-        min_line_events=60, min_line_repetition=20, min_answer_leaves=1
+        min_line_events=60, min_line_repetition=20, min_answer_leaves=12
     ),
 }
 
@@ -303,6 +309,14 @@ class TestPassedRule(ScreeningRule):
     name = "test_passed"
 
     _SUMMARY_RE = re.compile(r"=+ (.*?) =+\s*$", re.MULTILINE)
+    # The counts line, with or without the "=== ... ===" padding. Repos whose
+    # pytest addopts include -q (e.g. lark) print it undecorated, in which case
+    # the last decorated banner is "short test summary info" and carries no
+    # counts at all — reading only that banner failed every instance in the run.
+    _COUNTS_RE = re.compile(
+        r"^=*\s*(\d+ (?:passed|failed|error|skipped|xfailed|xpassed)[^=]*?)\s*=*$",
+        re.MULTILINE,
+    )
 
     def guidance(self, category: str) -> str:
         return (
@@ -316,8 +330,12 @@ class TestPassedRule(ScreeningRule):
         if ctx.pytest_log is None:
             return self._fail("pytest.log not found")
         text = ctx.pytest_log.read_text(encoding="utf-8", errors="replace")
-        summaries = self._SUMMARY_RE.findall(text)
-        summary = summaries[-1] if summaries else ""
+        counts = self._COUNTS_RE.findall(text)
+        if counts:
+            summary = counts[-1]
+        else:
+            summaries = self._SUMMARY_RE.findall(text)
+            summary = summaries[-1] if summaries else ""
         if re.search(r"\b\d+ (failed|error)", summary) or "FAILURES" in text:
             return self._fail(f"pytest reported failures: {summary.strip()!r}")
         if not re.search(r"\b\d+ passed", summary):
@@ -559,6 +577,74 @@ class TraceRichRule(ScreeningRule):
         )
 
 
+# Multi-aspect (M*) categories aggregate behavior ACROSS many invocations, so
+# their test must actually make many: one answer computed over 10-15 distinct
+# pytest ids is far harder to simulate mentally than one over a single call,
+# and it is what the pytest-id-keyed templates (crash matrices,
+# tests_terminating_at_break) need. Single-aspect (S*) categories stay at one
+# test method — their answer describes one execution.
+M_TEST_METHODS_MIN = 10
+M_TEST_METHODS_MAX = 15
+S_TEST_METHODS = 1
+
+# `def test_*` at any indentation (methods in a TestCase, or module-level
+# functions), plus parametrized cases which pytest expands into separate ids.
+_TEST_DEF_RE = re.compile(r"^\s*(?:async\s+)?def\s+(test\w*)\s*\(", re.MULTILINE)
+_PARAMETRIZE_RE = re.compile(r"@pytest\.mark\.parametrize", re.MULTILINE)
+
+
+class TestMethodCountRule(ScreeningRule):
+    """Enforces the per-category test-method budget.
+
+    M* categories need 10-15 test methods; S* categories need exactly one.
+    Parametrized tests count as one method here (their expansion is not
+    statically known), so a parametrized test alone cannot satisfy an M
+    category — the agent must write out the methods.
+    """
+
+    name = "test_method_count"
+
+    @staticmethod
+    def _bounds(category: str) -> tuple[int, int]:
+        if category.upper().startswith("M"):
+            return M_TEST_METHODS_MIN, M_TEST_METHODS_MAX
+        return S_TEST_METHODS, S_TEST_METHODS
+
+    def guidance(self, category: str) -> str:
+        low, high = self._bounds(category)
+        if low == high:
+            return (
+                f"- **test_method_count**: `files/testcase.py` must define "
+                f"EXACTLY {low} test method (`def test_...`). This is a "
+                "single-aspect category: one execution, one answer."
+            )
+        return (
+            f"- **test_method_count**: `files/testcase.py` must define between "
+            f"{low} and {high} test methods (`def test_...`), each a distinct "
+            "scenario driving the target with DIFFERENT inputs — not copies. "
+            "The oracle answer aggregates behavior across all of them, so the "
+            "solver must simulate every one. A single `@pytest.mark.parametrize` "
+            "does NOT satisfy this: write the methods out."
+        )
+
+    def check(self, ctx: InstanceContext) -> RuleResult:
+        testcase = ctx.instance_dir / "files" / "testcase.py"
+        if not testcase.is_file():
+            return self._fail("files/testcase.py not found")
+        text = testcase.read_text(encoding="utf-8", errors="replace")
+        names = _TEST_DEF_RE.findall(text)
+        count = len(names)
+        low, high = self._bounds(ctx.category or "")
+        note = f"{count} test method(s)"
+        if _PARAMETRIZE_RE.search(text):
+            note += " (+parametrize: pytest expands these into more ids)"
+        if count < low:
+            return self._fail(f"{note}: fewer than the required {low}")
+        if count > high:
+            return self._fail(f"{note}: more than the allowed {high}")
+        return self._pass(note)
+
+
 DEFAULT_RULES: list[ScreeningRule] = [
     OracleValidRule(),
     TemplateValidRule(),
@@ -573,11 +659,13 @@ DEFAULT_RULES: list[ScreeningRule] = [
 def screening_contract(
     category: str, rules: Optional[list[ScreeningRule]] = None
 ) -> str:
-    """Assemble the agent-facing screening contract for `category`: the same
-    rules that run after generation, rendered as instructions the generation
-    agent must obey. Single source of truth — thresholds here feed both the
-    checks and this text, so they can never drift."""
-    rules = rules if rules is not None else DEFAULT_RULES
+    """Assemble the agent-facing generation contract for ``category``.
+
+    Test-method-count guidance remains useful during generation even though it
+    is no longer an executable default screening rejection.  Its implementation
+    stays the single source of truth for the category-specific method budgets.
+    """
+    rules = rules if rules is not None else [*DEFAULT_RULES, TestMethodCountRule()]
     bullets = [r.guidance(category) for r in rules]
     return "\n".join(b for b in bullets if b and b.strip())
 

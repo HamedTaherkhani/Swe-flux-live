@@ -233,6 +233,26 @@ mentally. Defeat that with volume and data dependence, not obscurity:
 - Prefer behavior that emerges from branch interplay across iterations or
   recursion depth over anything readable from a single pass.
 
+## How difficulty is measured after generation
+
+Do not declare a difficulty label yourself. After the oracle is harvested, the
+pipeline assigns four-level intrinsic labels from these outcome-blind metrics:
+
+- **Semantic reasoning (40% of combined):** executed branch alternatives,
+  changed-state events, calls and call depth, exceptions, path length, and
+  meaningful repeated execution. Static target complexity is only supporting
+  context: unexecuted branches do not make an instance hard. Exercise rich
+  paths and evolving state, not dead complexity or empty repetition.
+- **Answer construction (35%):** answer leaves, ordered elements, structural
+  depth, and exact string/numeric content. Produce a rich exact answer within
+  the canonical schema, not artificial test scaffolding.
+- **Repository navigation (25%):** navigation uncertainty and the distinct
+  source lines reached by the harvested execution. Repeating one line does not
+  increase the executed-code footprint.
+
+The combined label is computed only from those three scores. Haiku/Fable solver
+validation and downstream model outcomes never enter the scores or labels.
+
 ## The generation process you must follow, in order
 
 1. **Study the target.** Read `{{TARGET_FILE}}` around lines {{TARGET_LINES}}
@@ -243,6 +263,7 @@ mentally. Defeat that with volume and data dependence, not obscurity:
    category card's hardness levers). Prefer inputs that execute multiple
    branches/iterations and would surprise someone who only skims the code.
 3. **Write `files/testcase.py`.** A `unittest.TestCase` runnable by pytest.
+   {{TEST_METHOD_REQUIREMENT}}
    It must be fully deterministic: seed every RNG, freeze anything
    time-dependent, avoid network/filesystem randomness. Keep it minimal but
    assert enough that a broken environment fails the test. Do NOT modify any
@@ -260,7 +281,10 @@ mentally. Defeat that with volume and data dependence, not obscurity:
    - Re-run step 6 a second time and confirm `oracle.json` is byte-identical.
      If not, remove the nondeterminism and repeat.
 8. **Audit the question text** against this checklist — every item must hold:
-   - names the exact test file path, test class, and test method;
+   - names the exact test file path and test class, and identifies the test
+     method(s) the answer covers — for a multi-method test, say explicitly
+     that the answer aggregates over ALL test methods in the class (and how
+     they are ordered/identified, e.g. pytest id strings);
    - names the exact target function qualname and file path;
    - defines every term of art it uses (e.g. what counts as an "iteration",
      a "use", a "call") precisely enough that two experts would compute the

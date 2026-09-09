@@ -70,6 +70,28 @@ forbidden.""",
             mode, self._EXERCISE_DIRECTIVES["indirect"]
         )
 
+    @staticmethod
+    def _render_test_method_requirement(category: str) -> str:
+        """Per-category test-method budget (mirrors TestMethodCountRule)."""
+        from .screening import M_TEST_METHODS_MAX, M_TEST_METHODS_MIN, S_TEST_METHODS
+
+        if category.upper().startswith("M"):
+            return (
+                f"It MUST define between {M_TEST_METHODS_MIN} and "
+                f"{M_TEST_METHODS_MAX} test methods (`def test_...`), each a "
+                "DISTINCT scenario driving the target with different inputs — "
+                "different sizes, branches, and edge cases, not copies of one "
+                "another. This is a multi-aspect category: the oracle answer "
+                "aggregates behavior across ALL of them, so a solver must "
+                "simulate every method. A single `@pytest.mark.parametrize` "
+                "does not satisfy this — write the methods out."
+            )
+        return (
+            f"It MUST define EXACTLY {S_TEST_METHODS} test method "
+            "(`def test_...`) — this is a single-aspect category, so the answer "
+            "describes that one execution."
+        )
+
     def _render_canonical_templates(self, category: str) -> str:
         """Render the category's canonical template_answer shapes for the prompt."""
         entry = self.canonical_templates.get(category)
@@ -112,6 +134,9 @@ forbidden.""",
             ),
             "{{EXISTING_INSTANCES}}": existing,
             "{{SCREENING_RULES}}": screening_contract(planned.category),
+            "{{TEST_METHOD_REQUIREMENT}}": self._render_test_method_requirement(
+                planned.category
+            ),
             "{{CANONICAL_TEMPLATES}}": self._render_canonical_templates(planned.category),
         }
         prompt = self.base_template

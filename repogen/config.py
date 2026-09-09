@@ -87,6 +87,7 @@ _PROVIDER_KEY_ALIASES = {
     "GEMINI_API_KEY": ["gemini_api_key", "gemini_key", "google_api_key", "google_gemini_api_key"],
     "GOOGLE_API_KEY": ["google_api_key", "gemini_api_key", "gemini_key"],
     "FIREWORKS_API_KEY": ["fireworks_api_key", "fireworks_api_token", "fireworks_key"],
+    "DEEPSEEK_API_KEY": ["deepseek_api_key", "deepseek_key"],
     "OPENROUTER_API_KEY": ["openrouter_api_key", "openrouter_key"],
     "CURSOR_API_KEY": ["cursor_api_key"],
     "MOONSHOT_API_KEY": ["moonshot_api_key", "kimi_api_key", "moonshot_key", "kimi_key"],
@@ -151,6 +152,9 @@ class RunConfig:
     qa_dir_name: str = ""
     seed: int = 7
     agent_timeout_s: int = 900
+    # Concurrent generation containers. Each worker owns one container running
+    # its own agent session and pytest harvests, so RAM scales with this.
+    parallel: int = 1
     max_targets_per_module: int = 3
     plan_only: bool = False
     keep_container: bool = False

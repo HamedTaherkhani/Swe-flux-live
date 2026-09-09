@@ -17,7 +17,7 @@ Settings (via CLI):
                 only if ALL rollouts match the oracle (default 1). Stops at the
                 first failed rollout.
   instance_ids  optional list of instance ids to validate (default: all kept
-                instances). Used by the difficulty cascade to escalate only
+                instances). Used by tiered validation to escalate only
                 the instances the previous tier failed.
   parallel      number of concurrent containers (default 2). Instances are
                 drained from a shared queue; all rollouts of one instance run
@@ -70,7 +70,20 @@ _INFRA_SIGNATURES = (
     ("out of usage credits", "provider usage limit"),
     ("usage limit reached", "provider usage limit"),
     ("credit balance is too low", "provider usage limit"),
+    # Claude Code subscription limits. The session/weekly wording below is what
+    # actually appears in the trajectory when a subscription quota runs out; it
+    # never says "usage limit reached", so matching only that phrase let a whole
+    # rate-limited tier be recorded as 0/3 solver failures (i.e. as "hard").
+    ("session limit", "provider usage limit"),
+    ("hit your usage limit", "provider usage limit"),
+    ("weekly limit", "provider usage limit"),
+    ("limit · resets", "provider usage limit"),
     ("rate_limit_error", "provider rate limit"),
+    # NOT "rate_limit_event": the SDK emits that advisory even when the request
+    # is throttled and then retried successfully, so it fires on healthy runs.
+    # Match only signatures that accompany a TERMINAL failure.
+    ('"error": "rate_limit"', "provider rate limit"),
+    ('"api_error_status": 429', "provider rate limit"),
     ("too many requests", "provider rate limit"),
     ("invalid api key", "auth failure"),
     ("authentication_error", "auth failure"),
@@ -155,6 +168,9 @@ class SolverAgentValidator(Validator):
         parallel = max(1, int(self.settings.get("parallel") or 1))
         workers = min(parallel, len(instance_dirs))
         total = len(instance_dirs)
+        # Optional callback, invoked with each ValidationVerdict as soon as that
+        # instance finishes (from the worker thread, so it must be thread-safe).
+        on_verdict = self.settings.get("on_verdict")
 
         # Shared work queue; each worker owns one container for its lifetime.
         # backend.run_task only reads backend state, so one backend instance is
@@ -187,6 +203,15 @@ class SolverAgentValidator(Validator):
                     status = "PASS" if verdict.passed else f"FAIL ({verdict.reason})"
                     print(f"{tag} {instance_id} -> {status}")
                     results[index] = verdict
+                    # Let the caller persist a decision the moment it is made.
+                    # Without this the cascade only labels instances after the
+                    # WHOLE tier returns, so an abort mid-tier (usage limit) or
+                    # a kill throws away every already-solved instance.
+                    if on_verdict is not None:
+                        try:
+                            on_verdict(verdict)
+                        except Exception as e:  # noqa: BLE001 — never kill a worker
+                            print(f"{tag} on_verdict({instance_id}) failed: {e}")
             except Exception as e:  # noqa: BLE001 — reported after join
                 errors.append(f"worker {worker_id}: {e}")
             finally:

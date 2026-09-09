@@ -170,8 +170,8 @@ txt(M + 32, R2 + 54, "weakest model first · all rollouts must pass", { size: 13
 // tiers
 const TW = 300, TH = 116, TY = R2 + 84;
 const tiers = [
-  { t: "TIER 1", m: "Haiku 4.5", label: "easy", c: C.good, dash: false },
-  { t: "TIER 2", m: "Fable 5", label: "hard", c: C.warning, dash: false },
+  { t: "TIER 1", m: "Haiku 4.5", label: "validated", c: C.good, dash: false },
+  { t: "TIER 2", m: "Fable 5", label: "validated", c: C.warning, dash: false },
   { t: "TIER n", m: "any model", label: "…", c: C.ink3, dash: true },
 ];
 tiers.forEach((t, i) => {
@@ -207,7 +207,7 @@ txt(M + 32, R2 + BH - 34, "P parallel containers   ·   R rollouts per instance 
 
 // ---- row 3: outputs
 const R3 = R2 + BH + 56;
-node(M, R3, NW, NH, 6, "Labeled set", "easy · hard · rejected", C.aqua);
+node(M, R3, NW, NH, 6, "Intrinsic difficulty", "easy · medium · hard · very hard", C.aqua);
 file(M, R3 + NH + 14, "difficulty.json", C.aqua);
 
 node(M + NW + GAP, R3, NW, NH, 7, "Evaluate", "raw LLMs — measure only", C.violet);
@@ -226,7 +226,7 @@ txt(QX + 24, R3 + 28, "2 repos · 80 planned", { size: 12, weight: 700, fill: C.
     txt(x, R3 + 94, l, { size: 13, fill: C.ink2 });
   });
 
-// cascade in/out arrows: screened instances drop into the cascade, labels drop out
+// screened instances enter validation; validated instances receive intrinsic labels
 arrow(sx + NW / 2, R1 + NH + 52, sx + NW / 2, R2 - 10);
 arrow(M + NW / 2, R2 + BH + 6, M + NW / 2, R3 - 10);
 
