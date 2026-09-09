@@ -1,0 +1,82 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 18,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.__enter__"
+      },
+      {
+        "count": 18,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.__exit__"
+      },
+      {
+        "count": 18,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.__init__"
+      },
+      {
+        "count": 16,
+        "file": "rich/live.py",
+        "func": "rich.live.Live._disable_redirect_io"
+      },
+      {
+        "count": 16,
+        "file": "rich/live.py",
+        "func": "rich.live.Live._enable_redirect_io"
+      },
+      {
+        "count": 459,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.get_renderable"
+      },
+      {
+        "count": 0,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.is_started"
+      },
+      {
+        "count": 425,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.process_renderables"
+      },
+      {
+        "count": 404,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.refresh"
+      },
+      {
+        "count": 405,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.renderable"
+      },
+      {
+        "count": 18,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.start"
+      },
+      {
+        "count": 18,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.stop"
+      },
+      {
+        "count": 361,
+        "file": "rich/live.py",
+        "func": "rich.live.Live.update"
+      }
+    ]
+  },
+  "question": "Consider pytest tests in `rich_qa/live_stop_m6_calls/files/testcase.py::TestLiveStopInvocationCounts` (all `test_*` methods in that class, executed in pytest's default collection order). The answer aggregates behavior across every test method in the class during one full pytest run of the class.\n\nScope: every function and method defined directly in class `Live` in `rich/live.py` \u2014 all instance methods, dunder methods such as `__init__`, `__enter__`, and `__exit__`, and `@property` getter functions implemented in that class body. Exclude nested functions and closures inside method bodies, inline comprehensions as separate scopes, inherited methods not defined in this file, module-level code (including the `if __name__ == \"__main__\"` block), and methods of other classes defined in the same file (such as `_RefreshThread`).\n\nFunction identity: dotted qualname `module.Class.method`, for example `rich.console.Console.print` \u2014 for this scope, entries look like `rich.live.Live.stop`.\n\nInvocation counting: one invocation is one Python `call` trace event for that function's frame during the aggregated test run, including calls made directly, transitively, recursively, or from any other frame. If a generator or coroutine suspension/resumption emits another distinct `call` event for the same qualname, that resumption counts as an additional invocation.\n\nZero rule: every in-scope function appears exactly once; functions that never execute have `count: 0`.\n\nReport `invocation_counts`: a JSON list of objects `{\"file\": \"<repo-relative path>\", \"func\": \"<qualname>\", \"count\": <int>}`. For this scope, `file` is always `rich/live.py`. Sort the list by `func` ascending (Unicode code-point order). If two entries could share the same `func` string, break ties by `file` ascending.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

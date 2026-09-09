@@ -1,0 +1,1262 @@
+{
+  "question_kind": "S1_IntraProceduralCFG",
+  "question": "Run the single pytest item `haystack_qa/base_serialization_deserialize_value_with_schema_s1_cfg/files/testcase.py::TestDeserializeValueWithSchemaCFG::test_programmatic_nested_object_path`, defined by class `TestDeserializeValueWithSchemaCFG` and method `test_programmatic_nested_object_path`.\n\nFor the ninth invocation of `haystack.utils.base_serialization._deserialize_value_with_schema`, defined in `haystack/utils/base_serialization.py` beginning at line 186, report the exact ordered sequence of executed line events inside that invocation's own frame. Invocation counting is 1-based in chronological order of `call` events for this exact function during the test item: the first such `call` is invocation 1, recursive calls count as additional invocations when their own `call` events occur, and calls of every other function are excluded.\n\nAn executed line is one CPython `sys.settrace` `line` event whose code file is exactly the named repository file, whose function name is exactly `haystack.utils.base_serialization._deserialize_value_with_schema`, and whose frame is the selected invocation. Exclude `call`, `return`, and `exception` events. Also exclude line events from recursive child invocations and from nested comprehension or helper-function frames, even when their qualified names begin with the target's name. Preserve chronological event order and preserve every duplicate; do not sort or deduplicate. Line numbers are absolute 1-based physical line numbers in the named file as it exists in the repository. The `def` line, decorator lines, and docstring lines do not appear unless CPython emits a `line` event for them; in this function the `def` line does not appear. For a multi-line statement, call, or condition, report the line event at the physical line where that statement or expression begins, as supplied by the event frame's `f_lineno`; do not independently add its continuation lines.\n\nReturn exactly one JSON object with key `executed_path`. Its value is a list in the preserved event order. Every element has exactly the shape `{\"file\": <str>, \"func\": <str>, \"line\": <int>}`: `file` is always the repo-relative string `haystack/utils/base_serialization.py`, `func` is always the fully dotted string `haystack.utils.base_serialization._deserialize_value_with_schema`, and `line` is a decimal JSON integer (never a string or null).",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 200
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 205
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 206
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 208
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 210
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 220
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 221
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 222
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 223
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 225
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 231
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 230
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 227
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 228
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 226
+      },
+      {
+        "file": "haystack/utils/base_serialization.py",
+        "func": "haystack.utils.base_serialization._deserialize_value_with_schema",
+        "line": 234
+      }
+    ]
+  }
+}

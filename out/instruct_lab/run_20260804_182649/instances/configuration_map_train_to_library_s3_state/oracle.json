@@ -1,0 +1,44 @@
+{
+  "question_kind": "S3_ProgramState",
+  "question": "Run the pytest test `instruct_lab_qa/configuration_map_train_to_library_s3_state/files/testcase.py::TestTrainConfigurationMapping::test_generated_lora_cli_runs` against this repository. In `instructlab.configuration.map_train_to_library` in `src/instructlab/configuration.py`, what are the concrete values of the local variables `ds_args`, `fsdp_args`, `lora_args`, `lora_enabled`, `lora_options`, `torch_args`, and `train_args` immediately after physical line 1563 has executed for the third time during the test run? Line numbers are absolute, 1-based physical line numbers in the named file as it exists for this test. Line 1563 is a single-line assignment; its execution is complete when control reaches the following executable line in that same function frame. Count an execution only when that line is executed by an active frame of exactly the named function; executions in callees or other functions do not count. Count chronologically and 1-based across the whole test run, retaining every execution; do not deduplicate. An invocation means one runtime call of exactly the named function, also counted chronologically and 1-based, although the requested point is selected by line execution count rather than by invocation number. Report each value as the exact Python `repr()` string of the whole local value at that moment, with no truncation or normalization. For a container or model object, use the `repr()` of the whole object rather than recursively converting it to JSON; thus strings inside such a repr retain Python quotes and `None` and `True` retain Python spellings (a hypothetical list could be represented by the JSON string \"[4, 'sample']\"). Any embedded newline characters in a repr string are included as real characters and escaped only as required by JSON encoding. No requested variable is absent, and no missing value, empty string, or JSON `null` sentinel is used. Return exactly one JSON object with key `observed_state`. Its value is a JSON array with one entry per requested variable, sorted by the variable name in ascending Unicode code-point order; there are no ties and no deduplication. Each entry has exactly the keys `value` and `variable` in that key order, and both values are JSON strings. `variable` is the bare local-variable name and `value` is its Python repr string as defined above.",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "DeepSpeedOptions(cpu_offload_optimizer=False, cpu_offload_optimizer_ratio=1.0, cpu_offload_optimizer_pin_memory=False, save_samples=None)",
+        "variable": "ds_args"
+      },
+      {
+        "value": "FSDPOptions(cpu_offload_params=False, sharding_strategy=<ShardingStrategies.SHARD_GRAD_OP: 'SHARD_GRAD_OP'>)",
+        "variable": "fsdp_args"
+      },
+      {
+        "value": "LoraOptions(rank=146, alpha=318, dropout=0.13, target_modules=('klmnop', 'nopqrs', 'qrstuv', 'tuvwxy', 'wxyzab'), quantize_data_type='wdkryfmt')",
+        "variable": "lora_args"
+      },
+      {
+        "value": "True",
+        "variable": "lora_enabled"
+      },
+      {
+        "value": "True",
+        "variable": "lora_options"
+      },
+      {
+        "value": "TorchrunArgs(nproc_per_node=1, nnodes=1, node_rank=0, rdzv_id=123, rdzv_endpoint='127.0.0.1:12222')",
+        "variable": "torch_args"
+      },
+      {
+        "value": "TrainingArgs(model_path='instructlab/granite-7b-lab', chat_tmpl_path='/usr/local/lib/python3.11/site-packages/instructlab/training/chat_templates/ibm_generic_tmpl.py', use_legacy_tmpl=False, data_path='/root/.local/share/instructlab/datasets', ckpt_output_dir='/root/.local/share/instructlab/checkpoints', data_output_dir='/root/.local/share/instructlab/internal', max_seq_len=4096, max_batch_len=5000, num_epochs=10, effective_batch_size=64, save_samples=250000, learning_rate=2e-05, warmup_steps=25, random_seed=42, use_dolomite=False, is_padding_free=False, checkpoint_at_epoch=True, accelerate_full_state_at_epoch=True, mock_data=False, mock_data_len=0, deepspeed_options=DeepSpeedOptions(cpu_offload_optimizer=False, cpu_offload_optimizer_ratio=1.0, cpu_offload_optimizer_pin_memory=False, save_samples=None), fsdp_options=FSDPOptions(cpu_offload_params=False, sharding_strategy=<ShardingStrategies.SHARD_GRAD_OP: 'SHARD_GRAD_OP'>), distributed_backend=<DistributedBackend.FSDP: 'fsdp'>, disable_flash_attn=False, lora=LoraOptions(rank=146, alpha=318, dropout=0.13, target_modules=('klmnop', 'nopqrs', 'qrstuv', 'tuvwxy', 'wxyzab'), quantize_data_type='wdkryfmt'), process_data=True, keep_last_checkpoint_only=False)",
+        "variable": "train_args"
+      }
+    ]
+  }
+}

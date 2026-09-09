@@ -1,0 +1,152 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 288,
+        "use_line": 291,
+        "variable": "content_parts"
+      },
+      {
+        "def_line": 288,
+        "use_line": 294,
+        "variable": "content_parts"
+      },
+      {
+        "def_line": 288,
+        "use_line": 296,
+        "variable": "content_parts"
+      },
+      {
+        "def_line": 288,
+        "use_line": 298,
+        "variable": "content_parts"
+      },
+      {
+        "def_line": 288,
+        "use_line": 300,
+        "variable": "content_parts"
+      },
+      {
+        "def_line": 276,
+        "use_line": 280,
+        "variable": "hf_msg"
+      },
+      {
+        "def_line": 276,
+        "use_line": 282,
+        "variable": "hf_msg"
+      },
+      {
+        "def_line": 276,
+        "use_line": 284,
+        "variable": "hf_msg"
+      },
+      {
+        "def_line": 276,
+        "use_line": 298,
+        "variable": "hf_msg"
+      },
+      {
+        "def_line": 276,
+        "use_line": 300,
+        "variable": "hf_msg"
+      },
+      {
+        "def_line": 276,
+        "use_line": 309,
+        "variable": "hf_msg"
+      },
+      {
+        "def_line": 276,
+        "use_line": 311,
+        "variable": "hf_msg"
+      },
+      {
+        "def_line": 305,
+        "use_line": 307,
+        "variable": "hf_tool_call"
+      },
+      {
+        "def_line": 305,
+        "use_line": 308,
+        "variable": "hf_tool_call"
+      },
+      {
+        "def_line": 303,
+        "use_line": 308,
+        "variable": "hf_tool_calls"
+      },
+      {
+        "def_line": 303,
+        "use_line": 309,
+        "variable": "hf_tool_calls"
+      },
+      {
+        "def_line": 293,
+        "use_line": 294,
+        "variable": "image_url"
+      },
+      {
+        "def_line": 289,
+        "use_line": 290,
+        "variable": "part"
+      },
+      {
+        "def_line": 289,
+        "use_line": 291,
+        "variable": "part"
+      },
+      {
+        "def_line": 289,
+        "use_line": 292,
+        "variable": "part"
+      },
+      {
+        "def_line": 289,
+        "use_line": 293,
+        "variable": "part"
+      },
+      {
+        "def_line": 304,
+        "use_line": 305,
+        "variable": "tc"
+      },
+      {
+        "def_line": 304,
+        "use_line": 306,
+        "variable": "tc"
+      },
+      {
+        "def_line": 304,
+        "use_line": 307,
+        "variable": "tc"
+      },
+      {
+        "def_line": 261,
+        "use_line": 265,
+        "variable": "tool_calls"
+      },
+      {
+        "def_line": 261,
+        "use_line": 302,
+        "variable": "tool_calls"
+      },
+      {
+        "def_line": 261,
+        "use_line": 304,
+        "variable": "tool_calls"
+      }
+    ]
+  },
+  "question": "Run the single pytest test\n`haystack_qa/hf_convert_message_to_hf_format_s4_dataflow/files/testcase.py::TestHFMessageDataFlow::test_seeded_mixed_messages`\nagainst this repository. Across all invocations made by that test, report the\nunique observed dynamic def-use pairs in the exact function\n`haystack.utils.hf.convert_message_to_hf_format` in\n`haystack/utils/hf.py` for exactly these local variable names:\n`content_parts`, `hf_msg`, `hf_tool_call`, `hf_tool_calls`, `image_url`,\n`part`, `tc`, and `tool_calls`.\n\nAn invocation is one call entry into that exact function frame, numbered\n1-based in chronological order, although invocation numbers are not emitted.\nAnalyze only reads and bindings performed by the target function's own frame;\ndo not include activity in callees. A definition (\"def\") is an assignment to\nthe named local or a parameter binding. Parameters count as defined on the\nfunction's `def` line. A use is an actual evaluation-time read of that local's\ncurrent value on an executed source line. Attribute names and mapping keys are\nnot local-variable uses; reading a local in order to access its attribute,\nsubscript, or method is a use of that local. A pair\n`{\"def_line\": D, \"use_line\": U, \"variable\": V}` is observed when the value\nbound to V by the definition on D reaches a read on U before any later\ndefinition of V in that invocation.\n\nProcess operations in Python evaluation order. For an ordinary assignment,\nreads in its right-hand side use the prior reaching definition and the new\ndefinition then takes effect. Augmented assignment such as `x += 1` both\nreads and writes: its read uses the old reaching definition, and it creates a\nnew definition on that same line for subsequent reads. Each successful\n`for x in iterable` iteration redefines `x` on the loop-header line; evaluating\nthe iterable is a use, while the final exhaustion check creates no definition.\nComprehension iteration variables are local to the comprehension's own\nimplicit frame and are excluded; reads performed in such a separate frame are\nalso excluded.\n\nLine numbers are absolute, 1-based line numbers in\n`haystack/utils/hf.py` as it exists in the repository. For a multi-line\nstatement or expression, use the line where the executed statement or\nexpression begins according to Python's source line table. The function\n`def` line can appear only as a parameter-definition line; decorator and\ndocstring lines count only if they perform a tracked definition or read under\nthe rules above.\n\nAggregate pairs across every target invocation in the test and remove exact\nduplicate triples, including duplicates caused by loop iterations or repeated\ninvocations. Return exactly one JSON object with the single key\n`observed_def_use_pairs`. Its value is a JSON list of objects, each having\nexactly `def_line` (JSON integer), `use_line` (JSON integer), and `variable`\n(JSON string). Sort the list by `variable` ascending in Unicode code-point\norder, then by `def_line` ascending, then by `use_line` ascending. These three\nfields form a total key after exact duplicates are removed. No `repr()` or\n`str()` formatting of runtime values is involved because the answer contains\nonly variable-name strings and integer source lines.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

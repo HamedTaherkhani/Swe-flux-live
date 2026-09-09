@@ -1,0 +1,1996 @@
+[
+  {
+    "instance_id": "qualify_columns_expand_stars_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "sqlglot/optimizer/qualify_columns.py",
+      "module": "sqlglot.optimizer.qualify_columns",
+      "qualname": "_expand_stars",
+      "name": "_expand_stars",
+      "lineno": 843,
+      "end_lineno": 1035,
+      "params": [
+        "scope",
+        "resolver",
+        "using_column_tables",
+        "pseudocolumns",
+        "annotator"
+      ],
+      "metrics": {
+        "body_lines": 193,
+        "branches": 28,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 69,
+        "local_calls": [
+          "_add_except_columns",
+          "_add_ilike_columns",
+          "_add_rename_columns",
+          "_add_replace_columns",
+          "_expand_struct_stars_no_parens",
+          "_expand_struct_stars_with_parens",
+          "_output_identifier_quoted"
+        ],
+        "num_local_calls": 7,
+        "assigns": 44,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 18,
+        "comprehensions": 5,
+        "with_blocks": 0,
+        "breaks_continues": 7
+      },
+      "score": 178.0,
+      "callers": [
+        "qualify_columns"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=165.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "planner_from_expression_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "sqlglot/planner.py",
+      "module": "sqlglot.planner",
+      "qualname": "Step.from_expression",
+      "name": "from_expression",
+      "lineno": 47,
+      "end_lineno": 242,
+      "params": [
+        "cls",
+        "expression",
+        "ctes"
+      ],
+      "metrics": {
+        "body_lines": 196,
+        "branches": 18,
+        "loops": 7,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 58,
+        "local_calls": [
+          "add_dependency",
+          "extract_agg_operands",
+          "from_expression",
+          "from_joins",
+          "set_ops_and_aggs"
+        ],
+        "num_local_calls": 5,
+        "assigns": 50,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 7,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 138.0,
+      "callers": [
+        "Join.from_joins",
+        "Scan.from_expression",
+        "SetOperation.from_expression"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=90.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "unnest_subqueries_decorrelate_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "sqlglot/optimizer/unnest_subqueries.py",
+      "module": "sqlglot.optimizer.unnest_subqueries",
+      "qualname": "decorrelate",
+      "name": "decorrelate",
+      "lineno": 148,
+      "end_lineno": 324,
+      "params": [
+        "select",
+        "parent_select",
+        "external_columns",
+        "next_alias_name"
+      ],
+      "metrics": {
+        "body_lines": 177,
+        "branches": 24,
+        "loops": 5,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 83,
+        "local_calls": [
+          "_other_operand",
+          "_replace"
+        ],
+        "num_local_calls": 2,
+        "assigns": 33,
+        "augassigns": 0,
+        "returns": 6,
+        "boolops": 6,
+        "comprehensions": 4,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 128.0,
+      "callers": [
+        "unnest_subqueries"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=121.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "parser_parse_table_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "sqlglot/parser.py",
+      "module": "sqlglot.parser",
+      "qualname": "Parser._parse_table",
+      "name": "_parse_table",
+      "lineno": 4980,
+      "end_lineno": 5118,
+      "params": [
+        "self",
+        "schema",
+        "joins",
+        "alias_tokens",
+        "parse_bracket",
+        "is_db_reference",
+        "parse_partition",
+        "consume_pipe"
+      ],
+      "metrics": {
+        "body_lines": 139,
+        "branches": 28,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 67,
+        "local_calls": [
+          "_match",
+          "_match_pair",
+          "_match_text_seq",
+          "_parse_bracket",
+          "_parse_derived_table_values",
+          "_parse_historical_data",
+          "_parse_id_var",
+          "_parse_joins",
+          "_parse_lateral",
+          "_parse_partition",
+          "_parse_pivots",
+          "_parse_schema",
+          "_parse_select",
+          "_parse_stream",
+          "_parse_table_alias",
+          "_parse_table_hints",
+          "_parse_table_parts",
+          "_parse_table_sample",
+          "_parse_unnest",
+          "_parse_version",
+          "_parse_wrapped_csv",
+          "_retreat",
+          "expression"
+        ],
+        "num_local_calls": 23,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 10,
+        "boolops": 11,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 118.0,
+      "callers": [
+        "Parser._parse_alter",
+        "Parser._parse_alter_table_rename",
+        "Parser._parse_analyze",
+        "Parser._parse_cache",
+        "Parser._parse_comment",
+        "Parser._parse_copy"
+      ],
+      "callers_2hop": [
+        "Parser._parse_analyze_validate",
+        "Parser._parse_foreign_key",
+        "Parser._parse_pipe_syntax_join",
+        "Parser._parse_select"
+      ]
+    },
+    "rank_note": "affinity+score=133.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "qualify_columns_expand_using_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "sqlglot/optimizer/qualify_columns.py",
+      "module": "sqlglot.optimizer.qualify_columns",
+      "qualname": "_expand_using",
+      "name": "_expand_using",
+      "lineno": 209,
+      "end_lineno": 322,
+      "params": [
+        "scope",
+        "resolver"
+      ],
+      "metrics": {
+        "body_lines": 114,
+        "branches": 19,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 37,
+        "local_calls": [
+          "_update_source_columns"
+        ],
+        "num_local_calls": 1,
+        "assigns": 28,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 10,
+        "comprehensions": 6,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 121.0,
+      "callers": [
+        "qualify_columns"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=84.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "parser_parse_select_query_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "sqlglot/parser.py",
+      "module": "sqlglot.parser",
+      "qualname": "Parser._parse_select_query",
+      "name": "_parse_select_query",
+      "lineno": 4007,
+      "end_lineno": 4147,
+      "params": [
+        "self",
+        "nested",
+        "table",
+        "parse_subquery_alias",
+        "parse_set_operation"
+      ],
+      "metrics": {
+        "body_lines": 141,
+        "branches": 19,
+        "loops": 2,
+        "while_loops": 2,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 63,
+        "local_calls": [
+          "_match",
+          "_match_r_paren",
+          "_match_set",
+          "_match_texts",
+          "_parse_derived_table_values",
+          "_parse_describe",
+          "_parse_from",
+          "_parse_hint",
+          "_parse_into",
+          "_parse_limit",
+          "_parse_projections",
+          "_parse_query_modifiers",
+          "_parse_select",
+          "_parse_set_operations",
+          "_parse_statement",
+          "_parse_string",
+          "_parse_subquery",
+          "_parse_table",
+          "_parse_value",
+          "_parse_with",
+          "_parse_wrapped_select",
+          "expression",
+          "raise_error"
+        ],
+        "num_local_calls": 23,
+        "assigns": 32,
+        "augassigns": 0,
+        "returns": 5,
+        "boolops": 10,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 116.0,
+      "callers": [
+        "Parser._parse_select"
+      ],
+      "callers_2hop": [
+        "Parser._parse_cache",
+        "Parser._parse_copy",
+        "Parser._parse_function_call",
+        "Parser._parse_lateral",
+        "Parser._parse_limit",
+        "Parser._parse_paren"
+      ]
+    },
+    "rank_note": "affinity+score=148.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "simplify_simplify_binary_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "sqlglot/optimizer/simplify.py",
+      "module": "sqlglot.optimizer.simplify",
+      "qualname": "Simplifier._simplify_binary",
+      "name": "_simplify_binary",
+      "lineno": 1229,
+      "end_lineno": 1301,
+      "params": [
+        "self",
+        "expression",
+        "a",
+        "b"
+      ],
+      "metrics": {
+        "body_lines": 73,
+        "branches": 27,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 55,
+        "local_calls": [
+          "_is_date_literal",
+          "_simplify_integer_cast",
+          "date_literal",
+          "eval_boolean",
+          "extract_date",
+          "extract_interval",
+          "extract_type",
+          "is_null"
+        ],
+        "num_local_calls": 8,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 16,
+        "boolops": 11,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 110.3,
+      "callers": [
+        "Simplifier.simplify_literals"
+      ],
+      "callers_2hop": [
+        "Simplifier._simplify"
+      ]
+    },
+    "rank_note": "affinity+score=157.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "tokenizer_core_scan_number_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "sqlglot/tokenizer_core.py",
+      "module": "sqlglot.tokenizer_core",
+      "qualname": "TokenizerCore._scan_number",
+      "name": "_scan_number",
+      "lineno": 920,
+      "end_lineno": 1000,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 81,
+        "branches": 15,
+        "loops": 3,
+        "while_loops": 3,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 24,
+        "local_calls": [
+          "_add",
+          "_advance",
+          "_scan_bits",
+          "_scan_hex"
+        ],
+        "num_local_calls": 4,
+        "assigns": 21,
+        "augassigns": 4,
+        "returns": 3,
+        "boolops": 10,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 5
+      },
+      "score": 110.0,
+      "callers": [
+        "TokenizerCore._scan"
+      ],
+      "callers_2hop": [
+        "TokenizerCore._add",
+        "TokenizerCore.tokenize"
+      ]
+    },
+    "rank_note": "affinity+score=81.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "resolver_get_source_columns_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "sqlglot/optimizer/resolver.py",
+      "module": "sqlglot.optimizer.resolver",
+      "qualname": "Resolver.get_source_columns",
+      "name": "get_source_columns",
+      "lineno": 134,
+      "end_lineno": 222,
+      "params": [
+        "self",
+        "name",
+        "only_visible"
+      ],
+      "metrics": {
+        "body_lines": 89,
+        "branches": 19,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 36,
+        "local_calls": [
+          "_get_unnest_column_type",
+          "_struct_field_names",
+          "get_source_columns_from_set_op"
+        ],
+        "num_local_calls": 3,
+        "assigns": 25,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 12,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 108.0,
+      "callers": [
+        "Resolver._get_all_source_columns",
+        "Resolver._get_available_source_columns"
+      ],
+      "callers_2hop": [
+        "Resolver._get_table_name_from_sources",
+        "Resolver.get_table"
+      ]
+    },
+    "rank_note": "affinity+score=119.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "tokenizer_core_extract_string_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "sqlglot/tokenizer_core.py",
+      "module": "sqlglot.tokenizer_core",
+      "qualname": "TokenizerCore._extract_string",
+      "name": "_extract_string",
+      "lineno": 1122,
+      "end_lineno": 1217,
+      "params": [
+        "self",
+        "delimiter",
+        "escapes",
+        "raw_string",
+        "raise_unmatched"
+      ],
+      "metrics": {
+        "body_lines": 96,
+        "branches": 13,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "_advance",
+          "_chars"
+        ],
+        "num_local_calls": 2,
+        "assigns": 20,
+        "augassigns": 7,
+        "returns": 3,
+        "boolops": 13,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 107.0,
+      "callers": [
+        "TokenizerCore._scan_string"
+      ],
+      "callers_2hop": [
+        "TokenizerCore._scan_keywords"
+      ]
+    },
+    "rank_note": "affinity+score=124.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "dialect_get_or_raise_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "sqlglot/dialects/dialect.py",
+      "module": "sqlglot.dialects.dialect",
+      "qualname": "Dialect.get_or_raise",
+      "name": "get_or_raise",
+      "lineno": 955,
+      "end_lineno": 1011,
+      "params": [
+        "cls",
+        "dialect"
+      ],
+      "metrics": {
+        "body_lines": 57,
+        "branches": 7,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "get"
+        ],
+        "num_local_calls": 1,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 49.7,
+      "callers": [
+        "map_date_part"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=34.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "scope_traverse_scope_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "sqlglot/optimizer/scope.py",
+      "module": "sqlglot.optimizer.scope",
+      "qualname": "_traverse_scope",
+      "name": "_traverse_scope",
+      "lineno": 691,
+      "end_lineno": 764,
+      "params": [
+        "scope"
+      ],
+      "metrics": {
+        "body_lines": 74,
+        "branches": 16,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 42,
+        "local_calls": [
+          "_is_from_or_join",
+          "_traverse_ctes",
+          "_traverse_scope",
+          "_traverse_select",
+          "_traverse_subqueries",
+          "_traverse_tables",
+          "_traverse_udtfs",
+          "_traverse_union",
+          "branch",
+          "find_all_in_scope"
+        ],
+        "num_local_calls": 10,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 67.4,
+      "callers": [
+        "_traverse_ctes",
+        "_traverse_subqueries",
+        "_traverse_tables",
+        "_traverse_udtfs",
+        "_traverse_union",
+        "traverse_scope"
+      ],
+      "callers_2hop": [
+        "build_scope"
+      ]
+    },
+    "rank_note": "affinity+score=92.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "annotate_types_annotate_expression_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "sqlglot/optimizer/annotate_types.py",
+      "module": "sqlglot.optimizer.annotate_types",
+      "qualname": "TypeAnnotator._annotate_expression",
+      "name": "_annotate_expression",
+      "lineno": 454,
+      "end_lineno": 548,
+      "params": [
+        "self",
+        "expression",
+        "scope"
+      ],
+      "metrics": {
+        "body_lines": 95,
+        "branches": 15,
+        "loops": 4,
+        "while_loops": 3,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 45,
+        "local_calls": [
+          "_get_scope_source_selects",
+          "_set_type"
+        ],
+        "num_local_calls": 2,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 13,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 106.0,
+      "callers": [
+        "TypeAnnotator._fixup_order_by_aliases",
+        "TypeAnnotator.annotate",
+        "TypeAnnotator.annotate_scope"
+      ],
+      "callers_2hop": [
+        "annotate_types"
+      ]
+    },
+    "rank_note": "affinity+score=83.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "qualify_tables_qualify_tables_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "sqlglot/optimizer/qualify_tables.py",
+      "module": "sqlglot.optimizer.qualify_tables",
+      "qualname": "qualify_tables",
+      "name": "qualify_tables",
+      "lineno": 16,
+      "end_lineno": 244,
+      "params": [
+        "expression",
+        "db",
+        "catalog",
+        "on_qualify",
+        "dialect",
+        "canonicalize_table_aliases"
+      ],
+      "metrics": {
+        "body_lines": 229,
+        "branches": 29,
+        "loops": 8,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 75,
+        "local_calls": [
+          "_qualify",
+          "_set_alias"
+        ],
+        "num_local_calls": 2,
+        "assigns": 36,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 18,
+        "comprehensions": 4,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 175.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=165.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "snowflake_qualify_unnested_columns_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "sqlglot/generators/snowflake.py",
+      "module": "sqlglot.generators.snowflake",
+      "qualname": "_qualify_unnested_columns",
+      "name": "_qualify_unnested_columns",
+      "lineno": 245,
+      "end_lineno": 338,
+      "params": [
+        "expression"
+      ],
+      "metrics": {
+        "body_lines": 94,
+        "branches": 13,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 36,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 19,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 5,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 7
+      },
+      "score": 96.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=72.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "generator_create_sql_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "sqlglot/generator.py",
+      "module": "sqlglot.generator",
+      "qualname": "Generator.create_sql",
+      "name": "create_sql",
+      "lineno": 1318,
+      "end_lineno": 1437,
+      "params": [
+        "self",
+        "expression"
+      ],
+      "metrics": {
+        "body_lines": 120,
+        "branches": 13,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 42,
+        "local_calls": [
+          "createable_sql",
+          "expressions",
+          "locate_properties",
+          "prepend_ctes",
+          "properties",
+          "sep",
+          "sql"
+        ],
+        "num_local_calls": 7,
+        "assigns": 44,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 100.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=108.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "generator_ordered_sql_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "sqlglot/generator.py",
+      "module": "sqlglot.generator",
+      "qualname": "Generator.ordered_sql",
+      "name": "ordered_sql",
+      "lineno": 3153,
+      "end_lineno": 3232,
+      "params": [
+        "self",
+        "expression"
+      ],
+      "metrics": {
+        "body_lines": 80,
+        "branches": 13,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 25,
+        "local_calls": [
+          "_resolve_ordered_for_null_ordering_simulation",
+          "sql",
+          "unsupported"
+        ],
+        "num_local_calls": 3,
+        "assigns": 29,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 16,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 107.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=109.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "simplify_simplify_comparison_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "sqlglot/optimizer/simplify.py",
+      "module": "sqlglot.optimizer.simplify",
+      "qualname": "Simplifier._simplify_comparison",
+      "name": "_simplify_comparison",
+      "lineno": 924,
+      "end_lineno": 990,
+      "params": [
+        "self",
+        "expression",
+        "left",
+        "right",
+        "or_"
+      ],
+      "metrics": {
+        "body_lines": 67,
+        "branches": 20,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 37,
+        "local_calls": [
+          "_is_constant",
+          "cast_as_datetime",
+          "extract_date"
+        ],
+        "num_local_calls": 3,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 14,
+        "boolops": 10,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 99.7,
+      "callers": [
+        "Simplifier.simplify_connectors._simplify_connectors"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=70.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "scope_traverse_tables_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "sqlglot/optimizer/scope.py",
+      "module": "sqlglot.optimizer.scope",
+      "qualname": "_traverse_tables",
+      "name": "_traverse_tables",
+      "lineno": 873,
+      "end_lineno": 966,
+      "params": [
+        "scope"
+      ],
+      "metrics": {
+        "body_lines": 94,
+        "branches": 14,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 28,
+        "local_calls": [
+          "_get_source_alias",
+          "_is_derived_table",
+          "_traverse_scope",
+          "branch"
+        ],
+        "num_local_calls": 4,
+        "assigns": 20,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 6,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 93.0,
+      "callers": [
+        "_traverse_scope"
+      ],
+      "callers_2hop": [
+        "_traverse_ctes",
+        "_traverse_subqueries",
+        "_traverse_udtfs",
+        "_traverse_union",
+        "traverse_scope"
+      ]
+    },
+    "rank_note": "affinity+score=75.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "unnest_subqueries_unnest_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "sqlglot/optimizer/unnest_subqueries.py",
+      "module": "sqlglot.optimizer.unnest_subqueries",
+      "qualname": "unnest",
+      "name": "unnest",
+      "lineno": 41,
+      "end_lineno": 145,
+      "params": [
+        "select",
+        "parent_select",
+        "next_alias_name"
+      ],
+      "metrics": {
+        "body_lines": 105,
+        "branches": 14,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 57,
+        "local_calls": [
+          "_other_operand",
+          "_replace"
+        ],
+        "num_local_calls": 2,
+        "assigns": 21,
+        "augassigns": 0,
+        "returns": 6,
+        "boolops": 9,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 87.0,
+      "callers": [
+        "unnest_subqueries"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=106.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "merge_subqueries_merge_expressions_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "sqlglot/optimizer/merge_subqueries.py",
+      "module": "sqlglot.optimizer.merge_subqueries",
+      "qualname": "_merge_expressions",
+      "name": "_merge_expressions",
+      "lineno": 399,
+      "end_lineno": 467,
+      "params": [
+        "outer_scope",
+        "inner_scope",
+        "alias"
+      ],
+      "metrics": {
+        "body_lines": 69,
+        "branches": 9,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 5,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 4
+      },
+      "score": 77.9,
+      "callers": [
+        "merge_ctes",
+        "merge_derived_tables"
+      ],
+      "callers_2hop": [
+        "merge_subqueries"
+      ]
+    },
+    "rank_note": "affinity+score=66.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "pushdown_projections_remove_unused_selections_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "sqlglot/optimizer/pushdown_projections.py",
+      "module": "sqlglot.optimizer.pushdown_projections",
+      "qualname": "_remove_unused_selections",
+      "name": "_remove_unused_selections",
+      "lineno": 161,
+      "end_lineno": 245,
+      "params": [
+        "scope",
+        "parent_selections",
+        "schema",
+        "alias_count",
+        "journal"
+      ],
+      "metrics": {
+        "body_lines": 85,
+        "branches": 13,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 30,
+        "local_calls": [
+          "_bare_group_by_ordinal_refs",
+          "_is_implicit_group_by_all",
+          "default_selection"
+        ],
+        "num_local_calls": 3,
+        "assigns": 20,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 7,
+        "comprehensions": 4,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 89.0,
+      "callers": [
+        "pushdown_projections"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=96.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "annotate_types_annotate_by_args_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "sqlglot/optimizer/annotate_types.py",
+      "module": "sqlglot.optimizer.annotate_types",
+      "qualname": "TypeAnnotator._annotate_by_args",
+      "name": "_annotate_by_args",
+      "lineno": 813,
+      "end_lineno": 891,
+      "params": [
+        "self",
+        "expression"
+      ],
+      "metrics": {
+        "body_lines": 79,
+        "branches": 14,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "_maybe_coerce",
+          "_set_type"
+        ],
+        "num_local_calls": 2,
+        "assigns": 17,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 8,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 89.9,
+      "callers": [
+        "TypeAnnotator._annotate_binary",
+        "TypeAnnotator._annotate_within_group"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=111.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "builders_to_table_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "sqlglot/expressions/builders.py",
+      "module": "sqlglot.expressions.builders",
+      "qualname": "to_table",
+      "name": "to_table",
+      "lineno": 356,
+      "end_lineno": 385,
+      "params": [
+        "sql_path",
+        "dialect",
+        "copy"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "table_"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 21.0,
+      "callers": [
+        "normalize_table_name",
+        "rename_column",
+        "rename_table",
+        "replace_tables._replace_tables"
+      ],
+      "callers_2hop": [
+        "expand",
+        "expand._expand",
+        "replace_tables"
+      ]
+    },
+    "rank_note": "affinity+score=19.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "core_convert_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "sqlglot/expressions/core.py",
+      "module": "sqlglot.expressions.core",
+      "qualname": "convert",
+      "name": "convert",
+      "lineno": 2377,
+      "end_lineno": 2461,
+      "params": [
+        "value",
+        "copy"
+      ],
+      "metrics": {
+        "body_lines": 85,
+        "branches": 15,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 54,
+        "local_calls": [
+          "convert",
+          "maybe_copy",
+          "number",
+          "string",
+          "to_identifier"
+        ],
+        "num_local_calls": 5,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 14,
+        "boolops": 2,
+        "comprehensions": 6,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 60.0,
+      "callers": [
+        "Expression._binop",
+        "Expression.between",
+        "Expression.isin"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=65.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "pushdown_projections_pushdown_projections_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "sqlglot/optimizer/pushdown_projections.py",
+      "module": "sqlglot.optimizer.pushdown_projections",
+      "qualname": "pushdown_projections",
+      "name": "pushdown_projections",
+      "lineno": 47,
+      "end_lineno": 158,
+      "params": [
+        "expression",
+        "schema",
+        "remove_unused_selections",
+        "dialect",
+        "journal"
+      ],
+      "metrics": {
+        "body_lines": 112,
+        "branches": 15,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 31,
+        "local_calls": [
+          "_is_self_referencing_cte",
+          "_remove_unused_selections"
+        ],
+        "num_local_calls": 2,
+        "assigns": 24,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 7,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 102.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=85.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "transforms_explode_projection_to_unnest_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "sqlglot/transforms.py",
+      "module": "sqlglot.transforms",
+      "qualname": "explode_projection_to_unnest._explode_projection_to_unnest",
+      "name": "_explode_projection_to_unnest",
+      "lineno": 407,
+      "end_lineno": 550,
+      "params": [
+        "expression"
+      ],
+      "metrics": {
+        "body_lines": 144,
+        "branches": 15,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 73,
+        "local_calls": [
+          "new_name"
+        ],
+        "num_local_calls": 1,
+        "assigns": 30,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 84.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=74.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "transforms_eliminate_join_marks_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "sqlglot/transforms.py",
+      "module": "sqlglot.transforms",
+      "qualname": "eliminate_join_marks",
+      "name": "eliminate_join_marks",
+      "lineno": 853,
+      "end_lineno": 971,
+      "params": [
+        "expression"
+      ],
+      "metrics": {
+        "body_lines": 119,
+        "branches": 8,
+        "loops": 7,
+        "while_loops": 1,
+        "max_loop_nesting": 4,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 43,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 17,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 4,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 81.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=71.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "anonymize_anonymize_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "sqlglot/anonymize.py",
+      "module": "sqlglot.anonymize",
+      "qualname": "anonymize",
+      "name": "anonymize",
+      "lineno": 29,
+      "end_lineno": 120,
+      "params": [
+        "sql_or_tokens",
+        "dialect"
+      ],
+      "metrics": {
+        "body_lines": 92,
+        "branches": 9,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "_alias",
+          "_blank",
+          "_blank_comment",
+          "_number_alias"
+        ],
+        "num_local_calls": 4,
+        "assigns": 27,
+        "augassigns": 2,
+        "returns": 1,
+        "boolops": 4,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 4
+      },
+      "score": 87.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=83.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "duckdb_connect_by_to_recursive_cte_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "sqlglot/generators/duckdb.py",
+      "module": "sqlglot.generators.duckdb",
+      "qualname": "connect_by_to_recursive_cte",
+      "name": "connect_by_to_recursive_cte",
+      "lineno": 709,
+      "end_lineno": 824,
+      "params": [
+        "expression"
+      ],
+      "metrics": {
+        "body_lines": 116,
+        "branches": 8,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 57,
+        "local_calls": [
+          "_qualify_connect_pred"
+        ],
+        "num_local_calls": 1,
+        "assigns": 26,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 4,
+        "comprehensions": 5,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 78.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=84.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "jsonpath_parse_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "sqlglot/jsonpath.py",
+      "module": "sqlglot.jsonpath",
+      "qualname": "parse",
+      "name": "parse",
+      "lineno": 45,
+      "end_lineno": 216,
+      "params": [
+        "path",
+        "dialect"
+      ],
+      "metrics": {
+        "body_lines": 172,
+        "branches": 11,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 39,
+        "local_calls": [
+          "_curr",
+          "_error",
+          "_match",
+          "_match_set",
+          "_parse_bracket",
+          "_parse_var_text",
+          "_prev"
+        ],
+        "num_local_calls": 7,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 61.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=47.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "python_aggregate_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "sqlglot/executor/python.py",
+      "module": "sqlglot.executor.python",
+      "qualname": "PythonExecutor.aggregate",
+      "name": "aggregate",
+      "lineno": 278,
+      "end_lineno": 343,
+      "params": [
+        "self",
+        "step",
+        "context"
+      ],
+      "metrics": {
+        "body_lines": 66,
+        "branches": 7,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 33,
+        "local_calls": [
+          "add_row",
+          "context",
+          "generate_tuple",
+          "scan",
+          "sort",
+          "table"
+        ],
+        "num_local_calls": 6,
+        "assigns": 18,
+        "augassigns": 1,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 64.6,
+      "callers": [
+        "PythonExecutor.execute"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=57.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "snowflake_builder_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "sqlglot/parsers/snowflake.py",
+      "module": "sqlglot.parsers.snowflake",
+      "qualname": "_build_datetime._builder",
+      "name": "_builder",
+      "lineno": 83,
+      "end_lineno": 128,
+      "params": [
+        "args",
+        "dialect"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 7,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 5,
+        "boolops": 13,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 66.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=84.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "optimize_joins_optimize_joins_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "sqlglot/optimizer/optimize_joins.py",
+      "module": "sqlglot.optimizer.optimize_joins",
+      "qualname": "optimize_joins",
+      "name": "optimize_joins",
+      "lineno": 12,
+      "end_lineno": 64,
+      "params": [
+        "expression"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 6,
+        "loops": 6,
+        "while_loops": 0,
+        "max_loop_nesting": 4,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [
+          "_is_reorderable",
+          "normalize",
+          "other_table_names",
+          "reorder_joins"
+        ],
+        "num_local_calls": 4,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 61.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=65.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "serde_dump_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "sqlglot/serde.py",
+      "module": "sqlglot.serde",
+      "qualname": "dump",
+      "name": "dump",
+      "lineno": 23,
+      "end_lineno": 74,
+      "params": [
+        "expression"
+      ],
+      "metrics": {
+        "body_lines": 52,
+        "branches": 12,
+        "loops": 3,
+        "while_loops": 1,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "dump"
+        ],
+        "num_local_calls": 1,
+        "assigns": 17,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 73.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=83.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "mysql_parse_show_mysql_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "sqlglot/parsers/mysql.py",
+      "module": "sqlglot.parsers.mysql",
+      "qualname": "MySQLParser._parse_show_mysql",
+      "name": "_parse_show_mysql",
+      "lineno": 431,
+      "end_lineno": 515,
+      "params": [
+        "self",
+        "this",
+        "target",
+        "full",
+        "global_"
+      ],
+      "metrics": {
+        "body_lines": 85,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 42,
+        "local_calls": [
+          "_parse_oldstyle_limit"
+        ],
+        "num_local_calls": 1,
+        "assigns": 29,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 67.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=107.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "python_execute_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "sqlglot/executor/python.py",
+      "module": "sqlglot.executor.python",
+      "qualname": "PythonExecutor.execute",
+      "name": "execute",
+      "lineno": 20,
+      "end_lineno": 62,
+      "params": [
+        "self",
+        "plan"
+      ],
+      "metrics": {
+        "body_lines": 43,
+        "branches": 7,
+        "loops": 3,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [
+          "aggregate",
+          "context",
+          "join",
+          "scan",
+          "set_operation",
+          "sort"
+        ],
+        "num_local_calls": 6,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 55.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=41.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "merge_subqueries_merge_ctes_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "sqlglot/optimizer/merge_subqueries.py",
+      "module": "sqlglot.optimizer.merge_subqueries",
+      "qualname": "merge_ctes",
+      "name": "merge_ctes",
+      "lineno": 78,
+      "end_lineno": 115,
+      "params": [
+        "expression",
+        "leave_tables_isolated",
+        "scopes"
+      ],
+      "metrics": {
+        "body_lines": 38,
+        "branches": 3,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "_merge_expressions",
+          "_merge_from",
+          "_merge_hints",
+          "_merge_joins",
+          "_merge_order",
+          "_merge_where",
+          "_mergeable",
+          "_pop_cte",
+          "_rename_inner_sources"
+        ],
+        "num_local_calls": 9,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 40.8,
+      "callers": [
+        "merge_subqueries"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=58.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "eliminate_subqueries_eliminate_subqueries_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "sqlglot/optimizer/eliminate_subqueries.py",
+      "module": "sqlglot.optimizer.eliminate_subqueries",
+      "qualname": "eliminate_subqueries",
+      "name": "eliminate_subqueries",
+      "lineno": 16,
+      "end_lineno": 113,
+      "params": [
+        "expression"
+      ],
+      "metrics": {
+        "body_lines": 98,
+        "branches": 10,
+        "loops": 7,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "_eliminate",
+          "eliminate_subqueries"
+        ],
+        "num_local_calls": 2,
+        "assigns": 16,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 75.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=72.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "trino_parse_routine_statement_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "sqlglot/parsers/trino.py",
+      "module": "sqlglot.parsers.trino",
+      "qualname": "TrinoParser._parse_routine_statement",
+      "name": "_parse_routine_statement",
+      "lineno": 224,
+      "end_lineno": 267,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 44,
+        "branches": 12,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 31,
+        "local_calls": [
+          "_parse_routine_block",
+          "_parse_routine_case",
+          "_parse_routine_if",
+          "_parse_routine_loop",
+          "_parse_routine_repeat",
+          "_parse_routine_while"
+        ],
+        "num_local_calls": 6,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 12,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 44.4,
+      "callers": [
+        "TrinoParser._parse_function_specification",
+        "TrinoParser._parse_routine_statements"
+      ],
+      "callers_2hop": [
+        "TrinoParser._parse_cte",
+        "TrinoParser._parse_routine_case",
+        "TrinoParser._parse_routine_if"
+      ]
+    },
+    "rank_note": "affinity+score=51.5 [direct]",
+    "exercise_mode": "direct"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "<Flask 'runtime-083643'>",
+        "variable": "app"
+      },
+      {
+        "value": "[[308, 406, 171, 517, 705, 900, 450], {'mask': 415, 'phase': 7}]",
+        "variable": "args"
+      },
+      {
+        "value": "{'scale': 5, 'offset': 450, 'tags': ('tag-10', 'tag-27', 'tag-39', 'tag-17')}",
+        "variable": "kwargs"
+      },
+      {
+        "value": "'build_app'",
+        "variable": "name"
+      }
+    ]
+  },
+  "question": "Run the pytest test `flask_qa/cli_find_app_by_string_s3_state/files/testcase.py::TestComputedFactoryImports::test_loads_generated_factory_expressions`. During that test run, consider only execution of `flask.cli.find_app_by_string` in `src/flask/cli.py`. What are the values of the local variables `app`, `args`, `kwargs`, and `name` immediately after line 178 has executed successfully for the 17th time?\n\nLine numbers are absolute, 1-based line numbers in `src/flask/cli.py` as it exists in the repository. For a multi-line statement or expression, its executed line is the line on which that statement or expression begins; the function's `def` line, decorator lines, and docstring lines do not count unless Python executes them as line events in the function frame. Here, \u201cthe 17th time\u201d means the 17th chronological successful completion of the statement beginning on line 178 across the entire test run, counting only this exact target function. An invocation is one call of this function, numbered from 1 in chronological order. Do not include executions or locals from callers, callees, comprehension frames, or any other function.\n\nReturn exactly one JSON object with the shape `{\"observed_state\": [{\"value\": \"...\", \"variable\": \"...\"}]}`. Include exactly one entry for each of the four named variables, ordered by `variable` in ascending Unicode code-point order; do not deduplicate entries. Each `variable` is the bare local-variable name. Each `value` is the full Python `repr()` string of that local's concrete value at the observation point, not `str()` and not a JSON rendering of the value itself. For a container, use the `repr()` of the whole container rather than separately serializing its elements. Thus strings retain their Python quotes, and `None` and `True` use Python spellings (for example, the unrelated value `[\"x\", None]` would be represented by the JSON string `\"['x', None]\"`). Embedded newline characters are represented as real newline characters inside the JSON string, subject to normal JSON escaping. All four locals exist at this point, so do not use JSON `null`, an empty string, or an omitted entry to represent a missing value. The only output keys are `observed_state`, `value`, and `variable`; `observed_state` is a JSON array and both fields in each entry are JSON strings.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

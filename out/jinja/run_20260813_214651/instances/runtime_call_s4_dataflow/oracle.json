@@ -1,0 +1,182 @@
+{
+  "question_kind": "S4_DataFlow",
+  "question": "Consider the single test method `jinja_qa/runtime_call_s4_dataflow/files/testcase.py::TestContextCallDataFlow::test_context_call_def_use_dataflow`.\n\nThat test calls `Context.call` **directly** on a `Context` instance from `jinja2.runtime` (see `src/jinja2/runtime.py`).\n\nTarget function: `jinja2.runtime.Context.call` (the method whose `def` begins at line 263 of `src/jinja2/runtime.py`).\n\nTrack these local variable names only: `__self`, `__obj`, `args`, `kwargs`, `pass_arg`.\n\nA **def** is a binding or assignment to the variable: function parameters count as defined at line 263 (the `def` line); each ordinary assignment creates a new def on that assignment's physical line. A **use** is any read of the variable on a line during execution (including reads in conditions, call arguments, attribute access receivers, and subscripts).\n\nAugmented assignment (`x += 1`) counts as a use of the prior value on that line followed by a new def on the same line. A `for x in ...` loop header defines `x` on the header line at the start of each iteration. Comprehension-local targets are defined on the line where the comprehension appears. None of these constructs occur for the tracked names in the target function, but the rule is stated for completeness.\n\nAn **observed def-use pair** is `{variable, def_line, use_line}` where the value established at `def_line` is read at `use_line` before that variable is defined again on a later executed line. Collect every such pair that occurs in any invocation of `jinja2.runtime.Context.call` during the test run. When the same triple appears in multiple invocations, include it once (deduplicate exact triples).\n\nLine numbers are absolute, 1-based, in `src/jinja2/runtime.py` as it exists in the repository. For multi-line statements, the executed `line` event corresponds to the physical line where that sub-expression or statement begins. Decorator lines and docstrings are not execution lines for this question.\n\nWithin a single line that both reads and assigns a variable, process sub-expressions in Python evaluation order (right-hand side and call arguments before assignment targets).\n\nSort the final list by `variable` ascending, then `def_line` ascending, then `use_line` ascending.\n\nReturn JSON with exactly one top-level key `observed_def_use_pairs` whose value is a list of objects, each with keys `variable` (string), `def_line` (integer), and `use_line` (integer).",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "variable": "__obj",
+        "def_line": 263,
+        "use_line": 279
+      },
+      {
+        "variable": "__obj",
+        "def_line": 263,
+        "use_line": 280
+      },
+      {
+        "variable": "__obj",
+        "def_line": 263,
+        "use_line": 282
+      },
+      {
+        "variable": "__obj",
+        "def_line": 263,
+        "use_line": 284
+      },
+      {
+        "variable": "__obj",
+        "def_line": 263,
+        "use_line": 303
+      },
+      {
+        "variable": "__obj",
+        "def_line": 282,
+        "use_line": 284
+      },
+      {
+        "variable": "__obj",
+        "def_line": 282,
+        "use_line": 303
+      },
+      {
+        "variable": "__self",
+        "def_line": 263,
+        "use_line": 290
+      },
+      {
+        "variable": "__self",
+        "def_line": 263,
+        "use_line": 292
+      },
+      {
+        "variable": "__self",
+        "def_line": 263,
+        "use_line": 293
+      },
+      {
+        "variable": "__self",
+        "def_line": 263,
+        "use_line": 295
+      },
+      {
+        "variable": "__self",
+        "def_line": 263,
+        "use_line": 297
+      },
+      {
+        "variable": "__self",
+        "def_line": 263,
+        "use_line": 305
+      },
+      {
+        "variable": "__self",
+        "def_line": 290,
+        "use_line": 292
+      },
+      {
+        "variable": "__self",
+        "def_line": 290,
+        "use_line": 293
+      },
+      {
+        "variable": "__self",
+        "def_line": 292,
+        "use_line": 293
+      },
+      {
+        "variable": "args",
+        "def_line": 263,
+        "use_line": 293
+      },
+      {
+        "variable": "args",
+        "def_line": 263,
+        "use_line": 295
+      },
+      {
+        "variable": "args",
+        "def_line": 263,
+        "use_line": 297
+      },
+      {
+        "variable": "args",
+        "def_line": 263,
+        "use_line": 303
+      },
+      {
+        "variable": "args",
+        "def_line": 293,
+        "use_line": 303
+      },
+      {
+        "variable": "args",
+        "def_line": 295,
+        "use_line": 303
+      },
+      {
+        "variable": "args",
+        "def_line": 297,
+        "use_line": 303
+      },
+      {
+        "variable": "kwargs",
+        "def_line": 263,
+        "use_line": 289
+      },
+      {
+        "variable": "kwargs",
+        "def_line": 263,
+        "use_line": 290
+      },
+      {
+        "variable": "kwargs",
+        "def_line": 263,
+        "use_line": 291
+      },
+      {
+        "variable": "kwargs",
+        "def_line": 263,
+        "use_line": 292
+      },
+      {
+        "variable": "kwargs",
+        "def_line": 263,
+        "use_line": 299
+      },
+      {
+        "variable": "kwargs",
+        "def_line": 263,
+        "use_line": 300
+      },
+      {
+        "variable": "kwargs",
+        "def_line": 263,
+        "use_line": 303
+      },
+      {
+        "variable": "pass_arg",
+        "def_line": 284,
+        "use_line": 286
+      },
+      {
+        "variable": "pass_arg",
+        "def_line": 284,
+        "use_line": 294
+      },
+      {
+        "variable": "pass_arg",
+        "def_line": 284,
+        "use_line": 296
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "ZeroDivisionError('division by zero')",
+        "variable": "exc_value"
+      },
+      {
+        "value": "1",
+        "variable": "lineno"
+      },
+      {
+        "value": "None",
+        "variable": "source"
+      },
+      {
+        "value": "<Template 't15'>",
+        "variable": "template"
+      }
+    ]
+  },
+  "question": "Consider the pytest test identified by `jinja_qa/debug_rewrite_traceback_stack_s3_state/files/testcase.py::RewriteTracebackStackS3StateTest::test_direct_call_rewrites_nested_include_traceback` (test class `RewriteTracebackStackS3StateTest`, test method `test_direct_call_rewrites_nested_include_traceback`). During that single test run, the function `jinja2.debug.rewrite_traceback_stack` in `src/jinja2/debug.py` is invoked. An invocation is one `call` event for that function during the test run, counted in chronological order starting at 1. For invocation 1 only, consider the observation point defined as: immediately after line 64 (`tb = tb.tb_next`) has finished executing for the 17th time during that invocation. Count an execution of line 64 as the Nth time a `line` event is recorded for that line number while inside invocation 1; line events on other lines, `call`, `return`, and `exception` events do not advance this counter. Line numbers are absolute, 1-based, and refer to `src/jinja2/debug.py` as it exists in the repository; for multi-line statements, attribute executed-line events to the line where that statement begins. Report the Python `repr()` strings of the local variables `exc_value`, `lineno`, `source`, and `template` that are in scope at that observation point. Use `repr()` for every reported value; for container objects report the `repr()` of the whole container. Exception objects use their standard `repr()` form (for example `ValueError('bad')`, not a module-qualified type name). `None` is reported as the two-character string `None`. Return a JSON object with exactly one key, `observed_state`, whose value is a JSON array of objects, each with exactly two keys: `variable` (the variable name as a string) and `value` (the `repr()` string). Sort the array by `variable` ascending in ASCII order; when variable names tie, preserve the order in which those variables were first bound during the invocation.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

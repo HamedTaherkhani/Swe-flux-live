@@ -1,0 +1,72 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 106,
+        "use_line": 108,
+        "variable": "defaults"
+      },
+      {
+        "def_line": 106,
+        "use_line": 114,
+        "variable": "defaults"
+      },
+      {
+        "def_line": 108,
+        "use_line": 114,
+        "variable": "defaults"
+      },
+      {
+        "def_line": 87,
+        "use_line": 104,
+        "variable": "endpoint"
+      },
+      {
+        "def_line": 87,
+        "use_line": 112,
+        "variable": "endpoint"
+      },
+      {
+        "def_line": 105,
+        "use_line": 112,
+        "variable": "endpoint"
+      },
+      {
+        "def_line": 87,
+        "use_line": 99,
+        "variable": "rule"
+      },
+      {
+        "def_line": 87,
+        "use_line": 100,
+        "variable": "rule"
+      },
+      {
+        "def_line": 87,
+        "use_line": 111,
+        "variable": "rule"
+      },
+      {
+        "def_line": 100,
+        "use_line": 111,
+        "variable": "rule"
+      },
+      {
+        "def_line": 102,
+        "use_line": 111,
+        "variable": "rule"
+      }
+    ]
+  },
+  "question": "Run the pytest test `flask_qa/blueprints_add_url_rule_m4_dataflow/files/testcase.py::TestGeneratedBlueprintRegistration::test_registers_generated_rule_matrix`. During that complete test run, consider only invocations of `flask.sansio.blueprints.BlueprintSetupState.add_url_rule` in `src/flask/sansio/blueprints.py`. Across all of those invocations, what unique observed reaching-definition/use pairs occur for exactly the local variables `defaults`, `endpoint`, and `rule`?\n\nAn invocation is one call of this exact function, numbered from 1 in chronological order across the test run. Analyze only the target function's own frame: do not include callers, callees, nested function or lambda frames, or comprehension frames. A definition is the successful binding of one of the three tracked local names. Treat a parameter as defined at the function's `def` line on every invocation. A plain assignment defines its target only after its right-hand side completes successfully. In a chained or destructuring assignment, every tracked target successfully bound by that statement is defined at the line where the assignment statement begins. A `for` header defines a tracked target on each successful iteration binding, at the line where that header begins; reads used to produce the next iterable item occur before that iteration's binding. An augmented assignment such as the unrelated `total += step` first uses the reaching definition of `total` and then, after the operation succeeds, defines `total` again on that augmented-assignment line. A walrus assignment evaluates its right-hand side reads before its successful definition. Comprehension induction variables are comprehension-local and are excluded, and loads performed in comprehension frames are excluded.\n\nA use is an actually executed read represented by an AST `Name` node with `Load` context for one of the tracked names in the target frame; truth tests, call arguments, and right-hand sides count. Attribute names and dictionary keys do not count as local-name uses. A pair is observed when a use executes and the most recent successful definition of the same variable in that invocation reaches it without another definition intervening. Definitions never reach across invocations. If the same variable is read more than once on one source line from the same reaching definition, that still yields one pair after deduplication.\n\nLine numbers are absolute, 1-based line numbers in `src/flask/sansio/blueprints.py` as it exists in the repository. A parameter definition is attributed to the line where the function's `def` statement begins. For a multi-line assignment or loop header, a definition is attributed to the line where that statement begins; a use is attributed to the line where its AST `Name` expression begins. Decorator and docstring lines produce no pair unless they contain an actually executed tracked-name use in the target frame.\n\nReturn exactly one JSON object with the shape `{\"observed_def_use_pairs\": [{\"def_line\": 1, \"use_line\": 2, \"variable\": \"name\"}]}`. `observed_def_use_pairs` is a JSON array. Each entry has exactly the keys `def_line`, `use_line`, and `variable`; both line fields are JSON integers and `variable` is the bare local-name JSON string. Take the union across all invocations, remove duplicate triples, then sort in ascending order by `variable` using Unicode code-point order, then by numeric `def_line`, then by numeric `use_line`. Do not emit invocation numbers, values, unobserved static possibilities, JSON nulls, or any other keys.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

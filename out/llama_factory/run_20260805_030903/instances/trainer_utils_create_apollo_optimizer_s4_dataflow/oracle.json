@@ -1,0 +1,177 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 288,
+        "use_line": 294,
+        "variable": "apollo_targets"
+      },
+      {
+        "def_line": 290,
+        "use_line": 294,
+        "variable": "apollo_targets"
+      },
+      {
+        "def_line": 293,
+        "use_line": 294,
+        "variable": "name"
+      },
+      {
+        "def_line": 313,
+        "use_line": 317,
+        "variable": "name"
+      },
+      {
+        "def_line": 353,
+        "use_line": 363,
+        "variable": "optimizer"
+      },
+      {
+        "def_line": 360,
+        "use_line": 363,
+        "variable": "optimizer"
+      },
+      {
+        "def_line": 295,
+        "use_line": 296,
+        "variable": "param"
+      },
+      {
+        "def_line": 295,
+        "use_line": 297,
+        "variable": "param"
+      },
+      {
+        "def_line": 313,
+        "use_line": 314,
+        "variable": "param"
+      },
+      {
+        "def_line": 313,
+        "use_line": 315,
+        "variable": "param"
+      },
+      {
+        "def_line": 313,
+        "use_line": 316,
+        "variable": "param"
+      },
+      {
+        "def_line": 313,
+        "use_line": 318,
+        "variable": "param"
+      },
+      {
+        "def_line": 313,
+        "use_line": 320,
+        "variable": "param"
+      },
+      {
+        "def_line": 335,
+        "use_line": 336,
+        "variable": "param"
+      },
+      {
+        "def_line": 335,
+        "use_line": 337,
+        "variable": "param"
+      },
+      {
+        "def_line": 338,
+        "use_line": 339,
+        "variable": "param"
+      },
+      {
+        "def_line": 338,
+        "use_line": 340,
+        "variable": "param"
+      },
+      {
+        "def_line": 341,
+        "use_line": 342,
+        "variable": "param"
+      },
+      {
+        "def_line": 341,
+        "use_line": 343,
+        "variable": "param"
+      },
+      {
+        "def_line": 350,
+        "use_line": 351,
+        "variable": "param"
+      },
+      {
+        "def_line": 336,
+        "use_line": 337,
+        "variable": "param_groups"
+      },
+      {
+        "def_line": 339,
+        "use_line": 340,
+        "variable": "param_groups"
+      },
+      {
+        "def_line": 342,
+        "use_line": 343,
+        "variable": "param_groups"
+      },
+      {
+        "def_line": 355,
+        "use_line": 360,
+        "variable": "param_groups"
+      },
+      {
+        "def_line": 282,
+        "use_line": 322,
+        "variable": "training_args"
+      },
+      {
+        "def_line": 282,
+        "use_line": 324,
+        "variable": "training_args"
+      },
+      {
+        "def_line": 282,
+        "use_line": 331,
+        "variable": "training_args"
+      },
+      {
+        "def_line": 282,
+        "use_line": 339,
+        "variable": "training_args"
+      },
+      {
+        "def_line": 282,
+        "use_line": 342,
+        "variable": "training_args"
+      },
+      {
+        "def_line": 282,
+        "use_line": 353,
+        "variable": "training_args"
+      },
+      {
+        "def_line": 282,
+        "use_line": 357,
+        "variable": "training_args"
+      },
+      {
+        "def_line": 282,
+        "use_line": 358,
+        "variable": "training_args"
+      }
+    ]
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/trainer_utils_create_apollo_optimizer_s4_dataflow/files/testcase.py::TestApolloOptimizerDataFlow::test_generated_models_through_custom_optimizer`. Across every invocation of `llamafactory.train.trainer_utils._create_apollo_optimizer` in `src/llamafactory/train/trainer_utils.py`, report all unique observed dynamic def-use pairs for exactly these local variables: `apollo_targets`, `name`, `optimizer`, `param`, `param_groups`, and `training_args`. An invocation is one runtime entry into that exact function; invocations are numbered 1-based in chronological order over the complete test run, and pairs from all invocations are combined before deduplication. A definition (`def`) is a binding of the local name by parameter binding or an executed assignment target. Each parameter is defined at the function's `def` line on every invocation, regardless of the physical line on which that parameter is displayed. A use is a runtime evaluation of that local name in load context. A def-use pair exists when a use reads the binding produced by that def and no executed redefinition of the same local occurred between them in that invocation. For an ordinary assignment whose right-hand side uses the same name, the right-hand-side use reads the prior def and the assignment then creates the new def. Augmented assignment such as `counter += delta` first uses the old binding and then creates a new definition on that same line, so it is both a use of the reaching def and a new def. A `for` loop header redefines its target on each successful iteration before the body executes; an unsuccessful exhaustion check does not define the target. Names bound locally by a list, set, or dict comprehension or generator expression are scoped to that comprehension and are excluded as defs and uses; reads of tracked outer locals in a comprehension's iterable or other expressions still count. Attribute or subscript writes and mutating method calls do not rebind the base local name; evaluating that base name is a use. Line numbers are absolute, 1-based source line numbers in the named repository file. The parameter definitions use the line where the function's `def` statement begins. Otherwise, for a multi-line statement or expression, a def or use is attributed to the physical source line on which the relevant assignment target or loaded name begins; decorator and docstring lines do not count. Remove duplicate triples after combining all invocations, including duplicates caused by repeated loop iterations or multiple reads of the same reaching def on one line. Return exactly one JSON object with key `observed_def_use_pairs`; its value is a JSON array of objects, each having exactly `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string). Sort the array by `variable`, then `def_line`, then `use_line`, all ascending by ordinary string order for `variable` and numeric order for the line numbers. No other value serialization, null representation, function-name formatting, exception-name formatting, counting, or tie-breaker convention applies to this answer.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

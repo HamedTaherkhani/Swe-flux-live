@@ -1,0 +1,277 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Run the pytest test `instruct_lab_qa/evaluate_validate_options_s6_calls/files/testcase.py::TestEvaluateValidationCalls::test_generated_mt_validation_plan` against this repository. During the tenth invocation of `instructlab.model.evaluate.validate_options` in `src/instructlab/model/evaluate.py`, what is the exact chronological cross-function executed-line path for the tracked function set consisting of exactly `instructlab.model.evaluate.validate_options` and `instructlab.model.evaluate.validate_model`? An invocation is one runtime `call` event for exactly `instructlab.model.evaluate.validate_options`, counted 1-based in chronological order from the start of the named test. A function identity uses fully qualified `module.qualname` form (for example, `package.module.Class.method`). Starting immediately after that invocation's call event and ending immediately before its return event, include every runtime `line` event whose active frame is one of the two exact tracked functions. This includes events in the target frame and in any invocation of the tracked callee while the selected target invocation remains on the call stack, whether reached directly or transitively. Exclude all call, return, and exception events, all functions outside the exact tracked set (including builtins and comprehension frames), and all events before or after the selected target frame's lifetime. Neither tracked function is a generator; therefore generator resumptions add no events or invocations under this rule. Preserve chronological event order exactly and retain every repeated event; do not sort or deduplicate. Each line is the absolute 1-based physical line number reported for that event in the named repository file as it exists during the test. Do not normalize multi-line statements: if execution reports an event on a continuation line, use that continuation line's own physical number. The `def` lines, decorator lines, and docstring-only lines are not included unless Python emits a runtime line event for them. Return exactly one JSON object with key `executed_path`. Its value is a JSON array whose entries have exactly the keys `file`, `func`, and `line` in that key order. For every entry, `file` is the repo-relative POSIX path string, `func` is the fully qualified function identity defined above, and `line` is a JSON integer. Serialize strings as JSON strings and line numbers as JSON numbers; no value uses Python `repr`, and there are no null, empty, or omitted values.",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 475
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 477
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 478
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 479
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 480
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 476
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 483
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 484
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 482
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 487
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 488
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 489
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 490
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 491
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 492
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 493
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 494
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 495
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 496
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 501
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 569
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 570
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 571
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 572
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 573
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 581
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 585
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 586
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 502
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 569
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 570
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 571
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 572
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 573
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 581
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 585
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 586
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 503
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 504
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 569
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 570
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 571
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 572
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 573
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 581
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 585
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_model",
+        "line": 586
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 506
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 510
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 509
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 512
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.validate_options",
+        "line": 513
+      }
+    ]
+  }
+}

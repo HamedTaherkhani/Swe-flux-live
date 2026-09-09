@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "None",
+        "variable": "alias"
+      },
+      {
+        "value": "24",
+        "variable": "counter"
+      },
+      {
+        "value": "83",
+        "variable": "i"
+      },
+      {
+        "value": "False",
+        "variable": "is_number"
+      },
+      {
+        "value": "(False, 'field_0_jajpxmyh')",
+        "variable": "key"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `sqlglot_qa/anonymize_anonymize_s3_state/files/testcase.py::TestAnonymizeProgramState::test_generated_mixed_query`. During that run, consider the first and only invocation of `sqlglot.anonymize.anonymize` in `sqlglot/anonymize.py`. An invocation means one entry into that function and is numbered 1-based in chronological order.\n\nObserve the target function's own local frame immediately after the assignment statement on absolute, 1-based line 93 (`alias = seen.get(key)`) has completed for the 27th time in that invocation. Count only completed executions of that exact source line, 1-based in chronological order; executions of other lines, the `def` line, docstring lines, and calls in helper functions do not count. Line numbers refer to the named repository file as it exists for this test. For a multi-line statement, execution is attributed to the line on which the statement or expression begins, although line 93 here is a single-line statement.\n\nReport the local variables `alias`, `counter`, `i`, `is_number`, and `key` at that one observation point. Return exactly `{\"observed_state\": [{\"value\": \"...\", \"variable\": \"...\"}]}`, where `observed_state` is a JSON list containing exactly one record for each named variable. Sort records by `variable` in ascending Unicode code-point order; do not deduplicate records. Each `variable` is the local's bare name. Each `value` is Python `repr()` of that local value, stored as a JSON string. For a container, use `repr()` of the whole container rather than recursively converting it; thus strings retain quotes and Python spellings such as `None` and `True` remain inside the value string (for example, the tuple `(\"demo\", None)` would be represented by the value string `('demo', None)`). If a represented value contains an embedded newline, preserve that newline as part of the JSON string. All five locals exist at the observation point, so no missing-value or JSON-null convention is needed.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 6,
+        "exception_type": "AssertionError"
+      },
+      {
+        "count": 35,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 55,
+        "exception_type": "IndexError"
+      },
+      {
+        "count": 5,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 6,
+        "exception_type": "ModuleNotFoundError"
+      },
+      {
+        "count": 6,
+        "exception_type": "NameError"
+      },
+      {
+        "count": 12,
+        "exception_type": "OverflowError"
+      },
+      {
+        "count": 28,
+        "exception_type": "RuntimeError"
+      },
+      {
+        "count": 6,
+        "exception_type": "StopIteration"
+      },
+      {
+        "count": 6,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 22,
+        "exception_type": "UnicodeDecodeError"
+      },
+      {
+        "count": 24,
+        "exception_type": "ZeroDivisionError"
+      }
+    ]
+  },
+  "question": "Run the complete pytest class `click_qa/globals_get_current_context_m5_exceptions/files/testcase.py::TestGeneratedContextObservations`, including every method whose name starts with `test_`, and aggregate across ALL of those test methods. For every chronological invocation of `click.globals.get_current_context` in `src/click/globals.py`, count the exception observations made by that exact target frame and report totals grouped by exception type. An invocation means one `call` of the target function during this complete class run, numbered 1-based in chronological order; invocation numbers are not included in the output. An exception is observed once whenever Python raises it while executing code in that exact target frame or propagates it from a callee into that frame. Count the observation whether the target subsequently catches the exception, replaces it by raising another exception, or lets it propagate. An exception raised and fully handled inside a callee does not count because it never propagates into the target frame. If the same exception object is re-raised in the same target frame, each separate raise or propagation into the target frame is a new observation and counts again. Counts are totals over ALL invocations and ALL test methods, so the same type observed in five methods contributes five to its count. Test methods are identified by pytest ids of the form `repo/relative/test_file.py::ClassName::test_method_name` (for example, `checks/test_sample.py::TestSample::test_case`); method execution order does not affect these grouped totals. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError`, never `builtins.ValueError`), `module.QualName` for all others. For a non-built-in this means `type(exc).__module__ + \".\" + type(exc).__qualname__` (for example, `acme.errors.SignalError`). Return exactly one JSON object with shape `{\"exception_type_counts\": [{\"count\": <int>, \"exception_type\": <str>}, ...]}`. Each exception type observed at least once appears exactly once; `count` is a JSON integer and `exception_type` is a JSON string. Sort entries by the complete `exception_type` string ascending in Unicode code-point order. That complete string is the sole sort key; grouping makes it unique, so no further tie-break is possible. Do not deduplicate observations before counting, and do not include exception messages, invocation numbers, test ids, types with zero observations, or any additional keys.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

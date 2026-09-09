@@ -1,0 +1,20 @@
+{
+  "oracle_answer": {
+    "exception_types": [
+      "AttributeError",
+      "IndexError",
+      "KeyError",
+      "NotImplementedError",
+      "TypeError",
+      "ValueError",
+      "ZeroDivisionError"
+    ]
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/loader_load_single_dataset_m5_exceptions/files/testcase.py::TestLayeredDatasetExceptions::test_seeded_dataset_loading_matrix`. Across the complete run, inspect every invocation of `llamafactory.data.loader._load_single_dataset` in `src/llamafactory/data/loader.py`. An invocation is one runtime entry into that exact function, and invocations are numbered 1-based in chronological entry order. For all such invocations, collect the runtime class of every exception that is raised while evaluating a statement in the target frame or propagates from an operation called by the target into that frame. Include an exception even if the target subsequently catches it, and include an exception that causes the target frame to exit. Exclude exceptions raised and fully handled inside another frame without propagating into the target frame, and exclude all exception activity before entry to or after exit from the target frame. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-ins (e.g. `OSError`, never `builtins.OSError`), `module.QualName` for all others (e.g. `acme.errors.ParseFailure`). Remove duplicate type names across the whole run, then sort the remaining strings in ascending lexicographic order by their exact emitted Unicode code points; there is no chronological tie-breaker because duplicates have already been removed. Return exactly one JSON object with exactly one key, `exception_types`, whose value is a JSON array of those strings in that order. Do not report exception messages, counts, invocation numbers, line numbers, or `repr` values; no empty-string, JSON-null, or omitted-value substitution applies.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_types": [
+      "str"
+    ]
+  }
+}

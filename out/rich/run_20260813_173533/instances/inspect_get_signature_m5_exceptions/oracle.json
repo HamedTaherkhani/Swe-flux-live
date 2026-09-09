@@ -1,0 +1,24 @@
+{
+  "question_kind": "M5_Exceptions",
+  "question": "During the pytest run of every test method in class InspectGetSignatureExceptionsTest defined in rich_qa/inspect_get_signature_m5_exceptions/files/testcase.py (pytest ids look like rich_qa/inspect_get_signature_m5_exceptions/files/testcase.py::InspectGetSignatureExceptionsTest::test_pure_python_methods_only), consider the function rich._inspect.Inspect._get_signature defined in rich/_inspect.py (the def statement begins on line 82).\n\nThe answer aggregates exception observations across the entire pytest session: all invocations of rich._inspect.Inspect._get_signature from every test method listed above, in pytest collection order.\n\nObservation rule: count each sys.settrace event=exception whose func field equals exactly rich._inspect.Inspect._get_signature (module-qualified format: package.module.Class.method, for example rich.console.Console.print). An observation is recorded when an exception propagates into the rich._inspect.Inspect._get_signature frame from a direct callee (such as inspect.signature or inspect.getfile) before any except handler in rich._inspect.Inspect._get_signature runs. Exceptions raised and fully handled inside a callee without entering the rich._inspect.Inspect._get_signature frame do not count. Exceptions raised in rich._inspect.Inspect._get_signature itself and not caught inside that frame would count, though this scenario does not arise in the assigned tests. A re-raise of the same exception object in the same frame counts again; the assigned tests do not re-raise inside rich._inspect.Inspect._get_signature.\n\nException type naming: use bare type(exc).__name__ for built-in exceptions (for example ValueError, never builtins.ValueError) and module.QualName for all other exception classes (for example json.decoder.JSONDecodeError). The parser and solver must apply this rule identically.\n\nCounting: totals over all invocations and all test methods \u2014 if ValueError is observed five times across the session, its count is 5.\n\nReport JSON with top-level key exception_type_counts whose value is a list of objects, each with exactly these keys:\n- exception_type (str): the type name per the naming rule above\n- count (int): total observations of that type in the target frame\n\nSort the list by exception_type ascending (Unicode code-point order). No tie-break beyond the type string is needed.\n\nOnly exception events in rich._inspect.Inspect._get_signature count; ignore line, call, and return events for this question.",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "exception_type": "TypeError",
+        "count": 196
+      },
+      {
+        "exception_type": "ValueError",
+        "count": 45
+      }
+    ]
+  }
+}

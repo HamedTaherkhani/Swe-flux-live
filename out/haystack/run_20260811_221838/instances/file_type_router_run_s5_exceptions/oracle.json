@@ -1,0 +1,56 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "ArithmeticError",
+      "AssertionError",
+      "AttributeError",
+      "BrokenPipeError",
+      "BufferError",
+      "BytesWarning",
+      "ChildProcessError",
+      "ConnectionAbortedError",
+      "ConnectionError",
+      "ConnectionRefusedError",
+      "DeprecationWarning",
+      "EOFError",
+      "FileExistsError",
+      "FileNotFoundError",
+      "FloatingPointError",
+      "FutureWarning",
+      "ImportError",
+      "InterruptedError",
+      "IsADirectoryError",
+      "KeyError",
+      "LookupError",
+      "ModuleNotFoundError",
+      "NameError",
+      "NotADirectoryError",
+      "NotImplementedError",
+      "PendingDeprecationWarning",
+      "ProcessLookupError",
+      "ReferenceError",
+      "ResourceWarning",
+      "RuntimeError",
+      "RuntimeWarning",
+      "StopAsyncIteration",
+      "StopIteration",
+      "SyntaxError",
+      "SyntaxWarning",
+      "SystemError",
+      "TimeoutError",
+      "TypeError",
+      "UnboundLocalError",
+      "UnicodeError",
+      "UnicodeWarning",
+      "UserWarning",
+      "Warning"
+    ]
+  },
+  "question": "Run the single pytest method `haystack_qa/file_type_router_run_s5_exceptions/files/testcase.py::TestFileTypeRouterRunExceptions::test_catches_generated_conversion_failures`. During its single invocation of `haystack.components.routers.file_type_router.FileTypeRouter.run` in `haystack/components/routers/file_type_router.py`, which distinct exception types are caught by the `except Exception as e` handler that begins at absolute, 1-based line 185? An invocation means one call of that target function during the test run; invocation numbering is 1-based in chronological order, and this question covers invocation 1. Count an exception as caught only when evaluation of the call whose expression begins at absolute, 1-based line 184 raises into the target's own frame and execution then enters the handler at line 185 and reaches the handler body at line 188, rather than the exception propagating out of the target. Line numbers refer to the named file as it exists in the repository; for a multi-line statement, use the line where the statement or expression begins. Decorator, `def`, and docstring lines do not count unless they execute during this invocation. Remove duplicate type names across all qualifying events, then sort the remaining strings in ascending lexicographic order by Unicode code point, with no secondary tie-breaker needed after deduplication. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` — never `builtins.ValueError`), and `module.QualName` for all others (e.g. `haystack.core.errors.PipelineError`). Return exactly one JSON object with key `caught_exception_kinds`; its value is the sorted JSON array of strings just defined. Do not report exception messages, counts, or repeated occurrences.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

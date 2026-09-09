@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.23, pytest-8.4.2, pluggy-1.6.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: xdist-2.2.1, mock-3.15.0, forked-1.6.0, anyio-4.10.0, requests-mock-1.12.1
+collected 1 item
+
+kedro_qa/node_from_list_s1_cfg__pert_llm_s0/files/testcase.py .
+
+==================================== PASSES ====================================
+_________________ TestNodeFromListCfg.test_from_list_cfg_paths _________________
+------------------------------ Captured log call -------------------------------
+ERROR    kedro.pipeline.node:node.py:445 Node trace_probe_alpha_node: produce(None) -> [trace_out_alpha_cfg;trace_out_beta_cfg;trace_out_gamma_cfg] failed with error: 
+Failed to save outputs of node trace_probe_alpha_node: produce(None) -> [trace_out_alpha_cfg;trace_out_beta_cfg;trace_out_gamma_cfg].
+The node definition contains a list of outputs ['trace_out_alpha_cfg', 'trace_out_beta_cfg', 'trace_out_gamma_cfg'], whereas the node function returned a 'dict'.
+ERROR    kedro.pipeline.node:node.py:445 Node trace_probe_alpha_node: produce(None) -> [trace_out_alpha_cfg;trace_out_beta_cfg;trace_out_gamma_cfg] failed with error: 
+Failed to save outputs of node trace_probe_alpha_node: produce(None) -> [trace_out_alpha_cfg;trace_out_beta_cfg;trace_out_gamma_cfg].
+The node function returned 2 output(s), whereas the node definition contains 3 output(s).
+ERROR    kedro.pipeline.node:node.py:445 Node trace_probe_beta_node: produce(None) -> [trace_out_delta_cfg;trace_out_epsilon_cfg] failed with error: 
+Failed to save outputs of node trace_probe_beta_node: produce(None) -> [trace_out_delta_cfg;trace_out_epsilon_cfg].
+The node function returned 9 output(s), whereas the node definition contains 2 output(s).
+ERROR    kedro.pipeline.node:node.py:445 Node trace_probe_beta_node: produce(None) -> [trace_out_delta_cfg;trace_out_epsilon_cfg] failed with error: 
+Failed to save outputs of node trace_probe_beta_node: produce(None) -> [trace_out_delta_cfg;trace_out_epsilon_cfg].
+The node definition contains a list of outputs ['trace_out_delta_cfg', 'trace_out_epsilon_cfg'], whereas the node function returned a 'int'.
+=========================== short test summary info ============================
+PASSED kedro_qa/node_from_list_s1_cfg__pert_llm_s0/files/testcase.py::TestNodeFromListCfg::test_from_list_cfg_paths
+============================== 1 passed in 0.06s ===============================

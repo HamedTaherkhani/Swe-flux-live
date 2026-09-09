@@ -1,0 +1,48 @@
+{
+  "question_kind": "M5_Exceptions",
+  "question": "Consider every test method in `jinja_qa/nativetypes_render_async_m5_exceptions/files/testcase.py::TestNativeRenderAsyncExceptionAggregation`. The answer aggregates behavior across **all** `test_*` methods in that class, in the chronological order pytest collects and runs them (definition order in the file). Each method is identified by its pytest node id, e.g. `jinja_qa/nativetypes_render_async_m5_exceptions/files/testcase.py::TestNativeRenderAsyncExceptionAggregation::test_safe_integer_literals`.\n\nThose tests call `jinja2.nativetypes.NativeTemplate.render_async` in `src/jinja2/nativetypes.py` **directly** by awaiting `template.render_async(...)` on `NativeEnvironment` templates (async-enabled and sync-only environments).\n\nTarget function: `jinja2.nativetypes.NativeTemplate.render_async` (the method beginning at line 114 of `src/jinja2/nativetypes.py`).\n\n**Exception type naming** uses bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError`, never `builtins.ValueError`) and `module.QualName` for all other exception classes (e.g. `jinja2.exceptions.UndefinedError`).\n\n**Observation rule**: count one observation each time an exception is observed in the `NativeTemplate.render_async` frame during the test run \u2014 either raised directly in that frame or propagated into that frame from a callee before any handler in that frame catches it. Exceptions raised and fully handled inside a callee without entering the target frame do not count. If the same exception object is re-raised in the same target frame after being caught there, that second observation counts again; propagation from a callee into the target frame and a subsequent `raise` of a new exception in the target frame are separate observations.\n\n**Counting**: totals over **all** invocations of `NativeTemplate.render_async` and **all** test methods in the class; the same exception type raised in five methods contributes five to that type's total (plus any additional observations within each invocation).\n\nReturn JSON with the single top-level key `exception_type_counts`: a list of objects, each with keys `exception_type` (string) and `count` (non-negative integer). Include every exception type observed at least once. Sort the list by `exception_type` ascending; when types tie (they cannot), break ties by `count` ascending.",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 12,
+        "exception_type": "LookupError"
+      },
+      {
+        "count": 32,
+        "exception_type": "OSError"
+      },
+      {
+        "count": 16,
+        "exception_type": "RuntimeError"
+      },
+      {
+        "count": 91,
+        "exception_type": "StopIteration"
+      },
+      {
+        "count": 50,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 40,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 48,
+        "exception_type": "ZeroDivisionError"
+      },
+      {
+        "count": 102,
+        "exception_type": "jinja2.exceptions.UndefinedError"
+      }
+    ]
+  }
+}

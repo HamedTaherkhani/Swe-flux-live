@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "'handler_18_050487'",
+        "variable": "endpoint"
+      },
+      {
+        "value": "{'defaults': {'bucket': 751, 'token': 'd7382'}, 'subdomain': 'z16', 'endpoint': 'handler_18_050487'}",
+        "variable": "options"
+      },
+      {
+        "value": "True",
+        "variable": "provide_automatic_options"
+      },
+      {
+        "value": "<Rule (unbound)>",
+        "variable": "rule_obj"
+      }
+    ]
+  },
+  "question": "Run the pytest test `flask_qa/app_add_url_rule_s3_state/files/testcase.py::TestGeneratedRuleRegistration::test_registers_computed_rule_matrix`. During that test run, consider only execution of `flask.sansio.app.App.add_url_rule` in `src/flask/sansio/app.py`. What are the values of the local variables `endpoint`, `options`, `provide_automatic_options`, and `rule_obj` immediately after line 650 has executed successfully for the 19th time during the test run?\n\nLine numbers are absolute, 1-based line numbers in `src/flask/sansio/app.py` as it exists in the repository. For a multi-line statement or expression, its executed line is the line on which that statement or expression begins. The function's `def` line, decorator lines, and docstring lines count only if Python executes them as line events in this function's frame. \u201cThe 19th time\u201d means the 19th chronological successful completion of the statement beginning on line 650 across the entire test run, counting from 1 and counting only this exact target function. The state immediately after that statement is the state when execution next reaches a line in the same invocation; an invocation is one call of this function, numbered from 1 in chronological order. Do not include executions or locals from the setup wrapper, callers, callees, comprehension frames, or any other function.\n\nReturn exactly one JSON object with the shape `{\"observed_state\": [{\"value\": \"...\", \"variable\": \"...\"}]}`. Include exactly one entry for each of the four named variables, ordered by `variable` in ascending Unicode code-point order; do not deduplicate entries. Each `variable` is the bare local-variable name. Each `value` is the full Python `repr()` string of that local's concrete value at the observation point, not `str()` and not a JSON rendering of the value itself. For a container, use the Python `repr()` of the whole container, preserving its runtime iteration order, rather than separately serializing or sorting its elements. Thus strings retain their Python quotes, and `None` and `True` use Python spellings (for example, the unrelated value `[\"sample\", None]` would be represented by the JSON string `\"['sample', None]\"`). Embedded newline characters are real newline characters in the represented value and are escaped only as required when that string is encoded in JSON. All four locals exist at this point, so do not use JSON `null`, an empty string, or an omitted entry to represent a missing value. The only output keys are `observed_state`, `value`, and `variable`; `observed_state` is a JSON array, and both fields in every entry are JSON strings.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

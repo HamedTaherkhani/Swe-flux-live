@@ -1,0 +1,14 @@
+{
+  "oracle_answer": {
+    "is_invariant_always_held": false,
+    "total_iterations_observed": 16,
+    "violating_iteration_count": 1
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/supervised_preprocess_dataset_m7_invariants/files/testcase.py::TestPackedSupervisedRuntime::test_seeded_indirect_packing`. Consider only runtime events from the exact function `llamafactory.data.processor.supervised.PackedSupervisedDatasetProcessor.preprocess_dataset` defined in `src/llamafactory/data/processor/supervised.py`; exclude every other function and frame. An invocation is one runtime entry into that exact function during the complete test run, and invocations are numbered 1-based in chronological entry order. Observe the target frame at each Python `line` execution event for absolute, 1-based source line 182, the line whose statement begins `if len(packed_input_ids) <`. A line execution event is the event immediately before Python executes the statement or expression beginning on that line; here it occurs after the current outer `for knapsack in knapsacks` iteration's inner `for i, length in enumerate(knapsack)` loop has finished and before the line-182 condition is evaluated. The `def` line, comments, and all other source lines are not observations. For completeness, on a multi-line statement a line event belongs to the absolute line where the executed statement or expression begins, although the observed statement here is on one line. Define iteration N as the Nth such line-182 event across all target invocations in chronological order, starting at 1. Count every observation, including repeated states; do not sort or deduplicate observations, and no tie-breaker is needed because execution order is total. At every observation, evaluate this candidate predicate verbatim against the current target-frame local using ordinary Python semantics: `len(packed_input_ids) % 9 == 0`. A violating iteration is an observation where that predicate evaluates to false. `is_invariant_always_held` is true exactly when the predicate is true at every observation. If there are zero observations, the invariant is not evaluable: report `is_invariant_always_held` as false and both counts as 0. Return exactly one JSON object with exactly these keys and no others: `is_invariant_always_held` as a JSON boolean, `total_iterations_observed` as a non-negative JSON integer equal to the number of observations, and `violating_iteration_count` as a non-negative JSON integer equal to the number of false evaluations. These are scalar JSON values, not `repr()` or `str()` strings; there are no reported container values, names, exceptions, line numbers, empty strings, nulls, omitted values, or additional ordering rules.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "is_invariant_always_held": "bool",
+    "total_iterations_observed": "int",
+    "violating_iteration_count": "int"
+  }
+}

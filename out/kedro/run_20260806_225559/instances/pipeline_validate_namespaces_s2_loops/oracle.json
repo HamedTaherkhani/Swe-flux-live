@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 1606
+  },
+  "question": "Run the pytest test `kedro_qa/pipeline_validate_namespaces_s2_loops/files/testcase.py::TestPipelineValidateNamespacesLoops::test_accumulated_namespace_state`. During that test, consider the first invocation of `kedro.pipeline.pipeline.Pipeline._validate_namespaces` in `kedro/pipeline/pipeline.py`. An invocation means one `call` of exactly that function, counted 1-based in chronological order during the test; calls of nested comprehension frames or other functions are not invocations. For invocation 1, how many iterations does the `for ns, nodes in seen.items()` loop whose header is at line 353 execute? Line numbers are absolute, 1-based source lines in the named repository file. An iteration means one execution, in that invocation's own function frame, of the loop body's first statement `visited[ns].update(nodes)`, which begins at line 354; evaluating the loop header, exhausting the iterator, and events in nested frames do not count as iterations. Return exactly a JSON object with the single key `loop_iteration_count`; its value must be the base-10 JSON integer count (not a quoted string). Because the answer is one scalar count, no sorting, tie-breaking, or deduplication rule applies.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

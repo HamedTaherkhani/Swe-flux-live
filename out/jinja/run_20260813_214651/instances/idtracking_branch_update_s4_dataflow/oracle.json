@@ -1,0 +1,97 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 124,
+        "use_line": 125,
+        "variable": "branch"
+      },
+      {
+        "def_line": 121,
+        "use_line": 124,
+        "variable": "branch_symbols"
+      },
+      {
+        "def_line": 121,
+        "use_line": 129,
+        "variable": "branch_symbols"
+      },
+      {
+        "def_line": 134,
+        "use_line": 135,
+        "variable": "name"
+      },
+      {
+        "def_line": 134,
+        "use_line": 139,
+        "variable": "name"
+      },
+      {
+        "def_line": 134,
+        "use_line": 143,
+        "variable": "name"
+      },
+      {
+        "def_line": 139,
+        "use_line": 140,
+        "variable": "outer_target"
+      },
+      {
+        "def_line": 139,
+        "use_line": 141,
+        "variable": "outer_target"
+      },
+      {
+        "def_line": 122,
+        "use_line": 125,
+        "variable": "stores"
+      },
+      {
+        "def_line": 122,
+        "use_line": 127,
+        "variable": "stores"
+      },
+      {
+        "def_line": 122,
+        "use_line": 134,
+        "variable": "stores"
+      },
+      {
+        "def_line": 129,
+        "use_line": 130,
+        "variable": "sym"
+      },
+      {
+        "def_line": 129,
+        "use_line": 131,
+        "variable": "sym"
+      },
+      {
+        "def_line": 129,
+        "use_line": 132,
+        "variable": "sym"
+      },
+      {
+        "def_line": 135,
+        "use_line": 141,
+        "variable": "target"
+      },
+      {
+        "def_line": 135,
+        "use_line": 143,
+        "variable": "target"
+      }
+    ]
+  },
+  "question": "Consider the pytest test identified by `jinja_qa/idtracking_branch_update_s4_dataflow/files/testcase.py::IdtrackingBranchUpdateS4DataflowTest::test_direct_branch_update_merges_symbol_tables` (test class `IdtrackingBranchUpdateS4DataflowTest`, test method `test_direct_branch_update_merges_symbol_tables`). During that single test run, the function `jinja2.idtracking.Symbols.branch_update` in `src/jinja2/idtracking.py` is executed. Line numbers are absolute, 1-based, and refer to `src/jinja2/idtracking.py` as it exists in the repository; for multi-line statements, attribute executed-line events to the line where that statement begins. Decorator lines and docstring lines are never executed and must not appear. A def-use pair is an object with keys `variable`, `def_line`, and `use_line`. Track only these local variable names: `branch_symbols`, `stores`, `branch`, `sym`, `name`, `target`, `outer_target`. Define a def as a binding created by a function parameter or by an ordinary assignment (`x = ...`); parameters count as defined on the `def` line of `branch_update` (line 121). A variable annotation without assignment is not a def. Define a use as any read of the variable's current value on a line within the function body. On a line that both defines and uses the same variable, count the use before the new def; augmented assignment (`x += 1`) is treated as a use of the prior value followed by a new def on that line (this function contains no augmented assignments). A `for x in ...` header defines `x` on the header line; a `while ...` header does not define loop variables. Comprehension-local names are out of scope and are not tracked. Aggregate over every invocation of `branch_update` during the test run (each `call` event starts a new invocation). Within one invocation, process executed lines in chronological order; when a line executes, record one pair for each tracked use on that line paired with the most recent def of the same variable that is still active (not yet overwritten by a later def in that invocation). Union pairs from all invocations, remove duplicates, and sort the final list by `variable` ascending, then `def_line` ascending, then `use_line` ascending. Report the answer as a JSON object with exactly one key, `observed_def_use_pairs`, whose value is a JSON array of objects each having keys `variable` (string), `def_line` (integer), and `use_line` (integer).",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

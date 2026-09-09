@@ -1,0 +1,54 @@
+{
+  "question_kind": "M7_Invariants",
+  "question": "During pytest run rich_qa/progress_bar_get_pulse_segments_m7_invariants/files/testcase.py::ProgressBarGetPulseSegmentsInvariantsTest, aggregate invariant observations across all twelve test methods in that class (every def test_... method), in pytest collection order: test_ascii_false_zeta, test_ascii_true_epsilon, test_back_without_color_iota, test_complement_pairs_lambda, test_deep_batch_kappa, test_eight_bit_palette_delta, test_fore_without_color_theta, test_hue_sweep_mu, test_mixed_ascii_calls_eta, test_standard_palette_gamma, test_truecolor_batch_alpha, test_truecolor_batch_beta.\n\nThe tests call rich.progress_bar.ProgressBar._get_pulse_segments directly in rich/progress_bar.py (the def statement begins on line 70). Consider only trace events whose func equals rich.progress_bar.ProgressBar._get_pulse_segments exactly (module-qualified dotted name).\n\nAn invocation is one call event for _get_pulse_segments, in chronological order across the whole test run. For each invocation, walk every trace event for that frame until its matching return event, merging locals as follows: start from the locals= mapping on the call event; for each subsequent event in the same frame before return, for every name that appears in that event's locals= mapping, replace the stored value with the new logged value (names not listed keep their previous value). This merged mapping is the evaluation environment for observations in that invocation.\n\nEach observation is one line event with event=line whose absolute 1-based line number in rich/progress_bar.py matches the predicate's observation line. Python's trace hook delivers line events immediately before the named line executes; evaluate the predicate on the merged environment after applying that event's locals= overrides. The def line (70), decorator lines, and docstring lines are not executable and never produce observations. Multi-line statements report the line where the statement begins.\n\nFor each candidate predicate below, count observations and violations across every matching line event in every invocation and every test method. violations is how many evaluations were false; held_always is true only when violations equals zero and observations is greater than zero. When observations is zero (the observation line never executed), report observations=0, violations=0, and held_always=false.\n\nLogged local values are Python repr strings as written in the trace (for example an int appears as its decimal numeral without quotes, a bool appears as True or False without quotes, and a str appears wrapped in single quotes inside the repr). Parse bool, int, float, and list locals with ast.literal_eval on the logged repr string.\n\nSort the invariant_report list by predicate ascending (Unicode code-point order). Tie-break: none needed beyond predicate string.\n\nReport JSON with top-level key invariant_report whose value is a list of objects, each with exactly these keys:\n- predicate (str): one of the candidate predicates stated verbatim below\n- held_always (bool)\n- observations (int)\n- violations (int)\n\nCandidate predicates (evaluate exactly as written; observation line follows):\n\n1. Predicate \"ascii is false\" \u2014 observation line 83. True when ascii parsed with ast.literal_eval is False.\n\n2. Predicate \"fade is at least one half\" \u2014 observation line 112. True when fade parsed with ast.literal_eval as float is greater than or equal to 0.5.\n\n3. Predicate \"fade is between zero and one inclusive\" \u2014 observation line 112. True when fade parsed with ast.literal_eval as float is greater than or equal to 0.0 and less than or equal to 1.0.\n\n4. Predicate \"index is even\" \u2014 observation line 110. True when index parsed with ast.literal_eval as int is divisible by two.\n\n5. Predicate \"len(segments) equals PULSE_SIZE at early return\" \u2014 observation line 90. True when len of the list obtained by ast.literal_eval from segments equals twenty (the module constant PULSE_SIZE in rich/progress_bar.py).\n\n6. Predicate \"position is strictly less than one half\" \u2014 observation line 111. True when position parsed with ast.literal_eval as float is strictly less than 0.5.",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 83,
+        "predicate": "ascii is false",
+        "violations": 26
+      },
+      {
+        "held_always": false,
+        "observations": 1660,
+        "predicate": "fade is at least one half",
+        "violations": 830
+      },
+      {
+        "held_always": true,
+        "observations": 1660,
+        "predicate": "fade is between zero and one inclusive",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 1660,
+        "predicate": "index is even",
+        "violations": 830
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "len(segments) equals PULSE_SIZE at early return",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 1660,
+        "predicate": "position is strictly less than one half",
+        "violations": 830
+      }
+    ]
+  }
+}

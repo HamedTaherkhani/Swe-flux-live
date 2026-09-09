@@ -1,0 +1,54 @@
+{
+  "question_kind": "M7_Invariants",
+  "question": "Run every pytest test method whose name begins with `test_` in class `TestGeneratedParseTreeBuilders` from `lark_qa/parse_tree_builder_maybe_create_child_filter_m7_invariants/files/testcase.py` (equivalently, pytest selection `lark_qa/parse_tree_builder_maybe_create_child_filter_m7_invariants/files/testcase.py::TestGeneratedParseTreeBuilders`), and aggregate over ALL test methods in that class. Pytest identifies them as that file-and-class prefix followed by each method name, and runs them in source-definition order; counts are totals over the complete class run, so method boundaries do not reset them. During this run, consider every invocation of `lark.parse_tree_builder.maybe_create_child_filter` in `lark/parse_tree_builder.py`. An invocation is one call of that function, numbered 1-based in chronological call order across the complete run. The observation point is the `line` event in the target function's own frame at absolute, 1-based line 176, immediately before Python evaluates the `if keep_all_tokens ...` statement, once for each execution of that line. Evaluate all six candidate predicates at every such observation using the local values that exist at that instant and ordinary Python expression semantics: `ambiguous == keep_all_tokens`; `empty_indices[i] == 0`; `keep_all_tokens or not (sym.is_term and sym.filter_out)`; `len(to_include) == i`; `nones_to_add >= 0`; `not (ambiguous and i == 32)`. Attribute access in the third predicate uses the runtime `sym` object's actual attributes. Count only this exact function frame; exclude callees, comprehension frames, and every other frame. Source lines are those of the named repository file as it exists for this run. For a multi-line statement or expression, an executed line is the absolute line where that statement or expression begins; the `def` line, decorators, and comments are not observations. For each predicate, `observations` is the number of times it was evaluated, and `violations` is the number of those evaluations whose result was false. `held_always` is true exactly when `observations` is greater than zero and `violations == 0`; if a predicate has zero observations, report 0 observations, 0 violations, and false for `held_always`. Do not deduplicate observations or predicates. Return exactly one JSON object with the single key `invariant_report`, whose value is a JSON array containing one object per stated predicate. Each object has exactly the keys `held_always` (JSON boolean), `observations` (JSON integer), `predicate` (JSON string copied verbatim from the candidate expression without backticks), and `violations` (JSON integer). Within each object use those keys in that order. Sort the array by the `predicate` string ascending using Unicode code-point order; exact duplicate predicate strings, if any, would retain their original stated order as the tie-break, though none are stated here. Use ordinary JSON spelling (`true`/`false`, not Python `True`/`False`), with no additional keys, normalization, value formatting, or string representations.",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 620,
+        "predicate": "ambiguous == keep_all_tokens",
+        "violations": 241
+      },
+      {
+        "held_always": true,
+        "observations": 620,
+        "predicate": "empty_indices[i] == 0",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 620,
+        "predicate": "keep_all_tokens or not (sym.is_term and sym.filter_out)",
+        "violations": 194
+      },
+      {
+        "held_always": false,
+        "observations": 620,
+        "predicate": "len(to_include) == i",
+        "violations": 213
+      },
+      {
+        "held_always": true,
+        "observations": 620,
+        "predicate": "nones_to_add >= 0",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 620,
+        "predicate": "not (ambiguous and i == 32)",
+        "violations": 1
+      }
+    ]
+  }
+}

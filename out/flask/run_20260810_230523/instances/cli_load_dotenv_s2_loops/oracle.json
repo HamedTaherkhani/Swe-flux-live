@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 105
+  },
+  "question": "Run only the pytest test `flask_qa/cli_load_dotenv_s2_loops/files/testcase.py::TestLoadDotenvLoopBehavior::test_cli_merges_generated_env_files`. During the first invocation of `flask.cli.load_dotenv` in `src/flask/cli.py`, what is the exact iteration count of the `for` loop whose header begins on line 757 (`for key, value in data.items():`)? An invocation is one runtime call into that function during this test run; invocations are numbered from 1 in chronological call-entry order. Source line numbers are absolute, 1-based line numbers in the named file as it exists in the repository. Iterations are also numbered from 1: iteration N is the Nth execution, in that invocation, of the loop body's first statement, the `if` statement beginning on line 758. Count every such execution, including iterations that execute `continue`; do not count evaluations of the loop header or executions of later body lines, and do not deduplicate executions. Return a JSON object containing exactly the key `loop_iteration_count`; its value must be the count as a JSON integer (not a quoted string). Object keys are emitted in ascending lexicographic order; there is only one key, so there are no ordering ties and no duplicate values to resolve.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 30,
+        "line": 114
+      },
+      {
+        "count": 0,
+        "line": 115
+      },
+      {
+        "count": 30,
+        "line": 116
+      },
+      {
+        "count": 962,
+        "line": 117
+      },
+      {
+        "count": 933,
+        "line": 118
+      },
+      {
+        "count": 21,
+        "line": 119
+      },
+      {
+        "count": 21,
+        "line": 120
+      },
+      {
+        "count": 20,
+        "line": 121
+      },
+      {
+        "count": 20,
+        "line": 122
+      },
+      {
+        "count": 20,
+        "line": 123
+      },
+      {
+        "count": 18,
+        "line": 124
+      },
+      {
+        "count": 36,
+        "line": 125
+      },
+      {
+        "count": 18,
+        "line": 126
+      },
+      {
+        "count": 18,
+        "line": 127
+      },
+      {
+        "count": 0,
+        "line": 128
+      },
+      {
+        "count": 1,
+        "line": 129
+      },
+      {
+        "count": 912,
+        "line": 130
+      },
+      {
+        "count": 60,
+        "line": 131
+      },
+      {
+        "count": 60,
+        "line": 132
+      },
+      {
+        "count": 60,
+        "line": 133
+      },
+      {
+        "count": 852,
+        "line": 134
+      },
+      {
+        "count": 56,
+        "line": 135
+      },
+      {
+        "count": 796,
+        "line": 136
+      },
+      {
+        "count": 796,
+        "line": 137
+      },
+      {
+        "count": 0,
+        "line": 138
+      },
+      {
+        "count": 0,
+        "line": 139
+      },
+      {
+        "count": 0,
+        "line": 140
+      },
+      {
+        "count": 29,
+        "line": 141
+      }
+    ]
+  },
+  "question": "Run the pytest class selection `lark_qa/nearley_nearley_to_lark_m1_cfg/files/testcase.py::TestNearleyConversionControlFlow`. Across ALL methods in that class whose names begin with `test_` (every pytest id of the form `lark_qa/nearley_nearley_to_lark_m1_cfg/files/testcase.py::TestNearleyConversionControlFlow::test_*`), what are the total runtime line-event counts for every physical body line of `lark.tools.nearley._nearley_to_lark`, defined at `lark/tools/nearley.py:113`? Aggregate counts over the complete class run and over every invocation from every test method; because these are totals, test execution order does not affect the answer.\n\nUse CPython's `sys.settrace` meaning of a `line` event. An invocation is one runtime `call` event for exactly `lark.tools.nearley._nearley_to_lark`; invocations are conceptually numbered 1-based in chronological call-event order, although the requested result sums them. Count only `line` events emitted by each invocation's own frame, from its call through its return or exceptional exit. Do not count `call`, `return`, or `exception` events, and do not count events in callers, callees, comprehensions, or any other frames. Every repeated event on a line, including repetitions caused by loop iterations, recursion, separate invocations, or separate test methods, adds one to that line's total; do not deduplicate events.\n\nThe scope is every 1-based physical source line after the function's `def` line through the final line of its body, inclusive, as determined from the repository source: lines 114 through 141 of `lark/tools/nearley.py`. Include blank lines, comment-only lines, and physical continuation lines in the output, assigning `count: 0` whenever an in-scope line emits no line event. Exclude the `def` line and any decorator lines. A docstring line would be included as a body line, though this function has no docstring. For a multi-line executable statement or expression, attribute an event to the 1-based physical line on which CPython reports it; when CPython reports only the line where that statement or expression begins, continuation lines remain present with zero counts.\n\nReturn exactly one JSON object with the shape `{\"line_execution_counts\": [{\"count\": \"int\", \"line\": \"int\"}]}`. Each `line` is an absolute 1-based physical line number in the named repository file, and each `count` is a non-negative JSON integer total. Include exactly one object for every in-scope physical line, including lines with zero counts. Sort the list by `line` in strictly ascending order. Each list object has exactly the keys `count` and `line`; there are no tie-breakers, string conversions, omitted entries, nulls, or additional normalization.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

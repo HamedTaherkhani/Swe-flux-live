@@ -1,0 +1,18 @@
+{
+  "oracle_answer": {
+    "exception_types": [
+      "IndexError",
+      "OSError",
+      "TypeError",
+      "ValueError",
+      "ZeroDivisionError"
+    ]
+  },
+  "question": "Run only the pytest test\n`instruct_lab_qa/dk_bench_utils_run_dk_bench_m5_exceptions/files/testcase.py::TestDkBenchExceptionEvents::test_layered_outcomes_across_generated_cases`\nand consider every invocation of\n`instructlab.model.dk_bench_utils.run_dk_bench` in\n`src/instructlab/model/dk_bench_utils.py`. An invocation means one call of that\nfunction during this selected test, numbered 1-based in chronological call\norder.\n\nWhat distinct exception types are observed in the target function's frame\nover the whole selected test run? An exception is observed each time Python's\nline-tracing semantics produce an `exception` event in that frame: count an\nexception raised directly by the target, an exception propagating into the\ntarget from a callee at the target's call site, and a re-raise as separate\nevents, whether the exception is subsequently caught in the target or escapes\nthe invocation. Ignore exception events in every other function's frame.\n\nReturn exactly one JSON object with the canonical shape\n`{\"exception_types\": [\"str\"]}`. Format each built-in exception using bare\n`type(exc).__name__` (for example, `ValueError`, never\n`builtins.ValueError`). Format every non-built-in exception as\n`type(exc).__module__ + \".\" + type(exc).__qualname__` (for example,\n`package.WidgetError`). Normalize every observed event this way, remove\nduplicates by the resulting string, then sort the strings in ascending Python\nlexicographic (Unicode code-point) order. The array contains those sorted\nstrings; it is not chronological. Do not report exception messages, event\ncounts, invocation numbers, or JSON null placeholders.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_types": [
+      "str"
+    ]
+  }
+}

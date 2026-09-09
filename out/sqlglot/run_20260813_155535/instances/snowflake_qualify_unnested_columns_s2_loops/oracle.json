@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 49
+  },
+  "question": "Run exactly the pytest test\n`sqlglot_qa/snowflake_qualify_unnested_columns_s2_loops/files/testcase.py::TestSnowflakeQualifyUnnestedColumnsLoops::test_generated_mixed_unnest_columns`.\nFor the first invocation of\n`sqlglot.generators.snowflake._qualify_unnested_columns` in\n`sqlglot/generators/snowflake.py`, report the exact number of iterations of\nthe `for column in scope.columns` loop whose header is on line 314.\n\nAn invocation is one Python `call` of exactly the named function during the\nstated test run; invocations are numbered starting at 1 in chronological\ncall order. Select invocation 1, from that call through its matching return.\nCount only execution in that invocation's own frame. Calls and execution in\ncallers, callees, comprehensions, or any other frame do not count.\n\nIteration counting is 1-based: iteration N is the Nth time the loop body's\nfirst executable source line, line 315 (`if column.table:`), executes in the\nselected invocation. The iteration count is therefore the number of Python\nline-execution events at physical line 315 in that frame. Do not count\nexecution of the loop header itself, and do not sort or deduplicate repeated\nevents; each execution of line 315 contributes one. No tie-breaker is needed\nbecause the result is a single scalar count.\n\nLine numbers are absolute, 1-based physical source lines in the named file as\nit exists for this test. No AST statement-line normalization is applied.\nContinuation lines of multi-line statements retain their own physical line\nnumbers. The function's `def` line, decorators, and docstrings cannot\ncontribute because only physical line 315 is counted.\n\nReturn exactly one JSON object with the sole key `loop_iteration_count`.\nIts value is the count as a JSON integer. It is a numeric value, not a\n`str()` or `repr()` string; there is no null, empty, ordering, or\nmissing-value convention.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

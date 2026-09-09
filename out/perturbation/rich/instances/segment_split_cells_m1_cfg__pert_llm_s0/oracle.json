@@ -1,0 +1,148 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 111,
+        "line": 121
+      },
+      {
+        "count": 111,
+        "line": 122
+      },
+      {
+        "count": 111,
+        "line": 123
+      },
+      {
+        "count": 111,
+        "line": 124
+      },
+      {
+        "count": 0,
+        "line": 125
+      },
+      {
+        "count": 0,
+        "line": 126
+      },
+      {
+        "count": 111,
+        "line": 127
+      },
+      {
+        "count": 0,
+        "line": 128
+      },
+      {
+        "count": 111,
+        "line": 129
+      },
+      {
+        "count": 0,
+        "line": 130
+      },
+      {
+        "count": 174,
+        "line": 131
+      },
+      {
+        "count": 174,
+        "line": 132
+      },
+      {
+        "count": 174,
+        "line": 133
+      },
+      {
+        "count": 174,
+        "line": 134
+      },
+      {
+        "count": 174,
+        "line": 135
+      },
+      {
+        "count": 80,
+        "line": 136
+      },
+      {
+        "count": 80,
+        "line": 137
+      },
+      {
+        "count": 80,
+        "line": 138
+      },
+      {
+        "count": 0,
+        "line": 139
+      },
+      {
+        "count": 94,
+        "line": 140
+      },
+      {
+        "count": 30,
+        "line": 141
+      },
+      {
+        "count": 30,
+        "line": 142
+      },
+      {
+        "count": 30,
+        "line": 143
+      },
+      {
+        "count": 0,
+        "line": 144
+      },
+      {
+        "count": 64,
+        "line": 145
+      },
+      {
+        "count": 1,
+        "line": 146
+      },
+      {
+        "count": 1,
+        "line": 147
+      },
+      {
+        "count": 1,
+        "line": 148
+      },
+      {
+        "count": 0,
+        "line": 149
+      },
+      {
+        "count": 63,
+        "line": 150
+      },
+      {
+        "count": 62,
+        "line": 151
+      },
+      {
+        "count": 0,
+        "line": 152
+      },
+      {
+        "count": 1,
+        "line": 153
+      }
+    ]
+  },
+  "question": "Consider pytest tests in `rich_qa/segment_split_cells_m1_cfg/files/testcase.py::TestSegmentDivideSplitCellsFlow` (all `test_*` methods in that class, executed in pytest's default collection order). The answer aggregates behavior across every test method in the class during one full pytest run of the class.\n\nTarget function: `rich.segment.Segment._split_cells` in `rich/segment.py` (the classmethod body spans lines 121-153 as checked into the repository).\n\nScope: every physical source line from 121 through 153 inclusive in `rich/segment.py`. Blank lines (126, 128, 130) and comment-only lines are included in scope and must appear in the output; if they never receive a `line` trace event, report `count: 0`. The `def` line (108), decorator lines (106-107), and docstring lines (109-120) are outside scope.\n\nExecuted line definition: count only trace events with `event=line` whose qualname equals `rich.segment.Segment._split_cells` and whose normalized file path ends with `rich/segment.py`. Exclude `call`, `return`, and `exception` events. Each counted event contributes to the total for its reported 1-based physical line number in the source file (the same numbering `sys.settrace` uses).\n\nCounting: for each line L in scope, `count` is the total number of `line` events at line L summed across all invocations of the target during the entire test run (all test methods combined). Each loop iteration that re-executes a line adds another count.\n\nReturn JSON with top-level key `line_execution_counts`: a list of objects each having keys `line` (int, 1-based source line number) and `count` (int, non-negative). Include every line in scope even when `count` is 0. Sort the list by `line` ascending; when lines differ, smaller line numbers come first.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

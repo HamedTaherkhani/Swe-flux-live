@@ -1,0 +1,57 @@
+{
+  "question_kind": "M1_IntraProceduralCFG",
+  "question": "Run the single pytest test `instruct_lab_qa/init_get_params_m1_cfg/files/testcase.py::TestInitParameterPaths::test_command_routes_four_taxonomy_scenarios` against this repository. Across the whole test, what is the exact line coverage of `instructlab.cli.config.init.get_params` in `src/instructlab/cli/config/init.py`? An invocation means one runtime `call` event for exactly this function, numbered 1-based in chronological order. Compute the union of runtime `line` events from every invocation during the test, including an invocation that exits by propagating an exception. Count an event only when its active frame is exactly `instructlab.cli.config.init.get_params`; exclude call, return, and exception events and all events in callers, callees, nested functions, and other frames. Report absolute 1-based physical line numbers in the named repository file as it exists during the test. A runtime line event uses Python's `frame.f_lineno`: for a multi-line statement or expression, include each physical line for which Python actually emits a line event, without normalizing continuation lines to the statement's first line or inferring execution merely because source text spans a line. The function's `def` line is represented by the call event and does not count; parameter-continuation lines, decorator lines, comments, blank lines, and docstring lines count only if they independently produce a runtime line event (this function has no decorators or docstring). Return exactly one JSON object with the single key `covered_lines`. Its value must be a JSON array of JSON integers containing all qualifying line numbers in strictly ascending numeric order, deduplicated both within and across invocations. For example, hypothetical events on lines 9, 4, and 9 serialize as `{\"covered_lines\":[4,9]}` (JSON whitespace is insignificant). Do not encode numbers as strings, and do not use Python `repr`, JSON null, empty-string sentinels, or omitted values.",
+  "template_answer": {
+    "covered_lines": [
+      "int"
+    ]
+  },
+  "oracle_answer": {
+    "covered_lines": [
+      262,
+      263,
+      264,
+      265,
+      266,
+      267,
+      268,
+      269,
+      270,
+      272,
+      273,
+      276,
+      277,
+      278,
+      281,
+      282,
+      283,
+      284,
+      285,
+      286,
+      287,
+      288,
+      289,
+      290,
+      291,
+      295,
+      296,
+      297,
+      298,
+      299,
+      300,
+      301,
+      302,
+      303,
+      304,
+      306,
+      307,
+      308,
+      309,
+      312,
+      313,
+      314,
+      315,
+      322
+    ]
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "question_kind": "S4_DataFlow",
+  "question": "During pytest run of rich_qa/segment_divide_s4_dataflow/files/testcase.py::TestSegmentDivideDataFlow::test_divide_dataflow, consider the single invocation of rich.segment.Segment.divide in rich/segment.py (source lines 630-696) performed by that test method. The test calls Segment.divide directly with programmatically built segment and cut iterables. Because divide is a generator, one invocation spans the initial call, every yield-and-resume cycle, and ends only at a bare return statement (not at a yield); reaching-definitions state carries across yields within that invocation.\n\nTrack exactly these thirteen local variables of divide: add_segment, before, control, cut, end_pos, iter_cuts, pos, segment, segments, segments_clear, segments_copy, split_segments, and text. Do not track attributes (for example segment.text counts as a use of the local name segment), parameters of nested calls, globals, or comprehension temporaries.\n\nDefinition rules (1-based line numbers in rich/segment.py as checked into the repository):\n\n- Function parameters cls, segments, and cuts are defined at line 630 (the def line). Only segments is among the tracked names.\n- A simple assignment or annotated assignment to a name defines that name on the statement's first source line.\n- A for-loop header (for segment in segments) defines its loop target on the line where the for statement begins.\n- Tuple unpacking (text, _style, control = segment) defines each unpacked name on that assignment line.\n- An augmented assignment (+=) both uses the target's current value and then defines the target on that same line; the use is ordered before the definition within the line (for example count += step first uses count, then defines count).\n- For multi-line statements, only the line where the statement begins is numbered.\n\nUse rules:\n\n- Any load of a tracked name in an expression is a use on that source line.\n- Augmented assignment counts the pre-update read of its target as a use on that line.\n\nAn observation is one executed use of a tracked name at source line L during the invocation, attributed to the definition line D that was the most recent definition of that name still in effect at the moment of the use (standard reaching-definitions semantics). If a name has no prior definition in that invocation, the use is ignored. Uses inside loops count once per time the containing line executes.\n\nCollect every unique tuple (variable, def_line, use_line) that occurs at least once. Omit pairs that never occur.\n\nReport observed_def_use_pairs: a JSON list of objects, each with exactly these keys in this order when serialized:\n\n- def_line (int): 1-based definition line in rich/segment.py\n- use_line (int): 1-based use line in rich/segment.py\n- variable (str): one of the thirteen tracked names\n\nSort the list ascending by variable, then def_line, then use_line. Each triple appears at most once.\n\nLine numbers never refer to decorator lines or docstring-only lines inside divide; only executable statements in the function body and the def line for parameters may appear.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 642,
+        "use_line": 664,
+        "variable": "add_segment"
+      },
+      {
+        "def_line": 642,
+        "use_line": 669,
+        "variable": "add_segment"
+      },
+      {
+        "def_line": 642,
+        "use_line": 685,
+        "variable": "add_segment"
+      },
+      {
+        "def_line": 683,
+        "use_line": 685,
+        "variable": "before"
+      },
+      {
+        "def_line": 660,
+        "use_line": 662,
+        "variable": "control"
+      },
+      {
+        "def_line": 684,
+        "use_line": 662,
+        "variable": "control"
+      },
+      {
+        "def_line": 647,
+        "use_line": 648,
+        "variable": "cut"
+      },
+      {
+        "def_line": 647,
+        "use_line": 650,
+        "variable": "cut"
+      },
+      {
+        "def_line": 647,
+        "use_line": 663,
+        "variable": "cut"
+      },
+      {
+        "def_line": 647,
+        "use_line": 668,
+        "variable": "cut"
+      },
+      {
+        "def_line": 647,
+        "use_line": 683,
+        "variable": "cut"
+      },
+      {
+        "def_line": 647,
+        "use_line": 688,
+        "variable": "cut"
+      },
+      {
+        "def_line": 674,
+        "use_line": 663,
+        "variable": "cut"
+      },
+      {
+        "def_line": 674,
+        "use_line": 668,
+        "variable": "cut"
+      },
+      {
+        "def_line": 674,
+        "use_line": 675,
+        "variable": "cut"
+      },
+      {
+        "def_line": 674,
+        "use_line": 683,
+        "variable": "cut"
+      },
+      {
+        "def_line": 674,
+        "use_line": 688,
+        "variable": "cut"
+      },
+      {
+        "def_line": 690,
+        "use_line": 663,
+        "variable": "cut"
+      },
+      {
+        "def_line": 690,
+        "use_line": 668,
+        "variable": "cut"
+      },
+      {
+        "def_line": 690,
+        "use_line": 683,
+        "variable": "cut"
+      },
+      {
+        "def_line": 690,
+        "use_line": 688,
+        "variable": "cut"
+      },
+      {
+        "def_line": 690,
+        "use_line": 691,
+        "variable": "cut"
+      },
+      {
+        "def_line": 662,
+        "use_line": 663,
+        "variable": "end_pos"
+      },
+      {
+        "def_line": 662,
+        "use_line": 665,
+        "variable": "end_pos"
+      },
+      {
+        "def_line": 662,
+        "use_line": 668,
+        "variable": "end_pos"
+      },
+      {
+        "def_line": 662,
+        "use_line": 672,
+        "variable": "end_pos"
+      },
+      {
+        "def_line": 644,
+        "use_line": 647,
+        "variable": "iter_cuts"
+      },
+      {
+        "def_line": 644,
+        "use_line": 674,
+        "variable": "iter_cuts"
+      },
+      {
+        "def_line": 644,
+        "use_line": 690,
+        "variable": "iter_cuts"
+      },
+      {
+        "def_line": 653,
+        "use_line": 662,
+        "variable": "pos"
+      },
+      {
+        "def_line": 653,
+        "use_line": 683,
+        "variable": "pos"
+      },
+      {
+        "def_line": 665,
+        "use_line": 662,
+        "variable": "pos"
+      },
+      {
+        "def_line": 665,
+        "use_line": 683,
+        "variable": "pos"
+      },
+      {
+        "def_line": 672,
+        "use_line": 662,
+        "variable": "pos"
+      },
+      {
+        "def_line": 672,
+        "use_line": 683,
+        "variable": "pos"
+      },
+      {
+        "def_line": 688,
+        "use_line": 662,
+        "variable": "pos"
+      },
+      {
+        "def_line": 688,
+        "use_line": 683,
+        "variable": "pos"
+      },
+      {
+        "def_line": 659,
+        "use_line": 660,
+        "variable": "segment"
+      },
+      {
+        "def_line": 659,
+        "use_line": 664,
+        "variable": "segment"
+      },
+      {
+        "def_line": 659,
+        "use_line": 669,
+        "variable": "segment"
+      },
+      {
+        "def_line": 659,
+        "use_line": 683,
+        "variable": "segment"
+      },
+      {
+        "def_line": 683,
+        "use_line": 664,
+        "variable": "segment"
+      },
+      {
+        "def_line": 683,
+        "use_line": 669,
+        "variable": "segment"
+      },
+      {
+        "def_line": 683,
+        "use_line": 683,
+        "variable": "segment"
+      },
+      {
+        "def_line": 683,
+        "use_line": 684,
+        "variable": "segment"
+      },
+      {
+        "def_line": 630,
+        "use_line": 659,
+        "variable": "segments"
+      },
+      {
+        "def_line": 655,
+        "use_line": 671,
+        "variable": "segments_clear"
+      },
+      {
+        "def_line": 655,
+        "use_line": 687,
+        "variable": "segments_clear"
+      },
+      {
+        "def_line": 656,
+        "use_line": 670,
+        "variable": "segments_copy"
+      },
+      {
+        "def_line": 656,
+        "use_line": 686,
+        "variable": "segments_copy"
+      },
+      {
+        "def_line": 641,
+        "use_line": 642,
+        "variable": "split_segments"
+      },
+      {
+        "def_line": 641,
+        "use_line": 655,
+        "variable": "split_segments"
+      },
+      {
+        "def_line": 641,
+        "use_line": 656,
+        "variable": "split_segments"
+      },
+      {
+        "def_line": 641,
+        "use_line": 676,
+        "variable": "split_segments"
+      },
+      {
+        "def_line": 660,
+        "use_line": 661,
+        "variable": "text"
+      },
+      {
+        "def_line": 660,
+        "use_line": 662,
+        "variable": "text"
+      },
+      {
+        "def_line": 684,
+        "use_line": 661,
+        "variable": "text"
+      },
+      {
+        "def_line": 684,
+        "use_line": 662,
+        "variable": "text"
+      }
+    ]
+  }
+}

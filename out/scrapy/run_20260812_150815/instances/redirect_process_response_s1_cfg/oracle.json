@@ -1,0 +1,147 @@
+{
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 206
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 205
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 207
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 208
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 207
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 209
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 210
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 209
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 214
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 223
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 224
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 225
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 226
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 227
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 229
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 231
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 232
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 233
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 234
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 236
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 237
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 240
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 243
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 244
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 243
+      },
+      {
+        "file": "scrapy/downloadermiddlewares/redirect.py",
+        "func": "scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response",
+        "line": 247
+      }
+    ]
+  },
+  "question": "Run only the pytest test `scrapy_qa/redirect_process_response_s1_cfg/files/testcase.py::RedirectProcessResponsePathTest::test_generated_redirect_matrix`. During that sole test method, consider the 21st invocation of `scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response` in the repository-relative file `scrapy/downloadermiddlewares/redirect.py`. What is the exact ordered sequence of executed Python line events within that invocation?\n\nAn invocation is one `call` event for exactly that target function, and invocations are counted 1-based in chronological order over the complete named test run. Count only events from the target function's own frame; events in decorators, callers, and callees (including `_build_redirect_request`, `_redirect_request_using_get`, and `_redirect`) do not count. Begin after the selected invocation's `call` event and stop before its matching `return` event. Include every `line` event in emitted chronological order, including repeated line numbers; exclude `call`, `return`, and `exception` events. Do not sort or deduplicate the sequence.\n\nLine numbers are absolute, 1-based line numbers in the named file as it exists in the repository. Each line event uses the executing target frame's `f_lineno`: for a multi-line statement, condition, or call, report the line where the particular executed statement or expression begins, rather than a later closing or continuation-only line. Multi-line conditions and calls in this function can therefore produce events on the beginning lines of their executed constituent expressions, and control flow can produce the same beginning line more than once. The function's `def` line does not appear because its `call` event is excluded; decorator lines do not appear because they are outside the target frame, and there is no executed docstring line.\n\nReturn a JSON object with exactly one key, `executed_path`, whose value is a JSON list. Each list element must be an object with exactly the keys `file`, `func`, and `line`: `file` is the string `scrapy/downloadermiddlewares/redirect.py`, `func` is the fully dotted `module.Class.method` string `scrapy.downloadermiddlewares.redirect.RedirectMiddleware.process_response` (for example, an unrelated method could be formatted as `package.module.Widget.run`), and `line` is the integer line number defined above. Preserve chronological event order and all duplicates; there is no secondary ordering or tie-breaker because no sorting is performed. Every element must include all three fields, even though `file` and `func` are identical throughout.",
+  "question_kind": "S1_IntraProceduralCFG",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  }
+}

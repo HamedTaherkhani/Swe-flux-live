@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "'CQKVLIZQKGOPF' object has no attribute 'content'",
+    "exception_type": "AttributeError"
+  },
+  "question": "Run only the pytest test\n`haystack_qa/lost_in_the_middle_run_s5_exceptions/files/testcase.py::TestLostInTheMiddleRuntimeFailure::test_generated_documents_with_late_missing_payload`\nagainst this repository. During that test's sole invocation of the exact\nfunction `haystack.components.rankers.lost_in_the_middle.LostInTheMiddleRanker.run`\nin `haystack/components/rankers/lost_in_the_middle.py`, what are the type and\nmessage of the single exception first observed in that function's frame while\nit evaluates the statement/expression beginning at line 124 and then propagated\nuncaught out of that frame to its caller?\n\nReturn exactly one JSON object with exactly these two string keys:\n`exception_message` and `exception_type`. `exception_message` is the exact\n`str(exc)`, character for character, with no surrounding `repr` quotes,\ntruncation, or whitespace normalization; use JSON escaping only as required to\nencode that string. For `exception_type`, use bare `type(exc).__name__` for\nbuilt-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and\n`module.QualName` for all others (e.g.\n`haystack.core.errors.PipelineError`).\n\nAn invocation means one entry into that exact target function frame (one Python\nfunction call), numbered from 1 in chronological order; this test makes exactly\none such invocation. Count only the exception observation in that target frame\nat the specified line which subsequently exits that frame. Ignore any\nobservation made later when the caller or test catches the same exception, and\nignore exceptions wholly handled in other frames. There is exactly one\nqualifying exception, so no sorting or deduplication is performed.\n\nLine 124 means the absolute, 1-based line number in the named repository file\nas it exists for this run. For a multi-line statement or expression, its line\nis where that statement or expression begins. Decorator, `def`, and docstring\nlines are not eligible exception locations for this question.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

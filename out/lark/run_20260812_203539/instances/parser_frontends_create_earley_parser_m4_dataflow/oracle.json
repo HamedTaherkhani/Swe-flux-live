@@ -1,0 +1,120 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": 270,
+        "def_line": 326,
+        "use_line": 339,
+        "variable": "debug"
+      },
+      {
+        "count": 79,
+        "def_line": 329,
+        "use_line": 333,
+        "variable": "extra"
+      },
+      {
+        "count": 191,
+        "def_line": 329,
+        "use_line": 339,
+        "variable": "extra"
+      },
+      {
+        "count": 79,
+        "def_line": 333,
+        "use_line": 339,
+        "variable": "extra"
+      },
+      {
+        "count": 61,
+        "def_line": 331,
+        "use_line": 338,
+        "variable": "f"
+      },
+      {
+        "count": 79,
+        "def_line": 334,
+        "use_line": 338,
+        "variable": "f"
+      },
+      {
+        "count": 130,
+        "def_line": 336,
+        "use_line": 338,
+        "variable": "f"
+      },
+      {
+        "count": 270,
+        "def_line": 324,
+        "use_line": 330,
+        "variable": "lexer_conf"
+      },
+      {
+        "count": 209,
+        "def_line": 324,
+        "use_line": 332,
+        "variable": "lexer_conf"
+      },
+      {
+        "count": 270,
+        "def_line": 324,
+        "use_line": 338,
+        "variable": "lexer_conf"
+      },
+      {
+        "count": 270,
+        "def_line": 324,
+        "use_line": 325,
+        "variable": "options"
+      },
+      {
+        "count": 540,
+        "def_line": 324,
+        "use_line": 326,
+        "variable": "options"
+      },
+      {
+        "count": 450,
+        "def_line": 324,
+        "use_line": 327,
+        "variable": "options"
+      },
+      {
+        "count": 270,
+        "def_line": 324,
+        "use_line": 339,
+        "variable": "options"
+      },
+      {
+        "count": 270,
+        "def_line": 324,
+        "use_line": 338,
+        "variable": "parser_conf"
+      },
+      {
+        "count": 270,
+        "def_line": 325,
+        "use_line": 338,
+        "variable": "resolve_ambiguity"
+      },
+      {
+        "count": 270,
+        "def_line": 327,
+        "use_line": 339,
+        "variable": "tree_class"
+      }
+    ]
+  },
+  "question": "Run every test method whose name starts with `test_` in the unittest class\n`TestCreateEarleyParserDataFlow` from\n`lark_qa/parser_frontends_create_earley_parser_m4_dataflow/files/testcase.py`.\nUse pytest's normal collection order; a target invocation is one chronological\n`call` of `lark.parser_frontends.create_earley_parser`, numbered from 1 across\nthe complete class run. Aggregate the answer over all target invocations made\nby all 12 methods in that class.\n\nFor `lark.parser_frontends.create_earley_parser` in\n`lark/parser_frontends.py`, report all dynamically observed reaching-definition\nto use pairs for exactly these tracked local variables: debug, extra, f, lexer_conf, options, parser_conf, resolve_ambiguity, and tree_class.\n\nA definition of a parameter occurs on the function's `def` line. A simple\nassignment defines its Name target after the right-hand side has been\nevaluated. Reassignments of `f` are separate definitions. For this question,\nan item or attribute assignment whose base is a tracked variable both reads\nthe previous value of that base and then defines the base after the assignment;\nthus the mutation of `extra` follows that rule. An augmented assignment would\nread its old target value and then define the target, although this function\ncontains none. A loop target would be defined once per executed iteration\nbefore its body, and a use in a loop would count once per actual evaluation\non each iteration; this function contains no loop. Comprehension-local targets\nwould be scoped to their comprehension and are excluded unless explicitly\nlisted above; none are listed.\n\nA use is one actual evaluation of an AST `Name` node in Load context whose\nidentifier is tracked. Attribute names are not separate Name uses, assignment\nName targets are not uses, and a short-circuited conditional or Boolean operand\nis not a use. If two tracked Name reads on one source line both execute, they\nare two observations. Each use is paired with the most recent definition of\nthat variable earlier in the same invocation. One observation means one such\ndynamically evaluated use reached by that definition, so repeated executions\nadd repeated observations.\n\nLine numbers are absolute, 1-based lines in the named repository file.\n`def_line` is the line on which the parameter or assignment target begins, and\n`use_line` is the line on which the evaluated Name token begins according to\nPython's AST source coordinates. For a multi-line statement, this can differ\nfrom the statement's first executed line: each Name is assigned the line where\nits own expression begins. The undecorated `def` line can therefore appear as\na parameter definition; decorator and docstring lines do not count.\n\nReturn one JSON object with the sole key `observed_def_use_pairs`. Its value is\na list of objects having exactly `count` (JSON integer), `def_line` (JSON\ninteger), `use_line` (JSON integer), and `variable` (JSON string). `count` is\nthe total number of observations of that exact triple across all methods and\ninvocations. Omit triples with zero observations. Emit exactly one row per\nunique `(variable, def_line, use_line)` triple; multiplicity appears only in\n`count`. Sort rows ascending by `variable`, then `def_line`, then `use_line`,\nusing ordinary Unicode string order for `variable` and numeric order for\nlines. Variable strings are the bare source identifiers shown above (for\nexample, a hypothetical variable named `cache_item` would be serialized as\n`\"cache_item\"`); no `repr()`, module prefix, null sentinel, or omitted field\nis used.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": "int",
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "oracle_answer": {
+    "call_frequencies": [
+      {
+        "count": 0,
+        "first_caller": null,
+        "function": "llamafactory.train.ppo.trainer.CustomPPOTrainer.batched_forward_pass"
+      },
+      {
+        "count": 12,
+        "first_caller": "llamafactory.train.ppo.trainer.CustomPPOTrainer.ppo_train",
+        "function": "llamafactory.train.ppo.trainer.CustomPPOTrainer.get_inputs"
+      },
+      {
+        "count": 12,
+        "first_caller": "llamafactory.train.ppo.trainer.CustomPPOTrainer.ppo_train",
+        "function": "llamafactory.train.ppo.trainer.CustomPPOTrainer.get_rewards"
+      },
+      {
+        "count": 1,
+        "first_caller": "<external>",
+        "function": "llamafactory.train.ppo.trainer.CustomPPOTrainer.ppo_train"
+      },
+      {
+        "count": 1,
+        "first_caller": "llamafactory.train.ppo.trainer.CustomPPOTrainer.ppo_train",
+        "function": "llamafactory.train.ppo.trainer.CustomPPOTrainer.save_model"
+      }
+    ]
+  },
+  "question": "For pytest test `llama_factory_qa/trainer_ppo_train_m6_calls__r20260714/files/testcase.py::TestPPOTrainM6Calls::test_call_frequency_and_first_caller`, analyze runtime calls rooted at `llamafactory.train.ppo.trainer.CustomPPOTrainer.ppo_train` in file `src/llamafactory/train/ppo/trainer.py`. Use only this traced function set: [`llamafactory.train.ppo.trainer.CustomPPOTrainer.ppo_train`, `llamafactory.train.ppo.trainer.CustomPPOTrainer.get_inputs`, `llamafactory.train.ppo.trainer.CustomPPOTrainer.get_rewards`, `llamafactory.train.ppo.trainer.CustomPPOTrainer.save_model`, `llamafactory.train.ppo.trainer.CustomPPOTrainer.batched_forward_pass`]. A function invocation means one dynamic `call` event for that exact dotted qualname. For each function in the set, report: (1) `count`: total number of its invocations during the whole test; (2) `first_caller`: the dotted qualname at the top of the traced-call stack when its first `call` occurs, or `\"<external>\"` if the stack is empty, or `null` when `count` is 0. Return JSON with key `call_frequencies` (array of objects), each object having keys `function` (str), `count` (int), and `first_caller` (str|null). Sort rows by `function` ascending lexicographic order.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "call_frequencies": [
+      {
+        "count": "int",
+        "first_caller": "str|null",
+        "function": "str"
+      }
+    ]
+  }
+}

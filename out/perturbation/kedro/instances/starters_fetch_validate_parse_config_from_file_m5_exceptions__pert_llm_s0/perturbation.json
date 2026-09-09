@@ -1,0 +1,143 @@
+{
+  "perturbed_from": "starters_fetch_validate_parse_config_from_file_m5_exceptions",
+  "source_run_dir": "out/kedro/run_20260806_225559",
+  "variant_index": 0,
+  "feedback_iteration": null,
+  "proposer": {
+    "provider": "openai",
+    "model": ""
+  },
+  "oracle_changed": true,
+  "trace_changed": true,
+  "new_lines_vs_baseline": 2,
+  "new_edges_vs_baseline": 5,
+  "source_complexity_scores": {
+    "semantic_reasoning": 2.413,
+    "answer_construction": 2.502,
+    "repository_navigation": 4.421,
+    "combined": 2.946
+  },
+  "candidate_complexity_scores": {
+    "semantic_reasoning": 3.286,
+    "answer_construction": 2.493,
+    "repository_navigation": 4.458,
+    "combined": 3.301
+  },
+  "candidate_complexity_components": {
+    "semantic_reasoning": {
+      "control_flow": 4.178,
+      "state_tracking": 2.899,
+      "interprocedural": 4.113,
+      "exception_semantics": 8.362,
+      "execution_workload": 2.088
+    },
+    "answer_construction": {
+      "answer_volume": 0.821,
+      "ordered_output": 0.952,
+      "structural_depth": 4.866,
+      "exact_value_precision": 3.334
+    },
+    "repository_navigation": {
+      "entrypoint_support": 7.0,
+      "explicit_file_clues": 3.297,
+      "explicit_function_clues": 0.0,
+      "test_context": 8.546,
+      "api_centrality": 3.297,
+      "executed_code_footprint": 2.542,
+      "weighted_navigation_support": 4.721,
+      "navigation_uncertainty": 5.279
+    }
+  },
+  "candidate_complexity_features": {
+    "static_target": {
+      "body_lines": 56,
+      "branches": 2,
+      "loops": 0,
+      "while_loops": 0,
+      "max_loop_nesting": 0,
+      "excepts": 1,
+      "raises": 2,
+      "finallys": 0,
+      "calls": 19,
+      "local_calls": [
+        "_convert_tool_numbers_to_readable_names",
+        "_convert_tool_short_names_to_numbers",
+        "_parse_yes_no_to_bool",
+        "_validate_config_file_against_prompts",
+        "_validate_input_with_regex_pattern",
+        "_validate_selected_tools"
+      ],
+      "num_local_calls": 6,
+      "assigns": 6,
+      "augassigns": 0,
+      "returns": 1,
+      "boolops": 2,
+      "comprehensions": 0,
+      "with_blocks": 1,
+      "breaks_continues": 0
+    },
+    "trace": {
+      "total_events": 1095,
+      "line_events": 821,
+      "distinct_lines": 22,
+      "call_events": 91,
+      "distinct_functions": 1,
+      "exception_events": 92,
+      "max_line_repetition": 104,
+      "distinct_line_transitions": 31,
+      "transition_entropy": 0.884743,
+      "dynamic_branch_points": 6,
+      "dynamic_branch_alternatives": 9,
+      "state_change_events": 255,
+      "max_call_depth": 1
+    },
+    "answer": {
+      "leaf_count": 3,
+      "dict_field_count": 1,
+      "list_count": 1,
+      "ordered_element_count": 3,
+      "max_list_length": 3,
+      "max_depth": 3,
+      "string_characters": 73,
+      "numeric_digits": 0
+    },
+    "navigation": {
+      "exercise_mode": "indirect",
+      "relevant_file_count": 2,
+      "relevant_function_count": 1,
+      "known_callers": 2,
+      "distinct_executed_lines": 22,
+      "source_lines": 122,
+      "imports": 7,
+      "calls": 43
+    }
+  },
+  "complexity_deltas": {
+    "semantic_reasoning": 0.873,
+    "answer_construction": -0.009,
+    "repository_navigation": 0.037,
+    "combined": 0.355
+  },
+  "source_complexity_difficulties": {
+    "semantic_reasoning": "medium",
+    "answer_construction": "easy",
+    "repository_navigation": "easy",
+    "combined": "easy"
+  },
+  "candidate_complexity_difficulties": {
+    "semantic_reasoning": "very_hard",
+    "answer_construction": "easy",
+    "repository_navigation": "easy",
+    "combined": "hard"
+  },
+  "source_complexity_difficulty": "easy",
+  "candidate_complexity_difficulty": "hard",
+  "complexity_target": "medium",
+  "complexity_target_met": false,
+  "all_complexity_metrics_increased": false,
+  "kept_below_complexity_target": true,
+  "model_passed_original": null,
+  "model_passed_perturbed": null,
+  "flipped": null,
+  "target_model": null
+}

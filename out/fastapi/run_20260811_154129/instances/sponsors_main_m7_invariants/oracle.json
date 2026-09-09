@@ -1,0 +1,14 @@
+{
+  "oracle_answer": {
+    "is_invariant_always_held": false,
+    "total_iterations_observed": 31,
+    "violating_iteration_count": 1
+  },
+  "question": "Run only the pytest test\n`fastapi_qa/sponsors_main_m7_invariants/files/testcase.py::TestSponsorsMainInvariants::test_seeded_tiers_reach_unchanged_content_exit`.\nFor `scripts.sponsors.main` in the repository-relative file `scripts/sponsors.py`,\ncheck the candidate predicate\n`key % (len(keys) - keys.index(key) + 1) != 0`\nat every outer-loop observation point.\n\nAn outer-loop observation is each execution of the line event for absolute,\n1-based source line 171, immediately before the statement `sponsor_group = []`\nexecutes. For a multi-line statement or expression, an executed-line event is\nat the absolute, 1-based line where that statement or expression begins; the\nfunction's `def` line, decorators, and non-executed comment lines are not\nobservations. Iteration N is the Nth execution of line 171, in chronological\norder, across the run. An invocation means one Python call of\n`scripts.sponsors.main`, numbered from 1 in chronological order; include\nobservations from every invocation made by this single test.\n\nEvaluate the predicate with ordinary Python semantics using the target frame's\nlocal values at that observation, before line 171 executes. In particular,\n`keys.index(key)` is the zero-based index returned by Python list indexing.\nCount every observation in chronological order, including repeated local\nstates; do not sort or deduplicate observations. A violating iteration is an\nobservation where the predicate evaluates to false. The invariant is always\nheld only when it is true at every observation. With zero observations it is\nnot evaluable: report `is_invariant_always_held` as false and both counts as\nzero.\n\nReturn exactly one JSON object with these keys:\n`is_invariant_always_held` (a JSON boolean),\n`total_iterations_observed` (a non-negative base-10 JSON integer), and\n`violating_iteration_count` (a non-negative base-10 JSON integer). Use exactly\nthose spellings. No values require `repr`, string, exception-name, function-name,\nempty-value, or null serialization; the answer contains only the stated JSON\nboolean and integers. The keys are fixed by this schema, and no sorting or\ntie-breaking of answer entries applies.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "is_invariant_always_held": "bool",
+    "total_iterations_observed": "int",
+    "violating_iteration_count": "int"
+  }
+}

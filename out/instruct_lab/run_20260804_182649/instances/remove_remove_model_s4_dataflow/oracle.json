@@ -1,0 +1,232 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 21,
+        "use_line": 25,
+        "variable": "base_dir_str"
+      },
+      {
+        "def_line": 21,
+        "use_line": 26,
+        "variable": "base_dir_str"
+      },
+      {
+        "def_line": 21,
+        "use_line": 37,
+        "variable": "base_dir_str"
+      },
+      {
+        "def_line": 22,
+        "use_line": 59,
+        "variable": "cache_model_path"
+      },
+      {
+        "def_line": 28,
+        "use_line": 59,
+        "variable": "cache_model_path"
+      },
+      {
+        "def_line": 17,
+        "use_line": 20,
+        "variable": "model"
+      },
+      {
+        "def_line": 17,
+        "use_line": 22,
+        "variable": "model"
+      },
+      {
+        "def_line": 17,
+        "use_line": 25,
+        "variable": "model"
+      },
+      {
+        "def_line": 17,
+        "use_line": 26,
+        "variable": "model"
+      },
+      {
+        "def_line": 17,
+        "use_line": 37,
+        "variable": "model"
+      },
+      {
+        "def_line": 17,
+        "use_line": 38,
+        "variable": "model"
+      },
+      {
+        "def_line": 17,
+        "use_line": 51,
+        "variable": "model"
+      },
+      {
+        "def_line": 17,
+        "use_line": 54,
+        "variable": "model"
+      },
+      {
+        "def_line": 17,
+        "use_line": 56,
+        "variable": "model"
+      },
+      {
+        "def_line": 17,
+        "use_line": 62,
+        "variable": "model"
+      },
+      {
+        "def_line": 17,
+        "use_line": 19,
+        "variable": "model_dir"
+      },
+      {
+        "def_line": 20,
+        "use_line": 30,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 20,
+        "use_line": 33,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 20,
+        "use_line": 35,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 20,
+        "use_line": 50,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 20,
+        "use_line": 52,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 27,
+        "use_line": 30,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 27,
+        "use_line": 33,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 27,
+        "use_line": 35,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 27,
+        "use_line": 50,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 27,
+        "use_line": 52,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 27,
+        "use_line": 53,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 27,
+        "use_line": 55,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 42,
+        "use_line": 50,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 42,
+        "use_line": 53,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 42,
+        "use_line": 55,
+        "variable": "model_path"
+      },
+      {
+        "def_line": 19,
+        "use_line": 20,
+        "variable": "models_dir"
+      },
+      {
+        "def_line": 19,
+        "use_line": 21,
+        "variable": "models_dir"
+      },
+      {
+        "def_line": 19,
+        "use_line": 27,
+        "variable": "models_dir"
+      },
+      {
+        "def_line": 19,
+        "use_line": 39,
+        "variable": "models_dir"
+      },
+      {
+        "def_line": 59,
+        "use_line": 60,
+        "variable": "oci_dir"
+      },
+      {
+        "def_line": 59,
+        "use_line": 61,
+        "variable": "oci_dir"
+      },
+      {
+        "def_line": 26,
+        "use_line": 27,
+        "variable": "remove_models_path"
+      },
+      {
+        "def_line": 26,
+        "use_line": 28,
+        "variable": "remove_models_path"
+      },
+      {
+        "def_line": 40,
+        "use_line": 41,
+        "variable": "sub_dirs"
+      },
+      {
+        "def_line": 38,
+        "use_line": 39,
+        "variable": "username_part"
+      },
+      {
+        "def_line": 39,
+        "use_line": 40,
+        "variable": "username_path"
+      },
+      {
+        "def_line": 39,
+        "use_line": 42,
+        "variable": "username_path"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `instruct_lab_qa/remove_remove_model_s4_dataflow/files/testcase.py::TestRemoveModelDataFlow::test_cli_generated_model_matrix`. During that complete test run, consider every invocation (one `call` of the function, numbered 1-based in chronological order) of `instructlab.model.remove.remove_model` in `src/instructlab/model/remove.py`. Report the union of all unique observed dynamic def-use pairs for exactly these local variables: `base_dir_str`, `cache_model_path`, `model`, `model_dir`, `model_path`, `models_dir`, `oci_dir`, `remove_models_path`, `sub_dirs`, `username_part`, and `username_path`.\n\nA def is a binding of the local variable that actually occurs in the target function's own frame: either a completed assignment or a parameter binding. Every parameter is defined at the function's `def` line. A use is a read of that local variable by an executed expression in that same target-function frame. A pair is `{variable, def_line, use_line}` when the value from that def reaches that use before any intervening def of the same variable in the same invocation. Process reads on a line before writes on that line. Thus augmented assignment such as `x += 1` first uses the old reaching def of `x` and then creates a new def of `x` on that same line. A `for x in iterable` header reads variables in `iterable` and creates a new def of `x` on every executed iteration of the header. For a comprehension, its outermost iterable expression is evaluated in the containing target frame, so reads in that expression count; comprehension-local bindings and all reads evaluated in the comprehension's separate frame are excluded and neither define nor use locals in the target function's own frame.\n\nUse absolute 1-based source line numbers in the named repository file as it exists for this run. For a multi-line statement or expression, use the executed source line on which the relevant variable-bearing expression begins; the function `def` line can therefore appear for parameter defs, while decorator and docstring lines do not count as uses or assignment defs. Include only pairs produced within an invocation, never carry a reaching def between invocations. If the same triple is observed multiple times, including across invocations, emit it once.\n\nReturn exactly one JSON object with key `observed_def_use_pairs`. Its value is a list of objects having exactly the keys `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string containing the source identifier exactly). Sort the list by `variable`, then `def_line`, then `use_line`, all ascending; this is also the complete tie-break order. Do not apply `repr()` or `str()` formatting to line numbers or variable names.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

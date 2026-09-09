@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "unique_values": [
+      "[Node(tag='article', code=595)]",
+      "[Node(tag='article', code=623)]",
+      "[Node(tag='article', code=766), Node(tag='section', code=839)]",
+      "[Node(tag='article', code=814), Node(tag='section', code=370)]",
+      "[Node(tag='article', code=903)]",
+      "[Node(tag='aside', code=790), Node(tag='article', code=623)]",
+      "[Node(tag='aside', code=959), Node(tag='article', code=903)]",
+      "[Node(tag='aside', code=960)]",
+      "[Node(tag='aside', code=967), Node(tag='fieldset', code=136)]",
+      "[Node(tag='fieldset', code=136)]",
+      "[Node(tag='fieldset', code=800), Node(tag='fieldset', code=906)]",
+      "[Node(tag='fieldset', code=906)]",
+      "[Node(tag='main', code=215), Node(tag='section', code=727)]",
+      "[Node(tag='main', code=351), Node(tag='aside', code=960)]",
+      "[Node(tag='main', code=597), Node(tag='article', code=595)]",
+      "[Node(tag='section', code=370)]",
+      "[Node(tag='section', code=727)]",
+      "[Node(tag='section', code=839)]",
+      "[]"
+    ]
+  },
+  "question": "Run every pytest test method in `scrapy_qa/form_get_form_m3_state/files/testcase.py::TestGetFormProgramState` (all methods whose names begin with `test_`; pytest identifies each as that class node id followed by `::test_method_name`). Aggregate observations over all of those methods in the ascending lexicographic method-name order used to collect this `unittest.TestCase`; there is no ordering tie-breaker because method names are unique. During the complete run, consider every invocation of `scrapy.http.request.form._get_form` in `scrapy/http/request/form.py`. An invocation is one call of that function, counted 1-based in chronological execution order, although invocation numbers are not included in the answer. For each invocation, observe the target frame immediately before each executed statement or expression beginning on absolute, 1-based source line 199 and line 201 of that file. These are two separate observation points: include an observation each time either line executes, but only when the local variable `nodes` is already defined at that point. A line event is the state immediately before the statement or expression whose first physical source line has that number; for a multi-line statement it belongs to the line where the statement or expression begins. The function's `def` line, decorator lines, docstring line, call events, return events, and exception events are not observation points. At every qualifying point, take Python `repr(nodes)` of the whole container in its current state; this includes mutations made in place between the two points. Use Python spellings inside each repr string (`None`, `True`, and `False`, not JSON spellings), preserve quotes and all other repr punctuation exactly, and do not abbreviate or otherwise normalize the string. For example, a hypothetical list containing an unrelated string would contribute the string `['alpha']`. Remove duplicate repr strings only after collecting all qualifying observations across all invocations and test methods. Sort the remaining strings in ascending Python string order, i.e. lexicographically by Unicode code point with shorter-prefix-first behavior; there are no secondary tie-breakers because exact duplicates are removed. Return exactly one JSON object with the single key `unique_values`; its value is the sorted JSON array of those Python-repr strings. Do not include line numbers, invocation numbers, variable names, null placeholders, or any additional keys. If no point qualified, the array would be empty.",
+  "question_kind": "M3_ProgramState",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  }
+}

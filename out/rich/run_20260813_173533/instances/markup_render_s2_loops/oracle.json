@@ -1,0 +1,10 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "During pytest run rich_qa/markup_render_s2_loops/files/testcase.py::MarkupRenderLoopsTest::test_seeded_render_loop_behavior, consider the function rich.markup.render defined in rich/markup.py (the def statement begins on line 106).\n\nIdentify the for-loop whose header is on line 153 in rich/markup.py:\n\n    for position, plain_text, tag in _parse(markup):\n\nAn iteration of this loop is one execution of the loop body's first physical line, which is line 154 (`if plain_text is not None:`). Count how many iterations that loop performs during invocation 1 of rich.markup.render.\n\nAn invocation is one call event for rich.markup.render during the test run. Invocations are numbered chronologically starting at 1 (the first call event is invocation 1). Only the specified invocation counts toward the answer.\n\nCount only event=line records whose func equals rich.markup.render exactly (module-qualified dotted name: package.module.function, e.g. rich.markup.render). Do not count line events from nested frames such as rich.markup.render.pop_style or from callees invoked from the loop body. The def line (106), decorator lines, docstring lines, and the for-loop header line (153) may execute as line events but are not the loop body's first line; only executions of line 154 increment the iteration count.\n\nLine numbers are absolute, 1-based physical lines in rich/markup.py as present in the repository. For a multi-line statement, Python reports the line event on the line where that statement begins.\n\nReport the answer as JSON with top-level key loop_iteration_count whose value is a single int: the number of iterations defined above.",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  },
+  "oracle_answer": {
+    "loop_iteration_count": 72
+  }
+}

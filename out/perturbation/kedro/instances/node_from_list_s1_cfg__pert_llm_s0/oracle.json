@@ -1,0 +1,77 @@
+{
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 530
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 532
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 533
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 535
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 542
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 543
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 544
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 545
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 544
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 546
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 544
+      },
+      {
+        "file": "kedro/pipeline/node.py",
+        "func": "kedro.pipeline.node._from_list",
+        "line": 543
+      }
+    ]
+  },
+  "question": "When the pytest test\n`kedro_qa/node_from_list_s1_cfg/files/testcase.py::TestNodeFromListCfg::test_from_list_cfg_paths`\nis executed, it repeatedly calls `Node.run({})` on two\n`kedro.pipeline.node.Node` objects whose declared `outputs` are lists of\ndataset names (one node declares three outputs, the other declares two).\nThe shared node function returns programmatically generated payloads in a\nfixed seeded order: plain lists of integers for some runs, generators\nyielding tuples of integers for others. Four of the runs intentionally fail\ninside output translation (in one run the function returns a plain integer;\nin one run a list whose length does not match the declaration; in one run a\ngenerator whose first yielded item is not a list or tuple; and in one run a\ngenerator whose first yielded tuple has the wrong length), and the test\ncatches the resulting `ValueError`s.\n\nEvery `Node.run` call reaches the nested helper function `_from_list`,\ndefined inside `Node._outputs_to_dictionary` in the repository file\n`kedro/pipeline/node.py` (its fully qualified name is\n`kedro.pipeline.node.Node._outputs_to_dictionary._from_list`), through the\nchain `Node.run` -> `Node._run_with_no_inputs` ->\n`Node._outputs_to_dictionary` -> `_from_list`. In total, `_from_list` is\ninvoked 21 times during this test.\n\nAn \"invocation\" means one call of `_from_list` during this test run;\ninvocations are counted 1-based in chronological order of the calls, and ALL\n21 invocations are in scope, including the four that terminate by raising\n`ValueError`.\n\nConsider the 13th invocation (this is the run in which the node function\nreturns a generator whose first yielded tuple has a length that does not\nmatch the number of declared outputs, so the invocation ends by raising\n`ValueError`). Report the exact ordered sequence of executed source lines\ninside the body of `_from_list` during that single invocation, as a list of\nexecuted-line events under the rules below.\n\nLine-event semantics (the interpreter is CPython 3.9):\n- The sequence contains one element per executed-line step of the\n  `_from_list` frame, in chronological order, from the first executable\n  statement of the body up to and including the last line the frame\n  executes before it exits (whether by returning or by raising).\n- The `def _from_list():` line does NOT appear in the sequence: entering\n  the function is a call step, not an executed-line step, and no element is\n  recorded for the `def` line (nor for any decorator or docstring line).\n- Each element records the physical, 1-based line number in\n  `kedro/pipeline/node.py` (the file as it exists on disk in this\n  repository) at which the frame was executing. A single-line statement\n  contributes exactly one element carrying its own line number.\n- Multi-line statements do NOT collapse to a single element at the\n  statement's first line: every physical line to which the CPython 3.9\n  compiler attributes executed bytecode contributes its own element when\n  reached. In particular, this function's `raise ValueError(...)`\n  statements build their message from an f-string that spans several\n  physical lines, and evaluating such a message emits executed-line steps\n  for the physical lines holding the replacement-field pieces, possibly\n  revisiting an earlier physical line of the same statement between pieces.\n  Consequently the same line number may appear multiple times in the\n  sequence; keep every occurrence in order and do NOT deduplicate. The only\n  reliable way to obtain these per-line steps is to instrument the run\n  yourself (for example with your own `sys.settrace` line tracer) rather\n  than to guess them from a static reading of the source.\n\nReport the answer as a JSON object with a single key `executed_path` whose\nvalue is the ordered list of executed-line events for the 13th invocation.\nEach element is an object with exactly these keys:\n- `file`: the string `\"kedro/pipeline/node.py\"` (the repo-relative path) in\n  every element;\n- `func`: the string `\"kedro.pipeline.node._from_list\"` in every element \u2014\n  note this convention uses the module dotted path plus the function's bare\n  name, WITHOUT the enclosing `Node._outputs_to_dictionary` qualifiers (for\n  example, the sibling helper `_from_dict` in the same file would be\n  reported as `kedro.pipeline.node._from_dict`);\n- `line`: the 1-based physical line number as an integer.\n\nNo elements are added, removed, reordered, or deduplicated beyond these\nrules.",
+  "question_kind": "S1_IntraProceduralCFG",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  }
+}

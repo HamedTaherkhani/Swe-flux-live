@@ -1,0 +1,10 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "Run the pytest test `instruct_lab_qa/make_data_make_data_s2_loops/files/testcase.py::TestSimpleTrainDataPreparation::test_preprocessing_via_training_entrypoint` against this repository. During the first invocation of `instructlab.train.lora_mlx.make_data.make_data` in `src/instructlab/train/lora_mlx/make_data.py`, exactly how many iterations does the `for obj in data_new[:n]` loop whose header is on line 44 perform? An invocation is one runtime call of exactly that function, counted 1-based in chronological order from the start of the test; calls to any other function do not count. Iterations are also counted 1-based: iteration N is the Nth time the loop body's first statement, the `f.write(...)` statement beginning on line 45, executes in that invocation. Count every such execution once, with no sorting or deduplication; events in callees and executions of other loops do not count. Line numbers are absolute, 1-based physical line numbers in the named repository file as it exists for this test. The loop header and body statement are each single-line statements, so no multi-line continuation-line normalization applies; the function's `def` line, comments, and non-executable blank lines do not count as iterations. Return exactly one JSON object with the sole key `loop_iteration_count`; its value is a JSON integer (not a quoted string, Python `repr`, or `null`). There is only this single scalar value, so key ordering and tie-breaking are not applicable.",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  },
+  "oracle_answer": {
+    "loop_iteration_count": 29
+  }
+}

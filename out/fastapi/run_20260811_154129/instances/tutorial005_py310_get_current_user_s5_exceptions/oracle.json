@@ -1,0 +1,22 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "jwt.exceptions.DecodeError",
+      "jwt.exceptions.ExpiredSignatureError",
+      "jwt.exceptions.ImmatureSignatureError",
+      "jwt.exceptions.InvalidAlgorithmError",
+      "jwt.exceptions.InvalidAudienceError",
+      "jwt.exceptions.InvalidJTIError",
+      "jwt.exceptions.InvalidSignatureError",
+      "jwt.exceptions.InvalidSubjectError",
+      "pydantic_core._pydantic_core.ValidationError"
+    ]
+  },
+  "question": "Run exactly this pytest test against the repository:\n`fastapi_qa/tutorial005_py310_get_current_user_s5_exceptions/files/testcase.py::TestCurrentUserExceptionMatrix::test_generated_tokens_and_scope_walks`.\nPytest ids here use the repo-relative\n`path/to/test_file.py::TestClass::test_method` format (for example,\n`tests/test_demo.py::TestDemo::test_case`).\n\nAcross the entire test run, consider every invocation of\n`docs_src.security.tutorial005_py310.get_current_user`, defined in\n`docs_src/security/tutorial005_py310.py`. An invocation is one entry into\nexactly that function's frame, numbered 1-based in chronological call-entry\norder. Frames for callers, callees, comprehensions, and generators are not\ntarget invocations.\n\nWhat is the set of exception types caught by the `except\n(InvalidTokenError, ValidationError)` handler at line 127 inside those target\ninvocations? An exception counts as caught when it is raised by a statement\nin that handler's `try` suite, or propagates from a callee to such a statement\nin the exact target frame, and its runtime type matches that handler so\ncontrol transfers to the handler. Count the target-frame occurrence once;\ndo not count occurrences only in callee or caller frames. Do not include an\nexception that arises outside that `try` suite, an exception fully handled\ninside a callee, or the replacement exception raised by the handler at line\n128 and propagated out of the target.\n\nLine numbers in this question are absolute, 1-based source line numbers in\nthe named file as it exists in the repository. For a multi-line statement or\ncall, its exception point is the line where that executed statement or\nexpression begins. Decorator and `def` lines are not part of the `try` suite.\n\nUse this exception type naming convention: bare `type(exc).__name__` for\nbuilt-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and\n`module.QualName` for all others (e.g.\n`haystack.core.errors.PipelineError`). Remove duplicates globally by the\ncomplete formatted type-name string, then sort the remaining strings in\nascending lexicographic order using Python's default string ordering\n(Unicode code-point order); there are no further tie-breakers.\n\nReturn exactly one JSON object with this shape:\n`{\"caught_exception_kinds\": [\"str\"]}`. The value is a JSON array of strings,\nnot a Python container representation; each element is the formatted runtime\ntype name described above. The key is always present. If no exception\nqualifies, the array is `[]`, not JSON `null`, an empty string, or an omitted\nkey. Exception messages, source line numbers, invocation numbers, and counts\nare not part of the answer.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

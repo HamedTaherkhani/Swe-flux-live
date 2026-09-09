@@ -1,0 +1,61 @@
+{
+  "question_kind": "M3_ProgramState",
+  "question": "Run every test method in `TestPrepareInputsProgramState` from `haystack_qa/hugging_face_local_prepare_inputs_m3_state/files/testcase.py` (that is, every pytest node whose id has the prefix `haystack_qa/hugging_face_local_prepare_inputs_m3_state/files/testcase.py::TestPrepareInputsProgramState::test_`). Execute those nodes once each in pytest's displayed collection order, without reordering or selectively repeating them. Aggregate observations from all invocations of `haystack.components.generators.chat.hugging_face_local.HuggingFaceLocalChatGenerator._prepare_inputs` in `haystack/components/generators/chat/hugging_face_local.py`.\n\nFor the exact `_prepare_inputs` frame, observe the local variable `generation_kwargs` at these execution checkpoints: once on function entry after parameters are bound; immediately before every executed source line in that frame; and immediately before a normal return or exception leaves that frame. Only include checkpoints at which `generation_kwargs` is bound. A source-line checkpoint occurs before the statement or expression beginning on that absolute, 1-based line executes; for a multi-line statement, this is the line on which its executed statement or expression begins. Decorator and `def` lines are not checkpoints, and the function's non-executed docstring lines are not checkpoints. Exclude nested frames, including the list comprehension used to construct `hf_messages`; parameters in the exact frame are ordinary locals, while comprehension-local variables are therefore never observed. An invocation means one chronological entry into the exact target function, numbered from 1 across the complete pytest run, although invocation numbers are not emitted.\n\nAt each included checkpoint, take Python `repr()` of the entire current `generation_kwargs` object, not `str()` and not a JSON conversion. Thus values inside a container use Python spellings and recursive representations (for example, `{'sample': [None, True]}`), and dictionary insertion order is the runtime order shown by `repr()`. Preserve empty containers as their Python representations; do not substitute JSON null or omit them.\n\nRemove duplicate representation strings across all checkpoints and all invocations. Sort the remaining strings in ascending lexicographic order by Unicode code point, with no secondary key (for example, `\"Z\"` sorts before `\"a\"`). Return exactly `{\"unique_values\": [...]}`: `unique_values` is a JSON array of those Python-repr strings. No line numbers, invocation numbers, or counts are included.",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  },
+  "oracle_answer": {
+    "unique_values": [
+      "None",
+      "{'diversity_penalty': 0.287551}",
+      "{'epsilon_cutoff': 0.0834664}",
+      "{'eta_cutoff': 0.04070212}",
+      "{'max_time': 0.98916}",
+      "{'num_return_sequences': 7, 'top_p': 0.83087}",
+      "{'pad_token_id': 0, 'do_sample': False, 'typical_p': 0.17783}",
+      "{'pad_token_id': 499, 'length_penalty': 1.83222, 'use_cache': True}",
+      "{'penalty_alpha': 0.29883}",
+      "{'stop_sequences': ['call-0-479', 'call-1-146', 'call-2-653', 'call-3-684', 'call-4-199'], 'repetition_penalty': 1.0793280810066856}",
+      "{'stop_words': ['halt-0-18', 'halt-1-620', 'halt-2-647', 'halt-3-951', 'halt-4-343', 'halt-5-527'], 'frequency_penalty': 0.7483}",
+      "{'stop_words': [0, 'valid-54', 'valid-63', 3, 'valid-41', 'valid-94', 6, 'valid-15', 'valid-2', 9, 'valid-33', 'valid-62', 12, 'valid-15', 'valid-60'], 'min_length': 15}",
+      "{'temperature': 0.14961, 'max_new_tokens': 78, 'stop_words': [], 'stop_sequences': []}",
+      "{'temperature': 0.14961, 'top_k': 31, 'profile': {'band': 7, 'active': False}, 'return_full_text': False, 'max_new_tokens': 78, 'pad_token_id': 75}",
+      "{'temperature': 0.14961, 'top_k': 31, 'profile': {'band': 7, 'active': False}, 'return_full_text': False, 'max_new_tokens': 78, 'stop_sequences': [], 'stop_words': []}",
+      "{'temperature': 0.14961, 'top_k': 31, 'profile': {'band': 7, 'active': False}, 'return_full_text': False, 'max_new_tokens': 78}",
+      "{'temperature': 0.1892, 'top_k': 30, 'profile': {'band': 6, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'pad_token_id': 499, 'length_penalty': 1.83222, 'use_cache': True}",
+      "{'temperature': 0.1892, 'top_k': 30, 'profile': {'band': 6, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': [], 'pad_token_id': 499, 'length_penalty': 1.83222, 'use_cache': True}",
+      "{'temperature': 0.2628, 'top_k': 15, 'profile': {'band': 7, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'frequency_penalty': 0.7483, 'stopping_criteria': [<criteria:6:40>], 'pad_token_id': 77}",
+      "{'temperature': 0.2628, 'top_k': 15, 'profile': {'band': 7, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'frequency_penalty': 0.7483, 'stopping_criteria': [<criteria:6:40>]}",
+      "{'temperature': 0.2628, 'top_k': 15, 'profile': {'band': 7, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'frequency_penalty': 0.7483}",
+      "{'temperature': 0.2628, 'top_k': 15, 'profile': {'band': 7, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': [], 'stop_words': ['halt-0-18', 'halt-1-620', 'halt-2-647', 'halt-3-951', 'halt-4-343', 'halt-5-527'], 'frequency_penalty': 0.7483}",
+      "{'temperature': 0.3283, 'top_k': 31, 'profile': {'band': 5, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'epsilon_cutoff': 0.0834664, 'pad_token_id': 99}",
+      "{'temperature': 0.3283, 'top_k': 31, 'profile': {'band': 5, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'epsilon_cutoff': 0.0834664}",
+      "{'temperature': 0.3283, 'top_k': 31, 'profile': {'band': 5, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': [], 'epsilon_cutoff': 0.0834664}",
+      "{'temperature': 0.3383, 'top_k': 16, 'profile': {'band': 5, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'eta_cutoff': 0.04070212, 'pad_token_id': 107}",
+      "{'temperature': 0.3383, 'top_k': 16, 'profile': {'band': 5, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'eta_cutoff': 0.04070212}",
+      "{'temperature': 0.3383, 'top_k': 16, 'profile': {'band': 5, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': [], 'eta_cutoff': 0.04070212}",
+      "{'temperature': 0.3712, 'top_k': 36, 'profile': {'band': 7, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'pad_token_id': 903}",
+      "{'temperature': 0.3712, 'top_k': 36, 'profile': {'band': 7, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': []}",
+      "{'temperature': 0.3712, 'top_k': 36, 'profile': {'band': 7, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512}",
+      "{'temperature': 0.4956, 'top_k': 16, 'profile': {'band': 8, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'min_length': 15, 'pad_token_id': 83}",
+      "{'temperature': 0.4956, 'top_k': 16, 'profile': {'band': 8, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'min_length': 15}",
+      "{'temperature': 0.4956, 'top_k': 16, 'profile': {'band': 8, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': [], 'stop_words': [0, 'valid-54', 'valid-63', 3, 'valid-41', 'valid-94', 6, 'valid-15', 'valid-2', 9, 'valid-33', 'valid-62', 12, 'valid-15', 'valid-60'], 'min_length': 15}",
+      "{'temperature': 0.6429, 'top_k': 37, 'profile': {'band': 0, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'repetition_penalty': 1.0793280810066856, 'stopping_criteria': [<criteria:5:27>], 'pad_token_id': 81}",
+      "{'temperature': 0.6429, 'top_k': 37, 'profile': {'band': 0, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'repetition_penalty': 1.0793280810066856, 'stopping_criteria': [<criteria:5:27>]}",
+      "{'temperature': 0.6429, 'top_k': 37, 'profile': {'band': 0, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'repetition_penalty': 1.0793280810066856}",
+      "{'temperature': 0.6429, 'top_k': 37, 'profile': {'band': 0, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': ['call-0-479', 'call-1-146', 'call-2-653', 'call-3-684', 'call-4-199'], 'repetition_penalty': 1.0793280810066856}",
+      "{'temperature': 0.7107, 'top_k': 40, 'profile': {'band': 3, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'pad_token_id': 0, 'do_sample': False, 'typical_p': 0.17783}",
+      "{'temperature': 0.7107, 'top_k': 40, 'profile': {'band': 3, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'pad_token_id': 919, 'do_sample': False, 'typical_p': 0.17783}",
+      "{'temperature': 0.7107, 'top_k': 40, 'profile': {'band': 3, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': [], 'pad_token_id': 0, 'do_sample': False, 'typical_p': 0.17783}",
+      "{'temperature': 0.7355, 'top_k': 28, 'profile': {'band': 2, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'num_return_sequences': 1, 'top_p': 0.83087, 'pad_token_id': 87}",
+      "{'temperature': 0.7355, 'top_k': 28, 'profile': {'band': 2, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'num_return_sequences': 1, 'top_p': 0.83087}",
+      "{'temperature': 0.7355, 'top_k': 28, 'profile': {'band': 2, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': [], 'num_return_sequences': 1, 'top_p': 0.83087}",
+      "{'temperature': 0.7355, 'top_k': 28, 'profile': {'band': 2, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': [], 'num_return_sequences': 7, 'top_p': 0.83087}",
+      "{'temperature': 0.7521, 'top_k': 43, 'profile': {'band': 1, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'max_time': 0.98916, 'pad_token_id': 101}",
+      "{'temperature': 0.7521, 'top_k': 43, 'profile': {'band': 1, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'max_time': 0.98916}",
+      "{'temperature': 0.7521, 'top_k': 43, 'profile': {'band': 1, 'active': False}, 'return_full_text': False, 'max_new_tokens': 512, 'stop_sequences': [], 'max_time': 0.98916}"
+    ]
+  }
+}

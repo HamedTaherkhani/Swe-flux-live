@@ -1,0 +1,96 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Consider the single test method `jinja_qa/optimizer_generic_visit_s6_calls/files/testcase.py::TestOptimizerGenericVisitCallOrder::test_optimizer_generic_visit_interprocedural_calls`.\n\nThat test calls `Optimizer.generic_visit` **directly** on expression nodes from parsed templates (see `src/jinja2/optimizer.py`).\n\nTarget function: `jinja2.optimizer.Optimizer.generic_visit` (the method whose `def` begins at line 31 of `src/jinja2/optimizer.py`).\n\n**Function identity format**: each function is written as `module.qualname` using the defining module and `co_qualname`, for example `jinja2.visitor.NodeVisitor.visit`.\n\n**Invocation numbering**: an invocation of the target is one `call` event for `jinja2.optimizer.Optimizer.generic_visit` during the test run, numbered in chronological order starting at 1.\n\n**Tracked functions** (only these three): `jinja2.optimizer.Optimizer.generic_visit`, `jinja2.visitor.NodeTransformer.generic_visit`, `jinja2.visitor.NodeVisitor.visit`.\n\n**Inclusion rule for call events**: build the ordered sequence of `call` events whose callee is one of the tracked functions above and that occur while invocation 13 of `jinja2.optimizer.Optimizer.generic_visit` is on the Python call stack (the target frame has been entered by its `call` event and not yet left by its matching `return` event). Include nested and transitive calls to tracked functions made while that invocation is active, including calls from child invocations of the target that run before invocation 13 returns. Include every matching `call` event in trace order; do not deduplicate repeated calls. Include the `call` event that begins invocation 13 itself. Do not include calls to untracked functions, builtins, methods on AST node objects, or any call that happens only before invocation 13 starts or after it returns.\n\n**File path format**: each `file` value is the repository-relative path beginning with `src/jinja2/` (for example `src/jinja2/visitor.py`).\n\nReturn JSON with exactly one top-level key `function_call_order` whose value is a list of objects, each with keys `file` (string) and `func` (string), in the chronological order defined above.",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "src/jinja2/optimizer.py",
+        "func": "jinja2.optimizer.Optimizer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeTransformer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/optimizer.py",
+        "func": "jinja2.optimizer.Optimizer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeTransformer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/optimizer.py",
+        "func": "jinja2.optimizer.Optimizer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeTransformer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/optimizer.py",
+        "func": "jinja2.optimizer.Optimizer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeTransformer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/optimizer.py",
+        "func": "jinja2.optimizer.Optimizer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeTransformer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/optimizer.py",
+        "func": "jinja2.optimizer.Optimizer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeTransformer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/optimizer.py",
+        "func": "jinja2.optimizer.Optimizer.generic_visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeTransformer.generic_visit"
+      }
+    ]
+  }
+}

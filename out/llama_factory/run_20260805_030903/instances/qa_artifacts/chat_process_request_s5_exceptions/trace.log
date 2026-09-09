@@ -1,0 +1,25 @@
+2026-07-15 04:12:56.976 [TRACE][START] pid=44 TRACE_OUT='/testbed/logs/llama_factory_qa/chat_process_request_s5_exceptions/trace.log' TRACE_FILE='src/llamafactory/api/chat.py' TRACE_FUNCS=['_process_request'] TRACE_EVENTS=['call', 'exception', 'line', 'return']
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:73 src.llamafactory.api.chat._process_request event=call locals={'request': "namespace(messages=[namespace(role=<Role.USER: 'user'>, content='hello', tool_calls=None)], tools=[namespace(function=<object object at 0x7c09be5a15c0>)])"}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:83 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:86 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:89 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:92 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:94 src.llamafactory.api.chat._process_request event=line locals={'system': 'None'}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:97 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:98 src.llamafactory.api.chat._process_request event=line locals={'input_messages': '[]'}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:99 src.llamafactory.api.chat._process_request event=line locals={'audios': '[]', 'images': '[]', 'videos': '[]'}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:100 src.llamafactory.api.chat._process_request event=line locals={'i': '0', 'message': "namespace(role=<Role.USER: 'user'>, content='hello', tool_calls=None)"}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:102 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:105 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:112 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:153 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:99 src.llamafactory.api.chat._process_request event=line locals={'input_messages': "[{'role': 'user', 'content': 'hello'}]"}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:155 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:156 src.llamafactory.api.chat._process_request event=line locals={'tool_list': '[namespace(function=<object object at 0x7c09be5a15c0>)]'}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:157 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:158 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:158 src.llamafactory.api.chat._process_request event=exception exc=JSONDecodeError: JSONDecodeError('forced decode failure: line 1 column 2 (char 1)') locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:159 src.llamafactory.api.chat._process_request event=line locals={'audios': '[]', 'i': '0', 'images': '[]', 'input_messages': "[{'role': 'user', 'content': 'hello'}]", 'message': "namespace(role=<Role.USER: 'user'>, content='hello', tool_calls=None)", 'request': "namespace(messages=[namespace(role=<Role.USER: 'user'>, content='hello', tool_calls=None)], tools=[namespace(function=<object object at 0x7c09be5a15c0>)])", 'system': 'None', 'tool_list': '[namespace(function=<object object at 0x7c09be5a15c0>)]', 'videos': '[]'}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:160 src.llamafactory.api.chat._process_request event=line locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:160 src.llamafactory.api.chat._process_request event=exception exc=RuntimeError: RuntimeError('400: Invalid tools') locals={}
+2026-07-15 04:12:56.983 /testbed/src/llamafactory/api/chat.py:160 src.llamafactory.api.chat._process_request event=return retval=None locals={'audios': '[]', 'i': '0', 'images': '[]', 'input_messages': "[{'role': 'user', 'content': 'hello'}]", 'message': "namespace(role=<Role.USER: 'user'>, content='hello', tool_calls=None)", 'request': "namespace(messages=[namespace(role=<Role.USER: 'user'>, content='hello', tool_calls=None)], tools=[namespace(function=<object object at 0x7c09be5a15c0>)])", 'system': 'None', 'tool_list': '[namespace(function=<object object at 0x7c09be5a15c0>)]', 'videos': '[]'}

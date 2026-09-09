@@ -1,0 +1,30 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "BlockingIOError",
+      "BrokenPipeError",
+      "ChildProcessError",
+      "ConnectionError",
+      "FileNotFoundError",
+      "IndentationError",
+      "IsADirectoryError",
+      "KeyError",
+      "LookupError",
+      "OSError",
+      "PermissionError",
+      "ProcessLookupError",
+      "RuntimeError",
+      "SyntaxError",
+      "TabError",
+      "TimeoutError",
+      "ValueError"
+    ]
+  },
+  "question": "Run the pytest test\n`flask_qa/ctx_pop_s5_exceptions/files/testcase.py::TestAppContextPopExceptions::test_seeded_request_resource_failures`\nagainst this repository. Across the complete run of that named test, what is\nthe set of exception types caught inside `flask.ctx.AppContext.pop` in\n`src/flask/ctx.py` by the `_CollectErrors` context managers lexically present\nin that function?\n\nAn exception counts as caught inside the target exactly when it propagates\ninto the active `flask.ctx.AppContext.pop` frame from a statement in the\nprotected suite (the body) of one of that function's\n`with collect_errors:` statements, and that statement's context-manager exit\nsuppresses it so execution continues after the `with` statement. Count such\nevents from every call of the exact target function during the named test.\nDo not count an exception handled wholly within a callee, an exception from\nanother function or frame, or the aggregate exception propagated out by the\nfinal `collect_errors.raise_any(...)` call.\n\nReport distinct exception types only: remove duplicates regardless of which\nprotected suite or target call produced them. Sort the resulting strings in\nascending lexicographic order by Unicode code point, using ordinary Python\nstring ordering; after deduplication there are no ordering ties.\n\nException type naming MUST use this convention: bare `type(exc).__name__` for\nbuilt-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and\n`module.QualName` for all others (e.g.\n`haystack.core.errors.PipelineError`). Exception messages and exception\nvalues are not reported, so no `str`, `repr`, empty-string, or null\nserialization convention applies.\n\nReturn exactly one JSON object with the single key\n`caught_exception_kinds`. Its value must be a JSON list of strings ordered\nas specified above.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

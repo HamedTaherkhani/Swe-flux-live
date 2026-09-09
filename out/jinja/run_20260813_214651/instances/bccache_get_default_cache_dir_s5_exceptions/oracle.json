@@ -1,0 +1,15 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "FileExistsError",
+      "testcase.q\\afkp[`ej"
+    ]
+  },
+  "question": "Consider the pytest test identified by `jinja_qa/bccache_get_default_cache_dir_s5_exceptions/files/testcase.py::BccacheDefaultCacheDirS5ExceptionsTest::test_repeated_default_cache_dir_resolution` (test class `BccacheDefaultCacheDirS5ExceptionsTest`, test method `test_repeated_default_cache_dir_resolution`). During that single test run, the function `jinja2.bccache.FileSystemBytecodeCache._get_default_cache_dir` in `src/jinja2/bccache.py` is invoked multiple times. An invocation is one `call` event for that function during the test run, counted in chronological order starting at 1. Report the set of exception types caught inside that function across all invocations during this test run. An exception is counted as caught when an `exception` event for it occurs while executing the function during some invocation and a subsequent `line` event for the same function during that same invocation occurs before that invocation's `return` event (meaning execution entered an `except` handler rather than propagating the exception to the caller). Do not include exceptions that propagate out of the function. Exception type naming uses bare `type(exc).__name__` for built-in exceptions (for example `ValueError`, never `builtins.ValueError`) and `module.QualName` for all others (for example `haystack.core.errors.PipelineError`). For any non-built-in exception type defined in the test module `testcase`, report it as `testcase.` followed by `type(exc).__qualname__` (for example `testcase.DynamicCollision`). Return a JSON object with exactly one key, `caught_exception_kinds`, whose value is a JSON array of strings containing each distinct caught exception type name. Sort the array ascending in ASCII order by the full type-name string; remove duplicates.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

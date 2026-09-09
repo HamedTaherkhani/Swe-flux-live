@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "docs_src/websockets_/tutorial003_py310.py",
+        "func": "docs_src.websockets_.tutorial003_py310.ConnectionManager.broadcast"
+      },
+      {
+        "file": "docs_src/websockets_/tutorial003_py310.py",
+        "func": "docs_src.websockets_.tutorial003_py310.ConnectionManager.connect"
+      },
+      {
+        "file": "docs_src/websockets_/tutorial003_py310.py",
+        "func": "docs_src.websockets_.tutorial003_py310.ConnectionManager.disconnect"
+      },
+      {
+        "file": "docs_src/websockets_/tutorial003_py310.py",
+        "func": "docs_src.websockets_.tutorial003_py310.ConnectionManager.send_personal_message"
+      },
+      {
+        "file": "docs_src/websockets_/tutorial003_py310.py",
+        "func": "docs_src.websockets_.tutorial003_py310.websocket_endpoint"
+      }
+    ]
+  },
+  "question": "Run the pytest test `fastapi_qa/tutorial003_py310_websocket_endpoint_m6_calls/files/testcase.py::TestWebSocketEndpointRuntime::test_dynamic_function_coverage` and determine dynamic function coverage for the direct exercise of `docs_src.websockets_.tutorial003_py310.websocket_endpoint` in `docs_src/websockets_/tutorial003_py310.py` (the endpoint defined on lines 72-81).\n\nThe tracked function set is exactly:\n- `{\"file\": \"docs_src/websockets_/tutorial003_py310.py\", \"func\": \"docs_src.websockets_.tutorial003_py310.ConnectionManager.__init__\"}`\n- `{\"file\": \"docs_src/websockets_/tutorial003_py310.py\", \"func\": \"docs_src.websockets_.tutorial003_py310.ConnectionManager.broadcast\"}`\n- `{\"file\": \"docs_src/websockets_/tutorial003_py310.py\", \"func\": \"docs_src.websockets_.tutorial003_py310.ConnectionManager.connect\"}`\n- `{\"file\": \"docs_src/websockets_/tutorial003_py310.py\", \"func\": \"docs_src.websockets_.tutorial003_py310.ConnectionManager.disconnect\"}`\n- `{\"file\": \"docs_src/websockets_/tutorial003_py310.py\", \"func\": \"docs_src.websockets_.tutorial003_py310.ConnectionManager.send_personal_message\"}`\n- `{\"file\": \"docs_src/websockets_/tutorial003_py310.py\", \"func\": \"docs_src.websockets_.tutorial003_py310.get\"}`\n- `{\"file\": \"docs_src/websockets_/tutorial003_py310.py\", \"func\": \"docs_src.websockets_.tutorial003_py310.websocket_endpoint\"}`\n\nA tracked function is covered if at least one invocation of that exact function begins during the named test method, whether it is invoked directly by the test, directly by another listed function, or transitively through any other frame. Merely remaining on the stack while some other function runs does not cover that other function. Calls to functions outside the listed set, including builtins and comprehension frames, are ignored. An invocation means the initial entry caused by a function call; count invocations 1-based in chronological call-event order when deciding whether at least one exists. Repeated and recursive invocations still contribute only one covered-set entry. Resuming a suspended generator or coroutine is part of its existing invocation, not a new invocation, and likewise does not create a duplicate entry.\n\nReturn exactly one JSON object with key `covered_functions`. Its value is a JSON list of objects, each having exactly the string keys `file` and `func`. Function identity uses the complete dotted Python module and qualified name, for example `package.module.Widget.run`; file identity uses the repository-relative POSIX path. Include each covered tracked function exactly once, and include no uncovered function. Sort the list in ascending lexicographic order first by `file`, then by `func`, comparing Unicode code points; these fields are a complete tie-breaker because duplicates are removed. Serialize the paths and names as ordinary JSON strings, with no `repr()` wrapping or added prefixes.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

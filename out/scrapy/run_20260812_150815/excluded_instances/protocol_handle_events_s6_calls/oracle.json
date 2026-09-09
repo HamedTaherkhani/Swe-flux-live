@@ -1,0 +1,128 @@
+{
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.stream_ended"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.connection_terminated"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.stream_reset"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.stream_reset"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.response_received"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.settings_acknowledged"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.data_received"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.stream_reset"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.stream_ended"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.data_received"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.data_received"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.settings_acknowledged"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.window_updated"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.window_updated"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.window_updated"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.connection_terminated"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.window_updated"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.response_received"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.settings_acknowledged"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.data_received"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.stream_reset"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.stream_ended"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.settings_acknowledged"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.stream_ended"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.connection_terminated"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.connection_terminated"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.response_received"
+      },
+      {
+        "file": "scrapy/core/http2/protocol.py",
+        "func": "scrapy.core.http2.protocol.H2ClientProtocol.response_received"
+      }
+    ]
+  },
+  "question": "Run the single pytest test `scrapy_qa/protocol_handle_events_s6_calls/files/testcase.py::ProtocolEventDispatchTest::test_generated_frames_via_data_received`. During that test, consider `scrapy.core.http2.protocol.H2ClientProtocol._handle_events` in `scrapy/core/http2/protocol.py`. What is the exact ordered sequence of direct calls that its second invocation makes to this tracked set of functions: `scrapy.core.http2.protocol.H2ClientProtocol.connection_terminated`, `scrapy.core.http2.protocol.H2ClientProtocol.data_received`, `scrapy.core.http2.protocol.H2ClientProtocol.response_received`, `scrapy.core.http2.protocol.H2ClientProtocol.settings_acknowledged`, `scrapy.core.http2.protocol.H2ClientProtocol.stream_ended`, `scrapy.core.http2.protocol.H2ClientProtocol.stream_reset`, `scrapy.core.http2.protocol.H2ClientProtocol.window_updated`? An invocation is one Python `call` trace event for the target function, counted 1-based in chronological trace-event emission order during this test. Thus, the requested invocation begins at the second such target `call` event and ends at its matching `return` event. Include a call only when its Python `call` event occurs with that second target invocation's frame as its immediate caller and its function is one of the seven names in the tracked set. Do not include the target's own call, transitive or nested calls made by a handler, calls to any function outside the tracked set, built-ins, or comprehension frames. Preserve every qualifying call, including repetitions. If a listed generator or coroutine produced another `call` event when resumed and the target frame were again its immediate caller, that event would be included as another repeated entry. Order entries by Python trace-event emission order; log timestamps are irrelevant, and even if timestamps tie, retain file order. Do not sort or deduplicate. Function identity is the exact dotted `module.Class.method` or `module.function` qualname; for example, `demo.worker.Job.run`. Return exactly a JSON object with the single key `function_call_order`. Its value must be a JSON array in that order, where every element is an object with exactly two keys: `file`, a JSON string equal to the forward-slash repository-relative path `scrapy/core/http2/protocol.py`, and `func`, a JSON string containing the exact dotted function identity. Use the function strings exactly as listed in the tracked set, without `repr()` quoting or abbreviation. No line numbers, local values, null placeholders, or additional keys are included; an absence of qualifying calls would be represented by an empty JSON array.",
+  "question_kind": "S6_InterProceduralCFG",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

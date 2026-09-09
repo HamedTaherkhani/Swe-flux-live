@@ -1,0 +1,1857 @@
+[
+  {
+    "instance_id": "core_parse_dataset_definition_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "kedro/io/core.py",
+      "module": "kedro.io.core",
+      "qualname": "parse_dataset_definition",
+      "name": "parse_dataset_definition",
+      "lineno": 514,
+      "end_lineno": 606,
+      "params": [
+        "config",
+        "load_version",
+        "save_version"
+      ],
+      "metrics": {
+        "body_lines": 93,
+        "branches": 10,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "_load_obj",
+          "generate_timestamp"
+        ],
+        "num_local_calls": 2,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 65.0,
+      "callers": [
+        "AbstractDataset.from_config"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "runner_run_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "kedro/runner/runner.py",
+      "module": "kedro.runner.runner",
+      "qualname": "AbstractRunner._run",
+      "name": "_run",
+      "lineno": 198,
+      "end_lineno": 284,
+      "params": [
+        "self",
+        "pipeline",
+        "catalog",
+        "hook_manager",
+        "run_id"
+      ],
+      "metrics": {
+        "body_lines": 87,
+        "branches": 4,
+        "loops": 4,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 2,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 35,
+        "local_calls": [
+          "_get_executor",
+          "_get_required_workers_count",
+          "_raise_runtime_error",
+          "_release_datasets",
+          "_set_manager_datasets",
+          "_suggest_resume_scenario",
+          "_validate_catalog",
+          "_validate_nodes"
+        ],
+        "num_local_calls": 8,
+        "assigns": 14,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 1,
+        "breaks_continues": 1
+      },
+      "score": 62.0,
+      "callers": [
+        "AbstractRunner.run"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=48.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "startup_get_project_metadata_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "kedro/framework/startup.py",
+      "module": "kedro.framework.startup",
+      "qualname": "_get_project_metadata",
+      "name": "_get_project_metadata",
+      "lineno": 40,
+      "end_lineno": 111,
+      "params": [
+        "project_path"
+      ],
+      "metrics": {
+        "body_lines": 72,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 3,
+        "raises": 6,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "_version_mismatch_error"
+        ],
+        "num_local_calls": 1,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 50.2,
+      "callers": [
+        "bootstrap_project"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=41.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "pipeline_sync_dirs_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "kedro/framework/cli/pipeline.py",
+      "module": "kedro.framework.cli.pipeline",
+      "qualname": "_sync_dirs",
+      "name": "_sync_dirs",
+      "lineno": 254,
+      "end_lineno": 306,
+      "params": [
+        "source",
+        "target",
+        "prefix",
+        "overwrite"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "_sync_dirs"
+        ],
+        "num_local_calls": 1,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 4,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 49.3,
+      "callers": [
+        "_copy_pipeline_configs",
+        "_copy_pipeline_tests"
+      ],
+      "callers_2hop": [
+        "create_pipeline"
+      ]
+    },
+    "rank_note": "affinity+score=45.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "context_convert_paths_to_absolute_posix_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "kedro/framework/context/context.py",
+      "module": "kedro.framework.context.context",
+      "qualname": "_convert_paths_to_absolute_posix",
+      "name": "_convert_paths_to_absolute_posix",
+      "lineno": 59,
+      "end_lineno": 124,
+      "params": [
+        "project_path",
+        "conf_dictionary"
+      ],
+      "metrics": {
+        "body_lines": 66,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "_convert_paths_to_absolute_posix",
+          "_is_relative_path"
+        ],
+        "num_local_calls": 2,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 43.6,
+      "callers": [
+        "KedroContext._get_catalog"
+      ],
+      "callers_2hop": [
+        "KedroContext.catalog"
+      ]
+    },
+    "rank_note": "affinity+score=32.6 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "starters_fetch_validate_parse_config_from_user_prompts_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "kedro/framework/cli/starters.py",
+      "module": "kedro.framework.cli.starters",
+      "qualname": "_fetch_validate_parse_config_from_user_prompts",
+      "name": "_fetch_validate_parse_config_from_user_prompts",
+      "lineno": 711,
+      "end_lineno": 757,
+      "params": [
+        "prompts",
+        "cookiecutter_context"
+      ],
+      "metrics": {
+        "body_lines": 47,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "_convert_tool_numbers_to_readable_names",
+          "_parse_tools_input",
+          "_parse_yes_no_to_bool",
+          "_validate_tool_selection",
+          "validate"
+        ],
+        "num_local_calls": 5,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.7,
+      "callers": [
+        "_get_extra_context"
+      ],
+      "callers_2hop": [
+        "new"
+      ]
+    },
+    "rank_note": "affinity+score=42.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "data_catalog_get_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "kedro/io/data_catalog.py",
+      "module": "kedro.io.data_catalog",
+      "qualname": "DataCatalog.get",
+      "name": "get",
+      "lineno": 555,
+      "end_lineno": 606,
+      "params": [
+        "self",
+        "key",
+        "fallback_to_runtime_pattern",
+        "version"
+      ],
+      "metrics": {
+        "body_lines": 52,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "_add_from_config",
+          "materialize"
+        ],
+        "num_local_calls": 2,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 34.2,
+      "callers": [
+        "DataCatalog._add_from_config",
+        "DataCatalog.exists",
+        "DataCatalog.load",
+        "DataCatalog.to_config"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=40.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "utils_remove_pyspark_starter_files_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "kedro/templates/project/hooks/utils.py",
+      "module": "kedro.templates.project.hooks.utils",
+      "qualname": "_remove_pyspark_starter_files",
+      "name": "_remove_pyspark_starter_files",
+      "lineno": 118,
+      "end_lineno": 151,
+      "params": [
+        "python_package_name"
+      ],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 2,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "_remove_dir",
+          "_remove_file"
+        ],
+        "num_local_calls": 2,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 37.4,
+      "callers": [
+        "setup_template_tools"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "omegaconf_config_check_duplicates_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "kedro/config/omegaconf_config.py",
+      "module": "kedro.config.omegaconf_config",
+      "qualname": "OmegaConfigLoader._check_duplicates",
+      "name": "_check_duplicates",
+      "lineno": 513,
+      "end_lineno": 547,
+      "params": [
+        "self",
+        "key",
+        "config_per_file"
+      ],
+      "metrics": {
+        "body_lines": 35,
+        "branches": 4,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [
+          "_get_all_keys",
+          "keys"
+        ],
+        "num_local_calls": 2,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 43.5,
+      "callers": [
+        "OmegaConfigLoader.load_and_merge_dir_config"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=43.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "ipython_prepare_imports_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "kedro/ipython/__init__.py",
+      "module": "kedro.ipython",
+      "qualname": "_prepare_imports",
+      "name": "_prepare_imports",
+      "lineno": 348,
+      "end_lineno": 385,
+      "params": [
+        "node_func"
+      ],
+      "metrics": {
+        "body_lines": 38,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 39.8,
+      "callers": [
+        "_load_node"
+      ],
+      "callers_2hop": [
+        "magic_load_node"
+      ]
+    },
+    "rank_note": "affinity+score=48.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "starters_fetch_validate_parse_config_from_file_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "kedro/framework/cli/starters.py",
+      "module": "kedro.framework.cli.starters",
+      "qualname": "_fetch_validate_parse_config_from_file",
+      "name": "_fetch_validate_parse_config_from_file",
+      "lineno": 653,
+      "end_lineno": 708,
+      "params": [
+        "config_path",
+        "prompts_required",
+        "starter_alias"
+      ],
+      "metrics": {
+        "body_lines": 56,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [
+          "_convert_tool_numbers_to_readable_names",
+          "_convert_tool_short_names_to_numbers",
+          "_parse_yes_no_to_bool",
+          "_validate_config_file_against_prompts",
+          "_validate_input_with_regex_pattern",
+          "_validate_selected_tools"
+        ],
+        "num_local_calls": 6,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 35.6,
+      "callers": [
+        "_get_extra_context"
+      ],
+      "callers_2hop": [
+        "new"
+      ]
+    },
+    "rank_note": "affinity+score=32.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "ipython_load_node_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "kedro/ipython/__init__.py",
+      "module": "kedro.ipython",
+      "qualname": "_load_node",
+      "name": "_load_node",
+      "lineno": 300,
+      "end_lineno": 332,
+      "params": [
+        "node_name",
+        "pipelines"
+      ],
+      "metrics": {
+        "body_lines": 33,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "_find_node",
+          "_format_node_inputs_text",
+          "_get_node_bound_arguments",
+          "_prepare_function_body",
+          "_prepare_function_call",
+          "_prepare_imports",
+          "_prepare_node_inputs"
+        ],
+        "num_local_calls": 7,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 26.3,
+      "callers": [
+        "magic_load_node"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=42.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "task_run_node_async_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "kedro/runner/task.py",
+      "module": "kedro.runner.task",
+      "qualname": "Task._run_node_async",
+      "name": "_run_node_async",
+      "lineno": 192,
+      "end_lineno": 236,
+      "params": [
+        "self",
+        "node",
+        "catalog",
+        "hook_manager",
+        "run_id"
+      ],
+      "metrics": {
+        "body_lines": 45,
+        "branches": 1,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "_call_node_run",
+          "_collect_inputs_from_hook"
+        ],
+        "num_local_calls": 2,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 38.5,
+      "callers": [
+        "Task.execute"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=38.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "project_find_pipelines_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "kedro/framework/project/__init__.py",
+      "module": "kedro.framework.project",
+      "qualname": "find_pipelines",
+      "name": "find_pipelines",
+      "lineno": 368,
+      "end_lineno": 460,
+      "params": [
+        "raise_errors"
+      ],
+      "metrics": {
+        "body_lines": 93,
+        "branches": 8,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 3,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [
+          "_create_pipeline"
+        ],
+        "num_local_calls": 1,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 4
+      },
+      "score": 65.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=51.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "pipeline_validate_namespaces_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "kedro/pipeline/pipeline.py",
+      "module": "kedro.pipeline.pipeline",
+      "qualname": "Pipeline._validate_namespaces",
+      "name": "_validate_namespaces",
+      "lineno": 324,
+      "end_lineno": 367,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 44,
+        "branches": 3,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "_shortest_path"
+        ],
+        "num_local_calls": 1,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 4,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 54.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=44.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "omegaconf_config_load_and_merge_dir_config_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "kedro/config/omegaconf_config.py",
+      "module": "kedro.config.omegaconf_config",
+      "qualname": "OmegaConfigLoader.load_and_merge_dir_config",
+      "name": "load_and_merge_dir_config",
+      "lineno": 288,
+      "end_lineno": 380,
+      "params": [
+        "self",
+        "conf_path",
+        "patterns",
+        "key",
+        "processed_files",
+        "read_environment_variables"
+      ],
+      "metrics": {
+        "body_lines": 93,
+        "branches": 6,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 2,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 34,
+        "local_calls": [
+          "_check_duplicates",
+          "_is_hidden",
+          "_is_valid_config_path",
+          "_resolve_environment_variables"
+        ],
+        "num_local_calls": 4,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 2,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 62.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=48.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "utils_parse_filepath_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "kedro/utils.py",
+      "module": "kedro.utils",
+      "qualname": "_parse_filepath",
+      "name": "_parse_filepath",
+      "lineno": 33,
+      "end_lineno": 78,
+      "params": [
+        "filepath"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 50.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=54.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "session_run_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "kedro/framework/session/session.py",
+      "module": "kedro.framework.session.session",
+      "qualname": "KedroSession.run",
+      "name": "run",
+      "lineno": 280,
+      "end_lineno": 432,
+      "params": [
+        "self",
+        "pipeline_name",
+        "tags",
+        "runner",
+        "node_names",
+        "from_nodes",
+        "to_nodes",
+        "from_inputs",
+        "to_outputs",
+        "load_versions",
+        "namespaces",
+        "only_missing_outputs"
+      ],
+      "metrics": {
+        "body_lines": 153,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "load_context",
+          "run"
+        ],
+        "num_local_calls": 2,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 52.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=40.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "context_get_catalog_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "kedro/framework/context/context.py",
+      "module": "kedro.framework.context.context",
+      "qualname": "KedroContext._get_catalog",
+      "name": "_get_catalog",
+      "lineno": 224,
+      "end_lineno": 273,
+      "params": [
+        "self",
+        "catalog_class",
+        "save_version",
+        "load_versions"
+      ],
+      "metrics": {
+        "body_lines": 50,
+        "branches": 1,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "_convert_paths_to_absolute_posix",
+          "_get_config_credentials",
+          "_get_parameters",
+          "_validate_transcoded_datasets",
+          "compose_classes"
+        ],
+        "num_local_calls": 5,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 28.0,
+      "callers": [
+        "KedroContext.catalog"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=30.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "node_from_dict_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "kedro/pipeline/node.py",
+      "module": "kedro.pipeline.node",
+      "qualname": "Node._outputs_to_dictionary._from_dict",
+      "name": "_from_dict",
+      "lineno": 499,
+      "end_lineno": 527,
+      "params": [],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 31.9,
+      "callers": [
+        "Node._outputs_to_dictionary"
+      ],
+      "callers_2hop": [
+        "Node.run"
+      ]
+    },
+    "rank_note": "affinity+score=30.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "utils_remove_nested_section_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "kedro/templates/project/hooks/utils.py",
+      "module": "kedro.templates.project.hooks.utils",
+      "qualname": "_remove_nested_section",
+      "name": "_remove_nested_section",
+      "lineno": 50,
+      "end_lineno": 76,
+      "params": [
+        "data",
+        "nested_key"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 2,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 30.7,
+      "callers": [
+        "_remove_from_toml"
+      ],
+      "callers_2hop": [
+        "setup_template_tools"
+      ]
+    },
+    "rank_note": "affinity+score=34.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "environment_setup_context_with_venv_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "features/environment.py",
+      "module": "features.environment",
+      "qualname": "_setup_context_with_venv",
+      "name": "_setup_context_with_venv",
+      "lineno": 49,
+      "end_lineno": 75,
+      "params": [
+        "context",
+        "venv_dir"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 31.7,
+      "callers": [
+        "_setup_minimal_env"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=33.6 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "pipeline_group_by_namespace_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "kedro/pipeline/pipeline.py",
+      "module": "kedro.pipeline.pipeline",
+      "qualname": "Pipeline._group_by_namespace",
+      "name": "_group_by_namespace",
+      "lineno": 612,
+      "end_lineno": 637,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 2,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 34.6,
+      "callers": [
+        "Pipeline.group_nodes_by"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=38.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "core_load_obj_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "kedro/io/core.py",
+      "module": "kedro.io.core",
+      "qualname": "_load_obj",
+      "name": "_load_obj",
+      "lineno": 609,
+      "end_lineno": 660,
+      "params": [
+        "class_path"
+      ],
+      "metrics": {
+        "body_lines": 52,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 4,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 28.2,
+      "callers": [
+        "parse_dataset_definition"
+      ],
+      "callers_2hop": [
+        "AbstractDataset.from_config"
+      ]
+    },
+    "rank_note": "affinity+score=31.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "runner_find_all_nodes_for_resumed_pipeline_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "kedro/runner/runner.py",
+      "module": "kedro.runner.runner",
+      "qualname": "_find_all_nodes_for_resumed_pipeline",
+      "name": "_find_all_nodes_for_resumed_pipeline",
+      "lineno": 436,
+      "end_lineno": 474,
+      "params": [
+        "pipeline",
+        "unfinished_nodes",
+        "catalog"
+      ],
+      "metrics": {
+        "body_lines": 39,
+        "branches": 1,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "_enumerate_nodes_with_outputs",
+          "_enumerate_non_persistent_inputs",
+          "_nodes_with_external_inputs"
+        ],
+        "num_local_calls": 3,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 32.9,
+      "callers": [
+        "_find_nodes_to_resume_from"
+      ],
+      "callers_2hop": [
+        "AbstractRunner._suggest_resume_scenario"
+      ]
+    },
+    "rank_note": "affinity+score=32.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "catalog_mixins_describe_datasets_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "kedro/framework/context/catalog_mixins.py",
+      "module": "kedro.framework.context.catalog_mixins",
+      "qualname": "CatalogCommandsMixin.describe_datasets",
+      "name": "describe_datasets",
+      "lineno": 80,
+      "end_lineno": 147,
+      "params": [
+        "self",
+        "pipelines"
+      ],
+      "metrics": {
+        "body_lines": 68,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "_group_ds_by_type"
+        ],
+        "num_local_calls": 1,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 49.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=49.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "data_catalog_filter_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "kedro/io/data_catalog.py",
+      "module": "kedro.io.data_catalog",
+      "qualname": "DataCatalog.filter",
+      "name": "filter",
+      "lineno": 867,
+      "end_lineno": 940,
+      "params": [
+        "self",
+        "name_regex",
+        "type_regex",
+        "by_type"
+      ],
+      "metrics": {
+        "body_lines": 74,
+        "branches": 5,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "get_type",
+          "keys"
+        ],
+        "num_local_calls": 2,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 5,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 49.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=43.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "catalog_mixins_resolve_patterns_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "kedro/framework/context/catalog_mixins.py",
+      "module": "kedro.framework.context.catalog_mixins",
+      "qualname": "CatalogCommandsMixin.resolve_patterns",
+      "name": "resolve_patterns",
+      "lineno": 161,
+      "end_lineno": 208,
+      "params": [
+        "self",
+        "pipelines"
+      ],
+      "metrics": {
+        "body_lines": 48,
+        "branches": 3,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 45.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=33.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "pipeline_delete_pipeline_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "kedro/framework/cli/pipeline.py",
+      "module": "kedro.framework.cli.pipeline",
+      "qualname": "delete_pipeline",
+      "name": "delete_pipeline",
+      "lineno": 156,
+      "end_lineno": 210,
+      "params": [
+        "name",
+        "env",
+        "yes"
+      ],
+      "metrics": {
+        "body_lines": 55,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "_delete_artifacts",
+          "_echo_deletion_warning",
+          "_get_pipeline_artifacts"
+        ],
+        "num_local_calls": 3,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 41.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=34.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "extract_release_notes_extract_section_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "tools/github_actions/extract_release_notes.py",
+      "module": "tools.github_actions.extract_release_notes",
+      "qualname": "extract_section",
+      "name": "extract_section",
+      "lineno": 5,
+      "end_lineno": 27,
+      "params": [
+        "filename",
+        "heading"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 1
+      },
+      "score": 37.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=38.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "node_run_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "kedro/pipeline/node.py",
+      "module": "kedro.pipeline.node",
+      "qualname": "Node.run",
+      "name": "run",
+      "lineno": 392,
+      "end_lineno": 451,
+      "params": [
+        "self",
+        "inputs"
+      ],
+      "metrics": {
+        "body_lines": 60,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [
+          "_outputs_to_dictionary",
+          "_run_with_dict",
+          "_run_with_list",
+          "_run_with_no_inputs",
+          "_run_with_one_input"
+        ],
+        "num_local_calls": 5,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=32.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "catalog_config_resolver_extract_patterns_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "kedro/io/catalog_config_resolver.py",
+      "module": "kedro.io.catalog_config_resolver",
+      "qualname": "CatalogConfigResolver._extract_patterns",
+      "name": "_extract_patterns",
+      "lineno": 533,
+      "end_lineno": 586,
+      "params": [
+        "cls",
+        "config",
+        "credentials"
+      ],
+      "metrics": {
+        "body_lines": 54,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "_pattern_specificity",
+          "_resolve_credentials",
+          "_sort_patterns",
+          "_validate_pattern_config",
+          "is_pattern"
+        ],
+        "num_local_calls": 5,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 38.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=38.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "cli_steps_check_created_project_structure_from_tools_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "features/steps/cli_steps.py",
+      "module": "features.steps.cli_steps",
+      "qualname": "check_created_project_structure_from_tools",
+      "name": "check_created_project_structure_from_tools",
+      "lineno": 510,
+      "end_lineno": 551,
+      "params": [
+        "context",
+        "tools"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 7,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "is_created"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 35.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "nodes_train_model_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "features/steps/test_starter/{{ cookiecutter.repo_name }}/src/{{ cookiecutter.python_package }}/pipelines/data_science/nodes.py",
+      "module": "features.steps.test_starter.{{ cookiecutter.repo_name }}.src.{{ cookiecutter.python_package }}.pipelines.data_science.nodes",
+      "qualname": "train_model",
+      "name": "train_model",
+      "lineno": 16,
+      "end_lineno": 48,
+      "params": [
+        "train_x",
+        "train_y",
+        "parameters"
+      ],
+      "metrics": {
+        "body_lines": 33,
+        "branches": 0,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "_sigmoid"
+        ],
+        "num_local_calls": 1,
+        "assigns": 12,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 36.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=31.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "session_create_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "kedro/framework/session/session.py",
+      "module": "kedro.framework.session.session",
+      "qualname": "KedroSession.create",
+      "name": "create",
+      "lineno": 132,
+      "end_lineno": 193,
+      "params": [
+        "cls",
+        "project_path",
+        "save_on_close",
+        "env",
+        "runtime_params",
+        "conf_source"
+      ],
+      "metrics": {
+        "body_lines": 62,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "_describe_git",
+          "_jsonify_cli_context"
+        ],
+        "num_local_calls": 2,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 36.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=33.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "manager_register_hooks_entry_points_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "kedro/framework/hooks/manager.py",
+      "module": "kedro.framework.hooks.manager",
+      "qualname": "_register_hooks_entry_points",
+      "name": "_register_hooks_entry_points",
+      "lineno": 62,
+      "end_lineno": 107,
+      "params": [
+        "hook_manager",
+        "disabled_plugins"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 33.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=37.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "cli_main_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "kedro/framework/cli/cli.py",
+      "module": "kedro.framework.cli.cli",
+      "qualname": "KedroCLI.main",
+      "name": "main",
+      "lineno": 142,
+      "end_lineno": 211,
+      "params": [
+        "self",
+        "args",
+        "prog_name",
+        "complete_var",
+        "standalone_mode"
+      ],
+      "metrics": {
+        "body_lines": 70,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "main"
+        ],
+        "num_local_calls": 1,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 36.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=27.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "catalog_config_resolver_resolve_pattern_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "kedro/io/catalog_config_resolver.py",
+      "module": "kedro.io.catalog_config_resolver",
+      "qualname": "CatalogConfigResolver.resolve_pattern",
+      "name": "resolve_pattern",
+      "lineno": 700,
+      "end_lineno": 751,
+      "params": [
+        "self",
+        "ds_name"
+      ],
+      "metrics": {
+        "body_lines": 52,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "_get_pattern_config",
+          "_pattern_specificity",
+          "_resolve_dataset_config",
+          "match_dataset_pattern",
+          "match_runtime_pattern",
+          "match_user_catch_all_pattern"
+        ],
+        "num_local_calls": 6,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 26.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=39.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "task_run_node_sequential_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "kedro/runner/task.py",
+      "module": "kedro.runner.task",
+      "qualname": "Task._run_node_sequential",
+      "name": "_run_node_sequential",
+      "lineno": 141,
+      "end_lineno": 190,
+      "params": [
+        "self",
+        "node",
+        "catalog",
+        "hook_manager",
+        "run_id"
+      ],
+      "metrics": {
+        "body_lines": 50,
+        "branches": 1,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "_call_node_run",
+          "_collect_inputs_from_hook"
+        ],
+        "num_local_calls": 2,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 34.0,
+      "callers": [
+        "Task.execute"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=32.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "environment_setup_minimal_env_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "features/environment.py",
+      "module": "features.environment",
+      "qualname": "_setup_minimal_env",
+      "name": "_setup_minimal_env",
+      "lineno": 97,
+      "end_lineno": 123,
+      "params": [
+        "context"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [
+          "_create_new_venv",
+          "_setup_context_with_venv",
+          "call"
+        ],
+        "num_local_calls": 3,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 24.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=23.6 [direct]",
+    "exercise_mode": "direct"
+  }
+]

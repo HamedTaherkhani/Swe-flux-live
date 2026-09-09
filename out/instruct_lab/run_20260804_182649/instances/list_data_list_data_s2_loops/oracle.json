@@ -1,0 +1,10 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "Run the pytest test `instruct_lab_qa/list_data_list_data_s2_loops/files/testcase.py::TestDatasetListingTraversal::test_generated_directory_forest_through_cli` against this repository. During the first invocation of exactly `instructlab.data.list_data.list_data` in `src/instructlab/data/list_data.py`, how many iterations does the `while` loop whose header begins on line 39 perform? An invocation is one runtime call of exactly that function, counted 1-based in chronological order from the start of the test; calls to other functions do not count. Iteration counting is also 1-based: iteration N is the Nth execution, in that invocation, of the loop body's first statement, `current_dir = directories.pop()`, which begins on line 40. Count every such execution once, in chronological order, with no sorting or deduplication. Ignore all events in callees, all other loops, and all other invocations. Line numbers are absolute, 1-based physical line numbers in the named repository file as it exists for this test. The identified loop header and first body statement are each single-line statements, so multi-line continuation handling is not applicable; the function's `def` line, its docstring, comments, blank lines, and the loop-header condition check do not themselves count as iterations. Return exactly one JSON object with the sole key `loop_iteration_count`; its value must be a JSON integer, not a quoted string, Python `repr`, or `null`. There is one scalar result, so output ordering and tie-breaking are not applicable.",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  },
+  "oracle_answer": {
+    "loop_iteration_count": 55
+  }
+}

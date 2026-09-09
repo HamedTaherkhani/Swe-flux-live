@@ -1,0 +1,102 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 12,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark.__init__"
+      },
+      {
+        "count": 416,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark._extra_rule"
+      },
+      {
+        "count": 268,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark._new_function"
+      },
+      {
+        "count": 504,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark.expansion"
+      },
+      {
+        "count": 410,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark.expansions"
+      },
+      {
+        "count": 155,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark.expr"
+      },
+      {
+        "count": 51,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark.null"
+      },
+      {
+        "count": 85,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark.regexp"
+      },
+      {
+        "count": 224,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark.rule"
+      },
+      {
+        "count": 363,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark.ruledef"
+      },
+      {
+        "count": 0,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark.start"
+      },
+      {
+        "count": 261,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.NearleyToLark.string"
+      },
+      {
+        "count": 587,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley._get_rulename"
+      },
+      {
+        "count": 12,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley._nearley_to_lark"
+      },
+      {
+        "count": 12,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.create_code_for_nearley_grammar"
+      },
+      {
+        "count": 0,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.get_arg_parser"
+      },
+      {
+        "count": 0,
+        "file": "lark/tools/nearley.py",
+        "func": "lark.tools.nearley.main"
+      }
+    ]
+  },
+  "question": "Run every pytest-collected test method whose name begins with `test_` in class `TestNearleyCodeGenerationDynamics` from `lark_qa/nearley_create_code_for_nearley_grammar_m6_calls/files/testcase.py` exactly once, as selected by the pytest class id `lark_qa/nearley_create_code_for_nearley_grammar_m6_calls/files/testcase.py::TestNearleyCodeGenerationDynamics`. Aggregate events across all test methods in that class into one answer; counts are not reported separately by method. The primary target is `lark.tools.nearley.create_code_for_nearley_grammar`, defined in `lark/tools/nearley.py`.\n\nReport invocation counts for this location-defined scope: every module-level function defined directly in `lark/tools/nearley.py`, plus every method defined directly in the body of every class defined directly in that file. Include directly defined `__init__` and other dunder methods, static methods, and class methods. Exclude inherited methods, property getter/setter/deleter functions, nested functions, closures, lambdas, comprehension frames, class-body execution frames, and methods of nested classes. Every definition in this scope must be reported, including definitions that never execute.\n\nFunction identity is the dotted runtime module name followed by the definition's qualified name, with no `<locals>` rewriting. For example, a hypothetical method in another module would be `sample_pkg.mod.Widget.run`. The `file` value is the repo-relative POSIX path of the defining source file, which is `lark/tools/nearley.py` for every record in this answer.\n\nOne invocation is one Python `call` event for that function's frame during the selected test-class run. Count calls from any frame, including direct, transitive, and recursive calls. Do not count line, return, or exception events. A generator or coroutine produces another `call` event whenever its suspended frame resumes, and each such event counts as another invocation, including a final resumption that completes the frame. Repeated call events are counted independently and are not deduplicated.\n\nReturn a JSON object with exactly one key, `invocation_counts`. Its value is a JSON list with exactly one object per in-scope definition. Each object has exactly the keys `count` (JSON integer), `file` (JSON string), and `func` (JSON string). A function with no qualifying call event appears with `count: 0`; do not represent a missing invocation count with JSON null and do not omit the definition. Sort records by `func` ascending in ordinary Unicode code-point order, using `file` ascending as the tie-breaker. Apply no other normalization, formatting, aggregation, or deduplication to names or definition records.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

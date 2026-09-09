@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "session-state:bhilaj0:3i4m08",
+    "exception_type": "ReferenceError"
+  },
+  "question": "Run the pytest test `flask_qa/testing_session_transaction_s5_exceptions/files/testcase.py::TestSessionTransactionExceptions::test_final_generated_request_propagates` from the repository root. During that run, consider direct invocations of `FlaskClient.session_transaction` (runtime qualified name `flask.testing.FlaskClient.session_transaction`) in `src/flask/testing.py`. What are the type and message of the exception that propagates out of that target function's last chronological invocation and is received by the test's broad exception handler? An invocation means one entry into the target caused by entering one of the test's `with client.session_transaction(...)` statements; generator suspension and resumption within that same context manager remain part of the same invocation. Invocations are numbered 1-based in chronological order. Consider only an exception escaping the target frame; ignore exception events in every other function. Here, 'propagates out' means the exception is not handled by the target and is the object delivered to the caller's handler. Report `exception_message` as exact `str(exc)`, character for character, not `repr(exc)`. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and `module.QualName` for all others (e.g. `haystack.core.errors.PipelineError`). Return a JSON object with exactly the string keys `exception_message` and `exception_type`, each having a string value. There are no list values, so sorting, tie-breaking, and deduplication do not apply; no missing, empty, or null sentinel is used.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

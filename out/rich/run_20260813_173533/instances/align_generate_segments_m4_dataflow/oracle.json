@@ -1,0 +1,210 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": 33,
+        "def_line": 146,
+        "use_line": 168,
+        "variable": "align"
+      },
+      {
+        "count": 22,
+        "def_line": 146,
+        "use_line": 177,
+        "variable": "align"
+      },
+      {
+        "count": 11,
+        "def_line": 146,
+        "use_line": 192,
+        "variable": "align"
+      },
+      {
+        "count": 33,
+        "def_line": 158,
+        "use_line": 162,
+        "variable": "excess_space"
+      },
+      {
+        "count": 11,
+        "def_line": 158,
+        "use_line": 170,
+        "variable": "excess_space"
+      },
+      {
+        "count": 11,
+        "def_line": 158,
+        "use_line": 179,
+        "variable": "excess_space"
+      },
+      {
+        "count": 11,
+        "def_line": 158,
+        "use_line": 181,
+        "variable": "excess_space"
+      },
+      {
+        "count": 11,
+        "def_line": 158,
+        "use_line": 194,
+        "variable": "excess_space"
+      },
+      {
+        "count": 11,
+        "def_line": 179,
+        "use_line": 180,
+        "variable": "left"
+      },
+      {
+        "count": 11,
+        "def_line": 179,
+        "use_line": 181,
+        "variable": "left"
+      },
+      {
+        "count": 69,
+        "def_line": 179,
+        "use_line": 185,
+        "variable": "left"
+      },
+      {
+        "count": 147,
+        "def_line": 171,
+        "use_line": 172,
+        "variable": "line"
+      },
+      {
+        "count": 69,
+        "def_line": 184,
+        "use_line": 187,
+        "variable": "line"
+      },
+      {
+        "count": 124,
+        "def_line": 195,
+        "use_line": 197,
+        "variable": "line"
+      },
+      {
+        "count": 158,
+        "def_line": 156,
+        "use_line": 171,
+        "variable": "lines"
+      },
+      {
+        "count": 80,
+        "def_line": 156,
+        "use_line": 184,
+        "variable": "lines"
+      },
+      {
+        "count": 135,
+        "def_line": 156,
+        "use_line": 195,
+        "variable": "lines"
+      },
+      {
+        "count": 147,
+        "def_line": 157,
+        "use_line": 175,
+        "variable": "new_line"
+      },
+      {
+        "count": 69,
+        "def_line": 157,
+        "use_line": 190,
+        "variable": "new_line"
+      },
+      {
+        "count": 124,
+        "def_line": 157,
+        "use_line": 198,
+        "variable": "new_line"
+      },
+      {
+        "count": 147,
+        "def_line": 170,
+        "use_line": 173,
+        "variable": "pad"
+      },
+      {
+        "count": 133,
+        "def_line": 170,
+        "use_line": 174,
+        "variable": "pad"
+      },
+      {
+        "count": 69,
+        "def_line": 180,
+        "use_line": 186,
+        "variable": "pad"
+      },
+      {
+        "count": 124,
+        "def_line": 194,
+        "use_line": 196,
+        "variable": "pad"
+      },
+      {
+        "count": 69,
+        "def_line": 181,
+        "use_line": 188,
+        "variable": "pad_right"
+      },
+      {
+        "count": 57,
+        "def_line": 181,
+        "use_line": 189,
+        "variable": "pad_right"
+      },
+      {
+        "count": 11,
+        "def_line": 143,
+        "use_line": 170,
+        "variable": "self"
+      },
+      {
+        "count": 11,
+        "def_line": 143,
+        "use_line": 181,
+        "variable": "self"
+      },
+      {
+        "count": 11,
+        "def_line": 159,
+        "use_line": 170,
+        "variable": "style"
+      },
+      {
+        "count": 11,
+        "def_line": 159,
+        "use_line": 180,
+        "variable": "style"
+      },
+      {
+        "count": 11,
+        "def_line": 159,
+        "use_line": 181,
+        "variable": "style"
+      },
+      {
+        "count": 11,
+        "def_line": 159,
+        "use_line": 194,
+        "variable": "style"
+      }
+    ]
+  },
+  "question": "Consider pytest tests in `rich_qa/align_generate_segments_m4_dataflow/files/testcase.py::TestAlignGenerateSegmentsDataFlow` (every `test_*` method in that class, executed in pytest's default collection order). The answer aggregates behavior across the entire pytest run of the class (all test methods combined, in chronological order).\n\nTarget function: `rich.align.Align.__rich_console__.<locals>.generate_segments` in `rich/align.py` (the nested generator body spans lines 161-198 as checked into the repository).\n\nTracked variables (exact set; no others): `align`, `excess_space`, `left`, `line`, `lines`, `new_line`, `pad`, `pad_right`, `self`, `style`. These are every local name assigned inside `generate_segments` plus every cell/free variable referenced from the enclosing `__rich_console__` frame (`align`, `excess_space`, `lines`, `new_line`, `self`, `style`).\n\nDefinition sites (`def_line`): a 1-based physical source line in `rich/align.py` where a tracked variable receives a new value. Assignment statements and `for` loop headers (`for line in lines`) define the loop target on the `for` line. Parameters are defined on their `def` line; for `self` in the enclosing method that is line 143 (the `def __rich_console__` line). When `generate_segments` begins, each free variable's active definition is the assignment in `__rich_console__` that executed before the nested function was created: line 146 for `align`, line 156 for `lines` (the second assignment to `lines`, after `Segment.set_shape`), line 157 for `new_line`, line 158 for `excess_space`, line 159 for `style`, and line 143 for `self`. Augmented assignment (`+=`, `*=`, \u2026) performs a use on that line first, then a definition on the same line. Comprehension iteration variables are defined on the comprehension line containing the `for` clause; none appear in this function.\n\nUse sites (`use_line`): a 1-based physical source line where a tracked variable appears in a load context (including `if` tests, subscripts, function arguments, `yield from` operands, and the value read by augmented assignment before the update). A `for` loop header uses the iterable variable (`lines`) but does not use the loop target until the loop body.\n\nObservation: one use event at `use_line` reached by the definition at `def_line` counts once. Uses inside a loop body or across repeated invocations accumulate. Each distinct triple `(variable, def_line, use_line)` has a total `count` summed over every invocation of `generate_segments` during the full test run.\n\nInvocation: one invocation begins at a `call` event whose qualname ends with `generate_segments` and whose reported line number is 161 (the `def generate_segments` line). Other `call` events logged at inner lines during `yield from` delegation are not invocation boundaries. Invocations are numbered 1-based in chronological order across the full run. At each invocation entry, reset reaching definitions for locals; restore free-variable reaching defs to the entry lines listed above. Process `line` trace events in execution order within each invocation. For each `line` event, first record all uses on that source line against the current reaching defs, then apply all definitions on that line (updating reaching defs). The `line` event is emitted immediately before the interpreter executes that physical line; uses and defs for the line are attributed to the line number in the trace.\n\nTrace scope: only `line` events whose normalized file path equals `rich/align.py` and whose qualname equals `rich.align.Align.__rich_console__.<locals>.generate_segments`. Ignore `call`, `return`, and `exception` events for pairing (but `call` marks invocation boundaries).\n\nReturn JSON with top-level key `observed_def_use_pairs`: a list of objects each having keys `variable` (str), `def_line` (int), `use_line` (int), and `count` (int, positive). Include only pairs observed at least once. Sort the list by `variable` ascending, then `def_line` ascending, then `use_line` ascending. The triple is unique; multiplicity is carried only in `count` (no duplicate rows).",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": "int",
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

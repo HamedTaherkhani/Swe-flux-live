@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 154
+  },
+  "question": "Run only the pytest test `fastapi_qa/notify_translations_main_s2_loops/files/testcase.py::TestGeneratedTranslationNotifications::test_generated_discussion_matrix`. During that test run, consider the first invocation of the exact function `scripts.notify_translations.main` in `scripts/notify_translations.py`.\n\nHow many iterations does the `for` loop whose header is on line 354 execute during that invocation? An invocation is one Python call of this exact function, counted 1-based in chronological order; only the first invocation is requested. For this question, one iteration is one execution of the loop body's first line, line 355 (`label = edge.node.name`), in that exact `scripts.notify_translations.main` frame. Count every such execution across all entries into the line-354 loop caused by its enclosing loop during the first invocation, in chronological order. Do not count events in callees, nested function or comprehension frames, or any other invocation. Do not remove duplicates or sort events before counting.\n\nLine numbers are absolute, 1-based line numbers in the named repository file as it exists for the test. The loop header and first body statement are each single-line statements; decorator, `def`, docstring, and multi-line-statement conventions therefore do not affect the count.\n\nReturn `oracle_answer` with exactly the shape `{\"loop_iteration_count\": <integer>}`. The value is a JSON integer number, not a string and not a Python `repr()` string. This answer has one fixed key and no list elements, so no output sorting, tie-breaking, missing-value, empty-value, or JSON-null convention applies.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

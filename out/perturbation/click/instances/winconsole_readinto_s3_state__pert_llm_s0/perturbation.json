@@ -1,0 +1,138 @@
+{
+  "perturbed_from": "winconsole_readinto_s3_state",
+  "source_run_dir": "out/click/run_20260812_183508",
+  "variant_index": 0,
+  "feedback_iteration": null,
+  "proposer": {
+    "provider": "openai",
+    "model": ""
+  },
+  "oracle_changed": true,
+  "trace_changed": true,
+  "new_lines_vs_baseline": 2,
+  "new_edges_vs_baseline": 4,
+  "source_complexity_scores": {
+    "semantic_reasoning": 2.263,
+    "answer_construction": 3.218,
+    "repository_navigation": 5.914,
+    "combined": 3.51
+  },
+  "candidate_complexity_scores": {
+    "semantic_reasoning": 5.247,
+    "answer_construction": 3.218,
+    "repository_navigation": 5.973,
+    "combined": 4.718
+  },
+  "candidate_complexity_components": {
+    "semantic_reasoning": {
+      "control_flow": 3.565,
+      "state_tracking": 6.625,
+      "interprocedural": 4.071,
+      "exception_semantics": 5.969,
+      "execution_workload": 5.749
+    },
+    "answer_construction": {
+      "answer_volume": 2.043,
+      "ordered_output": 1.248,
+      "structural_depth": 6.321,
+      "exact_value_precision": 3.259
+    },
+    "repository_navigation": {
+      "entrypoint_support": 1.5,
+      "explicit_file_clues": 3.297,
+      "explicit_function_clues": 0.0,
+      "test_context": 8.568,
+      "api_centrality": 0.0,
+      "executed_code_footprint": 2.341,
+      "weighted_navigation_support": 2.47,
+      "navigation_uncertainty": 7.53
+    }
+  },
+  "candidate_complexity_features": {
+    "static_target": {
+      "body_lines": 29,
+      "branches": 5,
+      "loops": 0,
+      "while_loops": 0,
+      "max_loop_nesting": 0,
+      "excepts": 0,
+      "raises": 2,
+      "finallys": 0,
+      "calls": 13,
+      "local_calls": [
+        "get_buffer"
+      ],
+      "num_local_calls": 1,
+      "assigns": 5,
+      "augassigns": 0,
+      "returns": 3,
+      "boolops": 0,
+      "comprehensions": 0,
+      "with_blocks": 0,
+      "breaks_continues": 0
+    },
+    "trace": {
+      "total_events": 5317,
+      "line_events": 4726,
+      "distinct_lines": 20,
+      "call_events": 282,
+      "distinct_functions": 1,
+      "exception_events": 27,
+      "max_line_repetition": 556,
+      "distinct_line_transitions": 25,
+      "transition_entropy": 0.91169,
+      "dynamic_branch_points": 5,
+      "dynamic_branch_alternatives": 5,
+      "state_change_events": 1394,
+      "max_call_depth": 1
+    },
+    "answer": {
+      "leaf_count": 8,
+      "dict_field_count": 9,
+      "list_count": 1,
+      "ordered_element_count": 4,
+      "max_list_length": 4,
+      "max_depth": 4,
+      "string_characters": 71,
+      "numeric_digits": 0
+    },
+    "navigation": {
+      "exercise_mode": "direct",
+      "relevant_file_count": 2,
+      "relevant_function_count": 1,
+      "known_callers": 0,
+      "distinct_executed_lines": 20,
+      "source_lines": 132,
+      "imports": 7,
+      "calls": 42
+    }
+  },
+  "complexity_deltas": {
+    "semantic_reasoning": 2.984,
+    "answer_construction": 0.0,
+    "repository_navigation": 0.059,
+    "combined": 1.208
+  },
+  "source_complexity_difficulties": {
+    "semantic_reasoning": "easy",
+    "answer_construction": "easy",
+    "repository_navigation": "hard",
+    "combined": "easy"
+  },
+  "candidate_complexity_difficulties": {
+    "semantic_reasoning": "very_hard",
+    "answer_construction": "easy",
+    "repository_navigation": "hard",
+    "combined": "hard"
+  },
+  "source_complexity_difficulty": "easy",
+  "candidate_complexity_difficulty": "hard",
+  "complexity_target": "medium",
+  "complexity_target_met": false,
+  "all_complexity_metrics_increased": false,
+  "kept_below_complexity_target": true,
+  "model_passed_original": null,
+  "model_passed_perturbed": null,
+  "flipped": null,
+  "target_model": null
+}

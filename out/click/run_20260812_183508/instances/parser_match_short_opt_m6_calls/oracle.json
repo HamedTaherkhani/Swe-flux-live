@@ -1,0 +1,77 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 13,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser.__init__"
+      },
+      {
+        "count": 16,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser._get_value_from_state"
+      },
+      {
+        "count": 58,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser._match_long_opt"
+      },
+      {
+        "count": 54,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser._match_short_opt"
+      },
+      {
+        "count": 11,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser._process_args_for_args"
+      },
+      {
+        "count": 11,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser._process_args_for_args.<locals>.<listcomp>"
+      },
+      {
+        "count": 13,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser._process_args_for_options"
+      },
+      {
+        "count": 58,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser._process_opts"
+      },
+      {
+        "count": 0,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser.add_argument"
+      },
+      {
+        "count": 77,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser.add_option"
+      },
+      {
+        "count": 77,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser.add_option.<locals>.<listcomp>"
+      },
+      {
+        "count": 13,
+        "file": "src/click/parser.py",
+        "func": "click.parser._OptionParser.parse_args"
+      }
+    ]
+  },
+  "question": "Run every pytest-collected test method whose name starts with `test_` in class `TestShortOptionParsingMatrix` from `click_qa/parser_match_short_opt_m6_calls/files/testcase.py`; equivalently, the covered pytest ids have the form `click_qa/parser_match_short_opt_m6_calls/files/testcase.py::TestShortOptionParsingMatrix::test_*`. Aggregate the events from all of those methods into one answer, regardless of the order in which pytest runs them.\n\nThe primary target is `click.parser._OptionParser._match_short_opt`, defined at lines 390-428 of `src/click/parser.py`. The tracked scope is every Python function code object lexically contained by the class body of `_OptionParser` in that file. Include `__init__`, all other dunder methods, directly defined instance, class, and static methods, property accessor functions, and every nested function, closure, lambda, generator expression, and comprehension frame inside those methods, recursively. Exclude the executable class-body code object itself, module-level functions, functions in other classes, and inherited methods. Determine this lexical scope from the repository version of the file, rather than from runtime attribute lookup.\n\nFor each in-scope function, report its total invocation count across the complete covered test run. One invocation means one Python tracing `call` event for that function's frame, whether reached directly, transitively, recursively, or from any caller. Calls from every frame count; calls outside the scope are not reported. A generator or coroutine resumption that produces another Python `call` event counts as another invocation. Do not infer counts from `return`, `line`, or `exception` events.\n\nFunction identity is the runtime module name followed by the code object's dotted qualified name, with components joined by periods. For example, `click.core.Command.parse_args` illustrates the required format. Use the repo-relative string `src/click/parser.py` as `file` for every entry. Emit exactly one entry for every function in scope; functions that have no qualifying call events must still appear with `count: 0`. Counts are JSON integers and `file` and `func` are JSON strings; no value uses `repr`, abbreviation, aliases, or an omitted/null substitute.\n\nReturn an object with the exact shape `{\"invocation_counts\": [{\"count\": int, \"file\": str, \"func\": str}, ...]}` and no additional keys. Sort entries by `func` ascending using ordinary Unicode code-point string ordering, with `file` ascending as the tie-breaker. Do not remove or merge entries except that all call events for the same in-scope function identity are summed into its single required entry.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

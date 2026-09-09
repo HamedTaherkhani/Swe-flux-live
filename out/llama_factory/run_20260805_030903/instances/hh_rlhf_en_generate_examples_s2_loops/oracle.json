@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 20
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/hh_rlhf_en_generate_examples_s2_loops/files/testcase.py::TestHhRlhfDatasetGeneration::test_seeded_dialogues_through_builder_entrypoint`. During the first invocation of the exact function `data.hh_rlhf_en.hh_rlhf_en.HhRlhfEn._generate_examples` in `data/hh_rlhf_en/hh_rlhf_en.py`, how many iterations does the `while` loop whose header is at line 86 perform? Because the target is a generator, an invocation means one runtime entry into its generator frame, including an initial entry or a later resumption; invocations are numbered 1-based in chronological entry order across the complete test run. Only the first such invocation is considered, ending when that frame first yields, returns, or raises. An iteration means one execution in that same target frame of the loop body's first statement, the assignment beginning at line 87, after the line-86 condition has evaluated true. Count all such executions in chronological order without deduplication; executions of the loop header itself, the target's `def` line, any decorator, and lines in called functions or other frames do not count. Line numbers are absolute, 1-based source line numbers in the named repository file as checked out for the test. For a multi-line statement or expression, execution is attributed to the line on which that statement or expression begins. Return exactly one JSON object with the sole key `loop_iteration_count`; its value is the raw base-10 JSON integer count, not a string and not formatted with `str()` or `repr()`. For example, a different run with three body entries would be encoded as `{\"loop_iteration_count\": 3}`. No sorting or tie-breaking applies to this single scalar, and no duplicate iteration is removed.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "question_kind": "M6_InterProceduralCFG",
+  "question": "Run every pytest test method in class `TestScopeTraversalCalls` from `sqlglot_qa/scope_traverse_scope_m6_calls/files/testcase.py`, equivalently the pytest class id `sqlglot_qa/scope_traverse_scope_m6_calls/files/testcase.py::TestScopeTraversalCalls`. Aggregate across all methods of that class whose names start with `test_`; do not report per-method results. The aggregation is a sum and no event sequence is reported, so pytest's method execution order does not affect the requested answer.\n\nThe primary target is `sqlglot.optimizer.scope._traverse_scope`, defined in `sqlglot/optimizer/scope.py`. Consider every module-level function defined directly in `sqlglot/optimizer/scope.py` and every method defined directly in that file's class `Scope`. Concretely, include each `ast.FunctionDef` or `ast.AsyncFunctionDef` that is a direct child of either the module AST or the `Scope` class body, including decorated methods, properties, `__init__`, and dunder methods. Exclude methods of any other class, inherited methods, nested functions, closures, lambda bodies, and comprehension code objects.\n\nFor each in-scope function, report its invocation count over the complete class run. One invocation means one Python tracing `call` event for that function's frame, whether reached directly, transitively, recursively, or from any other frame. Count every such event without deduplication. CPython generator or coroutine resumption emits another `call` event for the suspended frame, so each resumption counts as another invocation. Calls to functions outside the located scope are not reported.\n\nFunction identity is the dotted Python module name followed by the function's dotted `__qualname__`, with no filename, line number, or `()` suffix; for example, a hypothetical method `Scope.example_method` in this module would be `sqlglot.optimizer.scope.Scope.example_method`. The `file` value is always the repository-relative POSIX path `sqlglot/optimizer/scope.py`. Functions and methods in scope that receive no qualifying call events must still appear with `count: 0`.\n\nReturn exactly `{\"invocation_counts\": [{\"count\": <integer>, \"file\": <string>, \"func\": <string>}, ...]}`. Emit one object per in-scope function, retain no duplicate function entries, and sort objects by `func` ascending; if two entries could share a `func`, break the tie by `file` ascending. Counts are base-10 JSON integers, and `file` and `func` are JSON strings.",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 306,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.__init__"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.__repr__"
+      },
+      {
+        "count": 286,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope._collect"
+      },
+      {
+        "count": 518,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope._ensure_collected"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.add_source"
+      },
+      {
+        "count": 291,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.branch"
+      },
+      {
+        "count": 306,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.clear_cache"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.clear_column_cache"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.column_index"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.columns"
+      },
+      {
+        "count": 286,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.ctes"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.derived_tables"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.external_columns"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.find"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.find_all"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.is_correlated_subquery"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.is_cte"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.is_derived_table"
+      },
+      {
+        "count": 3,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.is_root"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.is_subquery"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.is_udtf"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.is_union"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.join_hints"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.local_columns"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.pivots"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.ref_count"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.references"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.remove_source"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.rename_source"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.replace"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.scans_all_subscope_columns"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.selected_sources"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.semi_or_anti_join_tables"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.source_columns"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.stars"
+      },
+      {
+        "count": 232,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.subqueries"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.table_columns"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.tables"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.traverse"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.udtfs"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.unqualified_columns"
+      },
+      {
+        "count": 286,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.Scope.walk"
+      },
+      {
+        "count": 287,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope._get_source_alias"
+      },
+      {
+        "count": 375,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope._is_derived_table"
+      },
+      {
+        "count": 312,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope._is_from_or_join"
+      },
+      {
+        "count": 335,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope._traverse_ctes"
+      },
+      {
+        "count": 1287,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope._traverse_scope"
+      },
+      {
+        "count": 607,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope._traverse_select"
+      },
+      {
+        "count": 304,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope._traverse_subqueries"
+      },
+      {
+        "count": 501,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope._traverse_tables"
+      },
+      {
+        "count": 37,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope._traverse_udtfs"
+      },
+      {
+        "count": 262,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope._traverse_union"
+      },
+      {
+        "count": 5,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.build_scope"
+      },
+      {
+        "count": 50,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.find_all_in_scope"
+      },
+      {
+        "count": 45,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.find_in_scope"
+      },
+      {
+        "count": 12,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.traverse_scope"
+      },
+      {
+        "count": 3926,
+        "file": "sqlglot/optimizer/scope.py",
+        "func": "sqlglot.optimizer.scope.walk_in_scope"
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._NodeBoundArguments._find_var_positional_arg"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._NodeBoundArguments.input_params_dict"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._create_cell_with_text"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._find_node"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._format_node_inputs_text"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._get_node_bound_arguments"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._guess_run_environment"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._load_node"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._prepare_function_body"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._prepare_function_call"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._prepare_imports"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython._prepare_node_inputs"
+      },
+      {
+        "file": "kedro/ipython/__init__.py",
+        "func": "kedro.ipython.magic_load_node"
+      }
+    ]
+  },
+  "question": "Run the pytest test\n`kedro_qa/ipython_load_node_m6_calls/files/testcase.py::TestIPythonLoadNodeCallGraph::test_generated_node_magic_calls`\nagainst this repository. During the complete test run, which functions from\nthe tracked set below execute at least once? The primary target is\n`kedro.ipython._load_node` in `kedro/ipython/__init__.py`.\n\nThe tracked set is exactly these fifteen functions:\n\n1. `kedro.ipython._NodeBoundArguments._find_var_positional_arg`\n2. `kedro.ipython._NodeBoundArguments.input_params_dict`\n3. `kedro.ipython._create_cell_with_text`\n4. `kedro.ipython._find_node`\n5. `kedro.ipython._format_node_inputs_text`\n6. `kedro.ipython._get_node_bound_arguments`\n7. `kedro.ipython._guess_run_environment`\n8. `kedro.ipython._load_node`\n9. `kedro.ipython._prepare_function_body`\n10. `kedro.ipython._prepare_function_call`\n11. `kedro.ipython._prepare_imports`\n12. `kedro.ipython._prepare_node_inputs`\n13. `kedro.ipython._print_cells`\n14. `kedro.ipython.load_ipython_extension`\n15. `kedro.ipython.magic_load_node`\n\nA tracked function is covered if Python begins its exact function frame at\nleast once during the named test, meaning that exact frame produces a Python\n`call` event. Count calls anywhere in the complete test run: a qualifying\nframe may be entered directly by another listed function, transitively below\none, or from an otherwise unlisted caller. Merely being on the stack while\nsome other function runs does not cover a function; that listed function's\nown exact frame must begin. Exclude every function outside the listed set,\nincluding builtins and library functions, and ignore all non-`call` events.\n\nRepeated calls do not create repeated answer entries: emit each covered\nfunction exactly once. Recursion is handled identically, so one or many\nrecursive entries still produce one answer entry. If a tracked generator or\ncoroutine is resumed and Python reports another `call` event for that\nresumption, it qualifies under the same rule but still does not create a\nduplicate. Functions in the tracked set that have no qualifying event are\nomitted.\n\nFunction identity is the fully dotted `module.Class.method` or\n`module.function` qualname (for example, `sample.pkg.Widget.run`). Preserve\nleading underscores and include `<locals>` if it is part of a qualname. Every\n`file` value is the POSIX, repository-relative path of the function's source\nfile; for this tracked set it is `kedro/ipython/__init__.py`. These values are\nplain JSON strings: use the names and paths themselves, not Python `repr()`\ntext and not additional representation quotes. No answer field may be absent,\nempty, or JSON `null`.\n\nThe complete answer must have exactly the JSON shape\n`{\"covered_functions\": [{\"file\": \"str\", \"func\": \"str\"}]}`.\n`covered_functions` is a JSON array whose elements each have exactly the two\nJSON-string fields `file` and `func`. Sort entries first by `file` in ascending\nUnicode code-point order and then by `func` in ascending Unicode code-point\norder. This is a total order for this deduplicated set; do not use call time,\ncall count, source line, or locale as a tie-breaker. The `\"str\"` values in the\ndisplayed shape are type placeholders, not answer values. Include no\nadditional keys or fields.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

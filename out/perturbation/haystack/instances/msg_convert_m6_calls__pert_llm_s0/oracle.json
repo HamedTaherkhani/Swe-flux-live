@@ -1,0 +1,42 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 0,
+        "file": "haystack/components/converters/msg.py",
+        "func": "haystack.components.converters.msg.MSGToDocument.__init__"
+      },
+      {
+        "count": 225,
+        "file": "haystack/components/converters/msg.py",
+        "func": "haystack.components.converters.msg.MSGToDocument._convert"
+      },
+      {
+        "count": 5850,
+        "file": "haystack/components/converters/msg.py",
+        "func": "haystack.components.converters.msg.MSGToDocument._create_recipient_str"
+      },
+      {
+        "count": 225,
+        "file": "haystack/components/converters/msg.py",
+        "func": "haystack.components.converters.msg.MSGToDocument._is_encrypted"
+      },
+      {
+        "count": 12,
+        "file": "haystack/components/converters/msg.py",
+        "func": "haystack.components.converters.msg.MSGToDocument.run"
+      }
+    ]
+  },
+  "question": "Run every pytest test method directly defined on\n`TestMSGConvertInvocationCounts` in\n`haystack_qa/msg_convert_m6_calls/files/testcase.py`; equivalently, run the\npytest class id\n`haystack_qa/msg_convert_m6_calls/files/testcase.py::TestMSGConvertInvocationCounts`,\nwhich covers every directly defined method whose name starts with `test_`.\nAggregate one answer across all of those test methods, rather than producing\nper-test answers. The execution reaches the primary target\n`haystack.components.converters.msg.MSGToDocument._convert` in\n`haystack/components/converters/msg.py` through the component's public caller.\n\nFor the tracked scope, consider every method directly defined in the source\nbody of class `MSGToDocument` in `haystack/components/converters/msg.py`.\nInclude instance methods, static methods, class methods, `__init__`, and any\nother dunder method directly defined there. Exclude module-level functions,\ninherited methods, property getter/setter/deleter functions, and functions\ncreated inside a method, including nested functions, closures, generator\nexpressions, and comprehension frames.\n\nFunction identity is the dotted Python module name followed by the code\nobject's dotted qualified name, with no filename or line suffix; for example,\na method could be written as `some.pkg.Widget.process`. The `file` value is\nthe repository-relative POSIX path of the file containing the direct method\ndefinition, so it uses `/` separators.\n\nCount one invocation for each Python `call` trace event for the frame of an\nin-scope method during the complete class run, regardless of which frame\ncalled it. Thus direct, transitive, and recursive calls from any frame all\ncount. Calls to out-of-scope functions do not create answer entries.\nIf an in-scope generator or coroutine frame is resumed and Python emits\nanother `call` event for that resumption, count that event as another\ninvocation. Sum all such events across all test methods. Do not deduplicate\nevents. Emit exactly one entry for every in-scope method; if it emits no\n`call` event, emit it with `count: 0`.\n\nReturn a JSON object with the sole key `invocation_counts`. Its value is a\nlist of objects having exactly `count` (a base-10 JSON integer), `file` (a\nJSON string), and `func` (a JSON string). Sort entries by `func` ascending,\nbreaking a hypothetical equal-`func` tie by `file` ascending. No reported\nvalue uses Python `repr`, and no field is omitted or represented by JSON\nnull.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

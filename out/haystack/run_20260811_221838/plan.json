@@ -1,0 +1,1860 @@
+[
+  {
+    "instance_id": "base_connect_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "haystack/core/pipeline/base.py",
+      "module": "haystack.core.pipeline.base",
+      "qualname": "PipelineBase.connect",
+      "name": "connect",
+      "lineno": 420,
+      "end_lineno": 601,
+      "params": [
+        "self",
+        "sender",
+        "receiver"
+      ],
+      "metrics": {
+        "body_lines": 182,
+        "branches": 17,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 10,
+        "finallys": 0,
+        "calls": 40,
+        "local_calls": [
+          "_connections_status"
+        ],
+        "num_local_calls": 1,
+        "assigns": 26,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 5,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 108.0,
+      "callers": [
+        "PipelineBase.from_dict"
+      ],
+      "callers_2hop": [
+        "PipelineBase.loads"
+      ]
+    },
+    "rank_note": "affinity+score=97.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "azure_convert_to_single_column_text_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "haystack/components/converters/azure.py",
+      "module": "haystack.components.converters.azure",
+      "qualname": "AzureOCRDocumentConverter._convert_to_single_column_text",
+      "name": "_convert_to_single_column_text",
+      "lineno": 359,
+      "end_lineno": 447,
+      "params": [
+        "self",
+        "result",
+        "meta",
+        "threshold_y"
+      ],
+      "metrics": {
+        "body_lines": 89,
+        "branches": 3,
+        "loops": 12,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 36,
+        "local_calls": [
+          "_check_if_in_table",
+          "_collect_table_spans"
+        ],
+        "num_local_calls": 2,
+        "assigns": 24,
+        "augassigns": 2,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 5,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 83.0,
+      "callers": [
+        "AzureOCRDocumentConverter._convert_tables_and_text"
+      ],
+      "callers_2hop": [
+        "AzureOCRDocumentConverter.run"
+      ]
+    },
+    "rank_note": "affinity+score=77.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "azure_convert_tables_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "haystack/components/converters/azure.py",
+      "module": "haystack.components.converters.azure",
+      "qualname": "AzureOCRDocumentConverter._convert_tables",
+      "name": "_convert_tables",
+      "lineno": 208,
+      "end_lineno": 313,
+      "params": [
+        "self",
+        "result",
+        "meta"
+      ],
+      "metrics": {
+        "body_lines": 106,
+        "branches": 10,
+        "loops": 5,
+        "while_loops": 0,
+        "max_loop_nesting": 4,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 33,
+        "augassigns": 1,
+        "returns": 2,
+        "boolops": 5,
+        "comprehensions": 5,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 103.0,
+      "callers": [
+        "AzureOCRDocumentConverter._convert_tables_and_text"
+      ],
+      "callers_2hop": [
+        "AzureOCRDocumentConverter.run"
+      ]
+    },
+    "rank_note": "affinity+score=99.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "draw_to_mermaid_text_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "haystack/core/pipeline/draw.py",
+      "module": "haystack.core.pipeline.draw",
+      "qualname": "_to_mermaid_text",
+      "name": "_to_mermaid_text",
+      "lineno": 259,
+      "end_lineno": 353,
+      "params": [
+        "graph",
+        "init_params",
+        "super_component_mapping"
+      ],
+      "metrics": {
+        "body_lines": 95,
+        "branches": 5,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 32,
+        "local_calls": [
+          "_prepare_for_drawing",
+          "generate_color_variations"
+        ],
+        "num_local_calls": 2,
+        "assigns": 26,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 5,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 74.0,
+      "callers": [
+        "_to_mermaid_image"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=77.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "draw_validate_mermaid_params_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "haystack/core/pipeline/draw.py",
+      "module": "haystack.core.pipeline.draw",
+      "qualname": "_validate_mermaid_params",
+      "name": "_validate_mermaid_params",
+      "lineno": 109,
+      "end_lineno": 169,
+      "params": [
+        "params"
+      ],
+      "metrics": {
+        "body_lines": 61,
+        "branches": 13,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 11,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 12,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 82.1,
+      "callers": [
+        "_to_mermaid_image"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=76.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "recursive_splitter_chunk_text_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "haystack/components/preprocessors/recursive_splitter.py",
+      "module": "haystack.components.preprocessors.recursive_splitter",
+      "qualname": "RecursiveDocumentSplitter._chunk_text",
+      "name": "_chunk_text",
+      "lineno": 276,
+      "end_lineno": 357,
+      "params": [
+        "self",
+        "text"
+      ],
+      "metrics": {
+        "body_lines": 82,
+        "branches": 10,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 25,
+        "local_calls": [
+          "_apply_overlap",
+          "_chunk_length",
+          "_chunk_text",
+          "_fall_back_to_fixed_chunking"
+        ],
+        "num_local_calls": 4,
+        "assigns": 15,
+        "augassigns": 2,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 66.0,
+      "callers": [
+        "RecursiveDocumentSplitter._run_one"
+      ],
+      "callers_2hop": [
+        "RecursiveDocumentSplitter.run"
+      ]
+    },
+    "rank_note": "affinity+score=58.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "utils_check_union_compatibility_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "haystack/core/super_component/utils.py",
+      "module": "haystack.core.super_component.utils",
+      "qualname": "_check_union_compatibility",
+      "name": "_check_union_compatibility",
+      "lineno": 62,
+      "end_lineno": 105,
+      "params": [
+        "type1",
+        "type2",
+        "type1_origin",
+        "type2_origin"
+      ],
+      "metrics": {
+        "body_lines": 44,
+        "branches": 8,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [
+          "_types_are_compatible"
+        ],
+        "num_local_calls": 1,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 6,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 63.4,
+      "callers": [
+        "_types_are_compatible"
+      ],
+      "callers_2hop": [
+        "_check_non_union_compatibility",
+        "_is_compatible"
+      ]
+    },
+    "rank_note": "affinity+score=71.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "base_merge_super_component_pipelines_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "haystack/core/pipeline/base.py",
+      "module": "haystack.core.pipeline.base",
+      "qualname": "PipelineBase._merge_super_component_pipelines",
+      "name": "_merge_super_component_pipelines",
+      "lineno": 1324,
+      "end_lineno": 1399,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 76,
+        "branches": 2,
+        "loops": 8,
+        "while_loops": 0,
+        "max_loop_nesting": 4,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "_find_super_components"
+        ],
+        "num_local_calls": 1,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 61.6,
+      "callers": [
+        "PipelineBase.draw",
+        "PipelineBase.show"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=63.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "recursive_splitter_apply_overlap_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "haystack/components/preprocessors/recursive_splitter.py",
+      "module": "haystack.components.preprocessors.recursive_splitter",
+      "qualname": "RecursiveDocumentSplitter._apply_overlap",
+      "name": "_apply_overlap",
+      "lineno": 151,
+      "end_lineno": 226,
+      "params": [
+        "self",
+        "chunks"
+      ],
+      "metrics": {
+        "body_lines": 76,
+        "branches": 9,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 26,
+        "local_calls": [
+          "_chunk_length",
+          "_create_chunk_starting_with_overlap",
+          "_get_overlap",
+          "_split_chunk"
+        ],
+        "num_local_calls": 4,
+        "assigns": 17,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 66.6,
+      "callers": [
+        "RecursiveDocumentSplitter._chunk_text"
+      ],
+      "callers_2hop": [
+        "RecursiveDocumentSplitter._run_one"
+      ]
+    },
+    "rank_note": "affinity+score=72.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "openapi_service_invoke_method_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "haystack/components/connectors/openapi_service.py",
+      "module": "haystack.components.connectors.openapi_service",
+      "qualname": "OpenAPIServiceConnector._invoke_method",
+      "name": "_invoke_method",
+      "lineno": 340,
+      "end_lineno": 396,
+      "params": [
+        "self",
+        "openapi_service",
+        "method_invocation_descriptor"
+      ],
+      "metrics": {
+        "body_lines": 57,
+        "branches": 7,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 58.7,
+      "callers": [
+        "OpenAPIServiceConnector.run"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=77.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "jinja2_chat_extension_validate_build_chat_message_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "haystack/utils/jinja2_chat_extension.py",
+      "module": "haystack.utils.jinja2_chat_extension",
+      "qualname": "ChatMessageExtension._validate_build_chat_message",
+      "name": "_validate_build_chat_message",
+      "lineno": 207,
+      "end_lineno": 266,
+      "params": [
+        "parts",
+        "role",
+        "meta",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 60,
+        "branches": 11,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 8,
+        "finallys": 0,
+        "calls": 32,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 3,
+        "comprehensions": 5,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 63.0,
+      "callers": [
+        "ChatMessageExtension._build_chat_message_json"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=47.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "type_utils_strict_types_are_compatible_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "haystack/core/type_utils.py",
+      "module": "haystack.core.type_utils",
+      "qualname": "_strict_types_are_compatible",
+      "name": "_strict_types_are_compatible",
+      "lineno": 47,
+      "end_lineno": 98,
+      "params": [
+        "sender",
+        "receiver"
+      ],
+      "metrics": {
+        "body_lines": 52,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "_check_callable_compatibility",
+          "_safe_get_origin",
+          "_strict_types_are_compatible"
+        ],
+        "num_local_calls": 3,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 7,
+        "boolops": 6,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 53.2,
+      "callers": [
+        "_check_callable_compatibility",
+        "_types_are_compatible"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=48.6 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "document_splitter_concatenate_sentences_based_on_word_amount_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "haystack/components/preprocessors/document_splitter.py",
+      "module": "haystack.components.preprocessors.document_splitter",
+      "qualname": "DocumentSplitter._concatenate_sentences_based_on_word_amount",
+      "name": "_concatenate_sentences_based_on_word_amount",
+      "lineno": 404,
+      "end_lineno": 470,
+      "params": [
+        "sentences",
+        "split_length",
+        "split_overlap"
+      ],
+      "metrics": {
+        "body_lines": 67,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 26,
+        "local_calls": [
+          "_number_of_sentences_to_keep"
+        ],
+        "num_local_calls": 1,
+        "assigns": 16,
+        "augassigns": 5,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 53.7,
+      "callers": [
+        "DocumentSplitter._split_by_nltk_sentence"
+      ],
+      "callers_2hop": [
+        "DocumentSplitter._split_document"
+      ]
+    },
+    "rank_note": "affinity+score=67.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "chat_message_to_openai_dict_format_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "haystack/dataclasses/chat_message.py",
+      "module": "haystack.dataclasses.chat_message",
+      "qualname": "ChatMessage.to_openai_dict_format",
+      "name": "to_openai_dict_format",
+      "lineno": 569,
+      "end_lineno": 657,
+      "params": [
+        "self",
+        "require_tool_call_ids"
+      ],
+      "metrics": {
+        "body_lines": 89,
+        "branches": 15,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 19,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 87.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=82.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "transformers_similarity_run_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "haystack/components/rankers/transformers_similarity.py",
+      "module": "haystack.components.rankers.transformers_similarity",
+      "qualname": "TransformersSimilarityRanker.run",
+      "name": "run",
+      "lineno": 219,
+      "end_lineno": 324,
+      "params": [
+        "self",
+        "query",
+        "documents",
+        "top_k",
+        "scale_score",
+        "calibration_factor",
+        "score_threshold"
+      ],
+      "metrics": {
+        "body_lines": 106,
+        "branches": 6,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 23,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 21,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 7,
+        "comprehensions": 2,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 78.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=48.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "extractive_run_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "haystack/components/readers/extractive.py",
+      "module": "haystack.components.readers.extractive",
+      "qualname": "ExtractiveReader.run",
+      "name": "run",
+      "lineno": 533,
+      "end_lineno": 661,
+      "params": [
+        "self",
+        "query",
+        "documents",
+        "top_k",
+        "score_threshold",
+        "max_seq_length",
+        "stride",
+        "max_batch_size",
+        "answers_per_seq",
+        "no_answer",
+        "overlap_threshold"
+      ],
+      "metrics": {
+        "body_lines": 129,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "_flatten_documents",
+          "_nest_answers",
+          "_postprocess",
+          "_preprocess"
+        ],
+        "num_local_calls": 4,
+        "assigns": 29,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 8,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 76.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=70.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "hf_convert_message_to_hf_format_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "haystack/utils/hf.py",
+      "module": "haystack.utils.hf",
+      "qualname": "convert_message_to_hf_format",
+      "name": "convert_message_to_hf_format",
+      "lineno": 256,
+      "end_lineno": 311,
+      "params": [
+        "message"
+      ],
+      "metrics": {
+        "body_lines": 56,
+        "branches": 10,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 16,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 71.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=74.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "file_type_router_run_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "haystack/components/routers/file_type_router.py",
+      "module": "haystack.components.routers.file_type_router",
+      "qualname": "FileTypeRouter.run",
+      "name": "run",
+      "lineno": 136,
+      "end_lineno": 204,
+      "params": [
+        "self",
+        "sources",
+        "meta"
+      ],
+      "metrics": {
+        "body_lines": 69,
+        "branches": 10,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 1,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 23,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 62.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=50.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "document_store_write_documents_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "haystack/document_stores/in_memory/document_store.py",
+      "module": "haystack.document_stores.in_memory.document_store",
+      "qualname": "InMemoryDocumentStore.write_documents",
+      "name": "write_documents",
+      "lineno": 443,
+      "end_lineno": 484,
+      "params": [
+        "self",
+        "documents",
+        "policy"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 7,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "_tokenize_bm25",
+          "delete_documents"
+        ],
+        "num_local_calls": 2,
+        "assigns": 7,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 49.2,
+      "callers": [
+        "InMemoryDocumentStore.load_from_disk"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=39.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "conditional_router_output_matches_type_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "haystack/components/routers/conditional_router.py",
+      "module": "haystack.components.routers.conditional_router",
+      "qualname": "ConditionalRouter._output_matches_type",
+      "name": "_output_matches_type",
+      "lineno": 433,
+      "end_lineno": 481,
+      "params": [
+        "self",
+        "value",
+        "expected_type"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 10,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "_output_matches_type"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 11,
+        "boolops": 3,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 45.9,
+      "callers": [
+        "ConditionalRouter.run"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=65.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "json_get_content_and_meta_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "haystack/components/converters/json.py",
+      "module": "haystack.components.converters.json",
+      "qualname": "JSONConverter._get_content_and_meta",
+      "name": "_get_content_and_meta",
+      "lineno": 179,
+      "end_lineno": 247,
+      "params": [
+        "self",
+        "source"
+      ],
+      "metrics": {
+        "body_lines": 69,
+        "branches": 7,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 4
+      },
+      "score": 61.9,
+      "callers": [
+        "JSONConverter.run"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=54.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "hugging_face_local_prepare_inputs_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "haystack/components/generators/chat/hugging_face_local.py",
+      "module": "haystack.components.generators.chat.hugging_face_local",
+      "qualname": "HuggingFaceLocalChatGenerator._prepare_inputs",
+      "name": "_prepare_inputs",
+      "lineno": 518,
+      "end_lineno": 598,
+      "params": [
+        "self",
+        "messages",
+        "generation_kwargs",
+        "streaming_callback",
+        "tools"
+      ],
+      "metrics": {
+        "body_lines": 81,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "_validate_stop_words"
+        ],
+        "num_local_calls": 1,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 58.0,
+      "callers": [
+        "HuggingFaceLocalChatGenerator.run",
+        "HuggingFaceLocalChatGenerator.run_async"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "image_utils_convert_pdf_to_images_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "haystack/components/converters/image/image_utils.py",
+      "module": "haystack.components.converters.image.image_utils",
+      "qualname": "_convert_pdf_to_images",
+      "name": "_convert_pdf_to_images",
+      "lineno": 117,
+      "end_lineno": 218,
+      "params": [],
+      "metrics": {
+        "body_lines": 102,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 23,
+        "local_calls": [
+          "_encode_pil_image_to_base64"
+        ],
+        "num_local_calls": 1,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 3,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 58.0,
+      "callers": [
+        "_batch_convert_pdf_pages_to_images"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=71.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "document_store_compute_query_embedding_similarity_scores_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "haystack/document_stores/in_memory/document_store.py",
+      "module": "haystack.document_stores.in_memory.document_store",
+      "qualname": "InMemoryDocumentStore._compute_query_embedding_similarity_scores",
+      "name": "_compute_query_embedding_similarity_scores",
+      "lineno": 629,
+      "end_lineno": 678,
+      "params": [
+        "self",
+        "embedding",
+        "documents",
+        "scale_score"
+      ],
+      "metrics": {
+        "body_lines": 50,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 2,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 52.0,
+      "callers": [
+        "InMemoryDocumentStore.embedding_retrieval"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=40.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "msg_convert_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "haystack/components/converters/msg.py",
+      "module": "haystack.components.converters.msg",
+      "qualname": "MSGToDocument._convert",
+      "name": "_convert",
+      "lineno": 81,
+      "end_lineno": 131,
+      "params": [
+        "self",
+        "file_content"
+      ],
+      "metrics": {
+        "body_lines": 51,
+        "branches": 7,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [
+          "_create_recipient_str",
+          "_is_encrypted"
+        ],
+        "num_local_calls": 2,
+        "assigns": 6,
+        "augassigns": 6,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 48.1,
+      "callers": [
+        "MSGToDocument.run"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=39.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "answer_builder_run_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "haystack/components/builders/answer_builder.py",
+      "module": "haystack.components.builders.answer_builder",
+      "qualname": "AnswerBuilder.run",
+      "name": "run",
+      "lineno": 68,
+      "end_lineno": 161,
+      "params": [
+        "self",
+        "query",
+        "replies",
+        "meta",
+        "documents",
+        "pattern",
+        "reference_pattern"
+      ],
+      "metrics": {
+        "body_lines": 94,
+        "branches": 7,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "_check_num_groups_in_regex",
+          "_extract_answer_string",
+          "_extract_reference_idxs"
+        ],
+        "num_local_calls": 3,
+        "assigns": 18,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 4,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 71.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=62.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "base_serialization_deserialize_value_with_schema_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "haystack/utils/base_serialization.py",
+      "module": "haystack.utils.base_serialization",
+      "qualname": "_deserialize_value_with_schema",
+      "name": "_deserialize_value_with_schema",
+      "lineno": 186,
+      "end_lineno": 274,
+      "params": [
+        "serialized"
+      ],
+      "metrics": {
+        "body_lines": 89,
+        "branches": 11,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "_deserialize_value",
+          "_deserialize_value_with_schema",
+          "deserialize_item"
+        ],
+        "num_local_calls": 3,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 8,
+        "boolops": 2,
+        "comprehensions": 4,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 63.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=63.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "extractive_nest_answers_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "haystack/components/readers/extractive.py",
+      "module": "haystack.components.readers.extractive",
+      "qualname": "ExtractiveReader._nest_answers",
+      "name": "_nest_answers",
+      "lineno": 347,
+      "end_lineno": 413,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 67,
+        "branches": 2,
+        "loops": 4,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "_add_answer_page_number",
+          "deduplicate_by_overlap"
+        ],
+        "num_local_calls": 2,
+        "assigns": 15,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 52.7,
+      "callers": [
+        "ExtractiveReader.run"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=42.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "meta_field_run_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "haystack/components/rankers/meta_field.py",
+      "module": "haystack.components.rankers.meta_field",
+      "qualname": "MetaFieldRanker.run",
+      "name": "run",
+      "lineno": 160,
+      "end_lineno": 320,
+      "params": [
+        "self",
+        "documents",
+        "top_k",
+        "weight",
+        "ranking_mode",
+        "sort_order",
+        "missing_meta",
+        "meta_value_type"
+      ],
+      "metrics": {
+        "body_lines": 161,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "_merge_rankings",
+          "_parse_meta",
+          "_validate_params"
+        ],
+        "num_local_calls": 3,
+        "assigns": 20,
+        "augassigns": 0,
+        "returns": 5,
+        "boolops": 5,
+        "comprehensions": 6,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 68.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=62.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "serper_dev_run_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "haystack/components/websearch/serper_dev.py",
+      "module": "haystack.components.websearch.serper_dev",
+      "qualname": "SerperDevWebSearch.run",
+      "name": "run",
+      "lineno": 94,
+      "end_lineno": 175,
+      "params": [
+        "self",
+        "query"
+      ],
+      "metrics": {
+        "body_lines": 82,
+        "branches": 7,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 25,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 18,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 4,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 67.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=68.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "lost_in_the_middle_run_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "haystack/components/rankers/lost_in_the_middle.py",
+      "module": "haystack.components.rankers.lost_in_the_middle",
+      "qualname": "LostInTheMiddleRanker.run",
+      "name": "run",
+      "lineno": 63,
+      "end_lineno": 133,
+      "params": [
+        "self",
+        "documents",
+        "top_k",
+        "word_count_threshold"
+      ],
+      "metrics": {
+        "body_lines": 71,
+        "branches": 9,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 9,
+        "augassigns": 1,
+        "returns": 4,
+        "boolops": 6,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 67.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=49.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tool_invoker_run_async_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "haystack/components/tools/tool_invoker.py",
+      "module": "haystack.components.tools.tool_invoker",
+      "qualname": "ToolInvoker.run_async",
+      "name": "run_async",
+      "lineno": 645,
+      "end_lineno": 781,
+      "params": [
+        "self",
+        "messages",
+        "state",
+        "streaming_callback"
+      ],
+      "metrics": {
+        "body_lines": 137,
+        "branches": 7,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 29,
+        "local_calls": [
+          "_create_tool_result_streaming_chunk",
+          "_handle_error",
+          "_merge_tool_outputs",
+          "_prepare_tool_call_params",
+          "_prepare_tool_result_message",
+          "_validate_and_prepare_tools",
+          "invoke_tool_safely"
+        ],
+        "num_local_calls": 7,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 1,
+        "breaks_continues": 1
+      },
+      "score": 63.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=60.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "chat_prompt_builder_run_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "haystack/components/builders/chat_prompt_builder.py",
+      "module": "haystack.components.builders.chat_prompt_builder",
+      "qualname": "ChatPromptBuilder.run",
+      "name": "run",
+      "lineno": 209,
+      "end_lineno": 277,
+      "params": [
+        "self",
+        "template",
+        "template_variables"
+      ],
+      "metrics": {
+        "body_lines": 69,
+        "branches": 8,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 25,
+        "local_calls": [
+          "_render_chat_messages_from_str_template",
+          "_validate_variables"
+        ],
+        "num_local_calls": 2,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 62.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=65.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "csv_document_splitter_run_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "haystack/components/preprocessors/csv_document_splitter.py",
+      "module": "haystack.components.preprocessors.csv_document_splitter",
+      "qualname": "CSVDocumentSplitter.run",
+      "name": "run",
+      "lineno": 74,
+      "end_lineno": 160,
+      "params": [
+        "self",
+        "documents"
+      ],
+      "metrics": {
+        "body_lines": 87,
+        "branches": 6,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [
+          "_recursive_split",
+          "_split_by_row",
+          "_split_dataframe"
+        ],
+        "num_local_calls": 3,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 56.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=45.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "base_serialization_serialize_value_with_schema_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "haystack/utils/base_serialization.py",
+      "module": "haystack.utils.base_serialization",
+      "qualname": "_serialize_value_with_schema",
+      "name": "_serialize_value_with_schema",
+      "lineno": 57,
+      "end_lineno": 130,
+      "params": [
+        "payload"
+      ],
+      "metrics": {
+        "body_lines": 74,
+        "branches": 7,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 24,
+        "local_calls": [
+          "_convert_to_basic_types",
+          "_primitive_schema_type",
+          "_serialize_value_with_schema"
+        ],
+        "num_local_calls": 3,
+        "assigns": 21,
+        "augassigns": 0,
+        "returns": 5,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 60.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=66.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tool_invoker_run_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "haystack/components/tools/tool_invoker.py",
+      "module": "haystack.components.tools.tool_invoker",
+      "qualname": "ToolInvoker.run",
+      "name": "run",
+      "lineno": 500,
+      "end_lineno": 632,
+      "params": [
+        "self",
+        "messages",
+        "state",
+        "streaming_callback"
+      ],
+      "metrics": {
+        "body_lines": 133,
+        "branches": 6,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 30,
+        "local_calls": [
+          "_create_tool_result_streaming_chunk",
+          "_handle_error",
+          "_make_context_bound_invoke",
+          "_merge_tool_outputs",
+          "_prepare_tool_call_params",
+          "_prepare_tool_result_message",
+          "_validate_and_prepare_tools"
+        ],
+        "num_local_calls": 7,
+        "assigns": 16,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 1,
+        "breaks_continues": 1
+      },
+      "score": 62.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=79.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "type_serialization_deserialize_type_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "haystack/utils/type_serialization.py",
+      "module": "haystack.utils.type_serialization",
+      "qualname": "deserialize_type",
+      "name": "deserialize_type",
+      "lineno": 91,
+      "end_lineno": 158,
+      "params": [
+        "type_str"
+      ],
+      "metrics": {
+        "body_lines": 68,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "_parse_generic_args",
+          "deserialize_type",
+          "thread_safe_import"
+        ],
+        "num_local_calls": 3,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 6,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 53.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=44.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "document_cleaner_run_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "haystack/components/preprocessors/document_cleaner.py",
+      "module": "haystack.components.preprocessors.document_cleaner",
+      "qualname": "DocumentCleaner.run",
+      "name": "run",
+      "lineno": 93,
+      "end_lineno": 145,
+      "params": [
+        "self",
+        "documents"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 9,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "_ascii_only",
+          "_normalize_unicode",
+          "_remove_empty_lines",
+          "_remove_extra_whitespaces",
+          "_remove_regex",
+          "_remove_repeated_substrings",
+          "_remove_substrings"
+        ],
+        "num_local_calls": 7,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 55.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=65.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "agent_run_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "haystack/components/agents/agent.py",
+      "module": "haystack.components.agents.agent",
+      "qualname": "Agent.run",
+      "name": "run",
+      "lineno": 439,
+      "end_lineno": 552,
+      "params": [
+        "self",
+        "messages",
+        "streaming_callback"
+      ],
+      "metrics": {
+        "body_lines": 114,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "_check_chat_generator_breakpoint",
+          "_check_exit_conditions",
+          "_check_tool_invoker_breakpoint",
+          "_create_agent_span",
+          "_initialize_fresh_execution",
+          "_initialize_from_snapshot",
+          "_runtime_checks"
+        ],
+        "num_local_calls": 7,
+        "assigns": 13,
+        "augassigns": 3,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 1,
+        "breaks_continues": 2
+      },
+      "score": 58.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "agent_run_async_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "haystack/components/agents/agent.py",
+      "module": "haystack.components.agents.agent",
+      "qualname": "Agent.run_async",
+      "name": "run_async",
+      "lineno": 554,
+      "end_lineno": 678,
+      "params": [
+        "self",
+        "messages",
+        "streaming_callback"
+      ],
+      "metrics": {
+        "body_lines": 125,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "_check_chat_generator_breakpoint",
+          "_check_exit_conditions",
+          "_check_tool_invoker_breakpoint",
+          "_create_agent_span",
+          "_initialize_fresh_execution",
+          "_initialize_from_snapshot",
+          "_runtime_checks"
+        ],
+        "num_local_calls": 7,
+        "assigns": 13,
+        "augassigns": 3,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 1,
+        "breaks_continues": 2
+      },
+      "score": 58.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.1 [direct]",
+    "exercise_mode": "direct"
+  }
+]

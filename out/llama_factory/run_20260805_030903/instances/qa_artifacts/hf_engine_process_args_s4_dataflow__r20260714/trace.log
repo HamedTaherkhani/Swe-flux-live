@@ -1,0 +1,272 @@
+2026-07-15 04:13:02.033 [TRACE][START] pid=47 TRACE_OUT='/testbed/logs/llama_factory_qa/hf_engine_process_args_s4_dataflow__r20260714/trace.log' TRACE_FILE='src/llamafactory/chat/hf_engine.py' TRACE_FUNCS=['_process_args'] TRACE_EVENTS=['call', 'exception', 'line', 'return']
+2026-07-15 04:13:02.039 /testbed/src/llamafactory/chat/hf_engine.py:73 src.llamafactory.chat.hf_engine._process_args event=call locals={'audios': '[<object object at 0x76be1cf38150>]', 'generating_args': "{'default_system': 'fallback-system', 'do_sample': False, 'temperature': 0.7, 'top_p': 0.9, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True}", 'images': '[<object object at 0x76be1cf38100>, <object object at 0x76be1cf38110>]', 'input_kwargs': "{'num_return_sequences': 2, 'temperature': 0.0, 'max_new_tokens': 6, 'stop': 'unused-stop-seq'}", 'messages': "[{'role': 'user', 'content': 'hello'}]", 'model': '<testcase._DummyModel object at 0x76be1cf60640>', 'processor': '<object object at 0x76be1cf380f0>', 'system': 'None', 'template': '<testcase._DummyTemplate object at 0x76be1cf0b7f0>', 'tokenizer': '<testcase._DummyTokenizer object at 0x76be1cf60880>', 'tools': "'tool-a'", 'videos': '[<object object at 0x76be1cf38130>]'}
+2026-07-15 04:13:02.039 /testbed/src/llamafactory/chat/hf_engine.py:88 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.039 /testbed/src/llamafactory/chat/hf_engine.py:89 src.llamafactory.chat.hf_engine._process_args event=line locals={'mm_input_dict': "{'images': [], 'videos': [], 'audios': [], 'imglens': [0], 'vidlens': [0], 'audlens': [0]}"}
+2026-07-15 04:13:02.039 /testbed/src/llamafactory/chat/hf_engine.py:90 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.039 /testbed/src/llamafactory/chat/hf_engine.py:91 src.llamafactory.chat.hf_engine._process_args event=line locals={'mm_input_dict': "{'images': [<object object at 0x76be1cf38100>, <object object at 0x76be1cf38110>], 'videos': [], 'audios': [], 'imglens': [2], 'vidlens': [0], 'audlens': [0]}"}
+2026-07-15 04:13:02.039 /testbed/src/llamafactory/chat/hf_engine.py:92 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.039 /testbed/src/llamafactory/chat/hf_engine.py:94 src.llamafactory.chat.hf_engine._process_args event=line locals={'messages': "[{'role': 'user', 'content': '<image><image>hello'}]"}
+2026-07-15 04:13:02.039 /testbed/src/llamafactory/chat/hf_engine.py:95 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:96 src.llamafactory.chat.hf_engine._process_args event=line locals={'mm_input_dict': "{'images': [<object object at 0x76be1cf38100>, <object object at 0x76be1cf38110>], 'videos': [<object object at 0x76be1cf38130>], 'audios': [], 'imglens': [2], 'vidlens': [1], 'audlens': [0]}"}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:97 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:99 src.llamafactory.chat.hf_engine._process_args event=line locals={'messages': "[{'role': 'user', 'content': '<video><image><image>hello'}]"}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:100 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:101 src.llamafactory.chat.hf_engine._process_args event=line locals={'mm_input_dict': "{'images': [<object object at 0x76be1cf38100>, <object object at 0x76be1cf38110>], 'videos': [<object object at 0x76be1cf38130>], 'audios': [<object object at 0x76be1cf38150>], 'imglens': [2], 'vidlens': [1], 'audlens': [1]}"}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:102 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:104 src.llamafactory.chat.hf_engine._process_args event=line locals={'messages': "[{'role': 'user', 'content': '<audio><video><image><image>hello'}]"}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:105 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:104 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:107 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:108 src.llamafactory.chat.hf_engine._process_args event=line locals={'paired_messages': "[{'role': 'user', 'content': '<audio><video><image><image>hello'}, {'role': 'assistant', 'content': ''}]"}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:109 src.llamafactory.chat.hf_engine._process_args event=line locals={'system': "'fallback-system'"}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:110 src.llamafactory.chat.hf_engine._process_args event=line locals={'prompt_ids': '[11, 22, 33]'}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:111 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:112 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:113 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:114 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:115 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:116 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:117 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:110 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:119 src.llamafactory.chat.hf_engine._process_args event=line locals={'prompt_ids': '[11, 22, 33, 99]'}
+2026-07-15 04:13:02.040 /testbed/src/llamafactory/chat/hf_engine.py:120 src.llamafactory.chat.hf_engine._process_args event=line locals={'prompt_length': '4'}
+2026-07-15 04:13:02.041 /testbed/src/llamafactory/chat/hf_engine.py:121 src.llamafactory.chat.hf_engine._process_args event=line locals={'inputs': 'tensor([[11, 22, 33, 99]])'}
+2026-07-15 04:13:02.042 /testbed/src/llamafactory/chat/hf_engine.py:123 src.llamafactory.chat.hf_engine._process_args event=line locals={'attention_mask': 'tensor([[True, True, True, True]])'}
+2026-07-15 04:13:02.042 /testbed/src/llamafactory/chat/hf_engine.py:124 src.llamafactory.chat.hf_engine._process_args event=line locals={'do_sample': 'None'}
+2026-07-15 04:13:02.042 /testbed/src/llamafactory/chat/hf_engine.py:125 src.llamafactory.chat.hf_engine._process_args event=line locals={'input_kwargs': "{'num_return_sequences': 2, 'max_new_tokens': 6, 'stop': 'unused-stop-seq'}", 'temperature': '0.0'}
+2026-07-15 04:13:02.042 /testbed/src/llamafactory/chat/hf_engine.py:126 src.llamafactory.chat.hf_engine._process_args event=line locals={'top_p': 'None'}
+2026-07-15 04:13:02.042 /testbed/src/llamafactory/chat/hf_engine.py:127 src.llamafactory.chat.hf_engine._process_args event=line locals={'top_k': 'None'}
+2026-07-15 04:13:02.042 /testbed/src/llamafactory/chat/hf_engine.py:128 src.llamafactory.chat.hf_engine._process_args event=line locals={'input_kwargs': "{'max_new_tokens': 6, 'stop': 'unused-stop-seq'}", 'num_return_sequences': '2'}
+2026-07-15 04:13:02.042 /testbed/src/llamafactory/chat/hf_engine.py:129 src.llamafactory.chat.hf_engine._process_args event=line locals={'repetition_penalty': 'None'}
+2026-07-15 04:13:02.042 /testbed/src/llamafactory/chat/hf_engine.py:130 src.llamafactory.chat.hf_engine._process_args event=line locals={'length_penalty': 'None'}
+2026-07-15 04:13:02.043 /testbed/src/llamafactory/chat/hf_engine.py:131 src.llamafactory.chat.hf_engine._process_args event=line locals={'skip_special_tokens': 'None'}
+2026-07-15 04:13:02.043 /testbed/src/llamafactory/chat/hf_engine.py:132 src.llamafactory.chat.hf_engine._process_args event=line locals={'max_length': 'None'}
+2026-07-15 04:13:02.043 /testbed/src/llamafactory/chat/hf_engine.py:133 src.llamafactory.chat.hf_engine._process_args event=line locals={'input_kwargs': "{'stop': 'unused-stop-seq'}", 'max_new_tokens': '6'}
+2026-07-15 04:13:02.043 /testbed/src/llamafactory/chat/hf_engine.py:135 src.llamafactory.chat.hf_engine._process_args event=line locals={'input_kwargs': '{}', 'stop': "'unused-stop-seq'"}
+2026-07-15 04:13:02.043 /testbed/src/llamafactory/chat/hf_engine.py:136 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.044 /testbed/src/llamafactory/chat/hf_engine.py:138 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.044 /testbed/src/llamafactory/chat/hf_engine.py:139 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.044 /testbed/src/llamafactory/chat/hf_engine.py:140 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.044 /testbed/src/llamafactory/chat/hf_engine.py:141 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.044 /testbed/src/llamafactory/chat/hf_engine.py:142 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.044 /testbed/src/llamafactory/chat/hf_engine.py:143 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.045 /testbed/src/llamafactory/chat/hf_engine.py:144 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.045 /testbed/src/llamafactory/chat/hf_engine.py:145 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.045 /testbed/src/llamafactory/chat/hf_engine.py:147 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.045 /testbed/src/llamafactory/chat/hf_engine.py:148 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.045 /testbed/src/llamafactory/chat/hf_engine.py:149 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.045 /testbed/src/llamafactory/chat/hf_engine.py:151 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.045 /testbed/src/llamafactory/chat/hf_engine.py:152 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.045 /testbed/src/llamafactory/chat/hf_engine.py:153 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.045 /testbed/src/llamafactory/chat/hf_engine.py:154 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.046 /testbed/src/llamafactory/chat/hf_engine.py:140 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.046 /testbed/src/llamafactory/chat/hf_engine.py:139 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.046 /testbed/src/llamafactory/chat/hf_engine.py:158 src.llamafactory.chat.hf_engine._process_args event=line locals={'generating_args': "{'default_system': 'fallback-system', 'do_sample': False, 'temperature': 0.0, 'top_p': 0.9, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 2, 'eos_token_id': [2, 3], 'pad_token_id': 0}"}
+2026-07-15 04:13:02.046 /testbed/src/llamafactory/chat/hf_engine.py:159 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.046 /testbed/src/llamafactory/chat/hf_engine.py:160 src.llamafactory.chat.hf_engine._process_args event=line locals={'generating_args': "{'default_system': 'fallback-system', 'do_sample': True, 'temperature': 0.0, 'top_p': 0.9, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 2, 'eos_token_id': [2, 3], 'pad_token_id': 0}"}
+2026-07-15 04:13:02.046 /testbed/src/llamafactory/chat/hf_engine.py:162 src.llamafactory.chat.hf_engine._process_args event=line locals={'generating_args': "{'default_system': 'fallback-system', 'do_sample': True, 'temperature': 1.0, 'top_p': 0.9, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 2, 'eos_token_id': [2, 3], 'pad_token_id': 0}"}
+2026-07-15 04:13:02.046 /testbed/src/llamafactory/chat/hf_engine.py:165 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.046 /testbed/src/llamafactory/chat/hf_engine.py:169 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.046 /testbed/src/llamafactory/chat/hf_engine.py:173 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.047 /testbed/src/llamafactory/chat/hf_engine.py:174 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.047 /testbed/src/llamafactory/chat/hf_engine.py:175 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.047 /testbed/src/llamafactory/chat/hf_engine.py:177 src.llamafactory.chat.hf_engine._process_args event=line locals={'generating_args': "{'default_system': 'fallback-system', 'do_sample': True, 'temperature': 1.0, 'top_p': 0.9, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 2, 'eos_token_id': [2, 3], 'pad_token_id': 0, 'max_new_tokens': 6}"}
+2026-07-15 04:13:02.047 /testbed/src/llamafactory/chat/hf_engine.py:178 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.047 /testbed/src/llamafactory/chat/hf_engine.py:179 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.047 /testbed/src/llamafactory/chat/hf_engine.py:180 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.048 /testbed/src/llamafactory/chat/hf_engine.py:181 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.048 /testbed/src/llamafactory/chat/hf_engine.py:177 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.048 /testbed/src/llamafactory/chat/hf_engine.py:184 src.llamafactory.chat.hf_engine._process_args event=line locals={'gen_kwargs': '{\'inputs\': tensor([[11, 22, 33, 99]]), \'attention_mask\': tensor([[True, True, True, True]]), \'generation_config\': GenerationConfig {\n  "default_system": "fallback-system",\n  "do_sample": true,\n  "eos_token_id": [\n    2,\n    3\n  ],\n  "max_new_tokens": 6,\n  "num_return_sequences": 2,\n  "pad_token_id": 0,\n  "skip_special_tokens": true,\n  "top_p": 0.9\n}\n, \'logits_processor\': [<transformers.generation.logits_process.InfNanRemoveLogitsProcessor object at 0x76be1cf60970>]}'}
+2026-07-15 04:13:02.050 /testbed/src/llamafactory/chat/hf_engine.py:185 src.llamafactory.chat.hf_engine._process_args event=line locals={'mm_inputs': "{'pixel_values': [tensor([1., 2.]), tensor([3., 4.])], 'second_per_grid_ts': tensor([0.5000, 1.5000]), 'image_sizes': [[8, 8], [16, 16]]}"}
+2026-07-15 04:13:02.051 /testbed/src/llamafactory/chat/hf_engine.py:186 src.llamafactory.chat.hf_engine._process_args event=line locals={'key': "'pixel_values'", 'value': '[tensor([1., 2.]), tensor([3., 4.])]'}
+2026-07-15 04:13:02.051 /testbed/src/llamafactory/chat/hf_engine.py:187 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.052 /testbed/src/llamafactory/chat/hf_engine.py:195 src.llamafactory.chat.hf_engine._process_args event=line locals={'value': 'tensor([[1., 2.],\n        [3., 4.]])'}
+2026-07-15 04:13:02.053 /testbed/src/llamafactory/chat/hf_engine.py:196 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.054 /testbed/src/llamafactory/chat/hf_engine.py:198 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.055 /testbed/src/llamafactory/chat/hf_engine.py:201 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.055 /testbed/src/llamafactory/chat/hf_engine.py:185 src.llamafactory.chat.hf_engine._process_args event=line locals={'gen_kwargs': '{\'inputs\': tensor([[11, 22, 33, 99]]), \'attention_mask\': tensor([[True, True, True, True]]), \'generation_config\': GenerationConfig {\n  "default_system": "fallback-system",\n  "do_sample": true,\n  "eos_token_id": [\n    2,\n    3\n  ],\n  "max_new_tokens": 6,\n  "num_return_sequences": 2,\n  "pad_token_id": 0,\n  "skip_special_tokens": true,\n  "top_p": 0.9\n}\n, \'logits_processor\': [<transformers.generation.logits_process.InfNanRemoveLogitsProcessor object at 0x76be1cf60970>], \'pixel_values\': tensor([[1., ...'}
+2026-07-15 04:13:02.058 /testbed/src/llamafactory/chat/hf_engine.py:186 src.llamafactory.chat.hf_engine._process_args event=line locals={'key': "'second_per_grid_ts'", 'value': 'tensor([0.5000, 1.5000])'}
+2026-07-15 04:13:02.061 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.064 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.066 /testbed/src/llamafactory/chat/hf_engine.py:192 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.069 /testbed/src/llamafactory/chat/hf_engine.py:195 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.071 /testbed/src/llamafactory/chat/hf_engine.py:196 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.072 /testbed/src/llamafactory/chat/hf_engine.py:198 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.072 /testbed/src/llamafactory/chat/hf_engine.py:199 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.073 /testbed/src/llamafactory/chat/hf_engine.py:185 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.074 /testbed/src/llamafactory/chat/hf_engine.py:186 src.llamafactory.chat.hf_engine._process_args event=line locals={'key': "'image_sizes'", 'value': '[[8, 8], [16, 16]]'}
+2026-07-15 04:13:02.075 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.076 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.076 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.077 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.078 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.079 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.079 /testbed/src/llamafactory/chat/hf_engine.py:192 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.080 /testbed/src/llamafactory/chat/hf_engine.py:193 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.081 /testbed/src/llamafactory/chat/hf_engine.py:195 src.llamafactory.chat.hf_engine._process_args event=line locals={'value': 'tensor([[ 8,  8],\n        [16, 16]])'}
+2026-07-15 04:13:02.082 /testbed/src/llamafactory/chat/hf_engine.py:198 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.083 /testbed/src/llamafactory/chat/hf_engine.py:201 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.083 /testbed/src/llamafactory/chat/hf_engine.py:185 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.084 /testbed/src/llamafactory/chat/hf_engine.py:203 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.085 /testbed/src/llamafactory/chat/hf_engine.py:211 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.086 /testbed/src/llamafactory/chat/hf_engine.py:211 src.llamafactory.chat.hf_engine._process_args event=return retval=({'inputs': tensor([[11, 22, 33, 99]]), 'attention_mask': tensor([[True, True, True, True]]), 'generation_config': GenerationConfig {
+  "default_system": "fallback-system",
+  "do_sample": true,
+  "eos_token_id": [
+    2,
+    3
+  ],
+  "max_new_tokens": 6,
+  "num_return_sequences": 2,
+  "pad_token_id": 0,
+  "skip_special_tokens": true,
+  "top_p": 0.9
+}
+, 'logits_processor': [<transformers.generation.logits_process.InfNanRemoveLogitsProcessor object at 0x76be1cf60970>], 'pixel_values': tensor([[1.,... locals={'attention_mask': 'tensor([[True, True, True, True]])', 'audios': '[<object object at 0x76be1cf38150>]', 'do_sample': 'None', 'gen_kwargs': '{\'inputs\': tensor([[11, 22, 33, 99]]), \'attention_mask\': tensor([[True, True, True, True]]), \'generation_config\': GenerationConfig {\n  "default_system": "fallback-system",\n  "do_sample": true,\n  "eos_token_id": [\n    2,\n    3\n  ],\n  "max_new_tokens": 6,\n  "num_return_sequences": 2,\n  "pad_token_id": 0,\n  "skip_special_tokens": true,\n  "top_p": 0.9\n}\n, \'logits_processor\': [<transformers.generation.logits_process.InfNanRemoveLogitsProcessor object at 0x76be1cf60970>], \'pixel_values\': tensor([[1., ...', 'generating_args': "{'default_system': 'fallback-system', 'do_sample': True, 'temperature': 1.0, 'top_p': 0.9, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 2, 'eos_token_id': [2, 3], 'pad_token_id': 0, 'max_new_tokens': 6}", 'images': '[<object object at 0x76be1cf38100>, <object object at 0x76be1cf38110>]', 'input_kwargs': '{}', 'inputs': 'tensor([[11, 22, 33, 99]])', 'key': "'image_sizes'", 'length_penalty': 'None', 'max_length': 'None', 'max_new_tokens': '6', 'messages': "[{'role': 'user', 'content': '<audio><video><image><image>hello'}]", 'mm_input_dict': "{'images': [<object object at 0x76be1cf38100>, <object object at 0x76be1cf38110>], 'videos': [<object object at 0x76be1cf38130>], 'audios': [<object object at 0x76be1cf38150>], 'imglens': [2], 'vidlens': [1], 'audlens': [1]}", 'mm_inputs': "{'pixel_values': [tensor([1., 2.]), tensor([3., 4.])], 'second_per_grid_ts': tensor([0.5000, 1.5000]), 'image_sizes': [[8, 8], [16, 16]]}", 'model': '<testcase._DummyModel object at 0x76be1cf60640>', 'num_return_sequences': '2', 'paired_messages': "[{'role': 'user', 'content': '<audio><video><image><image>hello'}, {'role': 'assistant', 'content': ''}]", 'processor': '<object object at 0x76be1cf380f0>', 'prompt_ids': '[11, 22, 33, 99]', 'prompt_length': '4', 'repetition_penalty': 'None', 'skip_special_tokens': 'None', 'stop': "'unused-stop-seq'", 'system': "'fallback-system'", 'temperature': '0.0', 'template': '<testcase._DummyTemplate object at 0x76be1cf0b7f0>', 'tokenizer': '<testcase._DummyTokenizer object at 0x76be1cf60880>', 'tools': "'tool-a'", 'top_k': 'None', 'top_p': 'None', 'value': 'tensor([[ 8,  8],\n        [16, 16]])', 'videos': '[<object object at 0x76be1cf38130>]'}
+2026-07-15 04:13:02.086 /testbed/src/llamafactory/chat/hf_engine.py:73 src.llamafactory.chat.hf_engine._process_args event=call locals={'audios': '[<object object at 0x76be1cf38160>]', 'generating_args': "{'default_system': 'fallback-system', 'do_sample': False, 'temperature': 0.7, 'top_p': 0.9, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True}", 'images': '[<object object at 0x76be1cf38100>]', 'input_kwargs': "{'do_sample': False, 'max_length': 18, 'max_new_tokens': 3}", 'messages': "[{'role': 'user', 'content': '<image><video><audio> second'}]", 'model': '<testcase._DummyModel object at 0x76be1cf60640>', 'processor': '<object object at 0x76be1cf38120>', 'system': "'explicit-system'", 'template': '<testcase._DummyTemplate object at 0x76be1cf0b7f0>', 'tokenizer': '<testcase._DummyTokenizer object at 0x76be1cf60880>', 'tools': "'tool-b'", 'videos': '[<object object at 0x76be1cf38140>]'}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:88 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:89 src.llamafactory.chat.hf_engine._process_args event=line locals={'mm_input_dict': "{'images': [], 'videos': [], 'audios': [], 'imglens': [0], 'vidlens': [0], 'audlens': [0]}"}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:90 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:91 src.llamafactory.chat.hf_engine._process_args event=line locals={'mm_input_dict': "{'images': [<object object at 0x76be1cf38100>], 'videos': [], 'audios': [], 'imglens': [1], 'vidlens': [0], 'audlens': [0]}"}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:94 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:95 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:96 src.llamafactory.chat.hf_engine._process_args event=line locals={'mm_input_dict': "{'images': [<object object at 0x76be1cf38100>], 'videos': [<object object at 0x76be1cf38140>], 'audios': [], 'imglens': [1], 'vidlens': [1], 'audlens': [0]}"}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:99 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:100 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:101 src.llamafactory.chat.hf_engine._process_args event=line locals={'mm_input_dict': "{'images': [<object object at 0x76be1cf38100>], 'videos': [<object object at 0x76be1cf38140>], 'audios': [<object object at 0x76be1cf38160>], 'imglens': [1], 'vidlens': [1], 'audlens': [1]}"}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:104 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:105 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:104 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:107 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:108 src.llamafactory.chat.hf_engine._process_args event=line locals={'paired_messages': "[{'role': 'user', 'content': '<image><video><audio> second'}, {'role': 'assistant', 'content': ''}]"}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:109 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:110 src.llamafactory.chat.hf_engine._process_args event=line locals={'prompt_ids': '[11, 22, 33]'}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:111 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:112 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:113 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:114 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:115 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:116 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:117 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:110 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:119 src.llamafactory.chat.hf_engine._process_args event=line locals={'prompt_ids': '[11, 22, 33, 99]'}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:120 src.llamafactory.chat.hf_engine._process_args event=line locals={'prompt_length': '4'}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:121 src.llamafactory.chat.hf_engine._process_args event=line locals={'inputs': 'tensor([[11, 22, 33, 99]])'}
+2026-07-15 04:13:02.087 /testbed/src/llamafactory/chat/hf_engine.py:123 src.llamafactory.chat.hf_engine._process_args event=line locals={'attention_mask': 'tensor([[True, True, True, True]])'}
+2026-07-15 04:13:02.088 /testbed/src/llamafactory/chat/hf_engine.py:124 src.llamafactory.chat.hf_engine._process_args event=line locals={'do_sample': 'False', 'input_kwargs': "{'max_length': 18, 'max_new_tokens': 3}"}
+2026-07-15 04:13:02.088 /testbed/src/llamafactory/chat/hf_engine.py:125 src.llamafactory.chat.hf_engine._process_args event=line locals={'temperature': 'None'}
+2026-07-15 04:13:02.088 /testbed/src/llamafactory/chat/hf_engine.py:126 src.llamafactory.chat.hf_engine._process_args event=line locals={'top_p': 'None'}
+2026-07-15 04:13:02.088 /testbed/src/llamafactory/chat/hf_engine.py:127 src.llamafactory.chat.hf_engine._process_args event=line locals={'top_k': 'None'}
+2026-07-15 04:13:02.088 /testbed/src/llamafactory/chat/hf_engine.py:128 src.llamafactory.chat.hf_engine._process_args event=line locals={'num_return_sequences': '1'}
+2026-07-15 04:13:02.088 /testbed/src/llamafactory/chat/hf_engine.py:129 src.llamafactory.chat.hf_engine._process_args event=line locals={'repetition_penalty': 'None'}
+2026-07-15 04:13:02.088 /testbed/src/llamafactory/chat/hf_engine.py:130 src.llamafactory.chat.hf_engine._process_args event=line locals={'length_penalty': 'None'}
+2026-07-15 04:13:02.088 /testbed/src/llamafactory/chat/hf_engine.py:131 src.llamafactory.chat.hf_engine._process_args event=line locals={'skip_special_tokens': 'None'}
+2026-07-15 04:13:02.088 /testbed/src/llamafactory/chat/hf_engine.py:132 src.llamafactory.chat.hf_engine._process_args event=line locals={'input_kwargs': "{'max_new_tokens': 3}", 'max_length': '18'}
+2026-07-15 04:13:02.089 /testbed/src/llamafactory/chat/hf_engine.py:133 src.llamafactory.chat.hf_engine._process_args event=line locals={'input_kwargs': '{}', 'max_new_tokens': '3'}
+2026-07-15 04:13:02.089 /testbed/src/llamafactory/chat/hf_engine.py:135 src.llamafactory.chat.hf_engine._process_args event=line locals={'stop': 'None'}
+2026-07-15 04:13:02.089 /testbed/src/llamafactory/chat/hf_engine.py:138 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.089 /testbed/src/llamafactory/chat/hf_engine.py:139 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.089 /testbed/src/llamafactory/chat/hf_engine.py:140 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.089 /testbed/src/llamafactory/chat/hf_engine.py:141 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.089 /testbed/src/llamafactory/chat/hf_engine.py:142 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.089 /testbed/src/llamafactory/chat/hf_engine.py:143 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.089 /testbed/src/llamafactory/chat/hf_engine.py:144 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.090 /testbed/src/llamafactory/chat/hf_engine.py:145 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.090 /testbed/src/llamafactory/chat/hf_engine.py:147 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.090 /testbed/src/llamafactory/chat/hf_engine.py:148 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.090 /testbed/src/llamafactory/chat/hf_engine.py:149 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.090 /testbed/src/llamafactory/chat/hf_engine.py:151 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.090 /testbed/src/llamafactory/chat/hf_engine.py:152 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.090 /testbed/src/llamafactory/chat/hf_engine.py:153 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.090 /testbed/src/llamafactory/chat/hf_engine.py:154 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.090 /testbed/src/llamafactory/chat/hf_engine.py:140 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.091 /testbed/src/llamafactory/chat/hf_engine.py:139 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.091 /testbed/src/llamafactory/chat/hf_engine.py:158 src.llamafactory.chat.hf_engine._process_args event=line locals={'generating_args': "{'default_system': 'fallback-system', 'do_sample': False, 'temperature': 0.7, 'top_p': 0.9, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 1, 'eos_token_id': [2, 3], 'pad_token_id': 0}"}
+2026-07-15 04:13:02.091 /testbed/src/llamafactory/chat/hf_engine.py:162 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.091 /testbed/src/llamafactory/chat/hf_engine.py:165 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.091 /testbed/src/llamafactory/chat/hf_engine.py:166 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.091 /testbed/src/llamafactory/chat/hf_engine.py:167 src.llamafactory.chat.hf_engine._process_args event=line locals={'generating_args': "{'default_system': 'fallback-system', 'do_sample': False, 'top_p': 0.9, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 1, 'eos_token_id': [2, 3], 'pad_token_id': 0}"}
+2026-07-15 04:13:02.091 /testbed/src/llamafactory/chat/hf_engine.py:169 src.llamafactory.chat.hf_engine._process_args event=line locals={'generating_args': "{'default_system': 'fallback-system', 'do_sample': False, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 1, 'eos_token_id': [2, 3], 'pad_token_id': 0}"}
+2026-07-15 04:13:02.091 /testbed/src/llamafactory/chat/hf_engine.py:170 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.091 /testbed/src/llamafactory/chat/hf_engine.py:171 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.092 /testbed/src/llamafactory/chat/hf_engine.py:173 src.llamafactory.chat.hf_engine._process_args event=line locals={'generating_args': "{'default_system': 'fallback-system', 'do_sample': False, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 1, 'eos_token_id': [2, 3], 'pad_token_id': 0, 'max_length': 18}"}
+2026-07-15 04:13:02.092 /testbed/src/llamafactory/chat/hf_engine.py:174 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.092 /testbed/src/llamafactory/chat/hf_engine.py:175 src.llamafactory.chat.hf_engine._process_args event=line locals={'generating_args': "{'default_system': 'fallback-system', 'do_sample': False, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 1, 'eos_token_id': [2, 3], 'pad_token_id': 0}"}
+2026-07-15 04:13:02.092 /testbed/src/llamafactory/chat/hf_engine.py:177 src.llamafactory.chat.hf_engine._process_args event=line locals={'generating_args': "{'default_system': 'fallback-system', 'do_sample': False, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 1, 'eos_token_id': [2, 3], 'pad_token_id': 0, 'max_new_tokens': 3}"}
+2026-07-15 04:13:02.092 /testbed/src/llamafactory/chat/hf_engine.py:178 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.092 /testbed/src/llamafactory/chat/hf_engine.py:179 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.092 /testbed/src/llamafactory/chat/hf_engine.py:180 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.093 /testbed/src/llamafactory/chat/hf_engine.py:181 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.093 /testbed/src/llamafactory/chat/hf_engine.py:177 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.093 /testbed/src/llamafactory/chat/hf_engine.py:184 src.llamafactory.chat.hf_engine._process_args event=line locals={'gen_kwargs': '{\'inputs\': tensor([[11, 22, 33, 99]]), \'attention_mask\': tensor([[True, True, True, True]]), \'generation_config\': GenerationConfig {\n  "default_system": "fallback-system",\n  "eos_token_id": [\n    2,\n    3\n  ],\n  "max_new_tokens": 3,\n  "pad_token_id": 0,\n  "skip_special_tokens": true\n}\n, \'logits_processor\': [<transformers.generation.logits_process.InfNanRemoveLogitsProcessor object at 0x76be1cf8f7f0>]}'}
+2026-07-15 04:13:02.094 /testbed/src/llamafactory/chat/hf_engine.py:185 src.llamafactory.chat.hf_engine._process_args event=line locals={'mm_inputs': "{'video_embeds': [[tensor([1, 2]), tensor([3, 4])], [tensor([5, 6]), tensor([7, 8])]], 'token_type_ids': [1, 1, 2, 2], 'audio_feature_lens': tensor([2, 4]), 'second_per_grid_ts': tensor([0.2500]), 'image_sizes': tensor([[32, 32]])}"}
+2026-07-15 04:13:02.095 /testbed/src/llamafactory/chat/hf_engine.py:186 src.llamafactory.chat.hf_engine._process_args event=line locals={'key': "'video_embeds'", 'value': '[[tensor([1, 2]), tensor([3, 4])], [tensor([5, 6]), tensor([7, 8])]]'}
+2026-07-15 04:13:02.096 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.096 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.097 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.098 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.099 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.099 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.100 /testbed/src/llamafactory/chat/hf_engine.py:191 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.101 /testbed/src/llamafactory/chat/hf_engine.py:195 src.llamafactory.chat.hf_engine._process_args event=line locals={'value': 'tensor([[[1, 2],\n         [3, 4]],\n\n        [[5, 6],\n         [7, 8]]])'}
+2026-07-15 04:13:02.102 /testbed/src/llamafactory/chat/hf_engine.py:198 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.102 /testbed/src/llamafactory/chat/hf_engine.py:201 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.103 /testbed/src/llamafactory/chat/hf_engine.py:185 src.llamafactory.chat.hf_engine._process_args event=line locals={'gen_kwargs': '{\'inputs\': tensor([[11, 22, 33, 99]]), \'attention_mask\': tensor([[True, True, True, True]]), \'generation_config\': GenerationConfig {\n  "default_system": "fallback-system",\n  "eos_token_id": [\n    2,\n    3\n  ],\n  "max_new_tokens": 3,\n  "pad_token_id": 0,\n  "skip_special_tokens": true\n}\n, \'logits_processor\': [<transformers.generation.logits_process.InfNanRemoveLogitsProcessor object at 0x76be1cf8f7f0>], \'video_embeds\': tensor([[[1, 2],\n         [3, 4]],\n\n        [[5, 6],\n         [7, 8]]])}'}
+2026-07-15 04:13:02.104 /testbed/src/llamafactory/chat/hf_engine.py:186 src.llamafactory.chat.hf_engine._process_args event=line locals={'key': "'token_type_ids'", 'value': '[1, 1, 2, 2]'}
+2026-07-15 04:13:02.104 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.105 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.106 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.107 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.107 /testbed/src/llamafactory/chat/hf_engine.py:192 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.108 /testbed/src/llamafactory/chat/hf_engine.py:193 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.109 /testbed/src/llamafactory/chat/hf_engine.py:195 src.llamafactory.chat.hf_engine._process_args event=line locals={'value': 'tensor([1, 1, 2, 2])'}
+2026-07-15 04:13:02.109 /testbed/src/llamafactory/chat/hf_engine.py:198 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.110 /testbed/src/llamafactory/chat/hf_engine.py:201 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.111 /testbed/src/llamafactory/chat/hf_engine.py:185 src.llamafactory.chat.hf_engine._process_args event=line locals={'gen_kwargs': '{\'inputs\': tensor([[11, 22, 33, 99]]), \'attention_mask\': tensor([[True, True, True, True]]), \'generation_config\': GenerationConfig {\n  "default_system": "fallback-system",\n  "eos_token_id": [\n    2,\n    3\n  ],\n  "max_new_tokens": 3,\n  "pad_token_id": 0,\n  "skip_special_tokens": true\n}\n, \'logits_processor\': [<transformers.generation.logits_process.InfNanRemoveLogitsProcessor object at 0x76be1cf8f7f0>], \'video_embeds\': tensor([[[1, 2],\n         [3, 4]],\n\n        [[5, 6],\n         [7, 8]]]), \'token...'}
+2026-07-15 04:13:02.112 /testbed/src/llamafactory/chat/hf_engine.py:186 src.llamafactory.chat.hf_engine._process_args event=line locals={'key': "'audio_feature_lens'", 'value': 'tensor([2, 4])'}
+2026-07-15 04:13:02.112 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.113 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.114 /testbed/src/llamafactory/chat/hf_engine.py:192 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.115 /testbed/src/llamafactory/chat/hf_engine.py:195 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.115 /testbed/src/llamafactory/chat/hf_engine.py:198 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.116 /testbed/src/llamafactory/chat/hf_engine.py:201 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.117 /testbed/src/llamafactory/chat/hf_engine.py:185 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.118 /testbed/src/llamafactory/chat/hf_engine.py:186 src.llamafactory.chat.hf_engine._process_args event=line locals={'key': "'second_per_grid_ts'", 'value': 'tensor([0.2500])'}
+2026-07-15 04:13:02.118 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.119 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.120 /testbed/src/llamafactory/chat/hf_engine.py:192 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.121 /testbed/src/llamafactory/chat/hf_engine.py:195 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.122 /testbed/src/llamafactory/chat/hf_engine.py:196 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.123 /testbed/src/llamafactory/chat/hf_engine.py:198 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.123 /testbed/src/llamafactory/chat/hf_engine.py:199 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.124 /testbed/src/llamafactory/chat/hf_engine.py:185 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.125 /testbed/src/llamafactory/chat/hf_engine.py:186 src.llamafactory.chat.hf_engine._process_args event=line locals={'key': "'image_sizes'", 'value': 'tensor([[32, 32]])'}
+2026-07-15 04:13:02.126 /testbed/src/llamafactory/chat/hf_engine.py:189 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.127 /testbed/src/llamafactory/chat/hf_engine.py:188 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.127 /testbed/src/llamafactory/chat/hf_engine.py:192 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.128 /testbed/src/llamafactory/chat/hf_engine.py:195 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.129 /testbed/src/llamafactory/chat/hf_engine.py:198 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.130 /testbed/src/llamafactory/chat/hf_engine.py:201 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.131 /testbed/src/llamafactory/chat/hf_engine.py:185 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.132 /testbed/src/llamafactory/chat/hf_engine.py:203 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.132 /testbed/src/llamafactory/chat/hf_engine.py:204 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.133 /testbed/src/llamafactory/chat/hf_engine.py:205 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.134 /testbed/src/llamafactory/chat/hf_engine.py:206 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.135 /testbed/src/llamafactory/chat/hf_engine.py:207 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.136 /testbed/src/llamafactory/chat/hf_engine.py:209 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.136 /testbed/src/llamafactory/chat/hf_engine.py:211 src.llamafactory.chat.hf_engine._process_args event=line locals={}
+2026-07-15 04:13:02.138 /testbed/src/llamafactory/chat/hf_engine.py:211 src.llamafactory.chat.hf_engine._process_args event=return retval=({'inputs': tensor([[11, 22, 33, 99]]), 'attention_mask': tensor([[True, True, True, True]]), 'generation_config': GenerationConfig {
+  "default_system": "fallback-system",
+  "eos_token_id": [
+    2,
+    3
+  ],
+  "max_new_tokens": 3,
+  "pad_token_id": 0,
+  "skip_special_tokens": true
+}
+, 'logits_processor': [<transformers.generation.logits_process.InfNanRemoveLogitsProcessor object at 0x76be1cf8f7f0>], 'video_embeds': tensor([[[1, 2],
+         [3, 4]],
+
+        [[5, 6],
+         [7, 8]]]), 'toke... locals={'attention_mask': 'tensor([[True, True, True, True]])', 'audios': '[<object object at 0x76be1cf38160>]', 'do_sample': 'False', 'gen_kwargs': '{\'inputs\': tensor([[11, 22, 33, 99]]), \'attention_mask\': tensor([[True, True, True, True]]), \'generation_config\': GenerationConfig {\n  "default_system": "fallback-system",\n  "eos_token_id": [\n    2,\n    3\n  ],\n  "max_new_tokens": 3,\n  "pad_token_id": 0,\n  "skip_special_tokens": true\n}\n, \'logits_processor\': [<transformers.generation.logits_process.InfNanRemoveLogitsProcessor object at 0x76be1cf8f7f0>], \'video_embeds\': tensor([[[1, 2],\n         [3, 4]],\n\n        [[5, 6],\n         [7, 8]]]), \'token...', 'generating_args': "{'default_system': 'fallback-system', 'do_sample': False, 'top_k': 50, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'skip_special_tokens': True, 'num_return_sequences': 1, 'eos_token_id': [2, 3], 'pad_token_id': 0, 'max_new_tokens': 3}", 'images': '[<object object at 0x76be1cf38100>]', 'input_kwargs': '{}', 'inputs': 'tensor([[11, 22, 33, 99]])', 'key': "'image_sizes'", 'length_penalty': 'None', 'max_length': '18', 'max_new_tokens': '3', 'messages': "[{'role': 'user', 'content': '<image><video><audio> second'}]", 'mm_input_dict': "{'images': [<object object at 0x76be1cf38100>], 'videos': [<object object at 0x76be1cf38140>], 'audios': [<object object at 0x76be1cf38160>], 'imglens': [1], 'vidlens': [1], 'audlens': [1]}", 'mm_inputs': "{'video_embeds': [[tensor([1, 2]), tensor([3, 4])], [tensor([5, 6]), tensor([7, 8])]], 'token_type_ids': [1, 1, 2, 2], 'audio_feature_lens': tensor([2, 4]), 'second_per_grid_ts': tensor([0.2500]), 'image_sizes': tensor([[32, 32]])}", 'model': '<testcase._DummyModel object at 0x76be1cf60640>', 'num_return_sequences': '1', 'paired_messages': "[{'role': 'user', 'content': '<image><video><audio> second'}, {'role': 'assistant', 'content': ''}]", 'processor': '<object object at 0x76be1cf38120>', 'prompt_ids': '[11, 22, 33, 99]', 'prompt_length': '4', 'repetition_penalty': 'None', 'skip_special_tokens': 'None', 'stop': 'None', 'system': "'explicit-system'", 'temperature': 'None', 'template': '<testcase._DummyTemplate object at 0x76be1cf0b7f0>', 'tokenizer': '<testcase._DummyTokenizer object at 0x76be1cf60880>', 'tools': "'tool-b'", 'top_k': 'None', 'top_p': 'None', 'value': 'tensor([[32, 32]])', 'videos': '[<object object at 0x76be1cf38140>]'}

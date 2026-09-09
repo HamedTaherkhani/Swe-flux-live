@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 46,
+    "min_iterations": 0
+  },
+  "question": "Run the pytest class node `sqlglot_qa/tokenizer_core_scan_number_m2_loops/files/testcase.py::TestScanNumberLoopBehavior`, which executes once each of all twelve test methods `test_01_duckdb_underscore_waves`, `test_02_clickhouse_digit_identifiers`, `test_03_duckdb_scientific_mixture`, `test_04_hive_numeric_suffixes`, `test_05_spark_suffix_and_exponents`, `test_06_mysql_alphanumeric_boundaries`, `test_07_postgres_bit_hex_and_decimal`, `test_08_tsql_decimal_boundaries`, `test_09_bigquery_generated_measurements`, `test_10_sqlite_incomplete_scientific_forms`, `test_11_oracle_long_digit_batches`, and `test_12_snowflake_mixed_numeric_stream`. Aggregate over every invocation during all of those methods of exactly `sqlglot.tokenizer_core.TokenizerCore._scan_number` in `sqlglot/tokenizer_core.py`; calls of any other function are excluded. An invocation means one Python call of that exact function and invocations are numbered 1-based in chronological runtime call order across the complete pytest run. For each invocation, count iterations of the `while True` loop whose header is at absolute, 1-based source line 941. Iteration N is the Nth execution, in that invocation's own frame, of the loop body's first executable statement, the `if` statement beginning at line 942. Thus an invocation that returns before line 942 has zero iterations. Executions in callees are excluded. Line numbers refer to the named file as it exists in the repository; for a multi-line statement, an execution belongs to the line where the statement or expression begins. The `def` line, comments, and blank lines are not iterations. After retaining every invocation's count, including duplicate and zero counts, report the greatest and least counts over the complete run. There is no sorting or deduplication before taking these extrema, and chronological order is only the invocation-numbering rule, not a tie-breaker. Return exactly a JSON object with keys `max_iterations` then `min_iterations`, each having a base-10 JSON integer value; do not quote the integers and do not add any other keys.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

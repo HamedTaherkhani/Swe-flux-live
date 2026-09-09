@@ -1,0 +1,19 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "lark.exceptions.UnexpectedCharacters",
+      "lark.exceptions.UnexpectedToken",
+      "testcase.CandidateRejectionA",
+      "testcase.CandidateRejectionB",
+      "testcase.CandidateRejectionC",
+      "testcase.CandidateRejectionD"
+    ]
+  },
+  "question": "Run only the pytest test `lark_qa/parser_frontends_scan_s5_exceptions/files/testcase.py::TestParsingFrontendScanExceptions::test_generated_mixed_candidates`. Across the complete execution of that one test method, what set of concrete exception types is caught inside `lark.parser_frontends.ParsingFrontend._scan`, defined in `lark/parser_frontends.py`, by the `except UnexpectedInput` handlers at lines 205 and 209 or the `except ValueError` handler at line 215?\n\n\u201cCaught inside\u201d means that an exception raised while evaluating one of this function's try suites propagates into the target function's own frame and control then enters the matching handler body (line 206, 211, or 217). Include the concrete runtime type of that exception object, including exceptions originating in callees or iterator advancement. Exclude exceptions raised and handled wholly in callees, exceptions that propagate out of `_scan`, and the `ConfigurationError` path re-raised at line 214. Aggregate all executions and generator resumptions of exactly this target function during the named test. Treat the answer as a set: remove duplicate type names, even when a type is caught repeatedly.\n\nException type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and `module.QualName` for all others (e.g. `haystack.core.errors.PipelineError`). Use the concrete exception object's type, not the class named by the matching `except` clause. Sort the deduplicated names in ascending lexicographic order by Unicode code point; there are no secondary tie-breakers because duplicates are removed.\n\nReturn exactly one JSON object with the shape `{\"caught_exception_kinds\": [\"str\"]}`. The value is a JSON array of the sorted strings defined above; emit no extra keys. Line numbers above are absolute 1-based physical lines in `lark/parser_frontends.py` as it exists in the repository. For a multi-line statement or expression, its executed line is the line where that statement or expression begins; decorator, `def`, and docstring lines are not relevant to identifying these handlers.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

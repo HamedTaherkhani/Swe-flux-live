@@ -1,0 +1,26 @@
+{
+  "oracle_answer": {
+    "exception_types": [
+      "AttributeError",
+      "FileNotFoundError",
+      "IndexError",
+      "IsADirectoryError",
+      "KeyError",
+      "ModuleNotFoundError",
+      "NameError",
+      "NotADirectoryError",
+      "SyntaxError",
+      "TypeError",
+      "UnicodeDecodeError",
+      "ValueError",
+      "ZeroDivisionError"
+    ]
+  },
+  "question": "Run the pytest test\n`flask_qa/config_from_pyfile_m5_exceptions/files/testcase.py::TestConfigEnvironmentLoads::test_generated_configuration_matrix`\nagainst this repository. Across the complete run of that named test, what\ndistinct exception types reach the active frame of the exact target function\n`flask.config.Config.from_pyfile` in `src/flask/config.py`?\n\nAn exception reaches the target frame when evaluating a statement in that\nframe, including a call made by that statement, transfers exception control\nto the target frame. Include every such event from the target's body,\nregardless of whether the target catches it and continues or returns, or\nwhether it ultimately propagates out of the target. Thus, include exceptions\nfrom operations called by the target only when they propagate back into the\ntarget frame. Exclude exceptions handled wholly inside a callee, exceptions\nthat occur only in a caller after the target has exited, and events in any\nother function or frame. Include all target invocations, both successful and\nraising: an invocation is one call of the exact target function during the\nnamed test, numbered 1-based in chronological call order. Invocation numbers\nare not reported.\n\nDeduplicate by the final exception-type string across all invocations, even\nwhen the same type reaches the frame multiple times or at different source\nlines. Sort the deduplicated strings in ascending lexicographic order by\nUnicode code point using ordinary Python string ordering; after\ndeduplication there are no ordering ties.\n\nException type naming MUST use this convention: bare `type(exc).__name__` for\nbuilt-in exceptions (e.g. `ValueError`, never `builtins.ValueError`), and\n`module.QualName` for all others (e.g.\n`haystack.core.errors.PipelineError`). Exception messages and values are not\nreported, so no `str`, `repr`, empty-string, or JSON-null serialization rule\napplies to them.\n\nReturn exactly one JSON object with the single key `exception_types`. Its\nvalue must be a JSON list of strings ordered as specified above.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_types": [
+      "str"
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 94,
+        "use_line": 95,
+        "variable": "body"
+      },
+      {
+        "def_line": 94,
+        "use_line": 99,
+        "variable": "body"
+      },
+      {
+        "def_line": 84,
+        "use_line": 86,
+        "variable": "content"
+      },
+      {
+        "def_line": 84,
+        "use_line": 92,
+        "variable": "content"
+      },
+      {
+        "def_line": 84,
+        "use_line": 93,
+        "variable": "content"
+      },
+      {
+        "def_line": 84,
+        "use_line": 94,
+        "variable": "content"
+      },
+      {
+        "def_line": 93,
+        "use_line": 94,
+        "variable": "end"
+      },
+      {
+        "def_line": 86,
+        "use_line": 87,
+        "variable": "match"
+      },
+      {
+        "def_line": 86,
+        "use_line": 92,
+        "variable": "match"
+      },
+      {
+        "def_line": 86,
+        "use_line": 94,
+        "variable": "match"
+      },
+      {
+        "def_line": 92,
+        "use_line": 93,
+        "variable": "next_match"
+      },
+      {
+        "def_line": 84,
+        "use_line": 89,
+        "variable": "release_notes_file"
+      },
+      {
+        "def_line": 84,
+        "use_line": 97,
+        "variable": "release_notes_file"
+      },
+      {
+        "def_line": 84,
+        "use_line": 85,
+        "variable": "version"
+      },
+      {
+        "def_line": 84,
+        "use_line": 89,
+        "variable": "version"
+      },
+      {
+        "def_line": 84,
+        "use_line": 97,
+        "variable": "version"
+      },
+      {
+        "def_line": 85,
+        "use_line": 86,
+        "variable": "version_heading"
+      }
+    ]
+  },
+  "question": "Run the pytest test `fastapi_qa/prepare_release_get_release_notes_body_m4_dataflow/files/testcase.py::TestReleaseNotesBodyDataFlow::test_generated_release_note_layouts`. During that complete test run, consider every invocation of `scripts.prepare_release.get_release_notes_body` in `scripts/prepare_release.py`, including invocations that terminate by raising an exception. An invocation is one chronological entry into that function (one function call); invocation numbering, if needed when reproducing the run, is 1-based in entry order. What are all unique observed def-use pairs, unioned across those invocations, for exactly these local variables: `body`, `content`, `end`, `match`, `next_match`, `release_notes_file`, `version`, and `version_heading`?\n\nA \"def\" is a binding performed by an executed plain assignment, parameter binding, augmented assignment, or loop-target binding in the target function's own frame. Each parameter is defined on the function's `def` line separately for every invocation. A \"use\" is an executed read of that local variable in the target function's own frame. A pair is observed when a definition reaches such a read in the same invocation without another executed definition of that variable in between. On a line containing both reads and bindings, reads occur before the new bindings for this analysis. Thus an augmented assignment such as `total += item` uses the reaching definition of `total` and then defines `total` on that line; a loop header such as `for item in values` uses `values` and defines `item` on the header line each time that header binds an item. Comprehension-local variables and executions in comprehension frames are excluded; parameters used by a comprehension would count only if the read executes in the target function's own frame.\n\nOnly source operations on lines that actually execute in each target-function invocation count; operations skipped because of a branch or an earlier exception do not count. A raised exception ends that invocation after any reads and definitions already executed. Report absolute 1-based source line numbers in the named repository file. For a multi-line statement or expression, attribute a definition or use to the physical line where its binding target or read expression begins, including a continuation line when the relevant expression begins there. The function `def` line can appear only for parameter definitions; decorator and docstring lines do not count unless they execute a tracked-variable read or definition under these rules.\n\nRemove duplicate `(variable, def_line, use_line)` triples after taking the union across all invocations. Return exactly one JSON object with the key `observed_def_use_pairs`; its value is a list of objects, each having exactly the keys `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string). Sort the list by `variable` lexicographically ascending, then `def_line` numerically ascending, then `use_line` numerically ascending. There are no serialized runtime values, exception names, function names, or absent-value sentinels in the answer.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

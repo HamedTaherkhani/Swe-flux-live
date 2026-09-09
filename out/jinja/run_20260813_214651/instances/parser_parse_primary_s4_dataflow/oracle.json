@@ -1,0 +1,147 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 660,
+        "use_line": 663,
+        "variable": "buf"
+      },
+      {
+        "def_line": 660,
+        "use_line": 665,
+        "variable": "buf"
+      },
+      {
+        "def_line": 661,
+        "use_line": 665,
+        "variable": "lineno"
+      },
+      {
+        "def_line": 647,
+        "use_line": 679,
+        "variable": "node"
+      },
+      {
+        "def_line": 649,
+        "use_line": 679,
+        "variable": "node"
+      },
+      {
+        "def_line": 655,
+        "use_line": 679,
+        "variable": "node"
+      },
+      {
+        "def_line": 657,
+        "use_line": 679,
+        "variable": "node"
+      },
+      {
+        "def_line": 665,
+        "use_line": 679,
+        "variable": "node"
+      },
+      {
+        "def_line": 668,
+        "use_line": 679,
+        "variable": "node"
+      },
+      {
+        "def_line": 671,
+        "use_line": 679,
+        "variable": "node"
+      },
+      {
+        "def_line": 674,
+        "use_line": 679,
+        "variable": "node"
+      },
+      {
+        "def_line": 642,
+        "use_line": 644,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 646,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 647,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 648,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 649,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 655,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 657,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 658,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 660,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 661,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 666,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 668,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 669,
+        "variable": "token"
+      },
+      {
+        "def_line": 642,
+        "use_line": 673,
+        "variable": "token"
+      },
+      {
+        "def_line": 639,
+        "use_line": 650,
+        "variable": "with_namespace"
+      }
+    ]
+  },
+  "question": "Consider the pytest test identified by `jinja_qa/parser_parse_primary_s4_dataflow/files/testcase.py::ParserParsePrimaryS4DataflowTest::test_environment_parse_exercises_primary_literals` (test class `ParserParsePrimaryS4DataflowTest`, test method `test_environment_parse_exercises_primary_literals`). During that single test run, the function `jinja2.parser.Parser.parse_primary` in `src/jinja2/parser.py` is executed. Line numbers are absolute, 1-based, and refer to `src/jinja2/parser.py` as it exists in the repository; for multi-line statements, attribute executed-line events to the line where that statement begins. Decorator lines and docstring lines are never executed and must not appear. A def-use pair is an object with keys `variable`, `def_line`, and `use_line`. Track only these local variable names: `token`, `node`, `with_namespace`, `buf`, `lineno`. Define a def as a binding created by a function parameter or by an ordinary assignment (`x = ...`); parameters count as defined on the `def` line of `parse_primary` (line 639). A variable annotation without assignment (for example `node: nodes.Expr`) is not a def. Define a use as any read of the variable's current value on a line within the function body. On a line that both defines and uses the same variable, count the use before the new def; augmented assignment (`x += 1`) is treated as a use of the prior value followed by a new def on that line (this function contains no augmented assignments). A `for x in ...` header defines `x` on the header line; a `while ...` header does not define loop variables. Comprehension-local names are out of scope and are not tracked. Aggregate over every invocation of `parse_primary` during the test run (each `call` event starts a new invocation). Within one invocation, process executed lines in chronological order; when a line executes, record one pair for each tracked use on that line paired with the most recent def of the same variable that is still active (not yet overwritten by a later def in that invocation). Union pairs from all invocations, remove duplicates, and sort the final list by `variable` ascending, then `def_line` ascending, then `use_line` ascending. Report the answer as a JSON object with exactly one key, `observed_def_use_pairs`, whose value is a JSON array of objects each having keys `variable` (string), `def_line` (integer), and `use_line` (integer).",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "ArithmeticError",
+      "AssertionError",
+      "AttributeError",
+      "BufferError",
+      "EOFError",
+      "FloatingPointError",
+      "ImportError",
+      "LookupError",
+      "MemoryError",
+      "NameError",
+      "OSError",
+      "OverflowError",
+      "StopAsyncIteration",
+      "SyntaxError",
+      "SystemError",
+      "TypeError",
+      "UnicodeError",
+      "ZeroDivisionError"
+    ]
+  },
+  "question": "Run the pytest test\n`kedro_qa/session_run_s5_exceptions/files/testcase.py::TestSessionRunExceptions::test_seeded_runner_failures`\nand consider every direct invocation it makes of\n`kedro.framework.session.session.KedroSession.run` in\n`kedro/framework/session/session.py`.\n\nWhat is the set of exception types caught inside the target function by the\n`except Exception as error` handler whose header is on line 417 during the\ncomplete test run? Here, \"caught\" means an exception raised while evaluating\nthe `runner.run(...)` call whose multi-line expression begins on line 409 and\nthen intercepted when control enters that line-417 handler in the same target\nframe. Count that exception once as caught even though the handler re-raises\nthe same object on line 424. Do not include the later propagation to the\ntest's broad `except`, exceptions handled only in callees, or any exception\nthat does not enter this specific handler. An invocation is one `call` of the\ntarget function during the test run, numbered from 1 in chronological order;\nall invocations count.\n\nLine numbers are absolute, 1-based lines in the named file as it exists in the\nrepository. For a multi-line statement or expression, line 409 identifies the\nexecuted line where that statement or expression begins. Decorator lines, the\n`def` line, and docstring lines do not count as either of the named executed\nlines.\n\nReturn exactly one JSON object with the shape\n`{\"caught_exception_kinds\": [\"...\"]}`. The value is a JSON array of strings.\nNormalize each caught object's type using this convention: bare\n`type(exc).__name__` for built-in exceptions (e.g. `ValueError` — never\n`builtins.ValueError`), and `module.QualName` for all others (e.g.\n`haystack.core.errors.PipelineError`), where `module` is\n`type(exc).__module__` and `QualName` is `type(exc).__qualname__`. Remove\nduplicate normalized strings, then sort the remaining strings in ascending\nUnicode code-point order. There is no secondary tie-breaker because equal\nnormalized strings are deduplicated. Do not use `str()` or `repr()` of the\nexception object, and do not report its message. The run is expected to catch\nat least one kind, so an empty array, empty string, JSON `null`, or omitted key\ndoes not represent a result.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

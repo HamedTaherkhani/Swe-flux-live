@@ -1,0 +1,40 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "During pytest run of rich_qa/progress_update_s6_calls/files/testcase.py::TestProgressUpdateCallOrder::test_indirect_progress_via_reader_and_track, the function rich.progress.Progress.update in rich/progress.py (source lines 1417-1476) is reached only indirectly through Progress.wrap_file, _Reader.seek, and Progress.track (never by calling update directly in the test).\n\nIdentify the 28th invocation of rich.progress.Progress.update during that test run, counting each call to that function in chronological order starting at 1.\n\nWhile that 28th invocation is on the call stack, collect every call (function entry) to any of these tracked functions defined in rich/progress.py (listed by dotted qualname):\n\n- rich.progress.Task._reset\n- rich.progress.Progress.refresh\n- rich.progress.Task.get_time\n\nInclude nested and transitive calls made from callees (for example, calls that occur while rich.progress.Progress.refresh is running still count because the 28th update frame remains on the stack). Do not include calls to rich.progress.Progress.update itself. Repeated calls to the same tracked function are all included in order; do not deduplicate. Generator resumptions and calls to functions outside this list are ignored.\n\nReport the chronological call order as function_call_order: a JSON list of objects, each with exactly two string keys:\n\n- file: repository-relative path to the defining source file (for example rich/progress.py)\n- func: dotted module.qualname of the callee (for example rich.progress.Progress.refresh)\n\nSort order is chronological call order as observed during execution; do not reorder or sort alphabetically.",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.refresh"
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Task.get_time"
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Task.get_time"
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Task.get_time"
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Task.get_time"
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Task.get_time"
+      }
+    ]
+  }
+}

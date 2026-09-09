@@ -1,0 +1,59 @@
+{
+  "oracle_answer": {
+    "crashing_tests": [
+      {
+        "exception_type": "kedro.pipeline.pipeline.PipelineError",
+        "test": "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_02"
+      },
+      {
+        "exception_type": "kedro.pipeline.pipeline.PipelineError",
+        "test": "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_03"
+      },
+      {
+        "exception_type": "kedro.pipeline.pipeline.PipelineError",
+        "test": "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_04"
+      },
+      {
+        "exception_type": "kedro.pipeline.pipeline.PipelineError",
+        "test": "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_06"
+      },
+      {
+        "exception_type": "kedro.pipeline.pipeline.PipelineError",
+        "test": "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_07"
+      },
+      {
+        "exception_type": "kedro.pipeline.pipeline.PipelineError",
+        "test": "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_09"
+      },
+      {
+        "exception_type": "kedro.pipeline.pipeline.PipelineError",
+        "test": "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_11"
+      },
+      {
+        "exception_type": "kedro.pipeline.pipeline.PipelineError",
+        "test": "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_13"
+      }
+    ],
+    "safe_tests": [
+      "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_00",
+      "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_01",
+      "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_05",
+      "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_08",
+      "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_10",
+      "kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_12"
+    ]
+  },
+  "question": "When the pytest test class\n`kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix`\nis executed by pytest, each of its 14 test methods (`test_case_00` through\n`test_case_13`, which pytest runs in alphabetical order) programmatically\nbuilds a Kedro chain pipeline and then calls the public helper\n`kedro.pipeline.pipeline.pipeline(...)` exactly once with method-specific\n`inputs`/`outputs`/`namespace` arguments. This drives the target function\n`kedro.pipeline.pipeline._validate_inputs_outputs` (defined in the\nrepository file `kedro/pipeline/pipeline.py`) through the call chain\n`pipeline()` -> `Pipeline.__init__` -> `Pipeline._map_nodes` ->\n`_validate_inputs_outputs`, with exactly one invocation of the target per\ntest method.\n\nTask: determine, for each of the 14 test methods, whether the `pipeline(...)`\ncall raises an exception out of `_validate_inputs_outputs` (\"crashes\") or\ncompletes without raising (\"safe\"), and for each crashing method determine\nthe type of the exception that propagates out of the target function.\n\nDefinitions and conventions:\n\n- \"Crash\" means the `pipeline(...)` expression in the test raises an\n  exception whose failing `raise` statement sits inside\n  `_validate_inputs_outputs` itself; the exception propagates through\n  `Pipeline._map_nodes` and `Pipeline.__init__` back into the test method,\n  which anticipates it, so every test method still PASSES under pytest.\n  \"Safe\" means the `pipeline(...)` call returns a `Pipeline` normally.\n- Every test method is constructed so that the dataset-existence check that\n  `Pipeline._map_nodes` performs immediately before calling\n  `_validate_inputs_outputs` always succeeds; hence the target is invoked\n  exactly once per test method and the crash, when it happens, is decided\n  inside the target function.\n- Test methods are referenced by their full pytest id strings, of the form\n  `<repo-relative-file-path>::<TestClassName>::<test_method_name>`, for\n  example\n  `kedro_qa/pipeline_validate_inputs_outputs_m5_exceptions/files/testcase.py::TestValidateInputsOutputsCrashMatrix::test_case_99`.\n- Exception type names are reported as bare `type(exc).__name__` for\n  built-in exception classes (for example `ValueError`, never\n  `builtins.ValueError`) and as `module.QualName` for all other exception\n  classes (for example `some_package.errors.CustomError`).\n- Both lists are sorted in ascending lexicographic order by test id exactly\n  as Python's `sorted()` orders strings (ASCII code-point order). Each test\n  id appears at most once in the whole answer (a test is either crashing or\n  safe, never both); no duplicates.\n\nAnswer format: a JSON object with exactly two keys:\n- `crashing_tests`: a list of objects, one per crashing test, each object\n  having exactly the keys `exception_type` (a string, the exception type\n  name per the convention above) and `test` (a string, the pytest id).\n- `safe_tests`: a list of strings (the pytest ids of the safe tests).\n",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "crashing_tests": [
+      {
+        "exception_type": "str",
+        "test": "str"
+      }
+    ],
+    "safe_tests": [
+      "str"
+    ]
+  }
+}

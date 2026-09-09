@@ -1,0 +1,160 @@
+{
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.gen_standalone"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.extract_sections"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.strip_docstrings"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.gen_standalone.<locals>.compressed_output"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.gen_standalone.<locals>.output_decompress"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.gen_standalone.<locals>.compressed_output"
+      },
+      {
+        "file": "lark/tools/standalone.py",
+        "func": "lark.tools.standalone.gen_standalone.<locals>.output_decompress"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `lark_qa/standalone_gen_standalone_s6_calls/files/testcase.py::TestStandaloneCommand::test_seeded_compressed_generation`. During that test, consider the first invocation of `lark.tools.standalone.gen_standalone` defined in `lark/tools/standalone.py`. What is the exact chronological sequence of Python `sys.settrace` `call` events for this tracked set of functions: `lark.tools.standalone.gen_standalone`, `lark.tools.standalone.gen_standalone.<locals>.compressed_output`, `lark.tools.standalone.gen_standalone.<locals>.output_decompress`, `lark.tools.standalone.extract_sections`, and `lark.tools.standalone.strip_docstrings`? An invocation is one `call` event for the target during this test run, and target invocations are numbered from 1 in chronological order. The interval for invocation 1 begins with its opening `call` event and ends with its matching `return` event. Include the opening target call itself and every `call` event for a function in the tracked set whenever invocation 1 is on the stack, whether called directly from the target frame or transitively from a nested frame. A nested target invocation, if any, is included and does not end the outer interval. Exclude every call outside the tracked set, including builtins, comprehension frames, and other repository functions. Preserve repeated calls. If a tracked generator is resumed and Python emits another `call` event for that resumption, include another item. Order items solely by chronological `call`-event delivery; do not sort or deduplicate. The test is single-threaded, so no tie-breaker is needed. Function identity is the defining module plus the Python code object's qualified name, in `module.Class.method` or `module.function` form (for example, `package.worker.Engine.run`); retain `<locals>` for nested functions. Return exactly a JSON object with the single key `function_call_order`. Its value is a JSON list of objects, each with exactly two string fields named `file` and `func`. In every item, `file` is the forward-slash, repo-relative defining path `lark/tools/standalone.py`, and `func` is the function identity defined above. Emit the strings directly as JSON strings, without applying Python `repr()` or `str()` wrappers.",
+  "question_kind": "S6_InterProceduralCFG",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

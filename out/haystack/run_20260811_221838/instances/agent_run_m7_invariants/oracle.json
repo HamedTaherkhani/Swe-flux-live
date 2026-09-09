@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 79,
+        "predicate": "any(msg.tool_call for msg in llm_messages)",
+        "violations": 7
+      },
+      {
+        "held_always": true,
+        "observations": 79,
+        "predicate": "exe_context.component_visits['chat_generator'] - exe_context.component_visits['tool_invoker'] == 1",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 79,
+        "predicate": "exe_context.counter % 2 == len(llm_messages) % 2",
+        "violations": 39
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "exe_context.counter % 3 == 0",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 79,
+        "predicate": "exe_context.counter < 13",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 79,
+        "predicate": "len(llm_messages) == 1",
+        "violations": 51
+      }
+    ]
+  },
+  "question": "Run every test method in the unittest class `TestAgentRunInvariants` from\n`haystack_qa/agent_run_m7_invariants/files/testcase.py` using pytest. The answer\naggregates all 12 methods collected under the pytest class id\n`haystack_qa/agent_run_m7_invariants/files/testcase.py::TestAgentRunInvariants`;\nno method is omitted. Method execution order is pytest's collection order, but\nthe requested aggregate counts are independent of that order.\n\nFor `haystack.components.agents.agent.Agent.run` in\n`haystack/components/agents/agent.py`, evaluate these candidate predicates\nverbatim:\n\n1. `any(msg.tool_call for msg in llm_messages)`\n2. `exe_context.component_visits['chat_generator'] - exe_context.component_visits['tool_invoker'] == 1`\n3. `exe_context.counter < 13`\n4. `exe_context.counter % 2 == len(llm_messages) % 2`\n5. `exe_context.counter % 3 == 0`\n6. `len(llm_messages) == 1`\n\nPredicates 1, 2, 3, 4, and 6 are evaluated at every execution of the line event\nfor absolute 1-based line 513 in the named target file, immediately before the\n`if` expression beginning on that line is evaluated. Predicate 5 is evaluated\nat every execution of the line event for absolute 1-based line 498,\nimmediately before the assignment beginning on that line is evaluated. Python\nline events for a multi-line statement belong to the absolute source line\nwhere the executed statement or expression begins; decorator, `def`, and\ndocstring lines are not observation points here. Evaluate each predicate using\nthe actual Python local values in that invocation's `Agent.run` frame at that\ninstant.\n\nAn invocation means one call event for `Agent.run` during the complete class\nrun, numbered 1-based in chronological order. Every qualifying line event in\nevery invocation is a separate observation: retain repeated equal states and\ndo not deduplicate events. `observations` is the total number of evaluations\nof that predicate across all 12 test methods. `violations` is the number whose\nPython truth value is false. `held_always` is exactly `violations == 0`, except\nthat a predicate with no observations must be reported as\n`{\"observations\": 0, \"violations\": 0, \"held_always\": false}`.\n\nReturn exactly\n`{\"invariant_report\": [{\"held_always\": bool, \"observations\": int, \"predicate\": str, \"violations\": int}]}`\nwith one object per candidate. The `predicate` value is the verbatim expression\nshown above, without backticks. Sort objects by the complete `predicate`\nstring in ascending Unicode code-point order. Predicate strings are unique, so\nno tie can occur; if they were equal, preserve the numbered order above as the\ntie-break. JSON booleans are used for `held_always`; counts are JSON integers.\nNo runtime value is stringified or otherwise serialized in the answer.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

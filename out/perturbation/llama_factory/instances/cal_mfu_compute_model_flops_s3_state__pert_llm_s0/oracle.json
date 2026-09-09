@@ -1,0 +1,44 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "828041984",
+        "variable": "attn_proj_flops"
+      },
+      {
+        "value": "3",
+        "variable": "embedding_coeff"
+      },
+      {
+        "value": "94274656",
+        "variable": "embedding_flops"
+      },
+      {
+        "value": "2889449472",
+        "variable": "mlp_flops"
+      },
+      {
+        "value": "3",
+        "variable": "non_embedding_coeff"
+      },
+      {
+        "value": "4268524288",
+        "variable": "non_embedding_flops"
+      },
+      {
+        "value": "551032832",
+        "variable": "sdpa_flops"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `llama_factory_qa/cal_mfu_compute_model_flops_s3_state/files/testcase.py::TestCalculateMFUState::test_calculate_multiple_generated_models`. During that test run, consider the exact function `scripts.stat_utils.cal_mfu.compute_model_flops` in the repository-relative file `scripts/stat_utils/cal_mfu.py`.\n\nFor the first invocation of that function, report the values of the seven locals `attn_proj_flops`, `embedding_coeff`, `embedding_flops`, `mlp_flops`, `non_embedding_coeff`, `non_embedding_flops`, and `sdpa_flops` immediately after line 73 has executed for the first time. An invocation is one call of this exact function during the test run, numbered from 1 in chronological order. “Immediately after line 73 has executed” means after the augmented assignment beginning on that line has read the prior value, computed and stored the updated value, with the frame's locals as they stand before the next source line executes. Thus the augmented assignment is treated as both a read and a write, and the requested state includes its completed write.\n\nLine numbers are absolute 1-based line numbers in the named file as it exists in the repository. For a multi-line statement or expression, execution is attributed to the line where that statement or expression begins. Decorator lines, the `def` line, the docstring line, comments, and blank lines do not count as executions of line 73. If the specified line were not reached, the task would have no answer; in this test it is reached and all seven named locals exist at the observation point.\n\nReturn exactly `{\"observed_state\": [...]}`. The list must contain exactly one object for each named local, and each object must have exactly the two string keys `value` and `variable`. Sort the objects by `variable` in ascending Unicode code-point order, with no deduplication. Set `variable` to the exact source-level local name. Set `value` to Python's `repr()` string for that local's value at the observation point. For a container, use `repr()` of the whole container rather than separately serializing its elements: strings retain their quotes, and `None`, `True`, and `False` use Python spellings inside the value string. For example, a hypothetical tuple containing a label and no value has decoded JSON-string content `('sample', None)`. If a represented string contains an embedded newline, the decoded JSON string contains a real newline, escaped as required in the JSON file. No JSON null, empty-string sentinel, or omitted key is used for a missing value.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

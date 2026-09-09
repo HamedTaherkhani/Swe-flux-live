@@ -1,0 +1,48 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 270,
+        "predicate": "(chunk_word_count + sentence_idx) % 4 != 0",
+        "violations": 67
+      },
+      {
+        "held_always": false,
+        "observations": 270,
+        "predicate": "chunk_word_count + next_sentence_word_count <= split_length + split_overlap",
+        "violations": 200
+      },
+      {
+        "held_always": false,
+        "observations": 270,
+        "predicate": "chunk_word_count <= 30",
+        "violations": 1
+      },
+      {
+        "held_always": true,
+        "observations": 270,
+        "predicate": "next_sentence_word_count <= 30",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "split_overlap < split_length",
+        "violations": 0
+      }
+    ]
+  },
+  "question": "Run every test method in `haystack_qa/document_splitter_concatenate_sentences_based_on_word_amount_m7_invariants/files/testcase.py::TestDocumentSplitterRuntimeInvariants` and report runtime invariants for `haystack.components.preprocessors.document_splitter.DocumentSplitter._concatenate_sentences_based_on_word_amount` in `haystack/components/preprocessors/document_splitter.py`. The answer aggregates all 12 `test_...` methods in that class. A test is identified by its full pytest id `haystack_qa/document_splitter_concatenate_sentences_based_on_word_amount_m7_invariants/files/testcase.py::TestDocumentSplitterRuntimeInvariants::<method_name>`; consider those ids in ascending string order. An invocation is one entry into the target function, numbered from 1 in chronological execution order within that run.\n\nEvaluate these five candidate predicates verbatim:\n\n1. `(chunk_word_count + sentence_idx) % 4 != 0`\n2. `chunk_word_count + next_sentence_word_count <= split_length + split_overlap`\n3. `chunk_word_count <= 30`\n4. `next_sentence_word_count <= 30`\n5. `split_overlap < split_length`\n\nFor predicates 1-4, an observation is each execution of the `if` statement beginning at absolute, 1-based line 437 of the named repository file, immediately before that statement's condition is evaluated. Evaluate the predicate from that target invocation's local values at that moment. For predicate 5, an observation is each execution of absolute, 1-based line 407, immediately before the expression beginning on that line is evaluated. A multi-line statement is identified by the line where its statement or expression begins; decorator and `def` lines do not count as observation points. Sum observations across every target invocation made by all test methods. Do not deduplicate repeated observations.\n\nReturn exactly `{\"invariant_report\": [...]}`. The list has exactly one object per candidate, with exactly these keys and types: `predicate` is the verbatim string above, `observations` is an integer count of evaluations, `violations` is an integer count for which the predicate evaluated to false, and `held_always` is a JSON boolean equal to `violations == 0` when at least one observation exists. If a predicate has zero observations, report `observations: 0`, `violations: 0`, and `held_always: false`. Sort entries by the full `predicate` string in ascending Unicode code-point order. Predicate strings are unique, so no tie-break is needed and no entries are removed. Integers are emitted as JSON numbers and booleans as lowercase JSON `true` or `false`; no local value itself is serialized into the answer.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "oracle_answer": {
+    "nth_iteration": 73,
+    "value": "Candidate(full_name='owner-124577/repo-072-764084', name='repo-072-764084', html_url='https://example.invalid/repos/124577/764084', stargazers_count=18373, owner=Owner(login='owner-124577', html_url='https://example.invalid/owners/124577'))",
+    "variable": "repo"
+  },
+  "question": "Run only the pytest test `fastapi_qa/topic_repos_main_s2_loops/files/testcase.py::TestGeneratedTopicRepositories::test_seeded_repository_catalog`. During that test run, consider the first invocation of the exact function `scripts.topic_repos.main` in `scripts/topic_repos.py`.\n\nFor the `for` loop whose header is on line 35, what is the value of the loop variable `repo` at iteration 73? An invocation is one Python `call` of this exact function, counted 1-based in chronological order; only invocation 1 is requested. Iterations are also counted 1-based in chronological order, and iteration N means the Nth execution of the loop body's first line, line 36 (`if repo.full_name == settings.github_repository:`), in that same invocation's frame. Executions in callees or other function frames do not count. Do not sort or deduplicate iterations.\n\nReport `value` as the full, untruncated Python `repr(repo)` evaluated immediately before line 36 executes on the requested iteration. This is the `repr()` of the whole object, including Python punctuation and quoting; for example, an unrelated object could be represented as `Widget(name='demo')`. Store those exact representation characters as a JSON string (with only the escaping required by JSON), rather than using `str()`, JSON object notation, or JSON `null`. The variable name is the raw string `repo`.\n\nLine numbers are absolute, 1-based line numbers in the named repository file as it exists for the test. Both the loop header and its first body statement begin on the stated single lines; the `def` line, decorators, docstrings, and events for continuation lines of multi-line statements are irrelevant and do not count.\n\nReturn `oracle_answer` with exactly the shape `{\"nth_iteration\": 73, \"value\": <string>, \"variable\": \"repo\"}`. `nth_iteration` is a JSON integer, while `value` and `variable` are JSON strings. The object has exactly these three fixed keys; because each requested field is a scalar for one fixed iteration, no output sorting, tie-breaking, duplicate removal, missing-value, empty-value, or null convention applies.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "nth_iteration": "int",
+    "value": "str",
+    "variable": "str"
+  }
+}

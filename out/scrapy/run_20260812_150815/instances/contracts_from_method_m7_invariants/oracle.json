@@ -1,0 +1,48 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 528,
+        "predicate": "(\"url\" in kwargs) and (len(kwargs[\"url\"]) % 5 == int(contract.args[0]) % 5)",
+        "violations": 432
+      },
+      {
+        "held_always": false,
+        "observations": 491,
+        "predicate": "(int(contract.args[0]) + len(request.url)) % 11 < len(contracts) % 11",
+        "violations": 193
+      },
+      {
+        "held_always": true,
+        "observations": 568,
+        "predicate": "int(contract.args[0]) % 504 != sum(int(item.args[0]) for item in contracts) % 504",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "request_cls is not Request",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 23,
+        "predicate": "sum(int(item.args[0]) for item in contracts) % 17 != 1",
+        "violations": 1
+      }
+    ]
+  },
+  "question": "Run the pytest class selection `scrapy_qa/contracts_from_method_m7_invariants/files/testcase.py::TestContractsFromMethodInvariants`. It contains all twelve methods `test_01_single_dense` through `test_12_final_fault`; include every `test_...` method in that class, in ascending pytest-id (Unicode string) order, and aggregate observations across all of them. During that complete run, evaluate the five candidate predicates below in the target frame of `scrapy.contracts.ContractsManager.from_method` in `scrapy/contracts/__init__.py`.\n\nEach predicate has its own observation point, shown after the colon. Evaluate it once for every target-frame Python `line` event at that absolute source line, immediately before that line executes, using the actual current local objects and normal Python expression semantics:\n\n- `(\"url\" in kwargs) and (len(kwargs[\"url\"]) % 5 == int(contract.args[0]) % 5)`: line 176.\n- `(int(contract.args[0]) + len(request.url)) % 11 < len(contracts) % 11`: line 186.\n- `int(contract.args[0]) % 504 != sum(int(item.args[0]) for item in contracts) % 504`: line 164; `item` is only the predicate's generator-expression variable.\n- `request_cls is not Request`: line 165, where `Request` is the `scrapy.http.Request` class imported in the target module.\n- `sum(int(item.args[0]) for item in contracts) % 17 != 1`: line 181; `item` is only the predicate's generator-expression variable.\n\nThe source-line numbers are absolute, 1-based physical lines in the named repository file. A line event is attributed to the line where the executed statement or expression begins; it occurs before that line's operation, so assignments performed by earlier lines are already reflected while an assignment on the observed line is not. Blank, comment, decorator, `def`, and docstring lines contribute no observation unless Python actually emits a target-frame `line` event there. Count loop-body line events separately on every iteration. A target invocation is one `call` event for this function, numbered 1-based in chronological order across the ordered test methods; all invocations count, including ones that later return `None` or raise into the caller. Do not count `call`, `return`, or `exception` events as predicate observations.\n\nFor each predicate, `observations` is the total number of evaluations at its own observation point over the whole class run, and `violations` is the number whose result is false. `held_always` is exactly `violations == 0`, except that a predicate with zero observations is not evaluable and must be reported with `observations: 0`, `violations: 0`, and `held_always: false`.\n\nReturn exactly one JSON object with key `invariant_report`. Its value is a JSON array containing exactly one object per candidate predicate, with exactly these keys: `held_always` (JSON boolean), `observations` (JSON integer), `predicate` (JSON string copied verbatim from the candidate expression), and `violations` (JSON integer). Sort rows by `predicate` ascending in Unicode code-point order. Predicate strings are emitted directly as JSON strings and counts directly as JSON integers; no `repr()`, `str()`, deduplication, null, or empty-string sentinel is used. The predicate string is unique, so there is no further tie-break.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 368,
+        "use_line": 369,
+        "variable": "_"
+      },
+      {
+        "def_line": 382,
+        "use_line": 383,
+        "variable": "clean_imports"
+      },
+      {
+        "def_line": 356,
+        "use_line": 368,
+        "variable": "file"
+      },
+      {
+        "def_line": 355,
+        "use_line": 373,
+        "variable": "import_statement"
+      },
+      {
+        "def_line": 355,
+        "use_line": 378,
+        "variable": "import_statement"
+      },
+      {
+        "def_line": 355,
+        "use_line": 382,
+        "variable": "import_statement"
+      },
+      {
+        "def_line": 365,
+        "use_line": 370,
+        "variable": "inside_bracket"
+      },
+      {
+        "def_line": 375,
+        "use_line": 370,
+        "variable": "inside_bracket"
+      },
+      {
+        "def_line": 380,
+        "use_line": 370,
+        "variable": "inside_bracket"
+      },
+      {
+        "def_line": 369,
+        "use_line": 372,
+        "variable": "line"
+      },
+      {
+        "def_line": 369,
+        "use_line": 373,
+        "variable": "line"
+      },
+      {
+        "def_line": 369,
+        "use_line": 374,
+        "variable": "line"
+      },
+      {
+        "def_line": 369,
+        "use_line": 378,
+        "variable": "line"
+      },
+      {
+        "def_line": 369,
+        "use_line": 379,
+        "variable": "line"
+      },
+      {
+        "def_line": 348,
+        "use_line": 350,
+        "variable": "node_func"
+      },
+      {
+        "def_line": 350,
+        "use_line": 351,
+        "variable": "python_file"
+      },
+      {
+        "def_line": 350,
+        "use_line": 354,
+        "variable": "python_file"
+      },
+      {
+        "def_line": 350,
+        "use_line": 356,
+        "variable": "python_file"
+      }
+    ]
+  },
+  "question": "Run the pytest test\n`kedro_qa/ipython_prepare_imports_m4_dataflow/files/testcase.py::TestIPythonPrepareImportsDataFlow::test_generated_magic_sources`\nagainst this repository. Across all invocations during that test, what unique\nruntime def-use pairs are observed in the exact function frame\n`kedro.ipython._prepare_imports` from `kedro/ipython/__init__.py` for exactly\nthe local variables `_`, `clean_imports`, `file`, `import_statement`,\n`inside_bracket`, `line`, `node_func`, and `python_file`?\n\nA def-use pair records that a value defined for one tracked local at\n`def_line` is subsequently read at `use_line` in the same invocation before\nthat local is redefined. A definition is an executed assignment to the local,\nan executed `with ... as name` binding, an executed loop-target binding, or a\nparameter binding. Parameters count as defined on the first physical line of\nthe function's `def` statement, even when a signature spans lines. An\nordinary assignment's definition is on the physical line containing its\ntarget name; reads in its right-hand side occur before that definition. A\n`with` alias is defined on the physical line containing that alias after the\ncontext manager is entered. Assignment targets are not reads.\n\nA use is an actual runtime read by the exact target frame. A name in a branch\nthat is not taken, or in an operand skipped by Boolean short-circuiting, is\nnot a use. Multiple reads producing the same variable/definition/use-line\ntriple still contribute only one pair. Treat augmented assignment as reading\nand then writing: for example, `count += step` uses the old reaching\ndefinition of `count` on that line and then defines `count` on that same\nline. A loop header such as `for item in items` reads `items` when its\niterable expression is evaluated and defines `item` on that header's physical\nline once for each successful iteration, before executing that iteration's\nbody; exhaustion does not define `item`.\n\nComprehension-local variables, including a comprehension's iteration\nvariable, belong to the comprehension frame and are excluded. A read\nperformed by the exact target frame to supply a comprehension's outermost\niterable still counts. For example, in `sum(v for v in values)`, `v` is\ncomprehension-local, while the target-frame read of `values` counts if it is\none of the explicitly tracked variables.\n\nOnly operations executed by an exact `kedro.ipython._prepare_imports` frame\ncount; exclude callees, caller frames, and comprehension or generator frames.\nAn invocation means one `call` of that exact function during the named test,\nnumbered 1-based in chronological call order, although invocation numbers are\nnot included in the answer. Each invocation starts with fresh reaching\ndefinitions: no definition can reach from one invocation into another.\nUnion the pairs observed across all invocations, retain a triple observed at\nleast once, and remove exact duplicates by all three fields.\n\n`def_line` and `use_line` are JSON integers containing absolute, 1-based\nphysical source line numbers in the named repository file as it exists for\nthis run. For a multi-line statement or expression, attribute each assignment\nor read to the physical line where that particular target or name expression\nbegins. The first `def` line can appear only for parameter definitions.\nDecorator and docstring lines do not count unless they themselves execute an\noperation covered by the rules above.\n\nThe complete answer must have exactly the JSON shape\n`{\"observed_def_use_pairs\": [{\"def_line\": \"int\", \"use_line\": \"int\", \"variable\": \"str\"}]}`.\n`observed_def_use_pairs` is a JSON array, and each element has exactly those\nthree keys. `variable` is the local's exact source spelling encoded as a JSON\nstring; `def_line` and `use_line` are JSON numbers encoded as unquoted\nintegers. No field is omitted or represented by JSON `null`. Sort the array\nfirst by `variable` in ascending Unicode code-point order, then by `def_line`\nascending, then by `use_line` ascending. Apart from exact-triple\ndeduplication, do not merge or omit entries. The `\"str\"` and `\"int\"` values\nshown in the shape are type placeholders, not answer values.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

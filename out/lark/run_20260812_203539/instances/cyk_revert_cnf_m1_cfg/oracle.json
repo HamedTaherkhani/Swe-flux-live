@@ -1,0 +1,100 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 0,
+        "line": 320
+      },
+      {
+        "count": 1894,
+        "line": 321
+      },
+      {
+        "count": 762,
+        "line": 322
+      },
+      {
+        "count": 0,
+        "line": 323
+      },
+      {
+        "count": 1132,
+        "line": 324
+      },
+      {
+        "count": 209,
+        "line": 325
+      },
+      {
+        "count": 0,
+        "line": 326
+      },
+      {
+        "count": 923,
+        "line": 327
+      },
+      {
+        "count": 2805,
+        "line": 328
+      },
+      {
+        "count": 0,
+        "line": 329
+      },
+      {
+        "count": 1882,
+        "line": 330
+      },
+      {
+        "count": 103,
+        "line": 331
+      },
+      {
+        "count": 0,
+        "line": 332
+      },
+      {
+        "count": 1779,
+        "line": 333
+      },
+      {
+        "count": 0,
+        "line": 334
+      },
+      {
+        "count": 923,
+        "line": 335
+      },
+      {
+        "count": 226,
+        "line": 336
+      },
+      {
+        "count": 113,
+        "line": 337
+      },
+      {
+        "count": 113,
+        "line": 338
+      },
+      {
+        "count": 0,
+        "line": 339
+      },
+      {
+        "count": 810,
+        "line": 340
+      }
+    ]
+  },
+  "question": "Run only the pytest class node `lark_qa/cyk_revert_cnf_m1_cfg/files/testcase.py::TestRevertCnfAggregateControlFlow`, and aggregate over ALL of its test methods: `test_amber_canopy`, `test_brisk_delta`, `test_cobalt_finch`, `test_dappled_grove`, `test_ember_harbor`, `test_frosted_isle`, `test_golden_junction`, `test_hushed_keystone`, `test_indigo_lantern`, `test_jade_meadow`, `test_kindled_north`, `test_lucid_orchard`. For `lark.parsers.cyk.revert_cnf` in `lark/parsers/cyk.py`, report the total runtime line-event count for every physical source line in the function body, defined here as absolute 1-based lines 320 through 340 inclusive. A runtime line event means a Python tracing `line` event whose frame is exactly an invocation of that target function and whose `frame.f_lineno` is the reported physical line. An invocation is one `call` event for exactly `lark.parsers.cyk.revert_cnf`; invocations are 1-based in chronological order if they need to be distinguished, but the requested counts sum across every invocation made by every listed test method. Recursive `revert_cnf` invocations therefore contribute their own line events. Events in callers, in `unroll_unit_skiprule`, or in any other nested frame do not contribute. Count every repeated line event separately; do not deduplicate events. For a multi-line statement or expression, attribute each event to the absolute physical line reported by `frame.f_lineno`; do not collapse continuation-line events onto the statement's first line. Thus a continuation line contributes when and only when the runtime emits a `line` event carrying that continuation line's own number. The function's `def` line 319 and any decorator lines are excluded from the body range and never count. Every line in the inclusive body range must nevertheless appear in the answer: a docstring, blank line, comment line, continuation line, or executable line that produces no target line event is reported with count 0. Counts are totals across the whole class run; pytest's method execution order does not alter these sums. Return exactly one JSON object with the single key `line_execution_counts`. Its value is a list containing one object per physical line in the body range; each object has exactly `count` (a non-negative JSON integer) and `line` (an absolute 1-based JSON integer). Sort the list by `line` in strictly ascending order, with no omissions or duplicates. There are no string-value conversions, sentinel strings, or null values.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

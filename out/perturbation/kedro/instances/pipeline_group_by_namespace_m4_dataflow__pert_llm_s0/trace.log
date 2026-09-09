@@ -1,0 +1,495 @@
+2026-08-22 22:38:19.962 [TRACE][START] pid=46 TRACE_OUT='/testbed/logs/kedro_qa/pipeline_group_by_namespace_m4_dataflow__pert_llm_s0/trace.log' TRACE_FILE='kedro/pipeline/pipeline.py' TRACE_FUNCS=['_group_by_namespace'] TRACE_EVENTS=['call', 'exception', 'line', 'return']
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:612 kedro.pipeline.pipeline._group_by_namespace event=call locals={'self': "Pipeline([\nNode(_passthrough, None, 'raw_alpha', 'data_ingest_alpha'),\nNode(_passthrough, None, 'raw_beta', 'data_ingest_beta'),\nNode(_passthrough, None, 'pred_idle', 'inference_serve_idle'),\nNode(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_alpha_out', 'feat_engine_primary'),\nNode(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_beta_out', 'feat_engine_secondary'),\nNode(_passthrough, ['feat_alpha_out', 'feat_beta_out', 'raw_alpha', 'raw_beta'], 'model_alpha', 'model_train_alpha'),\nNode(_passthr..."}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:613 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': '{}'}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, None, 'raw_alpha', 'data_ingest_alpha')"}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'data_ingest'"}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=[], dependencies=[])}"}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha'], dependencies=[])}"}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': '[]'}
+2026-08-22 22:38:20.017 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': 'set()'}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, None, 'raw_beta', 'data_ingest_beta')"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[])}"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, None, 'pred_idle', 'inference_serve_idle')"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'inference_serve'"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=[], dependencies=[])}"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle'], dependencies=[])}"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_alpha_out', 'feat_engine_primary')"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'feat_engine'"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle'], dependencies=[]), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace', nodes=[], dependencies=[])}"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle'], dependencies=[]), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace', nodes=['feat_engine.feat_engine_primary'], dependencies=[])}"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_alpha', 'data_ingest_alpha')"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'data_ingest'"}
+2026-08-22 22:38:20.018 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['data_ingest']", 'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle'], dependencies=[]), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace', nodes=['feat_engine.feat_engine_primary'], dependencies=['data_ingest'])}"}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'data_ingest'}"}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_beta', 'data_ingest_beta')"}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_beta_out', 'feat_engine_secondary')"}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle'], dependencies=[]), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace', nodes=['feat_engine.feat_engine_primary', 'feat_engine.feat_engine_secondary'], dependencies=['data_ingest'])}"}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_alpha', 'data_ingest_alpha')"}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_beta', 'data_ingest_beta')"}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['feat_alpha_out', 'feat_beta_out', 'raw_alpha', 'raw_beta'], 'model_alpha', 'model_train_alpha')"}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'model_train'"}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle'], dependencies=[]), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace', nodes=['feat_engine.feat_engine_primary', 'feat_engine.feat_engine_secondary'], dependencies=['data_ingest']), 'model_train': GroupedNod..."}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': '[]'}
+2026-08-22 22:38:20.019 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': 'set()'}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_alpha', 'data_ingest_alpha')"}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['data_ingest']"}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'data_ingest'}"}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_beta', 'data_ingest_beta')"}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_alpha_out', 'feat_engine_primary')"}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'feat_engine'"}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['data_ingest', 'feat_engine']"}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'data_ingest', 'feat_engine'}"}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_beta_out', 'feat_engine_secondary')"}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['feat_alpha_out', 'feat_beta_out', 'raw_alpha'], 'model_gamma', 'model_train_gamma')"}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.020 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_alpha', 'data_ingest_alpha')"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'data_ingest'"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_alpha_out', 'feat_engine_primary')"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'feat_engine'"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_beta_out', 'feat_engine_secondary')"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['feat_alpha_out', 'feat_beta_out', 'raw_alpha'], 'model_beta', 'model_train_beta')"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_alpha', 'data_ingest_alpha')"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'data_ingest'"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_alpha_out', 'feat_engine_primary')"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'feat_engine'"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_beta_out', 'feat_engine_secondary')"}
+2026-08-22 22:38:20.021 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['model_alpha', 'model_beta', 'model_gamma', 'feat_alpha_out', 'feat_beta_out', 'raw_alpha', 'raw_beta'], 'pred_main', 'inference_serve_main')"}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'inference_serve'"}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle', 'inference_serve.inference_serve_main'], dependencies=[]), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace', nodes=['feat_engine.feat_engine_primary', 'feat_engine.feat_engine_secondary'], dependencies=['d..."}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': '[]'}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': 'set()'}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_alpha', 'data_ingest_alpha')"}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'data_ingest'"}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['data_ingest']", 'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle', 'inference_serve.inference_serve_main'], dependencies=['data_ingest']), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace', nodes=['feat_engine.feat_engine_primary', 'feat_engine.feat_engine_secondary'], dep..."}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'data_ingest'}"}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_beta', 'data_ingest_beta')"}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_alpha_out', 'feat_engine_primary')"}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'feat_engine'"}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['data_ingest', 'feat_engine']", 'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle', 'inference_serve.inference_serve_main'], dependencies=['data_ingest', 'feat_engine']), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace', nodes=['feat_engine.feat_engine_primary', 'feat_engine.feat_engine_s..."}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'data_ingest', 'feat_engine'}"}
+2026-08-22 22:38:20.022 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_beta_out', 'feat_engine_secondary')"}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['feat_alpha_out', 'feat_beta_out', 'raw_alpha', 'raw_beta'], 'model_alpha', 'model_train_alpha')"}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'model_train'"}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['data_ingest', 'feat_engine', 'model_train']", 'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle', 'inference_serve.inference_serve_main'], dependencies=['data_ingest', 'feat_engine', 'model_train']), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace', nodes=['feat_engine.feat_engine_primary', 'feat_engin..."}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'data_ingest', 'model_train', 'feat_engine'}"}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['feat_alpha_out', 'feat_beta_out', 'raw_alpha'], 'model_gamma', 'model_train_gamma')"}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['feat_alpha_out', 'feat_beta_out', 'raw_alpha'], 'model_beta', 'model_train_beta')"}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['pred_main', 'feat_alpha_out', 'feat_beta_out', 'raw_alpha'], 'pred_nested', 'inference_serve_nested')"}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle', 'inference_serve.inference_serve_main', 'inference_serve.deep.nested.inference_serve_nested'], dependencies=['data_ingest', 'feat_engine', 'model_train']), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace',..."}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.023 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'raw_alpha', 'data_ingest_alpha')"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'data_ingest'"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_alpha_out', 'feat_engine_primary')"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'feat_engine'"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_beta_out', 'feat_engine_secondary')"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['model_alpha', 'model_beta', 'model_gamma', 'feat_alpha_out', 'feat_beta_out', 'raw_alpha', 'raw_beta'], 'pred_main', 'inference_serve_main')"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'inference_serve'"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:637 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:637 kedro.pipeline.pipeline._group_by_namespace event=return retval=[GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle', 'inference_serve.inference_serve_main', 'inference_serve.deep.nested.inference_serve_nested'], dependencies=['data_ingest', 'feat_engine', 'model_train']), GroupedNodes(name='feat_engine', type='namespace', nodes=['feat_engine.feat_engine_primary', 'feat_... locals={'dependencies': "['data_ingest', 'feat_engine', 'model_train']", 'grouped_nodes_map': "{'data_ingest': GroupedNodes(name='data_ingest', type='namespace', nodes=['data_ingest.data_ingest_alpha', 'data_ingest.data_ingest_beta'], dependencies=[]), 'inference_serve': GroupedNodes(name='inference_serve', type='namespace', nodes=['inference_serve.inference_serve_idle', 'inference_serve.inference_serve_main', 'inference_serve.deep.nested.inference_serve_nested'], dependencies=['data_ingest', 'feat_engine', 'model_train']), 'feat_engine': GroupedNodes(name='feat_engine', type='namespace',...", 'key': "'inference_serve'", 'node': "Node(_passthrough, ['pred_main', 'feat_alpha_out', 'feat_beta_out', 'raw_alpha'], 'pred_nested', 'inference_serve_nested')", 'parent': "Node(_passthrough, ['model_alpha', 'model_beta', 'model_gamma', 'feat_alpha_out', 'feat_beta_out', 'raw_alpha', 'raw_beta'], 'pred_main', 'inference_serve_main')", 'parent_key': "'inference_serve'", 'self': "Pipeline([\nNode(_passthrough, None, 'raw_alpha', 'data_ingest_alpha'),\nNode(_passthrough, None, 'raw_beta', 'data_ingest_beta'),\nNode(_passthrough, None, 'pred_idle', 'inference_serve_idle'),\nNode(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_alpha_out', 'feat_engine_primary'),\nNode(_passthrough, ['raw_alpha', 'raw_beta'], 'feat_beta_out', 'feat_engine_secondary'),\nNode(_passthrough, ['feat_alpha_out', 'feat_beta_out', 'raw_alpha', 'raw_beta'], 'model_alpha', 'model_train_alpha'),\nNode(_passthr...", 'unique_dependencies': "{'data_ingest', 'model_train', 'feat_engine'}"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:612 kedro.pipeline.pipeline._group_by_namespace event=call locals={'self': "Pipeline([\nNode(_passthrough, None, 'bs_delta', 'bare_isolated_delta'),\nNode(_passthrough, None, 'bs_alpha', 'bare_source_alpha'),\nNode(_passthrough, None, 'lone_out', 'lone_alpha'),\nNode(_passthrough, ['bs_alpha'], 'mix_out_alpha', 'mix_alpha'),\nNode(_passthrough, ['mix_out_alpha', 'bs_alpha'], 'bs_beta', 'bare_bridge_beta'),\nNode(_passthrough, ['bs_beta', 'bs_alpha'], 'mix_out_beta', 'mix_beta'),\nNode(_passthrough, ['mix_out_beta', 'mix_out_alpha'], 'bs_gamma', 'bare_sink_gamma'),\nNode(_passth..."}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:613 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': '{}'}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, None, 'bs_delta', 'bare_isolated_delta')"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'bare_isolated_delta'"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=[], dependencies=[])}"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[])}"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': '[]'}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': 'set()'}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, None, 'bs_alpha', 'bare_source_alpha')"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'bare_source_alpha'"}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.024 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=[], dependencies=[])}"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[])}"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, None, 'lone_out', 'lone_alpha')"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'lone'"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), 'lone': GroupedNodes(name='lone', type='namespace', nodes=[], dependencies=[])}"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), 'lone': GroupedNodes(name='lone', type='namespace', nodes=['lone.tower.lone_alpha'], dependencies=[])}"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['bs_alpha'], 'mix_out_alpha', 'mix_alpha')"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'mix'"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), 'lone': GroupedNodes(name='lone', type='namespace', nodes=['lone.tower.lone_alpha'], dependencies=[]), 'mix': GroupedNodes(name='mix', type='namespace', nodes=[], dependencies=[])}"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), 'lone': GroupedNodes(name='lone', type='namespace', nodes=['lone.tower.lone_alpha'], dependencies=[]), 'mix': GroupedNodes(name='mix', type='namespace', nodes=['mix.outer.mix_alpha'], dependencies=[])}"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'bs_alpha', 'bare_source_alpha')"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'bare_source_alpha'"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['bare_source_alpha']", 'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), 'lone': GroupedNodes(name='lone', type='namespace', nodes=['lone.tower.lone_alpha'], dependencies=[]), 'mix': GroupedNodes(name='mix', type='namespace', nodes=['mix.outer.mix_alpha'], dependencies=['bare_source_alpha'])}"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'bare_source_alpha'}"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['mix_out_alpha', 'bs_alpha'], 'bs_beta', 'bare_bridge_beta')"}
+2026-08-22 22:38:20.025 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'bare_bridge_beta'"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), 'lone': GroupedNodes(name='lone', type='namespace', nodes=['lone.tower.lone_alpha'], dependencies=[]), 'mix': GroupedNodes(name='mix', type='namespace', nodes=['mix.outer.mix_alpha'], dependencies=['bare_source_alpha']), 'bare_bridge_beta': GroupedNod..."}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': '[]'}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': 'set()'}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['bare_source_alpha']"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'bare_source_alpha'}"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['bs_alpha'], 'mix_out_alpha', 'mix_alpha')"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'mix'"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['bare_source_alpha', 'mix']"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'bare_source_alpha', 'mix'}"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['bs_beta', 'bs_alpha'], 'mix_out_beta', 'mix_beta')"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'mix'"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), 'lone': GroupedNodes(name='lone', type='namespace', nodes=['lone.tower.lone_alpha'], dependencies=[]), 'mix': GroupedNodes(name='mix', type='namespace', nodes=['mix.outer.mix_alpha', 'mix.inner.deep.mix_beta'], dependencies=['bare_source_alpha']), 'ba..."}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['bare_source_alpha']"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'bare_source_alpha'}"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['mix_out_alpha', 'bs_alpha'], 'bs_beta', 'bare_bridge_beta')"}
+2026-08-22 22:38:20.026 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'bare_bridge_beta'"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['bare_source_alpha', 'bare_bridge_beta']", 'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), 'lone': GroupedNodes(name='lone', type='namespace', nodes=['lone.tower.lone_alpha'], dependencies=[]), 'mix': GroupedNodes(name='mix', type='namespace', nodes=['mix.outer.mix_alpha', 'mix.inner.deep.mix_beta'], dependencies=['bare_source_alpha', 'bare..."}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'bare_source_alpha', 'bare_bridge_beta'}"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'bs_alpha', 'bare_source_alpha')"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'bare_source_alpha'"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['mix_out_beta', 'mix_out_alpha'], 'bs_gamma', 'bare_sink_gamma')"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'bare_sink_gamma'"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': '[]'}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': 'set()'}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['bs_beta', 'bs_alpha'], 'mix_out_beta', 'mix_beta')"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'mix'"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['mix']"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'mix'}"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['bs_alpha'], 'mix_out_alpha', 'mix_alpha')"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['lone_out', 'mix_out_alpha', 'bs_beta', 'mix_out_beta', 'bs_alpha'], 'mix_out_gamma', 'mix_gamma')"}
+2026-08-22 22:38:20.027 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'mix'"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), 'lone': GroupedNodes(name='lone', type='namespace', nodes=['lone.tower.lone_alpha'], dependencies=[]), 'mix': GroupedNodes(name='mix', type='namespace', nodes=['mix.outer.mix_alpha', 'mix.inner.deep.mix_beta', 'mix.outer.mix_gamma'], dependencies=['ba..."}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['bare_source_alpha', 'bare_bridge_beta']"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'bare_source_alpha', 'bare_bridge_beta'}"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['mix_out_alpha', 'bs_alpha'], 'bs_beta', 'bare_bridge_beta')"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'bare_bridge_beta'"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'bs_alpha', 'bare_source_alpha')"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'bare_source_alpha'"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'lone_out', 'lone_alpha')"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'lone'"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['bare_source_alpha', 'bare_bridge_beta', 'lone']"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'lone', 'bare_source_alpha', 'bare_bridge_beta'}"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['bs_beta', 'bs_alpha'], 'mix_out_beta', 'mix_beta')"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'mix'"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['bs_alpha'], 'mix_out_alpha', 'mix_alpha')"}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.028 /testbed/kedro/pipeline/pipeline.py:637 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:637 kedro.pipeline.pipeline._group_by_namespace event=return retval=[GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), GroupedNodes(name='lone', type='namespace', nodes=['lone.tower.lone_alpha'], dependencies=[]), GroupedNodes(name='mix', type='namespace', nodes=['mix.outer.mix_alpha', 'mix.inner.deep.mix_beta', 'mix.outer.mix_gamma'], dependencies=['bare_source_alpha', 'bare_bridge_beta', 'lone']), GroupedNode... locals={'dependencies': "['bare_source_alpha', 'bare_bridge_beta', 'lone']", 'grouped_nodes_map': "{'bare_isolated_delta': GroupedNodes(name='bare_isolated_delta', type='nodes', nodes=['bare_isolated_delta'], dependencies=[]), 'bare_source_alpha': GroupedNodes(name='bare_source_alpha', type='nodes', nodes=['bare_source_alpha'], dependencies=[]), 'lone': GroupedNodes(name='lone', type='namespace', nodes=['lone.tower.lone_alpha'], dependencies=[]), 'mix': GroupedNodes(name='mix', type='namespace', nodes=['mix.outer.mix_alpha', 'mix.inner.deep.mix_beta', 'mix.outer.mix_gamma'], dependencies=['ba...", 'key': "'mix'", 'node': "Node(_passthrough, ['lone_out', 'mix_out_alpha', 'bs_beta', 'mix_out_beta', 'bs_alpha'], 'mix_out_gamma', 'mix_gamma')", 'parent': "Node(_passthrough, ['bs_alpha'], 'mix_out_alpha', 'mix_alpha')", 'parent_key': "'mix'", 'self': "Pipeline([\nNode(_passthrough, None, 'bs_delta', 'bare_isolated_delta'),\nNode(_passthrough, None, 'bs_alpha', 'bare_source_alpha'),\nNode(_passthrough, None, 'lone_out', 'lone_alpha'),\nNode(_passthrough, ['bs_alpha'], 'mix_out_alpha', 'mix_alpha'),\nNode(_passthrough, ['mix_out_alpha', 'bs_alpha'], 'bs_beta', 'bare_bridge_beta'),\nNode(_passthrough, ['bs_beta', 'bs_alpha'], 'mix_out_beta', 'mix_beta'),\nNode(_passthrough, ['mix_out_beta', 'mix_out_alpha'], 'bs_gamma', 'bare_sink_gamma'),\nNode(_passth...", 'unique_dependencies': "{'lone', 'bare_source_alpha', 'bare_bridge_beta'}"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:612 kedro.pipeline.pipeline._group_by_namespace event=call locals={'self': "Pipeline([\nNode(_passthrough, None, 'd_n', 'src_n'),\nNode(_passthrough, None, 'd_s', 'src_s'),\nNode(_passthrough, ['d_n', 'd_s'], 'e_left_alpha', 'left_alpha'),\nNode(_passthrough, ['d_n', 'd_s'], 'e_right_beta', 'right_beta'),\nNode(_passthrough, ['e_left_alpha', 'e_right_beta', 'd_n', 'd_s'], 'f_hub', 'snk_alpha'),\nNode(_passthrough, ['f_hub', 'e_left_alpha', 'e_right_beta'], 'g_deep', 'snk_beta'),\nNode(_passthrough, ['f_hub', 'e_left_alpha', 'e_right_beta', 'd_n', 'd_s'], 'g_terminal', 'tail_te..."}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:613 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': '{}'}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, None, 'd_n', 'src_n')"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'src'"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=[], dependencies=[])}"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n'], dependencies=[])}"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': '[]'}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': 'set()'}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, None, 'd_s', 'src_s')"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[])}"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['d_n', 'd_s'], 'e_left_alpha', 'left_alpha')"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'mid'"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=[], dependencies=[])}"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha'], dependencies=[])}"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'd_n', 'src_n')"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'src'"}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.029 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['src']", 'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha'], dependencies=['src'])}"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'src'}"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'd_s', 'src_s')"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['d_n', 'd_s'], 'e_right_beta', 'right_beta')"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha', 'mid.right.branch.right_beta'], dependencies=['src'])}"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'd_n', 'src_n')"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'd_s', 'src_s')"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['e_left_alpha', 'e_right_beta', 'd_n', 'd_s'], 'f_hub', 'snk_alpha')"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'snk'"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha', 'mid.right.branch.right_beta'], dependencies=['src']), 'snk': GroupedNodes(name='snk', type='namespace', nodes=[], dependencies=[])}"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha', 'mid.right.branch.right_beta'], dependencies=['src']), 'snk': GroupedNodes(name='snk', type='namespace', nodes=['snk.hub.snk_alpha'], dependencies=[])}"}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': '[]'}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': 'set()'}
+2026-08-22 22:38:20.030 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['d_n', 'd_s'], 'e_left_alpha', 'left_alpha')"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'mid'"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['mid']", 'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha', 'mid.right.branch.right_beta'], dependencies=['src']), 'snk': GroupedNodes(name='snk', type='namespace', nodes=['snk.hub.snk_alpha'], dependencies=['mid'])}"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'mid'}"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['d_n', 'd_s'], 'e_right_beta', 'right_beta')"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'd_n', 'src_n')"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'src'"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['mid', 'src']", 'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha', 'mid.right.branch.right_beta'], dependencies=['src']), 'snk': GroupedNodes(name='snk', type='namespace', nodes=['snk.hub.snk_alpha'], dependencies=['mid', 'src'])}"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'mid', 'src'}"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'd_s', 'src_s')"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['f_hub', 'e_left_alpha', 'e_right_beta'], 'g_deep', 'snk_beta')"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha', 'mid.right.branch.right_beta'], dependencies=['src']), 'snk': GroupedNodes(name='snk', type='namespace', nodes=['snk.hub.snk_alpha', 'snk.lower.deeper.core.snk_beta'], dependencies=['mid', 'src'])}"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['d_n', 'd_s'], 'e_left_alpha', 'left_alpha')"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'mid'"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['d_n', 'd_s'], 'e_right_beta', 'right_beta')"}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.031 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['e_left_alpha', 'e_right_beta', 'd_n', 'd_s'], 'f_hub', 'snk_alpha')"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'snk'"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:616 kedro.pipeline.pipeline._group_by_namespace event=line locals={'node': "Node(_passthrough, ['f_hub', 'e_left_alpha', 'e_right_beta', 'd_n', 'd_s'], 'g_terminal', 'tail_terminal')"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:618 kedro.pipeline.pipeline._group_by_namespace event=line locals={'key': "'tail_terminal'"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:620 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:621 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:619 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:624 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha', 'mid.right.branch.right_beta'], dependencies=['src']), 'snk': GroupedNodes(name='snk', type='namespace', nodes=['snk.hub.snk_alpha', 'snk.lower.deeper.core.snk_beta'], dependencies=['mid', 'src']), 'tail_terminal': GroupedNodes(name='tail_terminal', type='nodes', nodes=[], dependencies=[..."}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:626 kedro.pipeline.pipeline._group_by_namespace event=line locals={'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha', 'mid.right.branch.right_beta'], dependencies=['src']), 'snk': GroupedNodes(name='snk', type='namespace', nodes=['snk.hub.snk_alpha', 'snk.lower.deeper.core.snk_beta'], dependencies=['mid', 'src']), 'tail_terminal': GroupedNodes(name='tail_terminal', type='nodes', nodes=['tail_terminal'],..."}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:627 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': '[]'}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': 'set()'}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['d_n', 'd_s'], 'e_left_alpha', 'left_alpha')"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'mid'"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['mid']"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'mid'}"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['d_n', 'd_s'], 'e_right_beta', 'right_beta')"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, ['e_left_alpha', 'e_right_beta', 'd_n', 'd_s'], 'f_hub', 'snk_alpha')"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'snk'"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['mid', 'snk']"}
+2026-08-22 22:38:20.032 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'mid', 'snk'}"}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'd_n', 'src_n')"}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent_key': "'src'"}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:634 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:635 kedro.pipeline.pipeline._group_by_namespace event=line locals={'dependencies': "['mid', 'snk', 'src']"}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={'unique_dependencies': "{'mid', 'snk', 'src'}"}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:631 kedro.pipeline.pipeline._group_by_namespace event=line locals={'parent': "Node(_passthrough, None, 'd_s', 'src_s')"}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:630 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:633 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:629 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:615 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:637 kedro.pipeline.pipeline._group_by_namespace event=line locals={}
+2026-08-22 22:38:20.033 /testbed/kedro/pipeline/pipeline.py:637 kedro.pipeline.pipeline._group_by_namespace event=return retval=[GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha', 'mid.right.branch.right_beta'], dependencies=['src']), GroupedNodes(name='snk', type='namespace', nodes=['snk.hub.snk_alpha', 'snk.lower.deeper.core.snk_beta'], dependencies=['mid', 'src']), GroupedNodes(name='tail_terminal', type='nodes', nodes=['tail_terminal'], dependencies=['mid', 'snk', 'src'])] locals={'dependencies': "['mid', 'snk', 'src']", 'grouped_nodes_map': "{'src': GroupedNodes(name='src', type='namespace', nodes=['src.north.wing.src_n', 'src.south.wing.src_s'], dependencies=[]), 'mid': GroupedNodes(name='mid', type='namespace', nodes=['mid.left.branch.left_alpha', 'mid.right.branch.right_beta'], dependencies=['src']), 'snk': GroupedNodes(name='snk', type='namespace', nodes=['snk.hub.snk_alpha', 'snk.lower.deeper.core.snk_beta'], dependencies=['mid', 'src']), 'tail_terminal': GroupedNodes(name='tail_terminal', type='nodes', nodes=['tail_terminal'],...", 'key': "'tail_terminal'", 'node': "Node(_passthrough, ['f_hub', 'e_left_alpha', 'e_right_beta', 'd_n', 'd_s'], 'g_terminal', 'tail_terminal')", 'parent': "Node(_passthrough, None, 'd_s', 'src_s')", 'parent_key': "'src'", 'self': "Pipeline([\nNode(_passthrough, None, 'd_n', 'src_n'),\nNode(_passthrough, None, 'd_s', 'src_s'),\nNode(_passthrough, ['d_n', 'd_s'], 'e_left_alpha', 'left_alpha'),\nNode(_passthrough, ['d_n', 'd_s'], 'e_right_beta', 'right_beta'),\nNode(_passthrough, ['e_left_alpha', 'e_right_beta', 'd_n', 'd_s'], 'f_hub', 'snk_alpha'),\nNode(_passthrough, ['f_hub', 'e_left_alpha', 'e_right_beta'], 'g_deep', 'snk_beta'),\nNode(_passthrough, ['f_hub', 'e_left_alpha', 'e_right_beta', 'd_n', 'd_s'], 'g_terminal', 'tail_te...", 'unique_dependencies': "{'mid', 'snk', 'src'}"}

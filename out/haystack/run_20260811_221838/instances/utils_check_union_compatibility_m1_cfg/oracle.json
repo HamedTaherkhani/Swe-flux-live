@@ -1,0 +1,188 @@
+{
+  "question_kind": "M1_IntraProceduralCFG",
+  "question": "Run every test method in the unittest class `TestUnionCompatibilityCFG` defined in `haystack_qa/utils_check_union_compatibility_m1_cfg/files/testcase.py`. This means all pytest items whose IDs have the form `haystack_qa/utils_check_union_compatibility_m1_cfg/files/testcase.py::TestUnionCompatibilityCFG::test_*`; aggregate the counts over all of those methods, with each method included exactly once.\n\nFor `haystack.core.super_component.utils._check_union_compatibility`, defined in `haystack/core/super_component/utils.py` at line 62, report the total number of runtime line events for every physical line in the function body. The body scope is the inclusive range from the first AST body statement (the docstring) through the function's AST `end_lineno`; the `def` line and any decorator lines are excluded. Include every 1-based physical source line in that inclusive range, including docstring, blank, comment-only, and continuation lines. A line in scope that produces no line event must be reported with count 0.\n\nAn executed line means one CPython `sys.settrace` `line` event from a frame whose code file is exactly the named repository file and whose exact function name is `haystack.core.super_component.utils._check_union_compatibility`; events from every other file or function are excluded. `call`, `return`, and `exception` events do not increment line counts. Each occurrence increments the count, so repeated loop-condition and loop-body events across invocations are all counted; do not deduplicate events. An invocation is one `call` event for this exact function during any covered test method, although invocation events themselves are not part of the answer. For a multi-line statement or expression, use the 1-based physical starting line supplied as the event frame's `f_lineno`; do not copy that event to continuation lines, which remain 0 unless they independently receive a line event.\n\nReturn exactly one JSON object with key `line_execution_counts`. Its value is a list containing one object per physical line in the body scope. Each object has exactly the integer keys/values shape `{\"count\": <int>, \"line\": <int>}` (the JSON object keys are strings), and the list is sorted by `line` in strictly ascending order. Counts are decimal JSON integers, never strings or null. There is no secondary tie-breaker because each line appears exactly once.",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 0,
+        "line": 63
+      },
+      {
+        "count": 15,
+        "line": 64
+      },
+      {
+        "count": 0,
+        "line": 65
+      },
+      {
+        "count": 7,
+        "line": 66
+      },
+      {
+        "count": 110,
+        "line": 67
+      },
+      {
+        "count": 103,
+        "line": 68
+      },
+      {
+        "count": 103,
+        "line": 69
+      },
+      {
+        "count": 6,
+        "line": 70
+      },
+      {
+        "count": 7,
+        "line": 71
+      },
+      {
+        "count": 0,
+        "line": 72
+      },
+      {
+        "count": 0,
+        "line": 73
+      },
+      {
+        "count": 6,
+        "line": 74
+      },
+      {
+        "count": 6,
+        "line": 75
+      },
+      {
+        "count": 1,
+        "line": 76
+      },
+      {
+        "count": 0,
+        "line": 77
+      },
+      {
+        "count": 8,
+        "line": 78
+      },
+      {
+        "count": 0,
+        "line": 79
+      },
+      {
+        "count": 2,
+        "line": 80
+      },
+      {
+        "count": 39,
+        "line": 81
+      },
+      {
+        "count": 37,
+        "line": 82
+      },
+      {
+        "count": 37,
+        "line": 83
+      },
+      {
+        "count": 1,
+        "line": 84
+      },
+      {
+        "count": 2,
+        "line": 85
+      },
+      {
+        "count": 0,
+        "line": 86
+      },
+      {
+        "count": 0,
+        "line": 87
+      },
+      {
+        "count": 1,
+        "line": 88
+      },
+      {
+        "count": 1,
+        "line": 89
+      },
+      {
+        "count": 1,
+        "line": 90
+      },
+      {
+        "count": 0,
+        "line": 91
+      },
+      {
+        "count": 0,
+        "line": 92
+      },
+      {
+        "count": 6,
+        "line": 93
+      },
+      {
+        "count": 79,
+        "line": 94
+      },
+      {
+        "count": 934,
+        "line": 95
+      },
+      {
+        "count": 861,
+        "line": 96
+      },
+      {
+        "count": 861,
+        "line": 97
+      },
+      {
+        "count": 33,
+        "line": 98
+      },
+      {
+        "count": 0,
+        "line": 99
+      },
+      {
+        "count": 6,
+        "line": 100
+      },
+      {
+        "count": 0,
+        "line": 101
+      },
+      {
+        "count": 0,
+        "line": 102
+      },
+      {
+        "count": 4,
+        "line": 103
+      },
+      {
+        "count": 4,
+        "line": 104
+      },
+      {
+        "count": 2,
+        "line": 105
+      }
+    ]
+  }
+}

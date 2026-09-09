@@ -1,0 +1,53 @@
+{
+  "oracle_answer": {
+    "invocations": [
+      {
+        "caller_saw_exception": false,
+        "exceptions": [],
+        "invocation_index": 1
+      },
+      {
+        "caller_saw_exception": true,
+        "exceptions": [
+          {
+            "exception_message": "Bitsandbytes only accepts 4-bit or 8-bit quantization.",
+            "exception_type": "builtins.ValueError",
+            "handled_where": "propagated",
+            "line": 162
+          }
+        ],
+        "invocation_index": 2
+      },
+      {
+        "caller_saw_exception": true,
+        "exceptions": [
+          {
+            "exception_message": "EETQ only accepts 8-bit quantization.",
+            "exception_type": "builtins.ValueError",
+            "handled_where": "propagated",
+            "line": 190
+          }
+        ],
+        "invocation_index": 3
+      }
+    ]
+  },
+  "question": "For the pytest test `llama_factory_qa/quantization_configure_quantization_m5_exceptions/files/testcase.py::TestConfigureQuantizationExceptions::test_raise_handle_matrix`, analyze runtime behavior of `src.llamafactory.model.model_utils.quantization.configure_quantization` in `src/llamafactory/model/model_utils/quantization.py`. Treat each runtime entry into that exact function as one invocation, ordered chronologically by execution; assign `invocation_index` starting at 1 in that order. Within each invocation, treat each exception raised from that function frame as one exception event, ordered chronologically within the invocation. For each invocation, output whether any exception is observed by the caller (`caller_saw_exception`: true iff the invocation has at least one exception event), and list its exception events as records containing: `line` (int source line where the exception event is emitted), `exception_type` (qualified type string), `exception_message` (exact message string), and `handled_where` (string, always `propagated` for this target if not handled inside the function). Return JSON with key `invocations` (list), sorted by `invocation_index`; each invocation's `exceptions` list must preserve chronological trace order, with ties broken by source line ascending.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "invocations": [
+      {
+        "caller_saw_exception": "bool",
+        "exceptions": [
+          {
+            "exception_message": "str",
+            "exception_type": "str",
+            "handled_where": "str",
+            "line": "int"
+          }
+        ],
+        "invocation_index": "int"
+      }
+    ]
+  }
+}

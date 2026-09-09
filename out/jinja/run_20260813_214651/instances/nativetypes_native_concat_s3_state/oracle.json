@@ -1,0 +1,38 @@
+{
+  "question_kind": "S3_ProgramState",
+  "question": "Consider the single test method `jinja_qa/nativetypes_native_concat_s3_state/files/testcase.py::TestNativeConcatProgramState::test_native_concat_programmatic_rounds`.\n\nThat test calls `jinja2.nativetypes.native_concat` directly in `src/jinja2/nativetypes.py` (the function beginning at line 16) twenty-five times with programmatically built inputs.\n\nAn **invocation** means one `call` trace event for `jinja2.nativetypes.native_concat` recorded at absolute line 16 during the test run. Count invocations in chronological order starting at 1. This test performs exactly twenty-five invocations.\n\nWithin one invocation, maintain a map of local variable bindings by scanning every `line` event for `jinja2.nativetypes.native_concat` from that invocation's `call` at line 16 up through the end of that invocation (the next `return` event for the same function). Each event's `locals={...}` dictionary supplies bindings that overwrite earlier bindings for the same name; only keys present in those per-event dictionaries participate. Do not include bindings from `call` or `return` events in the merge.\n\nA **line execution** at absolute line number L means one `line` trace event whose file path ends with `src/jinja2/nativetypes.py`, whose qualified name is `jinja2.nativetypes.native_concat`, and whose line number equals L. Count line executions at a given L within one invocation in chronological order starting at 1. Multi-line statements use the line where the statement begins; the `def` line and docstring lines are not executed and never appear.\n\nFor each invocation in order (invocation 1 through invocation 25), immediately after line 27 has executed for the first time during that invocation, read the binding for `head` from the merged map. Collect those binding strings in invocation order (invocation 1 first, invocation 25 last).\n\nEach binding string is Python `repr()` output for that local (strings include their surrounding quote characters, `None` appears as `None`, booleans as `True`/`False`, and container values are the `repr()` of the whole container). For example, a list local holding the strings `'a'` and `'b'` is reported as `['a', 'b']`, and an integer local holding 9 is reported as `9`.\n\nReturn JSON with top-level key `temporal_value_history`: the flat ordered list of `head` binding strings described above, one entry per invocation, in chronological invocation order.",
+  "template_answer": {
+    "temporal_value_history": [
+      "str"
+    ]
+  },
+  "oracle_answer": {
+    "temporal_value_history": [
+      "['not_valid_0_', '0']",
+      "['101']",
+      "['not_valid_2_', '6']",
+      "[45]",
+      "[]",
+      "['(', '5']",
+      "['not_valid_6_', '18']",
+      "['49', '56']",
+      "['56', '63']",
+      "['63', '70']",
+      "['3', '3']",
+      "['3', '4']",
+      "['(', '12']",
+      "[]",
+      "['(', '14']",
+      "['(', '15']",
+      "['2', '4']",
+      "['117']",
+      "[60]",
+      "['133', '140']",
+      "['2', '0']",
+      "['0', '1']",
+      "['[', '\"22-0\"']",
+      "['123']",
+      "[66]"
+    ]
+  }
+}

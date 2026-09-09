@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "a99ff:71f66:70c53:8bc5c:46303:96a96:76ca7:d30b4",
+    "exception_type": "RuntimeError"
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/adapter_setup_freeze_tuning_s5_exceptions/files/testcase.py::TestFreezeTuningExceptionPropagation::test_seeded_parameter_scan_failure`. During that run, consider the sole invocation of `llamafactory.model.adapter._setup_freeze_tuning` in `src/llamafactory/model/adapter.py`. Report the exception that is raised into that target frame while it advances the first `for name, _ in model.named_parameters()` loop and then propagates out of the target to its direct caller, `llamafactory.model.adapter.init_adapter`. An invocation is one runtime entry into that exact target function during the complete test run; invocations would be numbered 1-based in chronological entry order, and this test makes exactly one. Here, \"propagates out\" means that the target frame exits because of the same exception object and does not catch or suppress it before it reaches the named direct caller. Report the exception message as exact `str(exc)`, character for character; an absent textual message is the JSON string `\"\"`, never JSON null and never an omitted key. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and `module.QualName` for all others (e.g. `haystack.core.errors.PipelineError`). Return exactly one JSON object with exactly two JSON string fields: `exception_message` and `exception_type`. Show object keys in ascending lexicographic order (`exception_message` before `exception_type`). Do not truncate or otherwise normalize either string; no sorting or deduplication of exception events applies because exactly the one propagating exception from the sole target invocation is reported.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

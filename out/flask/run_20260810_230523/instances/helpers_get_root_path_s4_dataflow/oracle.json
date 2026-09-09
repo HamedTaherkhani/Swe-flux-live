@@ -1,0 +1,107 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 620,
+        "use_line": 641,
+        "variable": "filepath"
+      },
+      {
+        "def_line": 625,
+        "use_line": 630,
+        "variable": "filepath"
+      },
+      {
+        "def_line": 625,
+        "use_line": 641,
+        "variable": "filepath"
+      },
+      {
+        "def_line": 587,
+        "use_line": 597,
+        "variable": "import_name"
+      },
+      {
+        "def_line": 587,
+        "use_line": 604,
+        "variable": "import_name"
+      },
+      {
+        "def_line": 587,
+        "use_line": 620,
+        "variable": "import_name"
+      },
+      {
+        "def_line": 587,
+        "use_line": 623,
+        "variable": "import_name"
+      },
+      {
+        "def_line": 587,
+        "use_line": 624,
+        "variable": "import_name"
+      },
+      {
+        "def_line": 587,
+        "use_line": 633,
+        "variable": "import_name"
+      },
+      {
+        "def_line": 609,
+        "use_line": 616,
+        "variable": "loader"
+      },
+      {
+        "def_line": 611,
+        "use_line": 616,
+        "variable": "loader"
+      },
+      {
+        "def_line": 611,
+        "use_line": 619,
+        "variable": "loader"
+      },
+      {
+        "def_line": 611,
+        "use_line": 620,
+        "variable": "loader"
+      },
+      {
+        "def_line": 597,
+        "use_line": 599,
+        "variable": "mod"
+      },
+      {
+        "def_line": 597,
+        "use_line": 600,
+        "variable": "mod"
+      },
+      {
+        "def_line": 624,
+        "use_line": 625,
+        "variable": "mod"
+      },
+      {
+        "def_line": 604,
+        "use_line": 606,
+        "variable": "spec"
+      },
+      {
+        "def_line": 604,
+        "use_line": 611,
+        "variable": "spec"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `flask_qa/helpers_get_root_path_s4_dataflow/files/testcase.py::TestGetRootPathDataFlow::test_generated_module_scenarios`. Across all runtime invocations of `flask.helpers.get_root_path` in `src/flask/helpers.py` during that test, what are all unique observed def-use pairs for exactly these local variables: `filepath`, `import_name`, `loader`, `mod`, and `spec`? A def is a successful runtime binding produced by parameter binding or an assignment target; each parameter is defined on the function's `def` line on every call. A use is a runtime read of that variable's current value on a source line in the target function's own frame. A pair is observed when the value from that def reaches that use without an intervening def of the same variable in that invocation. Definitions never reach across invocations. An invocation is one call of the target function during this test run, numbered from 1 in chronological call-entry order, although invocation numbers are not included in the answer. For augmented assignment such as `x += 1`, treat the line first as a use of the old reaching def and then as a new def of `x` on that same line. A `for x in values` loop header defines `x` anew on every iteration before the body executes. Comprehension-local and generator-expression-local bindings belong to their implicit separate frames and are excluded, even if their spelling matches a tracked variable; reads performed in those implicit frames, including reads of outer variables, are also excluded. Count reads only when runtime evaluation actually reaches them, so a short-circuited operand is not a use. Source line numbers are absolute, 1-based line numbers in the named file as it exists in the repository. For a multi-line statement or expression, `def_line` is the line where its assignment target begins and `use_line` is the line containing the evaluated variable read; the function `def` line can therefore appear for parameter definitions, while decorator and docstring lines are not definitions or uses. Return a JSON object with exactly one key, `observed_def_use_pairs`, whose value is a JSON list of objects. Every object has exactly the keys `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string). Remove duplicate objects produced by repeated reads or invocations, then sort the list by `variable` in ascending Unicode lexicographic order, then by `def_line` ascending, then by `use_line` ascending. The object keys are serialized in ascending lexicographic order; no `repr` or `str` formatting, null sentinel, function-name normalization, or exception-name formatting applies because the only reported values are the variable spelling and integer source lines.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

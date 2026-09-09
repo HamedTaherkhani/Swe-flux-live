@@ -1,0 +1,172 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 0,
+        "line": 1344
+      },
+      {
+        "count": 0,
+        "line": 1345
+      },
+      {
+        "count": 0,
+        "line": 1346
+      },
+      {
+        "count": 0,
+        "line": 1347
+      },
+      {
+        "count": 442,
+        "line": 1348
+      },
+      {
+        "count": 442,
+        "line": 1349
+      },
+      {
+        "count": 0,
+        "line": 1350
+      },
+      {
+        "count": 442,
+        "line": 1351
+      },
+      {
+        "count": 38,
+        "line": 1352
+      },
+      {
+        "count": 0,
+        "line": 1353
+      },
+      {
+        "count": 404,
+        "line": 1354
+      },
+      {
+        "count": 37,
+        "line": 1355
+      },
+      {
+        "count": 0,
+        "line": 1356
+      },
+      {
+        "count": 367,
+        "line": 1357
+      },
+      {
+        "count": 112,
+        "line": 1358
+      },
+      {
+        "count": 0,
+        "line": 1359
+      },
+      {
+        "count": 255,
+        "line": 1360
+      },
+      {
+        "count": 72,
+        "line": 1361
+      },
+      {
+        "count": 0,
+        "line": 1362
+      },
+      {
+        "count": 183,
+        "line": 1363
+      },
+      {
+        "count": 36,
+        "line": 1364
+      },
+      {
+        "count": 0,
+        "line": 1365
+      },
+      {
+        "count": 147,
+        "line": 1366
+      },
+      {
+        "count": 35,
+        "line": 1367
+      },
+      {
+        "count": 0,
+        "line": 1368
+      },
+      {
+        "count": 112,
+        "line": 1369
+      },
+      {
+        "count": 38,
+        "line": 1370
+      },
+      {
+        "count": 0,
+        "line": 1371
+      },
+      {
+        "count": 74,
+        "line": 1372
+      },
+      {
+        "count": 74,
+        "line": 1373
+      },
+      {
+        "count": 74,
+        "line": 1374
+      },
+      {
+        "count": 4,
+        "line": 1375
+      },
+      {
+        "count": 2,
+        "line": 1376
+      },
+      {
+        "count": 0,
+        "line": 1377
+      },
+      {
+        "count": 38,
+        "line": 1378
+      },
+      {
+        "count": 0,
+        "line": 1379
+      },
+      {
+        "count": 36,
+        "line": 1380
+      },
+      {
+        "count": 0,
+        "line": 1381
+      },
+      {
+        "count": 72,
+        "line": 1382
+      }
+    ]
+  },
+  "question": "Run every pytest test method in the class `TestIndirectChoiceMetavars` in `click_qa/types_convert_type_m1_cfg/files/testcase.py`, equivalently every collected pytest id below `click_qa/types_convert_type_m1_cfg/files/testcase.py::TestIndirectChoiceMetavars`. Pytest identifies and runs those methods by their full pytest ids in its normal ascending method-name order. Aggregate the requested counts over ALL test methods in the class. During that complete class run, consider every invocation of the target function `click.types.convert_type` defined at `src/click/types.py:1341`, including invocations reached recursively or through constructors beneath `click.types.Choice.get_metavar`.\n\nReport exactly one row for every absolute, 1-based physical source line in the target function's body, which is the inclusive range 1344 through 1382 in `src/click/types.py`. This scope includes docstring lines, blank lines, comment-only lines, and continuation lines. Such a line remains in the answer with `count` 0 when it produces no qualifying event; it is not removed.\n\nA line execution is one standard Python runtime `line` event emitted while the active frame is exactly `click.types.convert_type`. Only `line` events count: the function's `call`, `return`, and `exception` events do not. Events in `_guess_type`, `Tuple.__init__`, `Choice.get_metavar`, comprehensions, or any other frame do not count, although a fresh or recursive call that creates another `convert_type` frame is counted normally. For a multi-line statement or expression, assign an event to the absolute 1-based physical line reported as that event's `f_lineno`: this is the line where the currently executable statement or subexpression begins, rather than a closing delimiter or a merely visual continuation. For example, in a hypothetical multi-line call whose argument expression begins on its second physical line, an event for evaluating that argument belongs to the second line. Count every repeated event without deduplication.\n\nAn invocation means one Python `call` of `click.types.convert_type` during the complete class run. Invocations would be numbered from 1 in chronological call order if they needed to be distinguished, but invocation numbers are not included in the answer. Each row's `count` is the total number of qualifying line events at that line, summed across every invocation in every test method. The implementation `def` line 1341 and its signature continuation lines 1342-1343 are outside the body range and must not appear. The overload declarations and their decorator lines above the implementation are also outside the range and do not count.\n\nReturn exactly `{\"line_execution_counts\": [{\"count\": \"int\", \"line\": \"int\"}]}`. `line_execution_counts` is a JSON array of 39 objects, one for each line in the inclusive body range and no others. In each object, `line` and `count` are JSON integers, not strings or Python `repr()` values. Sort rows by `line` ascending. Emit each source line exactly once; `count` carries all multiplicity, so there are no duplicate rows and no secondary tie-breaker is needed. Zero is represented by the JSON integer `0`, never by JSON null, an empty string, or an omitted object.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

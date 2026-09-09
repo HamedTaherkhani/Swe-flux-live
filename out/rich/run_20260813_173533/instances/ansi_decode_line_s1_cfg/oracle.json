@@ -1,0 +1,267 @@
+{
+  "question_kind": "S1_IntraProceduralCFG",
+  "question": "During pytest run rich_qa/ansi_decode_line_s1_cfg/files/testcase.py::AnsiDecodeLineCfgTest::test_seeded_multiline_ansi_decode, consider the function rich.ansi.AnsiDecoder.decode_line defined in rich/ansi.py (the def statement is on line 138).\n\nAn invocation of decode_line is one call event for that function during the entire test run. Number invocations starting at 1 in chronological order of their call events (earliest call is invocation 1).\n\nUsing sys.settrace (or equivalent) with line events enabled for every executed source line in decode_line, record the ordered sequence of line events that occur strictly after the call event begins and strictly before the matching return event ends for invocation 11 only.\n\nInclude only event=line records for frames whose func equals rich.ansi.AnsiDecoder.decode_line (the module-qualified name format: package.module.Class.method, e.g. rich.color.Color.from_ansi). Do not include call, return, or exception events. Do not include line events from any other function, including _ansi_tokenize or callees invoked from decode_line.\n\nThe def line (line 138), decorator lines, and docstring lines must not appear in the sequence\u2014only executable body lines reached during the invocation. For a multi-line statement, Python reports the line event on the line where that statement begins; for example, a call split across lines 186\u2013191 is reported as line 186 when execution enters that statement, not on continuation lines. decode_line contains several such multi-line Style.from_color and from_rgb calls in the SGR color branches.\n\nReport the answer as JSON with top-level key executed_path whose value is a list of objects in execution order with no deduplication (repeat the same line number whenever a separate line event fires). Each object has exactly these keys:\n- file (str): repo-relative path, always rich/ansi.py for this question\n- func (str): always rich.ansi.AnsiDecoder.decode_line\n- line (int): 1-based physical line number in rich/ansi.py as present in the repository\n\nPreserve the exact chronological order produced by tracing; do not sort or reorder events.",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 147
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 148
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 149
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 150
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 151
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 152
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 153
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 154
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 156
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 161
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 164
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 166
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 164
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 169
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 170
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 171
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 174
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 177
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 193
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 195
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 196
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 197
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 201
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 202
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 203
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 204
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 205
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 206
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 207
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 204
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 202
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 195
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 170
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 153
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 154
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 155
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 153
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 154
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 156
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 161
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 164
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 166
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 164
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 169
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 170
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 171
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 173
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 170
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 153
+      },
+      {
+        "file": "rich/ansi.py",
+        "func": "rich.ansi.AnsiDecoder.decode_line",
+        "line": 211
+      }
+    ]
+  }
+}

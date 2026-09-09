@@ -1,0 +1,30 @@
+{
+  "question_kind": "S5_Exceptions",
+  "question": "During execution of pytest test `llama_factory_qa/chat_process_request_s5_exceptions/files/testcase.py::TestChatProcessRequestS5Exceptions::test_jsondecodeerror_then_runtimeerror_propagates`, consider function `src.llamafactory.api.chat._process_request` in `src/llamafactory/api/chat.py`. An `exception event` means any runtime point in this function where an exception is reported at a source line while the call is active. For each such event, record: `line` (int source line number in this file), `exception_type` (str fully qualified exception type name), `message` (str equal to `str(exc)`), and `handled` (bool, true iff execution continues to at least one later `line` event in the same invocation of this function; false iff no later line event occurs in that invocation, i.e., the exception propagates out). Return JSON with exactly one key `exception_events`, whose value is an array of objects with keys `line` (int), `exception_type` (str), `message` (str), and `handled` (bool). Order entries by their runtime occurrence order; do not reorder or deduplicate.",
+  "template_answer": {
+    "exception_events": [
+      {
+        "line": "int",
+        "exception_type": "str",
+        "message": "str",
+        "handled": "bool"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "exception_events": [
+      {
+        "line": 158,
+        "exception_type": "json.decoder.JSONDecodeError",
+        "message": "forced decode failure: line 1 column 2 (char 1)",
+        "handled": true
+      },
+      {
+        "line": 160,
+        "exception_type": "builtins.RuntimeError",
+        "message": "400: Invalid tools",
+        "handled": false
+      }
+    ]
+  }
+}

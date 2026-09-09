@@ -1,0 +1,26 @@
+{
+  "oracle_answer": {
+    "covered_lines": [
+      587,
+      588,
+      590,
+      591,
+      592,
+      593,
+      595,
+      596,
+      597,
+      599,
+      601,
+      604,
+      606
+    ]
+  },
+  "question": "Run the pytest test\n`kedro_qa/data_catalog_get_m1_cfg/files/testcase.py::TestCatalogIndirectControlFlow::test_generated_catalog_accesses`\nagainst this repository. Across the whole test run, what is the exact line\ncoverage of `kedro.io.data_catalog.DataCatalog.get` in\n`kedro/io/data_catalog.py`?\n\nAn invocation is one Python `call` event for the frame whose fully qualified\ndotted name is exactly `kedro.io.data_catalog.DataCatalog.get`; invocations\nare counted 1-based in chronological order. Consider every such invocation\ncaused by the named test. An executed line is a Python runtime `line` event\nfrom that exact function frame. Exclude `call`, `return`, and `exception`\nevents, and exclude all events from callers, callees, comprehensions,\ngenerators, and other nested frames.\n\nReport one object with exactly the key `covered_lines`. Its value is a JSON\narray of JSON integers containing the union of executed lines across all\ninvocations. Remove duplicates globally and sort the integers in strictly\nascending numeric order. The exact answer shape is\n`{\"covered_lines\": [\"int\"]}`; `\"int\"` is a type placeholder, not an answer\nvalue. There are no string-formatted values, `repr` conversions, null\nsentinels, or omitted entries in this answer.\n\nLine numbers are absolute, 1-based source line numbers in the named file as it\nexists in this repository. Normalize each runtime line event to the `lineno`\nof its smallest enclosing executable Python `ast.stmt` node. Therefore, for\na multi-line condition, call, assignment, or expression, use the line where\nthat enclosing statement begins (for example, an event on a continuation line\nof a statement beginning on line 8 is reported as 8). The function's `def`\nline, decorator lines, and docstring lines do not count because they are not\nruntime `line` events from an executable statement in the function body.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "covered_lines": [
+      "int"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.17, pytest-8.3.5, pluggy-1.5.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.9.0
+collected 1 item
+
+llama_factory_qa/supervised_preprocess_dataset_m7_invariants__r20260714/files/testcase.py [WARNING|2026-07-15 04:14:01] src.llamafactory.data.processor.supervised:148 >> Dropped invalid example: [{'role': 'user', 'content': 'invalid-a'}, {'role': 'user', 'content': 'invalid-b'}, {'role': 'user', 'content': 'invalid-response'}]
+[WARNING|2026-07-15 04:14:01] src.llamafactory.data.processor.supervised:148 >> Dropped lengthy example with length 8 > 7.
+.
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED llama_factory_qa/supervised_preprocess_dataset_m7_invariants__r20260714/files/testcase.py::TestPackedSupervisedPreprocessDatasetM7Invariants::test_invariants_on_inner_packing_loop
+============================== 1 passed in 3.11s ===============================

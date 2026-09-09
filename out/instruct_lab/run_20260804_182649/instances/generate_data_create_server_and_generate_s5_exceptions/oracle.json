@@ -1,0 +1,31 @@
+{
+  "question_kind": "S5_Exceptions",
+  "question": "Run only the pytest test `instruct_lab_qa/generate_data_create_server_and_generate_s5_exceptions/files/testcase.py::TestGeneratedDataFailureMatrix::test_public_entry_point_handles_runtime_failure_matrix` against this repository. Across the complete selected test run, what is the set of concrete runtime exception types caught inside `instructlab.data.generate_data.create_server_and_generate` in `src/instructlab/data/generate_data.py`? An exception is \"caught inside\" only when that exception instance produces an exception event in this exact function's frame and runtime control then transfers into the suite of one of this function's own `except` clauses. Include exceptions originating in a callee when they reach and are handled by such a clause. Exclude exception events in every other function's frame, exceptions that merely propagate out of the target, and exceptions raised by an `except` suite but not handled again by another `except` clause in the same target invocation. Consider every target invocation made by the selected test. An invocation is one runtime call of exactly this function during the test, numbered 1-based in chronological call order; calls of other functions do not count. Use the concrete type of each caught exception instance, not the type expression written on its handler. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` — never `builtins.ValueError`), and `module.QualName` for all others (e.g. `acme.errors.WidgetFailure`). Combine all invocations into one set, normalize each type to that naming convention, remove duplicates by the complete normalized string, and sort the remaining strings in ascending lexicographic Unicode code-point order. There is no secondary tie-breaker because duplicates are removed. Return exactly one JSON object with the single key `caught_exception_kinds`; its value must be a non-empty JSON array of JSON strings in that order. Each item is the normalized type name, not `str(exc)`, `repr(exc)`, or an exception message; no item may be null, empty, omitted, or Python-repr formatted.",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  },
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "AssertionError",
+      "BytesWarning",
+      "EncodingWarning",
+      "FileExistsError",
+      "FloatingPointError",
+      "IndexError",
+      "InterruptedError",
+      "NotImplementedError",
+      "PendingDeprecationWarning",
+      "PermissionError",
+      "RecursionError",
+      "RuntimeError",
+      "SyntaxError",
+      "UnboundLocalError",
+      "UnicodeError",
+      "UnicodeWarning",
+      "ValueError",
+      "instructlab.sdg.utils.GenerateException"
+    ]
+  }
+}

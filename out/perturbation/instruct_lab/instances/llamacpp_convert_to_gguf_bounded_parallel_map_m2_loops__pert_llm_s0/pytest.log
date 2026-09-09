@@ -1,0 +1,918 @@
+/usr/local/lib/python3.11/site-packages/pytest_asyncio/plugin.py:207: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform linux -- Python 3.11.12, pytest-8.3.4, pluggy-1.5.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.8.0, metadata-3.1.1, cov-6.0.0, asyncio-0.25.3, html-4.1.1, langsmith-0.3.11
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=None
+collected 1 item
+
+instruct_lab_qa/llamacpp_convert_to_gguf_bounded_parallel_map_m2_loops__pert_llm_s0/files/testcase.py params = Params(n_vocab=28, n_embd=16, n_layer=3, n_ctx=256, n_ff=64, n_head=4, n_head_kv=1, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 28 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795c90118650>
+Writing /tmp/tmp4dbkowez/converted-0.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[ 1/36] Writing tensor generated.0.000                        | size      1 x      2  | type F32  | T+   0
+[ 2/36] Writing tensor generated.0.001                        | size      1 x      8  | type F32  | T+   0
+[ 3/36] Writing tensor generated.0.002                        | size      1 x      7  | type F32  | T+   0
+[ 4/36] Writing tensor generated.0.003                        | size      1 x      6  | type F32  | T+   0
+[ 5/36] Writing tensor generated.0.004                        | size      1 x      5  | type F32  | T+   0
+[ 6/36] Writing tensor generated.0.005                        | size      1 x      4  | type F32  | T+   0
+[ 7/36] Writing tensor generated.0.006                        | size      1 x      3  | type F32  | T+   0
+[ 8/36] Writing tensor generated.0.007                        | size      1 x      2  | type F32  | T+   0
+[ 9/36] Writing tensor generated.0.008                        | size      1 x      8  | type F32  | T+   0
+[10/36] Writing tensor generated.0.009                        | size      1 x      7  | type F32  | T+   0
+[11/36] Writing tensor generated.0.010                        | size      1 x      6  | type F32  | T+   0
+[12/36] Writing tensor generated.0.011                        | size      1 x      5  | type F32  | T+   0
+[13/36] Writing tensor generated.0.012                        | size      1 x      4  | type F32  | T+   0
+[14/36] Writing tensor generated.0.013                        | size      1 x      3  | type F32  | T+   0
+[15/36] Writing tensor generated.0.014                        | size      1 x      2  | type F32  | T+   0
+[16/36] Writing tensor generated.0.015                        | size      1 x      8  | type F32  | T+   0
+[17/36] Writing tensor generated.0.016                        | size      1 x      7  | type F32  | T+   0
+[18/36] Writing tensor generated.0.017                        | size      1 x      6  | type F32  | T+   0
+[19/36] Writing tensor generated.0.018                        | size      1 x      5  | type F32  | T+   0
+[20/36] Writing tensor generated.0.019                        | size      1 x      4  | type F32  | T+   0
+[21/36] Writing tensor generated.0.020                        | size      1 x      3  | type F32  | T+   0
+[22/36] Writing tensor generated.0.021                        | size      1 x      2  | type F32  | T+   0
+[23/36] Writing tensor generated.0.022                        | size      1 x      8  | type F32  | T+   0
+[24/36] Writing tensor generated.0.023                        | size      1 x      7  | type F32  | T+   0
+[25/36] Writing tensor generated.0.024                        | size      1 x      6  | type F32  | T+   0
+[26/36] Writing tensor generated.0.025                        | size      1 x      5  | type F32  | T+   0
+[27/36] Writing tensor generated.0.026                        | size      1 x      4  | type F32  | T+   0
+[28/36] Writing tensor generated.0.027                        | size      1 x      3  | type F32  | T+   0
+[29/36] Writing tensor generated.0.028                        | size      1 x      2  | type F32  | T+   0
+[30/36] Writing tensor generated.0.029                        | size      1 x      8  | type F32  | T+   0
+[31/36] Writing tensor generated.0.030                        | size      1 x      7  | type F32  | T+   0
+[32/36] Writing tensor generated.0.031                        | size      1 x      6  | type F32  | T+   0
+[33/36] Writing tensor generated.0.032                        | size      1 x      5  | type F32  | T+   0
+[34/36] Writing tensor generated.0.033                        | size      1 x      4  | type F32  | T+   0
+[35/36] Writing tensor generated.0.034                        | size      1 x      3  | type F32  | T+   0
+[36/36] Writing tensor generated.0.035                        | size      1 x      2  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-0.gguf
+params = Params(n_vocab=30, n_embd=24, n_layer=4, n_ctx=4096, n_ff=80, n_head=6, n_head_kv=2, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 30 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795c90150190>
+Writing /tmp/tmp4dbkowez/converted-1.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[ 1/48] Writing tensor generated.1.000                        | size      2 x      3  | type F32  | T+   0
+[ 2/48] Writing tensor generated.1.001                        | size      2 x      2  | type F32  | T+   0
+[ 3/48] Writing tensor generated.1.002                        | size      2 x      8  | type F32  | T+   0
+[ 4/48] Writing tensor generated.1.003                        | size      2 x      7  | type F32  | T+   0
+[ 5/48] Writing tensor generated.1.004                        | size      2 x      6  | type F32  | T+   0
+[ 6/48] Writing tensor generated.1.005                        | size      2 x      5  | type F32  | T+   0
+[ 7/48] Writing tensor generated.1.006                        | size      2 x      4  | type F32  | T+   0
+[ 8/48] Writing tensor generated.1.007                        | size      2 x      3  | type F32  | T+   0
+[ 9/48] Writing tensor generated.1.008                        | size      2 x      2  | type F32  | T+   0
+[10/48] Writing tensor generated.1.009                        | size      2 x      8  | type F32  | T+   0
+[11/48] Writing tensor generated.1.010                        | size      2 x      7  | type F32  | T+   0
+[12/48] Writing tensor generated.1.011                        | size      2 x      6  | type F32  | T+   0
+[13/48] Writing tensor generated.1.012                        | size      2 x      5  | type F32  | T+   0
+[14/48] Writing tensor generated.1.013                        | size      2 x      4  | type F32  | T+   0
+[15/48] Writing tensor generated.1.014                        | size      2 x      3  | type F32  | T+   0
+[16/48] Writing tensor generated.1.015                        | size      2 x      2  | type F32  | T+   0
+[17/48] Writing tensor generated.1.016                        | size      2 x      8  | type F32  | T+   0
+[18/48] Writing tensor generated.1.017                        | size      2 x      7  | type F32  | T+   0
+[19/48] Writing tensor generated.1.018                        | size      2 x      6  | type F32  | T+   0
+[20/48] Writing tensor generated.1.019                        | size      2 x      5  | type F32  | T+   0
+[21/48] Writing tensor generated.1.020                        | size      2 x      4  | type F32  | T+   0
+[22/48] Writing tensor generated.1.021                        | size      2 x      3  | type F32  | T+   0
+[23/48] Writing tensor generated.1.022                        | size      2 x      2  | type F32  | T+   0
+[24/48] Writing tensor generated.1.023                        | size      2 x      8  | type F32  | T+   0
+[25/48] Writing tensor generated.1.024                        | size      2 x      7  | type F32  | T+   0
+[26/48] Writing tensor generated.1.025                        | size      2 x      6  | type F32  | T+   0
+[27/48] Writing tensor generated.1.026                        | size      2 x      5  | type F32  | T+   0
+[28/48] Writing tensor generated.1.027                        | size      2 x      4  | type F32  | T+   0
+[29/48] Writing tensor generated.1.028                        | size      2 x      3  | type F32  | T+   0
+[30/48] Writing tensor generated.1.029                        | size      2 x      2  | type F32  | T+   0
+[31/48] Writing tensor generated.1.030                        | size      2 x      8  | type F32  | T+   0
+[32/48] Writing tensor generated.1.031                        | size      2 x      7  | type F32  | T+   0
+[33/48] Writing tensor generated.1.032                        | size      2 x      6  | type F32  | T+   0
+[34/48] Writing tensor generated.1.033                        | size      2 x      5  | type F32  | T+   0
+[35/48] Writing tensor generated.1.034                        | size      2 x      4  | type F32  | T+   0
+[36/48] Writing tensor generated.1.035                        | size      2 x      3  | type F32  | T+   0
+[37/48] Writing tensor generated.1.036                        | size      2 x      2  | type F32  | T+   0
+[38/48] Writing tensor generated.1.037                        | size      2 x      8  | type F32  | T+   0
+[39/48] Writing tensor generated.1.038                        | size      2 x      7  | type F32  | T+   0
+[40/48] Writing tensor generated.1.039                        | size      2 x      6  | type F32  | T+   0
+[41/48] Writing tensor generated.1.040                        | size      2 x      5  | type F32  | T+   0
+[42/48] Writing tensor generated.1.041                        | size      2 x      4  | type F32  | T+   0
+[43/48] Writing tensor generated.1.042                        | size      2 x      3  | type F32  | T+   0
+[44/48] Writing tensor generated.1.043                        | size      2 x      2  | type F32  | T+   0
+[45/48] Writing tensor generated.1.044                        | size      2 x      8  | type F32  | T+   0
+[46/48] Writing tensor generated.1.045                        | size      2 x      7  | type F32  | T+   0
+[47/48] Writing tensor generated.1.046                        | size      2 x      6  | type F32  | T+   0
+[48/48] Writing tensor generated.1.047                        | size      2 x      5  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-1.gguf
+params = Params(n_vocab=32, n_embd=32, n_layer=3, n_ctx=512, n_ff=96, n_head=8, n_head_kv=3, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 32 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795c90172510>
+Writing /tmp/tmp4dbkowez/converted-2.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[ 1/58] Writing tensor generated.2.000                        | size      3 x      6  | type F32  | T+   0
+[ 2/58] Writing tensor generated.2.001                        | size      3 x      5  | type F32  | T+   0
+[ 3/58] Writing tensor generated.2.002                        | size      3 x      4  | type F32  | T+   0
+[ 4/58] Writing tensor generated.2.003                        | size      3 x      3  | type F32  | T+   0
+[ 5/58] Writing tensor generated.2.004                        | size      3 x      2  | type F32  | T+   0
+[ 6/58] Writing tensor generated.2.005                        | size      3 x      8  | type F32  | T+   0
+[ 7/58] Writing tensor generated.2.006                        | size      3 x      7  | type F32  | T+   0
+[ 8/58] Writing tensor generated.2.007                        | size      3 x      6  | type F32  | T+   0
+[ 9/58] Writing tensor generated.2.008                        | size      3 x      5  | type F32  | T+   0
+[10/58] Writing tensor generated.2.009                        | size      3 x      4  | type F32  | T+   0
+[11/58] Writing tensor generated.2.010                        | size      3 x      3  | type F32  | T+   0
+[12/58] Writing tensor generated.2.011                        | size      3 x      2  | type F32  | T+   0
+[13/58] Writing tensor generated.2.012                        | size      3 x      8  | type F32  | T+   0
+[14/58] Writing tensor generated.2.013                        | size      3 x      7  | type F32  | T+   0
+[15/58] Writing tensor generated.2.014                        | size      3 x      6  | type F32  | T+   0
+[16/58] Writing tensor generated.2.015                        | size      3 x      5  | type F32  | T+   0
+[17/58] Writing tensor generated.2.016                        | size      3 x      4  | type F32  | T+   0
+[18/58] Writing tensor generated.2.017                        | size      3 x      3  | type F32  | T+   0
+[19/58] Writing tensor generated.2.018                        | size      3 x      2  | type F32  | T+   0
+[20/58] Writing tensor generated.2.019                        | size      3 x      8  | type F32  | T+   0
+[21/58] Writing tensor generated.2.020                        | size      3 x      7  | type F32  | T+   0
+[22/58] Writing tensor generated.2.021                        | size      3 x      6  | type F32  | T+   0
+[23/58] Writing tensor generated.2.022                        | size      3 x      5  | type F32  | T+   0
+[24/58] Writing tensor generated.2.023                        | size      3 x      4  | type F32  | T+   0
+[25/58] Writing tensor generated.2.024                        | size      3 x      3  | type F32  | T+   0
+[26/58] Writing tensor generated.2.025                        | size      3 x      2  | type F32  | T+   0
+[27/58] Writing tensor generated.2.026                        | size      3 x      8  | type F32  | T+   0
+[28/58] Writing tensor generated.2.027                        | size      3 x      7  | type F32  | T+   0
+[29/58] Writing tensor generated.2.028                        | size      3 x      6  | type F32  | T+   0
+[30/58] Writing tensor generated.2.029                        | size      3 x      5  | type F32  | T+   0
+[31/58] Writing tensor generated.2.030                        | size      3 x      4  | type F32  | T+   0
+[32/58] Writing tensor generated.2.031                        | size      3 x      3  | type F32  | T+   0
+[33/58] Writing tensor generated.2.032                        | size      3 x      2  | type F32  | T+   0
+[34/58] Writing tensor generated.2.033                        | size      3 x      8  | type F32  | T+   0
+[35/58] Writing tensor generated.2.034                        | size      3 x      7  | type F32  | T+   0
+[36/58] Writing tensor generated.2.035                        | size      3 x      6  | type F32  | T+   0
+[37/58] Writing tensor generated.2.036                        | size      3 x      5  | type F32  | T+   0
+[38/58] Writing tensor generated.2.037                        | size      3 x      4  | type F32  | T+   0
+[39/58] Writing tensor generated.2.038                        | size      3 x      3  | type F32  | T+   0
+[40/58] Writing tensor generated.2.039                        | size      3 x      2  | type F32  | T+   0
+[41/58] Writing tensor generated.2.040                        | size      3 x      8  | type F32  | T+   0
+[42/58] Writing tensor generated.2.041                        | size      3 x      7  | type F32  | T+   0
+[43/58] Writing tensor generated.2.042                        | size      3 x      6  | type F32  | T+   0
+[44/58] Writing tensor generated.2.043                        | size      3 x      5  | type F32  | T+   0
+[45/58] Writing tensor generated.2.044                        | size      3 x      4  | type F32  | T+   0
+[46/58] Writing tensor generated.2.045                        | size      3 x      3  | type F32  | T+   0
+[47/58] Writing tensor generated.2.046                        | size      3 x      2  | type F32  | T+   0
+[48/58] Writing tensor generated.2.047                        | size      3 x      8  | type F32  | T+   0
+[49/58] Writing tensor generated.2.048                        | size      3 x      7  | type F32  | T+   0
+[50/58] Writing tensor generated.2.049                        | size      3 x      6  | type F32  | T+   0
+[51/58] Writing tensor generated.2.050                        | size      3 x      5  | type F32  | T+   0
+[52/58] Writing tensor generated.2.051                        | size      3 x      4  | type F32  | T+   0
+[53/58] Writing tensor generated.2.052                        | size      3 x      3  | type F32  | T+   0
+[54/58] Writing tensor generated.2.053                        | size      3 x      2  | type F32  | T+   0
+[55/58] Writing tensor generated.2.054                        | size      3 x      8  | type F32  | T+   0
+[56/58] Writing tensor generated.2.055                        | size      3 x      7  | type F32  | T+   0
+[57/58] Writing tensor generated.2.056                        | size      3 x      6  | type F32  | T+   0
+[58/58] Writing tensor generated.2.057                        | size      3 x      5  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-2.gguf
+params = Params(n_vocab=35, n_embd=16, n_layer=4, n_ctx=256, n_ff=112, n_head=4, n_head_kv=1, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 35 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795c90153010>
+Writing /tmp/tmp4dbkowez/converted-3.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[ 1/52] Writing tensor generated.3.000                        | size      4 x      4  | type F32  | T+   0
+[ 2/52] Writing tensor generated.3.001                        | size      4 x      3  | type F32  | T+   0
+[ 3/52] Writing tensor generated.3.002                        | size      4 x      2  | type F32  | T+   0
+[ 4/52] Writing tensor generated.3.003                        | size      4 x      8  | type F32  | T+   0
+[ 5/52] Writing tensor generated.3.004                        | size      4 x      7  | type F32  | T+   0
+[ 6/52] Writing tensor generated.3.005                        | size      4 x      6  | type F32  | T+   0
+[ 7/52] Writing tensor generated.3.006                        | size      4 x      5  | type F32  | T+   0
+[ 8/52] Writing tensor generated.3.007                        | size      4 x      4  | type F32  | T+   0
+[ 9/52] Writing tensor generated.3.008                        | size      4 x      3  | type F32  | T+   0
+[10/52] Writing tensor generated.3.009                        | size      4 x      2  | type F32  | T+   0
+[11/52] Writing tensor generated.3.010                        | size      4 x      8  | type F32  | T+   0
+[12/52] Writing tensor generated.3.011                        | size      4 x      7  | type F32  | T+   0
+[13/52] Writing tensor generated.3.012                        | size      4 x      6  | type F32  | T+   0
+[14/52] Writing tensor generated.3.013                        | size      4 x      5  | type F32  | T+   0
+[15/52] Writing tensor generated.3.014                        | size      4 x      4  | type F32  | T+   0
+[16/52] Writing tensor generated.3.015                        | size      4 x      3  | type F32  | T+   0
+[17/52] Writing tensor generated.3.016                        | size      4 x      2  | type F32  | T+   0
+[18/52] Writing tensor generated.3.017                        | size      4 x      8  | type F32  | T+   0
+[19/52] Writing tensor generated.3.018                        | size      4 x      7  | type F32  | T+   0
+[20/52] Writing tensor generated.3.019                        | size      4 x      6  | type F32  | T+   0
+[21/52] Writing tensor generated.3.020                        | size      4 x      5  | type F32  | T+   0
+[22/52] Writing tensor generated.3.021                        | size      4 x      4  | type F32  | T+   0
+[23/52] Writing tensor generated.3.022                        | size      4 x      3  | type F32  | T+   0
+[24/52] Writing tensor generated.3.023                        | size      4 x      2  | type F32  | T+   0
+[25/52] Writing tensor generated.3.024                        | size      4 x      8  | type F32  | T+   0
+[26/52] Writing tensor generated.3.025                        | size      4 x      7  | type F32  | T+   0
+[27/52] Writing tensor generated.3.026                        | size      4 x      6  | type F32  | T+   0
+[28/52] Writing tensor generated.3.027                        | size      4 x      5  | type F32  | T+   0
+[29/52] Writing tensor generated.3.028                        | size      4 x      4  | type F32  | T+   0
+[30/52] Writing tensor generated.3.029                        | size      4 x      3  | type F32  | T+   0
+[31/52] Writing tensor generated.3.030                        | size      4 x      2  | type F32  | T+   0
+[32/52] Writing tensor generated.3.031                        | size      4 x      8  | type F32  | T+   0
+[33/52] Writing tensor generated.3.032                        | size      4 x      7  | type F32  | T+   0
+[34/52] Writing tensor generated.3.033                        | size      4 x      6  | type F32  | T+   0
+[35/52] Writing tensor generated.3.034                        | size      4 x      5  | type F32  | T+   0
+[36/52] Writing tensor generated.3.035                        | size      4 x      4  | type F32  | T+   0
+[37/52] Writing tensor generated.3.036                        | size      4 x      3  | type F32  | T+   0
+[38/52] Writing tensor generated.3.037                        | size      4 x      2  | type F32  | T+   0
+[39/52] Writing tensor generated.3.038                        | size      4 x      8  | type F32  | T+   0
+[40/52] Writing tensor generated.3.039                        | size      4 x      7  | type F32  | T+   0
+[41/52] Writing tensor generated.3.040                        | size      4 x      6  | type F32  | T+   0
+[42/52] Writing tensor generated.3.041                        | size      4 x      5  | type F32  | T+   0
+[43/52] Writing tensor generated.3.042                        | size      4 x      4  | type F32  | T+   0
+[44/52] Writing tensor generated.3.043                        | size      4 x      3  | type F32  | T+   0
+[45/52] Writing tensor generated.3.044                        | size      4 x      2  | type F32  | T+   0
+[46/52] Writing tensor generated.3.045                        | size      4 x      8  | type F32  | T+   0
+[47/52] Writing tensor generated.3.046                        | size      4 x      7  | type F32  | T+   0
+[48/52] Writing tensor generated.3.047                        | size      4 x      6  | type F32  | T+   0
+[49/52] Writing tensor generated.3.048                        | size      4 x      5  | type F32  | T+   0
+[50/52] Writing tensor generated.3.049                        | size      4 x      4  | type F32  | T+   0
+[51/52] Writing tensor generated.3.050                        | size      4 x      3  | type F32  | T+   0
+[52/52] Writing tensor generated.3.051                        | size      4 x      2  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-3.gguf
+params = Params(n_vocab=37, n_embd=24, n_layer=3, n_ctx=4096, n_ff=64, n_head=6, n_head_kv=2, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 37 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795c901b49d0>
+Writing /tmp/tmp4dbkowez/converted-4.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[ 1/76] Writing tensor generated.4.000                        | size      5 x      4  | type F32  | T+   0
+[ 2/76] Writing tensor generated.4.001                        | size      5 x      3  | type F32  | T+   0
+[ 3/76] Writing tensor generated.4.002                        | size      5 x      2  | type F32  | T+   0
+[ 4/76] Writing tensor generated.4.003                        | size      5 x      8  | type F32  | T+   0
+[ 5/76] Writing tensor generated.4.004                        | size      5 x      7  | type F32  | T+   0
+[ 6/76] Writing tensor generated.4.005                        | size      5 x      6  | type F32  | T+   0
+[ 7/76] Writing tensor generated.4.006                        | size      5 x      5  | type F32  | T+   0
+[ 8/76] Writing tensor generated.4.007                        | size      5 x      4  | type F32  | T+   0
+[ 9/76] Writing tensor generated.4.008                        | size      5 x      3  | type F32  | T+   0
+[10/76] Writing tensor generated.4.009                        | size      5 x      2  | type F32  | T+   0
+[11/76] Writing tensor generated.4.010                        | size      5 x      8  | type F32  | T+   0
+[12/76] Writing tensor generated.4.011                        | size      5 x      7  | type F32  | T+   0
+[13/76] Writing tensor generated.4.012                        | size      5 x      6  | type F32  | T+   0
+[14/76] Writing tensor generated.4.013                        | size      5 x      5  | type F32  | T+   0
+[15/76] Writing tensor generated.4.014                        | size      5 x      4  | type F32  | T+   0
+[16/76] Writing tensor generated.4.015                        | size      5 x      3  | type F32  | T+   0
+[17/76] Writing tensor generated.4.016                        | size      5 x      2  | type F32  | T+   0
+[18/76] Writing tensor generated.4.017                        | size      5 x      8  | type F32  | T+   0
+[19/76] Writing tensor generated.4.018                        | size      5 x      7  | type F32  | T+   0
+[20/76] Writing tensor generated.4.019                        | size      5 x      6  | type F32  | T+   0
+[21/76] Writing tensor generated.4.020                        | size      5 x      5  | type F32  | T+   0
+[22/76] Writing tensor generated.4.021                        | size      5 x      4  | type F32  | T+   0
+[23/76] Writing tensor generated.4.022                        | size      5 x      3  | type F32  | T+   0
+[24/76] Writing tensor generated.4.023                        | size      5 x      2  | type F32  | T+   0
+[25/76] Writing tensor generated.4.024                        | size      5 x      8  | type F32  | T+   0
+[26/76] Writing tensor generated.4.025                        | size      5 x      7  | type F32  | T+   0
+[27/76] Writing tensor generated.4.026                        | size      5 x      6  | type F32  | T+   0
+[28/76] Writing tensor generated.4.027                        | size      5 x      5  | type F32  | T+   0
+[29/76] Writing tensor generated.4.028                        | size      5 x      4  | type F32  | T+   0
+[30/76] Writing tensor generated.4.029                        | size      5 x      3  | type F32  | T+   0
+[31/76] Writing tensor generated.4.030                        | size      5 x      2  | type F32  | T+   0
+[32/76] Writing tensor generated.4.031                        | size      5 x      8  | type F32  | T+   0
+[33/76] Writing tensor generated.4.032                        | size      5 x      7  | type F32  | T+   0
+[34/76] Writing tensor generated.4.033                        | size      5 x      6  | type F32  | T+   0
+[35/76] Writing tensor generated.4.034                        | size      5 x      5  | type F32  | T+   0
+[36/76] Writing tensor generated.4.035                        | size      5 x      4  | type F32  | T+   0
+[37/76] Writing tensor generated.4.036                        | size      5 x      3  | type F32  | T+   0
+[38/76] Writing tensor generated.4.037                        | size      5 x      2  | type F32  | T+   0
+[39/76] Writing tensor generated.4.038                        | size      5 x      8  | type F32  | T+   0
+[40/76] Writing tensor generated.4.039                        | size      5 x      7  | type F32  | T+   0
+[41/76] Writing tensor generated.4.040                        | size      5 x      6  | type F32  | T+   0
+[42/76] Writing tensor generated.4.041                        | size      5 x      5  | type F32  | T+   0
+[43/76] Writing tensor generated.4.042                        | size      5 x      4  | type F32  | T+   0
+[44/76] Writing tensor generated.4.043                        | size      5 x      3  | type F32  | T+   0
+[45/76] Writing tensor generated.4.044                        | size      5 x      2  | type F32  | T+   0
+[46/76] Writing tensor generated.4.045                        | size      5 x      8  | type F32  | T+   0
+[47/76] Writing tensor generated.4.046                        | size      5 x      7  | type F32  | T+   0
+[48/76] Writing tensor generated.4.047                        | size      5 x      6  | type F32  | T+   0
+[49/76] Writing tensor generated.4.048                        | size      5 x      5  | type F32  | T+   0
+[50/76] Writing tensor generated.4.049                        | size      5 x      4  | type F32  | T+   0
+[51/76] Writing tensor generated.4.050                        | size      5 x      3  | type F32  | T+   0
+[52/76] Writing tensor generated.4.051                        | size      5 x      2  | type F32  | T+   0
+[53/76] Writing tensor generated.4.052                        | size      5 x      8  | type F32  | T+   0
+[54/76] Writing tensor generated.4.053                        | size      5 x      7  | type F32  | T+   0
+[55/76] Writing tensor generated.4.054                        | size      5 x      6  | type F32  | T+   0
+[56/76] Writing tensor generated.4.055                        | size      5 x      5  | type F32  | T+   0
+[57/76] Writing tensor generated.4.056                        | size      5 x      4  | type F32  | T+   0
+[58/76] Writing tensor generated.4.057                        | size      5 x      3  | type F32  | T+   0
+[59/76] Writing tensor generated.4.058                        | size      5 x      2  | type F32  | T+   0
+[60/76] Writing tensor generated.4.059                        | size      5 x      8  | type F32  | T+   0
+[61/76] Writing tensor generated.4.060                        | size      5 x      7  | type F32  | T+   0
+[62/76] Writing tensor generated.4.061                        | size      5 x      6  | type F32  | T+   0
+[63/76] Writing tensor generated.4.062                        | size      5 x      5  | type F32  | T+   0
+[64/76] Writing tensor generated.4.063                        | size      5 x      4  | type F32  | T+   0
+[65/76] Writing tensor generated.4.064                        | size      5 x      3  | type F32  | T+   0
+[66/76] Writing tensor generated.4.065                        | size      5 x      2  | type F32  | T+   0
+[67/76] Writing tensor generated.4.066                        | size      5 x      8  | type F32  | T+   0
+[68/76] Writing tensor generated.4.067                        | size      5 x      7  | type F32  | T+   0
+[69/76] Writing tensor generated.4.068                        | size      5 x      6  | type F32  | T+   0
+[70/76] Writing tensor generated.4.069                        | size      5 x      5  | type F32  | T+   0
+[71/76] Writing tensor generated.4.070                        | size      5 x      4  | type F32  | T+   0
+[72/76] Writing tensor generated.4.071                        | size      5 x      3  | type F32  | T+   0
+[73/76] Writing tensor generated.4.072                        | size      5 x      2  | type F32  | T+   0
+[74/76] Writing tensor generated.4.073                        | size      5 x      8  | type F32  | T+   0
+[75/76] Writing tensor generated.4.074                        | size      5 x      7  | type F32  | T+   0
+[76/76] Writing tensor generated.4.075                        | size      5 x      6  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-4.gguf
+params = Params(n_vocab=40, n_embd=32, n_layer=4, n_ctx=512, n_ff=80, n_head=8, n_head_kv=3, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 40 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795c9017a6d0>
+Writing /tmp/tmp4dbkowez/converted-5.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[ 1/66] Writing tensor generated.5.000                        | size      1 x      6  | type F32  | T+   0
+[ 2/66] Writing tensor generated.5.001                        | size      1 x      5  | type F32  | T+   0
+[ 3/66] Writing tensor generated.5.002                        | size      1 x      4  | type F32  | T+   0
+[ 4/66] Writing tensor generated.5.003                        | size      1 x      3  | type F32  | T+   0
+[ 5/66] Writing tensor generated.5.004                        | size      1 x      2  | type F32  | T+   0
+[ 6/66] Writing tensor generated.5.005                        | size      1 x      8  | type F32  | T+   0
+[ 7/66] Writing tensor generated.5.006                        | size      1 x      7  | type F32  | T+   0
+[ 8/66] Writing tensor generated.5.007                        | size      1 x      6  | type F32  | T+   0
+[ 9/66] Writing tensor generated.5.008                        | size      1 x      5  | type F32  | T+   0
+[10/66] Writing tensor generated.5.009                        | size      1 x      4  | type F32  | T+   0
+[11/66] Writing tensor generated.5.010                        | size      1 x      3  | type F32  | T+   0
+[12/66] Writing tensor generated.5.011                        | size      1 x      2  | type F32  | T+   0
+[13/66] Writing tensor generated.5.012                        | size      1 x      8  | type F32  | T+   0
+[14/66] Writing tensor generated.5.013                        | size      1 x      7  | type F32  | T+   0
+[15/66] Writing tensor generated.5.014                        | size      1 x      6  | type F32  | T+   0
+[16/66] Writing tensor generated.5.015                        | size      1 x      5  | type F32  | T+   0
+[17/66] Writing tensor generated.5.016                        | size      1 x      4  | type F32  | T+   0
+[18/66] Writing tensor generated.5.017                        | size      1 x      3  | type F32  | T+   0
+[19/66] Writing tensor generated.5.018                        | size      1 x      2  | type F32  | T+   0
+[20/66] Writing tensor generated.5.019                        | size      1 x      8  | type F32  | T+   0
+[21/66] Writing tensor generated.5.020                        | size      1 x      7  | type F32  | T+   0
+[22/66] Writing tensor generated.5.021                        | size      1 x      6  | type F32  | T+   0
+[23/66] Writing tensor generated.5.022                        | size      1 x      5  | type F32  | T+   0
+[24/66] Writing tensor generated.5.023                        | size      1 x      4  | type F32  | T+   0
+[25/66] Writing tensor generated.5.024                        | size      1 x      3  | type F32  | T+   0
+[26/66] Writing tensor generated.5.025                        | size      1 x      2  | type F32  | T+   0
+[27/66] Writing tensor generated.5.026                        | size      1 x      8  | type F32  | T+   0
+[28/66] Writing tensor generated.5.027                        | size      1 x      7  | type F32  | T+   0
+[29/66] Writing tensor generated.5.028                        | size      1 x      6  | type F32  | T+   0
+[30/66] Writing tensor generated.5.029                        | size      1 x      5  | type F32  | T+   0
+[31/66] Writing tensor generated.5.030                        | size      1 x      4  | type F32  | T+   0
+[32/66] Writing tensor generated.5.031                        | size      1 x      3  | type F32  | T+   0
+[33/66] Writing tensor generated.5.032                        | size      1 x      2  | type F32  | T+   0
+[34/66] Writing tensor generated.5.033                        | size      1 x      8  | type F32  | T+   0
+[35/66] Writing tensor generated.5.034                        | size      1 x      7  | type F32  | T+   0
+[36/66] Writing tensor generated.5.035                        | size      1 x      6  | type F32  | T+   0
+[37/66] Writing tensor generated.5.036                        | size      1 x      5  | type F32  | T+   0
+[38/66] Writing tensor generated.5.037                        | size      1 x      4  | type F32  | T+   0
+[39/66] Writing tensor generated.5.038                        | size      1 x      3  | type F32  | T+   0
+[40/66] Writing tensor generated.5.039                        | size      1 x      2  | type F32  | T+   0
+[41/66] Writing tensor generated.5.040                        | size      1 x      8  | type F32  | T+   0
+[42/66] Writing tensor generated.5.041                        | size      1 x      7  | type F32  | T+   0
+[43/66] Writing tensor generated.5.042                        | size      1 x      6  | type F32  | T+   0
+[44/66] Writing tensor generated.5.043                        | size      1 x      5  | type F32  | T+   0
+[45/66] Writing tensor generated.5.044                        | size      1 x      4  | type F32  | T+   0
+[46/66] Writing tensor generated.5.045                        | size      1 x      3  | type F32  | T+   0
+[47/66] Writing tensor generated.5.046                        | size      1 x      2  | type F32  | T+   0
+[48/66] Writing tensor generated.5.047                        | size      1 x      8  | type F32  | T+   0
+[49/66] Writing tensor generated.5.048                        | size      1 x      7  | type F32  | T+   0
+[50/66] Writing tensor generated.5.049                        | size      1 x      6  | type F32  | T+   0
+[51/66] Writing tensor generated.5.050                        | size      1 x      5  | type F32  | T+   0
+[52/66] Writing tensor generated.5.051                        | size      1 x      4  | type F32  | T+   0
+[53/66] Writing tensor generated.5.052                        | size      1 x      3  | type F32  | T+   0
+[54/66] Writing tensor generated.5.053                        | size      1 x      2  | type F32  | T+   0
+[55/66] Writing tensor generated.5.054                        | size      1 x      8  | type F32  | T+   0
+[56/66] Writing tensor generated.5.055                        | size      1 x      7  | type F32  | T+   0
+[57/66] Writing tensor generated.5.056                        | size      1 x      6  | type F32  | T+   0
+[58/66] Writing tensor generated.5.057                        | size      1 x      5  | type F32  | T+   0
+[59/66] Writing tensor generated.5.058                        | size      1 x      4  | type F32  | T+   0
+[60/66] Writing tensor generated.5.059                        | size      1 x      3  | type F32  | T+   0
+[61/66] Writing tensor generated.5.060                        | size      1 x      2  | type F32  | T+   0
+[62/66] Writing tensor generated.5.061                        | size      1 x      8  | type F32  | T+   0
+[63/66] Writing tensor generated.5.062                        | size      1 x      7  | type F32  | T+   0
+[64/66] Writing tensor generated.5.063                        | size      1 x      6  | type F32  | T+   0
+[65/66] Writing tensor generated.5.064                        | size      1 x      5  | type F32  | T+   0
+[66/66] Writing tensor generated.5.065                        | size      1 x      4  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-5.gguf
+params = Params(n_vocab=42, n_embd=16, n_layer=3, n_ctx=256, n_ff=96, n_head=4, n_head_kv=1, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 42 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795cb17c5790>
+Writing /tmp/tmp4dbkowez/converted-6.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[ 1/73] Writing tensor generated.6.000                        | size      2 x      3  | type F32  | T+   0
+[ 2/73] Writing tensor generated.6.001                        | size      2 x      2  | type F32  | T+   0
+[ 3/73] Writing tensor generated.6.002                        | size      2 x      8  | type F32  | T+   0
+[ 4/73] Writing tensor generated.6.003                        | size      2 x      7  | type F32  | T+   0
+[ 5/73] Writing tensor generated.6.004                        | size      2 x      6  | type F32  | T+   0
+[ 6/73] Writing tensor generated.6.005                        | size      2 x      5  | type F32  | T+   0
+[ 7/73] Writing tensor generated.6.006                        | size      2 x      4  | type F32  | T+   0
+[ 8/73] Writing tensor generated.6.007                        | size      2 x      3  | type F32  | T+   0
+[ 9/73] Writing tensor generated.6.008                        | size      2 x      2  | type F32  | T+   0
+[10/73] Writing tensor generated.6.009                        | size      2 x      8  | type F32  | T+   0
+[11/73] Writing tensor generated.6.010                        | size      2 x      7  | type F32  | T+   0
+[12/73] Writing tensor generated.6.011                        | size      2 x      6  | type F32  | T+   0
+[13/73] Writing tensor generated.6.012                        | size      2 x      5  | type F32  | T+   0
+[14/73] Writing tensor generated.6.013                        | size      2 x      4  | type F32  | T+   0
+[15/73] Writing tensor generated.6.014                        | size      2 x      3  | type F32  | T+   0
+[16/73] Writing tensor generated.6.015                        | size      2 x      2  | type F32  | T+   0
+[17/73] Writing tensor generated.6.016                        | size      2 x      8  | type F32  | T+   0
+[18/73] Writing tensor generated.6.017                        | size      2 x      7  | type F32  | T+   0
+[19/73] Writing tensor generated.6.018                        | size      2 x      6  | type F32  | T+   0
+[20/73] Writing tensor generated.6.019                        | size      2 x      5  | type F32  | T+   0
+[21/73] Writing tensor generated.6.020                        | size      2 x      4  | type F32  | T+   0
+[22/73] Writing tensor generated.6.021                        | size      2 x      3  | type F32  | T+   0
+[23/73] Writing tensor generated.6.022                        | size      2 x      2  | type F32  | T+   0
+[24/73] Writing tensor generated.6.023                        | size      2 x      8  | type F32  | T+   0
+[25/73] Writing tensor generated.6.024                        | size      2 x      7  | type F32  | T+   0
+[26/73] Writing tensor generated.6.025                        | size      2 x      6  | type F32  | T+   0
+[27/73] Writing tensor generated.6.026                        | size      2 x      5  | type F32  | T+   0
+[28/73] Writing tensor generated.6.027                        | size      2 x      4  | type F32  | T+   0
+[29/73] Writing tensor generated.6.028                        | size      2 x      3  | type F32  | T+   0
+[30/73] Writing tensor generated.6.029                        | size      2 x      2  | type F32  | T+   0
+[31/73] Writing tensor generated.6.030                        | size      2 x      8  | type F32  | T+   0
+[32/73] Writing tensor generated.6.031                        | size      2 x      7  | type F32  | T+   0
+[33/73] Writing tensor generated.6.032                        | size      2 x      6  | type F32  | T+   0
+[34/73] Writing tensor generated.6.033                        | size      2 x      5  | type F32  | T+   0
+[35/73] Writing tensor generated.6.034                        | size      2 x      4  | type F32  | T+   0
+[36/73] Writing tensor generated.6.035                        | size      2 x      3  | type F32  | T+   0
+[37/73] Writing tensor generated.6.036                        | size      2 x      2  | type F32  | T+   0
+[38/73] Writing tensor generated.6.037                        | size      2 x      8  | type F32  | T+   0
+[39/73] Writing tensor generated.6.038                        | size      2 x      7  | type F32  | T+   0
+[40/73] Writing tensor generated.6.039                        | size      2 x      6  | type F32  | T+   0
+[41/73] Writing tensor generated.6.040                        | size      2 x      5  | type F32  | T+   0
+[42/73] Writing tensor generated.6.041                        | size      2 x      4  | type F32  | T+   0
+[43/73] Writing tensor generated.6.042                        | size      2 x      3  | type F32  | T+   0
+[44/73] Writing tensor generated.6.043                        | size      2 x      2  | type F32  | T+   0
+[45/73] Writing tensor generated.6.044                        | size      2 x      8  | type F32  | T+   0
+[46/73] Writing tensor generated.6.045                        | size      2 x      7  | type F32  | T+   0
+[47/73] Writing tensor generated.6.046                        | size      2 x      6  | type F32  | T+   0
+[48/73] Writing tensor generated.6.047                        | size      2 x      5  | type F32  | T+   0
+[49/73] Writing tensor generated.6.048                        | size      2 x      4  | type F32  | T+   0
+[50/73] Writing tensor generated.6.049                        | size      2 x      3  | type F32  | T+   0
+[51/73] Writing tensor generated.6.050                        | size      2 x      2  | type F32  | T+   0
+[52/73] Writing tensor generated.6.051                        | size      2 x      8  | type F32  | T+   0
+[53/73] Writing tensor generated.6.052                        | size      2 x      7  | type F32  | T+   0
+[54/73] Writing tensor generated.6.053                        | size      2 x      6  | type F32  | T+   0
+[55/73] Writing tensor generated.6.054                        | size      2 x      5  | type F32  | T+   0
+[56/73] Writing tensor generated.6.055                        | size      2 x      4  | type F32  | T+   0
+[57/73] Writing tensor generated.6.056                        | size      2 x      3  | type F32  | T+   0
+[58/73] Writing tensor generated.6.057                        | size      2 x      2  | type F32  | T+   0
+[59/73] Writing tensor generated.6.058                        | size      2 x      8  | type F32  | T+   0
+[60/73] Writing tensor generated.6.059                        | size      2 x      7  | type F32  | T+   0
+[61/73] Writing tensor generated.6.060                        | size      2 x      6  | type F32  | T+   0
+[62/73] Writing tensor generated.6.061                        | size      2 x      5  | type F32  | T+   0
+[63/73] Writing tensor generated.6.062                        | size      2 x      4  | type F32  | T+   0
+[64/73] Writing tensor generated.6.063                        | size      2 x      3  | type F32  | T+   0
+[65/73] Writing tensor generated.6.064                        | size      2 x      2  | type F32  | T+   0
+[66/73] Writing tensor generated.6.065                        | size      2 x      8  | type F32  | T+   0
+[67/73] Writing tensor generated.6.066                        | size      2 x      7  | type F32  | T+   0
+[68/73] Writing tensor generated.6.067                        | size      2 x      6  | type F32  | T+   0
+[69/73] Writing tensor generated.6.068                        | size      2 x      5  | type F32  | T+   0
+[70/73] Writing tensor generated.6.069                        | size      2 x      4  | type F32  | T+   0
+[71/73] Writing tensor generated.6.070                        | size      2 x      3  | type F32  | T+   0
+[72/73] Writing tensor generated.6.071                        | size      2 x      2  | type F32  | T+   0
+[73/73] Writing tensor generated.6.072                        | size      2 x      8  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-6.gguf
+params = Params(n_vocab=44, n_embd=24, n_layer=4, n_ctx=4096, n_ff=112, n_head=6, n_head_kv=2, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 44 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795cabf2c050>
+Writing /tmp/tmp4dbkowez/converted-7.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[ 1/92] Writing tensor generated.7.000                        | size      3 x      2  | type F32  | T+   0
+[ 2/92] Writing tensor generated.7.001                        | size      3 x      8  | type F32  | T+   0
+[ 3/92] Writing tensor generated.7.002                        | size      3 x      7  | type F32  | T+   0
+[ 4/92] Writing tensor generated.7.003                        | size      3 x      6  | type F32  | T+   0
+[ 5/92] Writing tensor generated.7.004                        | size      3 x      5  | type F32  | T+   0
+[ 6/92] Writing tensor generated.7.005                        | size      3 x      4  | type F32  | T+   0
+[ 7/92] Writing tensor generated.7.006                        | size      3 x      3  | type F32  | T+   0
+[ 8/92] Writing tensor generated.7.007                        | size      3 x      2  | type F32  | T+   0
+[ 9/92] Writing tensor generated.7.008                        | size      3 x      8  | type F32  | T+   0
+[10/92] Writing tensor generated.7.009                        | size      3 x      7  | type F32  | T+   0
+[11/92] Writing tensor generated.7.010                        | size      3 x      6  | type F32  | T+   0
+[12/92] Writing tensor generated.7.011                        | size      3 x      5  | type F32  | T+   0
+[13/92] Writing tensor generated.7.012                        | size      3 x      4  | type F32  | T+   0
+[14/92] Writing tensor generated.7.013                        | size      3 x      3  | type F32  | T+   0
+[15/92] Writing tensor generated.7.014                        | size      3 x      2  | type F32  | T+   0
+[16/92] Writing tensor generated.7.015                        | size      3 x      8  | type F32  | T+   0
+[17/92] Writing tensor generated.7.016                        | size      3 x      7  | type F32  | T+   0
+[18/92] Writing tensor generated.7.017                        | size      3 x      6  | type F32  | T+   0
+[19/92] Writing tensor generated.7.018                        | size      3 x      5  | type F32  | T+   0
+[20/92] Writing tensor generated.7.019                        | size      3 x      4  | type F32  | T+   0
+[21/92] Writing tensor generated.7.020                        | size      3 x      3  | type F32  | T+   0
+[22/92] Writing tensor generated.7.021                        | size      3 x      2  | type F32  | T+   0
+[23/92] Writing tensor generated.7.022                        | size      3 x      8  | type F32  | T+   0
+[24/92] Writing tensor generated.7.023                        | size      3 x      7  | type F32  | T+   0
+[25/92] Writing tensor generated.7.024                        | size      3 x      6  | type F32  | T+   0
+[26/92] Writing tensor generated.7.025                        | size      3 x      5  | type F32  | T+   0
+[27/92] Writing tensor generated.7.026                        | size      3 x      4  | type F32  | T+   0
+[28/92] Writing tensor generated.7.027                        | size      3 x      3  | type F32  | T+   0
+[29/92] Writing tensor generated.7.028                        | size      3 x      2  | type F32  | T+   0
+[30/92] Writing tensor generated.7.029                        | size      3 x      8  | type F32  | T+   0
+[31/92] Writing tensor generated.7.030                        | size      3 x      7  | type F32  | T+   0
+[32/92] Writing tensor generated.7.031                        | size      3 x      6  | type F32  | T+   0
+[33/92] Writing tensor generated.7.032                        | size      3 x      5  | type F32  | T+   0
+[34/92] Writing tensor generated.7.033                        | size      3 x      4  | type F32  | T+   0
+[35/92] Writing tensor generated.7.034                        | size      3 x      3  | type F32  | T+   0
+[36/92] Writing tensor generated.7.035                        | size      3 x      2  | type F32  | T+   0
+[37/92] Writing tensor generated.7.036                        | size      3 x      8  | type F32  | T+   0
+[38/92] Writing tensor generated.7.037                        | size      3 x      7  | type F32  | T+   0
+[39/92] Writing tensor generated.7.038                        | size      3 x      6  | type F32  | T+   0
+[40/92] Writing tensor generated.7.039                        | size      3 x      5  | type F32  | T+   0
+[41/92] Writing tensor generated.7.040                        | size      3 x      4  | type F32  | T+   0
+[42/92] Writing tensor generated.7.041                        | size      3 x      3  | type F32  | T+   0
+[43/92] Writing tensor generated.7.042                        | size      3 x      2  | type F32  | T+   0
+[44/92] Writing tensor generated.7.043                        | size      3 x      8  | type F32  | T+   0
+[45/92] Writing tensor generated.7.044                        | size      3 x      7  | type F32  | T+   0
+[46/92] Writing tensor generated.7.045                        | size      3 x      6  | type F32  | T+   0
+[47/92] Writing tensor generated.7.046                        | size      3 x      5  | type F32  | T+   0
+[48/92] Writing tensor generated.7.047                        | size      3 x      4  | type F32  | T+   0
+[49/92] Writing tensor generated.7.048                        | size      3 x      3  | type F32  | T+   0
+[50/92] Writing tensor generated.7.049                        | size      3 x      2  | type F32  | T+   0
+[51/92] Writing tensor generated.7.050                        | size      3 x      8  | type F32  | T+   0
+[52/92] Writing tensor generated.7.051                        | size      3 x      7  | type F32  | T+   0
+[53/92] Writing tensor generated.7.052                        | size      3 x      6  | type F32  | T+   0
+[54/92] Writing tensor generated.7.053                        | size      3 x      5  | type F32  | T+   0
+[55/92] Writing tensor generated.7.054                        | size      3 x      4  | type F32  | T+   0
+[56/92] Writing tensor generated.7.055                        | size      3 x      3  | type F32  | T+   0
+[57/92] Writing tensor generated.7.056                        | size      3 x      2  | type F32  | T+   0
+[58/92] Writing tensor generated.7.057                        | size      3 x      8  | type F32  | T+   0
+[59/92] Writing tensor generated.7.058                        | size      3 x      7  | type F32  | T+   0
+[60/92] Writing tensor generated.7.059                        | size      3 x      6  | type F32  | T+   0
+[61/92] Writing tensor generated.7.060                        | size      3 x      5  | type F32  | T+   0
+[62/92] Writing tensor generated.7.061                        | size      3 x      4  | type F32  | T+   0
+[63/92] Writing tensor generated.7.062                        | size      3 x      3  | type F32  | T+   0
+[64/92] Writing tensor generated.7.063                        | size      3 x      2  | type F32  | T+   0
+[65/92] Writing tensor generated.7.064                        | size      3 x      8  | type F32  | T+   0
+[66/92] Writing tensor generated.7.065                        | size      3 x      7  | type F32  | T+   0
+[67/92] Writing tensor generated.7.066                        | size      3 x      6  | type F32  | T+   0
+[68/92] Writing tensor generated.7.067                        | size      3 x      5  | type F32  | T+   0
+[69/92] Writing tensor generated.7.068                        | size      3 x      4  | type F32  | T+   0
+[70/92] Writing tensor generated.7.069                        | size      3 x      3  | type F32  | T+   0
+[71/92] Writing tensor generated.7.070                        | size      3 x      2  | type F32  | T+   0
+[72/92] Writing tensor generated.7.071                        | size      3 x      8  | type F32  | T+   0
+[73/92] Writing tensor generated.7.072                        | size      3 x      7  | type F32  | T+   0
+[74/92] Writing tensor generated.7.073                        | size      3 x      6  | type F32  | T+   0
+[75/92] Writing tensor generated.7.074                        | size      3 x      5  | type F32  | T+   0
+[76/92] Writing tensor generated.7.075                        | size      3 x      4  | type F32  | T+   0
+[77/92] Writing tensor generated.7.076                        | size      3 x      3  | type F32  | T+   0
+[78/92] Writing tensor generated.7.077                        | size      3 x      2  | type F32  | T+   0
+[79/92] Writing tensor generated.7.078                        | size      3 x      8  | type F32  | T+   0
+[80/92] Writing tensor generated.7.079                        | size      3 x      7  | type F32  | T+   0
+[81/92] Writing tensor generated.7.080                        | size      3 x      6  | type F32  | T+   0
+[82/92] Writing tensor generated.7.081                        | size      3 x      5  | type F32  | T+   0
+[83/92] Writing tensor generated.7.082                        | size      3 x      4  | type F32  | T+   0
+[84/92] Writing tensor generated.7.083                        | size      3 x      3  | type F32  | T+   0
+[85/92] Writing tensor generated.7.084                        | size      3 x      2  | type F32  | T+   0
+[86/92] Writing tensor generated.7.085                        | size      3 x      8  | type F32  | T+   0
+[87/92] Writing tensor generated.7.086                        | size      3 x      7  | type F32  | T+   0
+[88/92] Writing tensor generated.7.087                        | size      3 x      6  | type F32  | T+   0
+[89/92] Writing tensor generated.7.088                        | size      3 x      5  | type F32  | T+   0
+[90/92] Writing tensor generated.7.089                        | size      3 x      4  | type F32  | T+   0
+[91/92] Writing tensor generated.7.090                        | size      3 x      3  | type F32  | T+   0
+[92/92] Writing tensor generated.7.091                        | size      3 x      2  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-7.gguf
+params = Params(n_vocab=47, n_embd=32, n_layer=3, n_ctx=512, n_ff=64, n_head=8, n_head_kv=3, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 47 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795ca877a8d0>
+Writing /tmp/tmp4dbkowez/converted-8.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[  1/111] Writing tensor generated.8.000                        | size      4 x      3  | type F32  | T+   0
+[  2/111] Writing tensor generated.8.001                        | size      4 x      2  | type F32  | T+   0
+[  3/111] Writing tensor generated.8.002                        | size      4 x      8  | type F32  | T+   0
+[  4/111] Writing tensor generated.8.003                        | size      4 x      7  | type F32  | T+   0
+[  5/111] Writing tensor generated.8.004                        | size      4 x      6  | type F32  | T+   0
+[  6/111] Writing tensor generated.8.005                        | size      4 x      5  | type F32  | T+   0
+[  7/111] Writing tensor generated.8.006                        | size      4 x      4  | type F32  | T+   0
+[  8/111] Writing tensor generated.8.007                        | size      4 x      3  | type F32  | T+   0
+[  9/111] Writing tensor generated.8.008                        | size      4 x      2  | type F32  | T+   0
+[ 10/111] Writing tensor generated.8.009                        | size      4 x      8  | type F32  | T+   0
+[ 11/111] Writing tensor generated.8.010                        | size      4 x      7  | type F32  | T+   0
+[ 12/111] Writing tensor generated.8.011                        | size      4 x      6  | type F32  | T+   0
+[ 13/111] Writing tensor generated.8.012                        | size      4 x      5  | type F32  | T+   0
+[ 14/111] Writing tensor generated.8.013                        | size      4 x      4  | type F32  | T+   0
+[ 15/111] Writing tensor generated.8.014                        | size      4 x      3  | type F32  | T+   0
+[ 16/111] Writing tensor generated.8.015                        | size      4 x      2  | type F32  | T+   0
+[ 17/111] Writing tensor generated.8.016                        | size      4 x      8  | type F32  | T+   0
+[ 18/111] Writing tensor generated.8.017                        | size      4 x      7  | type F32  | T+   0
+[ 19/111] Writing tensor generated.8.018                        | size      4 x      6  | type F32  | T+   0
+[ 20/111] Writing tensor generated.8.019                        | size      4 x      5  | type F32  | T+   0
+[ 21/111] Writing tensor generated.8.020                        | size      4 x      4  | type F32  | T+   0
+[ 22/111] Writing tensor generated.8.021                        | size      4 x      3  | type F32  | T+   0
+[ 23/111] Writing tensor generated.8.022                        | size      4 x      2  | type F32  | T+   0
+[ 24/111] Writing tensor generated.8.023                        | size      4 x      8  | type F32  | T+   0
+[ 25/111] Writing tensor generated.8.024                        | size      4 x      7  | type F32  | T+   0
+[ 26/111] Writing tensor generated.8.025                        | size      4 x      6  | type F32  | T+   0
+[ 27/111] Writing tensor generated.8.026                        | size      4 x      5  | type F32  | T+   0
+[ 28/111] Writing tensor generated.8.027                        | size      4 x      4  | type F32  | T+   0
+[ 29/111] Writing tensor generated.8.028                        | size      4 x      3  | type F32  | T+   0
+[ 30/111] Writing tensor generated.8.029                        | size      4 x      2  | type F32  | T+   0
+[ 31/111] Writing tensor generated.8.030                        | size      4 x      8  | type F32  | T+   0
+[ 32/111] Writing tensor generated.8.031                        | size      4 x      7  | type F32  | T+   0
+[ 33/111] Writing tensor generated.8.032                        | size      4 x      6  | type F32  | T+   0
+[ 34/111] Writing tensor generated.8.033                        | size      4 x      5  | type F32  | T+   0
+[ 35/111] Writing tensor generated.8.034                        | size      4 x      4  | type F32  | T+   0
+[ 36/111] Writing tensor generated.8.035                        | size      4 x      3  | type F32  | T+   0
+[ 37/111] Writing tensor generated.8.036                        | size      4 x      2  | type F32  | T+   0
+[ 38/111] Writing tensor generated.8.037                        | size      4 x      8  | type F32  | T+   0
+[ 39/111] Writing tensor generated.8.038                        | size      4 x      7  | type F32  | T+   0
+[ 40/111] Writing tensor generated.8.039                        | size      4 x      6  | type F32  | T+   0
+[ 41/111] Writing tensor generated.8.040                        | size      4 x      5  | type F32  | T+   0
+[ 42/111] Writing tensor generated.8.041                        | size      4 x      4  | type F32  | T+   0
+[ 43/111] Writing tensor generated.8.042                        | size      4 x      3  | type F32  | T+   0
+[ 44/111] Writing tensor generated.8.043                        | size      4 x      2  | type F32  | T+   0
+[ 45/111] Writing tensor generated.8.044                        | size      4 x      8  | type F32  | T+   0
+[ 46/111] Writing tensor generated.8.045                        | size      4 x      7  | type F32  | T+   0
+[ 47/111] Writing tensor generated.8.046                        | size      4 x      6  | type F32  | T+   0
+[ 48/111] Writing tensor generated.8.047                        | size      4 x      5  | type F32  | T+   0
+[ 49/111] Writing tensor generated.8.048                        | size      4 x      4  | type F32  | T+   0
+[ 50/111] Writing tensor generated.8.049                        | size      4 x      3  | type F32  | T+   0
+[ 51/111] Writing tensor generated.8.050                        | size      4 x      2  | type F32  | T+   0
+[ 52/111] Writing tensor generated.8.051                        | size      4 x      8  | type F32  | T+   0
+[ 53/111] Writing tensor generated.8.052                        | size      4 x      7  | type F32  | T+   0
+[ 54/111] Writing tensor generated.8.053                        | size      4 x      6  | type F32  | T+   0
+[ 55/111] Writing tensor generated.8.054                        | size      4 x      5  | type F32  | T+   0
+[ 56/111] Writing tensor generated.8.055                        | size      4 x      4  | type F32  | T+   0
+[ 57/111] Writing tensor generated.8.056                        | size      4 x      3  | type F32  | T+   0
+[ 58/111] Writing tensor generated.8.057                        | size      4 x      2  | type F32  | T+   0
+[ 59/111] Writing tensor generated.8.058                        | size      4 x      8  | type F32  | T+   0
+[ 60/111] Writing tensor generated.8.059                        | size      4 x      7  | type F32  | T+   0
+[ 61/111] Writing tensor generated.8.060                        | size      4 x      6  | type F32  | T+   0
+[ 62/111] Writing tensor generated.8.061                        | size      4 x      5  | type F32  | T+   0
+[ 63/111] Writing tensor generated.8.062                        | size      4 x      4  | type F32  | T+   0
+[ 64/111] Writing tensor generated.8.063                        | size      4 x      3  | type F32  | T+   0
+[ 65/111] Writing tensor generated.8.064                        | size      4 x      2  | type F32  | T+   0
+[ 66/111] Writing tensor generated.8.065                        | size      4 x      8  | type F32  | T+   0
+[ 67/111] Writing tensor generated.8.066                        | size      4 x      7  | type F32  | T+   0
+[ 68/111] Writing tensor generated.8.067                        | size      4 x      6  | type F32  | T+   0
+[ 69/111] Writing tensor generated.8.068                        | size      4 x      5  | type F32  | T+   0
+[ 70/111] Writing tensor generated.8.069                        | size      4 x      4  | type F32  | T+   0
+[ 71/111] Writing tensor generated.8.070                        | size      4 x      3  | type F32  | T+   0
+[ 72/111] Writing tensor generated.8.071                        | size      4 x      2  | type F32  | T+   0
+[ 73/111] Writing tensor generated.8.072                        | size      4 x      8  | type F32  | T+   0
+[ 74/111] Writing tensor generated.8.073                        | size      4 x      7  | type F32  | T+   0
+[ 75/111] Writing tensor generated.8.074                        | size      4 x      6  | type F32  | T+   0
+[ 76/111] Writing tensor generated.8.075                        | size      4 x      5  | type F32  | T+   0
+[ 77/111] Writing tensor generated.8.076                        | size      4 x      4  | type F32  | T+   0
+[ 78/111] Writing tensor generated.8.077                        | size      4 x      3  | type F32  | T+   0
+[ 79/111] Writing tensor generated.8.078                        | size      4 x      2  | type F32  | T+   0
+[ 80/111] Writing tensor generated.8.079                        | size      4 x      8  | type F32  | T+   0
+[ 81/111] Writing tensor generated.8.080                        | size      4 x      7  | type F32  | T+   0
+[ 82/111] Writing tensor generated.8.081                        | size      4 x      6  | type F32  | T+   0
+[ 83/111] Writing tensor generated.8.082                        | size      4 x      5  | type F32  | T+   0
+[ 84/111] Writing tensor generated.8.083                        | size      4 x      4  | type F32  | T+   0
+[ 85/111] Writing tensor generated.8.084                        | size      4 x      3  | type F32  | T+   0
+[ 86/111] Writing tensor generated.8.085                        | size      4 x      2  | type F32  | T+   0
+[ 87/111] Writing tensor generated.8.086                        | size      4 x      8  | type F32  | T+   0
+[ 88/111] Writing tensor generated.8.087                        | size      4 x      7  | type F32  | T+   0
+[ 89/111] Writing tensor generated.8.088                        | size      4 x      6  | type F32  | T+   0
+[ 90/111] Writing tensor generated.8.089                        | size      4 x      5  | type F32  | T+   0
+[ 91/111] Writing tensor generated.8.090                        | size      4 x      4  | type F32  | T+   0
+[ 92/111] Writing tensor generated.8.091                        | size      4 x      3  | type F32  | T+   0
+[ 93/111] Writing tensor generated.8.092                        | size      4 x      2  | type F32  | T+   0
+[ 94/111] Writing tensor generated.8.093                        | size      4 x      8  | type F32  | T+   0
+[ 95/111] Writing tensor generated.8.094                        | size      4 x      7  | type F32  | T+   0
+[ 96/111] Writing tensor generated.8.095                        | size      4 x      6  | type F32  | T+   0
+[ 97/111] Writing tensor generated.8.096                        | size      4 x      5  | type F32  | T+   0
+[ 98/111] Writing tensor generated.8.097                        | size      4 x      4  | type F32  | T+   0
+[ 99/111] Writing tensor generated.8.098                        | size      4 x      3  | type F32  | T+   0
+[100/111] Writing tensor generated.8.099                        | size      4 x      2  | type F32  | T+   0
+[101/111] Writing tensor generated.8.100                        | size      4 x      8  | type F32  | T+   0
+[102/111] Writing tensor generated.8.101                        | size      4 x      7  | type F32  | T+   0
+[103/111] Writing tensor generated.8.102                        | size      4 x      6  | type F32  | T+   0
+[104/111] Writing tensor generated.8.103                        | size      4 x      5  | type F32  | T+   0
+[105/111] Writing tensor generated.8.104                        | size      4 x      4  | type F32  | T+   0
+[106/111] Writing tensor generated.8.105                        | size      4 x      3  | type F32  | T+   0
+[107/111] Writing tensor generated.8.106                        | size      4 x      2  | type F32  | T+   0
+[108/111] Writing tensor generated.8.107                        | size      4 x      8  | type F32  | T+   0
+[109/111] Writing tensor generated.8.108                        | size      4 x      7  | type F32  | T+   0
+[110/111] Writing tensor generated.8.109                        | size      4 x      6  | type F32  | T+   0
+[111/111] Writing tensor generated.8.110                        | size      4 x      5  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-8.gguf
+params = Params(n_vocab=49, n_embd=16, n_layer=4, n_ctx=256, n_ff=80, n_head=4, n_head_kv=1, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 49 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795cabfb6a10>
+Writing /tmp/tmp4dbkowez/converted-9.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[  1/121] Writing tensor generated.9.000                        | size      5 x      6  | type F32  | T+   0
+[  2/121] Writing tensor generated.9.001                        | size      5 x      5  | type F32  | T+   0
+[  3/121] Writing tensor generated.9.002                        | size      5 x      4  | type F32  | T+   0
+[  4/121] Writing tensor generated.9.003                        | size      5 x      3  | type F32  | T+   0
+[  5/121] Writing tensor generated.9.004                        | size      5 x      2  | type F32  | T+   0
+[  6/121] Writing tensor generated.9.005                        | size      5 x      8  | type F32  | T+   0
+[  7/121] Writing tensor generated.9.006                        | size      5 x      7  | type F32  | T+   0
+[  8/121] Writing tensor generated.9.007                        | size      5 x      6  | type F32  | T+   0
+[  9/121] Writing tensor generated.9.008                        | size      5 x      5  | type F32  | T+   0
+[ 10/121] Writing tensor generated.9.009                        | size      5 x      4  | type F32  | T+   0
+[ 11/121] Writing tensor generated.9.010                        | size      5 x      3  | type F32  | T+   0
+[ 12/121] Writing tensor generated.9.011                        | size      5 x      2  | type F32  | T+   0
+[ 13/121] Writing tensor generated.9.012                        | size      5 x      8  | type F32  | T+   0
+[ 14/121] Writing tensor generated.9.013                        | size      5 x      7  | type F32  | T+   0
+[ 15/121] Writing tensor generated.9.014                        | size      5 x      6  | type F32  | T+   0
+[ 16/121] Writing tensor generated.9.015                        | size      5 x      5  | type F32  | T+   0
+[ 17/121] Writing tensor generated.9.016                        | size      5 x      4  | type F32  | T+   0
+[ 18/121] Writing tensor generated.9.017                        | size      5 x      3  | type F32  | T+   0
+[ 19/121] Writing tensor generated.9.018                        | size      5 x      2  | type F32  | T+   0
+[ 20/121] Writing tensor generated.9.019                        | size      5 x      8  | type F32  | T+   0
+[ 21/121] Writing tensor generated.9.020                        | size      5 x      7  | type F32  | T+   0
+[ 22/121] Writing tensor generated.9.021                        | size      5 x      6  | type F32  | T+   0
+[ 23/121] Writing tensor generated.9.022                        | size      5 x      5  | type F32  | T+   0
+[ 24/121] Writing tensor generated.9.023                        | size      5 x      4  | type F32  | T+   0
+[ 25/121] Writing tensor generated.9.024                        | size      5 x      3  | type F32  | T+   0
+[ 26/121] Writing tensor generated.9.025                        | size      5 x      2  | type F32  | T+   0
+[ 27/121] Writing tensor generated.9.026                        | size      5 x      8  | type F32  | T+   0
+[ 28/121] Writing tensor generated.9.027                        | size      5 x      7  | type F32  | T+   0
+[ 29/121] Writing tensor generated.9.028                        | size      5 x      6  | type F32  | T+   0
+[ 30/121] Writing tensor generated.9.029                        | size      5 x      5  | type F32  | T+   0
+[ 31/121] Writing tensor generated.9.030                        | size      5 x      4  | type F32  | T+   0
+[ 32/121] Writing tensor generated.9.031                        | size      5 x      3  | type F32  | T+   0
+[ 33/121] Writing tensor generated.9.032                        | size      5 x      2  | type F32  | T+   0
+[ 34/121] Writing tensor generated.9.033                        | size      5 x      8  | type F32  | T+   0
+[ 35/121] Writing tensor generated.9.034                        | size      5 x      7  | type F32  | T+   0
+[ 36/121] Writing tensor generated.9.035                        | size      5 x      6  | type F32  | T+   0
+[ 37/121] Writing tensor generated.9.036                        | size      5 x      5  | type F32  | T+   0
+[ 38/121] Writing tensor generated.9.037                        | size      5 x      4  | type F32  | T+   0
+[ 39/121] Writing tensor generated.9.038                        | size      5 x      3  | type F32  | T+   0
+[ 40/121] Writing tensor generated.9.039                        | size      5 x      2  | type F32  | T+   0
+[ 41/121] Writing tensor generated.9.040                        | size      5 x      8  | type F32  | T+   0
+[ 42/121] Writing tensor generated.9.041                        | size      5 x      7  | type F32  | T+   0
+[ 43/121] Writing tensor generated.9.042                        | size      5 x      6  | type F32  | T+   0
+[ 44/121] Writing tensor generated.9.043                        | size      5 x      5  | type F32  | T+   0
+[ 45/121] Writing tensor generated.9.044                        | size      5 x      4  | type F32  | T+   0
+[ 46/121] Writing tensor generated.9.045                        | size      5 x      3  | type F32  | T+   0
+[ 47/121] Writing tensor generated.9.046                        | size      5 x      2  | type F32  | T+   0
+[ 48/121] Writing tensor generated.9.047                        | size      5 x      8  | type F32  | T+   0
+[ 49/121] Writing tensor generated.9.048                        | size      5 x      7  | type F32  | T+   0
+[ 50/121] Writing tensor generated.9.049                        | size      5 x      6  | type F32  | T+   0
+[ 51/121] Writing tensor generated.9.050                        | size      5 x      5  | type F32  | T+   0
+[ 52/121] Writing tensor generated.9.051                        | size      5 x      4  | type F32  | T+   0
+[ 53/121] Writing tensor generated.9.052                        | size      5 x      3  | type F32  | T+   0
+[ 54/121] Writing tensor generated.9.053                        | size      5 x      2  | type F32  | T+   0
+[ 55/121] Writing tensor generated.9.054                        | size      5 x      8  | type F32  | T+   0
+[ 56/121] Writing tensor generated.9.055                        | size      5 x      7  | type F32  | T+   0
+[ 57/121] Writing tensor generated.9.056                        | size      5 x      6  | type F32  | T+   0
+[ 58/121] Writing tensor generated.9.057                        | size      5 x      5  | type F32  | T+   0
+[ 59/121] Writing tensor generated.9.058                        | size      5 x      4  | type F32  | T+   0
+[ 60/121] Writing tensor generated.9.059                        | size      5 x      3  | type F32  | T+   0
+[ 61/121] Writing tensor generated.9.060                        | size      5 x      2  | type F32  | T+   0
+[ 62/121] Writing tensor generated.9.061                        | size      5 x      8  | type F32  | T+   0
+[ 63/121] Writing tensor generated.9.062                        | size      5 x      7  | type F32  | T+   0
+[ 64/121] Writing tensor generated.9.063                        | size      5 x      6  | type F32  | T+   0
+[ 65/121] Writing tensor generated.9.064                        | size      5 x      5  | type F32  | T+   0
+[ 66/121] Writing tensor generated.9.065                        | size      5 x      4  | type F32  | T+   0
+[ 67/121] Writing tensor generated.9.066                        | size      5 x      3  | type F32  | T+   0
+[ 68/121] Writing tensor generated.9.067                        | size      5 x      2  | type F32  | T+   0
+[ 69/121] Writing tensor generated.9.068                        | size      5 x      8  | type F32  | T+   0
+[ 70/121] Writing tensor generated.9.069                        | size      5 x      7  | type F32  | T+   0
+[ 71/121] Writing tensor generated.9.070                        | size      5 x      6  | type F32  | T+   0
+[ 72/121] Writing tensor generated.9.071                        | size      5 x      5  | type F32  | T+   0
+[ 73/121] Writing tensor generated.9.072                        | size      5 x      4  | type F32  | T+   0
+[ 74/121] Writing tensor generated.9.073                        | size      5 x      3  | type F32  | T+   0
+[ 75/121] Writing tensor generated.9.074                        | size      5 x      2  | type F32  | T+   0
+[ 76/121] Writing tensor generated.9.075                        | size      5 x      8  | type F32  | T+   0
+[ 77/121] Writing tensor generated.9.076                        | size      5 x      7  | type F32  | T+   0
+[ 78/121] Writing tensor generated.9.077                        | size      5 x      6  | type F32  | T+   0
+[ 79/121] Writing tensor generated.9.078                        | size      5 x      5  | type F32  | T+   0
+[ 80/121] Writing tensor generated.9.079                        | size      5 x      4  | type F32  | T+   0
+[ 81/121] Writing tensor generated.9.080                        | size      5 x      3  | type F32  | T+   0
+[ 82/121] Writing tensor generated.9.081                        | size      5 x      2  | type F32  | T+   0
+[ 83/121] Writing tensor generated.9.082                        | size      5 x      8  | type F32  | T+   0
+[ 84/121] Writing tensor generated.9.083                        | size      5 x      7  | type F32  | T+   0
+[ 85/121] Writing tensor generated.9.084                        | size      5 x      6  | type F32  | T+   0
+[ 86/121] Writing tensor generated.9.085                        | size      5 x      5  | type F32  | T+   0
+[ 87/121] Writing tensor generated.9.086                        | size      5 x      4  | type F32  | T+   0
+[ 88/121] Writing tensor generated.9.087                        | size      5 x      3  | type F32  | T+   0
+[ 89/121] Writing tensor generated.9.088                        | size      5 x      2  | type F32  | T+   0
+[ 90/121] Writing tensor generated.9.089                        | size      5 x      8  | type F32  | T+   0
+[ 91/121] Writing tensor generated.9.090                        | size      5 x      7  | type F32  | T+   0
+[ 92/121] Writing tensor generated.9.091                        | size      5 x      6  | type F32  | T+   0
+[ 93/121] Writing tensor generated.9.092                        | size      5 x      5  | type F32  | T+   0
+[ 94/121] Writing tensor generated.9.093                        | size      5 x      4  | type F32  | T+   0
+[ 95/121] Writing tensor generated.9.094                        | size      5 x      3  | type F32  | T+   0
+[ 96/121] Writing tensor generated.9.095                        | size      5 x      2  | type F32  | T+   0
+[ 97/121] Writing tensor generated.9.096                        | size      5 x      8  | type F32  | T+   0
+[ 98/121] Writing tensor generated.9.097                        | size      5 x      7  | type F32  | T+   0
+[ 99/121] Writing tensor generated.9.098                        | size      5 x      6  | type F32  | T+   0
+[100/121] Writing tensor generated.9.099                        | size      5 x      5  | type F32  | T+   0
+[101/121] Writing tensor generated.9.100                        | size      5 x      4  | type F32  | T+   0
+[102/121] Writing tensor generated.9.101                        | size      5 x      3  | type F32  | T+   0
+[103/121] Writing tensor generated.9.102                        | size      5 x      2  | type F32  | T+   0
+[104/121] Writing tensor generated.9.103                        | size      5 x      8  | type F32  | T+   0
+[105/121] Writing tensor generated.9.104                        | size      5 x      7  | type F32  | T+   0
+[106/121] Writing tensor generated.9.105                        | size      5 x      6  | type F32  | T+   0
+[107/121] Writing tensor generated.9.106                        | size      5 x      5  | type F32  | T+   0
+[108/121] Writing tensor generated.9.107                        | size      5 x      4  | type F32  | T+   0
+[109/121] Writing tensor generated.9.108                        | size      5 x      3  | type F32  | T+   0
+[110/121] Writing tensor generated.9.109                        | size      5 x      2  | type F32  | T+   0
+[111/121] Writing tensor generated.9.110                        | size      5 x      8  | type F32  | T+   0
+[112/121] Writing tensor generated.9.111                        | size      5 x      7  | type F32  | T+   0
+[113/121] Writing tensor generated.9.112                        | size      5 x      6  | type F32  | T+   0
+[114/121] Writing tensor generated.9.113                        | size      5 x      5  | type F32  | T+   0
+[115/121] Writing tensor generated.9.114                        | size      5 x      4  | type F32  | T+   0
+[116/121] Writing tensor generated.9.115                        | size      5 x      3  | type F32  | T+   0
+[117/121] Writing tensor generated.9.116                        | size      5 x      2  | type F32  | T+   0
+[118/121] Writing tensor generated.9.117                        | size      5 x      8  | type F32  | T+   0
+[119/121] Writing tensor generated.9.118                        | size      5 x      7  | type F32  | T+   0
+[120/121] Writing tensor generated.9.119                        | size      5 x      6  | type F32  | T+   0
+[121/121] Writing tensor generated.9.120                        | size      5 x      5  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-9.gguf
+params = Params(n_vocab=52, n_embd=24, n_layer=3, n_ctx=4096, n_ff=96, n_head=6, n_head_kv=2, n_experts=None, n_experts_used=None, f_norm_eps=1e-05, rope_scaling_type=None, f_rope_freq_base=None, f_rope_scale=None, n_orig_ctx=None, rope_finetuned=None, ftype=None, path_model=None)
+Vocab info: <BpeVocab with 52 base tokens and 0 added tokens>
+Special vocab info: <testcase.GeneratedSpecialVocab object at 0x795cabfd8190>
+Writing /tmp/tmp4dbkowez/converted-10.gguf, format 7
+Ignoring added_tokens.json since model matches vocab size without it.
+[  1/101] Writing tensor generated.10.000                       | size      1 x      4  | type F32  | T+   0
+[  2/101] Writing tensor generated.10.001                       | size      1 x      3  | type F32  | T+   0
+[  3/101] Writing tensor generated.10.002                       | size      1 x      2  | type F32  | T+   0
+[  4/101] Writing tensor generated.10.003                       | size      1 x      8  | type F32  | T+   0
+[  5/101] Writing tensor generated.10.004                       | size      1 x      7  | type F32  | T+   0
+[  6/101] Writing tensor generated.10.005                       | size      1 x      6  | type F32  | T+   0
+[  7/101] Writing tensor generated.10.006                       | size      1 x      5  | type F32  | T+   0
+[  8/101] Writing tensor generated.10.007                       | size      1 x      4  | type F32  | T+   0
+[  9/101] Writing tensor generated.10.008                       | size      1 x      3  | type F32  | T+   0
+[ 10/101] Writing tensor generated.10.009                       | size      1 x      2  | type F32  | T+   0
+[ 11/101] Writing tensor generated.10.010                       | size      1 x      8  | type F32  | T+   0
+[ 12/101] Writing tensor generated.10.011                       | size      1 x      7  | type F32  | T+   0
+[ 13/101] Writing tensor generated.10.012                       | size      1 x      6  | type F32  | T+   0
+[ 14/101] Writing tensor generated.10.013                       | size      1 x      5  | type F32  | T+   0
+[ 15/101] Writing tensor generated.10.014                       | size      1 x      4  | type F32  | T+   0
+[ 16/101] Writing tensor generated.10.015                       | size      1 x      3  | type F32  | T+   0
+[ 17/101] Writing tensor generated.10.016                       | size      1 x      2  | type F32  | T+   0
+[ 18/101] Writing tensor generated.10.017                       | size      1 x      8  | type F32  | T+   0
+[ 19/101] Writing tensor generated.10.018                       | size      1 x      7  | type F32  | T+   0
+[ 20/101] Writing tensor generated.10.019                       | size      1 x      6  | type F32  | T+   0
+[ 21/101] Writing tensor generated.10.020                       | size      1 x      5  | type F32  | T+   0
+[ 22/101] Writing tensor generated.10.021                       | size      1 x      4  | type F32  | T+   0
+[ 23/101] Writing tensor generated.10.022                       | size      1 x      3  | type F32  | T+   0
+[ 24/101] Writing tensor generated.10.023                       | size      1 x      2  | type F32  | T+   0
+[ 25/101] Writing tensor generated.10.024                       | size      1 x      8  | type F32  | T+   0
+[ 26/101] Writing tensor generated.10.025                       | size      1 x      7  | type F32  | T+   0
+[ 27/101] Writing tensor generated.10.026                       | size      1 x      6  | type F32  | T+   0
+[ 28/101] Writing tensor generated.10.027                       | size      1 x      5  | type F32  | T+   0
+[ 29/101] Writing tensor generated.10.028                       | size      1 x      4  | type F32  | T+   0
+[ 30/101] Writing tensor generated.10.029                       | size      1 x      3  | type F32  | T+   0
+[ 31/101] Writing tensor generated.10.030                       | size      1 x      2  | type F32  | T+   0
+[ 32/101] Writing tensor generated.10.031                       | size      1 x      8  | type F32  | T+   0
+[ 33/101] Writing tensor generated.10.032                       | size      1 x      7  | type F32  | T+   0
+[ 34/101] Writing tensor generated.10.033                       | size      1 x      6  | type F32  | T+   0
+[ 35/101] Writing tensor generated.10.034                       | size      1 x      5  | type F32  | T+   0
+[ 36/101] Writing tensor generated.10.035                       | size      1 x      4  | type F32  | T+   0
+[ 37/101] Writing tensor generated.10.036                       | size      1 x      3  | type F32  | T+   0
+[ 38/101] Writing tensor generated.10.037                       | size      1 x      2  | type F32  | T+   0
+[ 39/101] Writing tensor generated.10.038                       | size      1 x      8  | type F32  | T+   0
+[ 40/101] Writing tensor generated.10.039                       | size      1 x      7  | type F32  | T+   0
+[ 41/101] Writing tensor generated.10.040                       | size      1 x      6  | type F32  | T+   0
+[ 42/101] Writing tensor generated.10.041                       | size      1 x      5  | type F32  | T+   0
+[ 43/101] Writing tensor generated.10.042                       | size      1 x      4  | type F32  | T+   0
+[ 44/101] Writing tensor generated.10.043                       | size      1 x      3  | type F32  | T+   0
+[ 45/101] Writing tensor generated.10.044                       | size      1 x      2  | type F32  | T+   0
+[ 46/101] Writing tensor generated.10.045                       | size      1 x      8  | type F32  | T+   0
+[ 47/101] Writing tensor generated.10.046                       | size      1 x      7  | type F32  | T+   0
+[ 48/101] Writing tensor generated.10.047                       | size      1 x      6  | type F32  | T+   0
+[ 49/101] Writing tensor generated.10.048                       | size      1 x      5  | type F32  | T+   0
+[ 50/101] Writing tensor generated.10.049                       | size      1 x      4  | type F32  | T+   0
+[ 51/101] Writing tensor generated.10.050                       | size      1 x      3  | type F32  | T+   0
+[ 52/101] Writing tensor generated.10.051                       | size      1 x      2  | type F32  | T+   0
+[ 53/101] Writing tensor generated.10.052                       | size      1 x      8  | type F32  | T+   0
+[ 54/101] Writing tensor generated.10.053                       | size      1 x      7  | type F32  | T+   0
+[ 55/101] Writing tensor generated.10.054                       | size      1 x      6  | type F32  | T+   0
+[ 56/101] Writing tensor generated.10.055                       | size      1 x      5  | type F32  | T+   0
+[ 57/101] Writing tensor generated.10.056                       | size      1 x      4  | type F32  | T+   0
+[ 58/101] Writing tensor generated.10.057                       | size      1 x      3  | type F32  | T+   0
+[ 59/101] Writing tensor generated.10.058                       | size      1 x      2  | type F32  | T+   0
+[ 60/101] Writing tensor generated.10.059                       | size      1 x      8  | type F32  | T+   0
+[ 61/101] Writing tensor generated.10.060                       | size      1 x      7  | type F32  | T+   0
+[ 62/101] Writing tensor generated.10.061                       | size      1 x      6  | type F32  | T+   0
+[ 63/101] Writing tensor generated.10.062                       | size      1 x      5  | type F32  | T+   0
+[ 64/101] Writing tensor generated.10.063                       | size      1 x      4  | type F32  | T+   0
+[ 65/101] Writing tensor generated.10.064                       | size      1 x      3  | type F32  | T+   0
+[ 66/101] Writing tensor generated.10.065                       | size      1 x      2  | type F32  | T+   0
+[ 67/101] Writing tensor generated.10.066                       | size      1 x      8  | type F32  | T+   0
+[ 68/101] Writing tensor generated.10.067                       | size      1 x      7  | type F32  | T+   0
+[ 69/101] Writing tensor generated.10.068                       | size      1 x      6  | type F32  | T+   0
+[ 70/101] Writing tensor generated.10.069                       | size      1 x      5  | type F32  | T+   0
+[ 71/101] Writing tensor generated.10.070                       | size      1 x      4  | type F32  | T+   0
+[ 72/101] Writing tensor generated.10.071                       | size      1 x      3  | type F32  | T+   0
+[ 73/101] Writing tensor generated.10.072                       | size      1 x      2  | type F32  | T+   0
+[ 74/101] Writing tensor generated.10.073                       | size      1 x      8  | type F32  | T+   0
+[ 75/101] Writing tensor generated.10.074                       | size      1 x      7  | type F32  | T+   0
+[ 76/101] Writing tensor generated.10.075                       | size      1 x      6  | type F32  | T+   0
+[ 77/101] Writing tensor generated.10.076                       | size      1 x      5  | type F32  | T+   0
+[ 78/101] Writing tensor generated.10.077                       | size      1 x      4  | type F32  | T+   0
+[ 79/101] Writing tensor generated.10.078                       | size      1 x      3  | type F32  | T+   0
+[ 80/101] Writing tensor generated.10.079                       | size      1 x      2  | type F32  | T+   0
+[ 81/101] Writing tensor generated.10.080                       | size      1 x      8  | type F32  | T+   0
+[ 82/101] Writing tensor generated.10.081                       | size      1 x      7  | type F32  | T+   0
+[ 83/101] Writing tensor generated.10.082                       | size      1 x      6  | type F32  | T+   0
+[ 84/101] Writing tensor generated.10.083                       | size      1 x      5  | type F32  | T+   0
+[ 85/101] Writing tensor generated.10.084                       | size      1 x      4  | type F32  | T+   0
+[ 86/101] Writing tensor generated.10.085                       | size      1 x      3  | type F32  | T+   0
+[ 87/101] Writing tensor generated.10.086                       | size      1 x      2  | type F32  | T+   0
+[ 88/101] Writing tensor generated.10.087                       | size      1 x      8  | type F32  | T+   0
+[ 89/101] Writing tensor generated.10.088                       | size      1 x      7  | type F32  | T+   0
+[ 90/101] Writing tensor generated.10.089                       | size      1 x      6  | type F32  | T+   0
+[ 91/101] Writing tensor generated.10.090                       | size      1 x      5  | type F32  | T+   0
+[ 92/101] Writing tensor generated.10.091                       | size      1 x      4  | type F32  | T+   0
+[ 93/101] Writing tensor generated.10.092                       | size      1 x      3  | type F32  | T+   0
+[ 94/101] Writing tensor generated.10.093                       | size      1 x      2  | type F32  | T+   0
+[ 95/101] Writing tensor generated.10.094                       | size      1 x      8  | type F32  | T+   0
+[ 96/101] Writing tensor generated.10.095                       | size      1 x      7  | type F32  | T+   0
+[ 97/101] Writing tensor generated.10.096                       | size      1 x      6  | type F32  | T+   0
+[ 98/101] Writing tensor generated.10.097                       | size      1 x      5  | type F32  | T+   0
+[ 99/101] Writing tensor generated.10.098                       | size      1 x      4  | type F32  | T+   0
+[100/101] Writing tensor generated.10.099                       | size      1 x      3  | type F32  | T+   0
+[101/101] Writing tensor generated.10.100                       | size      1 x      2  | type F32  | T+   0
+Wrote /tmp/tmp4dbkowez/converted-10.gguf
+.
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED instruct_lab_qa/llamacpp_convert_to_gguf_bounded_parallel_map_m2_loops__pert_llm_s0/files/testcase.py::TestBoundedConversionLoops::test_generated_conversion_workloads
+============================== 1 passed in 2.70s ===============================

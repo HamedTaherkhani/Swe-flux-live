@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "'query-689'",
+        "variable": "alias"
+      },
+      {
+        "value": "ModelField(field_info=Query(562), name='field_004_18', mode='validation', config=None)",
+        "variable": "field"
+      },
+      {
+        "value": "Query(562)",
+        "variable": "field_info"
+      },
+      {
+        "value": "<class 'int'>",
+        "variable": "type_annotation"
+      },
+      {
+        "value": "typing.Annotated[int, Query(PydanticUndefined)]",
+        "variable": "use_annotation_from_field_info"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `fastapi_qa/utils_analyze_param_s3_state/files/testcase.py::TestGeneratedRoute::test_generated_signature_registration`. During that test run, consider `fastapi.dependencies.utils.analyze_param` in `fastapi/dependencies/utils.py`.\n\nWhat are the values of the local variables `alias`, `field`, `field_info`, `type_annotation`, and `use_annotation_from_field_info` immediately after the statement beginning on line 529 has executed for the 19th time during the test run? Count completed executions of that assignment globally across all invocations of this exact function frame, in chronological order, using 1-based counting. An invocation is one call of this exact function and invocations are ordered chronologically from 1, although the requested count is over assignment completions rather than invocation numbers. Line numbers are absolute, 1-based line numbers in the named repository file. Line 529 begins a multi-line assignment: count it once when the complete assignment, including its multi-line call, finishes. Calls made while evaluating the assignment do not create additional executions. The observation point is after that completion but before line 536 executes.\n\nReport each value as the exact Python `repr()` string at that observation point. For a container, use `repr()` of the whole container rather than separately formatting its elements; thus strings retain quotes, `None` and booleans use Python spellings, and any embedded newline is a real newline character within the JSON string. Every named variable exists at the observation point, so there is no missing-value or JSON-null convention to apply.\n\nReturn `oracle_answer` with exactly the shape `{\"observed_state\": [{\"value\": <string>, \"variable\": <string>}]}`. Include one item per named variable, ordered by `variable` in ascending Unicode code-point order. Keep all five items, perform no deduplication, and use the local variable's bare source identifier in `variable`.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "question_kind": "M5_Exceptions",
+  "question": "During pytest run of every test method in rich_qa/syntax_guess_lexer_m5_exceptions/files/testcase.py::TestSyntaxGuessLexerExceptions (test methods are executed in definition order; pytest ids look like rich_qa/syntax_guess_lexer_m5_exceptions/files/testcase.py::TestSyntaxGuessLexerExceptions::test_python_module_source), the function rich.syntax.Syntax.guess_lexer in rich/syntax.py is reached indirectly via rich.syntax.Syntax.from_path (the test never names guess_lexer; from_path reads each temp file and calls guess_lexer when no lexer argument is supplied).\n\nAggregate exception observations across ALL invocations of guess_lexer in that full run (every test method, every call inside loops, chronological order).\n\nAn exception observation counts once each time the target frame receives a sys.trace exception event while executing guess_lexer: the exception was raised in a callee and propagated into this frame before any handler in guess_lexer runs, or was raised by code executing in guess_lexer itself. Each distinct propagation into the frame is one observation even if the same exception object is later re-raised in the same frame (this target does not re-raise, but identical objects would still count separately). Exceptions raised and fully handled inside a callee without entering guess_lexer do not count. Exceptions caught by an except handler inside guess_lexer (for example the handler that passes after a failed lexer lookup) still count because they were observed in the frame before handling.\n\nReport exception type names using type(exc).__name__ for built-in exceptions (e.g. ValueError, never builtins.ValueError) and module.QualName for all others (e.g. some_vendor.errors.LookupFailure). Use only the type name, not the message.\n\nReport total per-type counts (not deduplicated across invocations): if the same type is observed in five separate invocations, its count includes all five.\n\nSort the answer list ascending by exception_type (lexicographic string order). Tie-break: none needed for distinct types.\n\nUse the exception_type_counts answer shape: a JSON object with key exception_type_counts whose value is a list of objects each having keys exception_type (str) and count (int).",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "exception_type": "pygments.util.ClassNotFound",
+        "count": 30
+      }
+    ]
+  }
+}

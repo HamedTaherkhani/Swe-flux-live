@@ -1,0 +1,202 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 451,
+        "use_line": 452,
+        "variable": "af"
+      },
+      {
+        "def_line": 374,
+        "use_line": 396,
+        "variable": "atomic"
+      },
+      {
+        "def_line": 381,
+        "use_line": 388,
+        "variable": "binary"
+      },
+      {
+        "def_line": 381,
+        "use_line": 391,
+        "variable": "binary"
+      },
+      {
+        "def_line": 381,
+        "use_line": 426,
+        "variable": "binary"
+      },
+      {
+        "def_line": 437,
+        "use_line": 438,
+        "variable": "e"
+      },
+      {
+        "def_line": 374,
+        "use_line": 393,
+        "variable": "encoding"
+      },
+      {
+        "def_line": 374,
+        "use_line": 397,
+        "variable": "encoding"
+      },
+      {
+        "def_line": 374,
+        "use_line": 450,
+        "variable": "encoding"
+      },
+      {
+        "def_line": 374,
+        "use_line": 393,
+        "variable": "errors"
+      },
+      {
+        "def_line": 374,
+        "use_line": 397,
+        "variable": "errors"
+      },
+      {
+        "def_line": 374,
+        "use_line": 450,
+        "variable": "errors"
+      },
+      {
+        "def_line": 450,
+        "use_line": 451,
+        "variable": "f"
+      },
+      {
+        "def_line": 435,
+        "use_line": 450,
+        "variable": "fd"
+      },
+      {
+        "def_line": 374,
+        "use_line": 382,
+        "variable": "filename"
+      },
+      {
+        "def_line": 382,
+        "use_line": 386,
+        "variable": "filename"
+      },
+      {
+        "def_line": 382,
+        "use_line": 397,
+        "variable": "filename"
+      },
+      {
+        "def_line": 382,
+        "use_line": 420,
+        "variable": "filename"
+      },
+      {
+        "def_line": 382,
+        "use_line": 431,
+        "variable": "filename"
+      },
+      {
+        "def_line": 382,
+        "use_line": 451,
+        "variable": "filename"
+      },
+      {
+        "def_line": 424,
+        "use_line": 427,
+        "variable": "flags"
+      },
+      {
+        "def_line": 424,
+        "use_line": 435,
+        "variable": "flags"
+      },
+      {
+        "def_line": 427,
+        "use_line": 435,
+        "variable": "flags"
+      },
+      {
+        "def_line": 374,
+        "use_line": 381,
+        "variable": "mode"
+      },
+      {
+        "def_line": 374,
+        "use_line": 397,
+        "variable": "mode"
+      },
+      {
+        "def_line": 374,
+        "use_line": 400,
+        "variable": "mode"
+      },
+      {
+        "def_line": 374,
+        "use_line": 407,
+        "variable": "mode"
+      },
+      {
+        "def_line": 374,
+        "use_line": 409,
+        "variable": "mode"
+      },
+      {
+        "def_line": 374,
+        "use_line": 450,
+        "variable": "mode"
+      },
+      {
+        "def_line": 420,
+        "use_line": 435,
+        "variable": "perm"
+      },
+      {
+        "def_line": 420,
+        "use_line": 447,
+        "variable": "perm"
+      },
+      {
+        "def_line": 420,
+        "use_line": 448,
+        "variable": "perm"
+      },
+      {
+        "def_line": 422,
+        "use_line": 435,
+        "variable": "perm"
+      },
+      {
+        "def_line": 422,
+        "use_line": 447,
+        "variable": "perm"
+      },
+      {
+        "def_line": 430,
+        "use_line": 435,
+        "variable": "tmp_filename"
+      },
+      {
+        "def_line": 430,
+        "use_line": 448,
+        "variable": "tmp_filename"
+      },
+      {
+        "def_line": 430,
+        "use_line": 451,
+        "variable": "tmp_filename"
+      }
+    ]
+  },
+  "question": "Run the single pytest test `click_qa/compat_open_stream_s4_dataflow/files/testcase.py::TestOpenStreamDataFlow::test_generated_stream_matrix_and_atomic_retries`. Across all invocations made during that test, what are all unique observed dynamic def-use pairs in the own Python frame of `click._compat.open_stream`, defined in `src/click/_compat.py`, for exactly these local variables: `af`, `atomic`, `binary`, `e`, `encoding`, `errors`, `f`, `fd`, `filename`, `flags`, `mode`, `perm`, and `tmp_filename`?\n\nA definition (\u201cdef\u201d) is a successful assignment or binding of one of those names during an invocation. Each parameter is defined at the function's `def` line when that invocation starts. Assignment targets, annotated assignment targets, exception-handler targets, and loop targets are definitions. A definition only occurs if its assignment or binding completes; for example, a target of an assignment whose right-hand side raises is not defined. A use is a runtime read, by a Python `Name` expression in `Load` context, of the tracked name's current value on an executed source line in `open_stream`'s own frame. Exclude reads and bindings performed in nested function, lambda, generator-expression, or comprehension frames, even when their source text is lexically inside `open_stream`; comprehension-local variables are scoped to that nested comprehension frame and are therefore excluded. Uses of captured outer variables from such frames are excluded as well.\n\nEvery augmented assignment, such as `x += value` or `x |= value`, is a use of the definition of the old `x` followed by a new definition of `x` on that same line. For `for x in iterable`, each successful binding at the loop header is a new definition of `x` for that iteration; reads used to evaluate `iterable` occur before that binding. Ordinary assignment reads occur before their targets are defined. A pair is `{\u201cvariable\u201d: name, \u201cdef_line\u201d: D, \u201cuse_line\u201d: U}` when the value from the tracked name's most recent completed definition at absolute source line D is read at absolute source line U before another completed definition of that name in the same invocation.\n\nLine numbers are absolute, 1-based physical line numbers in `src/click/_compat.py` as it exists in the repository. The function `def` line, but not decorator or docstring lines, can appear as a parameter definition line. On a multi-line statement or expression, use the physical line containing the relevant read or assignment target; a multi-line assignment's definition takes effect only after the full assignment completes.\n\nAggregate pairs over every `open_stream` invocation caused by the named test. An invocation is one Python call of `open_stream`, numbered conceptually in chronological order starting at 1, but invocation numbers are not emitted. Remove duplicate triples globally, including repeats within loops and across invocations. Return exactly `{\"observed_def_use_pairs\": [{\"def_line\": int, \"use_line\": int, \"variable\": str}, ...]}` with no additional keys. All line values are JSON integers and variable names are JSON strings; no values use `repr`, aliases, null, or omitted substitutes. Sort the entries by `variable`, then `def_line`, then `use_line`, all ascending; variable ordering is ordinary Unicode code-point ordering.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

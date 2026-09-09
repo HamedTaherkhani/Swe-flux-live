@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "'alpha_05'",
+        "variable": "pipeline_name"
+      },
+      {
+        "value": "'kedroqa_dynproj.pipelines.alpha_05'",
+        "variable": "pipeline_module_name"
+      },
+      {
+        "value": "Pipeline([\nNode(_produce, None, 'alpha_05_out_0', 'alpha_05_task_0')\n])",
+        "variable": "pipeline_obj"
+      },
+      {
+        "value": "{'__default__': Pipeline([\nNode(_produce, None, 'root_out_0', 'root_task_0'),\nNode(_produce, None, 'root_out_1', 'root_task_1')\n]), 'alpha_02': Pipeline([\nNode(_produce, None, 'alpha_02_out_0', 'alpha_02_task_0'),\nNode(_produce, None, 'alpha_02_out_1', 'alpha_02_task_1')\n]), 'alpha_00': Pipeline([\nNode(_produce, None, 'alpha_00_out_0', 'alpha_00_task_0'),\nNode(_produce, None, 'alpha_00_out_1', 'alpha_00_task_1'),\nNode(_produce, None, 'alpha_00_out_2', 'alpha_00_task_2'),\nNode(_produce, None, 'alpha_00_out_3', 'alpha_00_task_3')\n]), 'alpha_09': Pipeline([\nNode(_produce, None, 'alpha_09_out_0', 'alpha_09_task_0')\n]), 'alpha_04': Pipeline([\nNode(_produce, None, 'alpha_04_out_0', 'alpha_04_task_0'),\nNode(_produce, None, 'alpha_04_out_1', 'alpha_04_task_1'),\nNode(_produce, None, 'alpha_04_out_2', 'alpha_04_task_2'),\nNode(_produce, None, 'alpha_04_out_3', 'alpha_04_task_3')\n]), 'alpha_10': Pipeline([\nNode(_produce, None, 'alpha_10_out_0', 'alpha_10_task_0'),\nNode(_produce, None, 'alpha_10_out_1', 'alpha_10_task_1')\n]), 'alpha_01': Pipeline([\nNode(_produce, None, 'alpha_01_out_0', 'alpha_01_task_0')\n]), 'alpha_05': Pipeline([\nNode(_produce, None, 'alpha_05_out_0', 'alpha_05_task_0')\n])}",
+        "variable": "pipelines_dict"
+      },
+      {
+        "value": "False",
+        "variable": "raise_errors"
+      }
+    ]
+  },
+  "question": "When the pytest test\n`kedro_qa/project_find_pipelines_s3_state/files/testcase.py::TestFindPipelinesProgramState::test_find_pipelines_state`\nis executed, the test programmatically builds a synthetic Kedro project\npackage named `kedroqa_dynproj` in a fresh temporary directory, inserts that\ndirectory at the front of `sys.path`, calls\n`kedro.framework.project.configure_project` with the package name, and then\ncalls `kedro.framework.project.find_pipelines()` exactly once, with all\narguments left at their defaults. The generated project contains a top-level\n`pipeline.py` module exposing a valid `create_pipeline` function, plus a\n`pipelines/` package holding a mixture of entries created in a fixed,\nseed-deterministic order: one regular file, one hidden directory (name\nstarting with `.`), eleven valid pipeline subpackages whose `create_pipeline`\nfunctions build `Pipeline` objects with per-pipeline node counts derived\nfrom a seeded formula, one subpackage that does not define\n`create_pipeline`, one subpackage whose `create_pipeline` returns a plain\n`dict`, and one subpackage whose source is syntactically invalid so that\nimporting it raises.\n\nTarget function: `kedro.framework.project.find_pipelines`, defined in the\nrepository file `kedro/framework/project/__init__.py` (the function body\nspans lines 368-460; all line numbers below are absolute, 1-based, as the\nfile exists on disk in this repository).\n\nInvocation counting: one invocation is one entry into\n`kedro.framework.project.find_pipelines` (one function call) during the\ntest run, numbered 1-based in chronological order of function entry. In\nthis test run there is exactly one invocation.\n\nDuring that invocation, the assignment statement at line 459\n(`pipelines_dict[pipeline_name] = pipeline_obj`) executes once per\nsuccessfully discovered pipeline subpackage. Count these executions 1-based\nin chronological order of execution.\n\nTask: report the values of the following five local variables of that\ninvocation, observed at the moment immediately after line 459 has executed\nfor the 7th time \u2014 that is, after the seventh execution of that statement\nhas fully completed, and before any further statement of the loop (body or\nloop header) executes:\n\n1. `pipeline_name`\n2. `pipeline_module_name`\n3. `pipeline_obj`\n4. `pipelines_dict`\n5. `raise_errors`\n\nAnswer format: a JSON object with exactly one key, `observed_state`, whose\nvalue is a list of exactly five objects, in the variable order listed\nabove. Each object has exactly two keys: `variable` (a JSON string holding\nthe variable name) and `value` (a JSON string). Every `value` is the Python\n`repr()` of the corresponding variable's value at the observation moment.\nFor containers this is the `repr()` of the whole container: strings keep\ntheir single quotes (so a string variable named, for illustration only,\nholding abc would be reported as the 5-character string `'abc'`),\n`None`/`True`/`False` use Python spelling, dictionaries appear in Python\ndict-repr form with keys in insertion order, and any newline characters\ninside a repr appear as real newline characters inside the JSON string. No\n`str()` conversion, no truncation, and no re-sorting of any kind is\napplied.\n",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.17, pytest-8.3.5, pluggy-1.5.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.9.0
+collected 1 item
+
+llama_factory_qa/adapter_setup_freeze_tuning_m3_state__pert_llm_s0/files/testcase.py [INFO|2026-08-23 03:38:39] llamafactory.model.adapter:143 >> Fine-tuning method: Freeze
+[INFO|2026-08-23 03:38:39] llamafactory.model.model_utils.visual:143 >> Set vision model not trainable: ['vpm', 'apm', 'audio_avg_pooler', 'audio_projection_layer', 'tts'].
+[INFO|2026-08-23 03:38:39] llamafactory.model.model_utils.visual:143 >> Set multi model projector not trainable: resampler.
+[INFO|2026-08-23 03:38:39] llamafactory.model.model_utils.visual:143 >> Set language model not trainable: ['llm'].
+[INFO|2026-08-23 03:38:39] llamafactory.model.adapter:143 >> Set trainable layers: .1.mlp,.3.mlp,.1.attn,.3.attn,.1.mlp,.3.mlp,.1.attn,.3.attn,output_head,embed_tokens,output_head
+[INFO|2026-08-23 03:38:39] llamafactory.model.adapter:143 >> Fine-tuning method: Freeze
+[INFO|2026-08-23 03:38:39] llamafactory.model.model_utils.visual:143 >> Set vision model not trainable: ['vpm', 'apm', 'audio_avg_pooler', 'audio_projection_layer', 'tts'].
+[INFO|2026-08-23 03:38:39] llamafactory.model.model_utils.visual:143 >> Set multi model projector not trainable: resampler.
+[INFO|2026-08-23 03:38:39] llamafactory.model.model_utils.visual:143 >> Set language model not trainable: ['llm'].
+[INFO|2026-08-23 03:38:39] llamafactory.model.adapter:143 >> Set trainable layers: .0.mlp,.1.mlp,.2.mlp,.0.attn,.1.attn,.2.attn,.0.,.1.,.2.,.0.mlp,.1.mlp,.2.mlp,.0.attn,.1.attn,.2.attn,embed_tokens,output_head,embed_tokens
+.
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED llama_factory_qa/adapter_setup_freeze_tuning_m3_state__pert_llm_s0/files/testcase.py::TestSetupFreezeTuningM3State::test_return_state_across_two_invocations
+============================== 1 passed in 3.21s ===============================

@@ -1,0 +1,20 @@
+{
+  "oracle_answer": {
+    "exception_types": [
+      "TypeError",
+      "RuntimeError",
+      "IndexError",
+      "ZeroDivisionError",
+      "UnicodeDecodeError",
+      "AttributeError",
+      "KeyError"
+    ]
+  },
+  "question": "Run exactly this pytest test against the repository:\n`fastapi_qa/notify_translations_get_graphql_response_m5_exceptions/files/testcase.py::TestGraphQLResponseFailures::test_generated_response_matrix`.\nPytest ids in this question use the repo-relative\n`path/to/test_file.py::TestClass::test_method` format (for example,\n`tests/test_demo.py::TestDemo::test_case`).\n\nAcross the entire test run, consider every invocation of\n`scripts.notify_translations.get_graphql_response`, defined in\n`scripts/notify_translations.py`. An invocation means one entry into exactly\nthat function's frame, numbered 1-based in chronological call-entry order.\nFrames belonging to callers, callees, properties, comprehensions, or\ngenerators are not target invocations.\n\nReport the distinct exception types observed in the target frame. An exception\nis observed when it is raised by code executing in that exact target frame or\nwhen a callee's exception propagates into that frame. Count the target-frame\nobservation once; do not separately count observations in callee or caller\nframes. Exceptions raised and fully handled inside a callee do not count.\nInvocations that return normally contribute no exception type.\n\nUse this exception type naming convention: bare `type(exc).__name__` for\nbuilt-in exceptions (e.g. `ValueError`, never `builtins.ValueError`),\n`module.QualName` for all others. Preserve chronological order across target\ninvocations and within each invocation, then remove duplicates globally by\nthe fully formatted type name, retaining only each name's first occurrence.\nDo not alphabetically sort the result.\n\nReturn exactly one JSON object of the form\n`{\"exception_types\": [\"str\"]}`. `exception_types` is a JSON array of strings;\neach string uses the naming convention above. The array must be present even\nwhen no exception is observed (then it is `[]`); no item may be an empty\nstring or JSON `null`. Exception messages, source lines, invocation numbers,\nand counts are not part of the answer.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_types": [
+      "str"
+    ]
+  }
+}

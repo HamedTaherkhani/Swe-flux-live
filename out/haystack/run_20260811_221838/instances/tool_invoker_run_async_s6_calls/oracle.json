@@ -1,0 +1,440 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Run the single pytest test `haystack_qa/tool_invoker_run_async_s6_calls/files/testcase.py::TestToolInvokerAsyncCalls::test_seeded_parallel_tool_batch`. During that test, consider the first invocation of `haystack.components.tools.tool_invoker.ToolInvoker.run_async` in `haystack/components/tools/tool_invoker.py`. An invocation is one Python `call` event beginning execution or resumption of that function's frame; invocations are numbered from 1 in chronological order. For this async function, the first invocation ends at its first matching Python `return` event, including a `return` event caused by suspension at an `await`; do not continue into a later coroutine-resumption `call` event.\n\nReport the exact ordered sequence of Python `call` events for this tracked set: `haystack.components.tools.tool_invoker.ToolInvoker.run_async`, `haystack.components.tools.tool_invoker.ToolInvoker._validate_and_prepare_tools`, `haystack.components.tools.tool_invoker.ToolInvoker._prepare_tool_call_params`, `haystack.components.tools.tool_invoker.ToolInvoker._handle_error`, `haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args`, and `haystack.components.tools.tool_invoker.ToolInvoker._get_func_params`. Include the `call` event that starts the first target invocation itself, then include every call to a listed function made while that invocation is active, whether directly from the target frame or transitively through nested calls. Stop immediately after the matching return event that ends this invocation. Exclude calls before it starts or after it ends, every function outside the listed set, builtins, and comprehension frames. Retain every repeated call without deduplication. A generator or coroutine resumption produces another `call` event and would be retained if it occurs before the invocation-ending return; a resumption after that return is outside the requested interval.\n\nReturn exactly `{\"function_call_order\": [{\"file\": \"...\", \"func\": \"...\"}]}`. `function_call_order` is a JSON list in chronological call-event order; do not sort or deduplicate it. Execution in the requested interval is serial and therefore supplies a total order, so no secondary tie-breaker applies. Each item has exactly two JSON string fields in the displayed key order. `file` is the called function's repository-relative POSIX source path with no leading `./`. `func` is the full dotted identity in `module.Class.method` or `module.function` form; for example, `package.processing.cleaner.TextCleaner.run`. Do not emit a bare name or omit the module. The class that owns the function in repository source determines the `Class` segment even if runtime code-object metadata omits it. Both fields always contain strings, so no `repr()`/`str()` value conversion, missing-value representation, JSON `null`, exception-name, or line-number convention applies.",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker.run_async"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._validate_and_prepare_tools"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._prepare_tool_call_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._handle_error"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._handle_error"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._handle_error"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._handle_error"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._inject_state_args"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      },
+      {
+        "file": "haystack/components/tools/tool_invoker.py",
+        "func": "haystack.components.tools.tool_invoker.ToolInvoker._get_func_params"
+      }
+    ]
+  }
+}

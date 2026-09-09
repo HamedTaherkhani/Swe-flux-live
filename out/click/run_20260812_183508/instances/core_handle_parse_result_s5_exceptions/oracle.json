@@ -1,0 +1,45 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "ArithmeticError",
+      "AssertionError",
+      "AttributeError",
+      "BlockingIOError",
+      "BrokenPipeError",
+      "BufferError",
+      "BytesWarning",
+      "ChildProcessError",
+      "ConnectionAbortedError",
+      "ConnectionError",
+      "ConnectionRefusedError",
+      "ConnectionResetError",
+      "DeprecationWarning",
+      "EOFError",
+      "EncodingWarning",
+      "FileExistsError",
+      "FileNotFoundError",
+      "FloatingPointError",
+      "FutureWarning",
+      "ImportError",
+      "ImportWarning",
+      "IndentationError",
+      "IndexError",
+      "InterruptedError",
+      "IsADirectoryError",
+      "KeyError",
+      "LookupError",
+      "MemoryError",
+      "ModuleNotFoundError",
+      "NameError",
+      "NotADirectoryError",
+      "NotImplementedError"
+    ]
+  },
+  "question": "Run only the pytest test `click_qa/core_handle_parse_result_s5_exceptions/files/testcase.py::TestGeneratedResilientParsing::test_generated_callback_failures_are_absorbed`. Across all chronological invocations of `click.core.Parameter.handle_parse_result` in `src/click/core.py` caused by that test, what set of exception types is caught by that function's `except Exception` suite? An invocation means one call of the target function, counted 1-based in chronological order. For this question, an exception is caught only when it is raised while evaluating `self.process_value(ctx, value)` on line 2778, reaches the target function's frame at that line, and execution then enters the `except Exception` suite at lines 2779-2785 instead of propagating out of that invocation. Source line numbers are absolute, 1-based line numbers in the named repository file; for a multi-line statement or expression, the executed line is the line where that statement or expression begins. Report each distinct caught exception type once, even if it is caught in multiple invocations. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and `module.QualName` for all others (e.g. `acme.errors.SignalError`), where the latter is `type(exc).__module__ + \".\" + type(exc).__qualname__`. Sort the deduplicated strings in ascending lexicographic order by Unicode code point, with the complete type-name string as the sole sort key. Return exactly one JSON object with shape `{\"caught_exception_kinds\": [<str>, ...]}`; the list elements are JSON strings, and no exception messages or additional keys are included.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

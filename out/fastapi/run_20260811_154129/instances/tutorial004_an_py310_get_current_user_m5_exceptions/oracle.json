@@ -1,0 +1,20 @@
+{
+  "oracle_answer": {
+    "exception_types": [
+      "fastapi.exceptions.HTTPException",
+      "jwt.exceptions.DecodeError",
+      "jwt.exceptions.ExpiredSignatureError",
+      "jwt.exceptions.InvalidAlgorithmError",
+      "jwt.exceptions.InvalidAudienceError",
+      "jwt.exceptions.InvalidSignatureError",
+      "jwt.exceptions.InvalidSubjectError"
+    ]
+  },
+  "question": "Run the pytest test `fastapi_qa/tutorial004_an_py310_get_current_user_m5_exceptions/files/testcase.py::TestGeneratedTokenMatrix::test_generated_token_matrix`. Across all direct invocations of `docs_src.security.tutorial004_an_py310.get_current_user` in `docs_src/security/tutorial004_an_py310.py` during that test, report the distinct exception types observed in the target function's frame.\n\nAn invocation is one call of the target function and invocations are numbered 1-based in chronological call order, although invocation numbers are not included in the answer. Count an exception when Python reports an exception event in the target's own frame: this includes an exception arriving from a function called by the target even if the target catches it, and an exception explicitly raised by the target whether or not a caller later catches it. Do not count exception events that occur only in callees or callers and are never reported in the target frame. Include every such event from every invocation, then remove duplicate exception types globally.\n\nException type naming MUST use bare `type(exc).__name__` for built-ins (for example `ValueError`, never `builtins.ValueError`) and `module.QualName` for all others (for example `sample.errors.WidgetFault`). Return a JSON object with exactly one key, `exception_types`, whose value is a list of these type-name strings. Sort the deduplicated strings in ascending Unicode code-point order. Values are ordinary JSON strings without additional Python `repr()` quotes. Exception messages, test ids, event counts, source line numbers, and invocation numbers are not part of the answer; there is no missing-value placeholder.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_types": [
+      "str"
+    ]
+  }
+}

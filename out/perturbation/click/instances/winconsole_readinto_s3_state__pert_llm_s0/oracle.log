@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "166",
+        "variable": "bytes_to_be_read"
+      },
+      {
+        "value": "c_ulong(59)",
+        "variable": "code_units_read"
+      },
+      {
+        "value": "83",
+        "variable": "code_units_to_be_read"
+      },
+      {
+        "value": "0",
+        "variable": "rv"
+      }
+    ]
+  },
+  "question": "Run exactly the pytest test\n`click_qa/winconsole_readinto_s3_state/files/testcase.py::WindowsConsoleReaderStateTest::test_generated_read_schedule`.\nConsider only the frame of\n`click._winconsole._WindowsConsoleReader.readinto`, implemented in\n`src/click/_winconsole.py`; activity in the test, its callback objects,\ncallers, and callees does not itself create an observation.\n\nWhat are the values of the local variables `bytes_to_be_read`,\n`code_units_read`, `code_units_to_be_read`, and `rv` immediately after\nabsolute line 145 of `src/click/_winconsole.py` has executed for the 23rd time\nduring this test run? Absolute line numbers are 1-based source line numbers in\nthat file as it exists in the repository. Count an execution when the\nmulti-line assignment beginning at line 145 has completed, and count those\ncompleted executions 1-based in chronological order across the whole test.\nAn invocation is one call of exactly the target function, also counted\n1-based in chronological order. In this test every invocation reaches line\n145, so its 23rd execution occurs in the 23rd invocation.\n\nLine 145 begins the multi-line assignment whose call expression ends on line\n151. \"Immediately after line 145 has executed\" means after that complete\nassignment has finished, including callback side effects, and before line 152\nexecutes. Under Python line-event semantics, a line event observes locals\nimmediately before the statement or expression associated with that event\nexecutes; a multi-line statement is associated here with line 145, where the\nassignment begins. Evaluation of this particular multi-line call produces\nline events for its argument lines and then another event at line 145; only\nthe occurrence of line 145 immediately followed by line 152 marks one\ncompleted execution for this question. Thus inspect the target frame at line\n152 and count those line-145-to-line-152 transitions. The `def` line,\ndecorators, and docstring lines are irrelevant unless Python executes a line\nevent there, and none changes this specified observation point.\n\nReport each value as the exact Python `repr()` string of the named local at\nthe observation point. Apply `repr()` to each whole object, including a\nctypes scalar or a container, rather than converting its contents to JSON.\nConsequently strings keep their Python quotes, bytes keep the `b` prefix, and\n`None` and booleans use Python spellings (for example, `None`, not JSON\n`null`). Backslash escapes produced by `repr()` remain backslash characters\nin the decoded JSON string; if a repr contains a real embedded newline, JSON\nescaping must decode back to that newline. A missing local is an error, never\nJSON null, an empty string, or an omitted record.\n\nReturn exactly\n`{\"observed_state\": [{\"value\": str, \"variable\": str}, ...]}` as\nJSON-compatible data. Include exactly one record for each of the four named\nvariables. Sort records by `variable` in ascending Unicode-code-point\nlexicographic order. Do not deduplicate records or equal values; the variable\nname is the sole ordering key, so no tie-breaker is needed.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

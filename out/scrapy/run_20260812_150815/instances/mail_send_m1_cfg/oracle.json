@@ -1,0 +1,240 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 12,
+        "line": 110
+      },
+      {
+        "count": 0,
+        "line": 111
+      },
+      {
+        "count": 24,
+        "line": 112
+      },
+      {
+        "count": 0,
+        "line": 113
+      },
+      {
+        "count": 0,
+        "line": 114
+      },
+      {
+        "count": 0,
+        "line": 115
+      },
+      {
+        "count": 12,
+        "line": 116
+      },
+      {
+        "count": 12,
+        "line": 117
+      },
+      {
+        "count": 0,
+        "line": 118
+      },
+      {
+        "count": 12,
+        "line": 119
+      },
+      {
+        "count": 12,
+        "line": 120
+      },
+      {
+        "count": 12,
+        "line": 121
+      },
+      {
+        "count": 12,
+        "line": 122
+      },
+      {
+        "count": 12,
+        "line": 123
+      },
+      {
+        "count": 12,
+        "line": 124
+      },
+      {
+        "count": 6,
+        "line": 125
+      },
+      {
+        "count": 6,
+        "line": 126
+      },
+      {
+        "count": 0,
+        "line": 127
+      },
+      {
+        "count": 12,
+        "line": 128
+      },
+      {
+        "count": 8,
+        "line": 129
+      },
+      {
+        "count": 4,
+        "line": 130
+      },
+      {
+        "count": 8,
+        "line": 131
+      },
+      {
+        "count": 297,
+        "line": 132
+      },
+      {
+        "count": 289,
+        "line": 133
+      },
+      {
+        "count": 289,
+        "line": 134
+      },
+      {
+        "count": 289,
+        "line": 135
+      },
+      {
+        "count": 867,
+        "line": 136
+      },
+      {
+        "count": 0,
+        "line": 137
+      },
+      {
+        "count": 0,
+        "line": 138
+      },
+      {
+        "count": 289,
+        "line": 139
+      },
+      {
+        "count": 0,
+        "line": 140
+      },
+      {
+        "count": 4,
+        "line": 141
+      },
+      {
+        "count": 0,
+        "line": 142
+      },
+      {
+        "count": 12,
+        "line": 143
+      },
+      {
+        "count": 7,
+        "line": 144
+      },
+      {
+        "count": 0,
+        "line": 145
+      },
+      {
+        "count": 12,
+        "line": 146
+      },
+      {
+        "count": 48,
+        "line": 147
+      },
+      {
+        "count": 0,
+        "line": 148
+      },
+      {
+        "count": 0,
+        "line": 149
+      },
+      {
+        "count": 0,
+        "line": 150
+      },
+      {
+        "count": 0,
+        "line": 151
+      },
+      {
+        "count": 0,
+        "line": 152
+      },
+      {
+        "count": 0,
+        "line": 153
+      },
+      {
+        "count": 0,
+        "line": 154
+      },
+      {
+        "count": 0,
+        "line": 155
+      },
+      {
+        "count": 0,
+        "line": 156
+      },
+      {
+        "count": 6,
+        "line": 157
+      },
+      {
+        "count": 0,
+        "line": 158
+      },
+      {
+        "count": 18,
+        "line": 159
+      },
+      {
+        "count": 0,
+        "line": 160
+      },
+      {
+        "count": 0,
+        "line": 161
+      },
+      {
+        "count": 6,
+        "line": 162
+      },
+      {
+        "count": 6,
+        "line": 163
+      },
+      {
+        "count": 6,
+        "line": 164
+      },
+      {
+        "count": 6,
+        "line": 165
+      }
+    ]
+  },
+  "question": "Run every pytest test method in `scrapy_qa/mail_send_m1_cfg/files/testcase.py::MailSenderControlFlowTest`. The covered methods are `test_debug_dense_attachments_with_cc`, `test_delivery_sparse_attachments_utf8`, `test_debug_plain_without_optional_paths`, `test_delivery_plain_with_cc_callback`, `test_debug_prime_attachment_walk_utf8`, `test_delivery_attachment_callback_ascii`, `test_debug_nonmultipart_utf8_callback`, `test_delivery_wide_attachment_mix`, `test_debug_clustered_attachment_callback`, `test_delivery_nonmultipart_utf8_no_cc`, `test_debug_long_attachment_stride`, and `test_delivery_compact_attachment_stride`; each complete pytest id is the file-and-class id above followed by `::<method_name>`. Aggregate the results over all invocations made by all of these test methods. For `scrapy.mail.MailSender.send` in `scrapy/mail.py`, report the total execution count for every physical source line in the function body, namely every absolute 1-based line from 110 through 165 inclusive. Count only CPython runtime `line` events whose frame is exactly `scrapy.mail.MailSender.send`; exclude events in callers, callees, callbacks, lambda or comprehension frames, and all other frames. Also exclude `call`, `return`, and `exception` events. An invocation means one `call` event for this exact function during the complete test run; invocations would be numbered 1-based in chronological order, but the requested counts are totals over every invocation, so test-method and invocation order do not affect the answer. Count every qualifying line event occurrence and do not deduplicate repeated events. For a multi-line statement or expression, attribute an event reported on a continuation line to the absolute 1-based line where its innermost enclosing Python AST statement begins. For example, an event on an argument continuation of a multi-line `return build_item(...)` counts at the `return` statement's first line. A nested statement that has its own AST statement node retains its own starting line. Include every physical line in the stated body range: blank lines, comment-only lines, continuation lines, and executable lines receiving no event after normalization must each appear with count 0. The `def` signature lines 99 through 109 and any decorator lines are outside the body and must not appear; this function has no body docstring. Return exactly one JSON object with key `line_execution_counts`. Its value must be a JSON array containing exactly one object for each line in the inclusive body range, sorted by `line` ascending, with no omitted or duplicate line entries. Every element has exactly two keys, `count` and `line`, both JSON integers rather than strings. `line` is the absolute 1-based source line, and `count` is the aggregate event total, with integer 0 representing no event. No local values, function-name strings, exception names, or Python `repr`/`str` values are included in the answer.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

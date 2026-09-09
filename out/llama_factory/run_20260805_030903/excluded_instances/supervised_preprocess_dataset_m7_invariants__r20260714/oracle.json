@@ -1,0 +1,57 @@
+{
+  "oracle_answer": {
+    "invariant_results": [
+      {
+        "first_violation_invocation": null,
+        "held": true,
+        "predicate": "i < len(knapsack)"
+      },
+      {
+        "first_violation_invocation": 1,
+        "held": false,
+        "predicate": "i == 0"
+      },
+      {
+        "first_violation_invocation": 3,
+        "held": false,
+        "predicate": "len(knapsack) == 2"
+      },
+      {
+        "first_violation_invocation": 1,
+        "held": false,
+        "predicate": "len(packed_input_ids) % length == 0"
+      },
+      {
+        "first_violation_invocation": null,
+        "held": true,
+        "predicate": "len(packed_input_ids) == len(packed_labels)"
+      },
+      {
+        "first_violation_invocation": 2,
+        "held": false,
+        "predicate": "length != 5"
+      },
+      {
+        "first_violation_invocation": null,
+        "held": true,
+        "predicate": "length in knapsack"
+      },
+      {
+        "first_violation_invocation": null,
+        "held": true,
+        "predicate": "sum(knapsack) <= 7"
+      }
+    ]
+  },
+  "question": "For pytest test `llama_factory_qa/supervised_preprocess_dataset_m7_invariants__r20260714/files/testcase.py::TestPackedSupervisedPreprocessDatasetM7Invariants::test_invariants_on_inner_packing_loop`, analyze `src.llamafactory.data.processor.supervised.PackedSupervisedDatasetProcessor.preprocess_dataset` in file `src/llamafactory/data/processor/supervised.py`. Observe the loop at line 169 (`for i, length in enumerate(knapsack):`) and define one observation as each execution of the first loop-body line 170 (`index = length2indexes[length].pop()`), using local-variable values at that line event before line 170 executes. Invocation indices are 1-based by dynamic entry order into `preprocess_dataset` during this test method. A predicate \"held\" means it evaluated to true at every observation across all invocations. If there are zero observations, treat each predicate as vacuous by reporting `held` as false and `first_violation_invocation` as null. Evaluate exactly these candidate predicates verbatim: `i < len(knapsack)`; `len(packed_input_ids) == len(packed_labels)`; `length in knapsack`; `len(knapsack) == 2`; `i == 0`; `len(packed_input_ids) % length == 0`; `length != 5`; `sum(knapsack) <= 7`. Return JSON with exactly one top-level key `invariant_results` (array), sorted by `predicate` ascending lexicographic order. Each element must have keys `predicate` (str), `held` (bool), and `first_violation_invocation` (int|null).",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_results": [
+      {
+        "first_violation_invocation": "int|null",
+        "held": "bool",
+        "predicate": "str"
+      }
+    ]
+  }
+}

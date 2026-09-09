@@ -1,0 +1,38 @@
+{
+  "question_kind": "M3_ProgramState",
+  "question": "Run the pytest test `instruct_lab_qa/clickext_get_help_record_m3_state/files/testcase.py::TestGeneratedTrainHelp::test_programmatic_train_help` against this repository. Across the entire run, consider every invocation of exactly `instructlab.clickext.ConfigOption.get_help_record` in `src/instructlab/clickext.py` that reaches physical line 193. An invocation means one runtime call of exactly that function, counted 1-based in chronological order; calls of other functions, including comprehension frames and callees, do not count. At each execution of line 193 by such a frame, observe the local variable `default_string` immediately before the multi-line assignment beginning there executes. This point is after exactly one of lines 185, 187, 189, or 191 has assigned `default_string`. Line numbers are absolute, 1-based physical lines in the named file as it exists for this test. For a multi-line statement, the relevant executed-line point is the line on which the statement or expression begins. The function's `def` line is associated with call entry rather than a line execution here; decorator and docstring lines are not observation points. Include every qualifying execution across all invocations before deduplication. Convert each observed value with exact Python `repr()` and perform no truncation or normalization. Thus a string value remains a repr string with Python quotes (for example, a hypothetical value could be represented by the JSON string \"'sample'\"); Python spellings such as `None` and `True` would be retained inside repr strings. Deduplicate equal repr strings, then sort the distinct strings in ascending lexicographic order by Unicode code point, exactly as Python `sorted()` does; deduplication removes all ties, so there is no secondary tie-breaker. Return exactly one JSON object with the single key `unique_values`. Its value is a JSON array of JSON strings in that order, where each string is the Python repr described above. No null or absent-value sentinel is used.",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  },
+  "oracle_answer": {
+    "unique_values": [
+      "'/root/.cache/instructlab/models/prometheus-eval/prometheus-8x7b-v2.0'",
+      "'/root/.local/share/instructlab/checkpoints'",
+      "'/root/.local/share/instructlab/datasets'",
+      "'/root/.local/share/instructlab/internal'",
+      "'/root/.local/share/instructlab/phased'",
+      "'0'",
+      "'1'",
+      "'10'",
+      "'128'",
+      "'250000'",
+      "'2e-05'",
+      "'3840'",
+      "'4096'",
+      "'5000'",
+      "'64'",
+      "'6e-06'",
+      "'7'",
+      "'<None>'",
+      "'False'",
+      "'cpu'",
+      "'fsdp'",
+      "'full'",
+      "'instructlab/granite-7b-lab'",
+      "'nf4'",
+      "'{}'"
+    ]
+  }
+}

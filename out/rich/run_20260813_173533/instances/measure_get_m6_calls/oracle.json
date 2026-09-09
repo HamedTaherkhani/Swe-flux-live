@@ -1,0 +1,52 @@
+{
+  "question_kind": "M6_InterProceduralCFG",
+  "question": "During pytest run of rich_qa/measure_get_m6_calls/files/testcase.py::TestMeasurementGetInvocationCounts, aggregate runtime behavior across every test method in that class (pytest executes them in collection order by method name).\n\nThe primary target is rich.measure.Measurement.get in rich/measure.py (source lines 79-122). Each test calls Measurement.get directly with programmatically built console options and renderable inputs.\n\nConsider every function and method defined in rich/measure.py: all module-level functions and all methods of class Measurement that appear in that file's source. Include the @property method Measurement.span. Exclude nested functions, closures, comprehension frames, inherited NamedTuple methods not defined in this file, and dunder methods not defined in this file.\n\nFunction identity is the dotted module.qualname of the defining frame (example: rich.measure.Measurement.normalize).\n\nOne invocation is one Python trace call event for that function's frame during the combined run, whether entered from a test, transitively from Measurement.get, recursively, or from any other caller. Generator and coroutine resumptions do not emit a separate call event and do not increment the count.\n\nFunctions in scope that never execute must appear with count 0.\n\nCounts are summed across ALL test methods in TestMeasurementGetInvocationCounts, not reported per method.\n\nReport invocation_counts: a JSON list of objects, each with exactly three keys:\n\n- file: repository-relative path to the defining source file (example: rich/measure.py)\n- func: dotted module.qualname (example: rich.measure.Measurement.with_maximum)\n- count: non-negative integer invocation total\n\nSort the list by func ascending (Unicode code-point order). If two entries shared the same func string, break ties by file ascending; this cannot occur within one module file.",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "file": "rich/measure.py",
+        "func": "rich.measure.Measurement.clamp",
+        "count": 200
+      },
+      {
+        "file": "rich/measure.py",
+        "func": "rich.measure.Measurement.get",
+        "count": 1665
+      },
+      {
+        "file": "rich/measure.py",
+        "func": "rich.measure.Measurement.normalize",
+        "count": 3039
+      },
+      {
+        "file": "rich/measure.py",
+        "func": "rich.measure.Measurement.span",
+        "count": 0
+      },
+      {
+        "file": "rich/measure.py",
+        "func": "rich.measure.Measurement.with_maximum",
+        "count": 2504
+      },
+      {
+        "file": "rich/measure.py",
+        "func": "rich.measure.Measurement.with_minimum",
+        "count": 0
+      },
+      {
+        "file": "rich/measure.py",
+        "func": "rich.measure.measure_renderables",
+        "count": 0
+      }
+    ]
+  }
+}

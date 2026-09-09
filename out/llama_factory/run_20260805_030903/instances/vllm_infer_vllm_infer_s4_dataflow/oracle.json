@@ -1,0 +1,167 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 135,
+        "use_line": 146,
+        "variable": "engine_args"
+      },
+      {
+        "def_line": 135,
+        "use_line": 149,
+        "variable": "engine_args"
+      },
+      {
+        "def_line": 135,
+        "use_line": 151,
+        "variable": "engine_args"
+      },
+      {
+        "def_line": 89,
+        "use_line": 112,
+        "variable": "inputs"
+      },
+      {
+        "def_line": 89,
+        "use_line": 151,
+        "variable": "inputs"
+      },
+      {
+        "def_line": 154,
+        "use_line": 155,
+        "variable": "label"
+      },
+      {
+        "def_line": 89,
+        "use_line": 114,
+        "variable": "labels"
+      },
+      {
+        "def_line": 89,
+        "use_line": 154,
+        "variable": "labels"
+      },
+      {
+        "def_line": 131,
+        "use_line": 151,
+        "variable": "lora_request"
+      },
+      {
+        "def_line": 133,
+        "use_line": 151,
+        "variable": "lora_request"
+      },
+      {
+        "def_line": 92,
+        "use_line": 112,
+        "variable": "multi_modal_data"
+      },
+      {
+        "def_line": 98,
+        "use_line": 112,
+        "variable": "multi_modal_data"
+      },
+      {
+        "def_line": 108,
+        "use_line": 112,
+        "variable": "multi_modal_data"
+      },
+      {
+        "def_line": 110,
+        "use_line": 112,
+        "variable": "multi_modal_data"
+      },
+      {
+        "def_line": 154,
+        "use_line": 155,
+        "variable": "pred"
+      },
+      {
+        "def_line": 152,
+        "use_line": 154,
+        "variable": "preds"
+      },
+      {
+        "def_line": 89,
+        "use_line": 113,
+        "variable": "prompts"
+      },
+      {
+        "def_line": 89,
+        "use_line": 154,
+        "variable": "prompts"
+      },
+      {
+        "def_line": 89,
+        "use_line": 158,
+        "variable": "prompts"
+      },
+      {
+        "def_line": 90,
+        "use_line": 91,
+        "variable": "sample"
+      },
+      {
+        "def_line": 90,
+        "use_line": 94,
+        "variable": "sample"
+      },
+      {
+        "def_line": 90,
+        "use_line": 97,
+        "variable": "sample"
+      },
+      {
+        "def_line": 90,
+        "use_line": 100,
+        "variable": "sample"
+      },
+      {
+        "def_line": 90,
+        "use_line": 103,
+        "variable": "sample"
+      },
+      {
+        "def_line": 90,
+        "use_line": 105,
+        "variable": "sample"
+      },
+      {
+        "def_line": 90,
+        "use_line": 112,
+        "variable": "sample"
+      },
+      {
+        "def_line": 90,
+        "use_line": 113,
+        "variable": "sample"
+      },
+      {
+        "def_line": 90,
+        "use_line": 116,
+        "variable": "sample"
+      },
+      {
+        "def_line": 120,
+        "use_line": 151,
+        "variable": "sampling_params"
+      },
+      {
+        "def_line": 154,
+        "use_line": 155,
+        "variable": "text"
+      }
+    ]
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/vllm_infer_vllm_infer_s4_dataflow/files/testcase.py::TestVllmInferDataFlow::test_seeded_cli_entrypoint_multimodal_batches`. Across every invocation of `scripts.vllm_infer.vllm_infer` in `scripts/vllm_infer.py`, report all unique observed dynamic def-use pairs for exactly these local variables: `engine_args`, `inputs`, `label`, `labels`, `lora_request`, `multi_modal_data`, `pred`, `preds`, `prompts`, `sample`, `sampling_params`, and `text`. An invocation is one runtime entry into that exact function; invocations are numbered 1-based in chronological order over the complete test run, and pairs from all invocations are combined before deduplication. A definition (`def`) is a binding of the local name by parameter binding or an executed assignment target. Each parameter is defined at the function's `def` line on every invocation, regardless of the physical line on which that parameter is displayed. A use is a runtime evaluation of that local name in load context. A def-use pair exists when a use reads the binding produced by that def and no executed redefinition of the same local occurred between them in that invocation. For an ordinary assignment whose right-hand side uses the same name, the right-hand-side use reads the prior def and the assignment then creates the new def. Augmented assignment such as `counter += delta` first uses the old binding and then creates a new definition on that same line, so it is both a use of the reaching def and a new def. A `for` loop header redefines its target on each successful iteration before the body executes; an unsuccessful exhaustion check does not define the target. Names bound locally by a list, set, or dict comprehension or generator expression are scoped to that comprehension and are excluded as defs and uses; reads of tracked outer locals in a comprehension's iterable or other expressions still count. Attribute or subscript writes and mutating method calls do not rebind the base local name; evaluating that base name is a use. Line numbers are absolute, 1-based source line numbers in the named repository file. The parameter definitions use the line where the function's `def` statement begins. Otherwise, for a multi-line statement or expression, a def or use is attributed to the physical source line on which the relevant assignment target or loaded name begins; decorator and docstring lines do not count. Remove duplicate triples after combining all invocations, including duplicates caused by repeated loop iterations or multiple reads of the same reaching def on one line. Return exactly one JSON object with key `observed_def_use_pairs`; its value is a JSON array of objects, each having exactly `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string). Sort the array by `variable`, then `def_line`, then `use_line`, all ascending by ordinary string order for `variable` and numeric order for the line numbers. No other value serialization, null representation, function-name formatting, exception-name formatting, counting, or tie-breaker convention applies to this answer.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,2058 @@
+[
+  {
+    "instance_id": "traceback_extract_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "rich/traceback.py",
+      "module": "rich.traceback",
+      "qualname": "Traceback.extract",
+      "name": "extract",
+      "lineno": 433,
+      "end_lineno": 624,
+      "params": [
+        "cls",
+        "exc_type",
+        "exc_value",
+        "traceback"
+      ],
+      "metrics": {
+        "body_lines": 192,
+        "branches": 13,
+        "loops": 3,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 32,
+        "local_calls": [
+          "extract",
+          "get_locals",
+          "safe_str"
+        ],
+        "num_local_calls": 3,
+        "assigns": 27,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 11,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 5
+      },
+      "score": 110.0,
+      "callers": [
+        "Traceback.from_exception"
+      ],
+      "callers_2hop": [
+        "install.excepthook"
+      ]
+    },
+    "rank_note": "affinity+score=95.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "text_divide_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "rich/text.py",
+      "module": "rich.text",
+      "qualname": "Text.divide",
+      "name": "divide",
+      "lineno": 1106,
+      "end_lineno": 1183,
+      "params": [
+        "self",
+        "offsets"
+      ],
+      "metrics": {
+        "body_lines": 78,
+        "branches": 8,
+        "loops": 4,
+        "while_loops": 2,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [
+          "copy"
+        ],
+        "num_local_calls": 1,
+        "assigns": 30,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 79.8,
+      "callers": [
+        "Text.split",
+        "Text.wrap"
+      ],
+      "callers_2hop": [
+        "Text.expand_tabs",
+        "Text.fit",
+        "Text.with_indent_guides"
+      ]
+    },
+    "rank_note": "affinity+score=62.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "table_render_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "rich/table.py",
+      "module": "rich.table",
+      "qualname": "Table._render",
+      "name": "_render",
+      "lineno": 755,
+      "end_lineno": 935,
+      "params": [
+        "self",
+        "console",
+        "options",
+        "widths"
+      ],
+      "metrics": {
+        "body_lines": 181,
+        "branches": 13,
+        "loops": 6,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 55,
+        "local_calls": [
+          "_get_cells",
+          "align_cell",
+          "get_row_style"
+        ],
+        "num_local_calls": 3,
+        "assigns": 33,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 16,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 129.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=111.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "syntax_get_syntax_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "rich/syntax.py",
+      "module": "rich.syntax",
+      "qualname": "Syntax._get_syntax",
+      "name": "_get_syntax",
+      "lineno": 652,
+      "end_lineno": 788,
+      "params": [
+        "self",
+        "console",
+        "options"
+      ],
+      "metrics": {
+        "body_lines": 137,
+        "branches": 13,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 43,
+        "local_calls": [
+          "_get_base_style",
+          "_get_number_styles",
+          "_process_code",
+          "get_style_for_token",
+          "highlight"
+        ],
+        "num_local_calls": 5,
+        "assigns": 31,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 97.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=109.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "inspect_render_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "rich/_inspect.py",
+      "module": "rich._inspect",
+      "qualname": "Inspect._render",
+      "name": "_render",
+      "lineno": 125,
+      "end_lineno": 216,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 92,
+        "branches": 16,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 39,
+        "local_calls": [
+          "_get_formatted_doc",
+          "_get_signature",
+          "safe_getattr"
+        ],
+        "num_local_calls": 3,
+        "assigns": 19,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 81.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=66.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "ansi_decode_line_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "rich/ansi.py",
+      "module": "rich.ansi",
+      "qualname": "AnsiDecoder.decode_line",
+      "name": "decode_line",
+      "lineno": 138,
+      "end_lineno": 211,
+      "params": [
+        "self",
+        "line"
+      ],
+      "metrics": {
+        "body_lines": 74,
+        "branches": 13,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 34,
+        "local_calls": [
+          "_ansi_tokenize"
+        ],
+        "num_local_calls": 1,
+        "assigns": 13,
+        "augassigns": 5,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 1,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 77.4,
+      "callers": [
+        "AnsiDecoder.decode"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=68.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "traceback_render_stack_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "rich/traceback.py",
+      "module": "rich.traceback",
+      "qualname": "Traceback._render_stack",
+      "name": "_render_stack",
+      "lineno": 768,
+      "end_lineno": 895,
+      "params": [
+        "self",
+        "stack"
+      ],
+      "metrics": {
+        "body_lines": 128,
+        "branches": 11,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 31,
+        "local_calls": [
+          "_guess_lexer",
+          "_iter_syntax_lines",
+          "render_locals"
+        ],
+        "num_local_calls": 3,
+        "assigns": 20,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 4
+      },
+      "score": 82.0,
+      "callers": [
+        "Traceback.__rich_console__.render_stack"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "console_write_buffer_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "rich/console.py",
+      "module": "rich.console",
+      "qualname": "Console._write_buffer",
+      "name": "_write_buffer",
+      "lineno": 2059,
+      "end_lineno": 2130,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 72,
+        "branches": 11,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 24,
+        "local_calls": [
+          "_render_buffer",
+          "clear"
+        ],
+        "num_local_calls": 2,
+        "assigns": 15,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 73.2,
+      "callers": [
+        "Console._check_buffer"
+      ],
+      "callers_2hop": [
+        "Console.update_screen_lines"
+      ]
+    },
+    "rank_note": "affinity+score=67.6 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "console_print_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "rich/console.py",
+      "module": "rich.console",
+      "qualname": "Console.print",
+      "name": "print",
+      "lineno": 1652,
+      "end_lineno": 1756,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 105,
+        "branches": 11,
+        "loops": 5,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "_collect_renderables",
+          "get_style",
+          "line",
+          "process_renderables",
+          "render",
+          "update"
+        ],
+        "num_local_calls": 6,
+        "assigns": 16,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 72.0,
+      "callers": [
+        "Console.input",
+        "Console.line",
+        "Console.out",
+        "Console.print_exception",
+        "Console.print_json",
+        "Console.rule"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=80.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "style_parse_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "rich/style.py",
+      "module": "rich.style",
+      "qualname": "Style.parse",
+      "name": "parse",
+      "lineno": 498,
+      "end_lineno": 561,
+      "params": [
+        "cls",
+        "style_definition"
+      ],
+      "metrics": {
+        "body_lines": 64,
+        "branches": 8,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 5,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "null",
+          "parse"
+        ],
+        "num_local_calls": 2,
+        "assigns": 17,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 66.4,
+      "callers": [
+        "Style.normalize"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.6 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "progress_update_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "rich/progress.py",
+      "module": "rich.progress",
+      "qualname": "Progress.update",
+      "name": "update",
+      "lineno": 1417,
+      "end_lineno": 1476,
+      "params": [
+        "self",
+        "task_id"
+      ],
+      "metrics": {
+        "body_lines": 60,
+        "branches": 8,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "_reset",
+          "get_time",
+          "refresh",
+          "update"
+        ],
+        "num_local_calls": 4,
+        "assigns": 12,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 54.0,
+      "callers": [
+        "Progress.open",
+        "Progress.track",
+        "Progress.wrap_file",
+        "_TrackThread.run"
+      ],
+      "callers_2hop": [
+        "open",
+        "track",
+        "wrap_file"
+      ]
+    },
+    "rank_note": "affinity+score=49.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "style_make_ansi_codes_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "rich/style.py",
+      "module": "rich.style",
+      "qualname": "Style._make_ansi_codes",
+      "name": "_make_ansi_codes",
+      "lineno": 344,
+      "end_lineno": 385,
+      "params": [
+        "self",
+        "color_system"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 12,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 51.2,
+      "callers": [
+        "Style.render"
+      ],
+      "callers_2hop": [
+        "Style.test"
+      ]
+    },
+    "rank_note": "affinity+score=58.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "table_get_cells_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "rich/table.py",
+      "module": "rich.table",
+      "qualname": "Table._get_cells",
+      "name": "_get_cells",
+      "lineno": 627,
+      "end_lineno": 698,
+      "params": [
+        "self",
+        "console",
+        "column_index",
+        "column"
+      ],
+      "metrics": {
+        "body_lines": 72,
+        "branches": 3,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "get_padding"
+        ],
+        "num_local_calls": 1,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 57.2,
+      "callers": [
+        "Table._measure_column",
+        "Table._render"
+      ],
+      "callers_2hop": [
+        "Table._calculate_column_widths"
+      ]
+    },
+    "rank_note": "affinity+score=41.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "cells_split_graphemes_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "rich/cells.py",
+      "module": "rich.cells",
+      "qualname": "split_graphemes",
+      "name": "split_graphemes",
+      "lineno": 161,
+      "end_lineno": 232,
+      "params": [
+        "text",
+        "unicode_version"
+      ],
+      "metrics": {
+        "body_lines": 72,
+        "branches": 7,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "get_character_cell_size"
+        ],
+        "num_local_calls": 1,
+        "assigns": 17,
+        "augassigns": 5,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 57.2,
+      "callers": [
+        "_split_text",
+        "chop_cells"
+      ],
+      "callers_2hop": [
+        "set_cell_size",
+        "split_text"
+      ]
+    },
+    "rank_note": "affinity+score=73.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "text_expand_tabs_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "rich/text.py",
+      "module": "rich.text",
+      "qualname": "Text.expand_tabs",
+      "name": "expand_tabs",
+      "lineno": 817,
+      "end_lineno": 857,
+      "params": [
+        "self",
+        "tab_size"
+      ],
+      "metrics": {
+        "body_lines": 41,
+        "branches": 6,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "append",
+          "extend_style",
+          "join",
+          "split"
+        ],
+        "num_local_calls": 4,
+        "assigns": 13,
+        "augassigns": 3,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 51.1,
+      "callers": [
+        "Text.with_indent_guides",
+        "Text.wrap"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=67.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "inspect_get_signature_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "rich/_inspect.py",
+      "module": "rich._inspect",
+      "qualname": "Inspect._get_signature",
+      "name": "_get_signature",
+      "lineno": 82,
+      "end_lineno": 123,
+      "params": [
+        "self",
+        "name",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 3,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 47.2,
+      "callers": [
+        "Inspect._render"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=33.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "live_stop_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "rich/live.py",
+      "module": "rich.live",
+      "qualname": "Live.stop",
+      "name": "stop",
+      "lineno": 145,
+      "end_lineno": 181,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 37,
+        "branches": 9,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 1,
+        "calls": 12,
+        "local_calls": [
+          "_disable_redirect_io",
+          "refresh",
+          "stop"
+        ],
+        "num_local_calls": 3,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 46.7,
+      "callers": [
+        "Live.start"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=44.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "cells_cell_len_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "rich/cells.py",
+      "module": "rich.cells",
+      "qualname": "_cell_len",
+      "name": "_cell_len",
+      "lineno": 113,
+      "end_lineno": 158,
+      "params": [
+        "text",
+        "unicode_version"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "get_character_cell_size"
+        ],
+        "num_local_calls": 1,
+        "assigns": 9,
+        "augassigns": 4,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 44.6,
+      "callers": [
+        "cached_cell_len",
+        "cell_len"
+      ],
+      "callers_2hop": [
+        "set_cell_size"
+      ]
+    },
+    "rank_note": "affinity+score=49.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "windows_renderer_legacy_windows_render_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "rich/_windows_renderer.py",
+      "module": "rich._windows_renderer",
+      "qualname": "legacy_windows_render",
+      "name": "legacy_windows_render",
+      "lineno": 7,
+      "end_lineno": 56,
+      "params": [
+        "buffer",
+        "term"
+      ],
+      "metrics": {
+        "body_lines": 50,
+        "branches": 17,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 65.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=67.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "markup_render_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "rich/markup.py",
+      "module": "rich.markup",
+      "qualname": "render",
+      "name": "render",
+      "lineno": 106,
+      "end_lineno": 231,
+      "params": [
+        "markup",
+        "style",
+        "emoji",
+        "emoji_variant"
+      ],
+      "metrics": {
+        "body_lines": 126,
+        "branches": 10,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 4,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 41,
+        "local_calls": [
+          "_parse",
+          "pop_style"
+        ],
+        "num_local_calls": 2,
+        "assigns": 28,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 86.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=53.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "table_calculate_column_widths_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "rich/table.py",
+      "module": "rich.table",
+      "qualname": "Table._calculate_column_widths",
+      "name": "_calculate_column_widths",
+      "lineno": 523,
+      "end_lineno": 586,
+      "params": [
+        "self",
+        "console",
+        "options"
+      ],
+      "metrics": {
+        "body_lines": 64,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [
+          "_collapse_widths",
+          "_measure_column"
+        ],
+        "num_local_calls": 2,
+        "assigns": 24,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 8,
+        "comprehensions": 9,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 74.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=67.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "segment_divide_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "rich/segment.py",
+      "module": "rich.segment",
+      "qualname": "Segment.divide",
+      "name": "divide",
+      "lineno": 630,
+      "end_lineno": 696,
+      "params": [
+        "cls",
+        "segments",
+        "cuts"
+      ],
+      "metrics": {
+        "body_lines": 67,
+        "branches": 8,
+        "loops": 3,
+        "while_loops": 2,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [
+          "split_cells"
+        ],
+        "num_local_calls": 1,
+        "assigns": 17,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 64.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=68.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "color_parse_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "rich/color.py",
+      "module": "rich.color",
+      "qualname": "Color.parse",
+      "name": "parse",
+      "lineno": 433,
+      "end_lineno": 482,
+      "params": [
+        "cls",
+        "color"
+      ],
+      "metrics": {
+        "body_lines": 50,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 26,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 5,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 47.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=40.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "progress_open_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "rich/progress.py",
+      "module": "rich.progress",
+      "qualname": "Progress.open",
+      "name": "open",
+      "lineno": 1311,
+      "end_lineno": 1386,
+      "params": [
+        "self",
+        "file",
+        "mode",
+        "buffering",
+        "encoding",
+        "errors",
+        "newline"
+      ],
+      "metrics": {
+        "body_lines": 76,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "add_task",
+          "open",
+          "update"
+        ],
+        "num_local_calls": 3,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 47.6,
+      "callers": [
+        "open"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=41.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "segment_split_cells_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "rich/segment.py",
+      "module": "rich.segment",
+      "qualname": "Segment._split_cells",
+      "name": "_split_cells",
+      "lineno": 108,
+      "end_lineno": 153,
+      "params": [
+        "cls",
+        "segment",
+        "cut"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 8,
+        "augassigns": 2,
+        "returns": 4,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 44.6,
+      "callers": [
+        "Segment.split_cells"
+      ],
+      "callers_2hop": [
+        "Segment.divide"
+      ]
+    },
+    "rank_note": "affinity+score=47.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "layout_make_region_map_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "rich/layout.py",
+      "module": "rich.layout",
+      "qualname": "Layout._make_region_map",
+      "name": "_make_region_map",
+      "lineno": 345,
+      "end_lineno": 364,
+      "params": [
+        "self",
+        "width",
+        "height"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 1,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "divide"
+        ],
+        "num_local_calls": 1,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 29.0,
+      "callers": [
+        "Layout.render"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=27.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "text_render_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "rich/text.py",
+      "module": "rich.text",
+      "qualname": "Text.render",
+      "name": "render",
+      "lineno": 719,
+      "end_lineno": 776,
+      "params": [
+        "self",
+        "console",
+        "end"
+      ],
+      "metrics": {
+        "body_lines": 58,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "get_current_style"
+        ],
+        "num_local_calls": 1,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 44.8,
+      "callers": [
+        "Text.from_markup"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=46.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "markup_parse_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "rich/markup.py",
+      "module": "rich.markup",
+      "qualname": "_parse",
+      "name": "_parse",
+      "lineno": 73,
+      "end_lineno": 103,
+      "params": [
+        "markup"
+      ],
+      "metrics": {
+        "body_lines": 31,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 9,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 39.1,
+      "callers": [
+        "render"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=50.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "syntax_guess_lexer_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "rich/syntax.py",
+      "module": "rich.syntax",
+      "qualname": "Syntax.guess_lexer",
+      "name": "guess_lexer",
+      "lineno": 383,
+      "end_lineno": 422,
+      "params": [
+        "cls",
+        "path",
+        "code"
+      ],
+      "metrics": {
+        "body_lines": 40,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 33.0,
+      "callers": [
+        "Syntax.from_path"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=22.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "syntax_highlight_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "rich/syntax.py",
+      "module": "rich.syntax",
+      "qualname": "Syntax.highlight",
+      "name": "highlight",
+      "lineno": 470,
+      "end_lineno": 553,
+      "params": [
+        "self",
+        "code",
+        "line_range"
+      ],
+      "metrics": {
+        "body_lines": 84,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [
+          "_apply_stylized_ranges",
+          "_get_base_style",
+          "tokens_to_spans"
+        ],
+        "num_local_calls": 3,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 36.0,
+      "callers": [
+        "Syntax._get_syntax"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=34.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "containers_justify_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "rich/containers.py",
+      "module": "rich.containers",
+      "qualname": "Lines.justify",
+      "name": "justify",
+      "lineno": 111,
+      "end_lineno": 167,
+      "params": [
+        "self",
+        "console",
+        "width",
+        "justify",
+        "overflow"
+      ],
+      "metrics": {
+        "body_lines": 57,
+        "branches": 7,
+        "loops": 6,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 30,
+        "local_calls": [
+          "append"
+        ],
+        "num_local_calls": 1,
+        "assigns": 11,
+        "augassigns": 2,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 61.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=65.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "color_downgrade_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "rich/color.py",
+      "module": "rich.color",
+      "qualname": "Color.downgrade",
+      "name": "downgrade",
+      "lineno": 513,
+      "end_lineno": 568,
+      "params": [
+        "self",
+        "system"
+      ],
+      "metrics": {
+        "body_lines": 56,
+        "branches": 10,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 16,
+        "augassigns": 0,
+        "returns": 7,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 55.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=57.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "ratio_ratio_resolve_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "rich/_ratio.py",
+      "module": "rich._ratio",
+      "qualname": "ratio_resolve",
+      "name": "ratio_resolve",
+      "lineno": 14,
+      "end_lineno": 72,
+      "params": [
+        "total",
+        "edges"
+      ],
+      "metrics": {
+        "body_lines": 59,
+        "branches": 2,
+        "loops": 3,
+        "while_loops": 1,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 4,
+        "comprehensions": 5,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 51.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=45.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "box_get_row_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "rich/box.py",
+      "module": "rich.box",
+      "qualname": "Box.get_row",
+      "name": "get_row",
+      "lineno": 115,
+      "end_lineno": 162,
+      "params": [
+        "self",
+        "widths",
+        "level",
+        "edge"
+      ],
+      "metrics": {
+        "body_lines": 48,
+        "branches": 7,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 18,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 50.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=50.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "wrap_divide_line_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "rich/_wrap.py",
+      "module": "rich._wrap",
+      "qualname": "divide_line",
+      "name": "divide_line",
+      "lineno": 26,
+      "end_lineno": 78,
+      "params": [
+        "text",
+        "width",
+        "fold"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 7,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "words"
+        ],
+        "num_local_calls": 1,
+        "assigns": 11,
+        "augassigns": 2,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 54.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=54.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "unicode_data_load_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "rich/_unicode_data/__init__.py",
+      "module": "rich._unicode_data",
+      "qualname": "load",
+      "name": "load",
+      "lineno": 59,
+      "end_lineno": 93,
+      "params": [
+        "unicode_version"
+      ],
+      "metrics": {
+        "body_lines": 35,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "_parse_version"
+        ],
+        "num_local_calls": 1,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 38.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=27.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "traceback_render_stack_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "rich/traceback.py",
+      "module": "rich.traceback",
+      "qualname": "Traceback.__rich_console__.render_stack",
+      "name": "render_stack",
+      "lineno": 658,
+      "end_lineno": 723,
+      "params": [
+        "stack",
+        "last"
+      ],
+      "metrics": {
+        "body_lines": 66,
+        "branches": 6,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 24,
+        "local_calls": [
+          "_render_stack",
+          "_render_syntax_error",
+          "render_stack"
+        ],
+        "num_local_calls": 3,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 43.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=37.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "logging_emit_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "rich/logging.py",
+      "module": "rich.logging",
+      "qualname": "RichHandler.emit",
+      "name": "emit",
+      "lineno": 138,
+      "end_lineno": 188,
+      "params": [
+        "self",
+        "record"
+      ],
+      "metrics": {
+        "body_lines": 51,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [
+          "render",
+          "render_message"
+        ],
+        "num_local_calls": 2,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 42.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=39.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "columns_iter_renderables_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "rich/columns.py",
+      "module": "rich.columns",
+      "qualname": "Columns.__rich_console__.iter_renderables",
+      "name": "iter_renderables",
+      "lineno": 86,
+      "end_lineno": 117,
+      "params": [
+        "column_count"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 4,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 8,
+        "augassigns": 4,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 45.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=37.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "win32_console_write_styled_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "rich/_win32_console.py",
+      "module": "rich._win32_console",
+      "qualname": "LegacyWindowsTerm.write_styled",
+      "name": "write_styled",
+      "lineno": 405,
+      "end_lineno": 442,
+      "params": [
+        "self",
+        "text",
+        "style"
+      ],
+      "metrics": {
+        "body_lines": 38,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "SetConsoleTextAttribute",
+          "write_text"
+        ],
+        "num_local_calls": 2,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 34.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=41.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "align_generate_segments_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "rich/align.py",
+      "module": "rich.align",
+      "qualname": "Align.__rich_console__.generate_segments",
+      "name": "generate_segments",
+      "lineno": 161,
+      "end_lineno": 198,
+      "params": [],
+      "metrics": {
+        "body_lines": 38,
+        "branches": 7,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 38.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=52.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "live_start_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "rich/live.py",
+      "module": "rich.live",
+      "qualname": "Live.start",
+      "name": "start",
+      "lineno": 111,
+      "end_lineno": 143,
+      "params": [
+        "self",
+        "refresh"
+      ],
+      "metrics": {
+        "body_lines": 33,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "_enable_redirect_io",
+          "refresh",
+          "start",
+          "stop"
+        ],
+        "num_local_calls": 4,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 31.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=26.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "measure_get_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "rich/measure.py",
+      "module": "rich.measure",
+      "qualname": "Measurement.get",
+      "name": "get",
+      "lineno": 79,
+      "end_lineno": 122,
+      "params": [
+        "cls",
+        "console",
+        "options",
+        "renderable"
+      ],
+      "metrics": {
+        "body_lines": 44,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "normalize",
+          "with_maximum"
+        ],
+        "num_local_calls": 2,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 32.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=30.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "progress_bar_get_pulse_segments_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "rich/progress_bar.py",
+      "module": "rich.progress_bar",
+      "qualname": "ProgressBar._get_pulse_segments",
+      "name": "_get_pulse_segments",
+      "lineno": 70,
+      "end_lineno": 114,
+      "params": [
+        "self",
+        "fore_style",
+        "back_style",
+        "color_system",
+        "no_color",
+        "ascii"
+      ],
+      "metrics": {
+        "body_lines": 45,
+        "branches": 1,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 13,
+        "augassigns": 2,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 39.5,
+      "callers": [
+        "ProgressBar._render_pulse"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=42.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "repr_auto_repr_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "rich/repr.py",
+      "module": "rich.repr",
+      "qualname": "auto.do_replace.auto_repr",
+      "name": "auto_repr",
+      "lineno": 42,
+      "end_lineno": 65,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "__rich_repr__"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 35.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=26.3 [direct]",
+    "exercise_mode": "direct"
+  }
+]

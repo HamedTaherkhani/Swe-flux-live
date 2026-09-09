@@ -1,0 +1,44 @@
+{
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "scripts/translate.py",
+        "func": "scripts.translate.add_missing"
+      },
+      {
+        "file": "scripts/translate.py",
+        "func": "scripts.translate.generate_lang_path"
+      },
+      {
+        "file": "scripts/translate.py",
+        "func": "scripts.translate.get_langs"
+      },
+      {
+        "file": "scripts/translate.py",
+        "func": "scripts.translate.get_prompt"
+      },
+      {
+        "file": "scripts/translate.py",
+        "func": "scripts.translate.translate_page"
+      },
+      {
+        "file": "scripts/translate.py",
+        "func": "scripts.translate.update_and_add"
+      },
+      {
+        "file": "scripts/translate.py",
+        "func": "scripts.translate.update_outdated"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `fastapi_qa/translate_translate_page_m6_calls/files/testcase.py::TestIndirectTranslationBatch::test_generated_update_and_add_batch`. For the complete execution of that test, determine dynamic function coverage involving the target `scripts.translate.translate_page`, whose definition occupies lines 107-178 of `scripts/translate.py`.\n\nThe exact tracked function set is: `scripts.translate.add_missing`, `scripts.translate.generate_en_path`, `scripts.translate.generate_lang_path`, `scripts.translate.get_langs`, `scripts.translate.get_prompt`, `scripts.translate.translate_page`, `scripts.translate.update_and_add`, and `scripts.translate.update_outdated`. A tracked function is covered if at least one Python function `call` event for that exact function occurs anywhere during the selected test's execution. Count an event regardless of whether its caller is another tracked function, an untracked function, or whether it is reached directly or transitively; this is whole-test reachability, not merely direct calls from the target frame or calls made while the target is on the stack. Calls to functions outside the exact tracked set, including builtins, nested comprehension frames, and mock helper functions, are excluded.\n\nFunction identity is `frame.f_globals[\"__name__\"] + \".\" + frame.f_code.co_qualname`; for example, an unrelated method could be `sample.mod.Widget.run`. Each initial frame entry, recursive entry, and Python `call` event produced when an existing generator or coroutine frame resumes is sufficient to mark its exact tracked function covered. Repeated calls and resumptions do not create repeated answer items: coverage is a set, so each covered function appears exactly once.\n\nReturn `oracle_answer` with exactly the shape `{\"covered_functions\": [{\"file\": <string>, \"func\": <string>}]}`. For each item, `file` is the repository-relative POSIX path formed by removing the `/testbed/` prefix from that call event's absolute frame filename, and `func` is the dotted identity defined above. Both fields are ordinary JSON strings; do not apply `repr()` or `str()` formatting to them. Remove duplicate `{file, func}` pairs, then sort items in ascending lexicographic order first by `file` and then by `func`, using Unicode code-point ordering (equivalent to Python sorting the two-string tuples). Because duplicates are removed, no further tie-breaker is needed. Emit no item for an uncovered tracked function. The resulting list is non-empty, so neither JSON `null` nor an empty-value convention applies.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

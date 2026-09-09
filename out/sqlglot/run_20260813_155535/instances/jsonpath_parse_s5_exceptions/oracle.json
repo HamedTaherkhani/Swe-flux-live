@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "Expected key name or * after DOT at index 71: $['key_0_95']['key_1_27'].field_2_47.field_3_79..branch_4_68['key_5_24'].field_6_15['key_7_17'].field_8_55['key_9_7'].field_10_30..branch_11_52[89]..branch_13_2[35:38:3]..branch_15_88.field_16_77[18]['key_18_94'].field_19_21[24:27:1]..branch_21_81.field_22_27[36].field_24_82.",
+    "exception_type": "sqlglot.errors.ParseError"
+  },
+  "question": "Run only the pytest test\n`sqlglot_qa/jsonpath_parse_s5_exceptions/files/testcase.py::TestJSONPathParseExceptions::test_generated_path_with_terminal_separator`\nfrom `sqlglot_qa/jsonpath_parse_s5_exceptions/files/testcase.py`. During that\ntest, consider the sole direct invocation of `sqlglot.jsonpath.parse` in\n`sqlglot/jsonpath.py`.\n\nWhat are the type and message of the exception that propagates out of that\ntarget invocation and reaches its direct caller? \"Propagates out\" means that\nthe exception leaves the exact `sqlglot.jsonpath.parse` frame without being\nhandled there. Exceptions raised and handled wholly in a callee do not count.\nAn invocation is one call of the target function, numbered 1-based in\nchronological order during this test run; the question covers invocation 1,\nwhich is the only invocation.\n\nException type naming MUST use this convention: bare `type(exc).__name__` for\nbuilt-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and\n`module.QualName` for all others (e.g. `package.errors.CustomError`). Here,\n`module.QualName` is exactly\n`f\"{type(exc).__module__}.{type(exc).__qualname__}\"`. The exception message is\nthe exact `str(exc)`, character for character, with no `repr()` quoting,\nescaping, truncation, or whitespace normalization; an empty message would be\nthe empty JSON string `\"\"`, not JSON `null` and not an omitted key.\n\nReturn exactly\n`{\"exception_message\": <JSON string>, \"exception_type\": <JSON string>}`.\nThese are scalar fields, so no sorting or deduplication is performed, and JSON\nobject member order is not semantically significant.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

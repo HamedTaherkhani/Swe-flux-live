@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 972
+  },
+  "question": "Run the single pytest test `scrapy_qa/iterators_xmliter_lxml_s2_loops/files/testcase.py::XmlIterLoopTest::test_generated_namespaced_catalog`. For the first and only source-level invocation of `scrapy.utils.iterators.xmliter_lxml` in `scrapy/utils/iterators.py`, what is the exact iteration count of the `for event, data in iterable` loop whose header is at absolute 1-based source line 40? An invocation is one evaluation of the `xmliter_lxml(...)` call expression during the test, counted 1-based in chronological order; the complete consumption of the generator created by that expression belongs to that same invocation, and generator suspension and resumption do not create additional invocations. Iteration counting is 1-based: iteration N is the Nth execution of the loop body's first statement, the `if` statement beginning at absolute 1-based line 41. Count every such execution during complete generator consumption, including iterations that later execute `continue` and iterations that reach `yield`; do not sort, deduplicate, or otherwise group iterations. Line numbers refer to the named repository file as it exists for this test; the loop header itself, the function `def` line, decorator lines, and docstring lines are not counted. Return exactly one JSON object with the sole key `loop_iteration_count`; its value is the count as a JSON integer, not a string and not a `repr()` value. No ordering or tie-breaking rule applies because the answer contains one scalar count.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

@@ -1,0 +1,1407 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "During pytest run of rich_qa/repr_auto_repr_s6_calls/files/testcase.py::TestAutoReprExecutedPath::test_direct_auto_repr_invocations, the nested function rich.repr.auto.<locals>.do_replace.<locals>.auto_repr in rich/repr.py (source lines 42-65) is invoked directly by calling the bound __repr__ method installed by the @auto decorator (the test never calls repr() or str() on the instances).\n\nIdentify the 47th invocation of rich.repr.auto.<locals>.do_replace.<locals>.auto_repr during that test run, counting each call to that function in chronological order starting at 1.\n\nWhile that 47th invocation is on the call stack, collect every line event (executed source line) recorded for any of these tracked functions defined in rich/repr.py (listed by dotted module.qualname):\n\n- rich.repr.auto.<locals>.do_replace.<locals>.auto_repr\n- rich.repr.auto\n- rich.repr.auto.<locals>.do_replace\n- rich.repr.auto.<locals>.do_replace.<locals>.auto_rich_repr\n\nInclude line events in auto_repr itself and nested/transitive line events in the other tracked functions while the 47th auto_repr frame remains on the stack (for example, lines executed inside rich.repr.auto.<locals>.do_replace during that auto_repr still count). Do not include line events from functions outside this list. Repeated line events at the same line in the same function are all included in order; do not deduplicate. Generator resumptions outside these functions are ignored.\n\nEach line number is the 1-based line number in the repository file where the traced statement begins (as reported by Python's trace machinery for line events). Decorator lines, the def line, and docstring lines are not line events and never appear.\n\nReport the chronological executed path as executed_path: a JSON list of objects, each with exactly three keys:\n\n- file: repository-relative path to the source file (for example rich/repr.py)\n- func: dotted module.qualname of the function whose body is executing (for example rich.repr.auto.<locals>.do_replace)\n- line: integer line number (for example 48)\n\nSort order is chronological execution order as observed during the test; do not reorder or sort alphabetically.",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 44
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 45
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 47
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 41
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 99
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 102
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 42
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 67
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 89
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 90
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 91
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 93
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 94
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 95
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 97
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 41
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 99
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 100
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 42
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 67
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 89
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 90
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 91
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 93
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 94
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 95
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 96
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 97
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 61
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 58
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 58
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 58
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 41
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 99
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 102
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 42
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 67
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 89
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 90
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 91
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 93
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 94
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 95
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 97
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 41
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 99
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 100
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 42
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 67
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 89
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 90
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 91
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 93
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 94
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 95
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 96
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 97
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 41
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 99
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 100
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 42
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 67
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 89
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 90
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 91
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 93
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 94
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 95
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 96
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 97
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 61
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 58
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 41
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 99
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 102
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 42
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 67
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 89
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 90
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 91
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 93
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 94
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 95
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 97
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 41
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 99
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 100
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 42
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 67
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 89
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 90
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 91
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 93
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 94
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 95
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 96
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 97
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 41
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 99
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 100
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 42
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 67
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 89
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 90
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 91
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 93
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 94
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 95
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 96
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 97
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 41
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 99
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto",
+        "line": 102
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 42
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 67
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 89
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 90
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 91
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 93
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 94
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 95
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace",
+        "line": 97
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 55
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 49
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 50
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 53
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 54
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 57
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 59
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 48
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 62
+      },
+      {
+        "file": "rich/repr.py",
+        "func": "rich.repr.auto.<locals>.do_replace.<locals>.auto_repr",
+        "line": 63
+      }
+    ]
+  }
+}

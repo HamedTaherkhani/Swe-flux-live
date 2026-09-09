@@ -1,0 +1,44 @@
+{
+  "question_kind": "M5_Exceptions",
+  "question": "Consider every test method in `jinja_qa/nodes_as_const_m5_exceptions/files/testcase.py::TestNodesAsConstExceptionAggregation`. The answer aggregates behavior across **all** `test_*` methods in that class, in the chronological order pytest collects and runs them (definition order in the file). Each method is identified by its pytest node id, e.g. `jinja_qa/nodes_as_const_m5_exceptions/files/testcase.py::TestNodesAsConstExceptionAggregation::test_compile_odd_sweep`.\n\nThose tests reach `jinja2.nodes._FilterTestCommon.as_const` in `src/jinja2/nodes.py` only **indirectly**: through template compilation (optimizer and compiler constant-folding paths) and through caller node `as_const` methods such as `jinja2.nodes.And.as_const`, `jinja2.nodes.Compare.as_const`, and `jinja2.nodes.CondExpr.as_const` on parsed template expressions \u2014 never by importing or calling `_FilterTestCommon.as_const` directly.\n\nTarget function: `jinja2.nodes._FilterTestCommon.as_const` (the method beginning at line 746 of `src/jinja2/nodes.py`).\n\n**Exception type naming** uses bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError`, never `builtins.ValueError`) and `module.QualName` for all other exception classes (e.g. `jinja2.nodes.Impossible`).\n\n**Observation rule**: count one observation each time an exception is observed in the `_FilterTestCommon.as_const` frame during the test run \u2014 either raised directly in that frame or propagated into that frame from a callee before any handler in that frame catches it. Exceptions raised and fully handled inside a callee without entering the target frame do not count. If the same exception object is re-raised in the same target frame after being caught there, that second observation counts again; propagation from a callee into the target frame and a subsequent `raise` of a new exception in the target frame are separate observations.\n\n**Counting**: totals over **all** invocations of `_FilterTestCommon.as_const` and **all** test methods in the class; the same exception type raised in five methods contributes five to that type's total (plus any additional observations within each invocation).\n\nReturn JSON with the single top-level key `exception_type_counts`: a list of objects, each with keys `exception_type` (string) and `count` (non-negative integer). Include every exception type observed at least once. Sort the list by `exception_type` ascending; when types tie (they cannot), break ties by `count` ascending.",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 28,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 32,
+        "exception_type": "IndexError"
+      },
+      {
+        "count": 36,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 24,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 36,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 28,
+        "exception_type": "ZeroDivisionError"
+      },
+      {
+        "count": 314,
+        "exception_type": "jinja2.nodes.Impossible"
+      }
+    ]
+  }
+}

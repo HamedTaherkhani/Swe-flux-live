@@ -1,0 +1,38 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, timeout-2.4.0, twisted-1.14.3, xdist-3.8.0
+collected 12 items
+
+scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py ............
+
+==================================== PASSES ====================================
+_____ TestStreamRequestHeaderLoops.test_delete_segmented_with_mixed_length _____
+------------------------------ Captured log call -------------------------------
+WARNING  scrapy.core.http2.stream:stream.py:259 Ignoring bad Content-Length header '4170' of request <DELETE https://qa.invalid/p5c/e49/r6c/e27/g47/r1c/i48/n1e/a17/t3c/i3e/o47/n3f>, sending '4176' instead
+_______ TestStreamRequestHeaderLoops.test_options_root_with_mixed_length _______
+------------------------------ Captured log call -------------------------------
+WARNING  scrapy.core.http2.stream:stream.py:259 Ignoring bad Content-Length header '1372' of request <OPTIONS https://qa.invalid>, sending '1384' instead
+WARNING  scrapy.core.http2.stream:stream.py:259 Ignoring bad Content-Length header '1396' of request <OPTIONS https://qa.invalid>, sending '1384' instead
+_______ TestStreamRequestHeaderLoops.test_patch_query_with_mixed_length ________
+------------------------------ Captured log call -------------------------------
+WARNING  scrapy.core.http2.stream:stream.py:259 Ignoring bad Content-Length header '5672' of request <PATCH https://qa.invalid/latnednecsnart?k0=31827&k1=a2bdf>, sending '5680' instead
+WARNING  scrapy.core.http2.stream:stream.py:259 Ignoring bad Content-Length header '5688' of request <PATCH https://qa.invalid/latnednecsnart?k0=31827&k1=a2bdf>, sending '5680' instead
+________ TestStreamRequestHeaderLoops.test_post_root_with_mixed_length _________
+------------------------------ Captured log call -------------------------------
+WARNING  scrapy.core.http2.stream:stream.py:259 Ignoring bad Content-Length header '756' of request <POST https://qa.invalid>, sending '758' instead
+=========================== short test summary info ============================
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_connect_query_with_exact_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_connect_with_absent_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_delete_segmented_with_mixed_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_get_segmented_without_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_head_query_without_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_options_query_without_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_options_root_with_mixed_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_patch_query_with_mixed_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_post_query_with_exact_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_post_root_with_mixed_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_put_root_with_exact_length
+PASSED scrapy_qa/stream_get_request_headers_m2_loops__pert_llm_s0/files/testcase.py::TestStreamRequestHeaderLoops::test_trace_segmented_with_exact_length
+============================== 12 passed in 2.29s ==============================

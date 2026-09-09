@@ -1,0 +1,222 @@
+{
+  "question_kind": "S4_DataFlow",
+  "question": "Run only the pytest test\n`lark_qa/xearley_scan_s4_dataflow/files/testcase.py::TestGeneratedDynamicEarleyInput::test_programmatic_mixed_tokens`.\nFor all invocations of `lark.parsers.xearley.Parser._parse.<locals>.scan` in\n`lark/parsers/xearley.py` during that test, report all unique observed dynamic\ndef-use pairs for the local variables `item`, `label`, `m`, `new_item`, `t`,\nand `token`.\n\nA definition is a binding of one of those local names by a parameter or an\nassignment. Parameters count as definitions on the function's `def` line. A\nuse is a read of that local name by the target function's own frame on an\nexecuted source line. A definition reaches a use when it is the most recent\ndefinition of that name earlier in the same invocation, with no intervening\ndefinition. Reads on a line are evaluated against the reaching definition\nbefore definitions performed by that same line. An augmented assignment such\nas `counter += 1` therefore uses the old reaching definition and then creates\na new definition on that line. Each successful iteration of `for counter in\nvalues` creates a new definition of `counter` on the loop-header line.\n\nComprehension iteration variables are local to the comprehension-generated\nframe: exclude both their definitions and their reads, and do not let them\nreplace a same-named reaching definition in `scan`. Exclude every event and\nread performed by such a nested comprehension frame; only reads performed by\nthe target function's own frame count. Treat each invocation independently,\nwhere an invocation is one call of the target function, and then aggregate\nthe pairs across every invocation in the test.\n\nLine numbers are absolute 1-based physical line numbers in the named repository\nfile as it exists for the test. For a multi-line statement or expression, use\nthe executed line on which that statement or expression begins; the function\n`def` line can appear only for a tracked parameter definition, and decorator\nor docstring lines do not count unless they themselves read or define a\ntracked local. Remove duplicate `(variable, def_line, use_line)` triples\nregardless of whether repetitions occur within one invocation or across\ninvocations. Return exactly\n`{\"observed_def_use_pairs\": [...]}`, where each list element is exactly\n`{\"def_line\": <JSON integer>, \"use_line\": <JSON integer>, \"variable\": <JSON string>}`.\nSort the list by `variable` in ascending Unicode code-point lexicographic\norder, then by `def_line` and `use_line` numerically ascending; these fields\nare the complete tie-break order.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 59,
+        "use_line": 60,
+        "variable": "item"
+      },
+      {
+        "def_line": 59,
+        "use_line": 62,
+        "variable": "item"
+      },
+      {
+        "def_line": 59,
+        "use_line": 63,
+        "variable": "item"
+      },
+      {
+        "def_line": 59,
+        "use_line": 68,
+        "variable": "item"
+      },
+      {
+        "def_line": 59,
+        "use_line": 70,
+        "variable": "item"
+      },
+      {
+        "def_line": 59,
+        "use_line": 71,
+        "variable": "item"
+      },
+      {
+        "def_line": 101,
+        "use_line": 107,
+        "variable": "item"
+      },
+      {
+        "def_line": 101,
+        "use_line": 111,
+        "variable": "item"
+      },
+      {
+        "def_line": 101,
+        "use_line": 114,
+        "variable": "item"
+      },
+      {
+        "def_line": 101,
+        "use_line": 115,
+        "variable": "item"
+      },
+      {
+        "def_line": 101,
+        "use_line": 119,
+        "variable": "item"
+      },
+      {
+        "def_line": 108,
+        "use_line": 110,
+        "variable": "label"
+      },
+      {
+        "def_line": 117,
+        "use_line": 118,
+        "variable": "label"
+      },
+      {
+        "def_line": 60,
+        "use_line": 61,
+        "variable": "m"
+      },
+      {
+        "def_line": 60,
+        "use_line": 62,
+        "variable": "m"
+      },
+      {
+        "def_line": 60,
+        "use_line": 63,
+        "variable": "m"
+      },
+      {
+        "def_line": 60,
+        "use_line": 66,
+        "variable": "m"
+      },
+      {
+        "def_line": 68,
+        "use_line": 69,
+        "variable": "m"
+      },
+      {
+        "def_line": 68,
+        "use_line": 70,
+        "variable": "m"
+      },
+      {
+        "def_line": 68,
+        "use_line": 71,
+        "variable": "m"
+      },
+      {
+        "def_line": 83,
+        "use_line": 84,
+        "variable": "m"
+      },
+      {
+        "def_line": 83,
+        "use_line": 86,
+        "variable": "m"
+      },
+      {
+        "def_line": 83,
+        "use_line": 89,
+        "variable": "m"
+      },
+      {
+        "def_line": 107,
+        "use_line": 108,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 107,
+        "use_line": 110,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 107,
+        "use_line": 111,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 107,
+        "use_line": 122,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 107,
+        "use_line": 127,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 114,
+        "use_line": 117,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 114,
+        "use_line": 118,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 114,
+        "use_line": 120,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 114,
+        "use_line": 122,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 114,
+        "use_line": 124,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 114,
+        "use_line": 127,
+        "variable": "new_item"
+      },
+      {
+        "def_line": 62,
+        "use_line": 63,
+        "variable": "t"
+      },
+      {
+        "def_line": 70,
+        "use_line": 71,
+        "variable": "t"
+      },
+      {
+        "def_line": 101,
+        "use_line": 102,
+        "variable": "token"
+      },
+      {
+        "def_line": 101,
+        "use_line": 103,
+        "variable": "token"
+      },
+      {
+        "def_line": 101,
+        "use_line": 104,
+        "variable": "token"
+      },
+      {
+        "def_line": 101,
+        "use_line": 105,
+        "variable": "token"
+      },
+      {
+        "def_line": 101,
+        "use_line": 109,
+        "variable": "token"
+      }
+    ]
+  }
+}

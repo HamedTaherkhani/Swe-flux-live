@@ -1,0 +1,64 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.23, pytest-8.4.1, pluggy-1.6.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: ddtrace-3.12.3, rerunfailures-15.1, cov-6.2.1, bdd-8.1.0, anyio-4.10.0, asyncio-1.1.0
+asyncio: mode=auto, asyncio_default_fixture_loop_scope=class, asyncio_default_test_loop_scope=function
+collected 12 items
+
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_01_char_alternating_markers PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_02_char_recursive_markers {"event": "Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.", "level": "warning", "timestamp": "2026-08-23T02:01:58.486203Z", "lineno": 173, "module": "haystack.components.preprocessors.recursive_splitter"}
+
+-------------------------------- live log call ---------------------------------
+WARNING  haystack.components.preprocessors.recursive_splitter:recursive_splitter.py:173 Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.
+PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_03_char_dense_boundaries PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_04_char_large_overlap PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_05_char_newline_hierarchy {"event": "Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.", "level": "warning", "timestamp": "2026-08-23T02:01:58.583194Z", "lineno": 173, "module": "haystack.components.preprocessors.recursive_splitter"}
+
+-------------------------------- live log call ---------------------------------
+WARNING  haystack.components.preprocessors.recursive_splitter:recursive_splitter.py:173 Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.
+PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_06_char_sparse_primary {"event": "Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.", "level": "warning", "timestamp": "2026-08-23T02:01:58.611908Z", "lineno": 173, "module": "haystack.components.preprocessors.recursive_splitter"}
+
+-------------------------------- live log call ---------------------------------
+WARNING  haystack.components.preprocessors.recursive_splitter:recursive_splitter.py:173 Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.
+PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_07_word_pipe_groups PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_08_word_recursive_groups PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_09_word_newline_groups PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_10_word_high_overlap {"event": "Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.", "level": "warning", "timestamp": "2026-08-23T02:01:58.708262Z", "lineno": 173, "module": "haystack.components.preprocessors.recursive_splitter"}
+
+-------------------------------- live log call ---------------------------------
+WARNING  haystack.components.preprocessors.recursive_splitter:recursive_splitter.py:173 Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.
+PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_11_word_double_colon PASSED
+haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_12_word_mixed_boundaries PASSED
+
+==================================== PASSES ====================================
+_______ TestRecursiveSplitterOverlapState.test_02_char_recursive_markers _______
+------------------------------ Captured log call -------------------------------
+WARNING  haystack.components.preprocessors.recursive_splitter:recursive_splitter.py:173 Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.
+_______ TestRecursiveSplitterOverlapState.test_05_char_newline_hierarchy _______
+------------------------------ Captured log call -------------------------------
+WARNING  haystack.components.preprocessors.recursive_splitter:recursive_splitter.py:173 Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.
+________ TestRecursiveSplitterOverlapState.test_06_char_sparse_primary _________
+------------------------------ Captured log call -------------------------------
+WARNING  haystack.components.preprocessors.recursive_splitter:recursive_splitter.py:173 Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.
+_________ TestRecursiveSplitterOverlapState.test_10_word_high_overlap __________
+------------------------------ Captured log call -------------------------------
+WARNING  haystack.components.preprocessors.recursive_splitter:recursive_splitter.py:173 Overlap is the same as the previous chunk. Consider increasing the `split_length` parameter or decreasing the `split_overlap` parameter.
+=========================== short test summary info ============================
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_01_char_alternating_markers
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_02_char_recursive_markers
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_03_char_dense_boundaries
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_04_char_large_overlap
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_05_char_newline_hierarchy
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_06_char_sparse_primary
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_07_word_pipe_groups
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_08_word_recursive_groups
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_09_word_newline_groups
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_10_word_high_overlap
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_11_word_double_colon
+PASSED haystack_qa/recursive_splitter_apply_overlap_m3_state__pert_llm_s0/files/testcase.py::TestRecursiveSplitterOverlapState::test_12_word_mixed_boundaries
+============================== 12 passed in 0.78s ==============================

@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 123,
+    "min_iterations": 13
+  },
+  "question": "Run every test method collected from the pytest class node `scrapy_qa/misc_is_generator_with_return_value_m2_loops/files/testcase.py::GeneratorReturnLoopTest` (that is, aggregate over all `test_...` methods in that class, in pytest's collection order). Consider every invocation of `scrapy.utils.misc.is_generator_with_return_value` in `scrapy/utils/misc.py` during those test methods. An invocation is one call of that exact function, numbered 1-based in chronological call order across the complete class run. For the `for` loop whose header begins at line 287, compute each invocation's iteration count, then report the maximum and minimum of those counts across all invocations. Define iteration N (1-based within an invocation) as the Nth execution of the loop body's first statement, the `if` statement beginning at line 288. Repeated executions count separately and are never deduplicated; an invocation that never executes line 288 has an iteration count of zero. Evaluations of the iterable or loop machinery that do not enter the body do not count. Line numbers are absolute, 1-based source line numbers in the named repository file as it exists for this run; for a multi-line statement, its line is where that statement or expression begins. The function's `def` line, decorator lines, and docstring lines are not loop iterations. Include every invocation, including any invocation that returns before reaching the loop; do not sort or deduplicate invocations before taking the extrema. Return exactly one JSON object with exactly the keys `max_iterations` and `min_iterations`, in that key order. Both values are raw JSON integers, not quoted strings; no value formatting with `repr` or `str` and no null/empty sentinel is used.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 60,
+    "min_iterations": 21
+  },
+  "question": "Run only the pytest test `fastapi_qa/applications_build_middleware_stack_m2_loops/files/testcase.py::TestBuildMiddlewareStackLoops::test_generated_middleware_populations`. During that test run, consider every invocation of exactly `fastapi.applications.FastAPI.build_middleware_stack` from `fastapi/applications.py`; calls of other functions or nested frames are excluded. An invocation means one runtime call of that exact dotted function, numbered 1-based in chronological call-entry order. For the `for` loop whose header begins at line 1066, compute the iteration count separately for each invocation, then report the maximum and minimum of those per-invocation counts over the complete test run. Define iteration N (1-based) as the Nth execution, in that invocation, of the loop body's first executable source line, line 1067; evaluating the loop header does not itself count as an iteration. Source line numbers are absolute, 1-based line numbers in the named repository file as it exists for this test. For a multi-line statement or expression, its executed line is the line where that statement or expression begins; the method's `def` line, decorators, comments, and docstring lines do not count. Return exactly one JSON object with keys `max_iterations` and `min_iterations`, each mapped to a bare JSON integer. Keys have exactly those spellings; no string formatting, `repr`, null representation, sorting, deduplication, or tie-breaking convention applies to these two scalar extrema.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

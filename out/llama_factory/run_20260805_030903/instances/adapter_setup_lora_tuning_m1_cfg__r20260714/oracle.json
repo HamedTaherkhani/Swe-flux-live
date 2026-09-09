@@ -1,0 +1,103 @@
+{
+  "oracle_answer": {
+    "always_executed": [
+      145,
+      148,
+      150,
+      193,
+      250,
+      254
+    ],
+    "never_executed": [
+      153,
+      154,
+      157,
+      158,
+      161,
+      162,
+      187,
+      197,
+      200,
+      206,
+      207,
+      209,
+      233,
+      240,
+      241
+    ],
+    "sometimes_executed": [
+      146,
+      151,
+      152,
+      156,
+      160,
+      164,
+      165,
+      166,
+      168,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      178,
+      179,
+      180,
+      182,
+      183,
+      185,
+      186,
+      189,
+      191,
+      194,
+      195,
+      199,
+      202,
+      204,
+      205,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      219,
+      220,
+      222,
+      223,
+      224,
+      225,
+      226,
+      227,
+      228,
+      229,
+      232,
+      235,
+      236,
+      237,
+      238,
+      243,
+      244,
+      245,
+      246,
+      248,
+      251,
+      252
+    ]
+  },
+  "question": "For the pytest test `llama_factory_qa/adapter_setup_lora_tuning_m1_cfg__r20260714/files/testcase.py::TestSetupLoraTuningCFG::test_three_distinct_invocation_paths`, consider every runtime invocation of `llamafactory.model.adapter._setup_lora_tuning` in `src/llamafactory/model/adapter.py` during that single test run. Define an invocation as one `call` event for this function paired with its matching `return`/`exception` event in temporal order. Define an executed line as any source line number in this function that emits at least one runtime line event during that invocation. Using the set of executable source line numbers for this function body, return a JSON object with keys `always_executed`, `sometimes_executed`, and `never_executed` where: `always_executed` are executable lines seen in every invocation; `sometimes_executed` are executable lines seen in at least one but not all invocations; and `never_executed` are executable lines not seen in any invocation. All three values must be arrays of integers sorted in ascending numeric order.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "always_executed": [
+      "int"
+    ],
+    "never_executed": [
+      "int"
+    ],
+    "sometimes_executed": [
+      "int"
+    ]
+  }
+}

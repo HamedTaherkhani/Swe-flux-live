@@ -1,0 +1,136 @@
+{
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.handle_exception"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.log_exception"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.finalize_request"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.process_response"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.ensure_sync"
+      }
+    ]
+  },
+  "question": "Run the pytest test `flask_qa/app_handle_exception_s6_calls/files/testcase.py::TestIndirectExceptionCallGraph::test_generated_requests_exercise_error_pipeline`. During that test run, consider the 23rd invocation of `flask.app.Flask.handle_exception` in `src/flask/app.py`. What is the exact ordered sequence of calls to this tracked set of functions: `flask.app.Flask.handle_exception`, `flask.app.Flask.ensure_sync`, `flask.app.Flask.log_exception`, `flask.app.Flask.finalize_request`, `flask.app.Flask.make_response`, and `flask.app.Flask.process_response`?\n\nAn invocation is one Python `call` trace event for `flask.app.Flask.handle_exception`, numbered from 1 in chronological event order across the entire test run. For invocation 23, begin with that invocation's own `call` event and continue through its corresponding `return` event. Include a call whenever a Python `call` trace event for one of the six functions listed above occurs while this invocation of the target is on the call stack. Thus the target's own call is included, as are both direct calls from its frame and nested or transitive calls made before it returns. Exclude every function outside the listed set, including builtins, test callbacks, comprehension frames, and other Flask functions. Retain every repeated call without deduplication. If a listed generator function is resumed and Python emits another `call` event for that resumption, count that event as another call.\n\nReturn exactly one JSON object with the shape `{\"function_call_order\": [{\"file\": \"...\", \"func\": \"...\"}]}`. `function_call_order` is a JSON array in chronological `call`-event order; if events have indistinguishable clock times, their order in the runtime event stream is the tie-breaker. Do not sort or deduplicate the array. Each entry has exactly two JSON-string fields, written with `file` first and `func` second. `file` is the POSIX-style repository-relative path of the called function's source file, and `func` is its full dotted Python identity in `module.Class.method` or `module.function` form (for example, an unrelated call could use `{\"file\": \"src/flask/blueprints.py\", \"func\": \"flask.blueprints.Blueprint.register\"}`). Use no `repr()` wrapping, shortened class name, or leading repository prefix for either string. The only output keys are `function_call_order`, `file`, and `func`; no line numbers, return events, exception events, or local values are included.",
+  "question_kind": "S6_InterProceduralCFG",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

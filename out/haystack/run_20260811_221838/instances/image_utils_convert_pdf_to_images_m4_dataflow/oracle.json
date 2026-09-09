@@ -1,0 +1,270 @@
+{
+  "question_kind": "M4_DataFlow",
+  "question": "Run the pytest class node `haystack_qa/image_utils_convert_pdf_to_images_m4_dataflow/files/testcase.py::TestConvertPdfToImagesDataFlow`, which selects and aggregates ALL `test_...` methods defined on that class. Each selected test is identified by its full pytest id `haystack_qa/image_utils_convert_pdf_to_images_m4_dataflow/files/testcase.py::TestConvertPdfToImagesDataFlow::<method_name>`. The requested counts are totals across all selected methods and all target invocations, independent of pytest's method execution order.\n\nFor every invocation of `haystack.components.converters.image.image_utils._convert_pdf_to_images` in `haystack/components/converters/image/image_utils.py` during that complete class run, compute the observed reaching-definition/use pairs for exactly these tracked local variables: `all_pdf_images`, `bytestream`, `height`, `image`, `num_pages`, `page`, `page_number`, `page_range`, `pdf`, `pdf_bitmap`, `pil_max_pixels`, `pixel_limit`, `pixels_for_target_scale`, `resolved_page_range`, `return_base64`, `scale`, `size`, `target_resolution_dpi`, `target_scale`, and `width`. Only bindings in the target function's own frame are tracked. An invocation is one `call` of that function; invocations are numbered from 1 in chronological order, although invocation numbers are not emitted.\n\nA definition is a completed runtime write of a tracked variable. Every parameter is defined when its invocation begins, at the function's `def` line. A plain or annotated assignment defines each tracked name in its target after the right-hand side completes; if evaluation raises first, the write does not occur. A `for` target is defined at the loop-header line once per successful item retrieval, before that iteration's body; the exhaustion check does not define it. The iterable expression on a `for` header contributes uses only once when that loop is first entered. Iteration N is the Nth successful item retrieval for that loop in that invocation. In addition, because this question tracks successive container states, the call `all_pdf_images.append(...)` first uses the prior `all_pdf_images` binding and then defines its new container state at the append call's source line after the call completes. Other method calls, attribute writes, and subscript writes do not define a tracked name. If augmented assignment were present, it would first use the old target value and then define the new value after the operation.\n\nA use is one actually evaluated source-level `Name` load of a tracked binding in the target function's own frame. Short-circuited operands and statements skipped by control flow contribute no uses. Two evaluated loads on the same physical line are two observations. A use is paired with the most recent completed definition of the same variable earlier in that invocation; definitions never cross invocation boundaries. One observation is one evaluated use reached by that definition, so a loop-body use counts once on every iteration where it executes. A comprehension has an implicit nested frame: its targets and all loads performed by that nested frame do not define or use the target function's tracked bindings, even when they have the same spelling. However, Python evaluates the comprehension's outermost iterable in the enclosing target frame, so a tracked name loaded there is an enclosing-frame use. If execution raises before a later expression or write, that later operation contributes nothing.\n\nAll line numbers are absolute, 1-based line numbers in the named repository file as it exists for this run. For a multi-line statement or expression, attribute each use to the physical line where that particular name load begins and each definition to the physical line where its assignment target or special append call begins, rather than merely to the statement's first line. Parameter definitions use the `def` line. Decorator and docstring lines contribute no events for this calculation.\n\nReturn exactly one JSON object with the shape `{\"observed_def_use_pairs\": [{\"count\": 2, \"def_line\": 8, \"use_line\": 9, \"variable\": \"buffer\"}]}`; this is only a format example and none of its values is part of the answer. Each row has exactly four fields: `variable` is the source-level name as a JSON string, and `def_line`, `use_line`, and `count` are JSON integers. `count` is the total observations of that exact `(variable, def_line, use_line)` triple across all invocations in all test methods. Include every positive-count triple and omit every unobserved triple. Each triple is unique in the list; multiplicity appears only in `count`, with no duplicate rows. Sort ascending first by `variable` using Unicode code-point order, then numerically by `def_line`, then numerically by `use_line`. No reported leaf uses `repr`, `str`, an exception-name format, an empty-value marker, or JSON null.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": "int",
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": 13,
+        "def_line": 163,
+        "use_line": 208,
+        "variable": "all_pdf_images"
+      },
+      {
+        "count": 222,
+        "def_line": 208,
+        "use_line": 208,
+        "variable": "all_pdf_images"
+      },
+      {
+        "count": 3,
+        "def_line": 208,
+        "use_line": 215,
+        "variable": "all_pdf_images"
+      },
+      {
+        "count": 10,
+        "def_line": 208,
+        "use_line": 218,
+        "variable": "all_pdf_images"
+      },
+      {
+        "count": 15,
+        "def_line": 117,
+        "use_line": 148,
+        "variable": "bytestream"
+      },
+      {
+        "count": 1,
+        "def_line": 117,
+        "use_line": 152,
+        "variable": "bytestream"
+      },
+      {
+        "count": 1,
+        "def_line": 117,
+        "use_line": 159,
+        "variable": "bytestream"
+      },
+      {
+        "count": 235,
+        "def_line": 174,
+        "use_line": 185,
+        "variable": "height"
+      },
+      {
+        "count": 170,
+        "def_line": 174,
+        "use_line": 197,
+        "variable": "height"
+      },
+      {
+        "count": 55,
+        "def_line": 201,
+        "use_line": 206,
+        "variable": "image"
+      },
+      {
+        "count": 235,
+        "def_line": 201,
+        "use_line": 208,
+        "variable": "image"
+      },
+      {
+        "count": 14,
+        "def_line": 157,
+        "use_line": 158,
+        "variable": "num_pages"
+      },
+      {
+        "count": 236,
+        "def_line": 157,
+        "use_line": 168,
+        "variable": "num_pages"
+      },
+      {
+        "count": 235,
+        "def_line": 173,
+        "use_line": 174,
+        "variable": "page"
+      },
+      {
+        "count": 235,
+        "def_line": 173,
+        "use_line": 199,
+        "variable": "page"
+      },
+      {
+        "count": 473,
+        "def_line": 167,
+        "use_line": 168,
+        "variable": "page_number"
+      },
+      {
+        "count": 2,
+        "def_line": 167,
+        "use_line": 169,
+        "variable": "page_number"
+      },
+      {
+        "count": 235,
+        "def_line": 167,
+        "use_line": 173,
+        "variable": "page_number"
+      },
+      {
+        "count": 235,
+        "def_line": 167,
+        "use_line": 208,
+        "variable": "page_number"
+      },
+      {
+        "count": 13,
+        "def_line": 117,
+        "use_line": 165,
+        "variable": "page_range"
+      },
+      {
+        "count": 14,
+        "def_line": 148,
+        "use_line": 157,
+        "variable": "pdf"
+      },
+      {
+        "count": 1,
+        "def_line": 148,
+        "use_line": 160,
+        "variable": "pdf"
+      },
+      {
+        "count": 235,
+        "def_line": 148,
+        "use_line": 173,
+        "variable": "pdf"
+      },
+      {
+        "count": 13,
+        "def_line": 148,
+        "use_line": 210,
+        "variable": "pdf"
+      },
+      {
+        "count": 235,
+        "def_line": 199,
+        "use_line": 201,
+        "variable": "pdf_bitmap"
+      },
+      {
+        "count": 235,
+        "def_line": 199,
+        "use_line": 202,
+        "variable": "pdf_bitmap"
+      },
+      {
+        "count": 235,
+        "def_line": 187,
+        "use_line": 189,
+        "variable": "pil_max_pixels"
+      },
+      {
+        "count": 235,
+        "def_line": 189,
+        "use_line": 192,
+        "variable": "pixel_limit"
+      },
+      {
+        "count": 170,
+        "def_line": 189,
+        "use_line": 197,
+        "variable": "pixel_limit"
+      },
+      {
+        "count": 235,
+        "def_line": 185,
+        "use_line": 192,
+        "variable": "pixels_for_target_scale"
+      },
+      {
+        "count": 170,
+        "def_line": 185,
+        "use_line": 195,
+        "variable": "pixels_for_target_scale"
+      },
+      {
+        "count": 13,
+        "def_line": 165,
+        "use_line": 167,
+        "variable": "resolved_page_range"
+      },
+      {
+        "count": 13,
+        "def_line": 117,
+        "use_line": 212,
+        "variable": "return_base64"
+      },
+      {
+        "count": 65,
+        "def_line": 191,
+        "use_line": 199,
+        "variable": "scale"
+      },
+      {
+        "count": 170,
+        "def_line": 197,
+        "use_line": 199,
+        "variable": "scale"
+      },
+      {
+        "count": 235,
+        "def_line": 117,
+        "use_line": 203,
+        "variable": "size"
+      },
+      {
+        "count": 55,
+        "def_line": 117,
+        "use_line": 206,
+        "variable": "size"
+      },
+      {
+        "count": 235,
+        "def_line": 176,
+        "use_line": 182,
+        "variable": "target_resolution_dpi"
+      },
+      {
+        "count": 235,
+        "def_line": 182,
+        "use_line": 185,
+        "variable": "target_scale"
+      },
+      {
+        "count": 235,
+        "def_line": 182,
+        "use_line": 191,
+        "variable": "target_scale"
+      },
+      {
+        "count": 235,
+        "def_line": 174,
+        "use_line": 185,
+        "variable": "width"
+      },
+      {
+        "count": 170,
+        "def_line": 174,
+        "use_line": 197,
+        "variable": "width"
+      }
+    ]
+  }
+}

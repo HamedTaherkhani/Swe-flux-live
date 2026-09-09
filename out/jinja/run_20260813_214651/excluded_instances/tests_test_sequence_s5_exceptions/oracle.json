@@ -1,0 +1,18 @@
+{
+  "question_kind": "S5_Exceptions",
+  "question": "Consider the single test method `jinja_qa/tests_test_sequence_s5_exceptions/files/testcase.py::TestSequenceCaughtExceptions::test_sequence_caught_exception_kinds`.\n\nThat test calls `jinja2.tests.test_sequence` **directly** (imported from `jinja2.tests`) on many programmatically built probe values.\n\nTarget function: `jinja2.tests.test_sequence` (the function whose `def` begins at line 167 of `src/jinja2/tests.py`).\n\n**Exception type naming** uses bare `type(exc).__name__` for built-in exceptions (for example `ZeroDivisionError`, never `builtins.ZeroDivisionError`) and `module.QualName` for all other exception classes (for example `jinja2.exceptions.TemplateError`).\n\n**Caught-exception rule**: an exception type is counted if, during the test run, Python records an `exception` trace event in a frame whose qualname is `jinja2.tests.test_sequence` and whose code object is defined in `src/jinja2/tests.py`, and that exception is subsequently handled inside the target function by the `except Exception` clause that begins at line 174 rather than propagating out of the target function. Each distinct exception **type** (not each individual raise) contributes one entry. Re-raises of the same type after a catch still count only once toward the set because the answer is a set of types.\n\n**Exclusions**: exception events in callee frames (for example inside `len` or attribute lookup helpers) do not count unless the corresponding `exception` event is also observed in the `jinja2.tests.test_sequence` frame as described above. Exceptions raised in the target frame that are not handled inside the target function do not count; this scenario does not occur in the assigned test.\n\nReturn JSON with exactly one top-level key `caught_exception_kinds`: a list of strings naming every exception type caught at least once, sorted ascending by the string value (Unicode code-point order). Include no duplicates.",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  },
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "AttributeError",
+      "IndexError",
+      "RuntimeError",
+      "TypeError",
+      "ValueError"
+    ]
+  }
+}

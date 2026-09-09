@@ -1,0 +1,42 @@
+{
+  "oracle_answer": {
+    "covered_lines": [
+      156,
+      157,
+      158,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      195
+    ]
+  },
+  "question": "When the pytest test\n`kedro_qa/ipython_resolve_project_path_m1_cfg/files/testcase.py::TestResolveProjectPathCfgRuntime::test_traced_run`\nis executed, the function `kedro.ipython._resolve_project_path` (defined in\nthe repository file `kedro/ipython/__init__.py`) is invoked several times,\nalways indirectly: the test only calls `kedro.ipython.reload_kedro` and the\nline-magic function `kedro.ipython.magic_reload_kedro`, both of which call\n`_resolve_project_path` internally (the call chains are\n`magic_reload_kedro` -> `reload_kedro` -> `_resolve_project_path` and\n`reload_kedro` -> `_resolve_project_path`). The invocations use different\ncombinations of the `path` and `local_namespace` arguments, and in some\ninvocations `kedro.ipython.find_kedro_project` is temporarily replaced by a\ntest double. The target function itself is never patched or modified; it\nexecutes normally on every invocation.\n\nConsider a line-level execution trace of this test run, equivalent to the\n`call` and `line` events that `sys.settrace` reports for the target\nfunction's own frames (the frames executing the code object of\n`kedro.ipython._resolve_project_path`; frames of any other function,\nincluding `reload_kedro` itself, never contribute).\n\nTask: determine which source lines of `kedro.ipython._resolve_project_path`\nare COVERED during the entire test, i.e. across the union of ALL of its\ninvocations, under the statement-based coverage convention defined below,\nand report them in the format specified at the end. One invocation is one\nentry into the function (one `call` event of its frame); since the answer is\na union over all invocations, their order and numbering do not matter.\n\nDefinitions and conventions:\n\n- Line numbers are absolute, 1-based, physical line numbers in\n  `kedro/ipython/__init__.py` as the file exists in this repository.\n- An \"executed line event\" is one `line` event reported by the tracer for\n  the target function's own frame: the interpreter beginning execution of a\n  source line of that frame. `call`, `return` and `exception` events are not\n  line events (note however that a line containing a `return` statement DOES\n  produce an executed line event when it is reached).\n- Statements are delimited using Python's `ast` module applied to the file\n  exactly as it exists in the repository: a statement node's physical line\n  span is `node.lineno` through `node.end_lineno`, inclusive.\n- The OWN LINES of a statement are the physical lines of its span that do\n  not belong to the span of any statement nested directly inside it. For\n  example, for an `if`/`else` statement the own lines are the header lines\n  of the `if` (including the continuation lines of a multi-line condition\n  and its closing `):` line) plus the `else:` line if present, but NOT the\n  lines of the statements inside its body or inside its `else` block.\n- A statement counts as EXECUTED during the test if and only if at least\n  one executed line event (from any invocation of the target) falls on one\n  of its own lines.\n- A physical line of the function body counts as COVERED if and only if it\n  is one of the own lines of at least one statement that counts as executed.\n  Nested statements are judged independently by the same rule, so a body\n  line of an `if` is covered only if that body statement itself counts as\n  executed.\n- The `def` statement: entering the function produces a `call` event on the\n  `def` line, not a line event. For this question the `def` statement counts\n  as executed whenever the function was invoked at least once, and its own\n  lines -- the physical lines of the signature, from the `def` line through\n  the line immediately before the function's first body statement -- count\n  as covered.\n- The function's docstring never produces a line event (it is a\n  compile-time constant, not executed code), so by the rules above it does\n  not count as executed and none of its lines are covered.\n- Worked example of the own-lines rule (generic code, unrelated to the\n  target): for\n\n      if (x\n              and y):\n          do(x)\n\n  if during a run the tracer recorded a line event only on the `if (x` line,\n  then the `if` statement counts as executed and both of its header lines\n  are covered, while the `do(x)` line is covered only if a line event fired\n  on it.\n\nAnswer format: a JSON object with exactly one key, `covered_lines`, whose\nvalue is the list of the covered line numbers (JSON integers), sorted in\nascending order, with duplicates removed.\n",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "covered_lines": [
+      "int"
+    ]
+  }
+}

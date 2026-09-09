@@ -1,0 +1,54 @@
+{
+  "question_kind": "M7_Invariants",
+  "question": "During pytest run of rich_qa/cells_cell_len_m7_invariants/files/testcase.py::TestCellLenInvariants, consider every invocation of rich.cells._cell_len in rich/cells.py (source lines 113-158) reached during ALL test methods in that class. The test never calls _cell_len directly; it reaches the function indirectly through rich.cells.set_cell_size (which calls cell_len, which in turn calls _cell_len for non-single-cell-width text) and rich.text.Text.truncate (which calls set_cell_size when cropping wide text). Invocation order is chronological across the entire pytest session in alphabetical order by test method name within the class (for example test_alternating_joiner_runs before test_crop_via_text_truncate).\n\nEvery test input is built programmatically from seeded generators and always contains at least one of the zero-width joiner U+200D or variation selector-16 U+FE0F, so every invocation that reaches _cell_len executes the while-loop path (lines 144-156) and never executes the early-return comprehension path at lines 131-133.\n\nLine numbers are 1-based positions in rich/cells.py as checked into the repository. For multi-line statements, a line event corresponds to the line where that statement begins. Docstring lines inside _cell_len are never observation points.\n\nAt each observation point below, evaluate the candidate predicates on the full local variable bindings in effect in the _cell_len stack frame immediately before that source line begins executing (standard Python frame locals at the line event). Parameters text and unicode_version are defined on entry. Locals introduced later remain bound until reassigned or the invocation returns. The walrus-assigned name character_width is present only after line 153 executes in the current loop iteration; if it is absent when a predicate mentions it, treat the reference as an evaluation error and count the observation as a violation.\n\nPredicate literals use Python semantics: None is the null object; strings are compared by value; SPECIAL is the local set defined at line 139; character and last_measured_character are single-codepoint str values or None.\n\nReport invariant_report: a JSON list with one object per candidate predicate below. Each object has exactly these keys:\n\n- predicate (str): the predicate text, copied verbatim from the list below\n- held_always (bool): true iff observations > 0 and violations == 0; false if observations == 0 or violations > 0\n- observations (int): how many times the predicate was evaluated at its observation point (summed across all invocations and all test methods)\n- violations (int): how many of those evaluations were false (or evaluation errors)\n\nSort invariant_report ascending by predicate string; break ties by the order listed below.\n\nCandidate predicates and observation points (each predicate is evaluated only at its own observation point):\n\n1. Predicate \"character in SPECIAL\" \u2014 observation point: each time source line 156 (index += 1) is about to execute inside the while loop.\n2. Predicate \"character_count == len(text)\" \u2014 observation point: line 156 before execution.\n3. Predicate \"index == 0\" \u2014 observation point: each time source line 131 (the return sum(...) statement in the no-joiner/no-variation-selector branch) is about to execute.\n4. Predicate \"index >= total_width\" \u2014 observation point: line 156 before execution.\n5. Predicate \"total_width != 70\" \u2014 observation point: each time source line 158 (return total_width) is about to execute after the while loop completes.\n6. Predicate \"total_width >= 0\" \u2014 observation point: line 156 before execution.",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "predicate": "character in SPECIAL",
+        "held_always": false,
+        "observations": 1623,
+        "violations": 632
+      },
+      {
+        "predicate": "character_count == len(text)",
+        "held_always": true,
+        "observations": 1623,
+        "violations": 0
+      },
+      {
+        "predicate": "index == 0",
+        "held_always": false,
+        "observations": 0,
+        "violations": 0
+      },
+      {
+        "predicate": "index >= total_width",
+        "held_always": false,
+        "observations": 1623,
+        "violations": 49
+      },
+      {
+        "predicate": "total_width != 70",
+        "held_always": false,
+        "observations": 12,
+        "violations": 1
+      },
+      {
+        "predicate": "total_width >= 0",
+        "held_always": true,
+        "observations": 1623,
+        "violations": 0
+      }
+    ]
+  }
+}

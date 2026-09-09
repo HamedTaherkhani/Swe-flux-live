@@ -1,0 +1,196 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 282,
+        "line": 84
+      },
+      {
+        "count": 282,
+        "line": 85
+      },
+      {
+        "count": 0,
+        "line": 86
+      },
+      {
+        "count": 282,
+        "line": 87
+      },
+      {
+        "count": 282,
+        "line": 88
+      },
+      {
+        "count": 0,
+        "line": 89
+      },
+      {
+        "count": 282,
+        "line": 90
+      },
+      {
+        "count": 0,
+        "line": 91
+      },
+      {
+        "count": 260,
+        "line": 92
+      },
+      {
+        "count": 65,
+        "line": 93
+      },
+      {
+        "count": 65,
+        "line": 94
+      },
+      {
+        "count": 65,
+        "line": 95
+      },
+      {
+        "count": 46,
+        "line": 96
+      },
+      {
+        "count": 0,
+        "line": 97
+      },
+      {
+        "count": 65,
+        "line": 98
+      },
+      {
+        "count": 19,
+        "line": 99
+      },
+      {
+        "count": 65,
+        "line": 100
+      },
+      {
+        "count": 0,
+        "line": 101
+      },
+      {
+        "count": 0,
+        "line": 102
+      },
+      {
+        "count": 0,
+        "line": 103
+      },
+      {
+        "count": 195,
+        "line": 104
+      },
+      {
+        "count": 98,
+        "line": 105
+      },
+      {
+        "count": 0,
+        "line": 106
+      },
+      {
+        "count": 0,
+        "line": 107
+      },
+      {
+        "count": 0,
+        "line": 108
+      },
+      {
+        "count": 0,
+        "line": 109
+      },
+      {
+        "count": 38,
+        "line": 110
+      },
+      {
+        "count": 38,
+        "line": 111
+      },
+      {
+        "count": 38,
+        "line": 112
+      },
+      {
+        "count": 60,
+        "line": 113
+      },
+      {
+        "count": 0,
+        "line": 114
+      },
+      {
+        "count": 45,
+        "line": 115
+      },
+      {
+        "count": 45,
+        "line": 116
+      },
+      {
+        "count": 45,
+        "line": 117
+      },
+      {
+        "count": 45,
+        "line": 118
+      },
+      {
+        "count": 0,
+        "line": 119
+      },
+      {
+        "count": 0,
+        "line": 120
+      },
+      {
+        "count": 134,
+        "line": 121
+      },
+      {
+        "count": 134,
+        "line": 122
+      },
+      {
+        "count": 82,
+        "line": 123
+      },
+      {
+        "count": 82,
+        "line": 124
+      },
+      {
+        "count": 82,
+        "line": 125
+      },
+      {
+        "count": 82,
+        "line": 126
+      },
+      {
+        "count": 0,
+        "line": 127
+      },
+      {
+        "count": 52,
+        "line": 128
+      }
+    ]
+  },
+  "question": "Run the unittest class selected by the pytest id\n`sqlglot_qa/snowflake_builder_m1_cfg/files/testcase.py::TestSnowflakeDatetimeBuilderControlFlow`,\nwhich runs every source-defined `test_` method in\n`sqlglot_qa/snowflake_builder_m1_cfg/files/testcase.py`. The covered methods\nare `test_all_path_scramble`, `test_cast_focused_rotation`,\n`test_column_path_rotation`, `test_date_path_rotation`,\n`test_date_timestamp_interleave`, `test_literal_path_rotation`,\n`test_safe_path_rotation`, `test_time_path_rotation`,\n`test_time_timestamp_interleave`, `test_timestamp_format_rotation`,\n`test_timestamp_numeric_rotation`, and `test_unsafe_path_rotation`. Aggregate\nthe counts over all invocations made by all twelve methods in that class;\nmethod execution order does not alter these summed counts.\n\nFor the nested target function\n`sqlglot.parsers.snowflake._build_datetime.<locals>._builder` in\n`sqlglot/parsers/snowflake.py`, report the total number of Python runtime\n`line` events at each physical source line in its body. The body scope is\nevery absolute, 1-based physical line from the first body statement through\nthe function's final body statement, inclusive: lines 84 through 128 in this\nrepository. Include exactly one result object for every line in that range.\nBlank lines, comment-only lines, and formatting-only continuation lines remain\nin scope and receive count 0 if no runtime `line` event is reported for that\nphysical line. The nested function's `def` line 83 and any decorator lines are\noutside the body and must not appear.\n\nCount only `line` events from frames whose function name is exactly\n`sqlglot.parsers.snowflake._build_datetime.<locals>._builder` and whose source\nfile is exactly `sqlglot/parsers/snowflake.py`; exclude events in the enclosing\nfactory, callers, callees, comprehensions, and every other frame. Each event\nadds one to its line's count, including repeated events on one line and events\nfrom repeated invocations; do not deduplicate events. One invocation means one\nruntime `call` event for that exact target frame. Invocations are conceptually\nnumbered from 1 in chronological order across the complete class run, although\ninvocation numbers are not included in the answer.\n\nFor a multi-line statement or expression, attribute each event to the exact\n1-based physical line supplied by Python as the event's line number, including\nan executable continuation line when Python reports one; do not normalize it\nto the line where the enclosing statement began. A physical line with no such\nevent is represented by the JSON integer `0`, never by JSON `null`, an empty\nstring, or an omitted object.\n\nReturn exactly one JSON object with key `line_execution_counts`. Its value is\na JSON list of objects having exactly the fields `line` and `count`, both JSON\nintegers. Sort the objects by `line` in strictly ascending numerical order.\nEvery body line appears once, so there is no tie-breaker.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

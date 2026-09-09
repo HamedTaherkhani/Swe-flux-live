@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "Landscape must be a boolean.",
+    "exception_type": "ValueError"
+  },
+  "question": "Run only the pytest test\n`haystack_qa/draw_validate_mermaid_params_s5_exceptions/files/testcase.py::TestMermaidParameterValidation::test_generated_render_parameter_matrix`\nagainst this repository. Across all invocations during that test, consider only\nthe exact function `haystack.core.pipeline.draw._validate_mermaid_params` whose\ncode is in `haystack/core/pipeline/draw.py`. What are the type and message of\nthe sole exception raised by a `raise` statement in that target function and\npropagated out of its frame to its immediate caller?\n\nReturn exactly one JSON object with exactly these two string keys:\n`exception_message` and `exception_type`. `exception_message` is the exact\n`str(exc)`, character for character, with no surrounding representation quotes,\nescaping beyond that required by JSON, truncation, or whitespace normalization.\nFor `exception_type`, use bare `type(exc).__name__` for built-in exceptions\n(e.g. `ValueError` \u2014 never `builtins.ValueError`), and `module.QualName` for all\nothers (e.g. `haystack.core.errors.PipelineError`).\n\nAn invocation is one entry into that exact target function frame, corresponding\nto one Python `call` event; invocations are considered in chronological,\n1-based call order. Count an exception only when execution of a `raise`\nstatement in the target frame creates the exception and the target does not\ncatch it, so it exits that frame into `_to_mermaid_image`. Ignore exceptions\ncreated in callees or any other frame, and ignore the test's later catch of the\npropagated exception. There is exactly one qualifying exception in this test,\nso no sorting or deduplication is performed.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

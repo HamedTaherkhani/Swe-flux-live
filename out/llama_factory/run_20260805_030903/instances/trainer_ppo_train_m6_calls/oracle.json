@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "src/llamafactory/train/ppo/trainer.py",
+        "func": "llamafactory.train.ppo.trainer.CustomPPOTrainer.get_inputs"
+      },
+      {
+        "file": "src/llamafactory/train/ppo/trainer.py",
+        "func": "llamafactory.train.ppo.trainer.CustomPPOTrainer.get_rewards"
+      },
+      {
+        "file": "src/llamafactory/train/ppo/trainer.py",
+        "func": "llamafactory.train.ppo.trainer.CustomPPOTrainer.ppo_train"
+      },
+      {
+        "file": "src/llamafactory/train/ppo/trainer.py",
+        "func": "llamafactory.train.ppo.trainer.CustomPPOTrainer.save_model"
+      }
+    ]
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/trainer_ppo_train_m6_calls/files/testcase.py::TestIndirectPPOTrainingCallGraph::test_seeded_workflow_training`. The primary target is `llamafactory.train.ppo.trainer.CustomPPOTrainer.ppo_train` in `src/llamafactory/train/ppo/trainer.py`. Report `covered_functions` for exactly this tracked set: `llamafactory.train.ppo.trainer.CustomPPOTrainer.batched_forward_pass`, `llamafactory.train.ppo.trainer.CustomPPOTrainer.create_optimizer`, `llamafactory.train.ppo.trainer.CustomPPOTrainer.get_inputs`, `llamafactory.train.ppo.trainer.CustomPPOTrainer.get_rewards`, `llamafactory.train.ppo.trainer.CustomPPOTrainer.ppo_train`, and `llamafactory.train.ppo.trainer.CustomPPOTrainer.save_model`, all defined in that same file. A tracked function is covered if Python emits at least one `call` event for its exact runtime function identity anywhere during the complete test run. Count calls regardless of whether they are direct calls from the target frame, nested or transitive calls while the target is on the stack, or calls made before or after the target frame by the workflow; calls to functions outside the listed set are irrelevant. Repeated calls and recursive calls still produce only one output object for that function: deduplicate by exact function identity. A generator or coroutine resumption contributes coverage only when Python emits a `call` event for that exact tracked function, and repeated resumptions do not add duplicate objects. Function identity is the full runtime dotted `module.Class.method` or `module.function` qualname (for example, `pkg.worker.Engine.run`). Emit only covered members; do not emit an object or placeholder for an uncovered member. Sort the deduplicated objects in ascending lexicographic order by the two-key tuple (`file`, `func`), comparing the complete JSON string values by Unicode code-point order; this tuple is also the complete tie-break rule. For every object, `file` is the POSIX repo-relative source path with no leading `./` (for example, `pkg/worker.py`), and `func` is the dotted identity just defined. Return exactly one JSON object with the single key `covered_functions`; its value is a JSON array whose elements each have exactly two JSON string fields, `file` and `func`. There is no invocation numbering or chronological ordering in the answer after set deduplication. No `repr`/`str` value formatting, exception-name convention, null convention, or line-number convention applies because every answer leaf is a source-path or function-identity JSON string.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

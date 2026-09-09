@@ -1,0 +1,152 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 206,
+        "use_line": 208,
+        "variable": "d"
+      },
+      {
+        "def_line": 170,
+        "use_line": 189,
+        "variable": "event_loop"
+      },
+      {
+        "def_line": 170,
+        "use_line": 190,
+        "variable": "event_loop"
+      },
+      {
+        "def_line": 158,
+        "use_line": 159,
+        "variable": "lf_cls"
+      },
+      {
+        "def_line": 169,
+        "use_line": 186,
+        "variable": "reactor_class"
+      },
+      {
+        "def_line": 169,
+        "use_line": 188,
+        "variable": "reactor_class"
+      },
+      {
+        "def_line": 169,
+        "use_line": 192,
+        "variable": "reactor_class"
+      },
+      {
+        "def_line": 147,
+        "use_line": 148,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 151,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 152,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 153,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 156,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 158,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 159,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 161,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 162,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 163,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 166,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 169,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 170,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 171,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 192,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 201,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 203,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 204,
+        "variable": "self"
+      },
+      {
+        "def_line": 147,
+        "use_line": 206,
+        "variable": "self"
+      },
+      {
+        "def_line": 166,
+        "use_line": 167,
+        "variable": "use_reactor"
+      }
+    ]
+  },
+  "question": "Run the single pytest test `scrapy_qa/crawler_apply_settings_s4_dataflow/files/testcase.py::TestCrawlerSettingsDataFlow::test_runner_settings_paths`. Across all invocations made by that test of `scrapy.crawler.Crawler._apply_settings` in `scrapy/crawler.py`, what unique runtime-observed def-use pairs occur for exactly these local variables: `d`, `event_loop`, `lf_cls`, `reactor_class`, `self`, and `use_reactor`?\n\nA definition (\u201cdef\u201d) is a successful binding of a local by parameter binding or assignment in the target frame. Parameters count as defined on the function's `def` line. A use is a read (`Load` context in Python's AST) of that local on an executed source line while the current definition still reaches it, before any later definition of that local. Attribute assignment such as `obj.field = value` reads `obj` but does not redefine `obj`. For an assignment, reads of the right-hand side happen before the new definition. An augmented assignment such as `item += 1` both uses the old reaching definition and creates a new definition on that same line. A `for item in values` loop header reads `values` and redefines `item` on every executed iteration. Comprehension-local targets belong to the comprehension's implicit frame, not the target function's frame, and are excluded; reads evaluated in the target frame still count.\n\nAggregate pairs across every target invocation in the test, remove duplicate `{variable, def_line, use_line}` triples even when observed repeatedly, and sort the result by `variable` (ascending Unicode string order), then `def_line`, then `use_line`, both numerically ascending. Line numbers are absolute 1-based source line numbers in `scrapy/crawler.py` as it exists in the repository. For a multi-line statement or expression, use the line attached to the relevant variable's AST `Name` node\u2014the physical line on which that variable read or binding begins. Decorator and docstring lines do not count unless they contain an executed read in the target frame; the function's `def` line may appear as a parameter definition but not as a use merely because the function was called.\n\nReturn exactly one JSON object with key `observed_def_use_pairs`. Its value is a JSON array of objects, each with exactly `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string). No `repr()` or `str()` conversion is applied: variable names are emitted directly as JSON strings and line numbers directly as JSON integers.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "question_kind": "M4_DataFlow",
+  "question": "Run the pytest test `fastapi_qa/add_latest_release_date_main_m4_dataflow/files/testcase.py::TestAddLatestReleaseDateDataFlow::test_generated_release_note_variants` and consider every invocation of the exact function `scripts.add_latest_release_date.main` in `scripts/add_latest_release_date.py`. Across those invocations, what are all unique runtime-observed def-use pairs for exactly these local variables: `date_part`, `f`, `i`, `line`, `lines`, `match`, `today`, and `version`?\n\nA definition (\"def\") is a parameter binding, a completed assignment to a local, a completed `with ... as` binding, or a successful `for`-target binding in one invocation's frame. Parameters, if tracked, are defined on the function's `def` line for each invocation. A use is an actually evaluated read of a tracked local in that same target frame, attributed to the physical source line where the variable read begins. A definition reaches a use only when it is the most recently completed definition of that variable in the same invocation at the time of the read. On a line that both reads and defines a variable, process all reads before the line's definitions. Consequently, an augmented assignment such as `total += delta` is a use of the old `total` followed by a new definition of `total` on that line.\n\nFor a `for x in values` statement, reading `values` is a use on the loop-header line, and each successful iteration defines `x` on that same line before the body executes; terminal iterator exhaustion is not a definition. Each pass that successfully binds the loop target is one iteration, numbered from 1 in execution order if reconstructing the run, but iteration numbers are not emitted. Comprehension iteration variables and all reads performed in comprehension-generated frames are excluded; only evaluation performed in the target function's own frame counts. Definitions and uses never cross invocation frames. An invocation is one `call` of the target function during the test run; invocations are numbered from 1 in chronological order if reconstructing execution, but invocation numbers are not emitted.\n\nInclude only activity in frames whose exact fully qualified name is `scripts.add_latest_release_date.main`; exclude callees, similarly named functions, and generated comprehension frames. Line numbers are absolute 1-based physical line numbers in `scripts/add_latest_release_date.py` as it exists in the repository. For a multi-line statement or expression, use the physical line where the relevant assignment target or variable read begins. The function `def` line can appear only for tracked parameter definitions; decorator and docstring lines do not count.\n\nReturn a JSON object with exactly one key, `observed_def_use_pairs`. Its value is a list of objects, each with exactly three keys: `def_line` as a JSON integer, `use_line` as a JSON integer, and `variable` as a JSON string containing the local's exact source spelling. No value is represented with `repr`, `str`, or JSON null because the answer contains only source spellings and line-number integers. Remove duplicate `(variable, def_line, use_line)` triples across all iterations and invocations. Sort the objects by `variable` lexicographically ascending, then `def_line` numerically ascending, then `use_line` numerically ascending.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 21,
+        "use_line": 23,
+        "variable": "date_part"
+      },
+      {
+        "def_line": 21,
+        "use_line": 24,
+        "variable": "date_part"
+      },
+      {
+        "def_line": 12,
+        "use_line": 13,
+        "variable": "f"
+      },
+      {
+        "def_line": 31,
+        "use_line": 32,
+        "variable": "f"
+      },
+      {
+        "def_line": 15,
+        "use_line": 28,
+        "variable": "i"
+      },
+      {
+        "def_line": 15,
+        "use_line": 16,
+        "variable": "line"
+      },
+      {
+        "def_line": 13,
+        "use_line": 15,
+        "variable": "lines"
+      },
+      {
+        "def_line": 13,
+        "use_line": 28,
+        "variable": "lines"
+      },
+      {
+        "def_line": 13,
+        "use_line": 32,
+        "variable": "lines"
+      },
+      {
+        "def_line": 16,
+        "use_line": 17,
+        "variable": "match"
+      },
+      {
+        "def_line": 16,
+        "use_line": 20,
+        "variable": "match"
+      },
+      {
+        "def_line": 16,
+        "use_line": 21,
+        "variable": "match"
+      },
+      {
+        "def_line": 27,
+        "use_line": 28,
+        "variable": "today"
+      },
+      {
+        "def_line": 27,
+        "use_line": 29,
+        "variable": "today"
+      },
+      {
+        "def_line": 20,
+        "use_line": 24,
+        "variable": "version"
+      },
+      {
+        "def_line": 20,
+        "use_line": 28,
+        "variable": "version"
+      },
+      {
+        "def_line": 20,
+        "use_line": 29,
+        "variable": "version"
+      }
+    ]
+  }
+}

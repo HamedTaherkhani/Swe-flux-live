@@ -1,0 +1,16 @@
+{
+  "question_kind": "S5_Exceptions",
+  "question": "Run the pytest test `instruct_lab_qa/diff_diff_s5_exceptions/files/testcase.py::TestTaxonomyCommandFailureSchedule::test_cli_command_handles_generated_failure_schedule` against this repository. Across the complete test run, what is the set of concrete exception types caught inside `instructlab.taxonomy.diff.diff` in `src/instructlab/taxonomy/diff.py`? An exception is \"caught inside\" only when that concrete exception instance reaches this function's frame and runtime control transfers to the suite of one of this function's own `except` clauses. Include exceptions originating in callees when they reach and are handled by such a clause. Exclude exceptions that merely propagate out of the function and exceptions raised by an `except` suite without being handled again inside this function. Consider every invocation made during this one test. An invocation is one runtime call of exactly this function, numbered 1-based in chronological order; calls of other functions do not count. Combine all invocations into one set, deduplicate by the final reported type-name string, and sort those strings in ascending lexicographic Unicode code-point order. There is no secondary tie-breaker because duplicates are removed. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` — never `builtins.ValueError`), and `module.QualName` for all others (e.g. `acme.errors.WidgetFailure`). Use the concrete runtime exception type, not the type expression written on the matching handler. Return exactly one JSON object with the single key `caught_exception_kinds`. Its value is a non-empty JSON array of JSON strings in the stated order. Each string is a type name under the preceding rule, not `str(exc)`, `repr(exc)`, or an exception message; no item is null, empty, omitted, or Python-repr formatted.",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  },
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "git.exc.GitError",
+      "instructlab.schema.taxonomy.TaxonomyReadingException",
+      "yaml.error.YAMLError"
+    ]
+  }
+}

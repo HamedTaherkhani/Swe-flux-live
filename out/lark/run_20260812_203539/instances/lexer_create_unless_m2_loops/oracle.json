@@ -1,0 +1,12 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "Run every pytest test method whose name begins with `test_` in class `TestCreateUnlessLoopDynamics` from `lark_qa/lexer_create_unless_m2_loops/files/testcase.py` (equivalently, the pytest selection `lark_qa/lexer_create_unless_m2_loops/files/testcase.py::TestCreateUnlessLoopDynamics`), and aggregate over ALL of those methods. During that complete run, consider every invocation of `lark.lexer._create_unless` in `lark/lexer.py`. An invocation means one call of that function and is numbered 1-based in chronological call order across the complete pytest run; within an invocation, outer-loop iterations are likewise ordered chronologically. The outer `for` loop has its header at absolute, 1-based source line 376, and its body first executes at line 377. For each outer-loop iteration, measure the nested `for` loop whose header is at absolute, 1-based source line 378. Treat each restart of that nested loop for a new outer-loop iteration as a separate loop execution. One nested-loop iteration is the Nth execution of its body's first line, line 379, in the target function's own frame; an execution that immediately takes `continue` still counts. A loop execution with no body-line execution has count 0. Count only line executions from the `lark.lexer._create_unless` frame: exclude callees, comprehensions, and all other frames. Source lines are those in the named repository file as it exists for this run; for a multi-line statement, a line execution belongs to the absolute line on which that statement or expression begins. The function's `def` line, decorators, and docstring are not loop iterations. Keep every per-outer-iteration count (do not deduplicate), then take the maximum and minimum over all such counts from all invocations. Return exactly one JSON object with keys `max_iterations` and `min_iterations`, in that order; both values are JSON integers (not strings), with no additional keys or value formatting.",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  },
+  "oracle_answer": {
+    "max_iterations": 64,
+    "min_iterations": 0
+  }
+}

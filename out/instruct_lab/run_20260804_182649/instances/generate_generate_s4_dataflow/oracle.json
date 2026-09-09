@@ -1,0 +1,137 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 170,
+        "use_line": 220,
+        "variable": "batch_size"
+      },
+      {
+        "def_line": 170,
+        "use_line": 225,
+        "variable": "batch_size"
+      },
+      {
+        "def_line": 170,
+        "use_line": 294,
+        "variable": "batch_size"
+      },
+      {
+        "def_line": 224,
+        "use_line": 296,
+        "variable": "checkpoint_dir"
+      },
+      {
+        "def_line": 226,
+        "use_line": 296,
+        "variable": "checkpoint_dir"
+      },
+      {
+        "def_line": 271,
+        "use_line": 272,
+        "variable": "dated_dir_name"
+      },
+      {
+        "def_line": 272,
+        "use_line": 273,
+        "variable": "dated_output_dir"
+      },
+      {
+        "def_line": 272,
+        "use_line": 283,
+        "variable": "dated_output_dir"
+      },
+      {
+        "def_line": 262,
+        "use_line": 299,
+        "variable": "legacy_pretraining_format"
+      },
+      {
+        "def_line": 170,
+        "use_line": 229,
+        "variable": "model_family"
+      },
+      {
+        "def_line": 170,
+        "use_line": 230,
+        "variable": "model_family"
+      },
+      {
+        "def_line": 170,
+        "use_line": 291,
+        "variable": "model_family"
+      },
+      {
+        "def_line": 266,
+        "use_line": 300,
+        "variable": "process_mode"
+      },
+      {
+        "def_line": 268,
+        "use_line": 300,
+        "variable": "process_mode"
+      },
+      {
+        "def_line": 228,
+        "use_line": 229,
+        "variable": "serve_cfg"
+      },
+      {
+        "def_line": 228,
+        "use_line": 230,
+        "variable": "serve_cfg"
+      },
+      {
+        "def_line": 228,
+        "use_line": 231,
+        "variable": "serve_cfg"
+      },
+      {
+        "def_line": 228,
+        "use_line": 234,
+        "variable": "serve_cfg"
+      },
+      {
+        "def_line": 228,
+        "use_line": 239,
+        "variable": "serve_cfg"
+      },
+      {
+        "def_line": 228,
+        "use_line": 277,
+        "variable": "serve_cfg"
+      },
+      {
+        "def_line": 253,
+        "use_line": 254,
+        "variable": "student_model_arch"
+      },
+      {
+        "def_line": 253,
+        "use_line": 263,
+        "variable": "student_model_arch"
+      },
+      {
+        "def_line": 252,
+        "use_line": 253,
+        "variable": "student_model_path"
+      },
+      {
+        "def_line": 252,
+        "use_line": 263,
+        "variable": "student_model_path"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `instruct_lab_qa/generate_generate_s4_dataflow/files/testcase.py::TestGenerateDataFlow::test_cli_branch_matrix`. During that complete test run, consider every invocation (one `call` of the function, numbered 1-based in chronological order) of `instructlab.cli.data.generate.generate` in `src/instructlab/cli/data/generate.py`. Report the union of all unique observed dynamic def-use pairs for exactly these local variables: `batch_size`, `checkpoint_dir`, `dated_dir_name`, `dated_output_dir`, `legacy_pretraining_format`, `model_family`, `process_mode`, `serve_cfg`, `student_model_arch`, and `student_model_path`.\n\nA def is a binding of the local variable that actually occurs in the target function's own frame: either a completed assignment or a parameter binding. Every parameter is defined at the function's `def` line. A use is a read of that local variable by an executed expression in that same target-function frame. A pair is `{variable, def_line, use_line}` when the value from that def reaches that use before any intervening def of the same variable in the same invocation. Process reads on a line before writes on that line. Thus augmented assignment such as `x += 1` first uses the old reaching def of `x` and then creates a new def of `x` on that same line. A `for x in iterable` header reads variables in `iterable` and creates a new def of `x` on every executed iteration of the header. Comprehension-local bindings and reads occur in the comprehension's separate scope and are excluded; they neither define nor use locals in the target function's own frame.\n\nUse absolute 1-based source line numbers in the named repository file as it exists for this run. For a multi-line statement or expression, use the executed source line on which the relevant variable-bearing expression begins; the function `def` line can therefore appear for parameter defs, while decorator and docstring lines do not count as uses or assignment defs. Include only pairs produced within an invocation, never carry a reaching def between invocations. If the same triple is observed multiple times, including across invocations, emit it once.\n\nReturn exactly one JSON object with key `observed_def_use_pairs`. Its value is a list of objects having exactly the keys `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string containing the source identifier exactly). Sort the list by `variable`, then `def_line`, then `use_line`, all ascending; this is also the complete tie-break order. Do not apply `repr()` or `str()` formatting to line numbers or variable names.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

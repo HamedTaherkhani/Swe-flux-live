@@ -1,0 +1,43 @@
+{
+  "oracle_answer": {
+    "covered_lines": [
+      1106,
+      1108,
+      1109,
+      1110,
+      1111,
+      1112,
+      1113,
+      1114,
+      1115,
+      1118,
+      1120,
+      1121,
+      1123,
+      1124,
+      1125,
+      1126,
+      1127,
+      1128,
+      1129,
+      1137,
+      1139,
+      1141,
+      1142,
+      1144,
+      1149,
+      1151,
+      1152,
+      1153,
+      1154,
+      1158
+    ]
+  },
+  "question": "Run the pytest test\n`fastapi_qa/applications_setup_m1_cfg/files/testcase.py::TestApplicationSetupControlFlow::test_generated_setup_matrix_and_handlers`\nagainst this repository. Consider the runtime code region of\n`fastapi.applications.FastAPI.setup` in `fastapi/applications.py`, including\nboth the `FastAPI.setup` frame and frames of local functions lexically defined\ninside that method. In exact dotted-name terms, retain frames whose name is\neither `fastapi.applications.FastAPI.setup` or begins with\n`fastapi.applications.FastAPI.setup.<locals>.`; this includes the local route\nhandlers and their comprehension frames. Exclude every other frame, including\nmethods called by `setup` and functions called by those local handlers.\n\nWhat is the set of source lines covered in that region across the whole named\ntest? Return exactly `{\"covered_lines\": [\"int\"]}`. `covered_lines` must be a\nJSON list of integers, sorted in strictly ascending numeric order. Include each\nline at most once: deduplicate events across repeated executions, across all\ninvocations, and across all retained frames.\n\nAn invocation of `FastAPI.setup` means one call of exactly its own frame,\ncounted 1-based in chronological order; calls of its local functions and other\nframes are not additional `setup` invocations. Coverage nevertheless combines\nthe line events from every `setup` invocation and every retained local-function\ninvocation during the test. Count only Python runtime `line` events; exclude\n`call`, `return`, and `exception` events. A line number is absolute, 1-based,\nand refers to `fastapi/applications.py` as it exists in this checkout.\n\nFor a multi-line statement or expression, report the line where its innermost\nenclosing Python statement begins, rather than a continuation line.\nSpecifically, normalize each line event to the `lineno` of the enclosing\n`ast.stmt` node with the smallest inclusive `lineno` through `end_lineno`\nspan; ties choose the node with the later starting line, then the smaller\ncolumn offset. For example, an event on a later argument of a multi-line call\nis reported as the line where the statement containing that call starts.\nDecorator and `def` lines do not count merely because a function is called or\ndefined; they can appear only if they independently produce a retained `line`\nevent. A docstring line likewise appears only if it produces such an event.\nThere is no string-value formatting or null/empty sentinel in the answer:\nevery list element is a JSON integer.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "covered_lines": [
+      "int"
+    ]
+  }
+}

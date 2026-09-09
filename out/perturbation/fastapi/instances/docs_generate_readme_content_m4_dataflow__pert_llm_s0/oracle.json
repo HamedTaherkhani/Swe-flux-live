@@ -1,0 +1,137 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 349,
+        "use_line": 350,
+        "variable": "content"
+      },
+      {
+        "def_line": 350,
+        "use_line": 351,
+        "variable": "content"
+      },
+      {
+        "def_line": 350,
+        "use_line": 352,
+        "variable": "content"
+      },
+      {
+        "def_line": 350,
+        "use_line": 353,
+        "variable": "content"
+      },
+      {
+        "def_line": 350,
+        "use_line": 365,
+        "variable": "content"
+      },
+      {
+        "def_line": 350,
+        "use_line": 366,
+        "variable": "content"
+      },
+      {
+        "def_line": 348,
+        "use_line": 349,
+        "variable": "en_index"
+      },
+      {
+        "def_line": 360,
+        "use_line": 365,
+        "variable": "frontmatter_end"
+      },
+      {
+        "def_line": 353,
+        "use_line": 356,
+        "variable": "match_end"
+      },
+      {
+        "def_line": 353,
+        "use_line": 362,
+        "variable": "match_end"
+      },
+      {
+        "def_line": 351,
+        "use_line": 358,
+        "variable": "match_pre"
+      },
+      {
+        "def_line": 351,
+        "use_line": 360,
+        "variable": "match_pre"
+      },
+      {
+        "def_line": 352,
+        "use_line": 356,
+        "variable": "match_start"
+      },
+      {
+        "def_line": 352,
+        "use_line": 361,
+        "variable": "match_start"
+      },
+      {
+        "def_line": 364,
+        "use_line": 367,
+        "variable": "message"
+      },
+      {
+        "def_line": 367,
+        "use_line": 369,
+        "variable": "new_content"
+      },
+      {
+        "def_line": 369,
+        "use_line": 375,
+        "variable": "new_content"
+      },
+      {
+        "def_line": 366,
+        "use_line": 367,
+        "variable": "post_content"
+      },
+      {
+        "def_line": 362,
+        "use_line": 366,
+        "variable": "post_start"
+      },
+      {
+        "def_line": 365,
+        "use_line": 367,
+        "variable": "pre_content"
+      },
+      {
+        "def_line": 361,
+        "use_line": 365,
+        "variable": "pre_end"
+      },
+      {
+        "def_line": 355,
+        "use_line": 364,
+        "variable": "sponsors"
+      },
+      {
+        "def_line": 354,
+        "use_line": 355,
+        "variable": "sponsors_data_path"
+      },
+      {
+        "def_line": 363,
+        "use_line": 364,
+        "variable": "template"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `fastapi_qa/docs_generate_readme_content_m4_dataflow/files/testcase.py::TestGeneratedReadmeDataFlow::test_generated_docs_variants_through_readme_command`. Across every invocation during that test of `scripts.docs.generate_readme_content` in `scripts/docs.py`, report all unique observed dynamic def-use pairs for exactly these local variables: `content`, `en_index`, `frontmatter_end`, `match_end`, `match_pre`, `match_start`, `message`, `new_content`, `post_content`, `post_start`, `pre_content`, `pre_end`, `sponsors`, `sponsors_data_path`, and `template`. An invocation is one runtime call of exactly that dotted function, numbered 1-based in chronological call-entry order; aggregate over all invocations, including invocations that exit by raising, and reset reaching definitions at each call. A def is a completed assignment to the local name or a parameter binding; a parameter binding is defined on the function's `def` line. A use is a runtime read of that local name by code executing in the target function's own frame. Exclude reads and writes in callers, callees, nested function frames, and comprehension or generator-expression frames; comprehension-local iteration variables therefore never count. For an ordinary assignment, count all right-hand-side uses before its target becomes the new reaching def, and do not create the def if evaluation raises. Treat augmented assignment such as `total += amount` as both a use of `total`'s old reaching def and, after successful evaluation, a new def of `total` on that same line. A `for item in iterable` header reads `iterable` whenever the header is evaluated and redefines `item` once for each successful iteration before the body executes; the final exhaustion check does not define `item`. A pair is observed when an executed use reads the value from the most recent completed def of the same variable in that invocation, with no intervening completed def. Source line numbers are absolute, 1-based lines in the named repository file as it exists for the test. For a multi-line statement or expression, attribute all of its defs and uses to the line where that statement or expression begins; the function `def` line counts only for parameter bindings, not as an ordinary executed body line, and decorator or docstring lines do not count unless they are the beginning line of an executed statement in the target frame. Remove duplicate `(variable, def_line, use_line)` triples across repeated invocations. Return exactly one JSON object with key `observed_def_use_pairs`, whose value is a JSON list of objects with exactly the keys `def_line` (integer), `use_line` (integer), and `variable` (string). Sort the list by `variable` using ordinary case-sensitive string order, then by `def_line`, then by `use_line`, both numerically ascending. Integers are JSON numbers and variable names are JSON strings; no `repr()` or `str()` conversion is applied, and no null, empty-string sentinel, omitted field, exception name, or callee-name serialization is part of the answer.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

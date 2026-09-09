@@ -1,0 +1,15 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "lark.exceptions.UnexpectedCharacters",
+      "lark.exceptions.UnexpectedToken"
+    ]
+  },
+  "question": "Run only the pytest test `lark_qa/lalr_parser_parse_s5_exceptions/files/testcase.py::TestLalrParserRecovery::test_generated_recovery_stream`. Consider only the invocation made by the explicit `target.parse(lexer_thread, \"start\", on_error=recover)` statement in that test, excluding any invocations performed internally while `Lark` is being constructed. For that invocation of `lark.parsers.lalr_parser.LALR_Parser.parse` in `lark/parsers/lalr_parser.py`, which distinct exception types are caught by an `except` handler inside the invocation, allowing it to continue and return normally? An exception counts as caught when it is raised into the active target frame by a call made at line 42 or line 61 and control then enters one of the target's matching `except` suites; exclude exceptions handled wholly outside the target and any exception that propagates out to its caller. Invocation means one runtime `call` of this exact method, numbered 1-based in chronological order. Deduplicate types across all catches, then sort the resulting strings in ascending lexicographic Unicode-code-point order. Name each type using bare `type(exc).__name__` for built-in exceptions (for example, `ValueError`, never `builtins.ValueError`) and using `type(exc).__module__ + \".\" + type(exc).__qualname__` for every non-built-in exception (for example, `haystack.core.errors.PipelineError`). Return exactly a JSON object with the single key `caught_exception_kinds`, whose value is the sorted list of strings; duplicates are removed before sorting.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

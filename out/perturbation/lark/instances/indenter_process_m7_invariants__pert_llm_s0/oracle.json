@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 22,
+        "predicate": "len(self.indent_level) == self.paren_level + 1",
+        "violations": 19
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "self.paren_level % 2 == 0",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 29,
+        "predicate": "self.paren_level < 2",
+        "violations": 18
+      },
+      {
+        "held_always": false,
+        "observations": 1288,
+        "predicate": "self.paren_level == 0",
+        "violations": 1164
+      },
+      {
+        "held_always": false,
+        "observations": 1288,
+        "predicate": "token.type == self.NL_type",
+        "violations": 546
+      },
+      {
+        "held_always": true,
+        "observations": 1288,
+        "predicate": "token.type not in self.CLOSE_PAREN_types",
+        "violations": 0
+      }
+    ]
+  },
+  "question": "Run every test method in `lark_qa/indenter_process_m7_invariants/files/testcase.py::TestIndenterProcessInvariants` and aggregate observations across all 12 methods. A contributing method is every method in that class whose name starts with `test_`; its pytest id is `lark_qa/indenter_process_m7_invariants/files/testcase.py::TestIndenterProcessInvariants::<method-name>`. Counts are totals across the whole class, and neither pytest's method execution order nor generator interleaving changes those totals.\n\nFor the target generator function `lark.indenter.Indenter._process` in the repository-relative file `lark/indenter.py`, evaluate the six candidate predicates below at their stated observation points. An observation is a Python `line` event in the target function's own generator frame, immediately before Python executes the named source line. Line numbers are absolute, 1-based numbers in that repository file as checked out. For a multi-line statement or expression, Python attributes the event to the line where that currently executed statement or expression begins. Do not synthesize events for the undecorated `def` line or any docstring. Count only matching `line` events: exclude `call`, `return`, and `exception` events, events in `handle_NL` or any other callee, and events in comprehension frames. A generator resumption is not itself an observation, but a matching line event after resumption is counted. Repeated visits to a line, including loop visits and visits after yields, are separate observations.\n\nThe candidate predicates and their observation points are:\n\n* `len(self.indent_level) == self.paren_level + 1` \u2014 line 62, immediately before that line increments `self.paren_level`.\n* `self.paren_level % 2 == 0` \u2014 line 65, immediately before the assertion on that line.\n* `self.paren_level < 2` \u2014 line 68, immediately before that line pops one indentation level.\n* `self.paren_level == 0` \u2014 line 61, immediately before the opener-membership test.\n* `token.type not in self.CLOSE_PAREN_types` \u2014 line 61, immediately before the opener-membership test.\n* `token.type == self.NL_type` \u2014 line 61, immediately before the opener-membership test.\n\nEvaluate every predicate from the actual Python local objects in the target frame at that instant, using ordinary Python attribute access, `len`, comparison, remainder, and truth-value semantics. Predicates sharing line 61 are each evaluated once for every line event there. `observations` is the number of evaluations summed across all contributing methods. `violations` is the number of those evaluations whose Python truth value is false. `held_always` is exactly `violations == 0` when `observations` is positive. A candidate whose line is never reached must instead be reported as `observations: 0`, `violations: 0`, and `held_always: false`.\n\nReturn a JSON object with exactly one key, `invariant_report`. Its value is a list containing one object per candidate predicate, with no deduplication or omission. Every object has exactly these keys and JSON types: `held_always` (boolean), `observations` (integer), `predicate` (string copied verbatim from the candidate list), and `violations` (integer). Sort the objects by `predicate` in ascending Unicode code-point order. Candidate strings are unique; if equal strings were present, the tie-break would be the observation-point line number in ascending numeric order. Emit ordinary JSON booleans (`true` and `false`) and base-10 JSON integers. Predicate strings are emitted as shown; no runtime value is represented with `repr`, `str`, JSON `null`, an empty string, a function name, or an exception name, and no other normalization is applied.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

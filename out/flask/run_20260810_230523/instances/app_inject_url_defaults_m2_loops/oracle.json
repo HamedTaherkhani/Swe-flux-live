@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 27,
+    "min_iterations": 1
+  },
+  "question": "Run the complete pytest test `flask_qa/app_inject_url_defaults_m2_loops/files/testcase.py::TestInjectUrlDefaultsLoopDynamics::test_generated_nested_blueprint_defaults`. Consider only invocations of `flask.sansio.app.App.inject_url_defaults` defined in the repository-relative file `src/flask/sansio/app.py`. For the outer `for name in names` loop whose header begins on absolute line 976, what are the maximum and minimum numbers of iterations performed by any one invocation during the test?\n\nAn invocation is one Python call of this exact target function during the test, numbered starting at 1 in chronological call order. An iteration of the line-976 loop is one execution, in that invocation's frame, of the loop body's first line, absolute line 977 (the `if name in self.url_default_functions:` statement); for example, three executions of line 977 in one invocation count as 3 iterations. Count each execution, including repeated executions with equal local values, and do not count line events from callbacks or any other function. Compute one iteration count for every invocation, including a zero count if an invocation never executes line 977, then take the extrema over those counts without sorting or deduplicating them.\n\nLine numbers are absolute, 1-based line numbers in `src/flask/sansio/app.py` as it exists in the repository. A line is identified by where the relevant statement begins in the source; the function's `def` line, docstring lines, the loop-header line itself, and return events do not count as loop iterations.\n\nReturn a JSON object with exactly the keys `max_iterations` and `min_iterations`, in that order. Each value is a JSON integer (not a string): `max_iterations` is the greatest per-invocation count and `min_iterations` is the least. Do not emit any other keys, omit either key, or use JSON `null`.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

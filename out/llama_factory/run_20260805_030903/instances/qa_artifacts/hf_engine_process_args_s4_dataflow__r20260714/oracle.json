@@ -1,0 +1,262 @@
+{
+  "question_kind": "S4_DataFlow",
+  "question": "During execution of pytest test `llama_factory_qa/hf_engine_process_args_s4_dataflow__r20260714/files/testcase.py::TestHuggingfaceEngineProcessArgsDataFlow::test_multibranch_reaching_defs`, analyze function `src.llamafactory.chat.hf_engine.HuggingfaceEngine._process_args` in `src/llamafactory/chat/hf_engine.py`. Track exactly these local variable names: `generating_args`, `key`, `num_return_sequences`, `prompt_ids`, `system`, and `value`. A variable definition (def) is any assignment to that local variable, including parameter binding, where parameters count as defined on the function `def` line. A variable use is any source line in this function where that variable is read. Report all unique observed runtime def-use pairs from this test run, where each pair (`variable`, `def_line`, `use_line`) means the value assigned at `def_line` is later read at `use_line` before any redefinition of that same variable. Return JSON with exactly one key `observed_def_use_pairs`, whose value is an array of objects with keys `variable` (str), `def_line` (int), and `use_line` (int). Sort ascending by `variable`, then `def_line`, then `use_line`; if any exact duplicate tuples appear, keep only one.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "variable": "str",
+        "def_line": "int",
+        "use_line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "variable": "generating_args",
+        "def_line": 74,
+        "use_line": 108
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 74,
+        "use_line": 138
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 139
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 141
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 142
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 143
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 144
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 148
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 149
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 152
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 159
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 160
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 162
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 165
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 166
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 167
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 170
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 171
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 174
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 175
+      },
+      {
+        "variable": "generating_args",
+        "def_line": 138,
+        "use_line": 180
+      },
+      {
+        "variable": "key",
+        "def_line": 185,
+        "use_line": 198
+      },
+      {
+        "variable": "key",
+        "def_line": 185,
+        "use_line": 199
+      },
+      {
+        "variable": "key",
+        "def_line": 185,
+        "use_line": 201
+      },
+      {
+        "variable": "num_return_sequences",
+        "def_line": 127,
+        "use_line": 145
+      },
+      {
+        "variable": "num_return_sequences",
+        "def_line": 127,
+        "use_line": 158
+      },
+      {
+        "variable": "prompt_ids",
+        "def_line": 110,
+        "use_line": 111
+      },
+      {
+        "variable": "prompt_ids",
+        "def_line": 110,
+        "use_line": 119
+      },
+      {
+        "variable": "prompt_ids",
+        "def_line": 110,
+        "use_line": 120
+      },
+      {
+        "variable": "prompt_ids",
+        "def_line": 110,
+        "use_line": 184
+      },
+      {
+        "variable": "system",
+        "def_line": 74,
+        "use_line": 108
+      },
+      {
+        "variable": "system",
+        "def_line": 108,
+        "use_line": 109
+      },
+      {
+        "variable": "value",
+        "def_line": 185,
+        "use_line": 186
+      },
+      {
+        "variable": "value",
+        "def_line": 185,
+        "use_line": 187
+      },
+      {
+        "variable": "value",
+        "def_line": 185,
+        "use_line": 189
+      },
+      {
+        "variable": "value",
+        "def_line": 185,
+        "use_line": 191
+      },
+      {
+        "variable": "value",
+        "def_line": 185,
+        "use_line": 192
+      },
+      {
+        "variable": "value",
+        "def_line": 185,
+        "use_line": 193
+      },
+      {
+        "variable": "value",
+        "def_line": 185,
+        "use_line": 195
+      },
+      {
+        "variable": "value",
+        "def_line": 185,
+        "use_line": 196
+      },
+      {
+        "variable": "value",
+        "def_line": 185,
+        "use_line": 201
+      },
+      {
+        "variable": "value",
+        "def_line": 187,
+        "use_line": 195
+      },
+      {
+        "variable": "value",
+        "def_line": 187,
+        "use_line": 196
+      },
+      {
+        "variable": "value",
+        "def_line": 191,
+        "use_line": 195
+      },
+      {
+        "variable": "value",
+        "def_line": 191,
+        "use_line": 201
+      },
+      {
+        "variable": "value",
+        "def_line": 193,
+        "use_line": 195
+      },
+      {
+        "variable": "value",
+        "def_line": 193,
+        "use_line": 201
+      },
+      {
+        "variable": "value",
+        "def_line": 196,
+        "use_line": 199
+      },
+      {
+        "variable": "value",
+        "def_line": 196,
+        "use_line": 201
+      }
+    ]
+  }
+}

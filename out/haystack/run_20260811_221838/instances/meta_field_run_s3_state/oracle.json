@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "[Document(id=node-10-98d, content: 'mzof lxlbtnjhh lxlbtnjhh abej mzof mzof odunif odunif', meta: {'group': 13, 'signal': 132}, score: 0.07823470411233702)]",
+        "variable": "docs_missing_meta_field"
+      },
+      {
+        "value": "[811, 536, 872, 435, 480, 285, 512, 740, 111, 92, 625, 266, 484, 183, 682, 750, 535, 768, 854, 111, 190, 756, 224, 470, 285, 752, 456, 3, 359, 432, 617, 499, 105, 681, 69, 435, 375, 222, 115, 380, 503, 125, 472, 435, 473, 831, 491, 333, 749, 577, 665]",
+        "variable": "parsed_meta"
+      },
+      {
+        "value": "False",
+        "variable": "reverse"
+      },
+      {
+        "value": "\"The parameter <meta_field> is currently set to 'priority' but the Documents with IDs node-10-98d don't have this meta key.\\n\"",
+        "variable": "warning_start"
+      }
+    ]
+  },
+  "question": "Run only `haystack_qa/meta_field_run_s3_state/files/testcase.py::TestMetaFieldRunProgramState::test_generated_mixed_metadata_linear_merge`. During that test run, consider the first invocation of `haystack.components.rankers.meta_field.MetaFieldRanker.run` in `haystack/components/rankers/meta_field.py`. An invocation means one `call` of that exact function; invocations are numbered from 1 in chronological order.\n\nReport the values of the local variables `docs_missing_meta_field`, `parsed_meta`, `reverse`, and `warning_start` immediately after line 318 has executed for the first time in that invocation and before the next statement in that frame executes. Occurrence 1 means the first chronological execution of the statement whose expression begins at absolute, 1-based source line 318 in the named repository file. For a multi-line statement or expression, its executed-line number is the absolute, 1-based line where that statement or expression begins. Decorator lines, the `def` line, and docstring lines are not observation points unless Python executes them in this invocation.\n\nReturn exactly `{\"observed_state\": [{\"value\": <str>, \"variable\": <str>}, ...]}`. `observed_state` must contain exactly one object for each of the four requested locals, sorted by `variable` in ascending Unicode code-point order, with no deduplication. Each object has exactly the two JSON string fields shown. `variable` is the source-level local name. `value` is Python's exact `repr()` string for the complete local value at the observation point, not `str()` and not an element-by-element JSON conversion. Thus a container is represented by the `repr()` of the whole container, strings inside representations retain Python quote characters, and Python spellings such as `None` and `True` are retained. Character escaping is exactly that produced by `repr()`; for example, the repr of a string containing `left`, a newline, and `right` contains the two characters backslash and `n`, and JSON serialization escapes that backslash as required while the decoded JSON value remains the repr text. All four locals are bound at this point, so neither an absent key nor JSON `null` represents a missing value.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

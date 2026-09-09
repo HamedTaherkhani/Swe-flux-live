@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "[0, 10, 0, 13, 0, 7, 0, 11, 0, 10, 0, 13, 0, 9, 0, 10, 0, 8, 0]",
+        "variable": "fixed_widths"
+      },
+      {
+        "value": "[5, 5, 5, 5, 5, 5, 5, 5, 5, 5]",
+        "variable": "flex_widths"
+      },
+      {
+        "value": "-2",
+        "variable": "flexible_width"
+      },
+      {
+        "value": "13",
+        "variable": "index"
+      },
+      {
+        "value": "[5, 10, 5, 13, 5, 7, 5, 11, 5, 10, 5, 13, 5, 9, 27, 10, 27, 8, 27]",
+        "variable": "widths"
+      }
+    ]
+  },
+  "question": "For pytest test `rich_qa/table_calculate_column_widths_s3_state/files/testcase.py::TestTableCalculateColumnWidthsState::test_programmatic_width_solver_scenario`, consider the single direct call to `rich.table.Table._calculate_column_widths` in `rich/table.py` that the test makes (the call whose result is bound to `widths` in the test method).\n\nLine execution counting: within that call, use 1-based source line numbers from `rich/table.py` as checked into the repository. The k-th execution of line L is the k-th time the interpreter begins executing source line L during that call. Each loop iteration that reaches line L counts separately. For multi-line statements elsewhere in the function, the executed line is where the statement begins; the observation line is a single-line statement. The `def` line and docstring lines are not counted as body executions.\n\nObservation point: immediately after line 552 of `rich/table.py` has finished executing for the 14-th time during that call (line 552 is `if column.flexible:` inside the `for index, column in enumerate(columns):` loop).\n\nAt that instant, read the live local variables in the `_calculate_column_widths` stack frame. Report these names: `fixed_widths`, `flex_widths`, `flexible_width`, `index`, `widths`.\n\nValue serialization: each reported value is the Python `repr()` string of the variable's runtime object (for example an integer becomes `\"7\"`, a list of ints becomes `\"[1, 2, 3]\"` with no spaces after commas). Containers are the `repr()` of the whole container, not per-element strings. Use JSON string values, so Python `None`/`True`/`False` would appear as `\"None\"`/`\"True\"`/`\"False\"` inside strings if they occurred.\n\nReturn JSON with top-level key `observed_state`: a list of objects, each with keys `variable` (the variable name) and `value` (its repr string), sorted by `variable` ascending (ASCII/Unicode code-point order).",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

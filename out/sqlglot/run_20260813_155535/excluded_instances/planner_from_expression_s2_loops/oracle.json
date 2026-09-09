@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 614
+  },
+  "question": "Run the single pytest test `sqlglot_qa/planner_from_expression_s2_loops/files/testcase.py::TestPlannerLoopBehavior::test_generated_aggregate_plan`. During that run, consider invocations of `sqlglot.planner.Step.from_expression` in `sqlglot/planner.py`. An invocation means one Python call of exactly that function (not a call of a nested local function), numbered 1-based in chronological call order. In invocation 1, how many iterations does the `for node in projection.walk():` loop whose header begins at absolute, 1-based source line 192 perform? Count an iteration each time the loop body's first statement, beginning at line 193, executes in that invocation's own frame. If the function recursively calls itself, each recursive call is a later invocation and its executions are excluded from invocation 1. Line numbers refer to the named file as it exists in the repository; for a multi-line statement, execution belongs to the line where the statement or expression begins. Return exactly a JSON object with the single key `loop_iteration_count` and an integer value. There is no sorting or deduplication: every qualifying execution is counted.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

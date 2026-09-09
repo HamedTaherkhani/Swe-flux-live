@@ -1,0 +1,332 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Category S6_InterProceduralCFG (tracked function call order).\n\nTest scope: pytest id `rich_qa/inspect_render_s6_calls/files/testcase.py::TestInspectRenderCalls::test_render_interprocedural_calls` \u2014 the answer covers exactly that single test method's one execution.\n\nTarget: `rich._inspect.Inspect._render` in repo-relative file `rich/_inspect.py` (the method begins at line 125). The target is a generator function.\n\nFunction identity format: every reported `func` value is the dotted qualified name `module.Class.method` (or `module.Class.method.<locals>.nested` for nested functions), for example `rich.console.Console.print`.\n\nInvocation counting for the target: consider only `call` events whose `func` is exactly `rich._inspect.Inspect._render` and whose line number is 125. Number those calls chronologically starting at 1. Invocation 1 is the earliest such call during the test run.\n\nInvocation span: `_render` yields multiple renderables. In CPython `sys.settrace`, each `yield` emits a `return` event carrying the yielded value, and resuming the generator emits another `call` event at the next executed line. Those generator `call`/`return` events on `_render` itself belong to the same logical invocation. Invocation *k* starts at its entry `call` (line 125 above) and ends at the first subsequent `return` event for `_render` whose `retval` is exactly the text `None` (generator exhaustion / StopIteration).\n\nTracked functions (exact qualified names):\n- `rich._inspect.Inspect._render.<locals>.safe_getattr`\n- `rich._inspect.Inspect._get_signature`\n- `rich._inspect.Inspect._get_formatted_doc`\n\nInclusion rule: include every `call` trace event whose `func` is exactly one of the tracked functions listed above, occurring chronologically between the start and end of invocation 1 of `_render` as defined above (inclusive). Count nested and repeated calls; do not deduplicate; ignore `line`, `return`, and `exception` events for ordering; ignore calls to any function not in the tracked list (including other helpers in `rich/_inspect.py` such as `sort_items`).\n\nOrdering: sort key is trace chronological order (the order events appear in a single `sys.settrace` log). No secondary tie-breaker is needed.\n\nFile field: every object's `file` value is the repo-relative path `rich/_inspect.py` (the file where each tracked function is defined).\n\nQuestion: During invocation 1 of `rich._inspect.Inspect._render`, what is the exact chronological sequence of `call` events to the tracked functions listed above?\n\nAnswer format: a JSON object with exactly one key `function_call_order` whose value is a JSON array of objects. Each object has exactly two keys: `file` (string, repo-relative path) and `func` (string, dotted qualified name).",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._render.<locals>.safe_getattr"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_signature"
+      },
+      {
+        "file": "rich/_inspect.py",
+        "func": "rich._inspect.Inspect._get_formatted_doc"
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "question_kind": "M1_IntraProceduralCFG",
+  "question": "Consider every test method in `jinja_qa/environment_load_template_m1_cfg/files/testcase.py::TestEnvironmentLoadTemplateIndirect`. The answer aggregates behavior across **all** `test_*` methods in that class, in the chronological order pytest collects and runs them (definition order in the file).\n\nThose tests reach `jinja2.environment.Environment._load_template` in `src/jinja2/environment.py` only **indirectly**: through `Environment.get_template`, `Environment.select_template`, or `Environment.get_or_select_template` \u2014 never by importing or calling `_load_template` directly.\n\nTarget function: `jinja2.environment.Environment._load_template` (the method beginning at line 956 of `src/jinja2/environment.py`).\n\n**Scoped lines** are every physical source line from 959 through 978 inclusive that belongs to the method's executable body (all statement and continuation lines inside the `def`, excluding the `def` line itself, decorator lines, the docstring, blank lines, and comment-only lines). Continuation lines inside parenthesized expressions are in scope as separate physical lines.\n\n**Line execution** means one `line` trace event whose file path ends with `src/jinja2/environment.py`, whose qualified name is exactly `jinja2.environment.Environment._load_template`, and whose line number equals L. Count every such event across the entire test run using Python's `sys.settrace` line semantics: each physical line number reported by the interpreter increments that line's total independently (for example, a call split across three physical lines may emit three separate `line` events). Multiple invocations of the method sum together. The `def` line, decorator lines, and docstring lines are out of scope and never appear in the answer. `call`, `return`, and `exception` events do not contribute to these counts.\n\nFor each scoped line L, report the total number of times line L executed. Lines that never executed must appear with count `0`.\n\nReturn JSON with the single top-level key `line_execution_counts`: a list of objects, each with keys `line` (absolute 1-based line number in `src/jinja2/environment.py`) and `count` (non-negative integer). Sort the list by `line` ascending; when line numbers tie (they cannot), break ties by `count` ascending.",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "line": 959,
+        "count": 382
+      },
+      {
+        "line": 960,
+        "count": 2
+      },
+      {
+        "line": 961,
+        "count": 380
+      },
+      {
+        "line": 962,
+        "count": 380
+      },
+      {
+        "line": 963,
+        "count": 354
+      },
+      {
+        "line": 964,
+        "count": 612
+      },
+      {
+        "line": 965,
+        "count": 258
+      },
+      {
+        "line": 966,
+        "count": 0
+      },
+      {
+        "line": 969,
+        "count": 129
+      },
+      {
+        "line": 970,
+        "count": 20
+      },
+      {
+        "line": 972,
+        "count": 129
+      },
+      {
+        "line": 974,
+        "count": 251
+      },
+      {
+        "line": 976,
+        "count": 149
+      },
+      {
+        "line": 977,
+        "count": 123
+      },
+      {
+        "line": 978,
+        "count": 149
+      }
+    ]
+  }
+}

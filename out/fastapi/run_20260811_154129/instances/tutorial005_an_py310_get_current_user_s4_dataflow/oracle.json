@@ -1,0 +1,122 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 112,
+        "use_line": 118,
+        "variable": "authenticate_value"
+      },
+      {
+        "def_line": 112,
+        "use_line": 138,
+        "variable": "authenticate_value"
+      },
+      {
+        "def_line": 114,
+        "use_line": 118,
+        "variable": "authenticate_value"
+      },
+      {
+        "def_line": 115,
+        "use_line": 124,
+        "variable": "credentials_exception"
+      },
+      {
+        "def_line": 115,
+        "use_line": 129,
+        "variable": "credentials_exception"
+      },
+      {
+        "def_line": 115,
+        "use_line": 132,
+        "variable": "credentials_exception"
+      },
+      {
+        "def_line": 121,
+        "use_line": 122,
+        "variable": "payload"
+      },
+      {
+        "def_line": 121,
+        "use_line": 125,
+        "variable": "payload"
+      },
+      {
+        "def_line": 125,
+        "use_line": 126,
+        "variable": "scope"
+      },
+      {
+        "def_line": 133,
+        "use_line": 134,
+        "variable": "scope"
+      },
+      {
+        "def_line": 108,
+        "use_line": 111,
+        "variable": "security_scopes"
+      },
+      {
+        "def_line": 108,
+        "use_line": 112,
+        "variable": "security_scopes"
+      },
+      {
+        "def_line": 108,
+        "use_line": 133,
+        "variable": "security_scopes"
+      },
+      {
+        "def_line": 108,
+        "use_line": 121,
+        "variable": "token"
+      },
+      {
+        "def_line": 127,
+        "use_line": 130,
+        "variable": "token_data"
+      },
+      {
+        "def_line": 127,
+        "use_line": 134,
+        "variable": "token_data"
+      },
+      {
+        "def_line": 126,
+        "use_line": 127,
+        "variable": "token_scopes"
+      },
+      {
+        "def_line": 130,
+        "use_line": 131,
+        "variable": "user"
+      },
+      {
+        "def_line": 130,
+        "use_line": 140,
+        "variable": "user"
+      },
+      {
+        "def_line": 122,
+        "use_line": 123,
+        "variable": "username"
+      },
+      {
+        "def_line": 122,
+        "use_line": 127,
+        "variable": "username"
+      }
+    ]
+  },
+  "question": "Run the pytest test `fastapi_qa/tutorial005_an_py310_get_current_user_s4_dataflow/files/testcase.py::TestGetCurrentUserDataFlow::test_generated_scope_matrix`. During that complete test run, consider every invocation of `docs_src.security.tutorial005_an_py310.get_current_user` in `docs_src/security/tutorial005_an_py310.py`. What are all unique observed def-use pairs for exactly these local variables: `authenticate_value`, `credentials_exception`, `payload`, `scope`, `security_scopes`, `token`, `token_data`, `token_scopes`, `user`, and `username`?\n\nA \"def\" is a binding performed by an executed assignment, parameter binding, or loop-target binding in the target function's own frame. Parameters are defined on the function's `def` line for each invocation. A \"use\" is an executed read of that local variable in the target function's own frame. A pair is observed when the value from a definition is read at a use before that variable is redefined in the same invocation. Reads on an assignment line occur before that line's new definition takes effect. An augmented assignment such as `x += delta` is both a use of the reaching definition of `x` and a new definition of `x` on that same line. A loop header such as `for x in items` reads its iterable and redefines `x` on the header line on every iteration. Comprehension-local bindings and all events in comprehension frames are excluded; they are not definitions or uses in the target function's frame.\n\nReport source line numbers as absolute 1-based line numbers in the named repository file. For a multi-line statement or expression, attribute each definition or use to the physical source line where that variable's binding target or read expression begins; continuation lines therefore count when the relevant expression begins there. The function `def` line can appear only as a parameter definition; decorator and docstring lines do not count unless they execute a tracked-variable read or definition under the rules above.\n\nRemove duplicate triples across all invocations. Return exactly one JSON object with key `observed_def_use_pairs`; its value is a list of objects having exactly the keys `def_line` (integer), `use_line` (integer), and `variable` (string). Sort the list by `variable` lexicographically ascending, then `def_line` numerically ascending, then `use_line` numerically ascending. No runtime values are serialized in this answer.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

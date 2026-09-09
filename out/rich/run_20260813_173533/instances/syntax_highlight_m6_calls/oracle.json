@@ -1,0 +1,107 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 17,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax.__init__"
+      },
+      {
+        "count": 34,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax.__rich_console__"
+      },
+      {
+        "count": 1,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax.__rich_measure__"
+      },
+      {
+        "count": 2,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax._apply_stylized_ranges"
+      },
+      {
+        "count": 51,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax._get_base_style"
+      },
+      {
+        "count": 18,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax._get_line_numbers_color"
+      },
+      {
+        "count": 9,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax._get_number_styles"
+      },
+      {
+        "count": 5097,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax._get_syntax"
+      },
+      {
+        "count": 16,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax._get_token_color"
+      },
+      {
+        "count": 18,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax._numbers_column_width"
+      },
+      {
+        "count": 17,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax._process_code"
+      },
+      {
+        "count": 1,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax.default_lexer"
+      },
+      {
+        "count": 0,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax.from_path"
+      },
+      {
+        "count": 17,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax.get_theme"
+      },
+      {
+        "count": 0,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax.guess_lexer"
+      },
+      {
+        "count": 17,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax.highlight"
+      },
+      {
+        "count": 17,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax.lexer"
+      },
+      {
+        "count": 4,
+        "file": "rich/syntax.py",
+        "func": "rich.syntax.Syntax.stylize_range"
+      }
+    ]
+  },
+  "question": "Consider pytest tests in `rich_qa/syntax_highlight_m6_calls/files/testcase.py::TestSyntaxHighlightInvocationCounts` (all `test_*` methods in that class, executed in pytest's default collection order). The answer aggregates behavior across every test method in the class during one full pytest run of the class.\n\nScope: every function and method defined directly in class `Syntax` in `rich/syntax.py` \u2014 all instance methods, class methods, dunder methods such as `__init__`, `__rich_console__`, and `__rich_measure__`, and `@property` getter functions implemented in that class body. Exclude nested functions and closures inside method bodies (for example generator helpers defined inside `highlight`), inline comprehensions as separate scopes, inherited methods not defined in this file, module-level functions in the same file, and methods of other classes defined in the same file (such as `SyntaxTheme`, `PygmentsSyntaxTheme`, or `PaddingProperty`).\n\nFunction identity: dotted qualname `module.Class.method`, for example `rich.console.Console.print` \u2014 for this scope, entries look like `rich.syntax.Syntax.highlight`.\n\nInvocation counting: one invocation is one Python `call` trace event for that function's frame during the aggregated test run, including calls made directly, transitively, recursively, or from any other frame. If a generator or coroutine suspension/resumption emits another distinct `call` event for the same qualname, that resumption counts as an additional invocation.\n\nZero rule: every in-scope function appears exactly once; functions that never execute have `count: 0`.\n\nReport `invocation_counts`: a JSON list of objects `{\"file\": \"<repo-relative path>\", \"func\": \"<qualname>\", \"count\": <int>}`. For this scope, `file` is always `rich/syntax.py`. Sort the list by `func` ascending (Unicode code-point order). If two entries could share the same `func` string, break ties by `file` ascending.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

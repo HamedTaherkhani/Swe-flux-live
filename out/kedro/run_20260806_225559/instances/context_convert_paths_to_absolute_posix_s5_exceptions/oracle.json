@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "project_path must be an absolute path. Received: 76289936363/90772d3dfd5c8",
+    "exception_type": "ValueError"
+  },
+  "question": "Run the pytest test\n`kedro_qa/context_convert_paths_to_absolute_posix_s5_exceptions/files/testcase.py::TestContextPathExceptions::test_generated_catalog_then_invalid_root`\nagainst this repository. During the test's final call to\n`KedroContext._get_catalog`, its direct invocation of the exact function\n`kedro.framework.context.context._convert_paths_to_absolute_posix` in\n`kedro/framework/context/context.py` raises an exception that propagates out of\nthat target function to `_get_catalog` and then reaches the test's broad\nexception handler. What are that propagated exception's type and message?\n\nAn invocation means one call of the exact target function, including a\nrecursive call, and invocations are numbered 1-based in chronological call\norder. The requested invocation is unambiguously the direct target invocation\nmade by the final `_get_catalog` call; do not report any exception outside the\nexact target frame, and do not report activity from the earlier successful\n`_get_catalog` call or its recursive target invocations. \u201cPropagates out\u201d\nmeans that the exception terminates this target invocation rather than being\ncaught and suppressed within it.\n\nFor the `exception_type` string, use bare `type(exc).__name__` for built-in\nexceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and\n`module.QualName` for all others (e.g.\n`haystack.core.errors.PipelineError`). For `exception_message`, use the exact\n`str(exc)`, character for character, as a JSON string; do not use `repr(exc)`,\nand do not include representation quotes around the message. An empty\nexception message would be the empty JSON string `\"\"`, not JSON `null` and\nnot an omitted key.\n\nThe complete answer must be one JSON object with exactly the shape\n`{\"exception_message\": \"str\", \"exception_type\": \"str\"}`. Both values are JSON\nstrings; the `\"str\"` values shown in the shape are type placeholders, not\nanswer values. Include exactly those two keys and no additional fields.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

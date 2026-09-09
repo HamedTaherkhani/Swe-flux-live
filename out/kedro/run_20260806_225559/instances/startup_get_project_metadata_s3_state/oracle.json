@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "{'package_name': 'pkg_3f92d_16', 'project_name': 'ZUTFHRYXZ', 'kedro_init_version': '1.0.0', 'source_dir': PosixPath('/testbed/data/repo_behave_startup_state/project_16_256317/generated/392/src'), 'tools': ['tool_86', 'tool_20', 'tool_43'], 'example_pipeline': 'pipe_20352', 'config_file': PosixPath('/testbed/data/repo_behave_startup_state/project_16_256317/pyproject.toml'), 'project_path': PosixPath('/testbed/data/repo_behave_startup_state/project_16_256317')}",
+        "variable": "metadata_dict"
+      },
+      {
+        "value": "PosixPath('/testbed/data/repo_behave_startup_state/project_16_256317')",
+        "variable": "project_path"
+      },
+      {
+        "value": "PosixPath('/testbed/data/repo_behave_startup_state/project_16_256317/pyproject.toml')",
+        "variable": "pyproject_toml"
+      },
+      {
+        "value": "PosixPath('/testbed/data/repo_behave_startup_state/project_16_256317/generated/392/src')",
+        "variable": "source_dir"
+      }
+    ]
+  },
+  "question": "Run the pytest test\n`kedro_qa/startup_get_project_metadata_s3_state/files/testcase.py::TestBootstrapMetadataState::test_generated_project_matrix`\nagainst this repository. In the exact function frame\n`kedro.framework.startup._get_project_metadata` from\n`kedro/framework/startup.py`, what are the values of the local variables\n`metadata_dict`, `project_path`, `pyproject_toml`, and `source_dir` immediately\nafter line 102 has executed for the 17th time during the test run?\n\nLine numbers are absolute, 1-based source line numbers in the named file as it\nexists in this repository. Here, one execution of line 102 means one normal\ncompletion, in an exact target-function frame, of the assignment statement\nwhose first source line is 102. Count those completions 1-based in chronological\norder across all calls made during the test, and observe the state after that\nassignment has taken effect but before the next executable statement in that\nframe begins. Only executions in the exact target frame count; activity in\ncallees, comprehensions, or other nested frames does not count. In general, a\nmulti-line statement is identified by the absolute line where the statement\nbegins. A function's `def` line, decorator lines, and docstring lines are not\nexecutions of body statements and do not count.\n\nReport each value as the string produced by Python `repr()` at that moment.\nFor a container, use `repr()` of the whole container, without recursively\nconverting it to JSON or reordering it. Thus strings retain their quote\ncharacters, Python spellings such as `None` and `True` remain inside the\nreported string, and any embedded newline is a real newline character in the\nJSON string after JSON decoding. Do not normalize path representations. All\nfour named locals exist at the observation point, so no missing-value or JSON\n`null` convention is needed.\n\nThe complete answer must have exactly the JSON shape\n`{\"observed_state\": [{\"value\": \"str\", \"variable\": \"str\"}]}`. The\n`observed_state` value is a JSON array containing one object for each of the\nfour named variables. Each object has exactly the string keys `value` and\n`variable`; `variable` is the local's source name and `value` is its `repr()`\nstring. Sort the objects by `variable` in ascending Unicode code-point order.\nRetain all four entries and do not deduplicate them. The `\"str\"` strings in the\nshape example are type placeholders, not answer values.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

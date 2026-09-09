@@ -1,0 +1,228 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 236,
+        "line": 126
+      },
+      {
+        "count": 59,
+        "line": 127
+      },
+      {
+        "count": 59,
+        "line": 128
+      },
+      {
+        "count": 59,
+        "line": 129
+      },
+      {
+        "count": 59,
+        "line": 130
+      },
+      {
+        "count": 0,
+        "line": 131
+      },
+      {
+        "count": 59,
+        "line": 132
+      },
+      {
+        "count": 8,
+        "line": 133
+      },
+      {
+        "count": 8,
+        "line": 134
+      },
+      {
+        "count": 8,
+        "line": 135
+      },
+      {
+        "count": 5,
+        "line": 136
+      },
+      {
+        "count": 5,
+        "line": 137
+      },
+      {
+        "count": 5,
+        "line": 138
+      },
+      {
+        "count": 5,
+        "line": 139
+      },
+      {
+        "count": 0,
+        "line": 140
+      },
+      {
+        "count": 59,
+        "line": 141
+      },
+      {
+        "count": 59,
+        "line": 142
+      },
+      {
+        "count": 59,
+        "line": 143
+      },
+      {
+        "count": 46,
+        "line": 144
+      },
+      {
+        "count": 0,
+        "line": 145
+      },
+      {
+        "count": 46,
+        "line": 146
+      },
+      {
+        "count": 46,
+        "line": 147
+      },
+      {
+        "count": 46,
+        "line": 148
+      },
+      {
+        "count": 46,
+        "line": 149
+      },
+      {
+        "count": 46,
+        "line": 150
+      },
+      {
+        "count": 41,
+        "line": 151
+      },
+      {
+        "count": 0,
+        "line": 152
+      },
+      {
+        "count": 0,
+        "line": 153
+      },
+      {
+        "count": 46,
+        "line": 154
+      },
+      {
+        "count": 46,
+        "line": 155
+      },
+      {
+        "count": 46,
+        "line": 156
+      },
+      {
+        "count": 46,
+        "line": 157
+      },
+      {
+        "count": 46,
+        "line": 158
+      },
+      {
+        "count": 39,
+        "line": 159
+      },
+      {
+        "count": 0,
+        "line": 160
+      },
+      {
+        "count": 0,
+        "line": 161
+      },
+      {
+        "count": 46,
+        "line": 162
+      },
+      {
+        "count": 39,
+        "line": 163
+      },
+      {
+        "count": 31,
+        "line": 164
+      },
+      {
+        "count": 0,
+        "line": 165
+      },
+      {
+        "count": 12,
+        "line": 166
+      },
+      {
+        "count": 0,
+        "line": 167
+      },
+      {
+        "count": 0,
+        "line": 168
+      },
+      {
+        "count": 46,
+        "line": 169
+      },
+      {
+        "count": 30,
+        "line": 170
+      },
+      {
+        "count": 17,
+        "line": 171
+      },
+      {
+        "count": 17,
+        "line": 172
+      },
+      {
+        "count": 0,
+        "line": 173
+      },
+      {
+        "count": 17,
+        "line": 174
+      },
+      {
+        "count": 0,
+        "line": 175
+      },
+      {
+        "count": 59,
+        "line": 176
+      },
+      {
+        "count": 0,
+        "line": 177
+      },
+      {
+        "count": 59,
+        "line": 178
+      }
+    ]
+  },
+  "question": "Run the pytest class selection `scrapy_qa/redirect_build_redirect_request_m1_cfg/files/testcase.py::TestRedirectRequestControlFlow`. Aggregate over ALL 12 test methods in that class: `test_authorization_default_port_equivalence`, `test_authorization_port_changes`, `test_both_sensitive_headers_cross_origin`, `test_cookie_http_to_https_same_host`, `test_cookie_https_to_http_is_removed`, `test_cookie_same_origin_relative_locations`, `test_cookie_subdomain_changes`, `test_no_sensitive_headers_mixed_hosts`, `test_post_redirects_rebuild_as_get`, `test_proxy_metadata_cross_scheme`, `test_proxy_metadata_same_scheme`, and `test_status_303_non_get_rebuilds`. Equivalently, these are the 12 pytest IDs formed by appending `::<method name>` to that class selection. What are the total runtime line-event execution counts for every physical source line in the body of `scrapy.downloadermiddlewares.redirect.BaseRedirectMiddleware._build_redirect_request` in `scrapy/downloadermiddlewares/redirect.py`?\n\nThe body scope is the inclusive physical line range from the first body statement through the function's final statement, as determined from the repository version's Python AST. It excludes the decorator, `def` line, and signature continuation lines. Include every integer line number in that inclusive body range. Blank lines, comment-only lines, and purely syntactic continuation lines remain in the output with count 0. For a multi-line statement or expression, credit each runtime `line` event to its absolute, 1-based `frame.f_lineno`: normally this is the physical line where the statement or executable subexpression begins. A continuation line that begins no executable subexpression therefore has count 0; do not normalize an event on an executable continuation line back to the statement's first line.\n\nCount only Python runtime events whose event type is exactly `line` and whose frame is exactly that target function in the named file. Ignore `call`, `return`, and `exception` events, and ignore events in callers, callees (including `handle_referer`), and all other frames. An invocation means one runtime `call` event for this exact function; counts are totals summed over every invocation made by all 12 test methods, with repeated events retained rather than deduplicated. Test execution order and invocation chronology do not affect these totals.\n\nReturn exactly one JSON object with key `line_execution_counts`. Its value must be a JSON array containing one object for every line in the inclusive body range. Each object has exactly `count` (a JSON integer) and `line` (a JSON integer). Sort objects by `line` numerically ascending; line numbers are unique, so there is no tie-breaker. Emit counts and line numbers directly as JSON integers, with no `repr()` or `str()` conversion.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

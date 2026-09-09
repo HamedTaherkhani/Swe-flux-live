@@ -1,0 +1,436 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Run the single pytest test method `TestTextResponseFollowAll.test_mixed_xpath_selectors` in `scrapy_qa/text_follow_all_s6_calls/files/testcase.py`. During the first invocation of `scrapy.http.response.text.TextResponse.follow_all` in `scrapy/http/response/text.py`, what is the exact ordered sequence of tracked Python function-call events?\n\nAn invocation means one Python `call` trace event for `scrapy.http.response.text.TextResponse.follow_all`; invocations are numbered from 1 in chronological execution order. Include the call event that begins invocation 1 itself. After that, include calls made directly by that target frame and calls made transitively by its descendants, but only while invocation 1 remains on the call stack. The interval ends at that invocation's matching `return` event. In particular, exclude calls that occur while the iterable returned by `follow_all` is consumed after the target frame has returned.\n\nThe exact tracked set is: `scrapy.http.response.text.TextResponse.follow_all`, `scrapy.http.response.text.TextResponse.follow`, `scrapy.http.response.text.TextResponse.css`, `scrapy.http.response.text.TextResponse.xpath`, and `scrapy.http.response.text._url_from_selector`. Exclude every function outside this set, including builtins, library helpers, comprehension frames, and methods inherited from classes other than `TextResponse`. A call means a Python line-tracing `call` event, not merely a call expression in source. Retain every repeated event without deduplication. If a tracked generator were present, each generator resumption that produces a Python `call` event would be retained as another event; resumptions without a `call` event would not add an item.\n\nOrder items by the runtime emission order of those `call` events, from earliest to latest; do not sort or deduplicate them. Runtime event order is the sole tie-breaker (wall-clock timestamps are not used). Represent each function as its full dotted identity `module.QualName`, for example `scrapy.http.request.Request.replace`. Represent `file` as the repository-relative POSIX path. Return exactly `{\"function_call_order\": [{\"file\": <str>, \"func\": <str>}, ...]}`; each object must have exactly the two string fields `file` and `func`.",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text.TextResponse.follow_all"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text.TextResponse.xpath"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      },
+      {
+        "file": "scrapy/http/response/text.py",
+        "func": "scrapy.http.response.text._url_from_selector"
+      }
+    ]
+  }
+}

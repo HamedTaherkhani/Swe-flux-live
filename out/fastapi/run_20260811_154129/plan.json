@@ -1,0 +1,1760 @@
+[
+  {
+    "instance_id": "utils_get_openapi_path_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "fastapi/openapi/utils.py",
+      "module": "fastapi.openapi.utils",
+      "qualname": "get_openapi_path",
+      "name": "get_openapi_path",
+      "lineno": 311,
+      "end_lineno": 540,
+      "params": [],
+      "metrics": {
+        "body_lines": 230,
+        "branches": 26,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 67,
+        "local_calls": [
+          "_get_openapi_dependency_data",
+          "_get_openapi_operation_parameters",
+          "_get_openapi_security_definitions",
+          "get_openapi_operation_metadata",
+          "get_openapi_operation_request_body",
+          "get_openapi_path"
+        ],
+        "num_local_calls": 6,
+        "assigns": 58,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 4,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 150.0,
+      "callers": [
+        "get_openapi"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=133.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "routing_populate_api_route_state_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "fastapi/routing.py",
+      "module": "fastapi.routing",
+      "qualname": "_populate_api_route_state",
+      "name": "_populate_api_route_state",
+      "lineno": 961,
+      "end_lineno": 1123,
+      "params": [
+        "route",
+        "path",
+        "endpoint"
+      ],
+      "metrics": {
+        "body_lines": 163,
+        "branches": 11,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 33,
+        "local_calls": [
+          "_build_dependant_with_parameterless_dependencies",
+          "get"
+        ],
+        "num_local_calls": 2,
+        "assigns": 59,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 12,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 129.0,
+      "callers": [
+        "_EffectiveRouteContext.from_api_route"
+      ],
+      "callers_2hop": [
+        "_IncludedRouter._build_effective_context"
+      ]
+    },
+    "rank_note": "affinity+score=72.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "utils_analyze_param_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "fastapi/dependencies/utils.py",
+      "module": "fastapi.dependencies.utils",
+      "qualname": "analyze_param",
+      "name": "analyze_param",
+      "lineno": 381,
+      "end_lineno": 547,
+      "params": [],
+      "metrics": {
+        "body_lines": 167,
+        "branches": 23,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 35,
+        "local_calls": [
+          "ensure_multipart_is_installed"
+        ],
+        "num_local_calls": 1,
+        "assigns": 34,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 9,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 118.0,
+      "callers": [
+        "get_dependant"
+      ],
+      "callers_2hop": [
+        "get_parameterless_sub_dependant",
+        "solve_dependencies"
+      ]
+    },
+    "rank_note": "affinity+score=118.6 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "utils_request_params_to_args_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "fastapi/dependencies/utils.py",
+      "module": "fastapi.dependencies.utils",
+      "qualname": "request_params_to_args",
+      "name": "request_params_to_args",
+      "lineno": 780,
+      "end_lineno": 866,
+      "params": [
+        "fields",
+        "received_params"
+      ],
+      "metrics": {
+        "body_lines": 87,
+        "branches": 11,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 28,
+        "local_calls": [
+          "_get_multidict_value",
+          "_validate_value_with_model_field",
+          "get_validation_alias"
+        ],
+        "num_local_calls": 3,
+        "assigns": 29,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 85.0,
+      "callers": [
+        "solve_dependencies"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=96.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "docs_stage_zensical_docs_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "scripts/docs.py",
+      "module": "scripts.docs",
+      "qualname": "stage_zensical_docs",
+      "name": "stage_zensical_docs",
+      "lineno": 208,
+      "end_lineno": 281,
+      "params": [
+        "lang"
+      ],
+      "metrics": {
+        "body_lines": 74,
+        "branches": 11,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 36,
+        "local_calls": [
+          "add_markdown_notice",
+          "get_en_url",
+          "get_updated_config_content",
+          "get_zensical_theme_language",
+          "is_non_translated_path",
+          "render_banner_sponsors"
+        ],
+        "num_local_calls": 6,
+        "assigns": 26,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 73.4,
+      "callers": [
+        "build_zensical_lang_to_stage"
+      ],
+      "callers_2hop": [
+        "build_lang"
+      ]
+    },
+    "rank_note": "affinity+score=52.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "routing_app_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "fastapi/routing.py",
+      "module": "fastapi.routing",
+      "qualname": "APIRouter.app",
+      "name": "app",
+      "lineno": 2719,
+      "end_lineno": 2781,
+      "params": [
+        "self",
+        "scope",
+        "receive",
+        "send"
+      ],
+      "metrics": {
+        "body_lines": 63,
+        "branches": 11,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "_get_fastapi_scope",
+          "_match_low_priority",
+          "_update_scope",
+          "handle",
+          "matches"
+        ],
+        "num_local_calls": 5,
+        "assigns": 16,
+        "augassigns": 0,
+        "returns": 6,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 68.3,
+      "callers": [
+        "APIRoute.handle",
+        "APIRouter.handle"
+      ],
+      "callers_2hop": [
+        "_FrontendRouteGroup.handle",
+        "_IncludedRouter._handle_selected"
+      ]
+    },
+    "rank_note": "affinity+score=62.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "doc_parsing_utils_extract_multiline_code_blocks_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "scripts/doc_parsing_utils.py",
+      "module": "scripts.doc_parsing_utils",
+      "qualname": "extract_multiline_code_blocks",
+      "name": "extract_multiline_code_blocks",
+      "lineno": 482,
+      "end_lineno": 549,
+      "params": [
+        "text"
+      ],
+      "metrics": {
+        "body_lines": 68,
+        "branches": 10,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 24,
+        "local_calls": [
+          "get_code_block_lang"
+        ],
+        "num_local_calls": 1,
+        "assigns": 25,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 4
+      },
+      "score": 73.8,
+      "callers": [
+        "check_translation"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=67.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "utils_get_openapi_operation_parameters_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "fastapi/openapi/utils.py",
+      "module": "fastapi.openapi.utils",
+      "qualname": "_get_openapi_operation_parameters",
+      "name": "_get_openapi_operation_parameters",
+      "lineno": 159,
+      "end_lineno": 228,
+      "params": [],
+      "metrics": {
+        "body_lines": 70,
+        "branches": 8,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 21,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 67.0,
+      "callers": [
+        "get_openapi_path"
+      ],
+      "callers_2hop": [
+        "get_openapi"
+      ]
+    },
+    "rank_note": "affinity+score=50.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "doc_parsing_utils_extract_header_permalinks_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "scripts/doc_parsing_utils.py",
+      "module": "scripts.doc_parsing_utils",
+      "qualname": "extract_header_permalinks",
+      "name": "extract_header_permalinks",
+      "lineno": 141,
+      "end_lineno": 189,
+      "params": [
+        "lines"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 11,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 4
+      },
+      "score": 60.9,
+      "callers": [
+        "check_translation"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=65.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "docs_generate_readme_content_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "scripts/docs.py",
+      "module": "scripts.docs",
+      "qualname": "generate_readme_content",
+      "name": "generate_readme_content",
+      "lineno": 347,
+      "end_lineno": 375,
+      "params": [],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "remove_header_permalinks"
+        ],
+        "num_local_calls": 1,
+        "assigns": 17,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 39.9,
+      "callers": [
+        "generate_readme"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=58.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "notify_translations_get_graphql_response_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "scripts/notify_translations.py",
+      "module": "scripts.notify_translations",
+      "qualname": "get_graphql_response",
+      "name": "get_graphql_response",
+      "lineno": 198,
+      "end_lineno": 236,
+      "params": [],
+      "metrics": {
+        "body_lines": 39,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 25.9,
+      "callers": [
+        "create_comment",
+        "get_graphql_translation_discussion_comments_edges",
+        "get_graphql_translation_discussions",
+        "update_comment"
+      ],
+      "callers_2hop": [
+        "get_graphql_translation_discussion_comments",
+        "main"
+      ]
+    },
+    "rank_note": "affinity+score=19.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "translate_translate_page_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "scripts/translate.py",
+      "module": "scripts.translate",
+      "qualname": "translate_page",
+      "name": "translate_page",
+      "lineno": 107,
+      "end_lineno": 178,
+      "params": [],
+      "metrics": {
+        "body_lines": 72,
+        "branches": 1,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 32,
+        "local_calls": [
+          "generate_lang_path",
+          "get_langs",
+          "get_prompt"
+        ],
+        "num_local_calls": 3,
+        "assigns": 18,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 47.2,
+      "callers": [
+        "add_missing",
+        "translate_lang",
+        "update_outdated"
+      ],
+      "callers_2hop": [
+        "update_and_add"
+      ]
+    },
+    "rank_note": "affinity+score=40.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "translate_list_outdated_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "scripts/translate.py",
+      "module": "scripts.translate",
+      "qualname": "list_outdated",
+      "name": "list_outdated",
+      "lineno": 357,
+      "end_lineno": 376,
+      "params": [
+        "language"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "generate_lang_path",
+          "iter_en_paths_to_translate"
+        ],
+        "num_local_calls": 2,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 30.0,
+      "callers": [
+        "update_outdated"
+      ],
+      "callers_2hop": [
+        "update_and_add"
+      ]
+    },
+    "rank_note": "affinity+score=28.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "encoders_jsonable_encoder_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "fastapi/encoders.py",
+      "module": "fastapi.encoders",
+      "qualname": "jsonable_encoder",
+      "name": "jsonable_encoder",
+      "lineno": 129,
+      "end_lineno": 366,
+      "params": [
+        "obj",
+        "include",
+        "exclude",
+        "by_alias",
+        "exclude_unset",
+        "exclude_defaults",
+        "exclude_none",
+        "custom_encoder",
+        "sqlalchemy_safe"
+      ],
+      "metrics": {
+        "body_lines": 238,
+        "branches": 19,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 50,
+        "local_calls": [
+          "jsonable_encoder"
+        ],
+        "num_local_calls": 1,
+        "assigns": 14,
+        "augassigns": 2,
+        "returns": 13,
+        "boolops": 6,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 102.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=109.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "notify_translations_main_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "scripts/notify_translations.py",
+      "module": "scripts.notify_translations",
+      "qualname": "main",
+      "name": "main",
+      "lineno": 306,
+      "end_lineno": 429,
+      "params": [],
+      "metrics": {
+        "body_lines": 124,
+        "branches": 14,
+        "loops": 5,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 46,
+        "local_calls": [
+          "create_comment",
+          "get_graphql_translation_discussion_comments",
+          "get_graphql_translation_discussions",
+          "update_comment"
+        ],
+        "num_local_calls": 4,
+        "assigns": 27,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 7,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 106.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=69.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "deploy_docs_status_main_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "scripts/deploy_docs_status.py",
+      "module": "scripts.deploy_docs_status",
+      "qualname": "main",
+      "name": "main",
+      "lineno": 25,
+      "end_lineno": 145,
+      "params": [],
+      "metrics": {
+        "body_lines": 121,
+        "branches": 12,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 49,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 29,
+        "augassigns": 6,
+        "returns": 4,
+        "boolops": 1,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 94.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=101.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tutorial005_an_py310_get_current_user_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "docs_src/security/tutorial005_an_py310.py",
+      "module": "docs_src.security.tutorial005_an_py310",
+      "qualname": "get_current_user",
+      "name": "get_current_user",
+      "lineno": 108,
+      "end_lineno": 140,
+      "params": [
+        "security_scopes",
+        "token"
+      ],
+      "metrics": {
+        "body_lines": 33,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "get_user"
+        ],
+        "num_local_calls": 1,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=39.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tutorial005_py310_get_current_user_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "docs_src/security/tutorial005_py310.py",
+      "module": "docs_src.security.tutorial005_py310",
+      "qualname": "get_current_user",
+      "name": "get_current_user",
+      "lineno": 107,
+      "end_lineno": 139,
+      "params": [
+        "security_scopes",
+        "token"
+      ],
+      "metrics": {
+        "body_lines": 33,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "get_user"
+        ],
+        "num_local_calls": 1,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=34.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "models_uses_scopes_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "fastapi/dependencies/models.py",
+      "module": "fastapi.dependencies.models",
+      "qualname": "_uses_scopes",
+      "name": "_uses_scopes",
+      "lineno": 99,
+      "end_lineno": 120,
+      "params": [],
+      "metrics": {
+        "body_lines": 22,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "_is_security_scheme",
+          "_uses_scopes"
+        ],
+        "num_local_calls": 2,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 29.2,
+      "callers": [
+        "_get_cache_key"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=27.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "v2_get_flat_models_from_annotation_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "fastapi/_compat/v2.py",
+      "module": "fastapi._compat.v2",
+      "qualname": "get_flat_models_from_annotation",
+      "name": "get_flat_models_from_annotation",
+      "lineno": 446,
+      "end_lineno": 459,
+      "params": [
+        "annotation",
+        "known_models"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "get_flat_models_from_annotation",
+          "get_flat_models_from_model"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 23.4,
+      "callers": [
+        "get_flat_models_from_field"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=22.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "translation_fixer_iter_all_lang_paths_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "scripts/translation_fixer.py",
+      "module": "scripts.translation_fixer",
+      "qualname": "iter_all_lang_paths",
+      "name": "iter_all_lang_paths",
+      "lineno": 31,
+      "end_lineno": 53,
+      "params": [
+        "lang_path_root"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 2,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 26.3,
+      "callers": [
+        "get_all_paths"
+      ],
+      "callers_2hop": [
+        "fix_all"
+      ]
+    },
+    "rank_note": "affinity+score=27.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "sponsors_get_individual_sponsors_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "scripts/sponsors.py",
+      "module": "scripts.sponsors",
+      "qualname": "get_individual_sponsors",
+      "name": "get_individual_sponsors",
+      "lineno": 127,
+      "end_lineno": 144,
+      "params": [
+        "settings"
+      ],
+      "metrics": {
+        "body_lines": 18,
+        "branches": 0,
+        "loops": 3,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "get_graphql_sponsor_edges"
+        ],
+        "num_local_calls": 1,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 23.8,
+      "callers": [
+        "main"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=21.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "prepare_release_get_release_notes_body_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "scripts/prepare_release.py",
+      "module": "scripts.prepare_release",
+      "qualname": "get_release_notes_body",
+      "name": "get_release_notes_body",
+      "lineno": 84,
+      "end_lineno": 99,
+      "params": [
+        "content",
+        "version",
+        "release_notes_file"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 24.6,
+      "callers": [
+        "release_notes"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=26.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "prepare_release_update_release_notes_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "scripts/prepare_release.py",
+      "module": "scripts.prepare_release",
+      "qualname": "update_release_notes",
+      "name": "update_release_notes",
+      "lineno": 62,
+      "end_lineno": 81,
+      "params": [
+        "content",
+        "version",
+        "release_date",
+        "release_notes_file"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 24.0,
+      "callers": [
+        "prepare"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=18.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "shared_field_annotation_is_sequence_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "fastapi/_compat/shared.py",
+      "module": "fastapi._compat.shared",
+      "qualname": "field_annotation_is_sequence",
+      "name": "field_annotation_is_sequence",
+      "lineno": 64,
+      "end_lineno": 77,
+      "params": [
+        "annotation"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "_annotation_is_sequence",
+          "field_annotation_is_sequence"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 26.4,
+      "callers": [
+        "annotation_is_pydantic_v1",
+        "field_annotation_is_scalar_sequence",
+        "is_bytes_sequence_annotation",
+        "is_uploadfile_sequence_annotation"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=24.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "sponsors_main_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "scripts/sponsors.py",
+      "module": "scripts.sponsors",
+      "qualname": "main",
+      "name": "main",
+      "lineno": 159,
+      "end_lineno": 218,
+      "params": [],
+      "metrics": {
+        "body_lines": 60,
+        "branches": 1,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 34,
+        "local_calls": [
+          "get_individual_sponsors",
+          "update_content"
+        ],
+        "num_local_calls": 2,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 41.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=41.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "models_is_coroutine_callable_cached_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "fastapi/dependencies/models.py",
+      "module": "fastapi.dependencies.models",
+      "qualname": "_is_coroutine_callable_cached",
+      "name": "_is_coroutine_callable_cached",
+      "lineno": 198,
+      "end_lineno": 220,
+      "params": [
+        "call_identity"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "_impartial",
+          "_unwrapped_call"
+        ],
+        "num_local_calls": 2,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 7,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 37.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=42.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "topic_repos_main_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "scripts/topic_repos.py",
+      "module": "scripts.topic_repos",
+      "qualname": "main",
+      "name": "main",
+      "lineno": 25,
+      "end_lineno": 77,
+      "params": [],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 34,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 39.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=26.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "v2_get_definitions_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "fastapi/_compat/v2.py",
+      "module": "fastapi._compat.v2",
+      "qualname": "get_definitions",
+      "name": "get_definitions",
+      "lineno": 285,
+      "end_lineno": 346,
+      "params": [],
+      "metrics": {
+        "body_lines": 62,
+        "branches": 1,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "_has_computed_fields",
+          "get_flat_models_from_fields"
+        ],
+        "num_local_calls": 2,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 7,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=35.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "shared_field_annotation_is_scalar_sequence_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "fastapi/_compat/shared.py",
+      "module": "fastapi._compat.shared",
+      "qualname": "field_annotation_is_scalar_sequence",
+      "name": "field_annotation_is_scalar_sequence",
+      "lineno": 113,
+      "end_lineno": 131,
+      "params": [
+        "annotation"
+      ],
+      "metrics": {
+        "body_lines": 19,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [
+          "field_annotation_is_scalar",
+          "field_annotation_is_scalar_sequence",
+          "field_annotation_is_sequence"
+        ],
+        "num_local_calls": 3,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 33.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=30.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tutorial004_py310_get_current_user_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "docs_src/security/tutorial004_py310.py",
+      "module": "docs_src.security.tutorial004_py310",
+      "qualname": "get_current_user",
+      "name": "get_current_user",
+      "lineno": 92,
+      "end_lineno": 109,
+      "params": [
+        "token"
+      ],
+      "metrics": {
+        "body_lines": 18,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "get_user"
+        ],
+        "num_local_calls": 1,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 22.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=22.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "sse_format_sse_event_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "fastapi/sse.py",
+      "module": "fastapi.sse",
+      "qualname": "format_sse_event",
+      "name": "format_sse_event",
+      "lineno": 165,
+      "end_lineno": 233,
+      "params": [],
+      "metrics": {
+        "body_lines": 69,
+        "branches": 5,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "_split_sse_lines"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 35.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=27.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "applications_setup_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "fastapi/applications.py",
+      "module": "fastapi.applications",
+      "qualname": "FastAPI.setup",
+      "name": "setup",
+      "lineno": 1105,
+      "end_lineno": 1158,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 54,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 23.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=30.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "applications_build_middleware_stack_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "fastapi/applications.py",
+      "module": "fastapi.applications",
+      "qualname": "FastAPI.build_middleware_stack",
+      "name": "build_middleware_stack",
+      "lineno": 1020,
+      "end_lineno": 1068,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 1,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 28.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=23.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "docs_get_swagger_ui_html_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "fastapi/openapi/docs.py",
+      "module": "fastapi.openapi.docs",
+      "qualname": "get_swagger_ui_html",
+      "name": "get_swagger_ui_html",
+      "lineno": 40,
+      "end_lineno": 194,
+      "params": [],
+      "metrics": {
+        "body_lines": 155,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "_html_safe_json"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 5,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 36.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=38.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "add_latest_release_date_main_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "scripts/add_latest_release_date.py",
+      "module": "scripts.add_latest_release_date",
+      "qualname": "main",
+      "name": "main",
+      "lineno": 11,
+      "end_lineno": 36,
+      "params": [],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 1
+      },
+      "score": 29.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=33.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tutorial004_an_py310_get_current_user_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "docs_src/security/tutorial004_an_py310.py",
+      "module": "docs_src.security.tutorial004_an_py310",
+      "qualname": "get_current_user",
+      "name": "get_current_user",
+      "lineno": 93,
+      "end_lineno": 110,
+      "params": [
+        "token"
+      ],
+      "metrics": {
+        "body_lines": 18,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "get_user"
+        ],
+        "num_local_calls": 1,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 22.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=22.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tutorial003_py310_websocket_endpoint_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "docs_src/websockets_/tutorial003_py310.py",
+      "module": "docs_src.websockets_.tutorial003_py310",
+      "qualname": "websocket_endpoint",
+      "name": "websocket_endpoint",
+      "lineno": 72,
+      "end_lineno": 81,
+      "params": [
+        "websocket",
+        "client_id"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 0,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "broadcast",
+          "connect",
+          "disconnect",
+          "send_personal_message"
+        ],
+        "num_local_calls": 4,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=25.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "translation_fixer_fix_all_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "scripts/translation_fixer.py",
+      "module": "scripts.translation_fixer",
+      "qualname": "fix_all",
+      "name": "fix_all",
+      "lineno": 103,
+      "end_lineno": 113,
+      "params": [
+        "ctx",
+        "language"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 1,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "get_all_paths",
+          "process_one_page"
+        ],
+        "num_local_calls": 2,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 21.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=20.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "utils_deep_dict_update_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "fastapi/utils.py",
+      "module": "fastapi.utils",
+      "qualname": "deep_dict_update",
+      "name": "deep_dict_update",
+      "lineno": 103,
+      "end_lineno": 118,
+      "params": [
+        "main_dict",
+        "update_dict"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "deep_dict_update"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 23.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=17.0 [direct]",
+    "exercise_mode": "direct"
+  }
+]

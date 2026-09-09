@@ -1,0 +1,2657 @@
+[
+  {
+    "instance_id": "parser_get_train_args_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/hparams/parser.py",
+      "module": "src.llamafactory.hparams.parser",
+      "qualname": "get_train_args",
+      "name": "get_train_args",
+      "lineno": 189,
+      "end_lineno": 391,
+      "params": [
+        "args"
+      ],
+      "metrics": {
+        "body_lines": 203,
+        "branches": 51,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 29,
+        "finallys": 0,
+        "calls": 62,
+        "local_calls": [
+          "_check_extra_dependencies",
+          "_parse_train_args",
+          "_set_transformers_logging",
+          "_verify_model_args"
+        ],
+        "num_local_calls": 4,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 34,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 233.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=254.0"
+  },
+  {
+    "instance_id": "mm_plugin_process_messages_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/llamafactory/data/mm_plugin.py",
+      "module": "src.llamafactory.data.mm_plugin",
+      "qualname": "Qwen2OmniPlugin.process_messages",
+      "name": "process_messages",
+      "lineno": 1364,
+      "end_lineno": 1491,
+      "params": [
+        "self",
+        "messages",
+        "images",
+        "videos",
+        "audios",
+        "processor"
+      ],
+      "metrics": {
+        "body_lines": 128,
+        "branches": 14,
+        "loops": 9,
+        "while_loops": 5,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 5,
+        "finallys": 0,
+        "calls": 44,
+        "local_calls": [
+          "_get_mm_inputs",
+          "_validate_input"
+        ],
+        "num_local_calls": 2,
+        "assigns": 35,
+        "augassigns": 8,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 121.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=98.6"
+  },
+  {
+    "instance_id": "runner_parse_train_args_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/llamafactory/webui/runner.py",
+      "module": "src.llamafactory.webui.runner",
+      "qualname": "Runner._parse_train_args",
+      "name": "_parse_train_args",
+      "lineno": 127,
+      "end_lineno": 286,
+      "params": [
+        "self",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 160,
+        "branches": 17,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 112,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 60,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 7,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 128.0,
+      "callers": [
+        "Runner._launch",
+        "Runner._preview"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=142.4"
+  },
+  {
+    "instance_id": "hf_engine_process_args_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/llamafactory/chat/hf_engine.py",
+      "module": "src.llamafactory.chat.hf_engine",
+      "qualname": "HuggingfaceEngine._process_args",
+      "name": "_process_args",
+      "lineno": 74,
+      "end_lineno": 211,
+      "params": [
+        "model",
+        "tokenizer",
+        "processor",
+        "template",
+        "generating_args",
+        "messages",
+        "system",
+        "tools",
+        "images",
+        "videos",
+        "audios",
+        "input_kwargs"
+      ],
+      "metrics": {
+        "body_lines": 138,
+        "branches": 19,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 60,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 40,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 4,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 112.0,
+      "callers": [
+        "HuggingfaceEngine._chat",
+        "HuggingfaceEngine._stream_chat"
+      ],
+      "callers_2hop": [
+        "HuggingfaceEngine.stream_chat"
+      ]
+    },
+    "rank_note": "affinity+score=135.0"
+  },
+  {
+    "instance_id": "quantization_configure_quantization_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/llamafactory/model/model_utils/quantization.py",
+      "module": "src.llamafactory.model.model_utils.quantization",
+      "qualname": "configure_quantization",
+      "name": "configure_quantization",
+      "lineno": 96,
+      "end_lineno": 197,
+      "params": [
+        "config",
+        "tokenizer",
+        "model_args",
+        "init_kwargs"
+      ],
+      "metrics": {
+        "body_lines": 102,
+        "branches": 21,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 9,
+        "finallys": 0,
+        "calls": 48,
+        "local_calls": [
+          "_get_quantization_dataset"
+        ],
+        "num_local_calls": 1,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 92.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=85.6"
+  },
+  {
+    "instance_id": "loader_load_model_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/model/loader.py",
+      "module": "src.llamafactory.model.loader",
+      "qualname": "load_model",
+      "name": "load_model",
+      "lineno": 117,
+      "end_lineno": 211,
+      "params": [
+        "tokenizer",
+        "model_args",
+        "finetuning_args",
+        "is_trainable",
+        "add_valuehead"
+      ],
+      "metrics": {
+        "body_lines": 95,
+        "branches": 20,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 37,
+        "local_calls": [
+          "_get_init_kwargs",
+          "load_config"
+        ],
+        "num_local_calls": 2,
+        "assigns": 27,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 99.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=76.8"
+  },
+  {
+    "instance_id": "adapter_setup_lora_tuning_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/model/adapter.py",
+      "module": "src.llamafactory.model.adapter",
+      "qualname": "_setup_lora_tuning",
+      "name": "_setup_lora_tuning",
+      "lineno": 137,
+      "end_lineno": 254,
+      "params": [
+        "config",
+        "model",
+        "model_args",
+        "finetuning_args",
+        "is_trainable",
+        "cast_trainable_params_to_fp32"
+      ],
+      "metrics": {
+        "body_lines": 118,
+        "branches": 19,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 41,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 28,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 7,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 109.0,
+      "callers": [
+        "init_adapter"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=120.2"
+  },
+  {
+    "instance_id": "mm_plugin_process_messages_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "src/llamafactory/data/mm_plugin.py",
+      "module": "src.llamafactory.data.mm_plugin",
+      "qualname": "MiniCPMVPlugin.process_messages",
+      "name": "process_messages",
+      "lineno": 684,
+      "end_lineno": 781,
+      "params": [
+        "self",
+        "messages",
+        "images",
+        "videos",
+        "audios",
+        "processor"
+      ],
+      "metrics": {
+        "body_lines": 98,
+        "branches": 9,
+        "loops": 8,
+        "while_loops": 3,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 34,
+        "local_calls": [
+          "_get_mm_inputs",
+          "_validate_input"
+        ],
+        "num_local_calls": 2,
+        "assigns": 36,
+        "augassigns": 7,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 107.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=77.7"
+  },
+  {
+    "instance_id": "chat_process_request_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/llamafactory/api/chat.py",
+      "module": "src.llamafactory.api.chat",
+      "qualname": "_process_request",
+      "name": "_process_request",
+      "lineno": 73,
+      "end_lineno": 164,
+      "params": [
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 92,
+        "branches": 17,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 1,
+        "raises": 6,
+        "finallys": 0,
+        "calls": 43,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 20,
+        "augassigns": 4,
+        "returns": 1,
+        "boolops": 7,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 108.0,
+      "callers": [
+        "create_chat_completion_response",
+        "create_stream_chat_completion_response"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=118.0"
+  },
+  {
+    "instance_id": "vllm_engine_generate_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/llamafactory/chat/vllm_engine.py",
+      "module": "src.llamafactory.chat.vllm_engine",
+      "qualname": "VllmEngine._generate",
+      "name": "_generate",
+      "lineno": 103,
+      "end_lineno": 209,
+      "params": [
+        "self",
+        "messages",
+        "system",
+        "tools",
+        "images",
+        "videos",
+        "audios"
+      ],
+      "metrics": {
+        "body_lines": 107,
+        "branches": 12,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 28,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 31,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 10,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 95.0,
+      "callers": [
+        "VllmEngine.chat",
+        "VllmEngine.stream_chat"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=134.3"
+  },
+  {
+    "instance_id": "loader_load_single_dataset_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/llamafactory/data/loader.py",
+      "module": "src.llamafactory.data.loader",
+      "qualname": "_load_single_dataset",
+      "name": "_load_single_dataset",
+      "lineno": 51,
+      "end_lineno": 157,
+      "params": [
+        "dataset_attr",
+        "model_args",
+        "data_args",
+        "training_args"
+      ],
+      "metrics": {
+        "body_lines": 107,
+        "branches": 14,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 43,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 24,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 91.0,
+      "callers": [
+        "_get_merged_dataset"
+      ],
+      "callers_2hop": [
+        "get_dataset"
+      ]
+    },
+    "rank_note": "affinity+score=54.6"
+  },
+  {
+    "instance_id": "trainer_ppo_train_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/train/ppo/trainer.py",
+      "module": "src.llamafactory.train.ppo.trainer",
+      "qualname": "CustomPPOTrainer.ppo_train",
+      "name": "ppo_train",
+      "lineno": 187,
+      "end_lineno": 295,
+      "params": [
+        "self",
+        "resume_from_checkpoint"
+      ],
+      "metrics": {
+        "body_lines": 109,
+        "branches": 6,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 2,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 63,
+        "local_calls": [
+          "get_inputs",
+          "get_rewards",
+          "save_model"
+        ],
+        "num_local_calls": 3,
+        "assigns": 31,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 82.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=62.0"
+  },
+  {
+    "instance_id": "supervised_preprocess_dataset_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/llamafactory/data/processor/supervised.py",
+      "module": "src.llamafactory.data.processor.supervised",
+      "qualname": "PackedSupervisedDatasetProcessor.preprocess_dataset",
+      "name": "preprocess_dataset",
+      "lineno": 127,
+      "end_lineno": 203,
+      "params": [
+        "self",
+        "examples"
+      ],
+      "metrics": {
+        "body_lines": 77,
+        "branches": 6,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 37,
+        "local_calls": [
+          "_encode_data_example"
+        ],
+        "num_local_calls": 1,
+        "assigns": 12,
+        "augassigns": 14,
+        "returns": 1,
+        "boolops": 11,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 91.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=110.6"
+  },
+  {
+    "instance_id": "llamafy_qwen_save_weight_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "scripts/convert_ckpt/llamafy_qwen.py",
+      "module": "scripts.convert_ckpt.llamafy_qwen",
+      "qualname": "save_weight",
+      "name": "save_weight",
+      "lineno": 39,
+      "end_lineno": 110,
+      "params": [
+        "input_dir",
+        "output_dir",
+        "shard_size",
+        "save_safetensors"
+      ],
+      "metrics": {
+        "body_lines": 72,
+        "branches": 14,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 46,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 26,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 88.2,
+      "callers": [
+        "llamafy_qwen"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=75.3"
+  },
+  {
+    "instance_id": "trainer_utils_create_galore_optimizer_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/llamafactory/train/trainer_utils.py",
+      "module": "src.llamafactory.train.trainer_utils",
+      "qualname": "_create_galore_optimizer",
+      "name": "_create_galore_optimizer",
+      "lineno": 194,
+      "end_lineno": 279,
+      "params": [
+        "model",
+        "training_args",
+        "finetuning_args"
+      ],
+      "metrics": {
+        "body_lines": 86,
+        "branches": 11,
+        "loops": 7,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 32,
+        "local_calls": [
+          "_get_decay_parameter_names"
+        ],
+        "num_local_calls": 1,
+        "assigns": 22,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 90.0,
+      "callers": [
+        "create_custom_optimizer"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=65.1"
+  },
+  {
+    "instance_id": "longlora_llama_flash_attention_2_forward_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/llamafactory/model/model_utils/longlora.py",
+      "module": "src.llamafactory.model.model_utils.longlora",
+      "qualname": "llama_flash_attention_2_forward",
+      "name": "llama_flash_attention_2_forward",
+      "lineno": 134,
+      "end_lineno": 244,
+      "params": [
+        "self",
+        "hidden_states",
+        "attention_mask",
+        "position_ids",
+        "past_key_value",
+        "output_attentions",
+        "cache_position",
+        "position_embeddings"
+      ],
+      "metrics": {
+        "body_lines": 111,
+        "branches": 10,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 45,
+        "local_calls": [
+          "shift"
+        ],
+        "num_local_calls": 1,
+        "assigns": 36,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 80.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=86.6"
+  },
+  {
+    "instance_id": "trainer_utils_create_apollo_optimizer_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/llamafactory/train/trainer_utils.py",
+      "module": "src.llamafactory.train.trainer_utils",
+      "qualname": "_create_apollo_optimizer",
+      "name": "_create_apollo_optimizer",
+      "lineno": 282,
+      "end_lineno": 363,
+      "params": [
+        "model",
+        "training_args",
+        "finetuning_args"
+      ],
+      "metrics": {
+        "body_lines": 82,
+        "branches": 9,
+        "loops": 7,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 32,
+        "local_calls": [
+          "_get_decay_parameter_names"
+        ],
+        "num_local_calls": 1,
+        "assigns": 20,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 84.0,
+      "callers": [
+        "create_custom_optimizer"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=88.2"
+  },
+  {
+    "instance_id": "adapter_setup_freeze_tuning_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/llamafactory/model/adapter.py",
+      "module": "src.llamafactory.model.adapter",
+      "qualname": "_setup_freeze_tuning",
+      "name": "_setup_freeze_tuning",
+      "lineno": 57,
+      "end_lineno": 134,
+      "params": [
+        "model",
+        "finetuning_args",
+        "is_trainable",
+        "cast_trainable_params_to_fp32"
+      ],
+      "metrics": {
+        "body_lines": 78,
+        "branches": 14,
+        "loops": 5,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 43,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 83.8,
+      "callers": [
+        "init_adapter"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=64.3"
+  },
+  {
+    "instance_id": "parser_get_dataset_list_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/data/parser.py",
+      "module": "src.llamafactory.data.parser",
+      "qualname": "get_dataset_list",
+      "name": "get_dataset_list",
+      "lineno": 93,
+      "end_lineno": 150,
+      "params": [
+        "dataset_names",
+        "dataset_dir"
+      ],
+      "metrics": {
+        "body_lines": 58,
+        "branches": 12,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "join"
+        ],
+        "num_local_calls": 1,
+        "assigns": 19,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 1
+      },
+      "score": 79.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.3"
+  },
+  {
+    "instance_id": "sglang_engine_generate_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/chat/sglang_engine.py",
+      "module": "src.llamafactory.chat.sglang_engine",
+      "qualname": "SGLangEngine._generate",
+      "name": "_generate",
+      "lineno": 127,
+      "end_lineno": 215,
+      "params": [
+        "self",
+        "messages",
+        "system",
+        "tools",
+        "images",
+        "videos",
+        "audios"
+      ],
+      "metrics": {
+        "body_lines": 89,
+        "branches": 9,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 23,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 10,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 82.0,
+      "callers": [
+        "SGLangEngine.chat",
+        "SGLangEngine.stream_chat"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=90.3"
+  },
+  {
+    "instance_id": "llama_pro_block_expansion_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "scripts/llama_pro.py",
+      "module": "scripts.llama_pro",
+      "qualname": "block_expansion",
+      "name": "block_expansion",
+      "lineno": 40,
+      "end_lineno": 125,
+      "params": [
+        "model_name_or_path",
+        "output_dir",
+        "num_expand",
+        "shard_size",
+        "save_safetensors"
+      ],
+      "metrics": {
+        "body_lines": 86,
+        "branches": 9,
+        "loops": 5,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 45,
+        "local_calls": [
+          "change_name"
+        ],
+        "num_local_calls": 1,
+        "assigns": 18,
+        "augassigns": 2,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 77.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=57.8"
+  },
+  {
+    "instance_id": "tuner_export_model_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/llamafactory/train/tuner.py",
+      "module": "src.llamafactory.train.tuner",
+      "qualname": "export_model",
+      "name": "export_model",
+      "lineno": 110,
+      "end_lineno": 195,
+      "params": [
+        "args"
+      ],
+      "metrics": {
+        "body_lines": 86,
+        "branches": 15,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 42,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 75.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=83.3"
+  },
+  {
+    "instance_id": "longlora_llama_sdpa_attention_forward_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/llamafactory/model/model_utils/longlora.py",
+      "module": "src.llamafactory.model.model_utils.longlora",
+      "qualname": "llama_sdpa_attention_forward",
+      "name": "llama_sdpa_attention_forward",
+      "lineno": 249,
+      "end_lineno": 349,
+      "params": [
+        "self",
+        "hidden_states",
+        "attention_mask",
+        "position_ids",
+        "past_key_value",
+        "output_attentions",
+        "cache_position",
+        "position_embeddings"
+      ],
+      "metrics": {
+        "body_lines": 101,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 36,
+        "local_calls": [
+          "llama_attention_forward",
+          "shift"
+        ],
+        "num_local_calls": 2,
+        "assigns": 29,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 73.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=110.6"
+  },
+  {
+    "instance_id": "patcher_patch_config_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/llamafactory/model/patcher.py",
+      "module": "src.llamafactory.model.patcher",
+      "qualname": "patch_config",
+      "name": "patch_config",
+      "lineno": 84,
+      "end_lineno": 136,
+      "params": [
+        "config",
+        "tokenizer",
+        "model_args",
+        "init_kwargs",
+        "is_trainable"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 11,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 29,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 6,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 63.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.8"
+  },
+  {
+    "instance_id": "parser_get_infer_args_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/hparams/parser.py",
+      "module": "src.llamafactory.hparams.parser",
+      "qualname": "get_infer_args",
+      "name": "get_infer_args",
+      "lineno": 394,
+      "end_lineno": 422,
+      "params": [
+        "args"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 7,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "_check_extra_dependencies",
+          "_parse_infer_args",
+          "_set_transformers_logging",
+          "_verify_model_args"
+        ],
+        "num_local_calls": 4,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=43.7"
+  },
+  {
+    "instance_id": "trainer_batched_forward_pass_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/llamafactory/train/ppo/trainer.py",
+      "module": "src.llamafactory.train.ppo.trainer",
+      "qualname": "CustomPPOTrainer.batched_forward_pass",
+      "name": "batched_forward_pass",
+      "lineno": 410,
+      "end_lineno": 474,
+      "params": [
+        "self",
+        "model",
+        "queries",
+        "responses",
+        "model_inputs",
+        "return_logits",
+        "response_masks"
+      ],
+      "metrics": {
+        "body_lines": 65,
+        "branches": 5,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 23,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 22,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 59.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=63.2"
+  },
+  {
+    "instance_id": "liger_kernel_apply_liger_kernel_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/model/model_utils/liger_kernel.py",
+      "module": "src.llamafactory.model.model_utils.liger_kernel",
+      "qualname": "apply_liger_kernel",
+      "name": "apply_liger_kernel",
+      "lineno": 30,
+      "end_lineno": 77,
+      "params": [
+        "config",
+        "model_args",
+        "is_trainable",
+        "require_logits"
+      ],
+      "metrics": {
+        "body_lines": 48,
+        "branches": 15,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "apply_liger_kernel"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 49.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=59.7"
+  },
+  {
+    "instance_id": "hh_rlhf_en_generate_examples_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "data/hh_rlhf_en/hh_rlhf_en.py",
+      "module": "data.hh_rlhf_en.hh_rlhf_en",
+      "qualname": "HhRlhfEn._generate_examples",
+      "name": "_generate_examples",
+      "lineno": 67,
+      "end_lineno": 98,
+      "params": [
+        "self",
+        "filepaths"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 1,
+        "loops": 3,
+        "while_loops": 1,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 17,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 1
+      },
+      "score": 48.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=43.2"
+  },
+  {
+    "instance_id": "workflow_run_sft_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/llamafactory/train/sft/workflow.py",
+      "module": "src.llamafactory.train.sft.workflow",
+      "qualname": "run_sft",
+      "name": "run_sft",
+      "lineno": 40,
+      "end_lineno": 133,
+      "params": [
+        "model_args",
+        "data_args",
+        "training_args",
+        "finetuning_args",
+        "generating_args",
+        "callbacks"
+      ],
+      "metrics": {
+        "body_lines": 94,
+        "branches": 9,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 30,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 23,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 69.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=67.0"
+  },
+  {
+    "instance_id": "vllm_infer_vllm_infer_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "scripts/vllm_infer.py",
+      "module": "scripts.vllm_infer",
+      "qualname": "vllm_infer",
+      "name": "vllm_infer",
+      "lineno": 34,
+      "end_lineno": 159,
+      "params": [
+        "model_name_or_path",
+        "adapter_name_or_path",
+        "dataset",
+        "dataset_dir",
+        "template",
+        "cutoff_len",
+        "max_samples",
+        "vllm_config",
+        "save_name",
+        "temperature",
+        "top_p",
+        "top_k",
+        "max_new_tokens",
+        "repetition_penalty",
+        "skip_special_tokens",
+        "seed",
+        "pipeline_parallel_size",
+        "image_max_pixels",
+        "image_min_pixels"
+      ],
+      "metrics": {
+        "body_lines": 126,
+        "branches": 7,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 36,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 20,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 4,
+        "comprehensions": 1,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 69.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=70.6"
+  },
+  {
+    "instance_id": "runner_monitor_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/llamafactory/webui/runner.py",
+      "module": "src.llamafactory.webui.runner",
+      "qualname": "Runner.monitor",
+      "name": "monitor",
+      "lineno": 397,
+      "end_lineno": 453,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 57,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 25,
+        "local_calls": [
+          "_finalize"
+        ],
+        "num_local_calls": 1,
+        "assigns": 21,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 61.7,
+      "callers": [
+        "Runner._launch"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=39.8"
+  },
+  {
+    "instance_id": "loader_get_dataset_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/data/loader.py",
+      "module": "src.llamafactory.data.loader",
+      "qualname": "get_dataset",
+      "name": "get_dataset",
+      "lineno": 272,
+      "end_lineno": 325,
+      "params": [
+        "template",
+        "model_args",
+        "data_args",
+        "training_args",
+        "stage",
+        "tokenizer",
+        "processor"
+      ],
+      "metrics": {
+        "body_lines": 54,
+        "branches": 7,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [
+          "_get_merged_dataset",
+          "_get_preprocessed_dataset"
+        ],
+        "num_local_calls": 2,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 45.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.6"
+  },
+  {
+    "instance_id": "export_save_model_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/webui/components/export.py",
+      "module": "src.llamafactory.webui.components.export",
+      "qualname": "save_model",
+      "name": "save_model",
+      "lineno": 46,
+      "end_lineno": 107,
+      "params": [
+        "lang",
+        "model_name",
+        "model_path",
+        "finetuning_type",
+        "checkpoint_path",
+        "template",
+        "export_size",
+        "export_quantization_bit",
+        "export_quantization_dataset",
+        "export_device",
+        "export_legacy_format",
+        "export_dir",
+        "export_hub_model_id"
+      ],
+      "metrics": {
+        "body_lines": 62,
+        "branches": 9,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 4,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 55.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=62.2"
+  },
+  {
+    "instance_id": "trainer_log_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "src/llamafactory/train/kto/trainer.py",
+      "module": "src.llamafactory.train.kto.trainer",
+      "qualname": "CustomKTOTrainer.log",
+      "name": "log",
+      "lineno": 261,
+      "end_lineno": 295,
+      "params": [
+        "self",
+        "logs"
+      ],
+      "metrics": {
+        "body_lines": 35,
+        "branches": 4,
+        "loops": 5,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [
+          "log"
+        ],
+        "num_local_calls": 1,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 48.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=43.1"
+  },
+  {
+    "instance_id": "supervised_encode_data_example_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/llamafactory/data/processor/supervised.py",
+      "module": "src.llamafactory.data.processor.supervised",
+      "qualname": "SupervisedDatasetProcessor._encode_data_example",
+      "name": "_encode_data_example",
+      "lineno": 33,
+      "end_lineno": 86,
+      "params": [
+        "self",
+        "prompt",
+        "response",
+        "system",
+        "tools",
+        "images",
+        "videos",
+        "audios"
+      ],
+      "metrics": {
+        "body_lines": 54,
+        "branches": 7,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 15,
+        "augassigns": 5,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 56.4,
+      "callers": [
+        "PackedSupervisedDatasetProcessor.preprocess_dataset",
+        "SupervisedDatasetProcessor.preprocess_dataset"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=68.9"
+  },
+  {
+    "instance_id": "cal_ppl_calculate_ppl_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "scripts/stat_utils/cal_ppl.py",
+      "module": "scripts.stat_utils.cal_ppl",
+      "qualname": "calculate_ppl",
+      "name": "calculate_ppl",
+      "lineno": 55,
+      "end_lineno": 130,
+      "params": [
+        "model_name_or_path",
+        "save_name",
+        "batch_size",
+        "stage",
+        "dataset",
+        "dataset_dir",
+        "template",
+        "cutoff_len",
+        "max_samples",
+        "train_on_prompt"
+      ],
+      "metrics": {
+        "body_lines": 76,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 39,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 23,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 54.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=82.5"
+  },
+  {
+    "instance_id": "chat_model_run_chat_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/llamafactory/chat/chat_model.py",
+      "module": "src.llamafactory.chat.chat_model",
+      "qualname": "run_chat",
+      "name": "run_chat",
+      "lineno": 147,
+      "end_lineno": 184,
+      "params": [],
+      "metrics": {
+        "body_lines": 38,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 3,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "stream_chat"
+        ],
+        "num_local_calls": 1,
+        "assigns": 5,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 45.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.4"
+  },
+  {
+    "instance_id": "template_get_template_and_fix_tokenizer_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/data/template.py",
+      "module": "src.llamafactory.data.template",
+      "qualname": "get_template_and_fix_tokenizer",
+      "name": "get_template_and_fix_tokenizer",
+      "lineno": 506,
+      "end_lineno": 535,
+      "params": [
+        "tokenizer",
+        "data_args"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "fix_jinja_template",
+          "fix_special_tokens",
+          "parse_template"
+        ],
+        "num_local_calls": 3,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 37.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=37.5"
+  },
+  {
+    "instance_id": "evaluator_eval_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/llamafactory/eval/evaluator.py",
+      "module": "src.llamafactory.eval.evaluator",
+      "qualname": "Evaluator.eval",
+      "name": "eval",
+      "lineno": 79,
+      "end_lineno": 137,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 59,
+        "branches": 0,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 38,
+        "local_calls": [
+          "_save_results",
+          "batch_inference"
+        ],
+        "num_local_calls": 2,
+        "assigns": 19,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 47.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.4"
+  },
+  {
+    "instance_id": "cal_mfu_compute_model_flops_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "scripts/stat_utils/cal_mfu.py",
+      "module": "scripts.stat_utils.cal_mfu",
+      "qualname": "compute_model_flops",
+      "name": "compute_model_flops",
+      "lineno": 29,
+      "end_lineno": 83,
+      "params": [
+        "model_name_or_path",
+        "total_batch_size",
+        "seq_length",
+        "include_backward",
+        "include_recompute",
+        "include_flashattn"
+      ],
+      "metrics": {
+        "body_lines": 55,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 23,
+        "augassigns": 5,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 51.5,
+      "callers": [
+        "calculate_mfu"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=63.4"
+  },
+  {
+    "instance_id": "parser_get_train_args_s1_cfg__r20260714",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/hparams/parser.py",
+      "module": "src.llamafactory.hparams.parser",
+      "qualname": "get_train_args",
+      "name": "get_train_args",
+      "lineno": 189,
+      "end_lineno": 391,
+      "params": [
+        "args"
+      ],
+      "metrics": {
+        "body_lines": 203,
+        "branches": 51,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 29,
+        "finallys": 0,
+        "calls": 62,
+        "local_calls": [
+          "_check_extra_dependencies",
+          "_parse_train_args",
+          "_set_transformers_logging",
+          "_verify_model_args"
+        ],
+        "num_local_calls": 4,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 34,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 233.0
+    },
+    "rank_note": "affinity+score=254.0"
+  },
+  {
+    "instance_id": "mm_plugin_process_messages_s2_loops__r20260714",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/llamafactory/data/mm_plugin.py",
+      "module": "src.llamafactory.data.mm_plugin",
+      "qualname": "Qwen2OmniPlugin.process_messages",
+      "name": "process_messages",
+      "lineno": 1364,
+      "end_lineno": 1491,
+      "params": [
+        "self",
+        "messages",
+        "images",
+        "videos",
+        "audios",
+        "processor"
+      ],
+      "metrics": {
+        "body_lines": 128,
+        "branches": 14,
+        "loops": 9,
+        "while_loops": 5,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 5,
+        "finallys": 0,
+        "calls": 44,
+        "local_calls": [
+          "_get_mm_inputs",
+          "_validate_input"
+        ],
+        "num_local_calls": 2,
+        "assigns": 35,
+        "augassigns": 8,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 121.0
+    },
+    "rank_note": "affinity+score=99.6"
+  },
+  {
+    "instance_id": "runner_parse_train_args_s3_state__r20260714",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/llamafactory/webui/runner.py",
+      "module": "src.llamafactory.webui.runner",
+      "qualname": "Runner._parse_train_args",
+      "name": "_parse_train_args",
+      "lineno": 127,
+      "end_lineno": 286,
+      "params": [
+        "self",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 160,
+        "branches": 17,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 112,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 60,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 7,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 128.0
+    },
+    "rank_note": "affinity+score=142.1"
+  },
+  {
+    "instance_id": "hf_engine_process_args_s4_dataflow__r20260714",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/llamafactory/chat/hf_engine.py",
+      "module": "src.llamafactory.chat.hf_engine",
+      "qualname": "HuggingfaceEngine._process_args",
+      "name": "_process_args",
+      "lineno": 74,
+      "end_lineno": 211,
+      "params": [
+        "model",
+        "tokenizer",
+        "processor",
+        "template",
+        "generating_args",
+        "messages",
+        "system",
+        "tools",
+        "images",
+        "videos",
+        "audios",
+        "input_kwargs"
+      ],
+      "metrics": {
+        "body_lines": 138,
+        "branches": 19,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 60,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 40,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 4,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 112.0
+    },
+    "rank_note": "affinity+score=136.3"
+  },
+  {
+    "instance_id": "chat_process_request_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/llamafactory/api/chat.py",
+      "module": "src.llamafactory.api.chat",
+      "qualname": "_process_request",
+      "name": "_process_request",
+      "lineno": 73,
+      "end_lineno": 164,
+      "params": [
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 92,
+        "branches": 17,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 1,
+        "raises": 6,
+        "finallys": 0,
+        "calls": 43,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 20,
+        "augassigns": 4,
+        "returns": 1,
+        "boolops": 7,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 108.0
+    },
+    "rank_note": "affinity+score=86.0"
+  },
+  {
+    "instance_id": "loader_load_model_s6_calls__r20260714",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/model/loader.py",
+      "module": "src.llamafactory.model.loader",
+      "qualname": "load_model",
+      "name": "load_model",
+      "lineno": 117,
+      "end_lineno": 211,
+      "params": [
+        "tokenizer",
+        "model_args",
+        "finetuning_args",
+        "is_trainable",
+        "add_valuehead"
+      ],
+      "metrics": {
+        "body_lines": 95,
+        "branches": 20,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 37,
+        "local_calls": [
+          "_get_init_kwargs",
+          "load_config"
+        ],
+        "num_local_calls": 2,
+        "assigns": 27,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 99.0
+    },
+    "rank_note": "affinity+score=77.0"
+  },
+  {
+    "instance_id": "adapter_setup_lora_tuning_m1_cfg__r20260714",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/model/adapter.py",
+      "module": "src.llamafactory.model.adapter",
+      "qualname": "_setup_lora_tuning",
+      "name": "_setup_lora_tuning",
+      "lineno": 137,
+      "end_lineno": 254,
+      "params": [
+        "config",
+        "model",
+        "model_args",
+        "finetuning_args",
+        "is_trainable",
+        "cast_trainable_params_to_fp32"
+      ],
+      "metrics": {
+        "body_lines": 118,
+        "branches": 19,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 41,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 28,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 7,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 109.0
+    },
+    "rank_note": "affinity+score=120.1"
+  },
+  {
+    "instance_id": "mm_plugin_process_messages_m2_loops__r20260714",
+    "category": "M2_Loops",
+    "target": {
+      "file": "src/llamafactory/data/mm_plugin.py",
+      "module": "src.llamafactory.data.mm_plugin",
+      "qualname": "MiniCPMVPlugin.process_messages",
+      "name": "process_messages",
+      "lineno": 684,
+      "end_lineno": 781,
+      "params": [
+        "self",
+        "messages",
+        "images",
+        "videos",
+        "audios",
+        "processor"
+      ],
+      "metrics": {
+        "body_lines": 98,
+        "branches": 9,
+        "loops": 8,
+        "while_loops": 3,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 34,
+        "local_calls": [
+          "_get_mm_inputs",
+          "_validate_input"
+        ],
+        "num_local_calls": 2,
+        "assigns": 36,
+        "augassigns": 7,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 107.0
+    },
+    "rank_note": "affinity+score=77.7"
+  },
+  {
+    "instance_id": "llamafy_qwen_save_weight_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "scripts/convert_ckpt/llamafy_qwen.py",
+      "module": "scripts.convert_ckpt.llamafy_qwen",
+      "qualname": "save_weight",
+      "name": "save_weight",
+      "lineno": 39,
+      "end_lineno": 110,
+      "params": [
+        "input_dir",
+        "output_dir",
+        "shard_size",
+        "save_safetensors"
+      ],
+      "metrics": {
+        "body_lines": 72,
+        "branches": 14,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 46,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 26,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 88.2
+    },
+    "rank_note": "affinity+score=103.2"
+  },
+  {
+    "instance_id": "vllm_engine_generate_m4_dataflow__r20260714",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/llamafactory/chat/vllm_engine.py",
+      "module": "src.llamafactory.chat.vllm_engine",
+      "qualname": "VllmEngine._generate",
+      "name": "_generate",
+      "lineno": 103,
+      "end_lineno": 209,
+      "params": [
+        "self",
+        "messages",
+        "system",
+        "tools",
+        "images",
+        "videos",
+        "audios"
+      ],
+      "metrics": {
+        "body_lines": 107,
+        "branches": 12,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 28,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 31,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 10,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 95.0
+    },
+    "rank_note": "affinity+score=133.8"
+  },
+  {
+    "instance_id": "quantization_configure_quantization_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/llamafactory/model/model_utils/quantization.py",
+      "module": "src.llamafactory.model.model_utils.quantization",
+      "qualname": "configure_quantization",
+      "name": "configure_quantization",
+      "lineno": 96,
+      "end_lineno": 197,
+      "params": [
+        "config",
+        "tokenizer",
+        "model_args",
+        "init_kwargs"
+      ],
+      "metrics": {
+        "body_lines": 102,
+        "branches": 21,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 9,
+        "finallys": 0,
+        "calls": 48,
+        "local_calls": [
+          "_get_quantization_dataset"
+        ],
+        "num_local_calls": 1,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 92.0
+    },
+    "rank_note": "affinity+score=66.1"
+  },
+  {
+    "instance_id": "trainer_ppo_train_m6_calls__r20260714",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/train/ppo/trainer.py",
+      "module": "src.llamafactory.train.ppo.trainer",
+      "qualname": "CustomPPOTrainer.ppo_train",
+      "name": "ppo_train",
+      "lineno": 187,
+      "end_lineno": 295,
+      "params": [
+        "self",
+        "resume_from_checkpoint"
+      ],
+      "metrics": {
+        "body_lines": 109,
+        "branches": 6,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 2,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 63,
+        "local_calls": [
+          "get_inputs",
+          "get_rewards",
+          "save_model"
+        ],
+        "num_local_calls": 3,
+        "assigns": 31,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 82.0
+    },
+    "rank_note": "affinity+score=61.2"
+  },
+  {
+    "instance_id": "supervised_preprocess_dataset_m7_invariants__r20260714",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/llamafactory/data/processor/supervised.py",
+      "module": "src.llamafactory.data.processor.supervised",
+      "qualname": "PackedSupervisedDatasetProcessor.preprocess_dataset",
+      "name": "preprocess_dataset",
+      "lineno": 127,
+      "end_lineno": 203,
+      "params": [
+        "self",
+        "examples"
+      ],
+      "metrics": {
+        "body_lines": 77,
+        "branches": 6,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 37,
+        "local_calls": [
+          "_encode_data_example"
+        ],
+        "num_local_calls": 1,
+        "assigns": 12,
+        "augassigns": 14,
+        "returns": 1,
+        "boolops": 11,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 91.7
+    },
+    "rank_note": "affinity+score=110.2"
+  },
+  {
+    "instance_id": "loader_load_single_dataset_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/data/loader.py",
+      "module": "src.llamafactory.data.loader",
+      "qualname": "_load_single_dataset",
+      "name": "_load_single_dataset",
+      "lineno": 51,
+      "end_lineno": 157,
+      "params": [
+        "dataset_attr",
+        "model_args",
+        "data_args",
+        "training_args"
+      ],
+      "metrics": {
+        "body_lines": 107,
+        "branches": 14,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 43,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 24,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 91.0
+    },
+    "rank_note": "affinity+score=79.5"
+  },
+  {
+    "instance_id": "trainer_utils_create_galore_optimizer_s2_loops__r20260714",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/llamafactory/train/trainer_utils.py",
+      "module": "src.llamafactory.train.trainer_utils",
+      "qualname": "_create_galore_optimizer",
+      "name": "_create_galore_optimizer",
+      "lineno": 194,
+      "end_lineno": 279,
+      "params": [
+        "model",
+        "training_args",
+        "finetuning_args"
+      ],
+      "metrics": {
+        "body_lines": 86,
+        "branches": 11,
+        "loops": 7,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 32,
+        "local_calls": [
+          "_get_decay_parameter_names"
+        ],
+        "num_local_calls": 1,
+        "assigns": 22,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 90.0
+    },
+    "rank_note": "affinity+score=65.5"
+  },
+  {
+    "instance_id": "longlora_llama_flash_attention_2_forward_s3_state__r20260714",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/llamafactory/model/model_utils/longlora.py",
+      "module": "src.llamafactory.model.model_utils.longlora",
+      "qualname": "llama_flash_attention_2_forward",
+      "name": "llama_flash_attention_2_forward",
+      "lineno": 134,
+      "end_lineno": 244,
+      "params": [
+        "self",
+        "hidden_states",
+        "attention_mask",
+        "position_ids",
+        "past_key_value",
+        "output_attentions",
+        "cache_position",
+        "position_embeddings"
+      ],
+      "metrics": {
+        "body_lines": 111,
+        "branches": 10,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 45,
+        "local_calls": [
+          "shift"
+        ],
+        "num_local_calls": 1,
+        "assigns": 36,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 80.0
+    },
+    "rank_note": "affinity+score=86.5"
+  },
+  {
+    "instance_id": "trainer_utils_create_apollo_optimizer_s4_dataflow__r20260714",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/llamafactory/train/trainer_utils.py",
+      "module": "src.llamafactory.train.trainer_utils",
+      "qualname": "_create_apollo_optimizer",
+      "name": "_create_apollo_optimizer",
+      "lineno": 282,
+      "end_lineno": 363,
+      "params": [
+        "model",
+        "training_args",
+        "finetuning_args"
+      ],
+      "metrics": {
+        "body_lines": 82,
+        "branches": 9,
+        "loops": 7,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 32,
+        "local_calls": [
+          "_get_decay_parameter_names"
+        ],
+        "num_local_calls": 1,
+        "assigns": 20,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 84.0
+    },
+    "rank_note": "affinity+score=87.9"
+  },
+  {
+    "instance_id": "parser_get_dataset_list_s6_calls__r20260714",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/llamafactory/data/parser.py",
+      "module": "src.llamafactory.data.parser",
+      "qualname": "get_dataset_list",
+      "name": "get_dataset_list",
+      "lineno": 93,
+      "end_lineno": 150,
+      "params": [
+        "dataset_names",
+        "dataset_dir"
+      ],
+      "metrics": {
+        "body_lines": 58,
+        "branches": 12,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "join"
+        ],
+        "num_local_calls": 1,
+        "assigns": 19,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 1
+      },
+      "score": 79.8
+    },
+    "rank_note": "affinity+score=56.2"
+  },
+  {
+    "instance_id": "adapter_setup_freeze_tuning_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/llamafactory/model/adapter.py",
+      "module": "src.llamafactory.model.adapter",
+      "qualname": "_setup_freeze_tuning",
+      "name": "_setup_freeze_tuning",
+      "lineno": 57,
+      "end_lineno": 134,
+      "params": [
+        "model",
+        "finetuning_args",
+        "is_trainable",
+        "cast_trainable_params_to_fp32"
+      ],
+      "metrics": {
+        "body_lines": 78,
+        "branches": 14,
+        "loops": 5,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 43,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 83.8
+    },
+    "rank_note": "affinity+score=87.1"
+  },
+  {
+    "instance_id": "longlora_llama_sdpa_attention_forward_m4_dataflow__r20260714",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/llamafactory/model/model_utils/longlora.py",
+      "module": "src.llamafactory.model.model_utils.longlora",
+      "qualname": "llama_sdpa_attention_forward",
+      "name": "llama_sdpa_attention_forward",
+      "lineno": 249,
+      "end_lineno": 349,
+      "params": [
+        "self",
+        "hidden_states",
+        "attention_mask",
+        "position_ids",
+        "past_key_value",
+        "output_attentions",
+        "cache_position",
+        "position_embeddings"
+      ],
+      "metrics": {
+        "body_lines": 101,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 36,
+        "local_calls": [
+          "llama_attention_forward",
+          "shift"
+        ],
+        "num_local_calls": 2,
+        "assigns": 29,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 73.0
+    },
+    "rank_note": "affinity+score=111.3"
+  }
+]

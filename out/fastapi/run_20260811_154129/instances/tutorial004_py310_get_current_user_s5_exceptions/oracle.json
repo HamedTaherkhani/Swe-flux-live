@@ -1,0 +1,21 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "jwt.exceptions.DecodeError",
+      "jwt.exceptions.ExpiredSignatureError",
+      "jwt.exceptions.ImmatureSignatureError",
+      "jwt.exceptions.InvalidAlgorithmError",
+      "jwt.exceptions.InvalidAudienceError",
+      "jwt.exceptions.InvalidJTIError",
+      "jwt.exceptions.InvalidSignatureError",
+      "jwt.exceptions.InvalidSubjectError"
+    ]
+  },
+  "question": "During the pytest test `fastapi_qa/tutorial004_py310_get_current_user_s5_exceptions/files/testcase.py::TestGetCurrentUserExceptionKinds::test_seeded_token_matrix`, consider every direct invocation of `docs_src.security.tutorial004_py310.get_current_user` in `docs_src/security/tutorial004_py310.py`. An invocation is one `call` of that function during this test, numbered 1-based in chronological order.\n\nReport the set of concrete exception types caught by the function's `except InvalidTokenError` clause whose `except` keyword begins at absolute, 1-based line 104 of that repository file. Here, an exception counts as caught only when it is raised while evaluating the lexical `try` suite in that invocation and control subsequently enters that specific handler in the same invocation. Include the concrete runtime type of the original exception that caused entry into the handler; do not include the handler's declared base type merely because it appears in the source, and do not include the `HTTPException` raised by the handler and propagated out of the function. Combine all invocations, remove duplicate type names, and sort the remaining strings in ascending lexicographic order by their complete emitted strings (Python/Unicode code-point order); there is no secondary tie-breaker because duplicates are removed.\n\nException type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` — never `builtins.ValueError`), and `module.QualName` for all others (e.g. `haystack.core.errors.PipelineError`). Return exactly one JSON object with the key `caught_exception_kinds`; its value must be a JSON array of strings in the order just defined. If no exception is caught, use an empty JSON array, not `null` or an omitted key.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

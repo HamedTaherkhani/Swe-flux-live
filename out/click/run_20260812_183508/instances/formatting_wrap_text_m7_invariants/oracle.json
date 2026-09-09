@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 162,
+        "predicate": "indent == 0",
+        "violations": 98
+      },
+      {
+        "held_always": false,
+        "observations": 16,
+        "predicate": "len(text.split()) < 53",
+        "violations": 1
+      },
+      {
+        "held_always": true,
+        "observations": 162,
+        "predicate": "len(text.split()) > 0",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 162,
+        "predicate": "len(text.splitlines()) == 1",
+        "violations": 20
+      },
+      {
+        "held_always": false,
+        "observations": 162,
+        "predicate": "raw is False",
+        "violations": 32
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "text == text.expandtabs()",
+        "violations": 0
+      }
+    ]
+  },
+  "question": "Run every pytest test method in the class `TestGeneratedHelpLayouts` in `click_qa/formatting_wrap_text_m7_invariants/files/testcase.py`, equivalently every collected pytest id below `click_qa/formatting_wrap_text_m7_invariants/files/testcase.py::TestGeneratedHelpLayouts`. All 12 collected test methods contribute. Use pytest's normal collection order, which for this class is ascending test-method name and therefore ascending full pytest id. Aggregate observations across ALL test methods in that class. During that complete run, consider every invocation of the target function `click.formatting.wrap_text` in the repository file `src/click/formatting.py`.\n\nEvaluate the following six candidate predicates verbatim, at the observation point assigned below:\n\n- `indent == 0`\n- `len(text.split()) < 53`\n- `len(text.split()) > 0`\n- `len(text.splitlines()) == 1`\n- `raw is False`\n- `text == text.expandtabs()`\n\nFor each CPython `sys.settrace` line event in the `wrap_text` frame whose `f_lineno` is 101, evaluate `indent == 0`, `len(text.split()) > 0`, `len(text.splitlines()) == 1`, and `raw is False`. This definition deliberately counts every line event CPython emits for that `with` statement, including an event emitted when control returns to the `with` line as its context manager completes; do not collapse multiple events for the same paragraph. The tuple-target assignment at line 100 has completed before any such event, so `indent`, `raw`, and `text` are the current paragraph tuple's local values. Each qualifying event contributes one observation independently to each of these four predicates.\n\nFor each CPython `sys.settrace` line event in the same frame whose `f_lineno` is 103, evaluate only `len(text.split()) < 53`, using the local values present immediately before the `rv.append(wrapper.indent_only(text))` statement executes. For each such line event whose `f_lineno` is 72, evaluate only `text == text.expandtabs()`, using the local values immediately before the `return wrapper.fill(text)` statement executes; at that point line 64's assignment has already replaced `text` with the result of `text.expandtabs()`. Each qualifying event contributes one observation to its assigned predicate. Do not evaluate any predicate at any other source line, and do not substitute observations from another branch when an assigned observation point is not reached. Here a “line event” means exactly an event for which a trace function installed with Python's standard `sys.settrace` API receives `event == \"line\"`; `f_lineno` is read from that event's frame.\n\nUse ordinary Python semantics on the actual local objects at each point. In particular, `is` is object identity; `str.split()` and `str.splitlines()` are called without arguments; `len()` returns their ordinary integer lengths; and `str.expandtabs()` uses its default tab size. Each predicate evaluation produces one boolean. A violation is an evaluation whose result is false. For each predicate, `observations` is its total number of evaluations across all target invocations in all test methods, `violations` is the number of those evaluations that are false, and `held_always` is exactly `violations == 0` when at least one observation exists. A predicate with no observations is not evaluable and must instead be reported as `observations: 0`, `violations: 0`, and `held_always: false`.\n\nAn invocation means one Python call of `click.formatting.wrap_text` during the complete class run. If invocations need to be distinguished while computing the totals, number them from 1 in chronological call order; invocation numbers do not appear in the answer. Counts include duplicate outcomes and repeated executions: there is no deduplication of observations.\n\nLine numbers are absolute, 1-based physical lines in `src/click/formatting.py` as checked out. An execution of an observation line means the runtime reaches that source line before executing the statement that begins there. For a multi-line statement, use the physical line on which that statement or expression begins. The `def` line, decorator lines, and docstring lines are not observation points here.\n\nReturn exactly `{\"invariant_report\": [{\"held_always\": \"bool\", \"observations\": \"int\", \"predicate\": \"str\", \"violations\": \"int\"}]}`. The `invariant_report` value is a JSON array with exactly one object per candidate predicate. `predicate` is the verbatim expression above as a direct JSON string, not Python `repr()`; counts are JSON integers and `held_always` is a JSON boolean. Sort entries ascending by `predicate` using Python string ordering. Predicate strings are unique, so no tie can occur; if a tie hypothetically occurred, preserve the order in the candidate list above as the final tie-breaker. Do not omit or deduplicate entries, and do not use JSON null, an empty string, or an absent field for any value.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

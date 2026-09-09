@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "total_iterations": 913
+  },
+  "question": "Run the pytest test\n`flask_qa/debughelpers_dump_loader_info_m2_loops/files/testcase.py::TestLoaderInfoLoopDynamics::test_seeded_loader_metadata`\nagainst this repository. Across the complete execution of that test, what is\nthe total number of iterations of the inner `for item in value` loop whose\nheader is at line 116 inside `flask.debughelpers._dump_loader_info` in\n`src/flask/debughelpers.py`?\n\nAn invocation is one evaluation of the call to\n`flask.debughelpers._dump_loader_info` that creates a generator, counted\n1-based in chronological order of the generator's initial entry. Because this\nfunction is a generator, every resume after a `yield` remains part of the same\ninvocation and does not start another invocation. Include every invocation\ncaused by the named test, in that chronological order.\n\nOne iteration of the loop at line 116 is one execution of its body's first\nline, the `yield` statement at line 117. Thus iteration N within an invocation\nis the Nth execution of line 117 by that invocation. Sum those executions\nacross all invocations. Count only line 117 executions in the target\nfunction's own generator frames; exclude events in its caller, callees, and\ncomprehension frames. Repeated executions all count, with no sorting or\ndeduplication.\n\nLine numbers are absolute, 1-based source line numbers in the named\nrepo-relative file as it exists in this checkout. The loop header and body are\nsingle-line statements; if a statement were multi-line, its execution would\nbe attributed to the line where the statement or expression begins. The\nfunction's `def` line, decorator lines, and docstring-only lines do not count\nas iterations.\n\nReturn exactly one JSON object with the sole key `total_iterations`. Its value\nmust be a JSON integer written as a base-10 number, not a string. No function\nnames, exception names, Python `repr`/`str` values, containers, empty values,\nor null values are serialized in the answer.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "total_iterations": "int"
+  }
+}

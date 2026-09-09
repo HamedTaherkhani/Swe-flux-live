@@ -1,0 +1,167 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 123,
+        "use_line": 127,
+        "variable": "catalog_ds"
+      },
+      {
+        "def_line": 126,
+        "use_line": 131,
+        "variable": "default_ds"
+      },
+      {
+        "def_line": 126,
+        "use_line": 134,
+        "variable": "default_ds"
+      },
+      {
+        "def_line": 126,
+        "use_line": 137,
+        "variable": "default_ds"
+      },
+      {
+        "def_line": 137,
+        "use_line": 142,
+        "variable": "default_ds_by_type"
+      },
+      {
+        "def_line": 127,
+        "use_line": 128,
+        "variable": "ds_name"
+      },
+      {
+        "def_line": 127,
+        "use_line": 129,
+        "variable": "ds_name"
+      },
+      {
+        "def_line": 127,
+        "use_line": 131,
+        "variable": "ds_name"
+      },
+      {
+        "def_line": 117,
+        "use_line": 144,
+        "variable": "i"
+      },
+      {
+        "def_line": 125,
+        "use_line": 129,
+        "variable": "patterns_ds"
+      },
+      {
+        "def_line": 125,
+        "use_line": 134,
+        "variable": "patterns_ds"
+      },
+      {
+        "def_line": 125,
+        "use_line": 136,
+        "variable": "patterns_ds"
+      },
+      {
+        "def_line": 136,
+        "use_line": 141,
+        "variable": "patterns_ds_by_type"
+      },
+      {
+        "def_line": 117,
+        "use_line": 119,
+        "variable": "pipe"
+      },
+      {
+        "def_line": 117,
+        "use_line": 144,
+        "variable": "pipe"
+      },
+      {
+        "def_line": 144,
+        "use_line": 145,
+        "variable": "pipe_name"
+      },
+      {
+        "def_line": 118,
+        "use_line": 127,
+        "variable": "pipeline_ds"
+      },
+      {
+        "def_line": 118,
+        "use_line": 134,
+        "variable": "pipeline_ds"
+      },
+      {
+        "def_line": 121,
+        "use_line": 127,
+        "variable": "pipeline_ds"
+      },
+      {
+        "def_line": 121,
+        "use_line": 134,
+        "variable": "pipeline_ds"
+      },
+      {
+        "def_line": 80,
+        "use_line": 111,
+        "variable": "pipelines"
+      },
+      {
+        "def_line": 119,
+        "use_line": 120,
+        "variable": "pl_obj"
+      },
+      {
+        "def_line": 119,
+        "use_line": 121,
+        "variable": "pl_obj"
+      },
+      {
+        "def_line": 113,
+        "use_line": 145,
+        "variable": "result"
+      },
+      {
+        "def_line": 113,
+        "use_line": 147,
+        "variable": "result"
+      },
+      {
+        "def_line": 111,
+        "use_line": 114,
+        "variable": "target_pipelines"
+      },
+      {
+        "def_line": 111,
+        "use_line": 115,
+        "variable": "target_pipelines"
+      },
+      {
+        "def_line": 111,
+        "use_line": 117,
+        "variable": "target_pipelines"
+      },
+      {
+        "def_line": 115,
+        "use_line": 117,
+        "variable": "target_pipelines"
+      },
+      {
+        "def_line": 133,
+        "use_line": 140,
+        "variable": "used_ds_by_type"
+      }
+    ]
+  },
+  "question": "Run the pytest test `kedro_qa/catalog_mixins_describe_datasets_s4_dataflow/files/testcase.py::TestDescribeDatasetsDataFlow::test_seeded_mixed_pipeline_descriptions`. During that complete test run, consider every direct invocation of `kedro.framework.context.catalog_mixins.CatalogCommandsMixin.describe_datasets` in `kedro/framework/context/catalog_mixins.py`. What are all unique observed dynamic def-use pairs for exactly these local variables: `catalog_ds`, `default_ds`, `default_ds_by_type`, `ds_name`, `i`, `patterns_ds`, `patterns_ds_by_type`, `pipe`, `pipe_name`, `pipeline_ds`, `pipelines`, `pl_obj`, `result`, `target_pipelines`, `used_ds_by_type`?\n\nAn invocation is one call of the target function; invocations are numbered 1-based in chronological call order, although invocation numbers are not included in the aggregate output.\n\nA def is a binding of a local variable by parameter binding, assignment, or a `for` target. Parameters count as defined on the function's `def` line. A use is a runtime read of that local variable. A pair is observed when the value from that def reaches that use in the same invocation without an intervening def of the variable. Process reads on a source line before writes on that same line. Augmented assignment such as `total += delta` first uses the old reaching def of `total` and then creates a new def of `total` on that line. Each successfully bound `for` target is a new def on the loop-header line for that iteration; evaluating the iterable is a use, but a final failed attempt to obtain another item creates no def. Ignore comprehension-local variables and all reads and writes performed in comprehension frames, including reads there of variables captured from the containing function.\n\nOnly execution in the direct `describe_datasets` frame counts; exclude nested comprehension frames and all callees. Aggregate across all invocations and remove duplicate triples. Line numbers are absolute 1-based lines in the named repository file. Attribute a def to the line containing its assignment target (the `def` line for parameters), and a use to the line containing the read Name token; thus, for a multi-line statement or expression, use the specific source line on which that target or Name token begins. Decorator and docstring lines do not count unless one of the specified runtime bindings or reads occurs there.\n\nReturn exactly one JSON object with key `observed_def_use_pairs`. Its value must be a JSON list of objects, each having exactly `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (the exact source identifier as a JSON string). Sort ascending by `variable`, then `def_line`, then `use_line`; after deduplication these keys are a total order. Do not report values or representations of runtime objects, and use no null or omitted fields.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

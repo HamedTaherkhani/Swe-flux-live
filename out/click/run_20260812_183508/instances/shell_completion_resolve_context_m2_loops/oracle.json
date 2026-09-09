@@ -1,0 +1,12 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "Run all test methods whose names start with `test_` in the unittest class `ResolveContextLoopScenarios` from `click_qa/shell_completion_resolve_context_m2_loops/files/testcase.py` together in one pytest run, and aggregate over every invocation of `click.shell_completion._resolve_context` in `src/click/shell_completion.py` made during those methods. Identify each covered test by the pytest id `click_qa/shell_completion_resolve_context_m2_loops/files/testcase.py::ResolveContextLoopScenarios::<method-name>`, and order the methods lexicographically by method name, which is the collection order for this unittest class.\n\nFor the `while args:` loop whose header begins on line 732, report the maximum and minimum iteration count among all invocations. Source line numbers are absolute, 1-based physical line numbers in the named repository file. An invocation is one runtime call entry into the target function; number invocations 1-based in chronological execution order across the complete pytest run. Retain every invocation, including invocations with equal counts; do not deduplicate before taking the extrema.\n\nFor this loop, one iteration is one execution of its first body statement, the `name, cmd, args = ...` statement beginning on line 733, in that same target frame. Thus an invocation that never executes line 733 has an iteration count of zero, and an execution of line 733 still counts if that iteration subsequently returns because command resolution produced no command. Count no line executions in callers, callees, or other target invocations toward a given invocation. For a multi-line statement, its relevant executed line is the physical line on which that statement or expression begins; decorator, `def`, and docstring lines do not count as loop iterations.\n\nReturn exactly one JSON object with keys `max_iterations` and `min_iterations`, each mapped to a JSON integer. Use no string conversion, null sentinel, sorting, or additional fields.",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  },
+  "oracle_answer": {
+    "max_iterations": 41,
+    "min_iterations": 0
+  }
+}

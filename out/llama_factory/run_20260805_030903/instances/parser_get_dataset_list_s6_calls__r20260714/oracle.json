@@ -1,0 +1,20 @@
+{
+  "oracle_answer": {
+    "callee_sequence": [
+      "src.llamafactory.extras.misc.use_modelscope",
+      "src.llamafactory.extras.misc.use_openmind",
+      "src.llamafactory.data.parser.join",
+      "src.llamafactory.extras.misc.use_openmind",
+      "src.llamafactory.data.parser.join",
+      "src.llamafactory.extras.misc.use_modelscope",
+      "src.llamafactory.data.parser.join"
+    ]
+  },
+  "question": "In the test `llama_factory_qa/parser_get_dataset_list_s6_calls__r20260714/files/testcase.py` for `TestParserGetDatasetListS6Calls.test_dynamic_callee_sequence_third_invocation`, consider the 3rd runtime invocation of `src.llamafactory.data.parser.get_dataset_list` in `src/llamafactory/data/parser.py`.\n\nFunction identity must be reported as dotted qualified names in the format `module.Class.method` or `module.function`.\nDefine call ordering strictly by dynamic `call` events.\nFor this 3rd invocation, compute the exact ordered list of direct callees of `src.llamafactory.data.parser.get_dataset_list` restricted to callees whose qualified names are exactly one of:\n- `src.llamafactory.extras.misc.use_modelscope`\n- `src.llamafactory.extras.misc.use_openmind`\n- `src.llamafactory.data.parser.join`\n\nOutput JSON must contain exactly one key:\n- `callee_sequence` (type: array of strings), preserving execution order with no sorting.",
+  "question_kind": "S6_InterProceduralCFG",
+  "template_answer": {
+    "callee_sequence": [
+      "str"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "During pytest run of rich_qa/ratio_ratio_resolve_s2_loops/files/testcase.py::TestRatioResolveLoops::test_ratio_resolve_flexible_minimums, consider the 1st invocation of rich._ratio.ratio_resolve in rich/_ratio.py (count function entries in chronological order during the test run, 1-based).\n\nInside that invocation, locate the for-loop whose header begins at source line 57 (`for index, edge in flexible_edges:`). Define loop iteration k as the k-th time source line 58 (`if portion * edge.ratio <= edge.minimum_size:`, the first executable line of the loop body) executes during this invocation. Report the total number of such iterations (equivalently, how many times line 58 runs before the loop at line 57 finishes during this invocation).\n\nLine numbers are 1-based positions in rich/_ratio.py as checked into the repository. For multi-line statements, count only the line where the statement begins (for example, a list comprehension that starts on line 38 is observed on line 38, not on its continuation lines). Decorator lines and the docstring block (lines 15-28) are never observation points.\n\nAnswer with a JSON object containing exactly one key, loop_iteration_count, whose value is a non-negative integer.",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  },
+  "oracle_answer": {
+    "loop_iteration_count": 76
+  }
+}

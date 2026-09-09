@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "'hsdozkvgrcnyjufqbmxitepalwhsd'",
+    "exception_type": "KeyError"
+  },
+  "question": "Run the pytest test\n`fastapi_qa/docs_stage_zensical_docs_s5_exceptions/files/testcase.py::TestZensicalDocsFailure::test_programmatic_translation_failure`\nagainst this repository. During that test, consider the first and only\ninvocation of `scripts.docs.stage_zensical_docs` whose code is in\n`scripts/docs.py`. An invocation means one entry into exactly that function's\nframe, counted 1-based in chronological order; frames for its callees and for\nits nested comprehension code are not separate target invocations.\n\nThat invocation terminates by propagating an exception out of\n`scripts.docs.stage_zensical_docs` to its caller. What are the exact type and\nmessage of that propagated exception? Report exactly one JSON object with this\nshape:\n`{\"exception_message\": \"str\", \"exception_type\": \"str\"}`.\nBoth keys are required strings; neither an omitted key, an empty substitute,\nnor JSON `null` represents a missing value.\n\nUse this exception type naming convention: bare `type(exc).__name__` for\nbuilt-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and\n`module.QualName` for all others (e.g.\n`haystack.core.errors.PipelineError`). The `exception_message` is exact\n`str(exc)`, character for character; it is not `repr(exc)`, is not truncated,\nand receives no quote or whitespace normalization.\n\nCount only the exception that leaves the exact target frame in its first and\nonly invocation. Do not report exceptions that occur only in a callee or\nnested-comprehension frame and are handled before the target frame exits. If\nthe same propagating exception produces events while multiple frames unwind,\nthe event in the outer `scripts.docs.stage_zensical_docs` frame contributes\nthe exception exactly once. There is one reported exception, so no sorting or\ndeduplication is applied and source line numbers are not part of the answer.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

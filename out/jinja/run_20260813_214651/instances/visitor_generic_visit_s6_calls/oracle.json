@@ -1,0 +1,1560 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "During the pytest run identified by the test id `jinja_qa/visitor_generic_visit_s6_calls/files/testcase.py::TestGenericVisitCallOrder::test_visit_list_transform`, report the **function_call_order** for invocation **1** of the target function `jinja2.visitor.NodeTransformer.generic_visit` defined in `src/jinja2/visitor.py` (the `def generic_visit` line is line 61 in that file).\n\nThe test reaches this function **indirectly**: it parses a Jinja template into an AST, constructs a `NodeTransformer` subclass, and calls `visit_list` on the root template node. That entry point calls `visit`, which dispatches into `generic_visit` when no dedicated `visit_*` handler exists. The test never calls `generic_visit` directly.\n\n**Invocation numbering:** an invocation is one `call` trace event whose qualified function name is exactly `jinja2.visitor.NodeTransformer.generic_visit` and whose line number is exactly 61 (the `def` line). Number invocations **1-based** in chronological order of those events across the entire pytest run. Ignore `call` events for `generic_visit` at any other line number.\n\n**Tracked functions** (only these two; report each using the dotted qualname format `module.Class.method`, for example `jinja2.visitor.NodeVisitor.visit`):\n\n1. `jinja2.visitor.NodeVisitor.visit`\n2. `jinja2.visitor.NodeVisitor.get_visitor`\n\n**Inclusion rule:** collect every `call` trace event whose qualified name is one of the tracked functions above that occurs while invocation 1 of `jinja2.visitor.NodeTransformer.generic_visit` is on the Python call stack. Concretely, the invocation-1 `generic_visit` frame has been entered via its line-61 `call` event and its matching `return` event has not yet been processed. Nested and transitive calls count: when invocation 1's `generic_visit` calls `visit` and `visit` calls `get_visitor`, both `call` events are included. Calls made after invocation 1's `generic_visit` returns are excluded even if they occur later in the test. Calls to functions outside the tracked set, builtins, comprehension frames, and generator resumptions are excluded. Repeated calls are all included; do not deduplicate.\n\n**Ordering:** preserve the chronological order of qualifying `call` events exactly as they occur during execution. Do not sort or reorder.\n\nEach `function_call_order` element is an object with two keys:\n\n- `file`: repo-relative path, always the exact string `src/jinja2/visitor.py` for every entry.\n- `func`: the fully qualified function name exactly as traced (`module.qualname`), e.g. `jinja2.visitor.NodeVisitor.get_visitor`.\n\nReturn JSON with top-level key `function_call_order` whose value is the list described above.",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit"
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor"
+      }
+    ]
+  }
+}

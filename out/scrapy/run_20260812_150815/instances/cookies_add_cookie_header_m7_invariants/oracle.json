@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 12,
+        "predicate": "bool(attrs)",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 108,
+        "predicate": "host == req_host",
+        "violations": 96
+      },
+      {
+        "held_always": false,
+        "observations": 108,
+        "predicate": "host.startswith('.')",
+        "violations": 54
+      },
+      {
+        "held_always": true,
+        "observations": 9,
+        "predicate": "len(attrs) >= 2",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 108,
+        "predicate": "len(host) % 2 == len(req_host) % 2",
+        "violations": 54
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "req_host is None",
+        "violations": 0
+      }
+    ]
+  },
+  "question": "Run every pytest method in `scrapy_qa/cookies_add_cookie_header_m7_invariants/files/testcase.py::CookieHeaderInvariantTest`: `test_deep_domain_cookie_mix`, `test_sparse_suffix_domains`, `test_secure_request_dense_jar`, `test_existing_header_blocks_append`, `test_ipv4_host_candidates`, `test_single_label_local_candidates`, `test_empty_jar_long_hostname`, `test_frequent_expiry_sweep`, `test_two_label_boundary`, `test_odd_label_lengths`, `test_shallow_domain_many_cookies`, `test_preset_header_with_expiry`. The pytest id for each is the class node id followed by `::<method-name>`; use pytest's normal collected order. Aggregate over ALL listed test methods and all direct invocations of `scrapy.http.cookies.CookieJar.add_cookie_header` in `scrapy/http/cookies.py`. An invocation is one entry into that exact function, numbered 1-based in chronological order across the complete run; invocation numbers are not emitted. Evaluate these six candidate predicates verbatim at their respective observation lines: `bool(attrs)` at line 67; `host == req_host` at line 63; `host.startswith('.')` at line 63; `len(attrs) >= 2` at line 68; `len(host) % 2 == len(req_host) % 2` at line 63; `req_host is None` at line 52. Each line number is an absolute, 1-based physical line number in the named repository file as it exists for this run. An observation occurs immediately before the statement beginning on that line executes in the target function's own frame, after all effects of the previously executed line; only an actually executed observation line counts. For a multi-line statement or expression, the observation belongs to the physical line where that statement or expression begins. The `def` line, decorators, docstrings, calls and frames of callees, and return or exception events are not observations. A loop-header observation would include its final exhaustion check, but these candidates do not observe a loop header. Evaluate a predicate using the ordinary Python semantics of the displayed expression and the target frame's local values at that instant. One execution of its stated line contributes exactly one observation to that predicate, including repeated executions in a loop; sum observations across every invocation and listed method. A violation is an observation where the expression evaluates to false. `held_always` is true exactly when `violations == 0` and `observations > 0`. If a predicate's line is never reached, report `observations` as 0, `violations` as 0, and `held_always` as false. Return exactly one JSON object with the single key `invariant_report`, whose value is a JSON array containing one object for each stated candidate, with no deduplication and no additional entries. Every object has exactly these four keys: `predicate` is a JSON string containing the predicate exactly as displayed above, without Markdown backticks or added `repr()` quotes; `held_always` is a JSON boolean; and `observations` and `violations` are JSON integers. No runtime local value, function name, file name, line number, invocation number, null placeholder, Python `repr`, or extra key is serialized in the answer. Sort the array by the `predicate` string in ascending Unicode code-point order. Exact duplicate predicate strings would retain their statement order as the tie-break, though the six stated candidates are distinct.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

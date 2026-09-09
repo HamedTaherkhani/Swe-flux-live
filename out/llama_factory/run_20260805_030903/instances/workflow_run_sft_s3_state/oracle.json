@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "{'setting_0': 5, 'setting_1': 57, 'setting_2': 14, 'setting_3': 70, 'eos_token_id': [2, 24, 39, 15, 34, 14], 'pad_token_id': 1, 'logits_processor': 17}",
+        "variable": "gen_kwargs"
+      },
+      {
+        "value": "{'compute_metrics': {'buckets': [14, 15, 18, 23, 30, 2]}, 'preprocess_logits_for_metrics': 'processor-4'}",
+        "variable": "metric_module"
+      },
+      {
+        "value": "{'eval_0': 40, 'eval_1': 91, 'eval_2': 41, 'eval_3': 92}",
+        "variable": "metrics"
+      },
+      {
+        "value": "{'predict_0': 12, 'predict_1': 19, 'predict_2': 26, 'predict_3': 33}",
+        "variable": "predict_results"
+      },
+      {
+        "value": "{'train_0': 51, 'train_1': 55, 'train_2': 61, 'train_3': 69, 'effective_tokens_per_sec': 17}",
+        "variable": "train_result"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `llama_factory_qa/workflow_run_sft_s3_state/files/testcase.py::TestSFTWorkflowState::test_public_training_entrypoint`. During that test run, consider `llamafactory.train.sft.workflow.run_sft` in the repository-relative file `src/llamafactory/train/sft/workflow.py`.\n\nFor the first invocation of that function, report the values of the five locals `gen_kwargs`, `metric_module`, `metrics`, `predict_results`, and `train_result` immediately after line 130 has executed for the first time. Here, an invocation is one `call` of this exact function during the test run, numbered from 1 in chronological order. “Immediately after line 130 has executed” means after the `trainer.save_predictions(...)` call beginning on that line has returned, with the frame's locals as they stand before the next source line executes.\n\nLine numbers are absolute 1-based line numbers in the named file as it exists in the repository. For any multi-line statement, its execution event belongs to the line on which the statement or expression begins; decorator lines, the `def` line, and non-executed comment or blank lines are not candidate observation points here.\n\nReturn exactly `{\"observed_state\": [...]}`. The list must contain exactly one object for each named local, each object having exactly the two string keys `value` and `variable`. Sort the objects by `variable` in ascending Unicode code-point order; do not deduplicate them. Set `variable` to the local's exact source-level name. Set `value` to Python's `repr()` string for the value at the observation point. For a container, use `repr()` of the whole container rather than separately serializing its elements: strings therefore retain quotes, and `None`, `True`, and `False` use Python spellings inside the value string. For example, a hypothetical list containing a string and no value would be represented by the JSON string whose decoded content is `['sample', None]`. If a represented string contains a newline, the decoded JSON string contains that newline (with the JSON file using the required JSON escape). All five locals exist at this point, so no missing-value or JSON-null convention applies.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

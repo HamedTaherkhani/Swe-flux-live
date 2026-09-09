@@ -1,0 +1,102 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 256,
+        "use_line": 279,
+        "variable": "force"
+      },
+      {
+        "def_line": 256,
+        "use_line": 284,
+        "variable": "index"
+      },
+      {
+        "def_line": 256,
+        "use_line": 287,
+        "variable": "index"
+      },
+      {
+        "def_line": 276,
+        "use_line": 278,
+        "variable": "key"
+      },
+      {
+        "def_line": 276,
+        "use_line": 279,
+        "variable": "key"
+      },
+      {
+        "def_line": 276,
+        "use_line": 280,
+        "variable": "key"
+      },
+      {
+        "def_line": 276,
+        "use_line": 282,
+        "variable": "key"
+      },
+      {
+        "def_line": 256,
+        "use_line": 275,
+        "variable": "self"
+      },
+      {
+        "def_line": 256,
+        "use_line": 279,
+        "variable": "self"
+      },
+      {
+        "def_line": 256,
+        "use_line": 282,
+        "variable": "self"
+      },
+      {
+        "def_line": 256,
+        "use_line": 285,
+        "variable": "self"
+      },
+      {
+        "def_line": 256,
+        "use_line": 287,
+        "variable": "self"
+      },
+      {
+        "def_line": 275,
+        "use_line": 276,
+        "variable": "tag"
+      },
+      {
+        "def_line": 275,
+        "use_line": 282,
+        "variable": "tag"
+      },
+      {
+        "def_line": 275,
+        "use_line": 285,
+        "variable": "tag"
+      },
+      {
+        "def_line": 275,
+        "use_line": 287,
+        "variable": "tag"
+      },
+      {
+        "def_line": 256,
+        "use_line": 275,
+        "variable": "tag_class"
+      }
+    ]
+  },
+  "question": "Run the pytest test `flask_qa/tag_register_s4_dataflow/files/testcase.py::TestTaggedJSONSerializerRegister::test_generated_registration_paths` and consider every invocation of `flask.json.tag.TaggedJSONSerializer.register` whose code is in `src/flask/json/tag.py`, including invocations made while constructing the serializer. For the tracked local variables `force`, `index`, `key`, `self`, `tag`, and `tag_class`, report all unique def-use pairs observed at runtime.\n\nA def is a completed assignment to a local name or a parameter binding; all parameters are considered defined at the function's `def` line when each invocation begins. A use is an executed read of that local name in the target function's own frame. Reading `self` as the base of an attribute access counts as a use of `self`; an attribute name itself is not a local-variable use, and a plain assignment target is not a use. A pair `{variable, def_line, use_line}` is observed when the value from that variable's most recent def in the same invocation reaches the stated use without an intervening def. Reaching definitions reset at the start of every invocation.\n\nTreat augmented assignment such as `x += 1` as a use of the old reaching def followed by a new def of `x` on that same line. A `for x in ...` header defines `x` separately on each successful iteration. Comprehension-local target bindings, and reads resolved to those comprehension-local bindings, are excluded; reads in a comprehension that resolve to one of the tracked function-local variables still count.\n\nLine numbers are absolute 1-based source lines in `src/flask/json/tag.py` as it exists in the repository. For a multi-line statement or expression, use the executed line-event line where that statement or expression begins. The function `def` line can appear as a parameter `def_line`; decorator and docstring lines do not count unless they perform a tracked-variable read or def under the rules above.\n\nTake the set union across all invocations and remove duplicate triples. Return exactly `{\"observed_def_use_pairs\": [...]}`, where every list item has exactly the keys `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string). Sort items by `variable` lexicographically ascending, then `def_line` numerically ascending, then `use_line` numerically ascending. There are no additional value-formatting, exception-name, or function-name fields in the answer.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

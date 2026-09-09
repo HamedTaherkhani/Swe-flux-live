@@ -1,0 +1,18 @@
+{
+  "oracle_answer": {
+    "callers": [
+      "testcase._invoke_eval_mode",
+      "testcase._invoke_train_mode",
+      "testcase.test_invocation_callers"
+    ],
+    "invocation_count": 3
+  },
+  "question": "During execution of the pytest test `llama_factory_qa/loader_load_model_s6_calls__r20260714/files/testcase.py::TestLoadModelS6Calls::test_invocation_callers`, consider calls to target function `src.llamafactory.model.loader.load_model` defined in file `src/llamafactory/model/loader.py`. Function identity is the dotted qualname format `module.Class.method` for methods or `module.function` for module-level functions. Count each invocation when a `call` event enters the target function body. Let `callers` be the set of immediate caller qualnames for those invocations, where the immediate caller is the qualname at the top of the active call stack just before each target `call` event. Return JSON with keys `invocation_count` (int) and `callers` (array of str). Sort `callers` in ascending lexicographic order with no duplicates.",
+  "question_kind": "S6_InterProceduralCFG",
+  "template_answer": {
+    "callers": [
+      "str"
+    ],
+    "invocation_count": "int"
+  }
+}

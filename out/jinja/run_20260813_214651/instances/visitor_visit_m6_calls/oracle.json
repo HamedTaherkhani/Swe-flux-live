@@ -1,0 +1,42 @@
+{
+  "question_kind": "M6_InterProceduralCFG",
+  "question": "During the pytest run for test class `jinja_qa/visitor_visit_m6_calls/files/testcase.py::TestVisitInvocationCounts`, report **invocation counts** aggregated across **all** `test_*` methods in that class. Methods are identified by their pytest node ids and are ordered chronologically as pytest executes them (unittest discovery order: ascending ASCII by method name). Counts from every test method are **summed**; do not report per-method totals.\n\nThe primary target function is `jinja2.visitor.NodeVisitor.visit` defined in `src/jinja2/visitor.py` (the `def visit` line is line 35 in that file). Each test method calls `visit` directly on a `NodeVisitor` or `NodeTransformer` instance.\n\n**Scope:** consider every function and method **defined** in `src/jinja2/visitor.py`. This includes all methods of classes `NodeVisitor` and `NodeTransformer` that appear in that file. Exclude nested functions, closures, comprehension frames, properties, `__init__`, dunder methods, and methods inherited from other modules but not redefined in this file. There are no module-level functions in this file.\n\n**Function identity:** use the dotted qualname traced by Python as `module.Class.method`, for example `jinja2.visitor.NodeVisitor.get_visitor`. The `file` field is always the repo-relative path `src/jinja2/visitor.py`.\n\n**What counts as one invocation:** one Python `call` trace event whose qualified name matches an in-scope function defined in `src/jinja2/visitor.py`. Count every such `call` during the pytest run, including calls made recursively, transitively, or from any caller frame. A generator or coroutine resumption does **not** emit another `call` event for the same frame and therefore does **not** increment the count again.\n\n**Zero rule:** every in-scope function defined in `src/jinja2/visitor.py` must appear in the answer. Functions that never execute during the aggregated run have `count: 0`.\n\n**Sort order:** sort the `invocation_counts` list by the `func` field in ascending ASCII order (bytewise / `strcmp` order). The `file` field is identical for every entry; when `func` values tie (they cannot), break ties by `file` ascending ASCII.\n\nReturn JSON with top-level key `invocation_counts` whose value is a list of objects, each with exactly these keys:\n\n- `file`: repo-relative path (`str`), always `src/jinja2/visitor.py`\n- `func`: fully qualified name (`str`) as described above\n- `count`: non-negative integer (`int`), total `call` events for that function",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeTransformer.generic_visit",
+        "count": 1058
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeTransformer.visit_list",
+        "count": 0
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.generic_visit",
+        "count": 3665
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.get_visitor",
+        "count": 5011
+      },
+      {
+        "file": "src/jinja2/visitor.py",
+        "func": "jinja2.visitor.NodeVisitor.visit",
+        "count": 5011
+      }
+    ]
+  }
+}

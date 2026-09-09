@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 340,
+        "predicate": "len(recons_exp) == len(r.expansion)",
+        "violations": 70
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "len(rules) % 2 == 0",
+        "violations": 0
+      },
+      {
+        "held_always": true,
+        "observations": 340,
+        "predicate": "r.alias is None or not (r.options.expand1 and len(r.expansion) == 3)",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 336,
+        "predicate": "r.options.expand1",
+        "violations": 245
+      },
+      {
+        "held_always": false,
+        "observations": 13,
+        "predicate": "sym.name not in seen",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 323,
+        "predicate": "sym.name.startswith('_')",
+        "violations": 261
+      }
+    ]
+  },
+  "question": "Run every test method in `lark_qa/tree_matcher_build_recons_rules_m7_invariants/files/testcase.py::TestBuildReconsRulesInvariants` and aggregate the observations from all 12 methods. A contributing method is any method in that class whose name starts with `test_`; its pytest id is `lark_qa/tree_matcher_build_recons_rules_m7_invariants/files/testcase.py::TestBuildReconsRulesInvariants::<method-name>`. Method execution order does not affect the requested totals.\n\nFor the target function `lark.tree_matcher.TreeMatcher._build_recons_rules` in the repository-relative file `lark/tree_matcher.py`, evaluate each candidate predicate at its own observation point below. An observation point is a Python `line` event in the target function's own frame, immediately before Python executes the indicated source line. Line numbers are absolute, 1-based numbers in that repository file. For a multi-line statement, Python attributes the event to the line where the currently executed expression begins. The undecorated `def` line and the docstring line contribute only if Python actually emits a `line` event for them; do not synthesize an event for either. Do not count events in comprehension frames, events in callees, or `call`, `return`, and `exception` events. Generator resumptions do not themselves count; only matching `line` events count.\n\nThe candidate predicates and observation points are:\n\n* `len(recons_exp) == len(r.expansion)` \u2014 line 138.\n* `len(rules) % 2 == 0` \u2014 line 120.\n* `r.alias is None or not (r.options.expand1 and len(r.expansion) == 3)` \u2014 line 125.\n* `r.options.expand1` \u2014 line 141.\n* `sym.name not in seen` \u2014 line 147.\n* `sym.name.startswith('_')` \u2014 line 151.\n\nEvaluate a predicate from the actual Python local objects in that target frame as they exist immediately before its line executes. Evaluate it once per matching line event, including repeated loop visits and visits after generator resumption. `observations` is the total number of evaluations summed across all contributing test methods. `violations` is the number whose Python truth value is false. `held_always` is exactly `violations == 0`, except that a predicate with zero observations must be reported as `observations: 0`, `violations: 0`, and `held_always: false`.\n\nReturn a JSON object with exactly one key, `invariant_report`. Its value is a list with one object per candidate, and every object has exactly these keys and JSON types: `held_always` (boolean), `observations` (integer), `predicate` (string copied verbatim from the candidate list), and `violations` (integer). Sort entries by the `predicate` string in ascending Unicode code-point order. Candidate strings are unique; if equal strings ever occurred, break the tie by ascending observation-point line number. Emit ordinary JSON booleans (`true` or `false`) and base-10 JSON integers; no runtime value is otherwise stringified, normalized, deduplicated, or omitted.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

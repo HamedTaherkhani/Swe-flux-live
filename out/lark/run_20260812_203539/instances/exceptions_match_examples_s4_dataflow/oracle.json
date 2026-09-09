@@ -1,0 +1,217 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 101,
+        "use_line": 129,
+        "variable": "candidate"
+      },
+      {
+        "def_line": 101,
+        "use_line": 133,
+        "variable": "candidate"
+      },
+      {
+        "def_line": 131,
+        "use_line": 129,
+        "variable": "candidate"
+      },
+      {
+        "def_line": 131,
+        "use_line": 133,
+        "variable": "candidate"
+      },
+      {
+        "def_line": 131,
+        "use_line": 137,
+        "variable": "candidate"
+      },
+      {
+        "def_line": 135,
+        "use_line": 133,
+        "variable": "candidate"
+      },
+      {
+        "def_line": 135,
+        "use_line": 137,
+        "variable": "candidate"
+      },
+      {
+        "def_line": 102,
+        "use_line": 103,
+        "variable": "example"
+      },
+      {
+        "def_line": 102,
+        "use_line": 105,
+        "variable": "example"
+      },
+      {
+        "def_line": 75,
+        "use_line": 98,
+        "variable": "examples"
+      },
+      {
+        "def_line": 75,
+        "use_line": 99,
+        "variable": "examples"
+      },
+      {
+        "def_line": 75,
+        "use_line": 102,
+        "variable": "examples"
+      },
+      {
+        "def_line": 99,
+        "use_line": 102,
+        "variable": "examples"
+      },
+      {
+        "def_line": 102,
+        "use_line": 117,
+        "variable": "i"
+      },
+      {
+        "def_line": 102,
+        "use_line": 130,
+        "variable": "i"
+      },
+      {
+        "def_line": 102,
+        "use_line": 134,
+        "variable": "i"
+      },
+      {
+        "def_line": 105,
+        "use_line": 117,
+        "variable": "j"
+      },
+      {
+        "def_line": 105,
+        "use_line": 130,
+        "variable": "j"
+      },
+      {
+        "def_line": 105,
+        "use_line": 134,
+        "variable": "j"
+      },
+      {
+        "def_line": 102,
+        "use_line": 131,
+        "variable": "label"
+      },
+      {
+        "def_line": 102,
+        "use_line": 135,
+        "variable": "label"
+      },
+      {
+        "def_line": 105,
+        "use_line": 107,
+        "variable": "malformed"
+      },
+      {
+        "def_line": 75,
+        "use_line": 107,
+        "variable": "parse_fn"
+      },
+      {
+        "def_line": 75,
+        "use_line": 96,
+        "variable": "self"
+      },
+      {
+        "def_line": 75,
+        "use_line": 109,
+        "variable": "self"
+      },
+      {
+        "def_line": 75,
+        "use_line": 112,
+        "variable": "self"
+      },
+      {
+        "def_line": 75,
+        "use_line": 114,
+        "variable": "self"
+      },
+      {
+        "def_line": 75,
+        "use_line": 117,
+        "variable": "self"
+      },
+      {
+        "def_line": 75,
+        "use_line": 120,
+        "variable": "self"
+      },
+      {
+        "def_line": 75,
+        "use_line": 123,
+        "variable": "self"
+      },
+      {
+        "def_line": 75,
+        "use_line": 129,
+        "variable": "self"
+      },
+      {
+        "def_line": 75,
+        "use_line": 127,
+        "variable": "token_type_match_fallback"
+      },
+      {
+        "def_line": 75,
+        "use_line": 111,
+        "variable": "use_accepts"
+      },
+      {
+        "def_line": 108,
+        "use_line": 109,
+        "variable": "ut"
+      },
+      {
+        "def_line": 108,
+        "use_line": 113,
+        "variable": "ut"
+      },
+      {
+        "def_line": 108,
+        "use_line": 114,
+        "variable": "ut"
+      },
+      {
+        "def_line": 108,
+        "use_line": 117,
+        "variable": "ut"
+      },
+      {
+        "def_line": 108,
+        "use_line": 121,
+        "variable": "ut"
+      },
+      {
+        "def_line": 108,
+        "use_line": 123,
+        "variable": "ut"
+      },
+      {
+        "def_line": 108,
+        "use_line": 129,
+        "variable": "ut"
+      }
+    ]
+  },
+  "question": "Run exactly the pytest test `lark_qa/exceptions_match_examples_s4_dataflow/files/testcase.py::TestUnexpectedInputDataFlow::test_generated_error_catalog` in a fresh CPython process. Across both invocations made by that test of `lark.exceptions.UnexpectedInput.match_examples`, defined at `lark/exceptions.py:75-137`, what unique source-line def-use pairs are observed at runtime?\n\nTrack exactly these local variable names: `candidate`, `example`, `examples`, `i`, `j`, `label`, `malformed`, `parse_fn`, `self`, `token_type_match_fallback`, `use_accepts`, and `ut`. A definition is a binding of one of those plain local names. Treat every parameter binding (`self`, `parse_fn`, `examples`, `token_type_match_fallback`, and `use_accepts`) as a definition at the function's `def` line, line 75, immediately upon each call. A successful assignment to a plain local name is a definition at the 1-based physical line where that assignment begins, after all right-hand-side uses on that execution. Assignment to a subscription or attribute does not redefine its base name: for example, assigning to `mapping[key]` uses `mapping` and `key` but does not define `mapping`. A `for` target is redefined at the loop-header line once for each successful retrieval of an item, before the body executes; the final exhausted header check defines nothing. An augmented assignment such as `total += item` first uses the old reaching definition of `total` and evaluates `item`, then creates a new definition of `total` on that line. A comprehension target is likewise defined once per successfully produced item, but in that comprehension's own scope; comprehension-local evaluations do not count as evaluations in this target frame.\n\nA use is one actual runtime evaluation, in a `match_examples` frame itself, of a syntactic `Name` load for one of the tracked variables. Count separate load occurrences on the same source line separately when determining observations. Respect short-circuit evaluation: a skipped operand produces no use. Evaluations in called functions do not count as uses in the caller's frame. A definition reaches a use when it is the most recent definition of the same local binding earlier in that invocation, with no intervening definition. One observation is one evaluated tracked-name load reached by one definition; repeated loop executions can observe the same triple repeatedly, but the output retains that triple only once.\n\nAn invocation is one runtime call of exactly `lark.exceptions.UnexpectedInput.match_examples`, numbered 1-based in chronological call order while calculating; invocation numbers are not emitted, and unique triples are aggregated across both invocations. For either `for` loop, iteration N is the Nth successful item retrieval followed by entry into that loop's body, not the final exhaustion check.\n\nLine numbers are absolute, 1-based physical lines in `lark/exceptions.py` as it exists in the repository. For a multi-line statement or expression, use the physical line where the particular `Name` load or definition syntactically begins; an executed-line event for a statement begins on that statement or expression's corresponding physical line. The `def` line can appear only for the parameter definitions described above. Decorator and docstring lines are neither definitions nor uses.\n\nReturn exactly one JSON object with shape `{\"observed_def_use_pairs\": [{\"def_line\": \"int\", \"use_line\": \"int\", \"variable\": \"str\"}]}`. Each row has exactly those three keys. `variable` is the exact source identifier as a JSON string, and `def_line` and `use_line` are positive JSON integers, with no `repr()` or `str()` conversion and no null or omitted values. Remove duplicate observations that have the same `(variable, def_line, use_line)` triple, and emit no row for an unobserved triple. Sort rows by `variable` in ascending Unicode code-point order, then by `def_line` ascending, then by `use_line` ascending.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

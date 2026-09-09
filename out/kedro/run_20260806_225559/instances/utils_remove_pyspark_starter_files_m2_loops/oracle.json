@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 55,
+    "min_iterations": 22
+  },
+  "question": "Run the pytest test `kedro_qa/utils_remove_pyspark_starter_files_m2_loops/files/testcase.py::TestPySparkStarterCleanup::test_generated_project_cleanup`. During that test run, consider every invocation of `kedro.templates.project.hooks.utils._remove_pyspark_starter_files` in `kedro/templates/project/hooks/utils.py`.\n\nFor the `for` loop whose header starts on line 126 (`for file_path in raw_data_path.glob(\"*.*\")`), compute the number of iterations separately for each invocation, then report the maximum and minimum of those per-invocation counts. An invocation is one entry (call) into the target function; number invocations 1-based in chronological call order, including every call made during the named test. An iteration is one execution, in that invocation's function frame, of the loop body's first executable line, the `if` statement beginning on line 127. Thus a loop that never executes its body has an iteration count of zero. Keep repeated per-invocation counts when taking the extrema; do not deduplicate them. Invocation order is used only to define the grouping and does not alter the extrema.\n\nLine numbers are absolute, 1-based source line numbers in the named repository file as it exists for this test. For a multi-line statement or expression, its line is the line on which that statement or expression begins; decorator lines, the `def` line, and docstring-only lines do not count as loop iterations.\n\nReturn exactly one JSON object with exactly the keys `max_iterations` and `min_iterations`, each mapped to a JSON integer. `max_iterations` is the greatest per-invocation count and `min_iterations` is the least. These are numeric JSON values, not strings; no value formatting, null sentinel, sorting, or tie-breaker is applicable beyond the extrema rules above.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

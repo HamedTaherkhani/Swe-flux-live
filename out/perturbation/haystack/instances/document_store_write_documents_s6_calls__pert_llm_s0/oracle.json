@@ -1,0 +1,592 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Run the single pytest test `haystack_qa/document_store_write_documents_s6_calls/files/testcase.py::TestDocumentStoreLoadCallStructure::test_repeated_loads_with_mixed_documents`. During that test, consider invocations of `haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.write_documents` in `haystack/document_stores/in_memory/document_store.py`. An invocation is one standard Python `call` trace event for that exact function during the test, numbered 1-based in the chronological order in which those events are observed; do not reorder or deduplicate invocations. For the second invocation, report the exact chronological sequence of `call` events for this tracked set of functions: `haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.write_documents`, `haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents`, and `haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25`. Start with the second target invocation's own `call` event. Then include a call to any function in the tracked set whenever it occurs while that invocation's frame remains on the call stack, whether the call is direct or nested/transitive; stop when that target invocation returns. Exclude every call outside the tracked set, including builtins and comprehension frames. Retain every repeated call as a separate array element. If a tracked generator were resumed and Python emitted another `call` event for that resumption, retain that event separately as well. Event order is the callback observation order in this synchronous test; no timestamp sorting or other tie-breaker is applied. Function identities use the full dotted `module.Class.method` qualname (for example, `sample.widgets.Widget.render`). For each event, emit `file` as the exact repo-relative POSIX path of the executing file and `func` in that dotted format. Runtime paths ending in the named repo-relative target path are therefore serialized exactly as `haystack/document_stores/in_memory/document_store.py`; no absolute paths or backslashes are emitted. Return exactly one JSON object with key `function_call_order`; its value is an array of objects, each with keys `file` then `func`, both JSON strings, in the event order just defined. Do not sort or deduplicate the array. There are no line numbers, values, exception names, `repr` strings, or null/empty-value conventions in this answer.",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.write_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore.delete_documents"
+      },
+      {
+        "file": "haystack/document_stores/in_memory/document_store.py",
+        "func": "haystack.document_stores.in_memory.document_store.InMemoryDocumentStore._tokenize_bm25"
+      }
+    ]
+  }
+}

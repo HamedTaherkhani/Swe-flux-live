@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 32
+  },
+  "question": "Run only the pytest test `fastapi_qa/routing_populate_api_route_state_s2_loops/files/testcase.py::TestPopulateApiRouteStateLoop::test_included_route_response_merge`. During that test run, consider the second invocation of `fastapi.routing._populate_api_route_state` in `fastapi/routing.py`. An invocation means one runtime call of exactly that dotted function (not a call of a nested comprehension frame), numbered 1-based in chronological call-entry order. For that invocation, how many iterations does the `for` loop whose header begins at line 1039 execute? Source line numbers are absolute, 1-based line numbers in the named repository file; for a multi-line statement, the relevant line is where the statement or expression begins. Define iteration N (1-based) as the Nth time that invocation reaches the loop body's first executable source line, line 1040; the loop-header evaluation itself does not count as an iteration. Return exactly one JSON object with the key `loop_iteration_count` and an integer value. There are no ordering, deduplication, string-formatting, or null-value conventions to apply to this scalar integer.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

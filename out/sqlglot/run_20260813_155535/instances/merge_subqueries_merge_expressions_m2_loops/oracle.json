@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 37,
+    "min_iterations": 4
+  },
+  "question": "Run the pytest class node\n`sqlglot_qa/merge_subqueries_merge_expressions_m2_loops/files/testcase.py::TestMergeExpressionsLoops`\nagainst this repository, so that every test method whose name begins `test_`\nin that class is run. Aggregate over all of those test methods in pytest's\ncollection order (the source-definition order used for this class).\n\nFor every invocation of\n`sqlglot.optimizer.merge_subqueries._merge_expressions` in\n`sqlglot/optimizer/merge_subqueries.py`, count the iterations of the `for`\nloop whose header is at line 444 (`for i, column in\nenumerate(columns_to_replace):`). What are the maximum and minimum iteration\ncounts among all invocations in the complete class run?\n\nLine numbers are absolute, 1-based physical lines in the named file as it\nexists in this repository. An invocation is one entry into the exact Python\nfunction above, corresponding to one function call, and invocations are\nnumbered 1-based in chronological call-entry order across the complete pytest\nrun. Each invocation extends through its matching function return. Include\nevery invocation, including one with zero loop iterations if such an\ninvocation occurs.\n\nFor this loop, one iteration is one execution in that invocation's own frame\nof the loop body's first line, line 445 (`parent = column.parent`), after the\nloop has obtained its next element. Thus iteration N is the Nth execution of\nline 445 caused by that loop in the same invocation. Count repeated\nexecutions, but exclude the loop-header execution itself, all source-line\nexecutions elsewhere in the function, and executions in callees,\ncomprehension frames, or any other frame. Python source-line events for\nmulti-line statements are attributed to the 1-based physical line reported\nby Python; no normalization to an enclosing statement is applied. The\nfunction's `def` line, decorator lines, and docstring lines do not count.\n\nReturn exactly one JSON object with exactly two keys:\n`max_iterations` and `min_iterations`. Both values are JSON integers written\nin ordinary decimal notation, not strings. `max_iterations` is the largest\nper-invocation count and `min_iterations` is the smallest. Do not report\ninvocation identifiers, line numbers, intermediate counts, duplicates, or\nany additional keys; key order is not semantically significant.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "kedro/io/catalog_config_resolver.py",
+        "func": "kedro.io.catalog_config_resolver.CatalogConfigResolver.__init__"
+      },
+      {
+        "file": "kedro/io/catalog_config_resolver.py",
+        "func": "kedro.io.catalog_config_resolver.CatalogConfigResolver._extract_patterns"
+      },
+      {
+        "file": "kedro/io/catalog_config_resolver.py",
+        "func": "kedro.io.catalog_config_resolver.CatalogConfigResolver._pattern_specificity"
+      },
+      {
+        "file": "kedro/io/catalog_config_resolver.py",
+        "func": "kedro.io.catalog_config_resolver.CatalogConfigResolver._resolve_credentials"
+      },
+      {
+        "file": "kedro/io/catalog_config_resolver.py",
+        "func": "kedro.io.catalog_config_resolver.CatalogConfigResolver._sort_patterns"
+      },
+      {
+        "file": "kedro/io/catalog_config_resolver.py",
+        "func": "kedro.io.catalog_config_resolver.CatalogConfigResolver._validate_pattern_config"
+      },
+      {
+        "file": "kedro/io/catalog_config_resolver.py",
+        "func": "kedro.io.catalog_config_resolver.CatalogConfigResolver._validate_pattern_config.<locals>._traverse_config"
+      },
+      {
+        "file": "kedro/io/catalog_config_resolver.py",
+        "func": "kedro.io.catalog_config_resolver.CatalogConfigResolver.is_pattern"
+      },
+      {
+        "file": "kedro/io/catalog_config_resolver.py",
+        "func": "kedro.io.catalog_config_resolver._resolve_credentials"
+      },
+      {
+        "file": "kedro/io/catalog_config_resolver.py",
+        "func": "kedro.io.catalog_config_resolver._resolve_credentials.<locals>._resolve_value"
+      }
+    ]
+  },
+  "question": "Run the complete pytest test\n`kedro_qa/catalog_config_resolver_resolve_credentials_m6_calls/files/testcase.py::TestCatalogConfigResolverCallGraph::test_generated_catalog_construction`.\nThe primary target is\n`kedro.io.catalog_config_resolver.CatalogConfigResolver._resolve_credentials`\nin `kedro/io/catalog_config_resolver.py`.\n\nDetermine which functions in this exact tracked set execute at least once\nduring the test:\n\n- `kedro.io.catalog_config_resolver.CatalogConfigResolver.__init__`\n- `kedro.io.catalog_config_resolver.CatalogConfigResolver._extract_patterns`\n- `kedro.io.catalog_config_resolver.CatalogConfigResolver._pattern_specificity`\n- `kedro.io.catalog_config_resolver.CatalogConfigResolver._resolve_credentials`\n- `kedro.io.catalog_config_resolver.CatalogConfigResolver._sort_patterns`\n- `kedro.io.catalog_config_resolver.CatalogConfigResolver._unresolve_credentials`\n- `kedro.io.catalog_config_resolver.CatalogConfigResolver._validate_pattern_config`\n- `kedro.io.catalog_config_resolver.CatalogConfigResolver._validate_pattern_config.<locals>._traverse_config`\n- `kedro.io.catalog_config_resolver.CatalogConfigResolver.is_pattern`\n- `kedro.io.catalog_config_resolver._resolve_credentials`\n- `kedro.io.catalog_config_resolver._resolve_credentials.<locals>._resolve_value`\n\nA tracked function \"executes\" when Python emits at least one `call` event that\nenters a frame whose exact function identity is that listed dotted qualified\nname. Function identity is `module` plus the code object's lexical\n`__qualname__`, separated by a dot; for example,\n`sample.mod.Widget.render`. The `<locals>` component shown above is a literal\npart of that identity. Match identities exactly, not by bare-name or suffix\nmatching.\n\nInclude such an event regardless of which function called it or which frames\nare already on the stack. Thus a transitively reached function is included\nonly when it is itself in the tracked set; calls to builtins, library\nfunctions, test functions, and every other unlisted function are ignored.\nAn invocation is one `call` event for a tracked function during this test,\nnumbered from 1 in chronological event order if invocation numbering is\nneeded. Repeated calls and recursive calls each create invocations, but the\nfunction appears only once in the result. For a generator, each Python\n`call` event produced when its frame is first entered or resumed is an\ninvocation; generator resumptions still cannot create duplicate result\nentries. Return, line, and exception events do not by themselves establish\ncoverage.\n\nReturn exactly one JSON object with this shape:\n`{\"covered_functions\": [{\"file\": \"...\", \"func\": \"...\"}]}`.\n`covered_functions` is a JSON array containing one object for each covered\ntracked function and no object for an uncovered tracked function. In every\nobject, `file` is the exact repository-relative string\n`kedro/io/catalog_config_resolver.py`, and `func` is the exact dotted\nqualified-name string defined above. These are ordinary JSON strings copied\nfrom the specified identity and path; do not apply `repr()` or `str()`, add\nmodule prefixes, abbreviate `<locals>`, or use JSON `null` for either value.\n\nRemove duplicate `(file, func)` pairs, then sort the objects in ascending\nUnicode code-point order by `file`, with ascending `func` as the tie-breaker.\nEqual pairs have no further tie-breaker because they are deduplicated. The\ntest is expected to cover at least one tracked function, so an empty array,\nan empty string, JSON `null`, or an omitted key does not represent a result.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SecureCookieSessionInterface.get_signing_serializer"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SecureCookieSessionInterface.save_session"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SessionInterface.get_cookie_domain"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SessionInterface.get_cookie_httponly"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SessionInterface.get_cookie_name"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SessionInterface.get_cookie_partitioned"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SessionInterface.get_cookie_path"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SessionInterface.get_cookie_samesite"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SessionInterface.get_cookie_secure"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SessionInterface.get_expiration_time"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SessionInterface.should_set_cookie"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions._lazy_sha1"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `flask_qa/sessions_save_session_m6_calls/files/testcase.py::TestSecureCookieSaveSessionCalls::test_generated_session_matrix`. The primary target is `flask.sessions.SecureCookieSessionInterface.save_session` in `src/flask/sessions.py`. Consider exactly this tracked function set in that same file: `flask.sessions.SecureCookieSessionInterface.get_signing_serializer`, `flask.sessions.SecureCookieSessionInterface.open_session`, `flask.sessions.SecureCookieSessionInterface.save_session`, `flask.sessions.SessionInterface.get_cookie_domain`, `flask.sessions.SessionInterface.get_cookie_httponly`, `flask.sessions.SessionInterface.get_cookie_name`, `flask.sessions.SessionInterface.get_cookie_partitioned`, `flask.sessions.SessionInterface.get_cookie_path`, `flask.sessions.SessionInterface.get_cookie_samesite`, `flask.sessions.SessionInterface.get_cookie_secure`, `flask.sessions.SessionInterface.get_expiration_time`, `flask.sessions.SessionInterface.is_null_session`, `flask.sessions.SessionInterface.make_null_session`, `flask.sessions.SessionInterface.should_set_cookie`, and `flask.sessions._lazy_sha1`. Which members of this set execute at least once while that test runs? A function executes when its own Python frame receives a `call` event. Count an invocation regardless of whether it is called directly by the test, directly by another listed function, or transitively through unlisted code; merely being on the stack while some other function runs does not count as an invocation. Ignore every function outside the listed set, including unlisted Python callees, implicit comprehension frames, and builtins or other C-level calls. Repeated calls and recursive calls each constitute another invocation but do not duplicate a function in the answer. If a generator or coroutine frame receives additional `call` events when it resumes, each such event is another invocation under this rule, but it likewise cannot duplicate the function in this set-valued answer. Invocation 1 means the first qualifying `call` event in chronological call-entry order, although invocation numbers and counts are not returned. Identify each function as its dotted Python module name followed by its runtime code qualname (for example, `package.submodule.Widget.run`); for inherited methods use the class in which the executed code is defined. Identify its file as the repository-relative POSIX path `src/flask/sessions.py`. Deduplicate covered functions, then sort the resulting `{file, func}` objects in ascending lexicographic order by the two-field tuple `(file, func)`, comparing Unicode code points exactly as Python sorts strings. This is a total order; after deduplication no further tie-breaker is needed. Return a JSON object with exactly one key, `covered_functions`. Its value is a JSON array of objects, each with exactly two JSON string fields, `file` then `func`; field insertion order does not alter JSON object semantics. Every array item represents one covered function. Do not use bare function names, `repr` strings, empty-string sentinels, or JSON null, and do not include uncovered tracked functions.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

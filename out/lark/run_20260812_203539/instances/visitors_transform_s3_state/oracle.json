@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "[9781, 6468, 9636, 4113]",
+        "variable": "args"
+      },
+      {
+        "value": "630023",
+        "variable": "res"
+      },
+      {
+        "value": "4",
+        "variable": "size"
+      },
+      {
+        "value": "[304585, 27639, 898287]",
+        "variable": "stack"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `lark_qa/visitors_transform_s3_state/files/testcase.py::TestNonRecursiveTransformState::test_seeded_variable_width_tree` (the sole test method in class `TestNonRecursiveTransformState`). During that test run, consider the first invocation of `lark.visitors.Transformer_NonRecursive.transform` in `lark/visitors.py`. An invocation means one `call` of that function, numbered from 1 in chronological call order.\n\nReport the values of the local variables `args`, `res`, `size`, and `stack` immediately after line 318 (`res = self._call_userfunc(x, args)`) has executed for the 17th time in that first invocation. Count only completed executions of that specific line in the target frame; the first completed execution is occurrence 1. “Immediately after” means after the call and assignment on line 318 have completed and before the condition on line 319 begins. Line numbers are absolute, 1-based line numbers in the named repository file. Line 318 is a single-line statement, so its execution is attributed to the line on which that statement begins; the function's `def` line, comments, and blank lines do not count.\n\nReturn exactly one JSON object with the shape `{\"observed_state\": [{\"value\": <string>, \"variable\": <string>}, ...]}`. Include exactly four entries, ordered by `variable` in ascending lexicographic order: `args`, `res`, `size`, then `stack`; do not deduplicate entries. In each entry, `variable` is the local's bare name and `value` is the Python `repr()` string of that local's whole value at the observation point, with no normalization or truncation. For a container, use the `repr()` of the whole container rather than formatting elements separately. Thus strings keep their quotes, and `None` and booleans use Python spellings such as `None` and `True`, not JSON spellings. If a repr contains a newline, the decoded JSON string contains an actual newline character (escaped as required in the JSON text). All four locals exist at this observation point, so no missing-value or JSON `null` convention applies.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

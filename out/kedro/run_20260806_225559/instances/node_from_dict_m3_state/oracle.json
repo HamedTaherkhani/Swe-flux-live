@@ -1,0 +1,59 @@
+{
+  "oracle_answer": {
+    "unique_values": [
+      "(107288, 107457, 2728)",
+      "(12589, 12590, 7848)",
+      "(21024, 21028, 3234)",
+      "(28296, 28305, 5104)",
+      "(2985, 2997)",
+      "(3011, 3020)",
+      "(38729, 38745, 6484)",
+      "(4172, 4187)",
+      "(4673, 4679)",
+      "(47541, 47566, 3001)",
+      "(50345, 50381, 1440)",
+      "(59416, 59465, 8707)",
+      "(6088, 6088)",
+      "(70543, 70607, 2196)",
+      "(7717, 7735)",
+      "(77954, 78035, 4483)",
+      "(7954, 7954, 3916)",
+      "(87825, 87925, 4177)",
+      "(8854, 8857)",
+      "(91804, 91925, 6141)",
+      "(99505, 99649, 9298)",
+      "['a0', 'a1', 'a2']",
+      "['b0', 'b1']",
+      "[45, 68]",
+      "{'a0': 107288, 'a1': 107457, 'a2': 2728}",
+      "{'a0': 122, 'a9': 123, 'a2': 124}",
+      "{'a0': 12589, 'a1': 12590, 'a2': 7848}",
+      "{'a0': 21024, 'a1': 21028, 'a2': 3234}",
+      "{'a0': 28296, 'a1': 28305, 'a2': 5104}",
+      "{'a0': 38729, 'a1': 38745, 'a2': 6484}",
+      "{'a0': 47541, 'a1': 47566, 'a2': 3001}",
+      "{'a0': 50345, 'a1': 50381, 'a2': 1440}",
+      "{'a0': 59416, 'a1': 59465, 'a2': 8707}",
+      "{'a0': 70543, 'a1': 70607, 'a2': 2196}",
+      "{'a0': 77954, 'a1': 78035, 'a2': 4483}",
+      "{'a0': 7954, 'a1': 7954, 'a2': 3916}",
+      "{'a0': 87825, 'a1': 87925, 'a2': 4177}",
+      "{'a0': 91804, 'a1': 91925, 'a2': 6141}",
+      "{'a0': 99505, 'a1': 99649, 'a2': 9298}",
+      "{'b0': 2985, 'b1': 2997}",
+      "{'b0': 3011, 'b1': 3020}",
+      "{'b0': 4172, 'b1': 4187}",
+      "{'b0': 4673, 'b1': 4679}",
+      "{'b0': 6088, 'b1': 6088}",
+      "{'b0': 7717, 'b1': 7735}",
+      "{'b0': 8854, 'b1': 8857}"
+    ]
+  },
+  "question": "When the pytest test\n`kedro_qa/node_from_dict_m3_state/files/testcase.py::TestNodeFromDictState::test_from_dict_state`\nis executed, it repeatedly calls `Node.run({})` on two\n`kedro.pipeline.node.Node` objects whose declared outputs are dicts (one node\nmaps three function-output keys to three dataset names, the other maps two),\nwith the shared node function returning programmatically generated payloads in\na fixed seeded order. Two of the runs intentionally fail inside output\ntranslation (one run's function returns a list instead of a dict; another\nreturns a dict whose keys do not match the declared keys), and the test catches\nthe resulting `ValueError`s. Every `Node.run` call reaches the nested helper\nfunction `kedro.pipeline.node.Node._outputs_to_dictionary._from_dict` (defined\nin the repository file `kedro/pipeline/node.py`, lines 499-527) through the\nchain `Node.run` -> `Node._run_with_no_inputs` ->\n`Node._outputs_to_dictionary` -> `_from_dict`; the two failing runs reach it as\nwell and raise inside it.\n\nAn \"invocation\" means one call of `_from_dict` during this test run;\ninvocations are counted 1-based in chronological order and ALL invocations are\nin scope, including the two that terminate by raising `ValueError`.\n\nDuring every invocation, observe the two local variables `result` and `keys` of\nthe `_from_dict` frame. Record every distinct value each variable holds from\nthe moment it is first assigned until the frame exits (whether by returning or\nby raising): concretely, `result` is first bound to the node function's raw\nreturn value and, on invocations that reach the end, is later rebound to the\ntuple of output values gathered in declared-key order, while `keys` is bound\nonce per invocation to the list of the node's declared function-output keys.\nIf a variable is reassigned the identical value more than once, only the\ndistinct values matter.\n\nSerialize every observed value with Python's `repr()` applied to the whole\nobject: dicts render with single quotes in insertion order (example format:\n`{'x': 1, 'y': 2}`), tuples render like `(3, 4)`, and lists render like\n`[5, 6]`. Collect the distinct repr strings observed for `result` and `keys`\nCOMBINED into one set, across all invocations and all observation points,\nremoving duplicates.\n\nReport the answer as a JSON object with a single key `unique_values` whose\nvalue is a list containing each distinct repr string exactly once, sorted in\nascending lexicographic order under plain Python string comparison (i.e. the\norder produced by `sorted()` on the strings, which is Unicode code-point\norder; for example `(9, 1)` sorts before `[9, 1]`, which sorts before\n`{'a': 9}`).",
+  "question_kind": "M3_ProgramState",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  }
+}

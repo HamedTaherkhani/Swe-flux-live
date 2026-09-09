@@ -1,0 +1,102 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 0,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.ImmutableSandboxedEnvironment.is_safe_attribute"
+      },
+      {
+        "count": 14,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedEnvironment.__init__"
+      },
+      {
+        "count": 238,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedEnvironment.call"
+      },
+      {
+        "count": 0,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedEnvironment.call_binop"
+      },
+      {
+        "count": 0,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedEnvironment.call_unop"
+      },
+      {
+        "count": 718,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedEnvironment.getattr"
+      },
+      {
+        "count": 550,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedEnvironment.getitem"
+      },
+      {
+        "count": 78,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedEnvironment.is_safe_attribute"
+      },
+      {
+        "count": 238,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedEnvironment.is_safe_callable"
+      },
+      {
+        "count": 9,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedEnvironment.unsafe_undefined"
+      },
+      {
+        "count": 780,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedEnvironment.wrap_str_format"
+      },
+      {
+        "count": 702,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedFormatter.__init__"
+      },
+      {
+        "count": 282,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.SandboxedFormatter.get_field"
+      },
+      {
+        "count": 69,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.is_internal_attribute"
+      },
+      {
+        "count": 0,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.modifies_known_mutable"
+      },
+      {
+        "count": 0,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.safe_range"
+      },
+      {
+        "count": 0,
+        "file": "src/jinja2/sandbox.py",
+        "func": "jinja2.sandbox.unsafe"
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `jinja_qa/sandbox_getitem_m6_calls/files/testcase.py::SandboxGetitemM6CallsTest` (class `SandboxGetitemM6CallsTest` in `jinja_qa/sandbox_getitem_m6_calls/files/testcase.py`). The answer aggregates invocation counts across **all** test methods in that class (`def test_...`), in the order pytest discovers them (definition order in the class body). During that combined run, track every function and method **defined** in `src/jinja2/sandbox.py`: all module-level functions and all methods of every class defined in that file. Exclude nested functions and closures (for example the inner function created inside `SandboxedEnvironment.wrap_str_format`), class properties, comprehensions, lambdas, and methods inherited from parent classes but not redefined in this file. Include `__init__` and other dunder methods when they appear as a `def` in this file. Function identity uses the dotted qualname format `module.function` or `module.Class.method` (for example `jinja2.sandbox.SandboxedEnvironment.getitem`). One invocation is one Python `call` trace event for that function's frame, whether the call is direct, nested, recursive, or made from any other frame. Generator or coroutine resumption does **not** emit another `call` event and therefore does not increment the count. Functions in scope that never execute during the aggregated run appear with `count: 0`. The primary target of this scenario is `jinja2.sandbox.SandboxedEnvironment.getitem` in `src/jinja2/sandbox.py`; your counts must reflect every in-scope function in that file. Report the answer as a JSON object with exactly one key, `invocation_counts`, whose value is a JSON array of objects each having keys `file` (repo-relative path string, e.g. `src/jinja2/sandbox.py`), `func` (dotted qualname string), and `count` (non-negative integer). Sort the array by `func` ascending; when two entries would share the same `func` (they should not), break ties by `file` ascending.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "During pytest run rich_qa/layout_make_region_map_m2_loops/files/testcase.py::LayoutMakeRegionMapLoopsTest, aggregate observations across all thirteen test methods in that class (every def test_... method), in pytest collection order.\n\nConsider the function rich.layout.Layout._make_region_map defined in rich/layout.py (the def statement begins on line 345). The test reaches it only indirectly through callers such as Layout.render and Layout.__rich_console__ (for example via Console.print on a Layout instance); your answer must still describe runtime loop behavior inside _make_region_map itself.\n\nIdentify the while-loop whose header is on line 352 in rich/layout.py:\n\n    while stack:\n\nAn iteration of this loop is one execution of the loop body's first physical line, which is line 353 (`append_layout_region(pop())`). Count how many iterations that loop performs during each invocation of rich.layout.Layout._make_region_map.\n\nAn invocation is one call event whose func equals rich.layout.Layout._make_region_map exactly (module-qualified dotted name: package.module.Class.method, e.g. rich.layout.Layout._make_region_map). Invocations are numbered chronologically starting at 1 across the entire test run (the first call event is invocation 1). Count only event=line records whose func equals rich.layout.Layout._make_region_map exactly. Do not count line events from nested frames, callees such as layout.splitter.divide, or comprehension/generator frames. The def line (345), decorator lines, docstring lines, and the while-loop header line (352) may execute as line events but are not the loop body's first line; only executions of line 353 increment the iteration count.\n\nLine numbers are absolute, 1-based physical lines in rich/layout.py as present in the repository. For a multi-line statement, Python reports the line event on the line where that statement begins.\n\nAcross every invocation during the test run, report the maximum and minimum iteration counts observed for the while-loop defined above. Report the answer as JSON with top-level keys max_iterations and min_iterations, each value a single int (decimal numeral, no quotes).",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  },
+  "oracle_answer": {
+    "max_iterations": 63,
+    "min_iterations": 1
+  }
+}

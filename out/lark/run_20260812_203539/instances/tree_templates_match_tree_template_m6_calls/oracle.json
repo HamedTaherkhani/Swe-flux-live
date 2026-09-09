@@ -1,0 +1,92 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 12,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.Template.__init__"
+      },
+      {
+        "count": 0,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.Template.apply_vars"
+      },
+      {
+        "count": 776,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.Template.match"
+      },
+      {
+        "count": 165,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.Template.search"
+      },
+      {
+        "count": 0,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.TemplateConf.__call__"
+      },
+      {
+        "count": 0,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.TemplateConf.__init__"
+      },
+      {
+        "count": 800,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.TemplateConf._get_tree"
+      },
+      {
+        "count": 886,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.TemplateConf._match_tree_template"
+      },
+      {
+        "count": 886,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.TemplateConf.test_var"
+      },
+      {
+        "count": 0,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.TemplateTranslator.__init__"
+      },
+      {
+        "count": 0,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.TemplateTranslator.translate"
+      },
+      {
+        "count": 0,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates._ReplaceVars.__default__"
+      },
+      {
+        "count": 0,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates._ReplaceVars.__init__"
+      },
+      {
+        "count": 222,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates._get_template_name"
+      },
+      {
+        "count": 0,
+        "file": "lark/tree_templates.py",
+        "func": "lark.tree_templates.translate"
+      }
+    ]
+  },
+  "question": "Run every pytest-collected test method whose name begins with `test_` in class `TestTemplateSearchDynamics` from `lark_qa/tree_templates_match_tree_template_m6_calls/files/testcase.py`, exactly once, as selected by the pytest class id `lark_qa/tree_templates_match_tree_template_m6_calls/files/testcase.py::TestTemplateSearchDynamics`. Aggregate the events across all of those test methods into one answer. The primary target is `lark.tree_templates.TemplateConf._match_tree_template`, defined in `lark/tree_templates.py`.\n\nReport invocation counts for the following location-defined scope: every module-level function defined directly in `lark/tree_templates.py`, plus every method defined directly in the body of every class defined directly in that file. Include `__init__`, other dunder methods, static methods, and class methods when directly defined there. Exclude inherited methods, property getter/setter/deleter functions, nested functions, closures, lambdas, comprehension frames, class-body execution frames, and methods of nested classes. A definition in this scope must be reported even if it never executes.\n\nFunction identity is the dotted runtime module name followed by the definition's qualified name, with no `<locals>` rewriting; for example, a hypothetical method would be `sample_pkg.mod.Widget.run`. The `file` value is always the repo-relative POSIX path of the defining source file, here `lark/tree_templates.py`.\n\nOne invocation means one Python tracing `call` event for that function's frame during the selected test run. Count events regardless of which frame caused them, including transitive and recursive calls. Do not count line, return, or exception events. A generator or coroutine emits another `call` event each time its suspended frame is resumed, and every such event counts as another invocation, including a final resume that runs the frame to completion. Do not deduplicate repeated call events.\n\nReturn a JSON object with exactly one key, `invocation_counts`. Its value is a list containing exactly one object per in-scope definition. Each object has exactly the keys `count` (JSON integer), `file` (JSON string), and `func` (JSON string). Functions that receive no qualifying call event have `count: 0`; no value is represented by JSON null or by an omitted entry. Sort the list by `func` ascending using ordinary Unicode code-point string order, with `file` ascending as the tie-breaker. There is no further normalization or formatting of names and no deduplication of definition records.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

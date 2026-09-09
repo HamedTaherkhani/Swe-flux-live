@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 21
+  },
+  "question": "Consider the pytest test identified by `jinja_qa/ext_parse_s2_loops/files/testcase.py::ExtParseS2LoopsTest::test_extract_translations_drives_trans_header_loop` (test class `ExtParseS2LoopsTest`, test method `test_extract_translations_drives_trans_header_loop`). During that single test run, the function `jinja2.ext.InternationalizationExtension.parse` in `src/jinja2/ext.py` is executed. An invocation is one `call` of that function during the test run, counted in chronological order starting at 1. For invocation 1 only, consider the `while` loop whose header begins on line 353 of `src/jinja2/ext.py` (the loop `while parser.stream.current.type != \"block_end\":`). Define iteration counting as 1-based: iteration N is the Nth time line 354 (`if variables:`), the loop body's first line, executes during that invocation. Count an iteration whether the loop body later `continue`s, `break`s, or falls through to the next iteration. Line numbers are absolute, 1-based, and refer to `src/jinja2/ext.py` as it exists in the repository; for multi-line statements, attribute executed-line events to the line where that statement begins. How many iterations did that loop perform during invocation 1? Report the answer as a JSON object with exactly one key, `loop_iteration_count`, whose value is a JSON number (bare integer, not a quoted string).",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "unique_values": [
+      "<class 'scrapy.spidermiddlewares.referer.DefaultReferrerPolicy'>",
+      "<class 'scrapy.spidermiddlewares.referer.NoReferrerPolicy'>",
+      "<class 'scrapy.spidermiddlewares.referer.NoReferrerWhenDowngradePolicy'>",
+      "<class 'scrapy.spidermiddlewares.referer.OriginPolicy'>",
+      "<class 'scrapy.spidermiddlewares.referer.OriginWhenCrossOriginPolicy'>",
+      "<class 'scrapy.spidermiddlewares.referer.SameOriginPolicy'>",
+      "<class 'scrapy.spidermiddlewares.referer.StrictOriginPolicy'>",
+      "<class 'scrapy.spidermiddlewares.referer.StrictOriginWhenCrossOriginPolicy'>",
+      "<class 'scrapy.spidermiddlewares.referer.UnsafeUrlPolicy'>",
+      "<class 'testcase.Generated11d2c4Policy'>",
+      "<class 'testcase.Generated134bfaPolicy'>",
+      "<class 'testcase.Generated14a792Policy'>",
+      "<class 'testcase.Generated1560b8Policy'>",
+      "<class 'testcase.Generated17d9a2Policy'>",
+      "<class 'testcase.Generated97042Policy'>",
+      "<class 'testcase.Generatedcfe0aPolicy'>",
+      "<class 'testcase.Generatedd4510Policy'>",
+      "<class 'testcase.Generatedeb724Policy'>",
+      "None"
+    ]
+  },
+  "question": "Run the complete pytest class `scrapy_qa/referer_policy_m3_state/files/testcase.py::RefererPolicyStateTest`, aggregating over ALL 12 test methods in that class: `test_meta_policy_cycle`, `test_meta_policy_reverse_stride`, `test_header_policy_cycle`, `test_header_case_variants`, `test_meta_comma_lists`, `test_header_comma_lists_with_noise`, `test_invalid_meta_fallbacks`, `test_invalid_header_fallbacks`, `test_meta_precedes_header`, `test_empty_alias_interleaving`, `test_seeded_policy_shuffle`, and `test_meta_import_paths`. During that class run, consider `scrapy.spidermiddlewares.referer.RefererMiddleware.policy` in the repository-relative file `scrapy/spidermiddlewares/referer.py`. What is the sorted set of distinct values taken by the target frame's local variable `cls` at every execution of absolute source line 384 across all invocations initiated by those test methods?\n\nAn invocation means one `call` of the target function during the class run; invocations are numbered from 1 in chronological execution order across the methods, although this question aggregates a set and does not report invocation numbers. Observe `cls` on each `line` event for line 384, immediately before the return statement beginning there executes. Include every such event and no call, return, exception, or other-line event. Line numbers are absolute, 1-based line numbers in the named file as it exists in the repository. A line event for a multi-line statement or expression is attributed to the line where that statement or expression begins. The function's `def` line, decorator lines, and non-executed docstring lines are not observation points. Invocations that return or raise before reaching line 384 contribute no observation. At every included event, `cls` has already been assigned by the call beginning on line 381.\n\nReturn a JSON object with exactly the key `unique_values`. Its value is a JSON list of strings. For each included observation, compute Python `repr(cls)` on the complete value with no normalization or truncation; class objects therefore use Python's ordinary class-object representation, not their name or `str()` selected separately. The strings use Python spellings inside representations (for example, a boolean in an unrelated container would appear as `True`, not JSON `true`). Remove duplicates only after computing these complete repr strings, where duplicates mean exact string equality. Sort the remaining strings in ascending lexicographic order by their Unicode code points, with ordinary prefix ordering (a proper prefix sorts first); do not use execution order, locale-aware ordering, or case folding. All observed values are present, so do not use an empty string, JSON null, or an omitted list element to represent a missing local.",
+  "question_kind": "M3_ProgramState",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  }
+}

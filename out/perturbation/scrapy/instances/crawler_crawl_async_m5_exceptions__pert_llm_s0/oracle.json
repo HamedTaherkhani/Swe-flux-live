@@ -1,0 +1,60 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 3,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 1,
+        "exception_type": "IndexError"
+      },
+      {
+        "count": 3,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 1,
+        "exception_type": "OverflowError"
+      },
+      {
+        "count": 2,
+        "exception_type": "RuntimeError"
+      },
+      {
+        "count": 13,
+        "exception_type": "StopIteration"
+      },
+      {
+        "count": 1,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 2,
+        "exception_type": "UnicodeDecodeError"
+      },
+      {
+        "count": 2,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 1,
+        "exception_type": "ZeroDivisionError"
+      },
+      {
+        "count": 2,
+        "exception_type": "scrapy.exceptions.CloseSpider"
+      }
+    ]
+  },
+  "question": "Run every test method whose name begins with `test_` in `scrapy_qa/crawler_crawl_async_m5_exceptions/files/testcase.py::TestCrawlerCrawlAsyncExceptions` under pytest, and aggregate across all of those methods. For `scrapy.crawler.Crawler.crawl_async` in `scrapy/crawler.py`, what are the total per-type counts of exceptions observed in that exact function frame over the whole run? An invocation means one call of that exact function, numbered from 1 in chronological order; include every invocation made by every covered test method. An exception observation is one exception event that the Python runtime associates with the exact `Crawler.crawl_async` frame: count an exception raised by code in that frame or propagated into it from a callee once at each such target-frame observation. An exception raised and fully handled inside a callee does not count. If the same exception object is re-raised or otherwise observed again in the same target frame, count that later observation again; do not deduplicate observations. Counts are totals over all invocations and all test methods, so repeated observations of one type in different methods or invocations each contribute to its count. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError`, never `builtins.ValueError`), `module.QualName` for all others. Message = exact `str(exc)`. Exception messages are not part of this answer. Emit exactly `{\"exception_type_counts\": [{\"count\": <JSON integer>, \"exception_type\": \"<JSON string>\"}, ...]}` with one object for every observed type. Sort objects by `exception_type` in ascending Unicode code-point order. There is no secondary tie-break: equal normalized names denote the same type and must be aggregated into one object.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

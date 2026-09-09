@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "Cannot automatically join: unavailable_nnursre",
+    "exception_type": "sqlglot.errors.OptimizeError"
+  },
+  "question": "Run the single pytest test `sqlglot_qa/qualify_columns_expand_using_s5_exceptions/files/testcase.py::TestExpandUsingExceptions::test_generated_join_chain_failure`. During that run, consider invocation 1 of exactly `sqlglot.optimizer.qualify_columns._expand_using` in `sqlglot/optimizer/qualify_columns.py`. An invocation means one Python `call` of exactly that function (excluding its nested local function and all callees), numbered 1-based in chronological order. What exception is raised by the `raise` statement beginning at absolute, 1-based source line 271 and propagates out of that invocation? Here, \"propagates out\" means that the target frame does not handle the exception and unwinds to its caller; the test's later catch outside the target does not make it caught inside the target. Line numbers refer to the named file as it exists in the repository; for a multi-line statement, execution belongs to the line where the statement or expression begins. Report the exception type using this convention: bare `type(exc).__name__` for built-in exceptions (for example, `ValueError`, never `builtins.ValueError`), and `module.QualName` for all others (for example, `package.errors.CustomError`). Report the message as exact `str(exc)`, character for character, represented as a JSON string; do not use `repr`, add quotes to its contents, truncate it, or normalize whitespace. Return exactly a JSON object with string keys `exception_message` and `exception_type`, each mapped to a string. No sorting or deduplication applies because the question identifies one exception from one invocation.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

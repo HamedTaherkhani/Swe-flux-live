@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": true,
+        "observations": 80,
+        "predicate": "bool(name)",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 80,
+        "predicate": "isinstance(source, Scope)",
+        "violations": 17
+      },
+      {
+        "held_always": false,
+        "observations": 80,
+        "predicate": "len(name) % 2 == 0",
+        "violations": 13
+      },
+      {
+        "held_always": false,
+        "observations": 80,
+        "predicate": "len(name) >= 2",
+        "violations": 5
+      },
+      {
+        "held_always": false,
+        "observations": 80,
+        "predicate": "not name.startswith(\"qunion\")",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "scope.expression.args.get(\"by_name\") is True",
+        "violations": 0
+      }
+    ]
+  },
+  "question": "Run every test method in `sqlglot_qa/pushdown_projections_pushdown_projections_m7_invariants/files/testcase.py::TestPushdownProjectionInvariants` and aggregate across all methods in that class whose names begin with `test_` (12 methods total). A test is identified by the pytest id `sqlglot_qa/pushdown_projections_pushdown_projections_m7_invariants/files/testcase.py::TestPushdownProjectionInvariants::<method_name>`; pytest runs these unittest methods in ascending method-name order. Analyze direct invocations of `sqlglot.optimizer.pushdown_projections.pushdown_projections` in `sqlglot/optimizer/pushdown_projections.py`. An invocation is one `call` of that exact function during the complete class run, numbered 1-based in chronological order; nested helper calls and calls to any other function do not create observations.\n\nEvaluate these candidate predicates verbatim:\n- `bool(name)`\n- `isinstance(source, Scope)`\n- `len(name) >= 2`\n- `len(name) % 2 == 0`\n- `not name.startswith(\"qunion\")`\n- `scope.expression.args.get(\"by_name\") is True`\n\nFor the first five predicates, an observation is each Python `line` event at absolute, 1-based line 155 of `sqlglot/optimizer/pushdown_projections.py`, immediately before `if column_aliases:` is evaluated. Evaluate each predicate independently on the live local Python objects in the target frame at that event; in particular, `Scope` means `sqlglot.optimizer.scope.Scope`, `bool` and `len` have their normal Python semantics, unary `not` negates the resulting truth value, and `str.startswith` is case-sensitive. For the last predicate, an observation is each Python `line` event at absolute, 1-based line 110 in that file, immediately before the multi-line assignment beginning `scope_sql = ...`; evaluate it on the live `scope` local. Line numbers refer to the named repository file as provided. A line event occurs on the physical line where the next statement or expression begins; the function's `def` line, decorators, and docstring lines are not observations. Each execution of an observation line counts separately, including repeated executions within one invocation. Events in helper, comprehension, generator, or other frames are excluded.\n\nFor each predicate, `observations` is the total number of its observations over all test methods and invocations, and `violations` is the number at which evaluating it produces false. `held_always` is exactly `violations == 0` when `observations > 0`. A predicate with no observations is not evaluable and must instead be reported as `{\"observations\": 0, \"violations\": 0, \"held_always\": false}`. Do not deduplicate repeated observations.\n\nReturn `{\"invariant_report\": [...]}`. Each list item must contain exactly `predicate` (JSON string copied verbatim from the candidate list), `held_always` (JSON boolean), `observations` (JSON integer), and `violations` (JSON integer). Sort items by the `predicate` string in ascending Unicode code-point order; predicates are unique, so there is no further tie-break. JSON strings use JSON escaping, while predicate evaluation uses the actual Python values rather than `repr()` or `str()` serialization. For example only, a Python predicate text `value.endswith(\"z\")` would be represented as the JSON string `\"value.endswith(\\\"z\\\")\"`.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

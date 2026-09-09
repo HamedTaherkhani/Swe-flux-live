@@ -1,0 +1,60 @@
+{
+  "question_kind": "M7_Invariants",
+  "question": "Consider every test method in `jinja_qa/filters_do_urlize_m7_invariants/files/testcase.py::TestDoUrlizeInvariantReport`. The answer aggregates behavior across **all** `test_*` methods in that class, in the chronological order pytest collects and runs them (definition order in the file).\n\nThose tests call `do_urlize` **directly** from `jinja2.filters` (imported as `jinja2.filters.do_urlize`).\n\nTarget function: `jinja2.filters.do_urlize` (the function whose `def` begins at line 742 of `src/jinja2/filters.py`).\n\nAn **invocation** is one `call` trace event for `jinja2.filters.do_urlize` during the test run, numbered chronologically starting at 1 in the order those `call` events appear. Within one invocation, maintain a map of local variable bindings by scanning every `line` event for that invocation from its `call` through its matching `return` or `exception` event. The invocation's `call` event seeds initial bindings from its `locals={...}` dictionary; each subsequent `line` event's `locals={...}` dictionary supplies bindings that overwrite earlier bindings for the same name; only keys present in those per-event dictionaries participate.\n\nBinding values in the trace are Python `repr()` strings. Reconstruct each local by applying `ast.literal_eval` to its repr when possible; `None`, `True`, and `False` appear as those tokens. Strings use Python's normal `repr` quoting rules (for example, a string holding `alpha` is `'alpha'`). Sets and tuples appear as their `repr` forms such as `{'a', 'b'}` or `('tel:', 'ftp:')`. When a string local's repr ends with an ellipsis suffix (`...`) immediately before its closing quote delimiter, treat that binding as a non-empty string whose exact contents are unavailable (for example, `'alpha beta ...'` denotes a non-empty `value`).\n\nFor each candidate predicate below, evaluate it on the reconstructed locals immediately **after** the stated physical line executes (equivalently: on the merged binding map right after processing that line's `line` event). Count one **observation** per execution of that line across all invocations and all test methods. A predicate **violates** on an observation when it evaluates to `False`. `held_always` is `true` only when `violations == 0` and `observations > 0`. If the observation line never executes during the run, report `observations: 0`, `violations: 0`, `held_always: false`.\n\nCandidate predicates (verbatim strings) and their observation points:\n- \"isinstance(rel_parts, set)\" observed at line 795 (`event=line`)\n- \"isinstance(rv, str)\" observed at line 816 (`event=line`)\n- \"len(value) > 0\" observed at line 795 (`event=line`)\n- \"nofollow is False or \"nofollow\" in rel_parts\" observed at line 795 (`event=line`)\n- \"re.compile(r\"^([\\w.+-]{2,}:(/){0,2})$\").fullmatch(scheme) is not None\" observed at line 804 (`event=line`)\n- \"scheme in tuple(extra_schemes)\" observed at line 804 (`event=line`)\n- \"target is not None\" observed at line 795 (`event=line`)\n\nFor the URI-scheme predicate, use exactly this compiled pattern: `re.compile(r\"^([\\w.+-]{2,}:(/){0,2})$\")` applied to the local `scheme`.\n\nLine numbers are absolute, 1-based, in `src/jinja2/filters.py` as it exists in the repository. For multi-line statements, a `line` event fires on the line where that statement begins. The `def` line, decorator lines, and docstring lines are never observation points.\n\nReturn JSON with exactly one top-level key `invariant_report`: a list of objects, each with keys `predicate` (string), `held_always` (boolean), `observations` (non-negative integer), and `violations` (non-negative integer). Sort the list by `predicate` ascending using Unicode code-point order; when predicates tie (they cannot), break ties by `observations` ascending.",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "predicate": "isinstance(rel_parts, set)",
+        "held_always": true,
+        "observations": 69,
+        "violations": 0
+      },
+      {
+        "predicate": "isinstance(rv, str)",
+        "held_always": true,
+        "observations": 65,
+        "violations": 0
+      },
+      {
+        "predicate": "len(value) > 0",
+        "held_always": false,
+        "observations": 69,
+        "violations": 1
+      },
+      {
+        "predicate": "nofollow is False or \"nofollow\" in rel_parts",
+        "held_always": true,
+        "observations": 69,
+        "violations": 0
+      },
+      {
+        "predicate": "re.compile(r\"^([\\w.+-]{2,}:(/){0,2})$\").fullmatch(scheme) is not None",
+        "held_always": false,
+        "observations": 67,
+        "violations": 1
+      },
+      {
+        "predicate": "scheme in tuple(extra_schemes)",
+        "held_always": true,
+        "observations": 67,
+        "violations": 0
+      },
+      {
+        "predicate": "target is not None",
+        "held_always": false,
+        "observations": 69,
+        "violations": 68
+      }
+    ]
+  }
+}

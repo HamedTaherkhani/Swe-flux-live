@@ -1,0 +1,319 @@
+2026-08-23 03:38:39.122 [TRACE][START] pid=46 TRACE_OUT='/testbed/logs/llama_factory_qa/adapter_setup_freeze_tuning_m3_state__pert_llm_s0/trace.log' TRACE_FILE='src/llamafactory/model/adapter.py' TRACE_FUNCS=['_setup_freeze_tuning'] TRACE_EVENTS=['call', 'exception', 'line', 'return']
+2026-08-23 03:38:39.147 /testbed/src/llamafactory/model/adapter.py:57 llamafactory.model.adapter._setup_freeze_tuning event=call locals={'cast_trainable_params_to_fp32': 'True', 'finetuning_args': "namespace(use_llama_pro=True, freeze_trainable_layers=2, freeze_trainable_modules=['mlp', 'attn', 'mlp', 'attn'], freeze_extra_modules=['output_head', 'embed_tokens', 'output_head'], freeze_vision_tower=True, freeze_multi_modal_projector=True, freeze_language_model=True)", 'is_trainable': 'True', 'model': 'FreezeToyModel(\n  (layers): ModuleList(\n    (0-3): 4 x MiniBlock(\n      (attn): Linear(in_features=2, out_features=2, bias=False)\n      (mlp): Linear(in_features=2, out_features=2, bias=False)\n    )\n  )\n  (embed_tokens): Embedding(8, 2)\n  (output_head): Linear(in_features=2, out_features=2, bias=False)\n)'}
+2026-08-23 03:38:39.147 /testbed/src/llamafactory/model/adapter.py:63 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.147 /testbed/src/llamafactory/model/adapter.py:66 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.148 /testbed/src/llamafactory/model/adapter.py:67 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.148 /testbed/src/llamafactory/model/adapter.py:68 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.148 /testbed/src/llamafactory/model/adapter.py:73 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'config': 'namespace(num_hidden_layers=4)'}
+2026-08-23 03:38:39.148 /testbed/src/llamafactory/model/adapter.py:72 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.148 /testbed/src/llamafactory/model/adapter.py:77 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'num_layers': '4'}
+2026-08-23 03:38:39.148 /testbed/src/llamafactory/model/adapter.py:80 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.148 /testbed/src/llamafactory/model/adapter.py:81 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.148 /testbed/src/llamafactory/model/adapter.py:87 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.148 /testbed/src/llamafactory/model/adapter.py:88 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'stride': '2'}
+2026-08-23 03:38:39.148 /testbed/src/llamafactory/model/adapter.py:94 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layer_ids': 'range(1, 5, 2)'}
+2026-08-23 03:38:39.149 /testbed/src/llamafactory/model/adapter.py:95 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'hidden_modules': 'set()'}
+2026-08-23 03:38:39.149 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'non_hidden_modules': 'set()'}
+2026-08-23 03:38:39.149 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.0.attn.weight'"}
+2026-08-23 03:38:39.149 /testbed/src/llamafactory/model/adapter.py:98 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.149 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'hidden_modules': "{'attn'}"}
+2026-08-23 03:38:39.150 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.150 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.0.mlp.weight'"}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:98 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'hidden_modules': "{'attn', 'mlp'}"}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.1.attn.weight'"}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:100 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.1.mlp.weight'"}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:100 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.151 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.2.attn.weight'"}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.2.mlp.weight'"}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.3.attn.weight'"}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.152 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.3.mlp.weight'"}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'embed_tokens.weight'"}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:103 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'non_hidden_modules': "{'embed_tokens'}"}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'output_head.weight'"}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:103 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'non_hidden_modules': "{'embed_tokens', 'output_head'}"}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:105 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': '[]'}
+2026-08-23 03:38:39.153 /testbed/src/llamafactory/model/adapter.py:107 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'mlp'"}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '1'}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp']"}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '3'}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp', '.3.mlp']"}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:107 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'attn'"}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '1'}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp', '.3.mlp', '.1.attn']"}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '3'}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp', '.3.mlp', '.1.attn', '.3.attn']"}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:107 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'mlp'"}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '1'}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp', '.3.mlp', '.1.attn', '.3.attn', '.1.mlp']"}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '3'}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp', '.3.mlp', '.1.attn', '.3.attn', '.1.mlp', '.3.mlp']"}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.154 /testbed/src/llamafactory/model/adapter.py:107 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'attn'"}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '1'}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp', '.3.mlp', '.1.attn', '.3.attn', '.1.mlp', '.3.mlp', '.1.attn']"}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '3'}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp', '.3.mlp', '.1.attn', '.3.attn', '.1.mlp', '.3.mlp', '.1.attn', '.3.attn']"}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:115 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:116 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:117 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'output_head'"}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:122 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:116 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp', '.3.mlp', '.1.attn', '.3.attn', '.1.mlp', '.3.mlp', '.1.attn', '.3.attn', 'output_head']"}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:117 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'embed_tokens'"}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:122 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:116 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp', '.3.mlp', '.1.attn', '.3.attn', '.1.mlp', '.3.mlp', '.1.attn', '.3.attn', 'output_head', 'embed_tokens']"}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:117 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'output_head'"}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:122 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:116 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.1.mlp', '.3.mlp', '.1.attn', '.3.attn', '.1.mlp', '.3.mlp', '.1.attn', '.3.attn', 'output_head', 'embed_tokens', 'output_head']"}
+2026-08-23 03:38:39.155 /testbed/src/llamafactory/model/adapter.py:124 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.157 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'forbidden_modules': "{'apm', 'tts', 'llm', 'audio_projection_layer', 'vpm', 'audio_avg_pooler', 'resampler'}"}
+2026-08-23 03:38:39.158 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.0.attn.weight'", 'param': 'Parameter containing:\ntensor([[-0.0053,  0.3793],\n        [-0.5820, -0.5204]], requires_grad=True)'}
+2026-08-23 03:38:39.159 /testbed/src/llamafactory/model/adapter.py:132 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.159 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'param': 'Parameter containing:\ntensor([[-0.0053,  0.3793],\n        [-0.5820, -0.5204]])'}
+2026-08-23 03:38:39.159 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.0.mlp.weight'", 'param': 'Parameter containing:\ntensor([[-0.2723,  0.1896],\n        [-0.0140,  0.5607]], requires_grad=True)'}
+2026-08-23 03:38:39.160 /testbed/src/llamafactory/model/adapter.py:132 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.160 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'param': 'Parameter containing:\ntensor([[-0.2723,  0.1896],\n        [-0.0140,  0.5607]])'}
+2026-08-23 03:38:39.160 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.1.attn.weight'", 'param': 'Parameter containing:\ntensor([[-0.0628,  0.1871],\n        [-0.2137, -0.1390]], requires_grad=True)'}
+2026-08-23 03:38:39.160 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.161 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.161 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.161 /testbed/src/llamafactory/model/adapter.py:130 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.161 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.161 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.1.mlp.weight'", 'param': 'Parameter containing:\ntensor([[-0.6755, -0.4683],\n        [-0.2915,  0.0262]], requires_grad=True)'}
+2026-08-23 03:38:39.162 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.162 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.162 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.162 /testbed/src/llamafactory/model/adapter.py:130 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.163 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.163 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.2.attn.weight'", 'param': 'Parameter containing:\ntensor([[ 0.2795,  0.4243],\n        [-0.4794, -0.3079]], requires_grad=True)'}
+2026-08-23 03:38:39.163 /testbed/src/llamafactory/model/adapter.py:132 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.163 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'param': 'Parameter containing:\ntensor([[ 0.2795,  0.4243],\n        [-0.4794, -0.3079]])'}
+2026-08-23 03:38:39.164 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.2.mlp.weight'", 'param': 'Parameter containing:\ntensor([[ 0.2568,  0.5872],\n        [-0.1455,  0.5291]], requires_grad=True)'}
+2026-08-23 03:38:39.164 /testbed/src/llamafactory/model/adapter.py:132 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.164 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'param': 'Parameter containing:\ntensor([[ 0.2568,  0.5872],\n        [-0.1455,  0.5291]])'}
+2026-08-23 03:38:39.164 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.3.attn.weight'", 'param': 'Parameter containing:\ntensor([[-0.1140,  0.0748],\n        [ 0.6403, -0.6560]], requires_grad=True)'}
+2026-08-23 03:38:39.165 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.165 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.165 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.165 /testbed/src/llamafactory/model/adapter.py:130 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.165 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.166 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.3.mlp.weight'", 'param': 'Parameter containing:\ntensor([[-0.4452, -0.1790],\n        [-0.2756,  0.6109]], requires_grad=True)'}
+2026-08-23 03:38:39.166 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.166 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.166 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.166 /testbed/src/llamafactory/model/adapter.py:130 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.167 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.167 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'embed_tokens.weight'", 'param': 'Parameter containing:\ntensor([[-0.6136,  0.0316],\n        [-0.4927,  0.2484],\n        [ 0.4397,  0.1124],\n        [ 0.6408,  0.4412],\n        [-0.1023,  0.7924],\n        [-0.2897,  0.0525],\n        [ 0.5229,  2.3022],\n        [-1.4689, -1.5867]], requires_grad=True)'}
+2026-08-23 03:38:39.167 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.168 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.168 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.168 /testbed/src/llamafactory/model/adapter.py:130 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.168 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.169 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'output_head.weight'", 'param': 'Parameter containing:\ntensor([[-0.3136, -0.0255],\n        [ 0.4522,  0.7030]], requires_grad=True)'}
+2026-08-23 03:38:39.169 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.169 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.169 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.170 /testbed/src/llamafactory/model/adapter.py:130 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.170 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.170 /testbed/src/llamafactory/model/adapter.py:134 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.171 /testbed/src/llamafactory/model/adapter.py:134 llamafactory.model.adapter._setup_freeze_tuning event=return retval=None locals={'cast_trainable_params_to_fp32': 'True', 'config': 'namespace(num_hidden_layers=4)', 'finetuning_args': "namespace(use_llama_pro=True, freeze_trainable_layers=2, freeze_trainable_modules=['mlp', 'attn', 'mlp', 'attn'], freeze_extra_modules=['output_head', 'embed_tokens', 'output_head'], freeze_vision_tower=True, freeze_multi_modal_projector=True, freeze_language_model=True)", 'forbidden_modules': "{'apm', 'tts', 'llm', 'audio_projection_layer', 'vpm', 'audio_avg_pooler', 'resampler'}", 'hidden_modules': "{'attn', 'mlp'}", 'idx': '3', 'is_trainable': 'True', 'model': 'FreezeToyModel(\n  (layers): ModuleList(\n    (0-3): 4 x MiniBlock(\n      (attn): Linear(in_features=2, out_features=2, bias=False)\n      (mlp): Linear(in_features=2, out_features=2, bias=False)\n    )\n  )\n  (embed_tokens): Embedding(8, 2)\n  (output_head): Linear(in_features=2, out_features=2, bias=False)\n)', 'module_name': "'output_head'", 'name': "'output_head.weight'", 'non_hidden_modules': "{'embed_tokens', 'output_head'}", 'num_layers': '4', 'param': 'Parameter containing:\ntensor([[-0.3136, -0.0255],\n        [ 0.4522,  0.7030]], requires_grad=True)', 'stride': '2', 'trainable_layer_ids': 'range(1, 5, 2)', 'trainable_layers': "['.1.mlp', '.3.mlp', '.1.attn', '.3.attn', '.1.mlp', '.3.mlp', '.1.attn', '.3.attn', 'output_head', 'embed_tokens', 'output_head']"}
+2026-08-23 03:38:39.177 /testbed/src/llamafactory/model/adapter.py:57 llamafactory.model.adapter._setup_freeze_tuning event=call locals={'cast_trainable_params_to_fp32': 'False', 'finetuning_args': "namespace(use_llama_pro=False, freeze_trainable_layers=-3, freeze_trainable_modules=['mlp', 'attn', 'all', 'mlp', 'attn'], freeze_extra_modules=['embed_tokens', 'output_head', 'embed_tokens'], freeze_vision_tower=True, freeze_multi_modal_projector=True, freeze_language_model=True)", 'is_trainable': 'True', 'model': 'FreezeToyModel(\n  (layers): ModuleList(\n    (0-3): 4 x MiniBlock(\n      (attn): Linear(in_features=2, out_features=2, bias=False)\n      (mlp): Linear(in_features=2, out_features=2, bias=False)\n    )\n  )\n  (embed_tokens): Embedding(8, 2)\n  (output_head): Linear(in_features=2, out_features=2, bias=False)\n)'}
+2026-08-23 03:38:39.177 /testbed/src/llamafactory/model/adapter.py:63 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.177 /testbed/src/llamafactory/model/adapter.py:66 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:67 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:70 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:73 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'config': "namespace(num_hidden_layers=4, model_type='minicpmo')"}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:72 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:77 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'num_layers': '4'}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:80 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:89 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:92 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:94 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layer_ids': 'range(0, 3)'}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:95 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'hidden_modules': 'set()'}
+2026-08-23 03:38:39.178 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'non_hidden_modules': 'set()'}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.0.attn.weight'"}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:98 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'hidden_modules': "{'attn'}"}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.0.mlp.weight'"}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:98 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'hidden_modules': "{'attn', 'mlp'}"}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.1.attn.weight'"}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:100 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.179 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.1.mlp.weight'"}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:100 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.2.attn.weight'"}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.2.mlp.weight'"}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.180 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.3.attn.weight'"}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.3.mlp.weight'"}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'embed_tokens.weight'"}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:103 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'non_hidden_modules': "{'embed_tokens'}"}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:97 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'output_head.weight'"}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:99 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.181 /testbed/src/llamafactory/model/adapter.py:102 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:103 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:96 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'non_hidden_modules': "{'embed_tokens', 'output_head'}"}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:105 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': '[]'}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:107 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'mlp'"}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '0'}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp']"}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '1'}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp']"}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '2'}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp']"}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:107 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'attn'"}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '0'}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn']"}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '1'}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn']"}
+2026-08-23 03:38:39.182 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '2'}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn']"}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:107 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'all'"}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '0'}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.']"}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '1'}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.']"}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '2'}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.']"}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:107 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'mlp'"}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '0'}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.', '.0.mlp']"}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '1'}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.', '.0.mlp', '.1.mlp']"}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '2'}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.', '.0.mlp', '.1.mlp', '.2.mlp']"}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.183 /testbed/src/llamafactory/model/adapter.py:107 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'attn'"}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '0'}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.', '.0.mlp', '.1.mlp', '.2.mlp', '.0.attn']"}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '1'}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.', '.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn']"}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:113 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'idx': '2'}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:112 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.', '.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn']"}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:106 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:115 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:116 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:117 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'embed_tokens'"}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:122 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:116 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.', '.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', 'embed_tokens']"}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:117 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'output_head'"}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:122 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:116 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.', '.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', 'embed_tokens', 'output_head']"}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:117 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'module_name': "'embed_tokens'"}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:122 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:116 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.', '.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', 'embed_tokens', 'output_head', 'embed_tokens']"}
+2026-08-23 03:38:39.184 /testbed/src/llamafactory/model/adapter.py:124 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.186 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'forbidden_modules': "{'apm', 'tts', 'llm', 'audio_projection_layer', 'vpm', 'audio_avg_pooler', 'resampler'}"}
+2026-08-23 03:38:39.187 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.0.attn.weight'", 'param': 'Parameter containing:\ntensor([[ 0.2806,  0.0955],\n        [ 0.4741, -0.4163]], requires_grad=True)'}
+2026-08-23 03:38:39.187 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.187 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.187 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.188 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.188 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.0.mlp.weight'", 'param': 'Parameter containing:\ntensor([[ 0.1318, -0.5482],\n        [-0.4901, -0.3653]], requires_grad=True)'}
+2026-08-23 03:38:39.188 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.188 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.189 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.189 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.189 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.1.attn.weight'", 'param': 'Parameter containing:\ntensor([[ 0.3199,  0.2844],\n        [-0.4189,  0.2136]], requires_grad=True)'}
+2026-08-23 03:38:39.189 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.190 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.190 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.190 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.190 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.1.mlp.weight'", 'param': 'Parameter containing:\ntensor([[ 0.3882, -0.0892],\n        [ 0.0270,  0.1638]], requires_grad=True)'}
+2026-08-23 03:38:39.191 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.191 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.191 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.191 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.192 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.2.attn.weight'", 'param': 'Parameter containing:\ntensor([[ 0.4387,  0.6790],\n        [-0.5449, -0.2591]], requires_grad=True)'}
+2026-08-23 03:38:39.192 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.192 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.192 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.192 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.193 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.2.mlp.weight'", 'param': 'Parameter containing:\ntensor([[0.2779, 0.5859],\n        [0.6153, 0.6239]], requires_grad=True)'}
+2026-08-23 03:38:39.193 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.193 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.193 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.193 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.194 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.3.attn.weight'", 'param': 'Parameter containing:\ntensor([[ 0.1407, -0.6149],\n        [ 0.0650, -0.4424]], requires_grad=True)'}
+2026-08-23 03:38:39.194 /testbed/src/llamafactory/model/adapter.py:132 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.194 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'param': 'Parameter containing:\ntensor([[ 0.1407, -0.6149],\n        [ 0.0650, -0.4424]])'}
+2026-08-23 03:38:39.194 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'layers.3.mlp.weight'", 'param': 'Parameter containing:\ntensor([[-0.6590,  0.6283],\n        [ 0.5377, -0.7054]], requires_grad=True)'}
+2026-08-23 03:38:39.195 /testbed/src/llamafactory/model/adapter.py:132 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.195 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'param': 'Parameter containing:\ntensor([[-0.6590,  0.6283],\n        [ 0.5377, -0.7054]])'}
+2026-08-23 03:38:39.195 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'embed_tokens.weight'", 'param': 'Parameter containing:\ntensor([[ 0.8419, -0.4000],\n        [ 1.0395,  0.3582],\n        [-0.0033, -0.5344],\n        [ 1.1687,  0.3945],\n        [-1.0450, -0.9565],\n        [ 0.0335,  0.7101],\n        [-1.5353, -0.4127],\n        [ 0.9663,  1.6248]], requires_grad=True)'}
+2026-08-23 03:38:39.196 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.196 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.196 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.196 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.197 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={'name': "'output_head.weight'", 'param': 'Parameter containing:\ntensor([[ 0.6652,  0.4765],\n        [-0.3083, -0.1780]], requires_grad=True)'}
+2026-08-23 03:38:39.197 /testbed/src/llamafactory/model/adapter.py:127 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.197 /testbed/src/llamafactory/model/adapter.py:126 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.197 /testbed/src/llamafactory/model/adapter.py:129 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.198 /testbed/src/llamafactory/model/adapter.py:125 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.198 /testbed/src/llamafactory/model/adapter.py:134 llamafactory.model.adapter._setup_freeze_tuning event=line locals={}
+2026-08-23 03:38:39.199 /testbed/src/llamafactory/model/adapter.py:134 llamafactory.model.adapter._setup_freeze_tuning event=return retval=None locals={'cast_trainable_params_to_fp32': 'False', 'config': "namespace(num_hidden_layers=4, model_type='minicpmo')", 'finetuning_args': "namespace(use_llama_pro=False, freeze_trainable_layers=-3, freeze_trainable_modules=['mlp', 'attn', 'all', 'mlp', 'attn'], freeze_extra_modules=['embed_tokens', 'output_head', 'embed_tokens'], freeze_vision_tower=True, freeze_multi_modal_projector=True, freeze_language_model=True)", 'forbidden_modules': "{'apm', 'tts', 'llm', 'audio_projection_layer', 'vpm', 'audio_avg_pooler', 'resampler'}", 'hidden_modules': "{'attn', 'mlp'}", 'idx': '2', 'is_trainable': 'True', 'model': 'FreezeToyModel(\n  (layers): ModuleList(\n    (0-3): 4 x MiniBlock(\n      (attn): Linear(in_features=2, out_features=2, bias=False)\n      (mlp): Linear(in_features=2, out_features=2, bias=False)\n    )\n  )\n  (embed_tokens): Embedding(8, 2)\n  (output_head): Linear(in_features=2, out_features=2, bias=False)\n)', 'module_name': "'embed_tokens'", 'name': "'output_head.weight'", 'non_hidden_modules': "{'embed_tokens', 'output_head'}", 'num_layers': '4', 'param': 'Parameter containing:\ntensor([[ 0.6652,  0.4765],\n        [-0.3083, -0.1780]], requires_grad=True)', 'trainable_layer_ids': 'range(0, 3)', 'trainable_layers': "['.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', '.0.', '.1.', '.2.', '.0.mlp', '.1.mlp', '.2.mlp', '.0.attn', '.1.attn', '.2.attn', 'embed_tokens', 'output_head', 'embed_tokens']"}

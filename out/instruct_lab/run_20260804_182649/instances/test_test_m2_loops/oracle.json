@@ -1,0 +1,12 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "Run only the pytest test `instruct_lab_qa/test_test_m2_loops/files/testcase.py::TestModelCommandLoops::test_generated_answer_shapes`. During that run, consider every invocation of `instructlab.model.test.test` defined in `src/instructlab/model/test.py`. An invocation is one call of that exact function, numbered 1-based in chronological call order; only invocations that return from the function are included. In each invocation, examine the inner `for mod, answer in models.items()` loop whose header begins at line 169. Line numbers are absolute, 1-based source-file line numbers in the named repository file. An iteration is one execution of the loop body's first line, line 170 (`print()`), in that invocation's own target frame. Thus, when the outer loop at line 165 causes the inner loop to be entered multiple times, the invocation's iteration count is the sum of all line-170 executions across those inner-loop entries. Count only executions in the exact `instructlab.model.test.test` frame; exclude events in callees, comprehensions, and any other frame. For Python multi-line statements, a line execution belongs to the absolute source line where that executed statement or expression begins; decorator lines, the `def` line, and the docstring do not count as loop iterations. Across all included invocations, compute the largest and smallest such iteration counts. Return exactly one JSON object with keys `max_iterations` and `min_iterations` in that order, each serialized as a base-10 JSON integer (not a quoted string). The extrema are taken over the per-invocation counts without sorting or deduplicating them; ties do not change either scalar result. Do not include any additional keys or prose.",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  },
+  "oracle_answer": {
+    "max_iterations": 89,
+    "min_iterations": 44
+  }
+}

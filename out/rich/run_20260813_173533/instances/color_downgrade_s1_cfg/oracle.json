@@ -1,0 +1,77 @@
+{
+  "question_kind": "S1_IntraProceduralCFG",
+  "question": "During pytest run of rich_qa/color_downgrade_s1_cfg/files/testcase.py::TestColorDowngradeCFG::test_direct_downgrade_batch, the function rich.color.Color.downgrade in rich/color.py (source lines 513-568) is invoked directly once per generated color/target pair in the test loop.\n\nIdentify the 18th invocation of rich.color.Color.downgrade during that test run, counting each call event for this function in chronological order starting at 1.\n\nFor that 18th invocation only, collect every line event (event=line) recorded while executing inside rich.color.Color.downgrade itself. Include only line events whose func is exactly rich.color.Color.downgrade; do not include call or return events, and do not include line events from nested or transitive callees (for example rgb_to_hls, ColorTriplet, or Color construction). Repeated line events at the same line number are all included in order; do not deduplicate.\n\nLine numbers are 1-based positions in rich/color.py as checked into the repository. The def line (line 513), decorator lines, and docstring lines never produce line events and must not appear. For statements that span multiple physical lines, Python's trace machinery may emit separate line events on continuation lines as well as on the line where the statement begins (for example, a parenthesized assignment may report events on both the opening line and an inner continuation line); include every such line event in the order it occurs.\n\nEach executed-path element uses exactly these keys:\n\n- file: repository-relative path string, always rich/color.py for this answer\n- func: dotted module.qualname string, always rich.color.Color.downgrade for this answer\n- line: integer line number (for example 514)\n\nReport the chronological executed path as executed_path: a JSON list of objects in execution order; do not reorder or sort alphabetically.",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 516
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 519
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 520
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 521
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 523
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 533
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 534
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 535
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 536
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 539
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 538
+      },
+      {
+        "file": "rich/color.py",
+        "func": "rich.color.Color.downgrade",
+        "line": 541
+      }
+    ]
+  }
+}

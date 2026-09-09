@@ -1,0 +1,52 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 21,
+        "exception_type": "AssertionError"
+      },
+      {
+        "count": 237,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 22,
+        "exception_type": "IndexError"
+      },
+      {
+        "count": 22,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 23,
+        "exception_type": "StopIteration"
+      },
+      {
+        "count": 28,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 22,
+        "exception_type": "UnicodeDecodeError"
+      },
+      {
+        "count": 25,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 23,
+        "exception_type": "ZeroDivisionError"
+      }
+    ]
+  },
+  "question": "Run every pytest-collected test method whose name begins with `test_` in `DecoratorsDecoratorExceptionTests` from `click_qa/decorators_decorator_m5_exceptions/files/testcase.py`, and aggregate the result over all of those methods. For this run, report per-type counts of exceptions observed in the exact target frame `click.decorators.command.<locals>.decorator` (the nested source function `command.decorator`) in repo-relative file `src/click/decorators.py`.\n\nAn exception is observed once when execution of that exact target frame receives an exception event: this includes an exception raised by code in the frame and an exception propagating into it from any callee. An exception raised and fully handled inside a callee before control returns to the target does not count. An exception raised in the target and then handled there does count. If the same exception object is raised or re-raised again later in the same target-frame invocation, count every such target-frame observation separately. An invocation is one call of the target function during the complete pytest run; invocations are 1-based in chronological execution order, although invocation numbers are not included in the answer.\n\nCounts are totals over all invocations and all test methods, so repeated observations of one type in one or many methods all contribute separately. Name exception types using bare `type(exc).__name__` for built-ins (for example, `BufferError`, never `builtins.BufferError`) and `module.QualName` for all others. Message = exact `str(exc)`; messages are not included in this answer.\n\nReturn one JSON object with exactly the key `exception_type_counts`. Its value is a list of objects, each with exactly `count` (a JSON integer) and `exception_type` (a JSON string). Include every type observed at least once, aggregate duplicate type names into one object, and do not deduplicate observations before counting. Sort the list by `exception_type` in ascending Unicode code-point order. Aggregation guarantees at most one object per type, so no tie remains; if equal names arise before aggregation, combine their counts before sorting.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

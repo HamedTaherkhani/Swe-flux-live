@@ -1,0 +1,28 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 49,
+        "exception_type": "OSError"
+      },
+      {
+        "count": 14,
+        "exception_type": "UnicodeDecodeError"
+      },
+      {
+        "count": 221,
+        "exception_type": "jinja2.exceptions.TemplateNotFound"
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest` (class `LoadersGetSourceM5ExceptionsTest` in `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py`). The answer aggregates behavior across ALL test methods in that class, executed in pytest default collection order (alphabetical by test method name). The covered pytest ids are: `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_choice_bulk_missing_directory_templates`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_choice_bulk_successful_directory_templates`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_choice_directory_decode_failures`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_choice_interleaved_hits_and_misses`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_choice_parent_segment_rejections`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_choice_separator_segment_rejections`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_choice_zip_missing_templates`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_choice_zip_successful_templates`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_prefix_directory_decode_failures`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_prefix_missing_directory_templates`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_prefix_successful_directory_templates`; `jinja_qa/loaders_get_source_m5_exceptions/files/testcase.py::LoadersGetSourceM5ExceptionsTest::test_prefix_zip_missing_templates`. During that combined run, the function `jinja2.loaders.PackageLoader.get_source` in `src/jinja2/loaders.py` is reached only indirectly: each test constructs composite loaders and calls their `load` method (for example `ChoiceLoader.load` or `PrefixLoader.load`), which in turn calls `PackageLoader.load` and thereby enters `jinja2.loaders.PackageLoader.get_source`; the tests never call `jinja2.loaders.PackageLoader.get_source` directly. Report per-type exception observation counts for `jinja2.loaders.PackageLoader.get_source` across the entire combined run. An observation is one moment during execution of `jinja2.loaders.PackageLoader.get_source` when Python unwinds an exception into that exact frame: either because code in that frame raised it, or because an exception propagated up from a callee before being handled in a different frame. Do not count exceptions that are raised and fully handled inside a callee without ever reaching `jinja2.loaders.PackageLoader.get_source`. Each such delivery counts once; re-raising the same exception object in the same frame would count again, but that does not occur in this target during these tests. Exception type naming uses bare `type(exc).__name__` for built-in exceptions (for example `ValueError`, never `builtins.ValueError`) and `module.QualName` for all others (for example `haystack.core.errors.PipelineError`). Counts are totals over all invocations and all test methods in the class (the same type observed in five separate invocations contributes five to its count). Return a JSON object with exactly one key, `exception_type_counts`, whose value is a JSON array of objects. Each object must contain exactly two keys: `exception_type` (string) and `count` (JSON integer). Include one object for every exception type observed at least once. Sort the array ascending by `exception_type` using ASCII order.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

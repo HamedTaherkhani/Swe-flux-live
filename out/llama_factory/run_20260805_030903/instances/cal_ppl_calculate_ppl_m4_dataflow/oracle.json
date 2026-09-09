@@ -1,0 +1,337 @@
+{
+  "question_kind": "M4_DataFlow",
+  "question": "Run the pytest test `llama_factory_qa/cal_ppl_calculate_ppl_m4_dataflow/files/testcase.py::TestCalPplRuntime::test_cli_drives_all_training_stages` and consider every invocation of `scripts.stat_utils.cal_ppl.calculate_ppl` whose code is in `scripts/stat_utils/cal_ppl.py`. An invocation is one call of that function during this test, numbered 1-based in chronological call order. Consider only execution in the target function's own frame; do not include activity in callees, comprehensions in callees, or the test helpers.\n\nReport the union across all invocations of the observed reaching-definition/use pairs for exactly these local variables: `batch`, `batch_size`, `criterion`, `cutoff_len`, `data_args`, `data_collator`, `dataloader`, `dataset`, `dataset_dir`, `f`, `finetuning_args`, `flatten_labels`, `flatten_logits`, `loss_mask`, `max_samples`, `model`, `model_args`, `model_name_or_path`, `outputs`, `perplexities`, `save_name`, `sentence_logps`, `shift_labels`, `shift_logits`, `stage`, `template`, `token_logps`, `tokenizer`, `tokenizer_module`, `total_ppl`, `training_args`, `train_on_prompt`, and `trainset`.\n\nA definition is a successfully executed binding of one of those names by a parameter, assignment target (including tuple unpacking), loop target, `with ... as` target, assignment expression, or comprehension target. All parameters are defined at the function's `def` line, line 55, separately on every invocation. A simple, chained, or unpacking assignment's definition line is the 1-based line on which its assignment statement begins, and the binding takes effect only after its right-hand side succeeds. A loop target is defined at the loop header line on each successful iteration before the body runs; evaluating a loop header without obtaining another item does not define the target. A `with ... as` target is defined at the `with` statement's starting line after `__enter__` succeeds. An annotation without a value is not a definition, and mutating an object (for example, calling a method on a list) is not a definition of the variable holding it.\n\nA use is an executed read of the variable's current value by a `Name` expression in the target frame. An ordinary assignment target is not a use. For `x += y`, read `x` using the definition that reached the statement and then define `x` anew at the augmented-assignment's starting line, so augmented assignment is both a use and a definition. If a tracked comprehension-local name existed, its target would be defined on each successful comprehension iteration, its reads would be uses, and its reaching definitions would be confined to that comprehension's scope. Reads of free variables by a comprehension's own implicit frame are excluded because they are not in the target function's frame.\n\nFor each executed use, pair it with the most recent definition of the same variable that has taken effect on that invocation and path. Omit a use if no such definition exists. Actual control flow governs observation: definitions and uses in untaken branches do not count. Loop-carried flow does count, including a definition from one iteration reaching a use in a later iteration. If the same source-level pair occurs repeatedly or in multiple invocations, include it only once.\n\nLine numbers are absolute 1-based source lines in `scripts/stat_utils/cal_ppl.py` as it exists in the repository. For a multiline statement, a definition uses the line where the defining statement begins; a use uses the line containing the read identifier in the executed expression. The `def` line can therefore appear as a parameter definition; decorator and docstring lines are not uses or definitions under these rules.\n\nReturn exactly one JSON object with key `observed_def_use_pairs`. Its value is a list of objects, each having exactly `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string). Deduplicate by the complete `(variable, def_line, use_line)` triple, then sort ascending by `variable` (Unicode code-point order), then `def_line`, then `use_line`. There are no rendered runtime values, null sentinels, function names, or exception names in the answer.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 112,
+        "use_line": 113,
+        "variable": "batch"
+      },
+      {
+        "def_line": 113,
+        "use_line": 114,
+        "variable": "batch"
+      },
+      {
+        "def_line": 113,
+        "use_line": 116,
+        "variable": "batch"
+      },
+      {
+        "def_line": 55,
+        "use_line": 106,
+        "variable": "batch_size"
+      },
+      {
+        "def_line": 107,
+        "use_line": 120,
+        "variable": "criterion"
+      },
+      {
+        "def_line": 55,
+        "use_line": 79,
+        "variable": "cutoff_len"
+      },
+      {
+        "def_line": 72,
+        "use_line": 90,
+        "variable": "data_args"
+      },
+      {
+        "def_line": 72,
+        "use_line": 91,
+        "variable": "data_args"
+      },
+      {
+        "def_line": 94,
+        "use_line": 106,
+        "variable": "data_collator"
+      },
+      {
+        "def_line": 96,
+        "use_line": 106,
+        "variable": "data_collator"
+      },
+      {
+        "def_line": 100,
+        "use_line": 106,
+        "variable": "data_collator"
+      },
+      {
+        "def_line": 106,
+        "use_line": 112,
+        "variable": "dataloader"
+      },
+      {
+        "def_line": 55,
+        "use_line": 76,
+        "variable": "dataset"
+      },
+      {
+        "def_line": 55,
+        "use_line": 77,
+        "variable": "dataset_dir"
+      },
+      {
+        "def_line": 126,
+        "use_line": 127,
+        "variable": "f"
+      },
+      {
+        "def_line": 72,
+        "use_line": 92,
+        "variable": "finetuning_args"
+      },
+      {
+        "def_line": 119,
+        "use_line": 120,
+        "variable": "flatten_labels"
+      },
+      {
+        "def_line": 118,
+        "use_line": 120,
+        "variable": "flatten_logits"
+      },
+      {
+        "def_line": 117,
+        "use_line": 122,
+        "variable": "loss_mask"
+      },
+      {
+        "def_line": 55,
+        "use_line": 80,
+        "variable": "max_samples"
+      },
+      {
+        "def_line": 92,
+        "use_line": 113,
+        "variable": "model"
+      },
+      {
+        "def_line": 92,
+        "use_line": 114,
+        "variable": "model"
+      },
+      {
+        "def_line": 72,
+        "use_line": 88,
+        "variable": "model_args"
+      },
+      {
+        "def_line": 72,
+        "use_line": 91,
+        "variable": "model_args"
+      },
+      {
+        "def_line": 72,
+        "use_line": 92,
+        "variable": "model_args"
+      },
+      {
+        "def_line": 55,
+        "use_line": 75,
+        "variable": "model_name_or_path"
+      },
+      {
+        "def_line": 114,
+        "use_line": 115,
+        "variable": "outputs"
+      },
+      {
+        "def_line": 109,
+        "use_line": 124,
+        "variable": "perplexities"
+      },
+      {
+        "def_line": 109,
+        "use_line": 127,
+        "variable": "perplexities"
+      },
+      {
+        "def_line": 109,
+        "use_line": 129,
+        "variable": "perplexities"
+      },
+      {
+        "def_line": 55,
+        "use_line": 126,
+        "variable": "save_name"
+      },
+      {
+        "def_line": 55,
+        "use_line": 130,
+        "variable": "save_name"
+      },
+      {
+        "def_line": 122,
+        "use_line": 123,
+        "variable": "sentence_logps"
+      },
+      {
+        "def_line": 122,
+        "use_line": 124,
+        "variable": "sentence_logps"
+      },
+      {
+        "def_line": 116,
+        "use_line": 117,
+        "variable": "shift_labels"
+      },
+      {
+        "def_line": 116,
+        "use_line": 118,
+        "variable": "shift_labels"
+      },
+      {
+        "def_line": 116,
+        "use_line": 119,
+        "variable": "shift_labels"
+      },
+      {
+        "def_line": 115,
+        "use_line": 118,
+        "variable": "shift_logits"
+      },
+      {
+        "def_line": 115,
+        "use_line": 121,
+        "variable": "shift_logits"
+      },
+      {
+        "def_line": 55,
+        "use_line": 74,
+        "variable": "stage"
+      },
+      {
+        "def_line": 55,
+        "use_line": 91,
+        "variable": "stage"
+      },
+      {
+        "def_line": 55,
+        "use_line": 93,
+        "variable": "stage"
+      },
+      {
+        "def_line": 55,
+        "use_line": 95,
+        "variable": "stage"
+      },
+      {
+        "def_line": 55,
+        "use_line": 99,
+        "variable": "stage"
+      },
+      {
+        "def_line": 55,
+        "use_line": 78,
+        "variable": "template"
+      },
+      {
+        "def_line": 90,
+        "use_line": 91,
+        "variable": "template"
+      },
+      {
+        "def_line": 90,
+        "use_line": 97,
+        "variable": "template"
+      },
+      {
+        "def_line": 90,
+        "use_line": 101,
+        "variable": "template"
+      },
+      {
+        "def_line": 120,
+        "use_line": 121,
+        "variable": "token_logps"
+      },
+      {
+        "def_line": 121,
+        "use_line": 122,
+        "variable": "token_logps"
+      },
+      {
+        "def_line": 89,
+        "use_line": 90,
+        "variable": "tokenizer"
+      },
+      {
+        "def_line": 89,
+        "use_line": 92,
+        "variable": "tokenizer"
+      },
+      {
+        "def_line": 89,
+        "use_line": 94,
+        "variable": "tokenizer"
+      },
+      {
+        "def_line": 89,
+        "use_line": 97,
+        "variable": "tokenizer"
+      },
+      {
+        "def_line": 89,
+        "use_line": 101,
+        "variable": "tokenizer"
+      },
+      {
+        "def_line": 88,
+        "use_line": 89,
+        "variable": "tokenizer_module"
+      },
+      {
+        "def_line": 88,
+        "use_line": 91,
+        "variable": "tokenizer_module"
+      },
+      {
+        "def_line": 108,
+        "use_line": 123,
+        "variable": "total_ppl"
+      },
+      {
+        "def_line": 123,
+        "use_line": 123,
+        "variable": "total_ppl"
+      },
+      {
+        "def_line": 123,
+        "use_line": 129,
+        "variable": "total_ppl"
+      },
+      {
+        "def_line": 55,
+        "use_line": 81,
+        "variable": "train_on_prompt"
+      },
+      {
+        "def_line": 55,
+        "use_line": 101,
+        "variable": "train_on_prompt"
+      },
+      {
+        "def_line": 72,
+        "use_line": 91,
+        "variable": "training_args"
+      },
+      {
+        "def_line": 91,
+        "use_line": 106,
+        "variable": "trainset"
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "{'payload': (('example_pipeline', 'False'), ('name_code', 170), ('prompt_keys', ('owner', 'purpose', 'region')), ('signature', 8134), ('tools', 'LINT,DOCS,DATA,TEST')), 'revision_code': 143, 'directory_size': 4, 'sequence': 17}",
+        "variable": "cookiecutter_args"
+      },
+      {
+        "value": "{'context_code': 183, 'context_depth': 3}",
+        "variable": "cookiecutter_context"
+      },
+      {
+        "value": "{'signature': 8134, 'tools': 'LINT,DOCS,DATA,TEST', 'example_pipeline': 'False', 'name_code': 170, 'prompt_keys': ('owner', 'purpose', 'region')}",
+        "variable": "extra_context"
+      },
+      {
+        "value": "True",
+        "variable": "interactive_flow"
+      },
+      {
+        "value": "'/generated/2'",
+        "variable": "project_template"
+      },
+      {
+        "value": "{'owner': 14, 'purpose': 15, 'region': 18}",
+        "variable": "prompts_required"
+      },
+      {
+        "value": "'lint,docs,data,test'",
+        "variable": "selected_tools"
+      },
+      {
+        "value": "'true'",
+        "variable": "telemetry_consent"
+      },
+      {
+        "value": "'/testbed/kedro/templates/project'",
+        "variable": "template_path"
+      }
+    ]
+  },
+  "question": "Run the pytest test\n`kedro_qa/starters_new_s3_state/files/testcase.py::TestNewProgramState::test_seeded_direct_invocations`\nand consider the direct calls it makes to\n`kedro.framework.cli.starters.new` in\n`kedro/framework/cli/starters.py`.\n\nWhat are the values of the local variables `cookiecutter_args`,\n`cookiecutter_context`, `extra_context`, `interactive_flow`,\n`project_template`, `prompts_required`, `selected_tools`,\n`telemetry_consent`, and `template_path` immediately after line 394 has\nexecuted for the 11th time during this test run?\n\nLine 394 means the absolute, 1-based source line in the named file as it\nexists in the repository. An occurrence is counted each time that line's\nassignment statement executes in a frame of the named function, in\nchronological order across the whole test run, starting at 1. Calls in which\ncontrol flow does not reach line 394 do not count. An invocation means one\ncall of the named function, numbered from 1 in chronological order, although\nthe requested point is selected by line-execution occurrence rather than by\ninvocation number. Observe the state after the assignment on line 394 has\ncompleted and before the multi-line call whose expression begins on line 395\nexecutes. Decorator lines, the `def` line, and the docstring are not line 394\noccurrences.\n\nReturn exactly one JSON object with the shape\n`{\"observed_state\": [{\"value\": \"...\", \"variable\": \"...\"}]}`. Include exactly\none item for each of the nine named variables, sorted by `variable` in\nascending Unicode code-point order; do not remove duplicates. Each item has\nexactly the string keys `value` and `variable`. `variable` is the local's bare\nname. `value` is the Python `repr()` string of the value at the observation\npoint, not `str()` and not a JSON rendering. For a container, use `repr()` of\nthe whole container, preserving its runtime iteration/insertion order; thus\nstrings retain quotes, `None` and `True`/`False` use Python spellings, and an\nembedded newline is a real newline character within the JSON string. No\nrequested variable is expected to be absent; do not substitute an empty\nstring, JSON `null`, or an omitted item.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

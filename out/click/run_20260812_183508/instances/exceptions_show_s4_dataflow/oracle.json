@@ -1,0 +1,117 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 90,
+        "use_line": 110,
+        "variable": "color"
+      },
+      {
+        "def_line": 105,
+        "use_line": 106,
+        "variable": "color"
+      },
+      {
+        "def_line": 105,
+        "use_line": 110,
+        "variable": "color"
+      },
+      {
+        "def_line": 87,
+        "use_line": 88,
+        "variable": "file"
+      },
+      {
+        "def_line": 87,
+        "use_line": 106,
+        "variable": "file"
+      },
+      {
+        "def_line": 87,
+        "use_line": 109,
+        "variable": "file"
+      },
+      {
+        "def_line": 89,
+        "use_line": 106,
+        "variable": "file"
+      },
+      {
+        "def_line": 89,
+        "use_line": 109,
+        "variable": "file"
+      },
+      {
+        "def_line": 96,
+        "use_line": 101,
+        "variable": "help_names"
+      },
+      {
+        "def_line": 91,
+        "use_line": 106,
+        "variable": "hint"
+      },
+      {
+        "def_line": 99,
+        "use_line": 103,
+        "variable": "hint"
+      },
+      {
+        "def_line": 103,
+        "use_line": 106,
+        "variable": "hint"
+      },
+      {
+        "def_line": 87,
+        "use_line": 93,
+        "variable": "self"
+      },
+      {
+        "def_line": 87,
+        "use_line": 94,
+        "variable": "self"
+      },
+      {
+        "def_line": 87,
+        "use_line": 96,
+        "variable": "self"
+      },
+      {
+        "def_line": 87,
+        "use_line": 100,
+        "variable": "self"
+      },
+      {
+        "def_line": 87,
+        "use_line": 104,
+        "variable": "self"
+      },
+      {
+        "def_line": 87,
+        "use_line": 105,
+        "variable": "self"
+      },
+      {
+        "def_line": 87,
+        "use_line": 106,
+        "variable": "self"
+      },
+      {
+        "def_line": 87,
+        "use_line": 108,
+        "variable": "self"
+      }
+    ]
+  },
+  "question": "Run the single pytest test `click_qa/exceptions_show_s4_dataflow/files/testcase.py::TestUsageErrorShowDataFlow::test_generated_context_and_output_matrix`. Across all invocations made during that test, what are all unique observed dynamic def-use pairs in the own Python frame of `click.exceptions.UsageError.show`, defined in `src/click/exceptions.py`, for exactly these local variables: `color`, `file`, `help_names`, `hint`, and `self`?\n\nA definition (\u201cdef\u201d) is a successful assignment or binding of one of those names during an invocation. Each parameter is defined at the function's `def` line when that invocation starts. Assignment targets, annotated assignment targets, exception-handler targets, and loop targets are definitions. A definition only occurs if its assignment or binding completes; for example, a target of an assignment whose right-hand side raises is not defined. A use is a runtime read, by a Python `Name` expression in `Load` context, of the tracked name's current value on an executed source line in `show`'s own frame. Exclude reads and bindings performed in nested function, lambda, generator-expression, or comprehension frames, even when their source text is lexically inside `show`; comprehension-local variables are scoped to that nested comprehension frame and are therefore excluded. Uses of captured outer variables from such frames are excluded as well.\n\nEvery augmented assignment, such as `x += value` or `x |= value`, is a use of the definition of the old `x` followed by a new definition of `x` on that same line. For `for x in iterable`, each successful binding at the loop header is a new definition of `x` for that iteration; reads used to evaluate `iterable` occur before that binding. Ordinary assignment reads occur before their targets are defined. A pair is `{\u201cvariable\u201d: name, \u201cdef_line\u201d: D, \u201cuse_line\u201d: U}` when the value from the tracked name's most recent completed definition at absolute source line D is read at absolute source line U before another completed definition of that name in the same invocation.\n\nLine numbers are absolute, 1-based physical line numbers in `src/click/exceptions.py` as it exists in the repository. The function `def` line, but not decorator or docstring lines, can appear as a parameter definition line. On a multi-line statement or expression, use the physical line containing the relevant read or assignment target; a multi-line assignment's definition takes effect only after the full assignment completes.\n\nAggregate pairs over every `UsageError.show` invocation caused by the named test. An invocation is one Python call of `UsageError.show`, numbered conceptually in chronological order starting at 1, but invocation numbers are not emitted. Remove duplicate triples globally, including repeats within loops and across invocations. Return exactly `{\"observed_def_use_pairs\": [{\"def_line\": int, \"use_line\": int, \"variable\": str}, ...]}` with no additional keys. All line values are JSON integers and variable names are JSON strings; no values use `repr`, aliases, null, or omitted substitutes. Sort the entries by `variable`, then `def_line`, then `use_line`, all ascending; variable ordering is ordinary Unicode code-point ordering.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

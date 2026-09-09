@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 44
+  },
+  "question": "For pytest test `rich_qa/traceback_render_stack_s2_loops/files/testcase.py::TestRenderStackTraceLoop::test_console_print_traceback`, consider `rich.traceback.Traceback._render_stack` in `rich/traceback.py` during that test run.\n\nInvocation counting: an invocation is one logical execution of the target, numbered chronologically from 1. Because `_render_stack` is a generator (it is wrapped by `@group()` and uses `yield`), CPython's trace machinery emits a `return` event at each `yield` and a new `call` event when the generator resumes; treat the first `call` through the final `return` for this qualname as a single invocation (invocation 1), ignoring those internal suspend/resume boundaries.\n\nIn invocation 1, the `for` loop whose header is on line 792 of `rich/traceback.py` (`for frame_index, frame in enumerate(stack.frames):`). Iteration counting is 1-based: iteration N is the Nth time the loop body's first statement executes. The loop body's first statement is the initial statement in the `for` loop body block (not the `for` header line); use the line number of that statement as it appears in the repository file.\n\nCount only `line` events at that body-first line while inside invocation 1 (from its opening `call` through its closing `return`, including across generator resumes). Report the total number of iterations as integer `loop_iteration_count`.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "question_kind": "M7_Invariants",
+  "question": "During pytest run rich_qa/containers_justify_m7_invariants/files/testcase.py::ContainersJustifyInvariantsTest, aggregate invariant observations across all twelve test methods in that class (every def test_... method), in pytest collection order: test_center_justify_overflow_ellipsis_iota, test_center_justify_various_theta, test_full_justify_dense_words_alpha, test_full_justify_dense_words_beta, test_full_justify_mixed_lengths_zeta, test_full_justify_narrow_width_gamma, test_full_justify_overflow_crop_eta, test_full_justify_single_token_lines, test_full_justify_styled_words_delta, test_full_justify_styled_words_epsilon, test_right_justify_overflow_fold_lambda, test_right_justify_various_kappa.\n\nThe tests call rich.containers.Lines.justify directly in rich/containers.py (the def statement begins on line 111). Consider only trace events whose func equals rich.containers.Lines.justify exactly (module-qualified dotted name).\n\nAn invocation is one call event for justify at line 111, in chronological order across the whole test run. For each invocation, walk every trace event for that frame until its matching return event, merging locals as follows: start from the locals= mapping on the call event; for each subsequent event in the same frame before return, for every name that appears in that event's locals= mapping, replace the stored value with the new logged value (names not listed keep their previous value). This merged mapping is the evaluation environment for observations in that invocation.\n\nEach observation is one line event with event=line whose absolute 1-based line number in rich/containers.py matches the predicate's observation line. Python's trace hook delivers line events immediately before the named line executes; evaluate the predicate on the merged environment after applying that event's locals= overrides. The def line (111), decorator lines, and docstring lines are not executable and never produce observations. Multi-line statements report the line where the statement begins.\n\nFor each candidate predicate below, count observations and violations across every matching line event in every invocation and every test method. violations is how many evaluations were false; held_always is true only when violations equals zero and observations is greater than zero. When observations is zero (the observation line never executed), report observations=0, violations=0, and held_always=false.\n\nLogged local values are Python repr strings as written in the trace (for example an int appears as its decimal numeral without quotes, a str parameter appears wrapped in single quotes inside the repr). To obtain a Text plain string from a logged line value, take the substring between the first <text ' and the following ' in the repr (if that pattern is absent, plain length is zero). For ASCII plain text in this test run, cell length equals len(plain). Parse list and int locals with ast.literal_eval on the logged repr string.\n\nSort the invariant_report list by predicate ascending (Unicode code-point order). Tie-break: none needed beyond predicate string.\n\nReport JSON with top-level key invariant_report whose value is a list of objects, each with exactly these keys:\n- predicate (str): one of the candidate predicates stated verbatim below\n- held_always (bool)\n- observations (int)\n- violations (int)\n\nCandidate predicates (evaluate exactly as written; observation line follows):\n\n1. Predicate \"cell_len(line.plain) is at most width at the center pad_right step\" \u2014 observation line 137. True when len(plain) extracted from line as above is less than or equal to width parsed as int.\n\n2. Predicate \"overflow is crop fold or ellipsis\" \u2014 observation line 131. True when overflow parsed with ast.literal_eval is one of the strings crop, fold, or ellipsis.\n\n3. Predicate \"sum of spaces equals num_spaces\" \u2014 observation line 156. True when sum of the list obtained by ast.literal_eval from spaces equals num_spaces parsed as int.\n\n4. Predicate \"width is at least fifteen\" \u2014 observation line 146. True when width parsed as int is greater than or equal to fifteen.\n\n5. Predicate \"words_size is strictly less than width\" \u2014 observation line 153. True when words_size parsed as int is strictly less than width parsed as int.\n\n6. Predicate \"words_size plus num_spaces is at most width\" \u2014 observation line 153. True when words_size plus num_spaces (both ints from their logged repr strings) is less than or equal to width parsed as int.",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": true,
+        "observations": 15,
+        "predicate": "cell_len(line.plain) is at most width at the center pad_right step",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "overflow is crop fold or ellipsis",
+        "violations": 0
+      },
+      {
+        "held_always": true,
+        "observations": 40,
+        "predicate": "sum of spaces equals num_spaces",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 8,
+        "predicate": "width is at least fifteen",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 71,
+        "predicate": "words_size is strictly less than width",
+        "violations": 25
+      },
+      {
+        "held_always": false,
+        "observations": 71,
+        "predicate": "words_size plus num_spaces is at most width",
+        "violations": 26
+      }
+    ]
+  }
+}

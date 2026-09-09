@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "src/flask/ctx.py",
+        "func": "flask.ctx.AppContext._get_session"
+      },
+      {
+        "file": "src/flask/ctx.py",
+        "func": "flask.ctx.AppContext.match_request"
+      },
+      {
+        "file": "src/flask/ctx.py",
+        "func": "flask.ctx.AppContext.push"
+      },
+      {
+        "file": "src/flask/ctx.py",
+        "func": "flask.ctx.AppContext.request"
+      }
+    ]
+  },
+  "question": "Run the pytest test `flask_qa/ctx_push_m6_calls/files/testcase.py::TestContextPushGraph::test_seeded_context_matrix` against this repository. During\nthat test, which members of the tracked function set below execute at least\nonce while an invocation of `flask.ctx.AppContext.push` in `src/flask/ctx.py` is active?\n\nTracked function set (and no other functions):\n- `flask.ctx.AppContext.push`\n- `flask.ctx.AppContext._get_session`\n- `flask.ctx.AppContext.request`\n- `flask.ctx.AppContext.match_request`\n- `flask.ctx.AppContext.session`\n- `flask.ctx.AppContext.copy`\n\nA function executes when Python begins one invocation of exactly that function\n(a Python `call` event for its frame). A `flask.ctx.AppContext.push` invocation is active\nfrom its `call` event through its matching `return` event, inclusive. Thus,\ninclude the outer `push` invocation itself and any listed function whose call\nbegins anywhere while a `push` frame is on the stack, whether called directly\nby `push` or transitively by a nested callee. Ignore listed-function calls made\nwhen no `push` frame is active, and ignore all functions outside the tracked\nset. An invocation is one `call` event, counted 1-based in chronological order\nover the entire test run. Recursive or overlapping `push` invocations use the\nsame stack rule. Repeated calls, recursion, and generator resumptions that\nproduce further `call` events establish coverage but do not create duplicate\noutput entries.\n\nReturn exactly one JSON object with shape\n`{\"covered_functions\": [{\"file\": \"str\", \"func\": \"str\"}]}`. Emit one object\nper covered tracked function, deduplicated across the complete test run.\nFor every object, `file` is the repo-relative POSIX path containing the\nfunction and `func` is the full runtime dotted `module.qualname` (for example,\n`package.Widget.run`, never a bare method name). Sort the objects ascending\nfirst by `file`, then by `func`, comparing the Unicode code points of the\ncomplete strings; this is the total ordering rule, so no further tie-breaker\nis needed. Strings are ordinary JSON strings, and no `repr()` or `str()`\nconversion of runtime values is involved. Do not emit uncovered functions or\nany additional keys.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 199
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 200
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 202
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 206
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 208
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 209
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 211
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 211
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 211
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 215
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 216
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 218
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 218
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 218
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 218
+      },
+      {
+        "file": "fastapi/dependencies/models.py",
+        "func": "fastapi.dependencies.models._is_coroutine_callable_cached",
+        "line": 218
+      }
+    ]
+  },
+  "question": "Run the pytest test\n`fastapi_qa/models_is_coroutine_callable_cached_s1_cfg/files/testcase.py::TestCoroutineCallableClassification::test_programmatic_callable_matrix`\nagainst this repository. During that test, consider invocations of\n`fastapi.dependencies.models._is_coroutine_callable_cached` whose code is in\n`fastapi/dependencies/models.py`. An invocation is one `call` event for exactly\nthat function's frame, counted 1-based in chronological order during the test;\ncalls of helpers, wrappers, comprehensions, or other frames do not increment\nthis count.\n\nWhat is the exact ordered sequence of executed source-line events in the 21st\ninvocation? Return exactly\n`{\"executed_path\": [{\"file\": \"str\", \"func\": \"str\", \"line\": \"int\"}]}`, where\n`executed_path` is a JSON list and each element has exactly the string keys\n`file`, `func`, and `line` with value types string, string, and integer,\nrespectively. Include one object per retained line event in chronological\nexecution order. Preserve all repeated line events; do not sort or deduplicate\nthem. In every object, `file` is the repo-relative string\n`fastapi/dependencies/models.py`, and `func` is the fully qualified dotted\nmodule-and-function string\n`fastapi.dependencies.models._is_coroutine_callable_cached`.\n\nCount only Python `line` events emitted by the 21st target frame itself.\nExclude its `call`, `return`, and `exception` events and every event from\ncallees or other frames. The `line` integer is an absolute 1-based source line\nnumber in the named file as it exists in this checkout. The function has\nmulti-line conditions and calls: normalize an event on any continuation line\nto the line where its innermost enclosing Python statement begins.\n\"Innermost\" means the enclosing `ast.stmt` node having the smallest inclusive\n`lineno` through `end_lineno` span; ties choose the node with the later starting\nline, then the smaller column offset. Each event remains a separate list item\nafter normalization, including when several events normalize to the same\nstatement-start line. The decorator and `def` lines do not appear because they\ndo not produce retained line events; a docstring line would appear only if a\nline event for it occurred in the selected frame.",
+  "question_kind": "S1_IntraProceduralCFG",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  }
+}

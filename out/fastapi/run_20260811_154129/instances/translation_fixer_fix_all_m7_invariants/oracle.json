@@ -1,0 +1,14 @@
+{
+  "oracle_answer": {
+    "is_invariant_always_held": false,
+    "total_iterations_observed": 38,
+    "violating_iteration_count": 12
+  },
+  "question": "Run only the pytest test\n`fastapi_qa/translation_fixer_fix_all_m7_invariants/files/testcase.py::TestTranslationFixAllInvariants::test_seeded_page_outcomes`\nagainst the repository as provided. Consider the direct call of\n`scripts.translation_fixer.fix_all` in `scripts/translation_fixer.py`.\n\nFor every execution of absolute, 1-based line 110 in that file, observe the\ntarget function's local variables at the Python `line` event, immediately\nbefore the statement beginning on line 110 executes. The line number is the\nphysical 1-based source line in the repository; for a multi-line statement a\n`line` event belongs to the physical line where the executed\nstatement/expression begins. Decorator and `def` lines are not observations.\nAn \"iteration\" is the Nth such line-110 observation, in chronological order,\nwithin an invocation. An invocation is one `call` of this exact function,\n1-based in chronological order during the named test. Include observations\nonly from the exact `scripts.translation_fixer.fix_all` frame, not callees,\ncomprehension/generator frames, or functions with the same bare name.\n\nAt each observation, evaluate this candidate predicate verbatim using the\ncurrent Python local values:\n`res == (sum((index + 1) * ord(char) for index, char in enumerate(page)) % 5 != 0)`.\nHere `page` and `res` mean the values present in that target frame at the\nobservation point, and the expression has ordinary Python semantics.\n\"Always held\" means the predicate evaluated to `True` at every observation\nacross all invocations. Count every observation separately; preserve\nchronological order for evaluation, remove no duplicates, and apply no\nsorting. A violating iteration is an observation where the predicate is\n`False`. If there are zero observations, the result is not evaluable and the\nrun must be treated as invalid rather than emitting an answer.\n\nReturn exactly one JSON object with keys in this canonical order:\n`is_invariant_always_held`, `total_iterations_observed`, and\n`violating_iteration_count`. The first value is a JSON boolean; the other two\nare base-10 JSON integers. Thus Python `True` is serialized as JSON `true`;\nthere are no strings, `repr()`-formatted values, exception names, function\nnames, line-number values, lists, nulls, absent values, or ordering\ntie-breakers in the answer.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "is_invariant_always_held": "bool",
+    "total_iterations_observed": "int",
+    "violating_iteration_count": "int"
+  }
+}

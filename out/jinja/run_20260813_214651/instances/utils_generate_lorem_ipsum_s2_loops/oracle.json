@@ -1,0 +1,10 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "Consider the single test method `jinja_qa/utils_generate_lorem_ipsum_s2_loops/files/testcase.py::TestGenerateLoremIpsumLoops::test_while_loop_word_selection`.\n\nThat test calls `generate_lorem_ipsum` **directly** from `jinja2.utils` (imported from `jinja2.utils.generate_lorem_ipsum`).\n\nTarget function: `jinja2.utils.generate_lorem_ipsum` (the function whose `def` begins at line 353 of `src/jinja2/utils.py`).\n\nTarget loop: the `while True:` header on line 371 of `src/jinja2/utils.py`. An **iteration** of this loop is one execution of the loop body's first physical line (line 372: `word = choice(words)`). Count iterations using `sys.settrace` `line` events whose file path contains `src/jinja2/utils.py`, whose qualified name is exactly `jinja2.utils.generate_lorem_ipsum`, and whose line number equals 372.\n\n**Invocation** means one `call` trace event for `jinja2.utils.generate_lorem_ipsum` during the test run, numbered chronologically starting at 1 in the order those `call` events appear. The matching invocation is the half-open interval from that `call` event up to (but not including) the next `return` event for the same qualified name. `exception` events are out of scope.\n\nReport the iteration count for invocation 1 only: the total number of times line 372 executed while invocation 1 is active.\n\nLine numbers are absolute, 1-based, in `src/jinja2/utils.py` as it exists in the repository. For multi-line statements, a `line` event fires on the line where that statement begins.\n\nReturn JSON with exactly one top-level key: `loop_iteration_count` (integer).",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  },
+  "oracle_answer": {
+    "loop_iteration_count": 485
+  }
+}

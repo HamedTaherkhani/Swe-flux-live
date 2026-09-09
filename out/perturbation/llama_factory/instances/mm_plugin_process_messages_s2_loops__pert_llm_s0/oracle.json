@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 344
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/mm_plugin_process_messages_s2_loops/files/testcase.py::TestQwen2OmniLoopBehavior::test_seeded_image_expansion_through_dataset_processor`. During the first invocation of `src.llamafactory.data.mm_plugin.Qwen2OmniPlugin.process_messages` in `src/llamafactory/data/mm_plugin.py`, how many iterations does the `while` loop whose header is at line 1419 execute? An invocation means one runtime entry into that exact function, and invocations are numbered 1-based in chronological order across the whole test run. An iteration means one execution of the loop body's first statement, the `image_token_replace_length = ...` statement beginning at line 1420; count every such execution, without deduplication. Iterations are numbered 1-based in chronological order within that invocation. Line numbers are absolute, 1-based source line numbers in the named repository file. For a multi-line statement or expression, execution is attributed to the line on which that statement or expression begins; decorator and `def` lines do not count as loop-body executions. Return exactly one JSON object with the single key `loop_iteration_count` and a JSON integer value, for example `{\"loop_iteration_count\": 3}`. The integer is a raw base-10 number, not a string. Because the answer is a single scalar count, no sorting or tie-breaking applies.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

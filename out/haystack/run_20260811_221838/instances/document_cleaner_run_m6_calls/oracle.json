@@ -1,0 +1,87 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 12,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner.__init__"
+      },
+      {
+        "count": 132,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._allngram"
+      },
+      {
+        "count": 23,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._ascii_only"
+      },
+      {
+        "count": 16,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._find_and_remove_header_footer"
+      },
+      {
+        "count": 32,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._find_longest_common_ngram"
+      },
+      {
+        "count": 3564,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._ngram"
+      },
+      {
+        "count": 44,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._normalize_unicode"
+      },
+      {
+        "count": 19,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._remove_empty_lines"
+      },
+      {
+        "count": 27,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._remove_extra_whitespaces"
+      },
+      {
+        "count": 0,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._remove_regex"
+      },
+      {
+        "count": 16,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._remove_repeated_substrings"
+      },
+      {
+        "count": 14,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._remove_substrings"
+      },
+      {
+        "count": 12,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner._validate_params"
+      },
+      {
+        "count": 12,
+        "file": "haystack/components/preprocessors/document_cleaner.py",
+        "func": "haystack.components.preprocessors.document_cleaner.DocumentCleaner.run"
+      }
+    ]
+  },
+  "question": "Run the pytest selection `haystack_qa/document_cleaner_run_m6_calls/files/testcase.py::TestDocumentCleanerInvocationCounts` from the repository root. This selects every test method directly defined on `TestDocumentCleanerInvocationCounts` whose name starts with `test_`; pytest identifies each one as `haystack_qa/document_cleaner_run_m6_calls/files/testcase.py::TestDocumentCleanerInvocationCounts::METHOD_NAME`. Produce one aggregate answer summed across all selected test methods, not one answer per method. Test execution order does not affect these summed counts.\n\nThe primary target is `haystack.components.preprocessors.document_cleaner.DocumentCleaner.run` in `haystack/components/preprocessors/document_cleaner.py`. The tracked scope is every method whose `def` or `async def` statement occurs directly in the source body of class `DocumentCleaner` in exactly that file. Include directly defined instance methods, static methods, class methods, `__init__`, and other directly defined dunder methods. Exclude module-level functions, imported functions, inherited methods, property getter/setter/deleter functions, and every function created inside a method, including nested functions, closures, lambda bodies, generator-expression frames, and comprehension frames.\n\nFor each method in the tracked scope, count one invocation for each Python `call` event for that method's frame during the complete selected pytest run, regardless of the caller. Calls made directly by tests, transitively by another function, recursively, or from any other frame all count. Do not deduplicate events. Calls to excluded or otherwise out-of-scope functions create no answer entry. If an in-scope generator or coroutine frame is resumed and Python emits another `call` event for that resumption, count that event as another invocation. Include every in-scope method exactly once even if it never executes; such a method has `count: 0`.\n\nFunction identity is the dotted source identity formed from the Python module name, the directly containing class name, and the method name, with no file or line suffix. For example, a hypothetical method may be represented as `sample.pkg.Widget.process`. Use this source identity even if runtime decoration changes a code object's `__qualname__`. The `file` value is the repository-relative POSIX path of the direct definition, using `/` separators; here it is `haystack/components/preprocessors/document_cleaner.py` for every entry.\n\nReturn exactly one JSON object with the sole key `invocation_counts`. Its value is a JSON list containing one object per in-scope method, and each object has exactly the keys `count`, `file`, and `func`. `count` is a base-10 JSON integer; `file` and `func` are JSON strings containing the values defined above, not Python `repr` strings. No field is omitted and no value is represented by JSON `null`. Sort the entries by `func` ascending in ordinary Unicode code-point order, using `file` ascending as the tie-breaker if two entries hypothetically share the same `func`; perform no other reordering or deduplication.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 626,
+        "use_line": 627,
+        "variable": "dependencies"
+      },
+      {
+        "def_line": 626,
+        "use_line": 634,
+        "variable": "dependencies"
+      },
+      {
+        "def_line": 613,
+        "use_line": 618,
+        "variable": "grouped_nodes_map"
+      },
+      {
+        "def_line": 613,
+        "use_line": 619,
+        "variable": "grouped_nodes_map"
+      },
+      {
+        "def_line": 613,
+        "use_line": 624,
+        "variable": "grouped_nodes_map"
+      },
+      {
+        "def_line": 613,
+        "use_line": 626,
+        "variable": "grouped_nodes_map"
+      },
+      {
+        "def_line": 613,
+        "use_line": 637,
+        "variable": "grouped_nodes_map"
+      },
+      {
+        "def_line": 616,
+        "use_line": 618,
+        "variable": "key"
+      },
+      {
+        "def_line": 616,
+        "use_line": 619,
+        "variable": "key"
+      },
+      {
+        "def_line": 616,
+        "use_line": 620,
+        "variable": "key"
+      },
+      {
+        "def_line": 616,
+        "use_line": 624,
+        "variable": "key"
+      },
+      {
+        "def_line": 616,
+        "use_line": 626,
+        "variable": "key"
+      },
+      {
+        "def_line": 616,
+        "use_line": 633,
+        "variable": "key"
+      },
+      {
+        "def_line": 615,
+        "use_line": 616,
+        "variable": "node"
+      },
+      {
+        "def_line": 615,
+        "use_line": 621,
+        "variable": "node"
+      },
+      {
+        "def_line": 615,
+        "use_line": 624,
+        "variable": "node"
+      },
+      {
+        "def_line": 615,
+        "use_line": 629,
+        "variable": "node"
+      },
+      {
+        "def_line": 629,
+        "use_line": 631,
+        "variable": "parent"
+      },
+      {
+        "def_line": 630,
+        "use_line": 633,
+        "variable": "parent_key"
+      },
+      {
+        "def_line": 630,
+        "use_line": 634,
+        "variable": "parent_key"
+      },
+      {
+        "def_line": 630,
+        "use_line": 635,
+        "variable": "parent_key"
+      },
+      {
+        "def_line": 612,
+        "use_line": 615,
+        "variable": "self"
+      },
+      {
+        "def_line": 612,
+        "use_line": 629,
+        "variable": "self"
+      },
+      {
+        "def_line": 627,
+        "use_line": 633,
+        "variable": "unique_dependencies"
+      },
+      {
+        "def_line": 627,
+        "use_line": 635,
+        "variable": "unique_dependencies"
+      }
+    ]
+  },
+  "question": "When the pytest test\n`kedro_qa/pipeline_group_by_namespace_m4_dataflow/files/testcase.py::TestGroupByNamespaceDataFlow::test_traced_run`\nis executed, the method\n`kedro.pipeline.pipeline.Pipeline._group_by_namespace`\n(defined in the repository file `kedro/pipeline/pipeline.py`) is invoked\nthree times, indirectly: the test builds three `Pipeline` objects\nprogrammatically and calls the public method\n`kedro.pipeline.pipeline.Pipeline.group_nodes_by` with\n`group_by=\"namespace\"` once on each of them, and that dispatcher's body\ncalls the target method exactly once per call. The three pipelines are\nwired so that the target's branches and loops are exercised in different\ncombinations across the three invocations: namespaced and bare\n(namespace-less) nodes on both the node side and the parent side, nested\nnamespaces whose top-level keys collide, nodes with zero parents, parents\nsharing the node's own group key, and fan-in nodes whose several parents\ncollapse to the same dependency key.\n\nTask: report ALL unique observed def-use pairs, over ALL three invocations\nof `kedro.pipeline.pipeline.Pipeline._group_by_namespace` during this test\nrun, for exactly these eight local names of the target method: `self`,\n`grouped_nodes_map`, `node`, `key`, `dependencies`, `unique_dependencies`,\n`parent`, `parent_key`.\n\nDefinitions and conventions:\n\n- Line numbers are absolute, 1-based, in the file\n  `kedro/pipeline/pipeline.py` as it exists on disk in this repository.\n- A \"def\" of a tracked name is a binding of that bare name: a simple\n  assignment to the name (e.g. `x = ...`), a `for` loop header binding\n  (`for x in ...:` redefines `x` on the header line once per iteration),\n  or a parameter binding. The parameter `self` counts as defined at the\n  line of the method's `def` statement, and that def is in effect from the\n  moment the invocation begins, before any line of the body executes.\n- A \"use\" of a tracked name is any read of the name: any occurrence of the\n  bare name in load position, including as the base object of a subscript\n  or attribute access and including the iterable expression of a `for`\n  header.\n- Subscript or attribute stores such as `d[key] = value` do NOT redefine\n  the base name `d` (they mutate the object it refers to); the occurrence\n  of `d` in such a statement is a use of `d` (and any tracked names among\n  the subscript/key/value expressions are uses as well). Method-call\n  statements such as `x.append(y)` or `s.add(y)` are uses of `x`/`s` and\n  of `y`, not defs.\n- Augmented assignment (`x += 1`) reads then writes: it would count BOTH\n  as a use of the previously reaching def AND as a new def of `x`, both on\n  that line. (The target body contains no augmented assignment; the rule\n  is stated for completeness.)\n- Only the eight names enumerated above are tracked. Any other local names\n  are not tracked. The target's body contains one `lambda` used as a sort\n  key; the lambda's own parameter and body belong to a separate scope and\n  are not tracked, and the lambda's execution runs in a separate frame\n  that contributes nothing.\n- A use or def is attributed to the physical line on which the name\n  textually appears, even when the containing statement spans several\n  physical lines: for example, a name appearing on a continuation line of\n  a multi-line call or a multi-line assignment is attributed to that\n  continuation line, not to the line where the statement begins.\n- A pair {variable, def_line, use_line} is OBSERVED if, during some\n  invocation of the target in this test run, the line use_line actually\n  executes (fires an executed-line event, equivalent to a `line` event of\n  `sys.settrace`, for the target method's own frame) and at that moment\n  the reaching def of `variable` is def_line \u2014 i.e. def_line is the most\n  recent def of that variable executed earlier within the SAME invocation\n  (the parameter binding at the `def` line counts as executed at\n  invocation start), with no other def of that variable executed in\n  between. Note that on this interpreter a multi-line statement may fire\n  executed-line events both on the line where the statement begins and on\n  continuation lines as sub-expressions evaluate; a pair is observed only\n  when the use's own physical line fires.\n- When a single executed line both uses and defines the same tracked name\n  (e.g. `key = <expr using key>`), the uses on that line are paired with\n  the def that was reaching BEFORE the line executed, and only afterwards\n  does the line's def become the new reaching def. Uses and defs of\n  different names on the same line are independent.\n- Only the target method's own frame counts. Functions and constructors\n  the target calls (including the grouping-record constructor and the\n  `sorted`/`set`/`list` builtins) run in separate frames or no Python\n  frame at all; their internal lines contribute nothing. However, the\n  target's own lines performing such calls (including the lines holding\n  the argument expressions) DO count normally. The line containing the\n  target's `return` statement also counts: it is a use of every tracked\n  name read by the return expression.\n- Aggregation and deduplication: collect the observed pairs from all three\n  invocations into one set; pairs that are observed multiple times (within\n  one invocation, across loop iterations, or across invocations) are\n  reported only once.\n- Invocation counting (for reference): one invocation is one entry into\n  the target method during the test run, counted 1-based in chronological\n  order of method entry; this test run produces exactly three invocations,\n  and the answer aggregates over all of them.\n\nAnswer format: a JSON object with exactly one key, `observed_def_use_pairs`,\nwhose value is a list of objects, one per unique observed pair. Each object\nhas exactly three keys: `variable` (a JSON string, one of the eight tracked\nnames), `def_line` (a JSON integer) and `use_line` (a JSON integer). The\nlist is sorted ascending by `variable` (lexicographic), then by `def_line`,\nthen by `use_line`.\n",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

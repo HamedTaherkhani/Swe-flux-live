@@ -1,0 +1,112 @@
+{
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1281
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1282
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1285
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1286
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1289
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1290
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1306
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1314
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1315
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1319
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1319
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1319
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1319
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1319
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1324
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1352
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1354
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1361
+      },
+      {
+        "file": "src/flask/app.py",
+        "func": "flask.app.Flask.make_response",
+        "line": 1364
+      }
+    ]
+  },
+  "question": "Run the pytest test `flask_qa/app_make_response_s1_cfg/files/testcase.py::TestResponseMatrix::test_seeded_dispatch_matrix` against this repository. During that\ntest, what is the exact ordered sequence of executed Python line events inside\nthe 10th invocation of `flask.app.Flask.make_response` in `src/flask/app.py`?\n\nAn invocation is one `call` event for exactly `flask.app.Flask.make_response`, counted 1-based\nin chronological order over the entire test run. Consider only `line` events\nfrom that invocation's own frame. Ignore its `call`, `return`, and `exception`\nevents, and ignore every event in nested callees or any other frame.\n\nReport events in chronological occurrence order (the first observed line event\nfirst); this occurrence order is the complete ordering rule and has no\nadditional tie-breaker. Preserve repeated line events without sorting or\ndeduplication. Line numbers are 1-based physical lines in `src/flask/app.py` as it\nexists in the repository. Normalize an event on any continuation line of a\nmulti-line statement to the line where the smallest enclosing AST statement\nbegins; for example, all event lines belonging to the arguments of a\nparenthesized assignment are attributed to that assignment's first line.\nPreserve each event after normalization, even when this creates adjacent\nduplicates. The function's `def` line, decorator lines, and docstring lines do\nnot appear: execution begins at the first executable statement in its body.\n\nReturn exactly one JSON object with the shape\n`{\"executed_path\": [{\"file\": \"str\", \"func\": \"str\", \"line\": \"int\"}]}`.\nFor every element, `file` must be the literal repo-relative POSIX path\n`src/flask/app.py`, `func` must be the full runtime dotted\n`module.qualname` `flask.app.Flask.make_response` (the naming format is like\n`package.Widget.run`), and `line` must be the normalized integer line number\ndefined above. Do not include any other keys.",
+  "question_kind": "S1_IntraProceduralCFG",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  }
+}

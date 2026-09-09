@@ -1,0 +1,65 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, timeout-2.4.0, twisted-1.14.3, xdist-3.8.0
+collected 15 items
+
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py ...............
+
+=============================== warnings summary ===============================
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_absent_generated_name
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_default_click_uses_first_control
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_empty_criteria_matches_many_nodes
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_existing_positive_number
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_malformed_generated_attribute
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_malformed_generated_value
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_non_numeric_number_selector
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_repeated_generated_name
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_unique_generated_name
+  /testbed/scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py:60: ScrapyDeprecationWarning: FormRequest.from_response() is deprecated. Use the form2request library instead.
+    return FormRequest.from_response(
+
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_hidden_negative_number_then_absent_name
+  /testbed/scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py:127: ScrapyDeprecationWarning: FormRequest.from_response() is deprecated. Use the form2request library instead.
+    FormRequest.from_response(response, clickdata=criteria)
+
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_hidden_number_then_malformed_attribute
+  /testbed/scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py:165: ScrapyDeprecationWarning: FormRequest.from_response() is deprecated. Use the form2request library instead.
+    FormRequest.from_response(response, clickdata=criteria)
+
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_hidden_number_then_repeated_name
+  /testbed/scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py:116: ScrapyDeprecationWarning: FormRequest.from_response() is deprecated. Use the form2request library instead.
+    FormRequest.from_response(response, clickdata=criteria)
+
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_hidden_number_then_unique_name_recovers
+  /testbed/scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py:134: ScrapyDeprecationWarning: FormRequest.from_response() is deprecated. Use the form2request library instead.
+    request = FormRequest.from_response(response, clickdata=criteria)
+
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_large_negative_number_kept_in_xpath
+  /testbed/scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py:108: ScrapyDeprecationWarning: FormRequest.from_response() is deprecated. Use the form2request library instead.
+    FormRequest.from_response(response, clickdata={"nr": outside})
+
+scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_large_positive_number_kept_in_xpath
+  /testbed/scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py:101: ScrapyDeprecationWarning: FormRequest.from_response() is deprecated. Use the form2request library instead.
+    FormRequest.from_response(response, clickdata={"nr": outside})
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_absent_generated_name
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_default_click_uses_first_control
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_empty_criteria_matches_many_nodes
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_existing_positive_number
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_hidden_negative_number_then_absent_name
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_hidden_number_then_malformed_attribute
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_hidden_number_then_repeated_name
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_hidden_number_then_unique_name_recovers
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_large_negative_number_kept_in_xpath
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_large_positive_number_kept_in_xpath
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_malformed_generated_attribute
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_malformed_generated_value
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_non_numeric_number_selector
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_repeated_generated_name
+PASSED scrapy_qa/form_get_clickable_m5_exceptions__pert_llm_s0/files/testcase.py::TestGetClickableExceptions::test_unique_generated_name
+======================= 15 passed, 15 warnings in 0.81s ========================

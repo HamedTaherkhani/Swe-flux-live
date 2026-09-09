@@ -1,0 +1,46 @@
+{
+  "invariant_report": [
+    {
+      "predicate": "isinstance(rel_parts, set)",
+      "held_always": true,
+      "observations": 69,
+      "violations": 0
+    },
+    {
+      "predicate": "isinstance(rv, str)",
+      "held_always": true,
+      "observations": 65,
+      "violations": 0
+    },
+    {
+      "predicate": "len(value) > 0",
+      "held_always": false,
+      "observations": 69,
+      "violations": 1
+    },
+    {
+      "predicate": "nofollow is False or \"nofollow\" in rel_parts",
+      "held_always": true,
+      "observations": 69,
+      "violations": 0
+    },
+    {
+      "predicate": "re.compile(r\"^([\\w.+-]{2,}:(/){0,2})$\").fullmatch(scheme) is not None",
+      "held_always": false,
+      "observations": 67,
+      "violations": 1
+    },
+    {
+      "predicate": "scheme in tuple(extra_schemes)",
+      "held_always": true,
+      "observations": 67,
+      "violations": 0
+    },
+    {
+      "predicate": "target is not None",
+      "held_always": false,
+      "observations": 69,
+      "violations": 68
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 10,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 8,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 66,
+        "exception_type": "sqlglot.errors.ParseError"
+      },
+      {
+        "count": 34,
+        "exception_type": "sqlglot.errors.TokenError"
+      }
+    ]
+  },
+  "question": "Run pytest on every test method in class `TestToTableExceptions` in\n`sqlglot_qa/builders_to_table_m5_exceptions/files/testcase.py`, and aggregate the\nresults over all those methods. The covered methods are exactly every method in\nthat class whose name starts with `test_`; their pytest ids have the form\n`sqlglot_qa/builders_to_table_m5_exceptions/files/testcase.py::TestToTableExceptions::test_generated_qualified_names`.\nThe answer is independent of pytest's method execution order because it contains\ncommutative totals over the whole class.\n\nFor `sqlglot.expressions.builders.to_table` in\n`sqlglot/expressions/builders.py`, how many exception observations of each type\noccur in that exact function frame during the complete run?\n\nAn exception observation occurs whenever execution in that exact `to_table`\nframe raises an exception itself or receives an exception propagated from a\ncallee. Count one observation each time this happens in the target frame,\nincluding an exception that the target subsequently catches. An exception\nraised and fully handled inside a callee does not count because it never\npropagates into the target frame. If the same exception object is re-raised in\nthe target frame, count the re-raise as another observation; observations are\nnot deduplicated by object identity, line, invocation, or test method.\n\nException type naming uses bare `type(exc).__name__` for built-ins (e.g.\n`ValueError`, never `builtins.ValueError`), `module.QualName` for all others.\nHere `module.QualName` means\n`f\"{type(exc).__module__}.{type(exc).__qualname__}\"`. Message = exact\n`str(exc)`, although messages are not included in this answer shape.\n\nAn invocation is one call of the target function, numbered 1-based in\nchronological order within the complete pytest run. Counts are totals over all\ninvocations and all test methods, so repeated observations of one type in five\nmethods contribute five to that type's total.\n\nReturn exactly\n`{\"exception_type_counts\": [{\"count\": <JSON integer>, \"exception_type\": <JSON string>}, ...]}`.\nEmit one row for every exception type observed at least once. Merge observations\nhaving the same exact formatted exception type by summing their counts; do not\notherwise remove duplicates. Sort rows by `exception_type` ascending using\nPython string (Unicode code-point) order. Because merging leaves one row per\nexact type string, equal sort keys cannot remain and no secondary tie-break is\napplicable.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

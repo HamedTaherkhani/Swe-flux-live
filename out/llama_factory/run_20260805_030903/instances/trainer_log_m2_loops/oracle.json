@@ -1,0 +1,12 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "Run the complete pytest test `llama_factory_qa/trainer_log_m2_loops/files/testcase.py::TestKTOLoggingLoopDynamics::test_seeded_periodic_logging`. Across all invocations of the exact function `llamafactory.train.kto.trainer.CustomKTOTrainer.log` in `src/llamafactory/train/kto/trainer.py` during that test, determine the maximum and minimum iteration counts of the `for key, metric in metric_dict.items()` loop whose header begins at line 291. An invocation means one runtime `call` entry into that exact function during the complete test; include every invocation and number invocations 1-based in chronological entry order. For each invocation separately, an iteration means one execution in that function's own frame of the loop body's first statement, the `if not key.startswith(\"dummy_\"):` statement beginning at line 292. Count executions chronologically and without deduplication; if the line-291 loop were entered more than once in one invocation, sum all of its iterations for that invocation. An invocation in which the body never executes has iteration count zero. Take `max_iterations` and `min_iterations` over the multiset of all per-invocation counts; retain duplicate counts when forming that multiset, although duplicates do not alter either extremum. Only executions in the exact target function frame count: exclude the `def` line, decorator lines, loop-header executions, and executions in called functions, comprehensions, or any other frame. Line numbers are absolute, 1-based source line numbers in the named repository file as checked out for the test. For a multi-line statement or expression, execution is attributed to the line where that statement or expression begins. Return exactly one JSON object with keys in this order: `max_iterations`, then `min_iterations`; each value must be a raw base-10 JSON integer, not a string. For example, the required serialization shape is `{\"max_iterations\": 8, \"min_iterations\": 2}`. Do not add keys. No sorting or tie-breaking is needed beyond taking the stated extrema, and no `repr()` or `str()` formatting applies because both leaves are JSON integers.",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  },
+  "oracle_answer": {
+    "max_iterations": 69,
+    "min_iterations": 33
+  }
+}

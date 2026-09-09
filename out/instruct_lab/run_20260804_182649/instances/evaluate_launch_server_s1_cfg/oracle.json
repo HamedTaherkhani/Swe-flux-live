@@ -1,0 +1,207 @@
+{
+  "question_kind": "S1_IntraProceduralCFG",
+  "question": "Run the pytest test `instruct_lab_qa/evaluate_launch_server_s1_cfg/files/testcase.py::TestEvaluateLaunchPath::test_branch_evaluation_reuses_serve_config` against this repository. What is the exact ordered sequence of executed Python line events inside `instructlab.model.evaluate.launch_server` in `src/instructlab/model/evaluate.py` during its second invocation? An invocation is one runtime `call` event for exactly that function, counted 1-based in chronological order from the start of this test; calls of other functions do not count. Include only `line` events emitted while that second function frame is active, from its call up to but excluding its return event. Do not include call, return, or exception events, events in callees, decorator lines, or the `def` line; the function has no executable docstring, so no docstring line appears. Preserve chronological event order exactly and retain all duplicates; do not sort or deduplicate. Line numbers are 1-based physical line numbers in the named repository file as it exists for this test. For a multi-line statement or condition, normalize every line event on one of its continuation lines to the physical line where that complete statement or condition begins, retaining repeated normalized entries. For example, if a hypothetical assignment begins on line 20 and continues on lines 21 and 22, events while evaluating any of those three lines are each reported as line 20. Return exactly one JSON object with key `executed_path`. Its value is a JSON array whose entries have exactly the keys `file`, `func`, and `line` in that key order. In every entry, `file` is the repo-relative POSIX path string and `func` is the fully qualified Python name in `module.qualname` form (for example, `package.module.Class.method`); `line` is a JSON integer. Use JSON string serialization for the two strings and JSON number serialization for the integer; no value uses Python `repr`, and there are no null or omitted values.",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 760
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 762
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 763
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 764
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 765
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 768
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 770
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 771
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 772
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 773
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 774
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 774
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 774
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 777
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 783
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 788
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 789
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 790
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 791
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 795
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 795
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 795
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 814
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 816
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 817
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 819
+      },
+      {
+        "file": "src/instructlab/model/evaluate.py",
+        "func": "instructlab.model.evaluate.launch_server",
+        "line": 836
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "During execution of pytest test `llama_factory_qa/mm_plugin_process_messages_s2_loops__r20260714/files/testcase.py::TestQwen2OmniProcessMessagesLoops::test_audio_video_chunk_loop_iterations`, consider function `src.llamafactory.data.mm_plugin.Qwen2OmniPlugin.process_messages` in `src/llamafactory/data/mm_plugin.py`. Focus on the loop whose header is at source line 1465 (`for j in range(max(len(video_chunk_indices), len(audio_chunk_indices))):`). Count function invocations in 1-based order by each entry into `process_messages` during this test run. For each invocation, define one loop iteration as one execution of the first line in that loop body (source line 1466). Return JSON with exactly two keys: `loop_line` (int), and `iterations_per_invocation` (array of int). `iterations_per_invocation[k-1]` must correspond to invocation k; preserve this invocation order exactly.",
+  "template_answer": {
+    "loop_line": "int",
+    "iterations_per_invocation": [
+      "int"
+    ]
+  },
+  "oracle_answer": {
+    "loop_line": 1465,
+    "iterations_per_invocation": [
+      3,
+      2
+    ]
+  }
+}

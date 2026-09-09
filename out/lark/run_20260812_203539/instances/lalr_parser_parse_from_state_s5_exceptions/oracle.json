@@ -1,0 +1,18 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "AttributeError",
+      "IndexError",
+      "KeyError",
+      "TypeError",
+      "ZeroDivisionError"
+    ]
+  },
+  "question": "Run the single pytest method `ParseFromStateExceptionBehaviorTests.test_generated_failures_across_parser_runs` in `lark_qa/lalr_parser_parse_from_state_s5_exceptions/files/testcase.py`. Across all invocations of `lark.parsers.lalr_parser._Parser.parse_from_state` in `lark/parsers/lalr_parser.py` made by that method, what set of exception types is caught inside the target function?\n\nAn invocation means one call of the target function during this test method, numbered 1-based in chronological call order. An exception counts as caught inside the target only when it is delivered to the target's frame while executing its `try` suite and execution then enters the first executable statement of a matching `except` suite in that same frame. Count it even if the handler later re-raises it. Exclude exceptions that merely propagate out without entering a target handler, and exclude exceptions caught only by the test or another function. Source line numbers used to identify handler entry are absolute, 1-based line numbers in the named repository file; for a multi-line statement, use the line where that statement or expression begins. Decorator, `def`, and docstring lines do not count as handler-suite entry unless Python actually executes them as that suite's first statement.\n\nReturn exactly `{\"caught_exception_kinds\": [\"str\"]}`. The list is the union across every target invocation: remove duplicate type names, then sort the remaining strings in ascending Python lexicographic (Unicode code-point) order. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` — never `builtins.ValueError`), and `module.QualName` for all others (e.g. `haystack.core.errors.PipelineError`). Each list element is that convention's plain string, represented as a JSON string; an empty set would be `[]`, not `null` or an omitted key.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

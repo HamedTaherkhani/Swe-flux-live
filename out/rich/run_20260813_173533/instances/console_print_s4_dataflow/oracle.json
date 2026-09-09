@@ -1,0 +1,137 @@
+{
+  "question_kind": "S4_DataFlow",
+  "question": "During pytest run rich_qa/console_print_s4_dataflow/files/testcase.py::ConsolePrintDataflowTest::test_seeded_indirect_print_dataflow, consider the function rich.console.Console.print defined in rich/console.py (the def statement begins on line 1652).\n\nCollect every observed def-use pair for the following local variable names only: objects, crop, render_hooks, renderables, render_options, new_segments, style, soft_wrap, hook, renderable.\n\nDefinitions and uses are determined from the source of print in rich/console.py as it exists in the repository. A def is any binding that assigns a new value to a tracked name: function parameters (including *objects and keyword-only parameters), plain assignment, for-loop targets, and the write side of augmented assignment. Each parameter name counts as defined on line 1652 (the def line). A use is any read of a tracked name on an executable line in the function body. The def line itself (1652), decorator lines, and docstring lines are not executed and never contribute uses; only body lines reached at runtime count.\n\nAugmented assignment (there are none for the tracked names in print) would count as a use of the prior value on that line followed by a new def on the same line. A for-loop header such as for hook in render_hooks: defines the loop variable on the header line each time that line runs. Comprehension iteration variables (for example segment in a generator inside an expression) are not tracked here because they are not listed above.\n\nProcess every invocation of print during the test run. An invocation is one call event for print; invocations are independent\u2014reset active definitions at each call so parameter bindings on line 1652 apply again. Within one invocation, walk line events in chronological order for frames whose func equals rich.console.Console.print (module-qualified format: package.module.Class.method, e.g. rich.console.Console.print). On each executed line, record a def-use pair {variable, def_line, use_line} for every tracked use on that line: def_line is the line number of the active definition of that variable (the most recent def at or before the use, not yet superseded), and use_line is the line where the use occurs. If a line both uses and defines the same variable, process all uses on that line against the prior active def before applying the new def on that line. After handling uses and defs on a line, update active defs for any names defined on that line.\n\nInclude pairs from all invocations together. Deduplicate identical triples. Sort the final list by variable ascending (ASCII), then def_line ascending, then use_line ascending.\n\nReport the answer as JSON with top-level key observed_def_use_pairs whose value is a list of objects, each with exactly these keys:\n- variable (str): one of the tracked names above\n- def_line (int): 1-based line number in rich/console.py where the reaching definition occurred\n- use_line (int): 1-based line number in rich/console.py where the variable was read\n\nLine numbers are absolute, 1-based, in rich/console.py as present in the repository. For a multi-line statement, Python reports the line event on the line where that statement begins.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "variable": "crop",
+        "def_line": 1652,
+        "use_line": 1749
+      },
+      {
+        "variable": "crop",
+        "def_line": 1702,
+        "use_line": 1749
+      },
+      {
+        "variable": "hook",
+        "def_line": 1714,
+        "use_line": 1715
+      },
+      {
+        "variable": "new_segments",
+        "def_line": 1726,
+        "use_line": 1727
+      },
+      {
+        "variable": "new_segments",
+        "def_line": 1726,
+        "use_line": 1741
+      },
+      {
+        "variable": "new_segments",
+        "def_line": 1726,
+        "use_line": 1752
+      },
+      {
+        "variable": "new_segments",
+        "def_line": 1726,
+        "use_line": 1756
+      },
+      {
+        "variable": "objects",
+        "def_line": 1652,
+        "use_line": 1689
+      },
+      {
+        "variable": "objects",
+        "def_line": 1652,
+        "use_line": 1706
+      },
+      {
+        "variable": "objects",
+        "def_line": 1691,
+        "use_line": 1706
+      },
+      {
+        "variable": "render_hooks",
+        "def_line": 1703,
+        "use_line": 1714
+      },
+      {
+        "variable": "render_options",
+        "def_line": 1716,
+        "use_line": 1731
+      },
+      {
+        "variable": "render_options",
+        "def_line": 1716,
+        "use_line": 1737
+      },
+      {
+        "variable": "renderable",
+        "def_line": 1730,
+        "use_line": 1731
+      },
+      {
+        "variable": "renderable",
+        "def_line": 1735,
+        "use_line": 1737
+      },
+      {
+        "variable": "renderables",
+        "def_line": 1705,
+        "use_line": 1715
+      },
+      {
+        "variable": "renderables",
+        "def_line": 1705,
+        "use_line": 1730
+      },
+      {
+        "variable": "renderables",
+        "def_line": 1705,
+        "use_line": 1735
+      },
+      {
+        "variable": "renderables",
+        "def_line": 1715,
+        "use_line": 1730
+      },
+      {
+        "variable": "soft_wrap",
+        "def_line": 1652,
+        "use_line": 1695
+      },
+      {
+        "variable": "soft_wrap",
+        "def_line": 1652,
+        "use_line": 1697
+      },
+      {
+        "variable": "soft_wrap",
+        "def_line": 1696,
+        "use_line": 1697
+      },
+      {
+        "variable": "style",
+        "def_line": 1652,
+        "use_line": 1729
+      },
+      {
+        "variable": "style",
+        "def_line": 1652,
+        "use_line": 1733
+      }
+    ]
+  }
+}

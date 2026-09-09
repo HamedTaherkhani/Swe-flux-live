@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 55
+  },
+  "question": "Run only the pytest test `click_qa/testing_isolation_s2_loops/files/testcase.py::TestIsolationLoopBehavior::test_generated_environment_round_trip`. During that run, consider the first and only invocation of `click.testing.CliRunner.isolation` in `src/click/testing.py`. Here, an invocation is one call of the decorated method that begins one execution of its underlying generator body, counted 1-based in chronological order; suspending and resuming that generator remains part of the same invocation. For the `for` loop whose header is at line 577, what is its exact iteration count? Source line numbers are absolute, 1-based line numbers in the named repository file; for a multi-line statement, the line is where that statement or expression begins. Iteration counting is 1-based, and iteration N is the Nth dynamic execution of the loop body's first executable line (line 578, `if value is None:`). Count every such execution in that invocation, without sorting or deduplicating executions. Return exactly one JSON object with the key `loop_iteration_count`; its value must be a base-10 JSON integer (not a string), with shape `{\"loop_iteration_count\": <int>}`.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

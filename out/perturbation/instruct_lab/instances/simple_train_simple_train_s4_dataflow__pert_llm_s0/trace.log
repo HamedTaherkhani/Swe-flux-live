@@ -1,0 +1,952 @@
+2026-08-23 05:06:49.057 [TRACE][START] pid=47 TRACE_OUT='/testbed/logs/instruct_lab_qa/simple_train_simple_train_s4_dataflow__pert_llm_s0/trace.log' TRACE_FILE='src/instructlab/model/simple_train.py' TRACE_FUNCS=['simple_train'] TRACE_EVENTS=['call', 'exception', 'line', 'return']
+2026-08-23 05:07:15.867 /testbed/src/instructlab/model/simple_train.py:17 instructlab.model.simple_train.simple_train event=call locals={'ckpt_output_dir': "PosixPath('/root/.local/share/instructlab/checkpoints')", 'data_path': "'/tmp/tmp0dqedovw/prepared'", 'device': "'cuda'", 'four_bit_quant': 'True', 'gguf_model_path': 'None', 'input_dir': "'/root/.local/share/instructlab/datasets'", 'iters': '100', 'local': 'False', 'model_path': "'instructlab/granite-7b-lab'", 'num_epochs': '10', 'skip_preprocessing': 'False', 'skip_quantize': 'False', 'tokenizer_dir': 'None'}
+2026-08-23 05:07:15.867 /testbed/src/instructlab/model/simple_train.py:32 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.867 /testbed/src/instructlab/model/simple_train.py:33 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.867 /testbed/src/instructlab/model/simple_train.py:32 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.868 /testbed/src/instructlab/model/simple_train.py:36 instructlab.model.simple_train.simple_train event=line locals={'effective_data_dir': "PosixPath('/tmp/tmp0dqedovw/prepared')"}
+2026-08-23 05:07:15.868 /testbed/src/instructlab/model/simple_train.py:37 instructlab.model.simple_train.simple_train event=line locals={'train_file': "PosixPath('/tmp/tmp0dqedovw/prepared/train_gen.jsonl')"}
+2026-08-23 05:07:15.868 /testbed/src/instructlab/model/simple_train.py:40 instructlab.model.simple_train.simple_train event=line locals={'test_file': "PosixPath('/tmp/tmp0dqedovw/prepared/test_gen.jsonl')"}
+2026-08-23 05:07:15.868 /testbed/src/instructlab/model/simple_train.py:89 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.869 /testbed/src/instructlab/model/simple_train.py:161 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.869 /testbed/src/instructlab/model/simple_train.py:162 instructlab.model.simple_train.simple_train event=line locals={'convert_llama_to_gguf': '<function TestSimpleTrainDataFlow.test_seeded_model_artifacts.<locals>.fake_convert at 0x7310a0031c60>'}
+2026-08-23 05:07:15.869 /testbed/src/instructlab/model/simple_train.py:164 instructlab.model.simple_train.simple_train event=line locals={'linux_train': '<function TestSimpleTrainDataFlow.test_seeded_model_artifacts.<locals>.fake_linux_train at 0x7310a0031bc0>'}
+2026-08-23 05:07:15.869 /testbed/src/instructlab/model/simple_train.py:165 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.869 /testbed/src/instructlab/model/simple_train.py:166 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.869 /testbed/src/instructlab/model/simple_train.py:167 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.869 /testbed/src/instructlab/model/simple_train.py:168 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.869 /testbed/src/instructlab/model/simple_train.py:169 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.869 /testbed/src/instructlab/model/simple_train.py:170 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:15.869 /testbed/src/instructlab/model/simple_train.py:164 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.050 /testbed/src/instructlab/model/simple_train.py:173 instructlab.model.simple_train.simple_train event=line locals={'training_results_dir': "PosixPath('/tmp/tmp0dqedovw/training-1')"}
+2026-08-23 05:07:16.050 /testbed/src/instructlab/model/simple_train.py:174 instructlab.model.simple_train.simple_train event=line locals={'final_results_dir': "PosixPath('/tmp/tmp0dqedovw/training-1/final')"}
+2026-08-23 05:07:16.050 /testbed/src/instructlab/model/simple_train.py:176 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.050 /testbed/src/instructlab/model/simple_train.py:178 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.051 /testbed/src/instructlab/model/simple_train.py:179 instructlab.model.simple_train.simple_train event=line locals={'gguf_models_dir': "PosixPath('/tmp/tmp0dqedovw/checkpoints')"}
+2026-08-23 05:07:16.051 /testbed/src/instructlab/model/simple_train.py:180 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.051 /testbed/src/instructlab/model/simple_train.py:183 instructlab.model.simple_train.simple_train event=line locals={'gguf_models_file': "PosixPath('/tmp/tmp0dqedovw/checkpoints/ggml-model-f16.gguf')"}
+2026-08-23 05:07:16.051 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.051 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'checkpoint-*/added_tokens.json'"}
+2026-08-23 05:07:16.057 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/checkpoint-generated/added_tokens.json')"}
+2026-08-23 05:07:16.058 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.060 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.060 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'checkpoint-*/special_tokens_map.json'"}
+2026-08-23 05:07:16.061 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/checkpoint-generated/special_tokens_map.json')"}
+2026-08-23 05:07:16.062 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.063 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.063 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'checkpoint-*/tokenizer.json'"}
+2026-08-23 05:07:16.064 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/checkpoint-generated/tokenizer.json')"}
+2026-08-23 05:07:16.065 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.066 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.066 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'checkpoint-*/tokenizer.model'"}
+2026-08-23 05:07:16.068 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/checkpoint-generated/tokenizer.model')"}
+2026-08-23 05:07:16.069 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.070 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.070 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'checkpoint-*/tokenizer_config.json'"}
+2026-08-23 05:07:16.071 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/checkpoint-generated/tokenizer_config.json')"}
+2026-08-23 05:07:16.072 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.073 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.073 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'merged_model/config.json'"}
+2026-08-23 05:07:16.074 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/config.json')"}
+2026-08-23 05:07:16.075 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.076 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.076 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'merged_model/generation_config.json'"}
+2026-08-23 05:07:16.077 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/generation_config.json')"}
+2026-08-23 05:07:16.077 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.078 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.078 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.085 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0027-71721-v1.safetensors')"}
+2026-08-23 05:07:16.085 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.086 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.087 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0068-36967-v1.safetensors')"}
+2026-08-23 05:07:16.087 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.088 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.088 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0039-35373-v1.safetensors')"}
+2026-08-23 05:07:16.089 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.090 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.090 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0011-00452-v1.safetensors')"}
+2026-08-23 05:07:16.091 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.092 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.092 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0040-76108-v1.safetensors')"}
+2026-08-23 05:07:16.093 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.094 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.094 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0028-25728-v1.safetensors')"}
+2026-08-23 05:07:16.094 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.095 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.096 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0004-82905-v1.safetensors')"}
+2026-08-23 05:07:16.096 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.097 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.097 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0037-118004-v1.safetensors')"}
+2026-08-23 05:07:16.098 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.099 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.099 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0009-76119-v1.safetensors')"}
+2026-08-23 05:07:16.100 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.101 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.101 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0091-60500-v1.safetensors')"}
+2026-08-23 05:07:16.101 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.102 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.103 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0083-01910-v1.safetensors')"}
+2026-08-23 05:07:16.103 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.104 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.104 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0044-118604-v1.safetensors')"}
+2026-08-23 05:07:16.105 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.106 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.106 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0046-31971-v1.safetensors')"}
+2026-08-23 05:07:16.107 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.108 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.108 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0090-49259-v1.safetensors')"}
+2026-08-23 05:07:16.108 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.110 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.110 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0064-118165-v1.safetensors')"}
+2026-08-23 05:07:16.110 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.111 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.112 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0050-24987-v1.safetensors')"}
+2026-08-23 05:07:16.112 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.113 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.113 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0013-12148-v1.safetensors')"}
+2026-08-23 05:07:16.114 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.115 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.115 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0007-08974-v1.safetensors')"}
+2026-08-23 05:07:16.116 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.117 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.117 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0047-86005-v1.safetensors')"}
+2026-08-23 05:07:16.117 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.119 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.119 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0045-10759-v1.safetensors')"}
+2026-08-23 05:07:16.119 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.120 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.121 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0092-101572-v1.safetensors')"}
+2026-08-23 05:07:16.121 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.122 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.122 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0029-67424-v1.safetensors')"}
+2026-08-23 05:07:16.123 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.124 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.124 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0052-79283-v1.safetensors')"}
+2026-08-23 05:07:16.125 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.126 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.126 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0075-65067-v1.safetensors')"}
+2026-08-23 05:07:16.126 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.128 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.128 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0002-88494-v1.safetensors')"}
+2026-08-23 05:07:16.128 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.129 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.130 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0026-08376-v1.safetensors')"}
+2026-08-23 05:07:16.130 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.131 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.131 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0042-46134-v1.safetensors')"}
+2026-08-23 05:07:16.132 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.133 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.133 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0057-01452-v1.safetensors')"}
+2026-08-23 05:07:16.134 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.135 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.135 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0010-108134-v1.safetensors')"}
+2026-08-23 05:07:16.135 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.137 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.137 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0043-89909-v1.safetensors')"}
+2026-08-23 05:07:16.137 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.138 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.139 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0056-06164-v1.safetensors')"}
+2026-08-23 05:07:16.139 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.140 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.140 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0016-93983-v1.safetensors')"}
+2026-08-23 05:07:16.141 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.142 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.142 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0058-87421-v1.safetensors')"}
+2026-08-23 05:07:16.143 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.144 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.144 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0031-06249-v1.safetensors')"}
+2026-08-23 05:07:16.144 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.145 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.146 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0019-68447-v1.safetensors')"}
+2026-08-23 05:07:16.146 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.147 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.147 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0085-59072-v1.safetensors')"}
+2026-08-23 05:07:16.148 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.149 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.149 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0078-58476-v1.safetensors')"}
+2026-08-23 05:07:16.150 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.151 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.151 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0059-07793-v1.safetensors')"}
+2026-08-23 05:07:16.152 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.153 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.153 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0054-08106-v1.safetensors')"}
+2026-08-23 05:07:16.153 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.154 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.155 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0086-22078-v1.safetensors')"}
+2026-08-23 05:07:16.155 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.156 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.156 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0022-13466-v1.safetensors')"}
+2026-08-23 05:07:16.157 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.158 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.158 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0067-04630-v1.safetensors')"}
+2026-08-23 05:07:16.159 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.160 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.160 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0024-110704-v1.safetensors')"}
+2026-08-23 05:07:16.160 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.161 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.162 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0015-59997-v1.safetensors')"}
+2026-08-23 05:07:16.162 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.163 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.163 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0072-33466-v1.safetensors')"}
+2026-08-23 05:07:16.164 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.165 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.165 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0055-119606-v1.safetensors')"}
+2026-08-23 05:07:16.166 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.167 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.167 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0073-89666-v1.safetensors')"}
+2026-08-23 05:07:16.167 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.168 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.169 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0081-101524-v1.safetensors')"}
+2026-08-23 05:07:16.169 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.170 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.170 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0053-100603-v1.safetensors')"}
+2026-08-23 05:07:16.171 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.172 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.172 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0025-109515-v1.safetensors')"}
+2026-08-23 05:07:16.173 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.174 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.174 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0070-28658-v1.safetensors')"}
+2026-08-23 05:07:16.174 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.176 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.176 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0003-14854-v1.safetensors')"}
+2026-08-23 05:07:16.176 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.177 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.177 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0030-85022-v1.safetensors')"}
+2026-08-23 05:07:16.178 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.179 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.179 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0087-45417-v1.safetensors')"}
+2026-08-23 05:07:16.180 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.181 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.181 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0051-42633-v1.safetensors')"}
+2026-08-23 05:07:16.181 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.183 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.183 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0088-62813-v1.safetensors')"}
+2026-08-23 05:07:16.183 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.184 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.184 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0032-118456-v1.safetensors')"}
+2026-08-23 05:07:16.185 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.186 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.186 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0014-21831-v1.safetensors')"}
+2026-08-23 05:07:16.187 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.188 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.188 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0077-50197-v1.safetensors')"}
+2026-08-23 05:07:16.189 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.190 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.190 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0066-23577-v1.safetensors')"}
+2026-08-23 05:07:16.190 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.191 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.192 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0094-09046-v1.safetensors')"}
+2026-08-23 05:07:16.192 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.193 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.193 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0020-108664-v1.safetensors')"}
+2026-08-23 05:07:16.194 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.195 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.195 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0079-02141-v1.safetensors')"}
+2026-08-23 05:07:16.195 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.196 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.197 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0041-28116-v1.safetensors')"}
+2026-08-23 05:07:16.197 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.198 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.198 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0006-46245-v1.safetensors')"}
+2026-08-23 05:07:16.199 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.200 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.200 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0021-51249-v1.safetensors')"}
+2026-08-23 05:07:16.201 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.202 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.202 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0034-51379-v1.safetensors')"}
+2026-08-23 05:07:16.202 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.203 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.204 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0080-53025-v1.safetensors')"}
+2026-08-23 05:07:16.204 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.205 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.205 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0082-24095-v1.safetensors')"}
+2026-08-23 05:07:16.206 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.207 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.207 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0061-71657-v1.safetensors')"}
+2026-08-23 05:07:16.207 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.208 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.209 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0049-09319-v1.safetensors')"}
+2026-08-23 05:07:16.209 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.210 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.210 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0000-45269-v1.safetensors')"}
+2026-08-23 05:07:16.211 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.212 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.212 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0018-44550-v1.safetensors')"}
+2026-08-23 05:07:16.213 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.214 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.214 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0035-57475-v1.safetensors')"}
+2026-08-23 05:07:16.214 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.215 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.216 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0089-33732-v1.safetensors')"}
+2026-08-23 05:07:16.216 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.217 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.217 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0017-46065-v1.safetensors')"}
+2026-08-23 05:07:16.218 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.219 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.219 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0008-25717-v1.safetensors')"}
+2026-08-23 05:07:16.220 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.221 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.221 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0033-100196-v1.safetensors')"}
+2026-08-23 05:07:16.221 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.222 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.223 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0063-56493-v1.safetensors')"}
+2026-08-23 05:07:16.223 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.224 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.224 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0093-08547-v1.safetensors')"}
+2026-08-23 05:07:16.225 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.226 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.226 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0001-111472-v1.safetensors')"}
+2026-08-23 05:07:16.226 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.228 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.228 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0069-67123-v1.safetensors')"}
+2026-08-23 05:07:16.228 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.229 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.229 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0060-70388-v1.safetensors')"}
+2026-08-23 05:07:16.230 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.231 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.231 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0062-113381-v1.safetensors')"}
+2026-08-23 05:07:16.232 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.233 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.233 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0071-98667-v1.safetensors')"}
+2026-08-23 05:07:16.233 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.234 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.234 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0095-26178-v1.safetensors')"}
+2026-08-23 05:07:16.235 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.236 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.236 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0012-100767-v1.safetensors')"}
+2026-08-23 05:07:16.237 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.238 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.238 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0074-108218-v1.safetensors')"}
+2026-08-23 05:07:16.238 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.239 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.239 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0048-111694-v1.safetensors')"}
+2026-08-23 05:07:16.240 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.241 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.241 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0036-101185-v1.safetensors')"}
+2026-08-23 05:07:16.242 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.243 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.243 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0084-63862-v1.safetensors')"}
+2026-08-23 05:07:16.243 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.244 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.244 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0005-45441-v1.safetensors')"}
+2026-08-23 05:07:16.245 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.246 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.246 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0065-79224-v1.safetensors')"}
+2026-08-23 05:07:16.247 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.248 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.248 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0038-73204-v1.safetensors')"}
+2026-08-23 05:07:16.248 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.249 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.250 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0076-61833-v1.safetensors')"}
+2026-08-23 05:07:16.250 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.251 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.251 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0023-19646-v1.safetensors')"}
+2026-08-23 05:07:16.252 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.253 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.253 /testbed/src/instructlab/model/simple_train.py:204 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.253 /testbed/src/instructlab/model/simple_train.py:205 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.253 /testbed/src/instructlab/model/simple_train.py:206 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.253 /testbed/src/instructlab/model/simple_train.py:205 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.254 /testbed/src/instructlab/model/simple_train.py:209 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:16.254 /testbed/src/instructlab/model/simple_train.py:209 instructlab.model.simple_train.simple_train event=return retval=None locals={'ckpt_output_dir': "PosixPath('/root/.local/share/instructlab/checkpoints')", 'convert_llama_to_gguf': '<function TestSimpleTrainDataFlow.test_seeded_model_artifacts.<locals>.fake_convert at 0x7310a0031c60>', 'data_path': "'/tmp/tmp0dqedovw/prepared'", 'device': "'cuda'", 'effective_data_dir': "PosixPath('/tmp/tmp0dqedovw/prepared')", 'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0023-19646-v1.safetensors')", 'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/generation_config.json')", 'final_results_dir': "PosixPath('/tmp/tmp0dqedovw/training-1/final')", 'four_bit_quant': 'True', 'fpath': "'merged_model/generation_config.json'", 'gguf_model_path': 'None', 'gguf_models_dir': "PosixPath('/tmp/tmp0dqedovw/checkpoints')", 'gguf_models_file': "PosixPath('/tmp/tmp0dqedovw/checkpoints/ggml-model-f16.gguf')", 'input_dir': "'/root/.local/share/instructlab/datasets'", 'iters': '100', 'linux_train': '<function TestSimpleTrainDataFlow.test_seeded_model_artifacts.<locals>.fake_linux_train at 0x7310a0031bc0>', 'local': 'False', 'model_path': "'instructlab/granite-7b-lab'", 'num_epochs': '10', 'skip_preprocessing': 'False', 'skip_quantize': 'False', 'test_file': "PosixPath('/tmp/tmp0dqedovw/prepared/test_gen.jsonl')", 'tokenizer_dir': 'None', 'train_file': "PosixPath('/tmp/tmp0dqedovw/prepared/train_gen.jsonl')", 'training_results_dir': "PosixPath('/tmp/tmp0dqedovw/training-1')"}
+2026-08-23 05:07:35.296 /testbed/src/instructlab/model/simple_train.py:17 instructlab.model.simple_train.simple_train event=call locals={'ckpt_output_dir': "PosixPath('/root/.local/share/instructlab/checkpoints')", 'data_path': "'/tmp/tmp0dqedovw/prepared'", 'device': "'cuda'", 'four_bit_quant': 'False', 'gguf_model_path': 'None', 'input_dir': "'/root/.local/share/instructlab/datasets'", 'iters': '100', 'local': 'False', 'model_path': "'instructlab/granite-7b-lab'", 'num_epochs': '10', 'skip_preprocessing': 'False', 'skip_quantize': 'False', 'tokenizer_dir': 'None'}
+2026-08-23 05:07:35.296 /testbed/src/instructlab/model/simple_train.py:32 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.296 /testbed/src/instructlab/model/simple_train.py:33 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.296 /testbed/src/instructlab/model/simple_train.py:32 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.296 /testbed/src/instructlab/model/simple_train.py:36 instructlab.model.simple_train.simple_train event=line locals={'effective_data_dir': "PosixPath('/tmp/tmp0dqedovw/prepared')"}
+2026-08-23 05:07:35.296 /testbed/src/instructlab/model/simple_train.py:37 instructlab.model.simple_train.simple_train event=line locals={'train_file': "PosixPath('/tmp/tmp0dqedovw/prepared/train_gen.jsonl')"}
+2026-08-23 05:07:35.296 /testbed/src/instructlab/model/simple_train.py:40 instructlab.model.simple_train.simple_train event=line locals={'test_file': "PosixPath('/tmp/tmp0dqedovw/prepared/test_gen.jsonl')"}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:89 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:161 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:162 instructlab.model.simple_train.simple_train event=line locals={'convert_llama_to_gguf': '<function TestSimpleTrainDataFlow.test_seeded_model_artifacts.<locals>.fake_convert at 0x7310a0031c60>'}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:164 instructlab.model.simple_train.simple_train event=line locals={'linux_train': '<function TestSimpleTrainDataFlow.test_seeded_model_artifacts.<locals>.fake_linux_train at 0x7310a0031bc0>'}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:165 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:166 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:167 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:168 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:169 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:170 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.297 /testbed/src/instructlab/model/simple_train.py:164 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.405 /testbed/src/instructlab/model/simple_train.py:173 instructlab.model.simple_train.simple_train event=line locals={'training_results_dir': "PosixPath('/tmp/tmp0dqedovw/training-1')"}
+2026-08-23 05:07:35.405 /testbed/src/instructlab/model/simple_train.py:174 instructlab.model.simple_train.simple_train event=line locals={'final_results_dir': "PosixPath('/tmp/tmp0dqedovw/training-1/final')"}
+2026-08-23 05:07:35.406 /testbed/src/instructlab/model/simple_train.py:175 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.412 /testbed/src/instructlab/model/simple_train.py:176 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.413 /testbed/src/instructlab/model/simple_train.py:178 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.413 /testbed/src/instructlab/model/simple_train.py:179 instructlab.model.simple_train.simple_train event=line locals={'gguf_models_dir': "PosixPath('/tmp/tmp0dqedovw/checkpoints')"}
+2026-08-23 05:07:35.413 /testbed/src/instructlab/model/simple_train.py:180 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.413 /testbed/src/instructlab/model/simple_train.py:183 instructlab.model.simple_train.simple_train event=line locals={'gguf_models_file': "PosixPath('/tmp/tmp0dqedovw/checkpoints/ggml-model-f16.gguf')"}
+2026-08-23 05:07:35.413 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.413 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'checkpoint-*/added_tokens.json'"}
+2026-08-23 05:07:35.413 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/checkpoint-generated/added_tokens.json')"}
+2026-08-23 05:07:35.414 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.415 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.415 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'checkpoint-*/special_tokens_map.json'"}
+2026-08-23 05:07:35.415 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/checkpoint-generated/special_tokens_map.json')"}
+2026-08-23 05:07:35.415 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.416 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.416 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'checkpoint-*/tokenizer.json'"}
+2026-08-23 05:07:35.416 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/checkpoint-generated/tokenizer.json')"}
+2026-08-23 05:07:35.417 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.417 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.418 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'checkpoint-*/tokenizer.model'"}
+2026-08-23 05:07:35.418 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/checkpoint-generated/tokenizer.model')"}
+2026-08-23 05:07:35.418 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.419 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.419 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'checkpoint-*/tokenizer_config.json'"}
+2026-08-23 05:07:35.419 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/checkpoint-generated/tokenizer_config.json')"}
+2026-08-23 05:07:35.420 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.420 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.420 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'merged_model/config.json'"}
+2026-08-23 05:07:35.420 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/config.json')"}
+2026-08-23 05:07:35.421 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.421 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.422 /testbed/src/instructlab/model/simple_train.py:196 instructlab.model.simple_train.simple_train event=line locals={'fpath': "'merged_model/generation_config.json'"}
+2026-08-23 05:07:35.422 /testbed/src/instructlab/model/simple_train.py:197 instructlab.model.simple_train.simple_train event=line locals={'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/generation_config.json')"}
+2026-08-23 05:07:35.422 /testbed/src/instructlab/model/simple_train.py:198 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.423 /testbed/src/instructlab/model/simple_train.py:187 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.423 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.423 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0062-05741-v2.safetensors')"}
+2026-08-23 05:07:35.424 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.424 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.425 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0027-66565-v2.safetensors')"}
+2026-08-23 05:07:35.425 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.425 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.425 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0032-108975-v2.safetensors')"}
+2026-08-23 05:07:35.426 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.426 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.426 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0039-08641-v2.safetensors')"}
+2026-08-23 05:07:35.427 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.427 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.427 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0009-27065-v2.safetensors')"}
+2026-08-23 05:07:35.428 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.428 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.428 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0061-12963-v2.safetensors')"}
+2026-08-23 05:07:35.429 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.429 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.429 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0088-60631-v2.safetensors')"}
+2026-08-23 05:07:35.429 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.430 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.430 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0015-68300-v2.safetensors')"}
+2026-08-23 05:07:35.430 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.431 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.431 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0077-117757-v2.safetensors')"}
+2026-08-23 05:07:35.431 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.432 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.432 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0092-88797-v2.safetensors')"}
+2026-08-23 05:07:35.432 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.433 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.433 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0010-118503-v2.safetensors')"}
+2026-08-23 05:07:35.433 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.434 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.434 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0006-78304-v2.safetensors')"}
+2026-08-23 05:07:35.434 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.435 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.435 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0080-48602-v2.safetensors')"}
+2026-08-23 05:07:35.435 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.436 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.436 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0046-42348-v2.safetensors')"}
+2026-08-23 05:07:35.436 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.436 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.437 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0028-15440-v2.safetensors')"}
+2026-08-23 05:07:35.437 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.437 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.438 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0040-28252-v2.safetensors')"}
+2026-08-23 05:07:35.438 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.438 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.439 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0042-64567-v2.safetensors')"}
+2026-08-23 05:07:35.439 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.439 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.439 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0011-81104-v2.safetensors')"}
+2026-08-23 05:07:35.440 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.440 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.440 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0084-50126-v2.safetensors')"}
+2026-08-23 05:07:35.441 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.441 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.441 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0012-67690-v2.safetensors')"}
+2026-08-23 05:07:35.441 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.442 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.442 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0054-91322-v2.safetensors')"}
+2026-08-23 05:07:35.442 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.443 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.443 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0033-47061-v2.safetensors')"}
+2026-08-23 05:07:35.443 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.444 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.444 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0050-56589-v2.safetensors')"}
+2026-08-23 05:07:35.444 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.445 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.445 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0047-69550-v2.safetensors')"}
+2026-08-23 05:07:35.445 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.446 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.446 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0090-71022-v2.safetensors')"}
+2026-08-23 05:07:35.446 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.447 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.447 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0051-47613-v2.safetensors')"}
+2026-08-23 05:07:35.447 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.448 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.448 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0067-79573-v2.safetensors')"}
+2026-08-23 05:07:35.448 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.449 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.449 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0034-64499-v2.safetensors')"}
+2026-08-23 05:07:35.449 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.449 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.450 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0048-14849-v2.safetensors')"}
+2026-08-23 05:07:35.450 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.450 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.450 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0087-50504-v2.safetensors')"}
+2026-08-23 05:07:35.451 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.451 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.451 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0073-75478-v2.safetensors')"}
+2026-08-23 05:07:35.452 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.452 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.452 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0024-03395-v2.safetensors')"}
+2026-08-23 05:07:35.453 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.453 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.453 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0030-105493-v2.safetensors')"}
+2026-08-23 05:07:35.454 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.454 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.454 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0003-68642-v2.safetensors')"}
+2026-08-23 05:07:35.454 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.455 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.455 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0053-116901-v2.safetensors')"}
+2026-08-23 05:07:35.455 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.456 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.456 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0065-89827-v2.safetensors')"}
+2026-08-23 05:07:35.456 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.457 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.457 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0025-107698-v2.safetensors')"}
+2026-08-23 05:07:35.457 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.458 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.458 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0082-71045-v2.safetensors')"}
+2026-08-23 05:07:35.458 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.459 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.459 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0021-72615-v2.safetensors')"}
+2026-08-23 05:07:35.459 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.460 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.460 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0078-07641-v2.safetensors')"}
+2026-08-23 05:07:35.460 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.461 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.461 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0083-44997-v2.safetensors')"}
+2026-08-23 05:07:35.461 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.462 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.462 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0052-27944-v2.safetensors')"}
+2026-08-23 05:07:35.462 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.462 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.463 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0069-110773-v2.safetensors')"}
+2026-08-23 05:07:35.463 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.463 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.463 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0089-84359-v2.safetensors')"}
+2026-08-23 05:07:35.464 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.464 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.464 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0001-45462-v2.safetensors')"}
+2026-08-23 05:07:35.465 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.465 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.465 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0014-79399-v2.safetensors')"}
+2026-08-23 05:07:35.466 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.466 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.466 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0058-87999-v2.safetensors')"}
+2026-08-23 05:07:35.467 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.467 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.467 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0101-52849-v2.safetensors')"}
+2026-08-23 05:07:35.467 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.468 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.468 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0075-47609-v2.safetensors')"}
+2026-08-23 05:07:35.468 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.469 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.469 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0038-86696-v2.safetensors')"}
+2026-08-23 05:07:35.469 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.470 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.470 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0091-43685-v2.safetensors')"}
+2026-08-23 05:07:35.470 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.471 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.471 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0070-118463-v2.safetensors')"}
+2026-08-23 05:07:35.471 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.472 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.472 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0036-53725-v2.safetensors')"}
+2026-08-23 05:07:35.472 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.473 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.473 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0066-78441-v2.safetensors')"}
+2026-08-23 05:07:35.473 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.474 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.474 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0002-78339-v2.safetensors')"}
+2026-08-23 05:07:35.474 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.475 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.475 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0005-116567-v2.safetensors')"}
+2026-08-23 05:07:35.475 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.475 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.476 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0044-20179-v2.safetensors')"}
+2026-08-23 05:07:35.476 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.476 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.476 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0093-94062-v2.safetensors')"}
+2026-08-23 05:07:35.477 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.477 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.477 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0049-31516-v2.safetensors')"}
+2026-08-23 05:07:35.478 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.478 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.478 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0072-44688-v2.safetensors')"}
+2026-08-23 05:07:35.479 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.479 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.479 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0102-26255-v2.safetensors')"}
+2026-08-23 05:07:35.480 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.480 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.480 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0104-84850-v2.safetensors')"}
+2026-08-23 05:07:35.480 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.481 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.481 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0063-119154-v2.safetensors')"}
+2026-08-23 05:07:35.481 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.482 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.482 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0031-102174-v2.safetensors')"}
+2026-08-23 05:07:35.482 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.483 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.483 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0018-09135-v2.safetensors')"}
+2026-08-23 05:07:35.483 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.484 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.484 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0060-12681-v2.safetensors')"}
+2026-08-23 05:07:35.484 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.485 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.485 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0043-42631-v2.safetensors')"}
+2026-08-23 05:07:35.485 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.486 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.486 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0008-36828-v2.safetensors')"}
+2026-08-23 05:07:35.486 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.487 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.487 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0076-93281-v2.safetensors')"}
+2026-08-23 05:07:35.487 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.488 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.488 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0103-83384-v2.safetensors')"}
+2026-08-23 05:07:35.488 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.488 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.489 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0007-05623-v2.safetensors')"}
+2026-08-23 05:07:35.489 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.489 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.489 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0098-08439-v2.safetensors')"}
+2026-08-23 05:07:35.490 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.490 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.490 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0017-34591-v2.safetensors')"}
+2026-08-23 05:07:35.491 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.491 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.491 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0023-73098-v2.safetensors')"}
+2026-08-23 05:07:35.491 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.492 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.492 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0079-93387-v2.safetensors')"}
+2026-08-23 05:07:35.492 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.493 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.493 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0097-102782-v2.safetensors')"}
+2026-08-23 05:07:35.493 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.494 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.494 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0055-85348-v2.safetensors')"}
+2026-08-23 05:07:35.494 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.495 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.495 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0013-30687-v2.safetensors')"}
+2026-08-23 05:07:35.495 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.496 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.496 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0037-58041-v2.safetensors')"}
+2026-08-23 05:07:35.496 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.496 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.497 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0041-73960-v2.safetensors')"}
+2026-08-23 05:07:35.497 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.497 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.497 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0105-111053-v2.safetensors')"}
+2026-08-23 05:07:35.498 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.498 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.498 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0016-07999-v2.safetensors')"}
+2026-08-23 05:07:35.499 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.499 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.499 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0094-118430-v2.safetensors')"}
+2026-08-23 05:07:35.499 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.500 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.500 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0107-40408-v2.safetensors')"}
+2026-08-23 05:07:35.500 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.501 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.501 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0064-79081-v2.safetensors')"}
+2026-08-23 05:07:35.501 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.502 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.502 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0081-89282-v2.safetensors')"}
+2026-08-23 05:07:35.502 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.503 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.503 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0019-20460-v2.safetensors')"}
+2026-08-23 05:07:35.503 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.504 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.504 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0056-63224-v2.safetensors')"}
+2026-08-23 05:07:35.504 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.504 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.505 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0029-36448-v2.safetensors')"}
+2026-08-23 05:07:35.505 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.505 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.505 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0106-42183-v2.safetensors')"}
+2026-08-23 05:07:35.506 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.506 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.506 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0085-43590-v2.safetensors')"}
+2026-08-23 05:07:35.507 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.507 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.507 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0057-84283-v2.safetensors')"}
+2026-08-23 05:07:35.508 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.508 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.508 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0100-106664-v2.safetensors')"}
+2026-08-23 05:07:35.509 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.509 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.509 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0099-08324-v2.safetensors')"}
+2026-08-23 05:07:35.509 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.510 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.510 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0071-80106-v2.safetensors')"}
+2026-08-23 05:07:35.510 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.511 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.511 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0026-10673-v2.safetensors')"}
+2026-08-23 05:07:35.511 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.512 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.512 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0045-21066-v2.safetensors')"}
+2026-08-23 05:07:35.512 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.513 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.513 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0074-26217-v2.safetensors')"}
+2026-08-23 05:07:35.513 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.514 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.514 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0068-46587-v2.safetensors')"}
+2026-08-23 05:07:35.514 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.515 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.515 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0035-37701-v2.safetensors')"}
+2026-08-23 05:07:35.515 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.515 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.516 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0000-79328-v2.safetensors')"}
+2026-08-23 05:07:35.516 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.516 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.516 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0096-46474-v2.safetensors')"}
+2026-08-23 05:07:35.517 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.517 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.517 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0022-11676-v2.safetensors')"}
+2026-08-23 05:07:35.518 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.518 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.518 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0095-13313-v2.safetensors')"}
+2026-08-23 05:07:35.518 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.519 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.519 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0004-57432-v2.safetensors')"}
+2026-08-23 05:07:35.519 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.520 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.520 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0086-31085-v2.safetensors')"}
+2026-08-23 05:07:35.520 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.521 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.521 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0020-115565-v2.safetensors')"}
+2026-08-23 05:07:35.521 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.522 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.522 /testbed/src/instructlab/model/simple_train.py:201 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/model-0059-48141-v2.safetensors')"}
+2026-08-23 05:07:35.522 /testbed/src/instructlab/model/simple_train.py:202 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.523 /testbed/src/instructlab/model/simple_train.py:200 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.523 /testbed/src/instructlab/model/simple_train.py:204 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.523 /testbed/src/instructlab/model/simple_train.py:211 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.523 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={'gguf_file_path': "PosixPath('/tmp/tmp0dqedovw/converted-1.gguf')"}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0062-05741-v2.safetensors')"}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0027-66565-v2.safetensors')"}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0032-108975-v2.safetensors')"}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0039-08641-v2.safetensors')"}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0009-27065-v2.safetensors')"}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0061-12963-v2.safetensors')"}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0088-60631-v2.safetensors')"}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.524 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0015-68300-v2.safetensors')"}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0077-117757-v2.safetensors')"}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0092-88797-v2.safetensors')"}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0010-118503-v2.safetensors')"}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0006-78304-v2.safetensors')"}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0080-48602-v2.safetensors')"}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0046-42348-v2.safetensors')"}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0028-15440-v2.safetensors')"}
+2026-08-23 05:07:35.525 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0040-28252-v2.safetensors')"}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0042-64567-v2.safetensors')"}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0011-81104-v2.safetensors')"}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0084-50126-v2.safetensors')"}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0012-67690-v2.safetensors')"}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0054-91322-v2.safetensors')"}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0033-47061-v2.safetensors')"}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0050-56589-v2.safetensors')"}
+2026-08-23 05:07:35.526 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0047-69550-v2.safetensors')"}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0090-71022-v2.safetensors')"}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0051-47613-v2.safetensors')"}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0067-79573-v2.safetensors')"}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0034-64499-v2.safetensors')"}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0048-14849-v2.safetensors')"}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0087-50504-v2.safetensors')"}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.527 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0073-75478-v2.safetensors')"}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0024-03395-v2.safetensors')"}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0030-105493-v2.safetensors')"}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0003-68642-v2.safetensors')"}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0053-116901-v2.safetensors')"}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0065-89827-v2.safetensors')"}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0025-107698-v2.safetensors')"}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.528 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0082-71045-v2.safetensors')"}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0021-72615-v2.safetensors')"}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0078-07641-v2.safetensors')"}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0083-44997-v2.safetensors')"}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0052-27944-v2.safetensors')"}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0069-110773-v2.safetensors')"}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0089-84359-v2.safetensors')"}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0001-45462-v2.safetensors')"}
+2026-08-23 05:07:35.529 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0014-79399-v2.safetensors')"}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0058-87999-v2.safetensors')"}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0101-52849-v2.safetensors')"}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0075-47609-v2.safetensors')"}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0038-86696-v2.safetensors')"}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0091-43685-v2.safetensors')"}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0070-118463-v2.safetensors')"}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0036-53725-v2.safetensors')"}
+2026-08-23 05:07:35.530 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0066-78441-v2.safetensors')"}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0002-78339-v2.safetensors')"}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0005-116567-v2.safetensors')"}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0044-20179-v2.safetensors')"}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0093-94062-v2.safetensors')"}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0049-31516-v2.safetensors')"}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0072-44688-v2.safetensors')"}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.531 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0102-26255-v2.safetensors')"}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0104-84850-v2.safetensors')"}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0063-119154-v2.safetensors')"}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0031-102174-v2.safetensors')"}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0018-09135-v2.safetensors')"}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0060-12681-v2.safetensors')"}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0043-42631-v2.safetensors')"}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0008-36828-v2.safetensors')"}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.532 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0076-93281-v2.safetensors')"}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0103-83384-v2.safetensors')"}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0007-05623-v2.safetensors')"}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0098-08439-v2.safetensors')"}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0017-34591-v2.safetensors')"}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0023-73098-v2.safetensors')"}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0079-93387-v2.safetensors')"}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0097-102782-v2.safetensors')"}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.533 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0055-85348-v2.safetensors')"}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0013-30687-v2.safetensors')"}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0037-58041-v2.safetensors')"}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0041-73960-v2.safetensors')"}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0105-111053-v2.safetensors')"}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0016-07999-v2.safetensors')"}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0094-118430-v2.safetensors')"}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.534 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0107-40408-v2.safetensors')"}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0064-79081-v2.safetensors')"}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0081-89282-v2.safetensors')"}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0019-20460-v2.safetensors')"}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0056-63224-v2.safetensors')"}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0029-36448-v2.safetensors')"}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0106-42183-v2.safetensors')"}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.535 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0085-43590-v2.safetensors')"}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0057-84283-v2.safetensors')"}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0100-106664-v2.safetensors')"}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0099-08324-v2.safetensors')"}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0071-80106-v2.safetensors')"}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0026-10673-v2.safetensors')"}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0045-21066-v2.safetensors')"}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0074-26217-v2.safetensors')"}
+2026-08-23 05:07:35.536 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0068-46587-v2.safetensors')"}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0035-37701-v2.safetensors')"}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0000-79328-v2.safetensors')"}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0096-46474-v2.safetensors')"}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0022-11676-v2.safetensors')"}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0095-13313-v2.safetensors')"}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0004-57432-v2.safetensors')"}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0086-31085-v2.safetensors')"}
+2026-08-23 05:07:35.537 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.538 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0020-115565-v2.safetensors')"}
+2026-08-23 05:07:35.538 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.538 /testbed/src/instructlab/model/simple_train.py:216 instructlab.model.simple_train.simple_train event=line locals={'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0059-48141-v2.safetensors')"}
+2026-08-23 05:07:35.538 /testbed/src/instructlab/model/simple_train.py:215 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.538 /testbed/src/instructlab/model/simple_train.py:218 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.538 /testbed/src/instructlab/model/simple_train.py:219 instructlab.model.simple_train.simple_train event=line locals={}
+2026-08-23 05:07:35.539 /testbed/src/instructlab/model/simple_train.py:219 instructlab.model.simple_train.simple_train event=return retval=None locals={'ckpt_output_dir': "PosixPath('/root/.local/share/instructlab/checkpoints')", 'convert_llama_to_gguf': '<function TestSimpleTrainDataFlow.test_seeded_model_artifacts.<locals>.fake_convert at 0x7310a0031c60>', 'data_path': "'/tmp/tmp0dqedovw/prepared'", 'device': "'cuda'", 'effective_data_dir': "PosixPath('/tmp/tmp0dqedovw/prepared')", 'file': "PosixPath('/tmp/tmp0dqedovw/training-1/final/model-0059-48141-v2.safetensors')", 'file_': "PosixPath('/tmp/tmp0dqedovw/training-1/merged_model/generation_config.json')", 'final_results_dir': "PosixPath('/tmp/tmp0dqedovw/training-1/final')", 'four_bit_quant': 'False', 'fpath': "'merged_model/generation_config.json'", 'gguf_file_path': "PosixPath('/tmp/tmp0dqedovw/converted-1.gguf')", 'gguf_model_path': 'None', 'gguf_models_dir': "PosixPath('/tmp/tmp0dqedovw/checkpoints')", 'gguf_models_file': "PosixPath('/tmp/tmp0dqedovw/checkpoints/ggml-model-f16.gguf')", 'input_dir': "'/root/.local/share/instructlab/datasets'", 'iters': '100', 'linux_train': '<function TestSimpleTrainDataFlow.test_seeded_model_artifacts.<locals>.fake_linux_train at 0x7310a0031bc0>', 'local': 'False', 'model_path': "'instructlab/granite-7b-lab'", 'num_epochs': '10', 'skip_preprocessing': 'False', 'skip_quantize': 'False', 'test_file': "PosixPath('/tmp/tmp0dqedovw/prepared/test_gen.jsonl')", 'tokenizer_dir': 'None', 'train_file': "PosixPath('/tmp/tmp0dqedovw/prepared/train_gen.jsonl')", 'training_results_dir': "PosixPath('/tmp/tmp0dqedovw/training-1')"}

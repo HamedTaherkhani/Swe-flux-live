@@ -1,0 +1,80 @@
+{
+  "oracle_answer": {
+    "value_history": [
+      {
+        "step": 1,
+        "value": "tensor([[ -1.,   9., -18.,  -8.],\n        [  2.,  12., -15.,  -5.],\n        [ 11., -16.,  -6.,  -7.],\n        [ -9.,   3.,  17.,  -7.],\n        [ 12., -12.,   0.,  14.]])"
+      },
+      {
+        "step": 2,
+        "value": "tensor([[ 10., -12.,   7.,  -3.],\n        [-10.,   7., -13.,   2.],\n        [-11.,   8.,  -6.,  13.],\n        [ 12.,  -4.,  17.,   1.],\n        [ -7.,  18.,   6.,  -8.]])"
+      },
+      {
+        "step": 3,
+        "value": "tensor([[-10., -16.,  12.,   9.],\n        [-16.,   9.,   0.,  -3.],\n        [-18.,  10.,   7.,   1.],\n        [ 18.,  17.,  10.,   9.],\n        [ -1.,  -2.,  -3.,  -4.]])"
+      },
+      {
+        "step": 4,
+        "value": "tensor([[  7.,  -9.,  -3.,   3.],\n        [ -6.,   6.,  18., -11.],\n        [  7.,  -3.,   9.,  17.],\n        [  6., -15.,  -3.,   9.],\n        [-16.,   6., -17.,   5.]])"
+      },
+      {
+        "step": 5,
+        "value": "tensor([[-17.,   2., -11.,   3.],\n        [ -8.,   8.,   2., -14.],\n        [  9.,  -7.,  14.,   3.],\n        [ -7.,  14.,  -2.,  14.],\n        [  7.,  -7.,  16.,   7.]])"
+      },
+      {
+        "step": 6,
+        "value": "tensor([[-14., -17.,  17.,   3.],\n        [ -7., -18., -18., -18.],\n        [ -7., -18., -18., -18.],\n        [ -1., -12., -18., -12.],\n        [-11.,  -8.,  -5.,  18.]])"
+      },
+      {
+        "step": 7,
+        "value": "tensor([[ -6.,  10.,  -1.,  15.],\n        [-10.,  10.,   3., -14.],\n        [ -7.,  13.,   6., -11.],\n        [  4.,  -3.,  17.,   0.],\n        [ -4.,  16.,  -1.,  -8.]])"
+      },
+      {
+        "step": 8,
+        "value": "tensor([[ -7.,  -5.,  -3.,  -6.],\n        [ 10.,  12.,   8.,  10.],\n        [ -1.,  -5.,  -3.,  -1.],\n        [-18., -17., -10.,  -4.],\n        [-15.,  -8.,  -7.,   0.]])"
+      },
+      {
+        "step": 9,
+        "value": "tensor([[ 16.,  17.,   1., -11.],\n        [ -1.,   6.,  -2., -10.],\n        [  9.,   1.,  -7.,  -2.],\n        [ 16., -16.,  15.,   5.],\n        [ 11.,   5.,  12.,   4.]])"
+      },
+      {
+        "step": 10,
+        "value": "tensor([[ -1.,  -1.,  -4.,   4.],\n        [ -2.,   6.,   6.,   3.],\n        [ 12.,  12.,  14.,  17.],\n        [-13., -11.,  -7.,  -5.],\n        [  3.,   5.,  15.,  17.]])"
+      },
+      {
+        "step": 11,
+        "value": "tensor([[  1., -12.,   1., -16.],\n        [-14.,  10., -14.,  10.],\n        [  2.,  14.,   8., -13.],\n        [ -1.,  15.,   5., -16.],\n        [  2., -16.,  10.,  -4.]])"
+      },
+      {
+        "step": 12,
+        "value": "tensor([[  3.,  13.,  -4., -16.],\n        [-14.,   1.,  11.,   4.],\n        [-16.,   3.,   0., -18.],\n        [-12.,   7.,  -6.,  13.],\n        [-10., -13.,   6., -12.]])"
+      },
+      {
+        "step": 13,
+        "value": "tensor([[-18., -14., -10.,   6.],\n        [-17.,  -7.,  -3.,   1.],\n        [ -6.,  -2.,   2.,   6.],\n        [  9., -18., -14.,  -4.],\n        [ -9.,  -6.,  15., -13.]])"
+      },
+      {
+        "step": 14,
+        "value": "tensor([[-11.,  -8.,  10.,  13.],\n        [ -9.,   9.,  12.,  15.],\n        [-17., -14.,   4.,   7.],\n        [ 18., -10.,  14., -14.],\n        [-18.,   6.,  15.,   2.]])"
+      },
+      {
+        "step": 15,
+        "value": "tensor([[ 15.,  -1.,  14.,  -6.],\n        [ 15.,   1., -18.,   5.],\n        [-17.,   1., -13.,   5.],\n        [-13.,  10.,  -9.,  13.],\n        [  0., -14.,   4., -11.]])"
+      },
+      {
+        "step": 16,
+        "value": "tensor([[ 18.,  18., -10., -10.],\n        [ -6.,  -6.,   3.,   3.],\n        [ 13.,  13., -13., -13.],\n        [  6.,  11.,  14., -11.],\n        [  2.,   5.,   6., -15.]])"
+      }
+    ]
+  },
+  "question": "Run only `haystack_qa/extractive_run_s3_state/files/testcase.py::TestExtractiveRunProgramState::test_batched_logits_accumulate_from_generated_documents`. During that test run, consider the first invocation of `haystack.components.readers.extractive.ExtractiveReader.run` in `haystack/components/readers/extractive.py`. An invocation means a `call` of that exact function, numbered from 1 in chronological order.\n\nReport the full ordered history of the local variable `cur_start_logits` immediately after line 626 has executed each time during that first invocation. More precisely, step k is the value present after the k-th chronological execution of absolute, 1-based source line 626 in the named file; line 626 is the assignment `cur_start_logits = output.start_logits`. For Python statements or expressions spanning multiple physical lines, an executed line is identified by the absolute, 1-based line on which that statement or expression begins. Decorator, `def`, and docstring lines are not observation points here.\n\nReturn exactly `{\"value_history\": [{\"step\": <int>, \"value\": <str>}, ...]}`. Preserve chronological execution order, number `step` from 1, do not sort by value, do not remove duplicates, and include one entry for every execution of line 626 in the first invocation. Each `value` must be Python `repr(cur_start_logits)` evaluated at that observation point, not `str()`. For any container, this means the `repr` of the whole container rather than element-by-element JSON conversion: strings retain quotes, and Python spellings such as `None` and `True` are retained. Embedded newlines in a repr are actual newline characters in the JSON string (for example, a Python value containing `x`, a newline, and `y` would be represented by a JSON string whose decoded value contains that newline). The variable is bound at every requested observation point, so there is no missing-value or JSON-null case.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "value_history": [
+      {
+        "step": "int",
+        "value": "str"
+      }
+    ]
+  }
+}

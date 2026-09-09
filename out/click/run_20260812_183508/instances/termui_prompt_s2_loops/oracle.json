@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 46
+  },
+  "question": "Run only the pytest test `click_qa/termui_prompt_s2_loops/files/testcase.py::TestPromptLoopBehavior::test_generated_retries_and_confirmations`. During that run, consider the first and only invocation of `click.termui.prompt` in `src/click/termui.py`. An invocation means one call of that function, counted 1-based in chronological order. For the `while` loop whose header is at absolute line 260, what is the exact number of iterations across every activation or re-entry of that same syntactic loop during this invocation? Iteration counting is 1-based: iteration N is the Nth dynamic execution of the loop body's first executable line, which is absolute line 261 (`value = prompt_func(prompt)`), and every such execution is counted. Do not count execution of the loop header itself, and do not sort or deduplicate executions. Source line numbers are absolute, 1-based line numbers in the named repository file. For a multi-line statement or expression, its line is the line where it begins; decorator, `def`, and docstring lines do not count as iterations unless they are the identified loop body line (they are not here). Return exactly one JSON object with shape `{\"loop_iteration_count\": <int>}`. The key `loop_iteration_count` has a base-10 JSON integer value, not a string; sorting and value-formatting conventions do not otherwise apply to this single scalar.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

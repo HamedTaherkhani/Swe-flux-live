@@ -1,0 +1,59 @@
+{
+  "question_kind": "M3_ProgramState",
+  "question": "During pytest run rich_qa/cells_split_graphemes_m3_state/files/testcase.py::SplitGraphemesProgramStateTest, aggregate observations across all twelve test methods in that class (every def test_... method), in pytest collection order.\n\nConsider the function rich.cells.split_graphemes defined in rich/cells.py (the def statement begins on line 161). The test reaches it only indirectly through callers such as chop_cells, set_cell_size, and split_text; your answer must still describe runtime state inside split_graphemes itself.\n\nTrack the local variable total_width only. Whenever total_width appears as a key in the locals= mapping attached to any trace event whose func equals rich.cells.split_graphemes (module-qualified dotted name, e.g. rich.cells.split_graphemes), record Python repr(total_width) at that moment. total_width is an int in this function; its repr is the decimal numeral with no surrounding quotes (for example repr(7) is the one-character string whose sole code point is U+0037 DIGIT SEVEN, which JSON-encodes as \"7\"). Events to scan are call, line, return, and exception events for that frame across every invocation during the test run (one invocation = one call event for split_graphemes, in chronological order). On return events the logged locals dictionary may contain the full final frame locals rather than only changed names\u2014still record total_width when present. Line numbers in trace events are absolute 1-based lines in rich/cells.py; the def line (161), decorators, and docstring are not executed and never produce line events.\n\nDo not invent values from source inspection; only values actually present in logged locals dictionaries count. If the same repr appears on multiple events or invocations, include it once. Sort the final list of distinct repr strings in ascending lexicographic order (Unicode code-point order, the default for Python str.sort()).\n\nReport the answer as JSON with top-level key unique_values whose value is a list of strings, each string being one distinct repr(total_width) observed as defined above.",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  },
+  "oracle_answer": {
+    "unique_values": [
+      "0",
+      "1",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "2",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "3",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "38",
+      "39",
+      "4",
+      "40",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "48",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ]
+  }
+}

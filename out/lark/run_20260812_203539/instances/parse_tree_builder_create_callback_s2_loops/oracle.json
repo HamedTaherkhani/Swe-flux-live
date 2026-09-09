@@ -1,0 +1,10 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "Run exactly the pytest test `lark_qa/parse_tree_builder_create_callback_s2_loops/files/testcase.py::TestCreateCallbackLoopDynamics::test_seeded_rule_builder_matrix` (class `TestCreateCallbackLoopDynamics`, method `test_seeded_rule_builder_matrix`). During that test, consider invocation 1 of `lark.parse_tree_builder.ParseTreeBuilder.create_callback` in `lark/parse_tree_builder.py`. An invocation means one call of that function during the stated test run, and invocations are numbered 1-based in chronological call order. How many iterations does the `for` loop whose header is at absolute, 1-based source line 381 perform over the entirety of that invocation? The same loop statement is reached from an enclosing loop, so aggregate all of its entries during invocation 1. Define iteration N, counted 1-based, as the Nth chronological execution of the loop body's first statement, which begins at line 382, in the target function's own frame. Count every such execution, including repeated executions with equal local values; do not deduplicate or sort. Exclude executions in wrappers, callbacks, comprehensions, and all other callees or frames. Source line numbers refer to the named repository file as it exists for this run. For a multi-line statement or expression, execution is attributed to the absolute line where that statement or expression begins. The function's `def` line, decorator lines, and docstring lines do not count as iterations. Return exactly one JSON object with the sole key `loop_iteration_count`; its value must be the total as a JSON integer (not a string), with no additional keys.",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  },
+  "oracle_answer": {
+    "loop_iteration_count": 424
+  }
+}

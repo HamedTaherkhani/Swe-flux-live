@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "[Column(\n  this=Identifier(this=k0, quoted=False),\n  table=Identifier(this=i, quoted=False)), Column(\n  this=Identifier(this=k1, quoted=False),\n  table=Identifier(this=i, quoted=False)), Column(\n  this=Identifier(this=k2, quoted=False),\n  table=Identifier(this=i, quoted=False)), Column(\n  this=Identifier(this=k5, quoted=False),\n  table=Identifier(this=i, quoted=False)), Column(\n  this=Identifier(this=k6, quoted=False),\n  table=Identifier(this=i, quoted=False)), Column(\n  this=Identifier(this=k7, quoted=False),\n  table=Identifier(this=i, quoted=False)), Column(\n  this=Identifier(this=k10, quoted=False),\n  table=Identifier(this=i, quoted=False)), Column(\n  this=Identifier(this=k11, quoted=False),\n  table=Identifier(this=i, quoted=False)), Column(\n  this=Identifier(this=k12, quoted=False),\n  table=Identifier(this=i, quoted=False)), Column(\n  this=Identifier(this=k15, quoted=False),\n  table=Identifier(this=i, quoted=False))]",
+        "variable": "group_by"
+      },
+      {
+        "value": "{Column(\n  this=Identifier(this=k0, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_1', Column(\n  this=Identifier(this=k1, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_2', Column(\n  this=Identifier(this=k2, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_3', Column(\n  this=Identifier(this=k3, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_4', Column(\n  this=Identifier(this=k4, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_5', Column(\n  this=Identifier(this=k5, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_6', Column(\n  this=Identifier(this=k6, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_7', Column(\n  this=Identifier(this=k7, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_8', Column(\n  this=Identifier(this=k8, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_9', Column(\n  this=Identifier(this=k9, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_10', Column(\n  this=Identifier(this=k10, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_11', Column(\n  this=Identifier(this=k11, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_12', Column(\n  this=Identifier(this=k12, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_13', Column(\n  this=Identifier(this=k13, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_14', Column(\n  this=Identifier(this=k14, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_15', Column(\n  this=Identifier(this=k15, quoted=False),\n  table=Identifier(this=i, quoted=False)): '_u_16'}",
+        "variable": "key_aliases"
+      },
+      {
+        "value": "Column(\n  this=Identifier(this=_u_13, quoted=False),\n  table=Identifier(this=_u_0, quoted=False))",
+        "variable": "nested"
+      },
+      {
+        "value": "EQ(\n  this=Column(\n    this=Identifier(this=k12, quoted=False),\n    table=Identifier(this=i, quoted=False)),\n  expression=Column(\n    this=Identifier(this=c6, quoted=False),\n    table=Identifier(this=o, quoted=False)))",
+        "variable": "predicate"
+      }
+    ]
+  },
+  "question": "Run the single pytest test method `CorrelatedProjectionStateTest.test_generated_correlated_projection` in `sqlglot_qa/unnest_subqueries_decorrelate_s3_state/files/testcase.py`. During that test run, consider `sqlglot.optimizer.unnest_subqueries.decorrelate` in `sqlglot/optimizer/unnest_subqueries.py`.\n\nFor the first invocation of `decorrelate`, report the values of the local variables `group_by`, `key_aliases`, `nested`, and `predicate` immediately after the statement `nested = exp.column(key_aliases[key], table_alias)` beginning on absolute line 295 has executed for the 13th time. An invocation means one call of this exact function during the test run; invocations and executions of the line are counted chronologically and 1-based. The 13th execution means the 13th completed evaluation of that assignment within this invocation's loop. Line numbers are absolute, 1-based line numbers in the named repository file. For a multi-line statement, its line is where the statement or expression begins; decorator, `def`, and docstring lines do not count unless Python executes them in the function frame.\n\nReturn exactly `{\"observed_state\": [{\"value\": \"...\", \"variable\": \"...\"}]}` with four array elements. Each element has exactly the string keys `value` and `variable`; `variable` is the local's source name and `value` is Python's `repr()` of its value at that moment. For a container, use `repr()` of the whole container without recursively sorting or otherwise normalizing it: strings retain quotes, and `None` and booleans use Python spellings (for example, `None` and `True`, not JSON `null` and `true`). Embedded newlines in a repr are real newline characters inside the JSON string. No requested local may be omitted or represented by JSON null; if one does not exist at the observation point, the requested observation is invalid. Sort the four elements by `variable` in ascending Unicode code-point order; do not deduplicate them. JSON escaping is applied only when serializing these repr strings.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

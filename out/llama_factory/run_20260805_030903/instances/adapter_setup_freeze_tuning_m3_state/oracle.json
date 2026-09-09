@@ -1,0 +1,67 @@
+{
+  "question_kind": "M3_ProgramState",
+  "question": "During execution of pytest test `llama_factory_qa/adapter_setup_freeze_tuning_m3_state/files/testcase.py::TestSetupFreezeTuningM3State::test_return_state_across_two_invocations`, analyze function `src.llamafactory.model.adapter._setup_freeze_tuning` defined in `src/llamafactory/model/adapter.py`. Define an invocation as one dynamic function entry for this target during that test run, counted in 1-based order by occurrence. For each invocation that reaches a normal return, use the function's local variables at the return point, and treat each reported value as the Python `repr` string of that local at that moment. Compute values for exactly these local names: `cast_trainable_params_to_fp32`, `module_name`, `num_layers`, `trainable_layer_ids`, and `trainable_layers`. Return JSON with exactly one top-level key `state_snapshots` (array of objects). Each object must have `invocation` (int), `variable` (str), and `value` (str). Sort output deterministically by `invocation` ascending, then `variable` ascending lexicographic order, and if a tie remains, `value` ascending lexicographic order.",
+  "template_answer": {
+    "state_snapshots": [
+      {
+        "invocation": "int",
+        "variable": "str",
+        "value": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "state_snapshots": [
+      {
+        "invocation": 1,
+        "variable": "cast_trainable_params_to_fp32",
+        "value": "False"
+      },
+      {
+        "invocation": 1,
+        "variable": "module_name",
+        "value": "'embed_tokens'"
+      },
+      {
+        "invocation": 1,
+        "variable": "num_layers",
+        "value": "4"
+      },
+      {
+        "invocation": 1,
+        "variable": "trainable_layer_ids",
+        "value": "range(1, 5, 2)"
+      },
+      {
+        "invocation": 1,
+        "variable": "trainable_layers",
+        "value": "['.1.attn', '.3.attn', '.1.mlp', '.3.mlp', 'embed_tokens']"
+      },
+      {
+        "invocation": 2,
+        "variable": "cast_trainable_params_to_fp32",
+        "value": "False"
+      },
+      {
+        "invocation": 2,
+        "variable": "module_name",
+        "value": "'output_head'"
+      },
+      {
+        "invocation": 2,
+        "variable": "num_layers",
+        "value": "4"
+      },
+      {
+        "invocation": 2,
+        "variable": "trainable_layer_ids",
+        "value": "range(0, 2)"
+      },
+      {
+        "invocation": 2,
+        "variable": "trainable_layers",
+        "value": "['.0.', '.1.', '.0.attn', '.1.attn', 'output_head']"
+      }
+    ]
+  }
+}

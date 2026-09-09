@@ -1,0 +1,182 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 5008,
+        "use_line": 5011,
+        "variable": "alias"
+      },
+      {
+        "def_line": 5080,
+        "use_line": 5081,
+        "variable": "alias"
+      },
+      {
+        "def_line": 5038,
+        "use_line": 5039,
+        "variable": "bracket"
+      },
+      {
+        "def_line": 5039,
+        "use_line": 5054,
+        "variable": "bracket"
+      },
+      {
+        "def_line": 4980,
+        "use_line": 4990,
+        "variable": "consume_pipe"
+      },
+      {
+        "def_line": 4980,
+        "use_line": 5030,
+        "variable": "consume_pipe"
+      },
+      {
+        "def_line": 4980,
+        "use_line": 4990,
+        "variable": "joins"
+      },
+      {
+        "def_line": 4980,
+        "use_line": 5033,
+        "variable": "joins"
+      },
+      {
+        "def_line": 4980,
+        "use_line": 5110,
+        "variable": "joins"
+      },
+      {
+        "def_line": 4980,
+        "use_line": 5067,
+        "variable": "parse_partition"
+      },
+      {
+        "def_line": 5067,
+        "use_line": 5068,
+        "variable": "parse_partition"
+      },
+      {
+        "def_line": 4980,
+        "use_line": 4990,
+        "variable": "schema"
+      },
+      {
+        "def_line": 4980,
+        "use_line": 5057,
+        "variable": "schema"
+      },
+      {
+        "def_line": 4980,
+        "use_line": 5071,
+        "variable": "schema"
+      },
+      {
+        "def_line": 5030,
+        "use_line": 5031,
+        "variable": "subquery"
+      },
+      {
+        "def_line": 5030,
+        "use_line": 5032,
+        "variable": "subquery"
+      },
+      {
+        "def_line": 5030,
+        "use_line": 5036,
+        "variable": "subquery"
+      },
+      {
+        "def_line": 4992,
+        "use_line": 4994,
+        "variable": "table"
+      },
+      {
+        "def_line": 4992,
+        "use_line": 5003,
+        "variable": "table"
+      },
+      {
+        "def_line": 4992,
+        "use_line": 5011,
+        "variable": "table"
+      },
+      {
+        "def_line": 4992,
+        "use_line": 5014,
+        "variable": "table"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5062,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5075,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5090,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5092,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5094,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5099,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5101,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5102,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5105,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5115,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5116,
+        "variable": "this"
+      },
+      {
+        "def_line": 5052,
+        "use_line": 5118,
+        "variable": "this"
+      }
+    ]
+  },
+  "question": "Run the single pytest test\n`sqlglot_qa/parser_parse_table_s4_dataflow/files/testcase.py::TestParseTableDataFlow::test_generated_table_forms`\nand consider every invocation of `sqlglot.parser.Parser._parse_table` in\n`sqlglot/parser.py` caused by that test. An invocation is one call of that\nfunction, numbered from 1 in chronological call order; aggregate observations\nacross all invocations.\n\nFor each of these local variable names exactly: `alias`, `bracket`,\n`consume_pipe`, `joins`, `parse_partition`, `schema`, `subquery`, `table`, and\n`this`, report every unique runtime-observed def-use pair. A definition (\"def\")\nis a parameter binding or a completed assignment to that local in the target\nframe. Parameter bindings count as definitions on the function's `def` line.\nA use is a runtime read of that local's current value by an expression in the\nsame target frame. A pair `{variable, def_line, use_line}` is observed when the\nvalue established by that definition reaches that use without an intervening\ndefinition of the same local. Definitions and uses in callees do not count.\n\nUse Python evaluation order: reads needed by an assignment occur before that\nassignment's definition. Augmented assignment such as `x += 1` is both a use\nof the old reaching definition and a new definition on that same line. A\n`for x in iterable` header reads the iterable and redefines `x` once for each\nsuccessful iteration; the final exhausted check does not redefine `x`.\nComprehension iteration variables are comprehension-local: each successful\niteration defines that comprehension-local name, its reads count only inside\nthe comprehension frame/scope, and it neither defines nor uses a same-spelled\nlocal in the target frame.\n\nLine numbers are absolute 1-based source line numbers in\n`sqlglot/parser.py` as it exists in the repository. For a multi-line statement\nor expression, attribute each read or definition to the source line on which\nthat specific name-bearing expression or assignment begins; runtime execution\nof a multi-line component is identified by the line event for the line where\nthat component begins. The function's `def` line can therefore appear for\nparameter definitions; decorator and docstring lines do not count.\n\nReturn exactly one JSON object with key `observed_def_use_pairs`. Its value is\na list of objects with exactly the keys `def_line` (integer), `use_line`\n(integer), and `variable` (string). Remove duplicate triples even if they are\nobserved in different invocations or multiple times in one invocation. Sort\nthe list by `variable`, then `def_line`, then `use_line`, all ascending.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

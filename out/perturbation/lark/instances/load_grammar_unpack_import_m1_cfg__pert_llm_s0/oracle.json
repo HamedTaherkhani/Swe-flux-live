@@ -1,0 +1,164 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 450,
+        "line": 1184
+      },
+      {
+        "count": 217,
+        "line": 1185
+      },
+      {
+        "count": 0,
+        "line": 1186
+      },
+      {
+        "count": 233,
+        "line": 1187
+      },
+      {
+        "count": 233,
+        "line": 1188
+      },
+      {
+        "count": 0,
+        "line": 1189
+      },
+      {
+        "count": 450,
+        "line": 1190
+      },
+      {
+        "count": 113,
+        "line": 1191
+      },
+      {
+        "count": 113,
+        "line": 1192
+      },
+      {
+        "count": 113,
+        "line": 1193
+      },
+      {
+        "count": 0,
+        "line": 1194
+      },
+      {
+        "count": 337,
+        "line": 1195
+      },
+      {
+        "count": 337,
+        "line": 1196
+      },
+      {
+        "count": 34,
+        "line": 1197
+      },
+      {
+        "count": 34,
+        "line": 1198
+      },
+      {
+        "count": 303,
+        "line": 1199
+      },
+      {
+        "count": 303,
+        "line": 1200
+      },
+      {
+        "count": 0,
+        "line": 1201
+      },
+      {
+        "count": 416,
+        "line": 1202
+      },
+      {
+        "count": 191,
+        "line": 1203
+      },
+      {
+        "count": 0,
+        "line": 1204
+      },
+      {
+        "count": 225,
+        "line": 1205
+      },
+      {
+        "count": 152,
+        "line": 1206
+      },
+      {
+        "count": 152,
+        "line": 1207
+      },
+      {
+        "count": 40,
+        "line": 1208
+      },
+      {
+        "count": 40,
+        "line": 1209
+      },
+      {
+        "count": 0,
+        "line": 1210
+      },
+      {
+        "count": 73,
+        "line": 1211
+      },
+      {
+        "count": 225,
+        "line": 1212
+      },
+      {
+        "count": 185,
+        "line": 1213
+      },
+      {
+        "count": 35,
+        "line": 1214
+      },
+      {
+        "count": 0,
+        "line": 1215
+      },
+      {
+        "count": 150,
+        "line": 1216
+      },
+      {
+        "count": 0,
+        "line": 1217
+      },
+      {
+        "count": 40,
+        "line": 1218
+      },
+      {
+        "count": 0,
+        "line": 1219
+      },
+      {
+        "count": 416,
+        "line": 1220
+      }
+    ]
+  },
+  "question": "Run the pytest class selection `lark_qa/load_grammar_unpack_import_m1_cfg/files/testcase.py::TestGrammarImportControlFlow`. Across ALL methods in that class whose names begin with `test_` (that is, every pytest id of the form `lark_qa/load_grammar_unpack_import_m1_cfg/files/testcase.py::TestGrammarImportControlFlow::test_*`), what are the total runtime line-event counts for every physical body line of `lark.load_grammar.GrammarBuilder._unpack_import`, defined at `lark/load_grammar.py:1183`? Aggregate the counts over the complete class run and over every invocation from every test method; test order does not affect these totals.\n\nUse CPython's `sys.settrace` meaning of a `line` event. An invocation is one runtime `call` event for exactly `lark.load_grammar.GrammarBuilder._unpack_import`; calls to other functions do not count as invocations. Count only `line` events emitted by that invocation's own frame, from its call through its return or exceptional exit. Do not count `call`, `return`, or `exception` events, and do not count events in callees, comprehensions, or other frames. Repeated events on the same line, whether within one invocation or across invocations and tests, each add one to that line's total; there is no event deduplication.\n\nThe scope is every 1-based physical source line after the function's `def` line through the final line of its body, inclusive, as determined from the repository source. Include blank lines, comment-only lines, and continuation lines in the output; report `count: 0` when such a line, or any other in-scope line, emits no line event. The `def` line and any decorator lines are excluded. A docstring would be part of the body scope, although this function has none. For a multi-line executable statement or expression, attribute its line event to the 1-based physical line where that statement or expression begins; other physical continuation lines remain in scope with zero.\n\nReturn exactly one JSON object with the shape `{\"line_execution_counts\": [{\"count\": \"int\", \"line\": \"int\"}]}`. `line` is the absolute 1-based physical line number in the named repository file, and `count` is a non-negative JSON integer total. Include exactly one object for every in-scope physical line, even when its count is zero. Sort the list by `line` in strictly ascending order; objects have exactly the keys `count` and `line`, with no additional formatting, normalization, or values represented as strings.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "During pytest run of rich_qa/progress_open_s6_calls/files/testcase.py::TestProgressOpenCallOrder::test_indirect_open_via_module_entry, the function rich.progress.Progress.open in rich/progress.py (source lines 1311-1386) is reached through rich.progress.open (module-level entry) and through a bound method dispatch on an existing Progress instance (never by calling Progress.open directly as a literal method reference in the test).\n\nIdentify the 14th invocation of rich.progress.Progress.open during that test run, counting each call to that function in chronological order starting at 1.\n\nWhile that 14th invocation is on the call stack, collect every line event (executed source line) recorded for any of these tracked functions defined in rich/progress.py (listed by dotted qualname):\n\n- rich.progress.Progress.open\n- rich.progress.Progress.add_task\n- rich.progress.Progress.start_task\n- rich.progress.Progress.refresh\n- rich.progress.Progress.update\n\nInclude line events in rich.progress.Progress.open itself and nested/transitive line events in the other tracked functions while the 14th open frame remains on the stack (for example, lines executed inside rich.progress.Progress.add_task during that open still count). Do not include line events from functions outside this list. Repeated line events at the same line in the same function are all included in order; do not deduplicate. Generator resumptions outside these functions are ignored.\n\nEach line number is the 1-based line number in the repository file where the traced statement begins (as reported by Python's trace machinery for line events). Decorator lines, the def line, and docstring lines are not line events and never appear.\n\nReport the chronological executed path as executed_path: a JSON list of objects, each with exactly three keys:\n\n- file: repository-relative path to the source file (for example rich/progress.py)\n- func: dotted module.qualname of the function whose body is executing (for example rich.progress.Progress.add_task)\n- line: integer line number (for example 1417)\n\nSort order is chronological execution order as observed during the test; do not reorder or sort alphabetically.",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1344
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1345
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1349
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1350
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1356
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1357
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1359
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1360
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1363
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1364
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1367
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1368
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1624
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1625
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1626
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1627
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1628
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1629
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1630
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1631
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1632
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1633
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1625
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1635
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1636
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1637
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.start_task",
+        "line": 1397
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.start_task",
+        "line": 1398
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.start_task",
+        "line": 1399
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.start_task",
+        "line": 1400
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.start_task",
+        "line": 1397
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1638
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1639
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1624
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1640
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.refresh",
+        "line": 1549
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.add_task",
+        "line": 1641
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1373
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1374
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1377
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1378
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1379
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1380
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1381
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1382
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1383
+      },
+      {
+        "file": "rich/progress.py",
+        "func": "rich.progress.Progress.open",
+        "line": 1378
+      }
+    ]
+  }
+}

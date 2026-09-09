@@ -1,0 +1,12 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "Run every test method collected from `sqlglot_qa/optimize_joins_optimize_joins_m2_loops/files/testcase.py::TestOptimizeJoinsLoopDynamics` and aggregate over all of those methods. In `sqlglot.optimizer.optimize_joins.optimize_joins` in `sqlglot/optimizer/optimize_joins.py`, consider the `for predicate in on.flatten():` loop whose header is line 54. For each invocation, count that loop's iterations across the entire invocation, including all entries caused by its enclosing loops and all Select nodes: iteration N is the Nth execution of the loop body's first statement, the `if` beginning on line 55. An invocation is one call of exactly this target function (not a callee or another same-named function), numbered 1-based in chronological execution order across the pytest run. An invocation in which line 55 never executes has count zero. Report the largest and smallest per-invocation counts; repeated counts are retained when determining the extrema, and no sorting or deduplication changes the scalar results. Line numbers are absolute 1-based source line numbers in the named repository file as it exists for this run. For a multi-line statement, an execution belongs to the line on which that statement begins; the function's `def` line, docstring lines, loop-header executions, return events, and executions in other frames do not count as iterations. Return exactly a JSON object with keys `max_iterations` and `min_iterations`, each a JSON decimal integer (not a string), in that key order.",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  },
+  "oracle_answer": {
+    "max_iterations": 113,
+    "min_iterations": 0
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "kedro/runner/task.py",
+        "func": "kedro.runner.task.Task.__init__"
+      },
+      {
+        "file": "kedro/runner/task.py",
+        "func": "kedro.runner.task.Task._call_node_run"
+      },
+      {
+        "file": "kedro/runner/task.py",
+        "func": "kedro.runner.task.Task._collect_inputs_from_hook"
+      },
+      {
+        "file": "kedro/runner/task.py",
+        "func": "kedro.runner.task.Task._run_node_sequential"
+      },
+      {
+        "file": "kedro/runner/task.py",
+        "func": "kedro.runner.task.Task.execute"
+      }
+    ]
+  },
+  "question": "When the pytest test\n`kedro_qa/task_run_node_sequential_m6_calls/files/testcase.py::TestSequentialRunCoverage::test_sequential_pipeline_coverage`\nis executed, it programmatically builds (with a seeded random generator) a\n14-node Kedro pipeline \u2014 regular nodes with one or two inputs and one or two\noutputs, two streaming generator nodes (one yielding tuples, one yielding\ndicts), and a final reducer node \u2014 and runs it once end to end through\n`kedro.runner.sequential_runner.SequentialRunner` (constructed with its\ndefault arguments) against a `DataCatalog` backed by `MemoryDataset`\nobjects, with a real pluggy hook manager carrying one registered\n`before_node_run` hook implementation. Every node execution flows through\nthe target function `kedro.runner.task.Task._run_node_sequential` (defined\nin the repository file `kedro/runner/task.py`, lines 141-190), so the target\nis invoked many times during the test run.\n\nDefinitions used in this question:\n\n- Function identity is the dotted qualname derived from the source file's\n  structure: `module.Class.method` for methods and `module.function` for\n  module-level functions. For example, `kedro.pipeline.node.Node.run` is the\n  qualname of the method `run` of class `Node` in module\n  `kedro.pipeline.node`.\n- Invocation: one invocation of a function is one entry into the function\n  (one function call); invocations are counted 1-based in chronological\n  order of function entry during the test run. Repeated invocations of the\n  same function are separate invocations. None of the tracked functions\n  below is a generator function, so no generator-resumption subtleties\n  arise.\n- Coverage: a function is COVERED if and only if it is invoked at least once\n  during the entire test run, no matter which caller invoked it (directly or\n  transitively) and no matter what else is on the call stack at that moment.\n  Coverage is a per-function property of the whole run: a function invoked\n  many times is still reported exactly once, and a function never invoked is\n  not reported at all.\n\nThe tracked set is EXACTLY these ten functions (all defined in\n`kedro/runner/task.py`):\n\n1. `kedro.runner.task.Task.__init__`\n2. `kedro.runner.task.Task.__call__`\n3. `kedro.runner.task.Task.execute`\n4. `kedro.runner.task.Task._bootstrap_subprocess`\n5. `kedro.runner.task.Task._run_node_synchronization`\n6. `kedro.runner.task.Task._run_node_sequential`\n7. `kedro.runner.task.Task._run_node_async`\n8. `kedro.runner.task.Task._synchronous_dataset_load`\n9. `kedro.runner.task.Task._collect_inputs_from_hook`\n10. `kedro.runner.task.Task._call_node_run`\n\nNote that several of these functions may legitimately not run at all during\nthis test; the answer must reflect what actually executes, not what a static\ncall-graph over-approximation suggests.\n\nTask: report which of the ten tracked functions are COVERED (invoked at\nleast once) during the test run.\n\nAnswer format: a JSON object with exactly one key, `covered_functions`,\nwhose value is a list with exactly one object per covered tracked function.\nEach object has exactly two keys: `file` (a JSON string giving the\nrepo-relative path of the file defining the function \u2014 for every entry in\nthis answer it is `kedro/runner/task.py`) and `func` (a JSON string giving\nthe dotted qualname of the function, in the format defined above, spelled\nexactly as in the tracked-set list). The list is sorted in ascending ASCII\nlexicographic order of the `func` string (underscore, code point 95, sorts\nbefore lowercase letters; for example `m.x_a` sorts before `m.xz`). Since\nevery `file` value in this answer is identical, `file` never participates in\nordering. Each covered function appears exactly once \u2014 no duplicates.\n",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

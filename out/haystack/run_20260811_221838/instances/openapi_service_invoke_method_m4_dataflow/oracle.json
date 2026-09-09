@@ -1,0 +1,288 @@
+{
+  "question_kind": "M4_DataFlow",
+  "question": "Run the pytest class node `haystack_qa/openapi_service_invoke_method_m4_dataflow/files/testcase.py::TestOpenAPIInvokeDataFlow`, which selects and aggregates ALL `test_...` methods defined on that class. A test is identified by its full pytest id `haystack_qa/openapi_service_invoke_method_m4_dataflow/files/testcase.py::TestOpenAPIInvokeDataFlow::<method_name>`; the requested counts are totals across all selected methods, independent of the order in which pytest runs them.\n\nFor every invocation of `haystack.components.connectors.openapi_service.OpenAPIServiceConnector._invoke_method` in `haystack/components/connectors/openapi_service.py` during that complete class run, compute the observed reaching-definition/use pairs for exactly these tracked local variables: `invocation_arguments`, `method_call_params`, `method_invocation_descriptor`, `method_to_call`, `name`, `openapi_service`, `operation`, `operation_dict`, `param`, `param_name`, `param_value`, `parameters`, `request_body`, `required_params`, `schema`, and `self`. An invocation is one `call` of this function; invocations are numbered from 1 in chronological order, although the invocation number is not included in the answer.\n\nA definition is a runtime write of a tracked variable under these rules. Every parameter, including `self`, is defined when the call begins, at the function's `def` line. A plain or annotated assignment to a name defines that name after its right-hand side has completed. A `for` target is defined at the loop-header line once for each successful item retrieval, before that iteration's body; an exhaustion check does not define it. The iterable expression on a `for` header is evaluated, and hence contributes uses, only once when that loop is entered. Iteration N means the Nth successful item retrieval for that particular loop in that invocation. An assignment through a subscript whose root object is the tracked name `method_call_params` both uses the prior state of `method_call_params` and, after the assignment completes, defines its new container state at that assignment's line. Other attribute or subscript writes do not define a tracked name. If augmented assignment were present, it would first use the old target value and then define the new value after the operation. A comprehension has its own implicit scope: a comprehension target would not define an enclosing tracked local, while tracked names evaluated in the comprehension's outer iterable or expressions would be uses according to normal Python evaluation. There are no comprehension-target variables in the tracked list.\n\nA use is one actually evaluated source-level `Name` load of a tracked variable. Short-circuited operands and statements skipped by control flow contribute no uses. If a tracked name occurs twice in evaluated expressions on one source line, those are two use observations. A use is paired with the most recent definition of the same variable in that invocation that precedes that evaluation. Definitions do not carry between invocations. An observation is one such evaluated use reached by one definition, so a use in a loop body counts once per iteration in which it is evaluated. If execution raises before a later expression is evaluated or before a write completes, that later use or definition does not occur.\n\nAll line numbers are absolute, 1-based line numbers in the named repository file as it exists for this run. A multi-line statement or expression is attributed to the physical source line on which the relevant name load or assignment target begins. Parameter definitions are attributed to the `def` line; decorator and docstring lines contribute nothing because they are not evaluated in an invocation.\n\nReturn exactly one JSON object with the shape `{\"observed_def_use_pairs\": [{\"count\": 1, \"def_line\": 8, \"use_line\": 9, \"variable\": \"buffer\"}]}` (the shown object is only a format example and is not part of the answer). Each row has exactly four fields: `variable` is the source-level variable name as a JSON string, while `def_line`, `use_line`, and `count` are JSON integers. `count` is the total number of observations of that exact `(variable, def_line, use_line)` triple across all invocations in all test methods. Emit one row for each triple with a positive count and no row for an unobserved triple. The triple is unique in the list: multiplicity appears only in `count`, never as duplicate rows. Sort rows ascending by `variable` in Unicode code-point order, then by `def_line` numerically, then by `use_line` numerically. There are no representations, exception names, missing values, empty strings, or JSON nulls in this answer.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": "int",
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": 17,
+        "def_line": 354,
+        "use_line": 355,
+        "variable": "invocation_arguments"
+      },
+      {
+        "count": 170,
+        "def_line": 354,
+        "use_line": 377,
+        "variable": "invocation_arguments"
+      },
+      {
+        "count": 187,
+        "def_line": 354,
+        "use_line": 388,
+        "variable": "invocation_arguments"
+      },
+      {
+        "count": 13,
+        "def_line": 371,
+        "use_line": 379,
+        "variable": "method_call_params"
+      },
+      {
+        "count": 2,
+        "def_line": 371,
+        "use_line": 390,
+        "variable": "method_call_params"
+      },
+      {
+        "count": 150,
+        "def_line": 379,
+        "use_line": 379,
+        "variable": "method_call_params"
+      },
+      {
+        "count": 9,
+        "def_line": 379,
+        "use_line": 390,
+        "variable": "method_call_params"
+      },
+      {
+        "count": 3,
+        "def_line": 379,
+        "use_line": 396,
+        "variable": "method_call_params"
+      },
+      {
+        "count": 165,
+        "def_line": 390,
+        "use_line": 390,
+        "variable": "method_call_params"
+      },
+      {
+        "count": 10,
+        "def_line": 390,
+        "use_line": 396,
+        "variable": "method_call_params"
+      },
+      {
+        "count": 17,
+        "def_line": 340,
+        "use_line": 353,
+        "variable": "method_invocation_descriptor"
+      },
+      {
+        "count": 17,
+        "def_line": 340,
+        "use_line": 354,
+        "variable": "method_invocation_descriptor"
+      },
+      {
+        "count": 1,
+        "def_line": 340,
+        "use_line": 357,
+        "variable": "method_invocation_descriptor"
+      },
+      {
+        "count": 16,
+        "def_line": 362,
+        "use_line": 363,
+        "variable": "method_to_call"
+      },
+      {
+        "count": 15,
+        "def_line": 362,
+        "use_line": 367,
+        "variable": "method_to_call"
+      },
+      {
+        "count": 13,
+        "def_line": 362,
+        "use_line": 396,
+        "variable": "method_to_call"
+      },
+      {
+        "count": 17,
+        "def_line": 353,
+        "use_line": 355,
+        "variable": "name"
+      },
+      {
+        "count": 16,
+        "def_line": 353,
+        "use_line": 362,
+        "variable": "name"
+      },
+      {
+        "count": 1,
+        "def_line": 353,
+        "use_line": 364,
+        "variable": "name"
+      },
+      {
+        "count": 1,
+        "def_line": 353,
+        "use_line": 381,
+        "variable": "name"
+      },
+      {
+        "count": 1,
+        "def_line": 353,
+        "use_line": 393,
+        "variable": "name"
+      },
+      {
+        "count": 16,
+        "def_line": 340,
+        "use_line": 362,
+        "variable": "openapi_service"
+      },
+      {
+        "count": 1,
+        "def_line": 340,
+        "use_line": 364,
+        "variable": "openapi_service"
+      },
+      {
+        "count": 15,
+        "def_line": 367,
+        "use_line": 368,
+        "variable": "operation"
+      },
+      {
+        "count": 15,
+        "def_line": 368,
+        "use_line": 372,
+        "variable": "operation_dict"
+      },
+      {
+        "count": 15,
+        "def_line": 368,
+        "use_line": 373,
+        "variable": "operation_dict"
+      },
+      {
+        "count": 170,
+        "def_line": 375,
+        "use_line": 376,
+        "variable": "param"
+      },
+      {
+        "count": 7,
+        "def_line": 375,
+        "use_line": 380,
+        "variable": "param"
+      },
+      {
+        "count": 170,
+        "def_line": 376,
+        "use_line": 377,
+        "variable": "param_name"
+      },
+      {
+        "count": 163,
+        "def_line": 376,
+        "use_line": 379,
+        "variable": "param_name"
+      },
+      {
+        "count": 1,
+        "def_line": 376,
+        "use_line": 381,
+        "variable": "param_name"
+      },
+      {
+        "count": 187,
+        "def_line": 387,
+        "use_line": 388,
+        "variable": "param_name"
+      },
+      {
+        "count": 176,
+        "def_line": 387,
+        "use_line": 390,
+        "variable": "param_name"
+      },
+      {
+        "count": 11,
+        "def_line": 387,
+        "use_line": 391,
+        "variable": "param_name"
+      },
+      {
+        "count": 1,
+        "def_line": 387,
+        "use_line": 393,
+        "variable": "param_name"
+      },
+      {
+        "count": 170,
+        "def_line": 377,
+        "use_line": 378,
+        "variable": "param_value"
+      },
+      {
+        "count": 163,
+        "def_line": 377,
+        "use_line": 379,
+        "variable": "param_value"
+      },
+      {
+        "count": 187,
+        "def_line": 388,
+        "use_line": 389,
+        "variable": "param_value"
+      },
+      {
+        "count": 176,
+        "def_line": 388,
+        "use_line": 390,
+        "variable": "param_value"
+      },
+      {
+        "count": 15,
+        "def_line": 372,
+        "use_line": 375,
+        "variable": "parameters"
+      },
+      {
+        "count": 14,
+        "def_line": 373,
+        "use_line": 384,
+        "variable": "request_body"
+      },
+      {
+        "count": 11,
+        "def_line": 373,
+        "use_line": 385,
+        "variable": "request_body"
+      },
+      {
+        "count": 11,
+        "def_line": 386,
+        "use_line": 391,
+        "variable": "required_params"
+      },
+      {
+        "count": 11,
+        "def_line": 385,
+        "use_line": 386,
+        "variable": "schema"
+      },
+      {
+        "count": 11,
+        "def_line": 385,
+        "use_line": 387,
+        "variable": "schema"
+      }
+    ]
+  }
+}

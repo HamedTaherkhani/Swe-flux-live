@@ -1,0 +1,207 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 475,
+        "use_line": 481,
+        "variable": "error_msg"
+      },
+      {
+        "def_line": 475,
+        "use_line": 482,
+        "variable": "error_msg"
+      },
+      {
+        "def_line": 434,
+        "use_line": 451,
+        "variable": "errors"
+      },
+      {
+        "def_line": 451,
+        "use_line": 514,
+        "variable": "errors"
+      },
+      {
+        "def_line": 451,
+        "use_line": 517,
+        "variable": "errors"
+      },
+      {
+        "def_line": 517,
+        "use_line": 518,
+        "variable": "errors"
+      },
+      {
+        "def_line": 470,
+        "use_line": 476,
+        "variable": "expected_size"
+      },
+      {
+        "def_line": 434,
+        "use_line": 453,
+        "variable": "from_protocol"
+      },
+      {
+        "def_line": 434,
+        "use_line": 444,
+        "variable": "reason"
+      },
+      {
+        "def_line": 434,
+        "use_line": 466,
+        "variable": "reason"
+      },
+      {
+        "def_line": 434,
+        "use_line": 479,
+        "variable": "reason"
+      },
+      {
+        "def_line": 434,
+        "use_line": 484,
+        "variable": "reason"
+      },
+      {
+        "def_line": 434,
+        "use_line": 488,
+        "variable": "reason"
+      },
+      {
+        "def_line": 434,
+        "use_line": 501,
+        "variable": "reason"
+      },
+      {
+        "def_line": 434,
+        "use_line": 513,
+        "variable": "reason"
+      },
+      {
+        "def_line": 434,
+        "use_line": 516,
+        "variable": "reason"
+      },
+      {
+        "def_line": 434,
+        "use_line": 521,
+        "variable": "reason"
+      },
+      {
+        "def_line": 434,
+        "use_line": 441,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 454,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 456,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 471,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 472,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 477,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 478,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 482,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 485,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 497,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 498,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 499,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 502,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 506,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 514,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 517,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 518,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 522,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 524,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 525,
+        "variable": "self"
+      },
+      {
+        "def_line": 434,
+        "use_line": 526,
+        "variable": "self"
+      }
+    ]
+  },
+  "question": "Run the single pytest test `scrapy_qa/stream_close_s4_dataflow/files/testcase.py::StreamCloseDataFlowTest::test_generated_close_scenarios`. Across all invocations made by that test of `scrapy.core.http2.stream.Stream.close` in `scrapy/core/http2/stream.py`, what are all unique observed def-use pairs for exactly these local variables: `error_msg`, `errors`, `expected_size`, `from_protocol`, `reason`, `self`? A def is a binding of the named local by parameter binding or assignment. Each parameter is defined at the function's `def` line, including parameters whose text appears on continuation lines. A use is an evaluation that reads the named local's current value on an executed source line. A pair records the most recent executed def that reaches that use without an intervening def of the same variable, independently within each invocation; definitions never flow between invocations. For an ordinary assignment, evaluate and record all right-hand-side uses before making the assignment's target the current def. An augmented assignment such as `total += delta` both uses the old `total` def and creates a new `total` def on that same line, in that order. A `for x in items` header uses names in the iterable expression and redefines `x` on the header line for every executed iteration. All bindings and accesses syntactically inside a list, set, or dict comprehension or generator expression are excluded, including comprehension-local variables. Attribute names and mapping keys are not locals; for example, reading `obj.value` is a use of `obj`, not of `value`. Report absolute 1-based source line numbers in the named repository file as it exists for this test. For a multi-line statement or expression, assign each def or use to the physical source line on which that binding or read begins; the function parameters are the stated exception and all use the opening `def` line. Decorator and docstring lines do not count unless one of the tracked locals is actually bound or read there. Collapse duplicate triples observed in the same or different invocations, then sort the unique entries by `variable` lexicographically ascending, then `def_line` numerically ascending, then `use_line` numerically ascending. Return exactly a JSON object with the single key `observed_def_use_pairs`. Its value is a JSON array of objects, each with exactly three keys: `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string using the exact source identifier spelling, without `repr()` quotes). Do not include invocation numbers, file names, values, null placeholders, or additional keys. If no pairs were observed, the array would be empty.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

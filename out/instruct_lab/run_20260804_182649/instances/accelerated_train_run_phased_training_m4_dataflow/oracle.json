@@ -1,0 +1,172 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 464,
+        "use_line": 477,
+        "variable": "best_checkpoint"
+      },
+      {
+        "def_line": 464,
+        "use_line": 481,
+        "variable": "best_checkpoint"
+      },
+      {
+        "def_line": 404,
+        "use_line": 444,
+        "variable": "next_checkpoint"
+      },
+      {
+        "def_line": 431,
+        "use_line": 444,
+        "variable": "next_checkpoint"
+      },
+      {
+        "def_line": 491,
+        "use_line": 492,
+        "variable": "output_checkpoint"
+      },
+      {
+        "def_line": 491,
+        "use_line": 498,
+        "variable": "output_checkpoint"
+      },
+      {
+        "def_line": 418,
+        "use_line": 426,
+        "variable": "phase1_checkpoints"
+      },
+      {
+        "def_line": 418,
+        "use_line": 431,
+        "variable": "phase1_checkpoints"
+      },
+      {
+        "def_line": 412,
+        "use_line": 413,
+        "variable": "phase1_checkpoints_dir_hf"
+      },
+      {
+        "def_line": 412,
+        "use_line": 419,
+        "variable": "phase1_checkpoints_dir_hf"
+      },
+      {
+        "def_line": 293,
+        "use_line": 395,
+        "variable": "phase2_checkpoints_dir"
+      },
+      {
+        "def_line": 293,
+        "use_line": 436,
+        "variable": "phase2_checkpoints_dir"
+      },
+      {
+        "def_line": 293,
+        "use_line": 453,
+        "variable": "phase2_checkpoints_dir"
+      },
+      {
+        "def_line": 453,
+        "use_line": 459,
+        "variable": "phase2_checkpoints_dir"
+      },
+      {
+        "def_line": 454,
+        "use_line": 471,
+        "variable": "phase2_eval_cache"
+      },
+      {
+        "def_line": 336,
+        "use_line": 337,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 336,
+        "use_line": 352,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 338,
+        "use_line": 339,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 338,
+        "use_line": 352,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 393,
+        "use_line": 394,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 393,
+        "use_line": 442,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 395,
+        "use_line": 396,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 395,
+        "use_line": 442,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 455,
+        "use_line": 456,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 455,
+        "use_line": 465,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 455,
+        "use_line": 477,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 455,
+        "use_line": 478,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 458,
+        "use_line": 461,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 458,
+        "use_line": 465,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 458,
+        "use_line": 477,
+        "variable": "phase_model"
+      },
+      {
+        "def_line": 458,
+        "use_line": 478,
+        "variable": "phase_model"
+      }
+    ]
+  },
+  "question": "Run the pytest test `instruct_lab_qa/accelerated_train_run_phased_training_m4_dataflow/files/testcase.py::TestPhasedTrainingDataFlow::test_seeded_phase_entry_paths` and consider exactly `instructlab.model.accelerated_train._run_phased_training` in `src/instructlab/model/accelerated_train.py`. Across all invocations during the complete test run, what unique dynamic def-use pairs are observed for the exact local variables `best_checkpoint`, `next_checkpoint`, `output_checkpoint`, `phase1_checkpoints`, `phase1_checkpoints_dir_hf`, `phase2_checkpoints_dir`, `phase2_eval_cache`, and `phase_model`?\n\nA \u201cdef\u201d is an assignment or binding of one of those exact local variable names in the target function's own frame. A parameter binding counts as a def on the function's `def` line. A \u201cuse\u201d is a read of that exact local variable's current value by code executing in that same target frame. A pair is observed when a value bound by a def reaches a later use without an intervening def of the same variable in that invocation. On a source line containing both reads and writes, process all reads before all writes: thus a self-referential ordinary assignment such as a hypothetical `item = item.next` uses the old definition and then defines `item`, while augmented assignment such as `total += delta` is likewise both a use of `total` reached by its old def and then a new def of `total` on that line. Each successful `for x in iterable` binding is a new def of `x` on the loop-header line for that iteration; evaluating the iterable can use an earlier definition before that new binding, and a loop-header attempt that terminates by exhaustion creates no def. Comprehension induction variables belong to their comprehension frame, not the target frame, so their defs and uses are excluded; reads performed inside a comprehension frame are also excluded. Nested functions, callees, generators, and all other frames are excluded.\n\nAn invocation is one Python `call` of exactly `instructlab.model.accelerated_train._run_phased_training`, counted 1-based in chronological order over the complete test run. Calls or resumptions of nested functions, comprehensions, generators, or callees do not create target invocations. Compute reaching definitions independently within each invocation, take the set union of observed triples across all invocations, and remove exact duplicate triples only after that union. Definitions never reach from one invocation into another. Include paths that return normally as well as paths on which an exception is raised into or leaves the target frame; only source reads and bindings that actually execute before termination contribute.\n\nLine numbers are absolute, 1-based physical lines in the named repository file as it exists in the repository. Attribute a def or use to the physical source line containing that binding or read. For a multi-line statement or expression, execution begins at its first executable line, but each reported identifier is attributed to the physical line on which that identifier occurs; a continuation line contributes only if its expression actually executes. The target has no decorators, and its `def` line can appear only for a tracked parameter binding; comment and docstring lines cannot create defs or uses.\n\nReturn exactly one JSON object with the shape `{\"observed_def_use_pairs\": [{\"def_line\": \"int\", \"use_line\": \"int\", \"variable\": \"str\"}]}`. In the actual answer, each `def_line` and `use_line` is a JSON integer and `variable` is the exact source identifier as a JSON string. Sort the list first by `variable` in ascending lexicographic Unicode code-point order, then by `def_line` numerically ascending, then by `use_line` numerically ascending; these fields are the complete tie-break order. No values, function or callee names, invocation numbers, exception type names, or messages are reported, so `repr()` versus `str()`, name-prefix, exception-name, and empty-versus-null conventions do not otherwise apply.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

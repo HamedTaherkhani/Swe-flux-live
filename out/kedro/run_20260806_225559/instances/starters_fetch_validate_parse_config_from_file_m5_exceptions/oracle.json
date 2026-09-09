@@ -1,0 +1,16 @@
+{
+  "oracle_answer": {
+    "exception_types": [
+      "SystemExit",
+      "kedro.framework.cli.utils.KedroCliError",
+      "yaml.scanner.ScannerError"
+    ]
+  },
+  "question": "Run exactly this pytest test against the repository:\n`kedro_qa/starters_fetch_validate_parse_config_from_file_m5_exceptions/files/testcase.py::TestGeneratedConfigExceptionLayers::test_indirect_generated_config_matrix`.\nAcross the whole test run, what distinct exception types are observed in Python\n`exception` trace events delivered to the exact target frame\n`kedro.framework.cli.starters._fetch_validate_parse_config_from_file` in\n`kedro/framework/cli/starters.py`?\n\nAn invocation means one Python `call` event for that exact target function;\ninvocations are numbered 1-based in chronological call-event order. Consider\nevery invocation made during the named pytest item, including invocations that\nfinish normally and invocations that terminate by propagating an exception.\nAn exception is observed when Python delivers an `exception` event to the\nexact target frame. Include exceptions raised by the target itself and\nexceptions raised in a callee and propagated into that frame, whether the\ntarget subsequently catches the exception, replaces or re-raises it, or lets\nit propagate. Thus, multiple exception events in one invocation all count.\nExclude exception events delivered only to caller, callee, test, or other\nframes. Count only `exception` events, not `call`, `line`, or `return` events.\n\nNormalize each observed exception type before deduplication. For built-in\nexceptions, use bare `type(exc).__name__` (for example, `ValueError`, never\n`builtins.ValueError`). For every non-built-in exception, use\n`type(exc).__module__ + \".\" + type(exc).__qualname__` (for example,\n`sample.errors.WidgetFailure`). These are plain JSON strings: do not apply\n`repr()`, do not include representation quotes, and do not include exception\nmessages. Remove duplicate normalized strings across all invocations, then\nsort the remaining strings in ascending lexicographic order by Unicode code\npoint. Deduplication occurs before sorting; there is no event-order or\ninvocation-order tie-breaker because equal strings have been removed.\n\nThe complete answer must be one JSON object with exactly the shape\n`{\"exception_types\": [\"str\"]}`. `exception_types` is the sorted JSON array\ndefined above, each element is a JSON string, and `\"str\"` is a type\nplaceholder rather than an answer value. Include exactly this key and no\nadditional fields. If no exception events were observed, the array would be\nempty rather than JSON `null` or an omitted key.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_types": [
+      "str"
+    ]
+  }
+}

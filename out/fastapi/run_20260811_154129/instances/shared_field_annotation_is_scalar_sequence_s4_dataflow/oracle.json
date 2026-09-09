@@ -1,0 +1,72 @@
+{
+  "question_kind": "S4_DataFlow",
+  "question": "Run the pytest test `fastapi_qa/shared_field_annotation_is_scalar_sequence_s4_dataflow/files/testcase.py::TestScalarSequenceDataFlow::test_generated_annotation_families` and consider every invocation of `fastapi._compat.shared.field_annotation_is_scalar_sequence` in `fastapi/_compat/shared.py`, including recursive invocations. What are all unique runtime-observed def-use pairs for the local variables `annotation`, `arg`, `at_least_one_scalar_sequence`, and `origin`?\n\nA definition (\"def\") is a parameter binding or a completed assignment to that local in one invocation's frame. Parameters are defined on the function's `def` line for each invocation. A use is an actually evaluated read of that local in the same frame on the source line containing the read; a definition reaches such a use only if no later definition of that local has completed in that frame. Process reads on a line before definitions completed by that line. Thus an augmented assignment such as `total += delta` is both a use of `total` reached by its old definition and a new definition of `total` on that line. Each successful iteration of a `for x in values` loop redefines `x` on the loop-header line after the iterable/header reads and before the body executes.\n\nComprehension iteration variables are local to the comprehension's generated frame and are excluded. Reads evaluated in a comprehension-generated frame are also excluded, while any expression that Python evaluates in the target function's own frame to create the comprehension's outermost iterable is included. Definitions and uses never cross invocation frames. An invocation means one call of the target function, with calls ordered chronologically and numbered from 1 if reconstructing the run; invocation numbers are not included in the answer.\n\nLine numbers are absolute 1-based source line numbers in `fastapi/_compat/shared.py` as it exists in the repository. For a multi-line statement or expression, attribute each def or use to the physical source line on which that assignment target or variable read begins; the function `def` line can therefore appear for parameter definitions, while decorator and docstring lines do not count. Include only activity in frames whose exact fully qualified name is `fastapi._compat.shared.field_annotation_is_scalar_sequence`; do not include similarly named functions, callees, or comprehension-generated frames.\n\nReturn a JSON object with exactly one key, `observed_def_use_pairs`. Its value is a list of objects, each having exactly `def_line` (integer), `use_line` (integer), and `variable` (string). Remove duplicate triples observed across iterations or invocations, then sort the objects by `variable`, then `def_line`, then `use_line`, all ascending (strings lexicographically and integers numerically).",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 113,
+        "use_line": 114,
+        "variable": "annotation"
+      },
+      {
+        "def_line": 113,
+        "use_line": 117,
+        "variable": "annotation"
+      },
+      {
+        "def_line": 113,
+        "use_line": 121,
+        "variable": "annotation"
+      },
+      {
+        "def_line": 113,
+        "use_line": 128,
+        "variable": "annotation"
+      },
+      {
+        "def_line": 113,
+        "use_line": 130,
+        "variable": "annotation"
+      },
+      {
+        "def_line": 121,
+        "use_line": 122,
+        "variable": "arg"
+      },
+      {
+        "def_line": 121,
+        "use_line": 125,
+        "variable": "arg"
+      },
+      {
+        "def_line": 120,
+        "use_line": 127,
+        "variable": "at_least_one_scalar_sequence"
+      },
+      {
+        "def_line": 123,
+        "use_line": 127,
+        "variable": "at_least_one_scalar_sequence"
+      },
+      {
+        "def_line": 114,
+        "use_line": 116,
+        "variable": "origin"
+      },
+      {
+        "def_line": 114,
+        "use_line": 119,
+        "variable": "origin"
+      }
+    ]
+  }
+}

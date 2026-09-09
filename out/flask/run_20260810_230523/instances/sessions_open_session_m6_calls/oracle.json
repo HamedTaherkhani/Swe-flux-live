@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SecureCookieSession.__init__"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SecureCookieSessionInterface.get_signing_serializer"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SecureCookieSessionInterface.open_session"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions.SessionInterface.get_cookie_name"
+      },
+      {
+        "file": "src/flask/sessions.py",
+        "func": "flask.sessions._lazy_sha1"
+      }
+    ]
+  },
+  "question": "Run the pytest test\n`flask_qa/sessions_open_session_m6_calls/files/testcase.py::TestOpenSessionCallGraph::test_seeded_cookie_matrix`\nfrom the repository root. The primary target is\n`SecureCookieSessionInterface.open_session` (runtime qualified name\n`flask.sessions.SecureCookieSessionInterface.open_session`) in\n`src/flask/sessions.py`.\n\nDetermine which members of this exact tracked function set execute at least\nonce during the named test:\n\n- `{\"file\": \"src/flask/sessions.py\", \"func\": \"flask.sessions.SecureCookieSession.__init__\"}`\n- `{\"file\": \"src/flask/sessions.py\", \"func\": \"flask.sessions.SecureCookieSessionInterface.get_signing_serializer\"}`\n- `{\"file\": \"src/flask/sessions.py\", \"func\": \"flask.sessions.SecureCookieSessionInterface.open_session\"}`\n- `{\"file\": \"src/flask/sessions.py\", \"func\": \"flask.sessions.SessionInterface.get_cookie_name\"}`\n- `{\"file\": \"src/flask/sessions.py\", \"func\": \"flask.sessions.SessionInterface.make_null_session\"}`\n- `{\"file\": \"src/flask/sessions.py\", \"func\": \"flask.sessions._lazy_sha1\"}`\n\nA tracked function is covered if Python enters the exact listed function body\nin the named file at least once while executing the test. Count an entry\nregardless of which frame called it: calls made directly by the test, direct\ncalls from `open_session`, and transitive calls while another listed function\nis on the stack are treated identically. Calls to unlisted functions,\nbuiltins, inherited or overridden implementations with a different runtime\nqualified name, and same-named functions in other files are excluded. A\nruntime function identity is the dotted `module.Class.method` or\n`module.function` qualified name; for example, a method could be\n`package.widgets.Widget.render`.\n\nCoverage is a set, not a call count or sequence. Repeated calls and recursive\nentries do not add duplicate objects. If a listed generator were resumed,\neach runtime re-entry would qualify as an entry, but it would still contribute\nonly one object. First filter to runtime function-entry events for the exact\ntracked set, then remove duplicates by exact equality of both `file` and\n`func`. Sort the remaining objects in ascending lexicographic order by the\ntwo-element tuple `(file, func)`, comparing Unicode code points with `file` as\nthe primary key and `func` as the tie-breaker.\n\nReturn exactly one JSON object with key `covered_functions`. Its value is a\nJSON array of objects, each having exactly two string keys: `file` and `func`.\nUse the repo-relative POSIX path shown in the tracked set for `file`, and the\nfully qualified runtime name shown there for `func`. No line numbers, call\ncounts, return values, exception names, `repr`/`str` formatting, or null/empty\nsentinel values are part of the answer.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

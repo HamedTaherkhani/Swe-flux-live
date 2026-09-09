@@ -1,0 +1,23 @@
+{
+  "oracle_answer": {
+    "exception_types": [
+      "jinja2.exceptions.TemplateNotFound",
+      "IndexError",
+      "AssertionError",
+      "FileNotFoundError",
+      "AttributeError",
+      "StopIteration",
+      "UnicodeDecodeError",
+      "KeyError",
+      "TypeError",
+      "ZeroDivisionError"
+    ]
+  },
+  "question": "Run the pytest test `flask_qa/templating_get_source_explained_m5_exceptions/files/testcase.py::TestGeneratedExplainedLoadingExceptions::test_generated_loader_outcomes`. Across the complete run of that one test, what distinct exception types occur in the own frame of `flask.templating.DispatchingJinjaLoader._get_source_explained` in `src/flask/templating.py`?\n\nAn invocation is one call of that exact function, counted 1-based in chronological runtime-event order across the whole test. An exception occurrence counts whenever CPython reports an `exception` event in the target function's own active frame: include exceptions raised directly by the target, exceptions propagated into that frame by `loader.get_source` or another callee, and exceptions that the target subsequently catches as well as those that leave the invocation uncaught. Count only the occurrence in the target frame; exclude occurrences reported only in callers, callees, `_iter_loaders`' generator frame, comprehensions, or any other frame. Do not infer an occurrence merely from a returned value or from an exception handled entirely inside a callee.\n\nNormalize each occurrence's exception class using this convention: bare `type(exc).__name__` for built-ins (e.g. `ValueError`, never `builtins.ValueError`), `module.QualName` for all others. Here `module` is `type(exc).__module__` and `QualName` is `type(exc).__qualname__`, joined by one dot. Use the actual exception object at the occurrence; do not use its message, `str()`, or `repr()`.\n\nProcess qualifying exception occurrences in chronological runtime-event order across all invocations, with their actual event-stream order as the tie-breaker if clock readings are equal. Deduplicate after name normalization: retain each normalized type string only at its first occurrence and omit every later duplicate. Thus the result is first-occurrence order, not alphabetical order.\n\nReturn exactly one JSON object with the canonical shape `{\"exception_types\": [\"str\"]}`. The `exception_types` value is a JSON array of the normalized JSON strings in the order defined above; `\"str\"` in the displayed shape is a type placeholder, not a literal result. Emit no exception messages, invocation numbers, nulls, or additional keys.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_types": [
+      "str"
+    ]
+  }
+}

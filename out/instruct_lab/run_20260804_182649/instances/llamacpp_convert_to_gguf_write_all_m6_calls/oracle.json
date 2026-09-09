@@ -1,0 +1,92 @@
+{
+  "question_kind": "M6_InterProceduralCFG",
+  "question": "Run the pytest test `instruct_lab_qa/llamacpp_convert_to_gguf_write_all_m6_calls/files/testcase.py::TestLlamaCppConversionCallGraph::test_programmatic_model_conversion` against this repository. Considering the target function `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.write_all` in `src/instructlab/llamacpp/llamacpp_convert_to_gguf.py`, which functions in the following exact tracked set execute at least once during the entire named test run: `instructlab.llamacpp.llamacpp_convert_to_gguf.BpeVocab.added_tokens`, `instructlab.llamacpp.llamacpp_convert_to_gguf.BpeVocab.all_tokens`, `instructlab.llamacpp.llamacpp_convert_to_gguf.BpeVocab.bpe_tokens`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.__init__`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.add_meta_arch`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.add_meta_special_vocab`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.add_meta_vocab`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.add_tensor_info`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.close`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.do_item`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.extract_vocabulary_from_model`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.handle_tokenizer_model`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.maybe_do_quantize`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.write_all`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.write_meta`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.write_tensor_info`, `instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.write_vocab_only`, `instructlab.llamacpp.llamacpp_convert_to_gguf.Q8_0QuantizedDataType.quantize`, `instructlab.llamacpp.llamacpp_convert_to_gguf.SentencePieceVocab.all_tokens`, `instructlab.llamacpp.llamacpp_convert_to_gguf.bounded_parallel_map`, `instructlab.llamacpp.llamacpp_convert_to_gguf.check_vocab_size`, `instructlab.llamacpp.llamacpp_convert_to_gguf.convert_llama_to_gguf`? A function executes when Python emits a runtime call event whose active frame has exactly that tracked function identity. Count such an event regardless of which frame made the call: direct calls, transitive calls, and calls that occur before, during, or after the target frame all qualify if they occur within the named test. Calls to builtins, mocks, callable objects, comprehension frames, or any other function outside the exact tracked set do not qualify. An invocation is one call event, counted 1-based in chronological order from the start of the test; however, the answer records only whether its function was invoked at least once, not the invocation number or count. Repeated calls and recursive calls therefore produce only one output entry per function. For a generator, both its first entry and each later resumption may produce call events; any one of those events is sufficient for coverage, and all are deduplicated into that same single entry. A function identity is the fully qualified dotted `module.qualname` from the executing frame, for example `package.module.ExampleClass.example_method`; do not use a bare name or prefix it with `src`. Return exactly one JSON object with key `covered_functions`. Its value is a JSON array containing only covered members of the tracked set; omit every member with zero qualifying call events. Each array entry has exactly the keys `file` then `func`, both JSON strings. `file` is the repo-relative POSIX path shown above and `func` is the exact fully qualified identity. Deduplicate by the pair (`file`, `func`), then sort in ascending lexicographic Unicode-code-point order first by `file` and then by `func`; this is the output order, independent of call chronology. Serialize using ordinary JSON string syntax, not Python `repr`; no entry contains null, an empty string, or an omitted key.",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.BpeVocab.added_tokens"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.BpeVocab.all_tokens"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.BpeVocab.bpe_tokens"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.__init__"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.add_meta_arch"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.add_meta_special_vocab"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.add_meta_vocab"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.add_tensor_info"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.close"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.do_item"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.extract_vocabulary_from_model"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.handle_tokenizer_model"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.maybe_do_quantize"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.write_all"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.write_meta"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.OutputFile.write_tensor_info"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.bounded_parallel_map"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.check_vocab_size"
+      },
+      {
+        "file": "src/instructlab/llamacpp/llamacpp_convert_to_gguf.py",
+        "func": "instructlab.llamacpp.llamacpp_convert_to_gguf.convert_llama_to_gguf"
+      }
+    ]
+  }
+}

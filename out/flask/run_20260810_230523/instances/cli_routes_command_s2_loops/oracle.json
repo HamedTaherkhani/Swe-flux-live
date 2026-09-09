@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 45
+  },
+  "question": "Run only the pytest test `flask_qa/cli_routes_command_s2_loops/files/testcase.py::RoutesCommandLoopTest::test_generated_route_table`. During the first invocation of `flask.cli.routes_command` in the repo-relative file `src/flask/cli.py`, how many iterations does the `for` loop whose header is on line 1106 perform? An invocation means one call of exactly `flask.cli.routes_command`, counted 1-based in chronological order during that test run. An iteration means one execution of the loop body's first line, line 1107, in that same function frame; iteration numbering is 1-based. Line numbers are absolute 1-based source line numbers in the named file as it exists in the repository, and an executed line is attributed to the source line where its statement or expression begins. Count every qualifying execution, with no deduplication, and exclude events in nested comprehension frames, callees, and any function whose fully qualified name is not exactly `flask.cli.routes_command`. Return exactly one JSON object with the key `loop_iteration_count`; its value must be a JSON integer. Because the answer is one scalar count, no sorting or tie-breaking rule applies.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

@@ -1,0 +1,783 @@
+2026-08-23 05:03:25.954 [TRACE][START] pid=47 TRACE_OUT='/testbed/logs/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/trace.log' TRACE_FILE='src/instructlab/taxonomy/diff.py' TRACE_FUNCS=['diff'] TRACE_EVENTS=['call', 'exception', 'line', 'return']
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:19 instructlab.taxonomy.diff.diff event=call locals={'ctx': '<click.core.Context object at 0x782f73dbee50>', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/generated/taxonomy-0'", 'yaml_rules': 'None'}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:50 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:53 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>"}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:56 instructlab.taxonomy.diff.diff event=line locals={'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>'}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:58 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:62 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:63 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:64 instructlab.taxonomy.diff.diff event=line locals={'is_file': 'False'}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:67 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:71 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:73 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:73 instructlab.taxonomy.diff.diff event=exception exc=GitError: GitError('generated-0-857') locals={}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:74 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f73dbee50>', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/generated/taxonomy-0'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:03:52.162 /testbed/src/instructlab/taxonomy/diff.py:75 instructlab.taxonomy.diff.diff event=line locals={'exc': "GitError('generated-0-857')"}
+2026-08-23 05:03:52.164 /testbed/src/instructlab/taxonomy/diff.py:76 instructlab.taxonomy.diff.diff event=line locals={'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 73, in diff\\n    taxonomy_files = get_taxonomy_diff(taxonomy_path, taxonomy_base)\\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 43, in generated_taxonomy_files\\n    raise error_type(f"generated-{state[\\\'invocation\\\']}-{checksum % 997}")\\ngit.exc.GitError: generated-0-857\\n\''}
+2026-08-23 05:03:52.164 /testbed/src/instructlab/taxonomy/diff.py:77 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.164 /testbed/src/instructlab/taxonomy/diff.py:78 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.164 /testbed/src/instructlab/taxonomy/diff.py:76 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.165 /testbed/src/instructlab/taxonomy/diff.py:80 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:03:52.165 /testbed/src/instructlab/taxonomy/diff.py:80 instructlab.taxonomy.diff.diff event=exception exc=SystemExit: SystemExit(1) locals={}
+2026-08-23 05:03:52.165 /testbed/src/instructlab/taxonomy/diff.py:80 instructlab.taxonomy.diff.diff event=return retval=None locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f73dbee50>', 'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 73, in diff\\n    taxonomy_files = get_taxonomy_diff(taxonomy_path, taxonomy_base)\\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 43, in generated_taxonomy_files\\n    raise error_type(f"generated-{state[\\\'invocation\\\']}-{checksum % 997}")\\ngit.exc.GitError: generated-0-857\\n\'', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/generated/taxonomy-0'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:19 instructlab.taxonomy.diff.diff event=call locals={'ctx': '<click.core.Context object at 0x782f72cc6090>', 'quiet': 'False', 'taxonomy_base': "'empty'", 'taxonomy_path': "'/generated/taxonomy-1'", 'yaml_rules': 'None'}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:50 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:53 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>"}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:56 instructlab.taxonomy.diff.diff event=line locals={'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>'}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:58 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:62 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:63 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:64 instructlab.taxonomy.diff.diff event=line locals={'is_file': 'False'}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:67 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:69 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={'taxonomy_files': '[]'}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:87 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=exception exc=YAMLError: YAMLError('validation-1-99') locals={}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:89 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72cc6090>', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'empty'", 'taxonomy_files': '[]', 'taxonomy_path': "'/generated/taxonomy-1'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:90 instructlab.taxonomy.diff.diff event=line locals={'exc': "YAMLError('validation-1-99')"}
+2026-08-23 05:04:09.466 /testbed/src/instructlab/taxonomy/diff.py:91 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.468 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\nyaml.error.YAMLError: validation-1-99\\n\''}
+2026-08-23 05:04:09.468 /testbed/src/instructlab/taxonomy/diff.py:93 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.468 /testbed/src/instructlab/taxonomy/diff.py:94 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.468 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.468 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:09.468 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=exception exc=SystemExit: SystemExit(1) locals={}
+2026-08-23 05:04:09.468 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=return retval=None locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72cc6090>', 'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\nyaml.error.YAMLError: validation-1-99\\n\'', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'empty'", 'taxonomy_files': '[]', 'taxonomy_path': "'/generated/taxonomy-1'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:19 instructlab.taxonomy.diff.diff event=call locals={'ctx': '<click.core.Context object at 0x782f72fb2690>', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/testbed/README.md'", 'yaml_rules': 'None'}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:50 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:53 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>"}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:56 instructlab.taxonomy.diff.diff event=line locals={'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>'}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:58 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:62 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:63 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:64 instructlab.taxonomy.diff.diff event=line locals={'is_file': 'True'}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:65 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:87 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.834 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.835 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=exception exc=TaxonomyReadingException: TaxonomyReadingException('validation-2-202') locals={}
+2026-08-23 05:04:25.835 /testbed/src/instructlab/taxonomy/diff.py:89 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72fb2690>', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'True', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/testbed/README.md'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:04:25.835 /testbed/src/instructlab/taxonomy/diff.py:90 instructlab.taxonomy.diff.diff event=line locals={'exc': "TaxonomyReadingException('validation-2-202')"}
+2026-08-23 05:04:25.835 /testbed/src/instructlab/taxonomy/diff.py:91 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.836 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\ninstructlab.schema.taxonomy.TaxonomyReadingException: validation-2-202\\n\''}
+2026-08-23 05:04:25.836 /testbed/src/instructlab/taxonomy/diff.py:93 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.836 /testbed/src/instructlab/taxonomy/diff.py:94 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.836 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.836 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:25.836 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=exception exc=SystemExit: SystemExit(1) locals={}
+2026-08-23 05:04:25.836 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=return retval=None locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72fb2690>', 'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\ninstructlab.schema.taxonomy.TaxonomyReadingException: validation-2-202\\n\'', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'True', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/testbed/README.md'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:04:41.709 /testbed/src/instructlab/taxonomy/diff.py:19 instructlab.taxonomy.diff.diff event=call locals={'ctx': '<click.core.Context object at 0x782f72fae810>', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/generated/taxonomy-3'", 'yaml_rules': 'None'}
+2026-08-23 05:04:41.709 /testbed/src/instructlab/taxonomy/diff.py:50 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.709 /testbed/src/instructlab/taxonomy/diff.py:53 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>"}
+2026-08-23 05:04:41.709 /testbed/src/instructlab/taxonomy/diff.py:56 instructlab.taxonomy.diff.diff event=line locals={'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>'}
+2026-08-23 05:04:41.709 /testbed/src/instructlab/taxonomy/diff.py:58 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.709 /testbed/src/instructlab/taxonomy/diff.py:62 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.710 /testbed/src/instructlab/taxonomy/diff.py:63 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.710 /testbed/src/instructlab/taxonomy/diff.py:64 instructlab.taxonomy.diff.diff event=line locals={'is_file': 'False'}
+2026-08-23 05:04:41.710 /testbed/src/instructlab/taxonomy/diff.py:67 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.710 /testbed/src/instructlab/taxonomy/diff.py:71 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.710 /testbed/src/instructlab/taxonomy/diff.py:73 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.710 /testbed/src/instructlab/taxonomy/diff.py:73 instructlab.taxonomy.diff.diff event=exception exc=GitError: GitError('generated-3-857') locals={}
+2026-08-23 05:04:41.710 /testbed/src/instructlab/taxonomy/diff.py:74 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72fae810>', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/generated/taxonomy-3'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:04:41.710 /testbed/src/instructlab/taxonomy/diff.py:75 instructlab.taxonomy.diff.diff event=line locals={'exc': "GitError('generated-3-857')"}
+2026-08-23 05:04:41.711 /testbed/src/instructlab/taxonomy/diff.py:76 instructlab.taxonomy.diff.diff event=line locals={'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 73, in diff\\n    taxonomy_files = get_taxonomy_diff(taxonomy_path, taxonomy_base)\\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 43, in generated_taxonomy_files\\n    raise error_type(f"generated-{state[\\\'invocation\\\']}-{checksum % 997}")\\ngit.exc.GitError: generated-3-857\\n\''}
+2026-08-23 05:04:41.711 /testbed/src/instructlab/taxonomy/diff.py:77 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.711 /testbed/src/instructlab/taxonomy/diff.py:78 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.711 /testbed/src/instructlab/taxonomy/diff.py:76 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.712 /testbed/src/instructlab/taxonomy/diff.py:80 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:41.712 /testbed/src/instructlab/taxonomy/diff.py:80 instructlab.taxonomy.diff.diff event=exception exc=SystemExit: SystemExit(1) locals={}
+2026-08-23 05:04:41.712 /testbed/src/instructlab/taxonomy/diff.py:80 instructlab.taxonomy.diff.diff event=return retval=None locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72fae810>', 'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 73, in diff\\n    taxonomy_files = get_taxonomy_diff(taxonomy_path, taxonomy_base)\\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 43, in generated_taxonomy_files\\n    raise error_type(f"generated-{state[\\\'invocation\\\']}-{checksum % 997}")\\ngit.exc.GitError: generated-3-857\\n\'', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/generated/taxonomy-3'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:19 instructlab.taxonomy.diff.diff event=call locals={'ctx': '<click.core.Context object at 0x782f72cc7dd0>', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/generated/taxonomy-4'", 'yaml_rules': 'None'}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:50 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:53 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>"}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:56 instructlab.taxonomy.diff.diff event=line locals={'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>'}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:58 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:62 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:63 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:64 instructlab.taxonomy.diff.diff event=line locals={'is_file': 'False'}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:67 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:71 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:73 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={'taxonomy_files': "['generated/skill-4-0/qna.yaml', 'generated/skill-4-1/qna.yaml', 'generated/skill-4-2/qna.yaml', 'generated/skill-4-3/qna.yaml', 'generated/skill-4-4/qna.yaml', 'generated/skill-4-5/qna.yaml', 'generated/skill-4-6/qna.yaml', 'generated/skill-4-7/qna.yaml', 'generated/skill-4-8/qna.yaml', None, 'generated/skill-4-10/qna.yaml', 'generated/skill-4-11/qna.yaml', 'generated/skill-4-12/qna.yaml', 'generated/skill-4-13/qna.yaml', 'generated/skill-4-14/qna.yaml', 'generated/skill-4-15/qna.yaml', 'genera..."}
+2026-08-23 05:04:56.471 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-0/qna.yaml'"}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-1/qna.yaml'"}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-2/qna.yaml'"}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-3/qna.yaml'"}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-4/qna.yaml'"}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-5/qna.yaml'"}
+2026-08-23 05:04:56.472 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-6/qna.yaml'"}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-7/qna.yaml'"}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-8/qna.yaml'"}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-10/qna.yaml'"}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-11/qna.yaml'"}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-12/qna.yaml'"}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-13/qna.yaml'"}
+2026-08-23 05:04:56.473 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-14/qna.yaml'"}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-15/qna.yaml'"}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-16/qna.yaml'"}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-17/qna.yaml'"}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-18/qna.yaml'"}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-19/qna.yaml'"}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-20/qna.yaml'"}
+2026-08-23 05:04:56.474 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-21/qna.yaml'"}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-23/qna.yaml'"}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-24/qna.yaml'"}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-25/qna.yaml'"}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-26/qna.yaml'"}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-27/qna.yaml'"}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-28/qna.yaml'"}
+2026-08-23 05:04:56.475 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-29/qna.yaml'"}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-30/qna.yaml'"}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-31/qna.yaml'"}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-32/qna.yaml'"}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-33/qna.yaml'"}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-34/qna.yaml'"}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-36/qna.yaml'"}
+2026-08-23 05:04:56.476 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-37/qna.yaml'"}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-38/qna.yaml'"}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-39/qna.yaml'"}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-40/qna.yaml'"}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-41/qna.yaml'"}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-42/qna.yaml'"}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-43/qna.yaml'"}
+2026-08-23 05:04:56.477 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-44/qna.yaml'"}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-45/qna.yaml'"}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-46/qna.yaml'"}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-47/qna.yaml'"}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-49/qna.yaml'"}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-50/qna.yaml'"}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-51/qna.yaml'"}
+2026-08-23 05:04:56.478 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-52/qna.yaml'"}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-53/qna.yaml'"}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-54/qna.yaml'"}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-55/qna.yaml'"}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-56/qna.yaml'"}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-57/qna.yaml'"}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-58/qna.yaml'"}
+2026-08-23 05:04:56.479 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-59/qna.yaml'"}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-4-60/qna.yaml'"}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:87 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=exception exc=TaxonomyReadingException: TaxonomyReadingException('validation-4-202') locals={}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:89 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72cc7dd0>', 'f': "'generated/skill-4-60/qna.yaml'", 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_files': "['generated/skill-4-0/qna.yaml', 'generated/skill-4-1/qna.yaml', 'generated/skill-4-2/qna.yaml', 'generated/skill-4-3/qna.yaml', 'generated/skill-4-4/qna.yaml', 'generated/skill-4-5/qna.yaml', 'generated/skill-4-6/qna.yaml', 'generated/skill-4-7/qna.yaml', 'generated/skill-4-8/qna.yaml', None, 'generated/skill-4-10/qna.yaml', 'generated/skill-4-11/qna.yaml', 'generated/skill-4-12/qna.yaml', 'generated/skill-4-13/qna.yaml', 'generated/skill-4-14/qna.yaml', 'generated/skill-4-15/qna.yaml', 'genera...", 'taxonomy_path': "'/generated/taxonomy-4'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:90 instructlab.taxonomy.diff.diff event=line locals={'exc': "TaxonomyReadingException('validation-4-202')"}
+2026-08-23 05:04:56.480 /testbed/src/instructlab/taxonomy/diff.py:91 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.481 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\ninstructlab.schema.taxonomy.TaxonomyReadingException: validation-4-202\\n\''}
+2026-08-23 05:04:56.481 /testbed/src/instructlab/taxonomy/diff.py:93 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.481 /testbed/src/instructlab/taxonomy/diff.py:94 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.481 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.482 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:04:56.482 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=exception exc=SystemExit: SystemExit(1) locals={}
+2026-08-23 05:04:56.482 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=return retval=None locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72cc7dd0>', 'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\ninstructlab.schema.taxonomy.TaxonomyReadingException: validation-4-202\\n\'', 'f': "'generated/skill-4-60/qna.yaml'", 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_files': "['generated/skill-4-0/qna.yaml', 'generated/skill-4-1/qna.yaml', 'generated/skill-4-2/qna.yaml', 'generated/skill-4-3/qna.yaml', 'generated/skill-4-4/qna.yaml', 'generated/skill-4-5/qna.yaml', 'generated/skill-4-6/qna.yaml', 'generated/skill-4-7/qna.yaml', 'generated/skill-4-8/qna.yaml', None, 'generated/skill-4-10/qna.yaml', 'generated/skill-4-11/qna.yaml', 'generated/skill-4-12/qna.yaml', 'generated/skill-4-13/qna.yaml', 'generated/skill-4-14/qna.yaml', 'generated/skill-4-15/qna.yaml', 'genera...", 'taxonomy_path': "'/generated/taxonomy-4'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:19 instructlab.taxonomy.diff.diff event=call locals={'ctx': '<click.core.Context object at 0x782f72c97790>', 'quiet': 'False', 'taxonomy_base': "'empty'", 'taxonomy_path': "'/generated/taxonomy-5'", 'yaml_rules': 'None'}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:50 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:53 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>"}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:56 instructlab.taxonomy.diff.diff event=line locals={'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>'}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:58 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:62 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:63 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:64 instructlab.taxonomy.diff.diff event=line locals={'is_file': 'False'}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:67 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:69 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={'taxonomy_files': '[]'}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:87 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=exception exc=YAMLError: YAMLError('validation-5-99') locals={}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:89 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72c97790>', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'empty'", 'taxonomy_files': '[]', 'taxonomy_path': "'/generated/taxonomy-5'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:90 instructlab.taxonomy.diff.diff event=line locals={'exc': "YAMLError('validation-5-99')"}
+2026-08-23 05:05:10.192 /testbed/src/instructlab/taxonomy/diff.py:91 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.193 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\nyaml.error.YAMLError: validation-5-99\\n\''}
+2026-08-23 05:05:10.193 /testbed/src/instructlab/taxonomy/diff.py:93 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.194 /testbed/src/instructlab/taxonomy/diff.py:94 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.194 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.194 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:10.194 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=exception exc=SystemExit: SystemExit(1) locals={}
+2026-08-23 05:05:10.194 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=return retval=None locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72c97790>', 'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\nyaml.error.YAMLError: validation-5-99\\n\'', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'empty'", 'taxonomy_files': '[]', 'taxonomy_path': "'/generated/taxonomy-5'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:19 instructlab.taxonomy.diff.diff event=call locals={'ctx': '<click.core.Context object at 0x782f72c78810>', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/testbed/README.md'", 'yaml_rules': 'None'}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:50 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:53 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>"}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:56 instructlab.taxonomy.diff.diff event=line locals={'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>'}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:58 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:62 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:63 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:64 instructlab.taxonomy.diff.diff event=line locals={'is_file': 'True'}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:65 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:87 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=exception exc=TaxonomyReadingException: TaxonomyReadingException('validation-6-202') locals={}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:89 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72c78810>', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'True', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/testbed/README.md'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:90 instructlab.taxonomy.diff.diff event=line locals={'exc': "TaxonomyReadingException('validation-6-202')"}
+2026-08-23 05:05:24.120 /testbed/src/instructlab/taxonomy/diff.py:91 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.122 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\ninstructlab.schema.taxonomy.TaxonomyReadingException: validation-6-202\\n\''}
+2026-08-23 05:05:24.122 /testbed/src/instructlab/taxonomy/diff.py:93 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.122 /testbed/src/instructlab/taxonomy/diff.py:94 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.122 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.122 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:24.122 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=exception exc=SystemExit: SystemExit(1) locals={}
+2026-08-23 05:05:24.122 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=return retval=None locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72c78810>', 'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\ninstructlab.schema.taxonomy.TaxonomyReadingException: validation-6-202\\n\'', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'True', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/testbed/README.md'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:19 instructlab.taxonomy.diff.diff event=call locals={'ctx': '<click.core.Context object at 0x782f72cc5710>', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/generated/taxonomy-7'", 'yaml_rules': 'None'}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:50 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:53 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>"}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:56 instructlab.taxonomy.diff.diff event=line locals={'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>'}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:58 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:62 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:63 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:64 instructlab.taxonomy.diff.diff event=line locals={'is_file': 'False'}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:67 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:71 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.692 /testbed/src/instructlab/taxonomy/diff.py:73 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={'taxonomy_files': "['generated/skill-7-0/qna.yaml', 'generated/skill-7-1/qna.yaml', 'generated/skill-7-2/qna.yaml', 'generated/skill-7-3/qna.yaml', 'generated/skill-7-4/qna.yaml', 'generated/skill-7-5/qna.yaml', None, 'generated/skill-7-7/qna.yaml', 'generated/skill-7-8/qna.yaml', 'generated/skill-7-9/qna.yaml', 'generated/skill-7-10/qna.yaml', 'generated/skill-7-11/qna.yaml', 'generated/skill-7-12/qna.yaml', 'generated/skill-7-13/qna.yaml', 'generated/skill-7-14/qna.yaml', 'generated/skill-7-15/qna.yaml', 'genera..."}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-0/qna.yaml'"}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-1/qna.yaml'"}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-2/qna.yaml'"}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-3/qna.yaml'"}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-4/qna.yaml'"}
+2026-08-23 05:05:37.693 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-5/qna.yaml'"}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-7/qna.yaml'"}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-8/qna.yaml'"}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-9/qna.yaml'"}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-10/qna.yaml'"}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-11/qna.yaml'"}
+2026-08-23 05:05:37.694 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-12/qna.yaml'"}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-13/qna.yaml'"}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-14/qna.yaml'"}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-15/qna.yaml'"}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-16/qna.yaml'"}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-17/qna.yaml'"}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-18/qna.yaml'"}
+2026-08-23 05:05:37.695 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-20/qna.yaml'"}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-21/qna.yaml'"}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-22/qna.yaml'"}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-23/qna.yaml'"}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-24/qna.yaml'"}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-25/qna.yaml'"}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.696 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-26/qna.yaml'"}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-27/qna.yaml'"}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-28/qna.yaml'"}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-29/qna.yaml'"}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-30/qna.yaml'"}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-31/qna.yaml'"}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-33/qna.yaml'"}
+2026-08-23 05:05:37.697 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-34/qna.yaml'"}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-35/qna.yaml'"}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-36/qna.yaml'"}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-37/qna.yaml'"}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-38/qna.yaml'"}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-39/qna.yaml'"}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-40/qna.yaml'"}
+2026-08-23 05:05:37.698 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-41/qna.yaml'"}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-42/qna.yaml'"}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-43/qna.yaml'"}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-44/qna.yaml'"}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-46/qna.yaml'"}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-47/qna.yaml'"}
+2026-08-23 05:05:37.699 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-48/qna.yaml'"}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-49/qna.yaml'"}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-50/qna.yaml'"}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-51/qna.yaml'"}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-52/qna.yaml'"}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-53/qna.yaml'"}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-54/qna.yaml'"}
+2026-08-23 05:05:37.700 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-55/qna.yaml'"}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-56/qna.yaml'"}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-57/qna.yaml'"}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-59/qna.yaml'"}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-7-60/qna.yaml'"}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:87 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.701 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.702 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=exception exc=TaxonomyReadingException: TaxonomyReadingException('validation-7-202') locals={}
+2026-08-23 05:05:37.702 /testbed/src/instructlab/taxonomy/diff.py:89 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72cc5710>', 'f': "'generated/skill-7-60/qna.yaml'", 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_files': "['generated/skill-7-0/qna.yaml', 'generated/skill-7-1/qna.yaml', 'generated/skill-7-2/qna.yaml', 'generated/skill-7-3/qna.yaml', 'generated/skill-7-4/qna.yaml', 'generated/skill-7-5/qna.yaml', None, 'generated/skill-7-7/qna.yaml', 'generated/skill-7-8/qna.yaml', 'generated/skill-7-9/qna.yaml', 'generated/skill-7-10/qna.yaml', 'generated/skill-7-11/qna.yaml', 'generated/skill-7-12/qna.yaml', 'generated/skill-7-13/qna.yaml', 'generated/skill-7-14/qna.yaml', 'generated/skill-7-15/qna.yaml', 'genera...", 'taxonomy_path': "'/generated/taxonomy-7'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:05:37.702 /testbed/src/instructlab/taxonomy/diff.py:90 instructlab.taxonomy.diff.diff event=line locals={'exc': "TaxonomyReadingException('validation-7-202')"}
+2026-08-23 05:05:37.702 /testbed/src/instructlab/taxonomy/diff.py:91 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.703 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\ninstructlab.schema.taxonomy.TaxonomyReadingException: validation-7-202\\n\''}
+2026-08-23 05:05:37.703 /testbed/src/instructlab/taxonomy/diff.py:93 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.703 /testbed/src/instructlab/taxonomy/diff.py:94 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.703 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.703 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:37.703 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=exception exc=SystemExit: SystemExit(1) locals={}
+2026-08-23 05:05:37.703 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=return retval=None locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72cc5710>', 'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\ninstructlab.schema.taxonomy.TaxonomyReadingException: validation-7-202\\n\'', 'f': "'generated/skill-7-60/qna.yaml'", 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_files': "['generated/skill-7-0/qna.yaml', 'generated/skill-7-1/qna.yaml', 'generated/skill-7-2/qna.yaml', 'generated/skill-7-3/qna.yaml', 'generated/skill-7-4/qna.yaml', 'generated/skill-7-5/qna.yaml', None, 'generated/skill-7-7/qna.yaml', 'generated/skill-7-8/qna.yaml', 'generated/skill-7-9/qna.yaml', 'generated/skill-7-10/qna.yaml', 'generated/skill-7-11/qna.yaml', 'generated/skill-7-12/qna.yaml', 'generated/skill-7-13/qna.yaml', 'generated/skill-7-14/qna.yaml', 'generated/skill-7-15/qna.yaml', 'genera...", 'taxonomy_path': "'/generated/taxonomy-7'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:05:50.944 /testbed/src/instructlab/taxonomy/diff.py:19 instructlab.taxonomy.diff.diff event=call locals={'ctx': '<click.core.Context object at 0x782f72c83b10>', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_path': "'/generated/taxonomy-8'", 'yaml_rules': 'None'}
+2026-08-23 05:05:50.944 /testbed/src/instructlab/taxonomy/diff.py:50 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.944 /testbed/src/instructlab/taxonomy/diff.py:53 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>"}
+2026-08-23 05:05:50.944 /testbed/src/instructlab/taxonomy/diff.py:56 instructlab.taxonomy.diff.diff event=line locals={'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>'}
+2026-08-23 05:05:50.944 /testbed/src/instructlab/taxonomy/diff.py:58 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.944 /testbed/src/instructlab/taxonomy/diff.py:62 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.944 /testbed/src/instructlab/taxonomy/diff.py:63 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.944 /testbed/src/instructlab/taxonomy/diff.py:64 instructlab.taxonomy.diff.diff event=line locals={'is_file': 'False'}
+2026-08-23 05:05:50.944 /testbed/src/instructlab/taxonomy/diff.py:67 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.944 /testbed/src/instructlab/taxonomy/diff.py:71 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.945 /testbed/src/instructlab/taxonomy/diff.py:73 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.945 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={'taxonomy_files': "['generated/skill-8-0/qna.yaml', 'generated/skill-8-1/qna.yaml', 'generated/skill-8-2/qna.yaml', 'generated/skill-8-3/qna.yaml', 'generated/skill-8-4/qna.yaml', None, 'generated/skill-8-6/qna.yaml', 'generated/skill-8-7/qna.yaml', 'generated/skill-8-8/qna.yaml', 'generated/skill-8-9/qna.yaml', 'generated/skill-8-10/qna.yaml', 'generated/skill-8-11/qna.yaml', 'generated/skill-8-12/qna.yaml', 'generated/skill-8-13/qna.yaml', 'generated/skill-8-14/qna.yaml', 'generated/skill-8-15/qna.yaml', 'genera..."}
+2026-08-23 05:05:50.945 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-0/qna.yaml'"}
+2026-08-23 05:05:50.945 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.945 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.945 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-1/qna.yaml'"}
+2026-08-23 05:05:50.945 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.945 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.945 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-2/qna.yaml'"}
+2026-08-23 05:05:50.945 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-3/qna.yaml'"}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-4/qna.yaml'"}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-6/qna.yaml'"}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-7/qna.yaml'"}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-8/qna.yaml'"}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-9/qna.yaml'"}
+2026-08-23 05:05:50.946 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-10/qna.yaml'"}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-11/qna.yaml'"}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-12/qna.yaml'"}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-13/qna.yaml'"}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-14/qna.yaml'"}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-15/qna.yaml'"}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-16/qna.yaml'"}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.947 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-17/qna.yaml'"}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-19/qna.yaml'"}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-20/qna.yaml'"}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-21/qna.yaml'"}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-22/qna.yaml'"}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-23/qna.yaml'"}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-24/qna.yaml'"}
+2026-08-23 05:05:50.948 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-25/qna.yaml'"}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-26/qna.yaml'"}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-27/qna.yaml'"}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-28/qna.yaml'"}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-29/qna.yaml'"}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-30/qna.yaml'"}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-32/qna.yaml'"}
+2026-08-23 05:05:50.949 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-33/qna.yaml'"}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-34/qna.yaml'"}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-35/qna.yaml'"}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-36/qna.yaml'"}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-37/qna.yaml'"}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-38/qna.yaml'"}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-39/qna.yaml'"}
+2026-08-23 05:05:50.950 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-40/qna.yaml'"}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-41/qna.yaml'"}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-42/qna.yaml'"}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-43/qna.yaml'"}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-45/qna.yaml'"}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-46/qna.yaml'"}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-47/qna.yaml'"}
+2026-08-23 05:05:50.951 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-48/qna.yaml'"}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-49/qna.yaml'"}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-50/qna.yaml'"}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-51/qna.yaml'"}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-52/qna.yaml'"}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-53/qna.yaml'"}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-54/qna.yaml'"}
+2026-08-23 05:05:50.952 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-55/qna.yaml'"}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-56/qna.yaml'"}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': 'None'}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:83 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-58/qna.yaml'"}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-59/qna.yaml'"}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:82 instructlab.taxonomy.diff.diff event=line locals={'f': "'generated/skill-8-60/qna.yaml'"}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:84 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:87 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=exception exc=YAMLError: YAMLError('validation-8-99') locals={}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:89 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72c83b10>', 'f': "'generated/skill-8-60/qna.yaml'", 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_files': "['generated/skill-8-0/qna.yaml', 'generated/skill-8-1/qna.yaml', 'generated/skill-8-2/qna.yaml', 'generated/skill-8-3/qna.yaml', 'generated/skill-8-4/qna.yaml', None, 'generated/skill-8-6/qna.yaml', 'generated/skill-8-7/qna.yaml', 'generated/skill-8-8/qna.yaml', 'generated/skill-8-9/qna.yaml', 'generated/skill-8-10/qna.yaml', 'generated/skill-8-11/qna.yaml', 'generated/skill-8-12/qna.yaml', 'generated/skill-8-13/qna.yaml', 'generated/skill-8-14/qna.yaml', 'generated/skill-8-15/qna.yaml', 'genera...", 'taxonomy_path': "'/generated/taxonomy-8'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:05:50.953 /testbed/src/instructlab/taxonomy/diff.py:90 instructlab.taxonomy.diff.diff event=line locals={'exc': "YAMLError('validation-8-99')"}
+2026-08-23 05:05:50.954 /testbed/src/instructlab/taxonomy/diff.py:91 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.955 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\nyaml.error.YAMLError: validation-8-99\\n\''}
+2026-08-23 05:05:50.955 /testbed/src/instructlab/taxonomy/diff.py:93 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.955 /testbed/src/instructlab/taxonomy/diff.py:94 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.955 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.955 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:05:50.955 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=exception exc=SystemExit: SystemExit(1) locals={}
+2026-08-23 05:05:50.955 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=return retval=None locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72c83b10>', 'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\nyaml.error.YAMLError: validation-8-99\\n\'', 'f': "'generated/skill-8-60/qna.yaml'", 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'generated-base'", 'taxonomy_files': "['generated/skill-8-0/qna.yaml', 'generated/skill-8-1/qna.yaml', 'generated/skill-8-2/qna.yaml', 'generated/skill-8-3/qna.yaml', 'generated/skill-8-4/qna.yaml', None, 'generated/skill-8-6/qna.yaml', 'generated/skill-8-7/qna.yaml', 'generated/skill-8-8/qna.yaml', 'generated/skill-8-9/qna.yaml', 'generated/skill-8-10/qna.yaml', 'generated/skill-8-11/qna.yaml', 'generated/skill-8-12/qna.yaml', 'generated/skill-8-13/qna.yaml', 'generated/skill-8-14/qna.yaml', 'generated/skill-8-15/qna.yaml', 'genera...", 'taxonomy_path': "'/generated/taxonomy-8'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:06:04.813 /testbed/src/instructlab/taxonomy/diff.py:19 instructlab.taxonomy.diff.diff event=call locals={'ctx': '<click.core.Context object at 0x782f72cea650>', 'quiet': 'False', 'taxonomy_base': "'empty'", 'taxonomy_path': "'/generated/taxonomy-9'", 'yaml_rules': 'None'}
+2026-08-23 05:06:04.813 /testbed/src/instructlab/taxonomy/diff.py:50 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.813 /testbed/src/instructlab/taxonomy/diff.py:53 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>"}
+2026-08-23 05:06:04.813 /testbed/src/instructlab/taxonomy/diff.py:56 instructlab.taxonomy.diff.diff event=line locals={'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>'}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:58 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:62 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:63 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:64 instructlab.taxonomy.diff.diff event=line locals={'is_file': 'False'}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:67 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:69 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:81 instructlab.taxonomy.diff.diff event=line locals={'taxonomy_files': '[]'}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:87 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:88 instructlab.taxonomy.diff.diff event=exception exc=YAMLError: YAMLError('validation-9-99') locals={}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:89 instructlab.taxonomy.diff.diff event=line locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72cea650>', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'empty'", 'taxonomy_files': '[]', 'taxonomy_path': "'/generated/taxonomy-9'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:90 instructlab.taxonomy.diff.diff event=line locals={'exc': "YAMLError('validation-9-99')"}
+2026-08-23 05:06:04.814 /testbed/src/instructlab/taxonomy/diff.py:91 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.815 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\nyaml.error.YAMLError: validation-9-99\\n\''}
+2026-08-23 05:06:04.815 /testbed/src/instructlab/taxonomy/diff.py:93 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.815 /testbed/src/instructlab/taxonomy/diff.py:94 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.815 /testbed/src/instructlab/taxonomy/diff.py:92 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.816 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=line locals={}
+2026-08-23 05:06:04.816 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=exception exc=SystemExit: SystemExit(1) locals={}
+2026-08-23 05:06:04.816 /testbed/src/instructlab/taxonomy/diff.py:96 instructlab.taxonomy.diff.diff event=return retval=None locals={'TaxonomyReadingException': "<class 'instructlab.schema.taxonomy.TaxonomyReadingException'>", 'ctx': '<click.core.Context object at 0x782f72cea650>', 'error_details': '\'Traceback (most recent call last):\\n  File "/testbed/src/instructlab/taxonomy/diff.py", line 88, in diff\\n    validate_taxonomy(taxonomy_path, taxonomy_base, yaml_rules)\\n  File "/testbed/instruct_lab_qa/diff_diff_s5_exceptions__pert_llm_s0/files/testcase.py", line 57, in generated_validation\\n    raise error_type(f"validation-{state[\\\'invocation\\\']}-{checksum % 1009}")\\nyaml.error.YAMLError: validation-9-99\\n\'', 'get_taxonomy': '<function get_taxonomy at 0x782f72da3d80>', 'get_taxonomy_diff': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_taxonomy_files at 0x782f72c5dda0>', 'is_file': 'False', 'quiet': 'False', 'taxonomy_base': "'empty'", 'taxonomy_files': '[]', 'taxonomy_path': "'/generated/taxonomy-9'", 'validate_taxonomy': '<function TestTaxonomyCommandFailureSchedule.test_cli_command_handles_generated_failure_schedule.<locals>.generated_validation at 0x782f72c5de40>', 'yaml_rules': 'None'}

@@ -1,0 +1,2187 @@
+{
+  "question_kind": "S1_IntraProceduralCFG",
+  "question": "Run the pytest test `instruct_lab_qa/vllm_wait_for_stable_vram_cuda_s1_cfg/files/testcase.py::TestStableVramControlFlow::test_middle_probe_survives_fluctuating_readings` against this repository. What is the exact ordered sequence of executed Python line events inside `instructlab.model.backends.vllm.wait_for_stable_vram_cuda` in `src/instructlab/model/backends/vllm.py` during its second invocation? An invocation is one runtime `call` event for exactly that function, counted 1-based in chronological order from the start of the test; calls of the caller, callees, and all other functions do not count. Include only `line` events emitted while that second function frame is active, beginning after its call event and ending before its return event. Exclude call, return, and exception events and all events in callees. The `def` line, decorator lines, and docstring lines do not appear in the sequence. Preserve chronological event order exactly and retain every duplicate; do not sort or deduplicate, so no tie-breaker is needed. Line numbers are absolute 1-based physical line numbers in the named repository file as it exists for this test. This function contains multi-line calls and conditions: if a line event occurs on any physical line spanned by one complete assignment, expression statement, raise, return, import, or augmented assignment, report the physical line where that statement begins; likewise, an event on any line spanned by an `if` or `while` condition is reported as the line where that condition begins. Retain one output entry per original event even when this normalization creates adjacent duplicates. For example, events on lines 20 and 21 of a hypothetical call expression whose statement begins on line 19 are both reported as line 19. Return exactly one JSON object with the key `executed_path`. Its value is a JSON array whose entries have exactly the keys `file`, `func`, and `line` in that key order. In every entry, `file` is the repo-relative POSIX path string, `func` is the fully qualified Python name in `module.qualname` form (for example, `package.module.Class.method`), and `line` is a JSON integer. Serialize the two strings as JSON strings and the integer as a JSON number; no field uses Python `repr`, and no value is null, empty, or omitted.",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 542
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 547
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 550
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 552
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 553
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 554
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 555
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 578
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 585
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 578
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 585
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 578
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 585
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 578
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 585
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 578
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 585
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 594
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 595
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 601
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 604
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 605
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 556
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 557
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 558
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 564
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 565
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 563
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 577
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 578
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 579
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 585
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 586
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 586
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 586
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 586
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 586
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 586
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 592
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 607
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.wait_for_stable_vram_cuda",
+        "line": 608
+      }
+    ]
+  }
+}

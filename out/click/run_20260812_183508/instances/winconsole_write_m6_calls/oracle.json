@@ -1,0 +1,117 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 25,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole.ConsoleStream.__getattr__"
+      },
+      {
+        "count": 12,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole.ConsoleStream.__init__"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole.ConsoleStream.__repr__"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole.ConsoleStream.isatty"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole.ConsoleStream.name"
+      },
+      {
+        "count": 254,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole.ConsoleStream.write"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole.ConsoleStream.writelines"
+      },
+      {
+        "count": 12,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._WindowsConsoleRawIOBase.__init__"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._WindowsConsoleRawIOBase.isatty"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._WindowsConsoleReader.readable"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._WindowsConsoleReader.readinto"
+      },
+      {
+        "count": 99,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._WindowsConsoleWriter._get_error_message"
+      },
+      {
+        "count": 24,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._WindowsConsoleWriter.writable"
+      },
+      {
+        "count": 590,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._WindowsConsoleWriter.write"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._get_text_stderr"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._get_text_stdin"
+      },
+      {
+        "count": 12,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._get_text_stdout"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._get_windows_console_stream"
+      },
+      {
+        "count": 0,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole._is_console"
+      },
+      {
+        "count": 590,
+        "file": "src/click/_winconsole.py",
+        "func": "click._winconsole.get_buffer"
+      }
+    ]
+  },
+  "question": "Run the pytest node\n`click_qa/winconsole_write_m6_calls/files/testcase.py::WindowsConsoleWriterCallGraphTest`,\nwhich runs and aggregates all methods of that class whose names begin with\n`test_`; equivalently, include every pytest method id formed by appending\n`::<method-name>` to that class node. During that complete class run, the\nprimary target is `click._winconsole._WindowsConsoleWriter.write` in\n`src/click/_winconsole.py`.\n\nFor every Python function and method defined in `src/click/_winconsole.py`,\nreport its total invocation count across all of those test methods. The scope\nincludes every module-level `def` or `async def`, including definitions in a\nmodule-level conditional or exception-handling suite, and every `def` or\n`async def` belonging to a class defined directly at module level. For a\nmodule-level class, include its directly defined methods even when decorated:\nproperty getter methods, static methods, class methods, `__init__`, and all\nother dunder methods are included. Exclude imported functions, lambdas,\ncomprehension frames, nested functions and closures, methods of nested\nclasses, and inherited methods that are not defined in this file.\n\nFunction identity is the full dotted runtime qualname\n`module.Class.method` or `module.function`; for example,\n`click.core.Command.main`. One invocation means one Python `call` event that\nbegins or resumes that function's frame, regardless of which frame caused it:\ninclude direct, transitive, and recursive calls from anywhere during any\nincluded test method. A generator or coroutine resumption that produces\nanother Python `call` event therefore counts as another invocation. Calls to\nfunctions outside the located scope do not count. Sum counts across all test\nmethods rather than reporting per-method counts. Every in-scope function must\nappear exactly once; if it has no such event, report `count: 0`.\n\nReturn JSON with exactly one key, `invocation_counts`, whose value is a list\nof objects. Each object has exactly `count` (a JSON integer), `file` (a JSON\nstring), and `func` (a JSON string). `file` is the POSIX repo-relative path of\nthe definition file, so all entries use the located source file's path;\n`func` uses the dotted identity rule above. Sort entries by `func` ascending,\nwith `file` ascending as the tie-breaker if identities are equal. Do not\ndeduplicate runtime calls before counting. Use ordinary JSON serialization;\nthere are no `repr`-formatted values, exception names, or line numbers in the\nanswer.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

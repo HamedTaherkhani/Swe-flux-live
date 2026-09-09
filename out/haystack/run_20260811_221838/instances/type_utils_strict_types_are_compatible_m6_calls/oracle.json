@@ -1,0 +1,42 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 125,
+        "file": "haystack/core/type_utils.py",
+        "func": "haystack.core.type_utils._check_callable_compatibility"
+      },
+      {
+        "count": 1616,
+        "file": "haystack/core/type_utils.py",
+        "func": "haystack.core.type_utils._safe_get_origin"
+      },
+      {
+        "count": 1279,
+        "file": "haystack/core/type_utils.py",
+        "func": "haystack.core.type_utils._strict_types_are_compatible"
+      },
+      {
+        "count": 0,
+        "file": "haystack/core/type_utils.py",
+        "func": "haystack.core.type_utils._type_name"
+      },
+      {
+        "count": 563,
+        "file": "haystack/core/type_utils.py",
+        "func": "haystack.core.type_utils._types_are_compatible"
+      }
+    ]
+  },
+  "question": "Run the pytest selection `haystack_qa/type_utils_strict_types_are_compatible_m6_calls/files/testcase.py::TestStrictTypeUtilsInvocationCounts` from the repository root. This selects and runs every `test_...` method in that class; aggregate over all of those methods, rather than reporting per-method results. Pytest identifies each selected method as `haystack_qa/type_utils_strict_types_are_compatible_m6_calls/files/testcase.py::TestStrictTypeUtilsInvocationCounts::METHOD_NAME`. Method execution order does not affect the requested summed counts.\n\nThe primary target is `haystack.core.type_utils._strict_types_are_compatible` in `haystack/core/type_utils.py`. Consider the scope consisting of every `def` or `async def` defined directly at module level in exactly `haystack/core/type_utils.py`. Nested functions, closures, lambda bodies, generator-expression and comprehension frames are excluded. Methods (including properties, `__init__`, other dunder methods, and inherited methods) are excluded because they are not functions defined directly at module level; imported functions are also excluded.\n\nFor every function in that scope, report its invocation count over the complete selected pytest run. One invocation means one Python `call` event for that function's frame, whether the caller is a test, another in-scope function, or any other frame; include calls reached transitively and recursive calls. Count events from all frames and do not deduplicate them. If a generator or coroutine frame were resumed and Python emitted another `call` event for that resumption, that event would count as another invocation. Events for excluded nested, generator-expression, comprehension, lambda, method, inherited, imported, or other-file frames do not count. A scoped function that never executes must still appear once with `count: 0`.\n\nFunction identity is its dotted Python module plus `__qualname__`, represented as a JSON string; for example, a hypothetical module-level function `sample` in `pkg/tools.py` would be `pkg.tools.sample`. The `file` value is the repo-relative POSIX path string `haystack/core/type_utils.py`. Counts are JSON integers.\n\nReturn exactly an object with key `invocation_counts`, whose value is a JSON list of objects having exactly the keys `count`, `file`, and `func`. Emit exactly one object per in-scope function. Sort entries by `func` ascending using ordinary Unicode code-point string order, with `file` ascending as the tie-breaker if qualnames ever tie. Do not otherwise reorder or deduplicate entries.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

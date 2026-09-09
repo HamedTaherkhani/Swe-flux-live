@@ -1,0 +1,19 @@
+{
+  "oracle_answer": {
+    "exception_types": [
+      "AttributeError",
+      "IndexError",
+      "KeyError",
+      "OverflowError",
+      "TypeError",
+      "UnicodeDecodeError"
+    ]
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/chat_model_run_chat_m5_exceptions/files/testcase.py::TestChatCliLayeredExceptions::test_seeded_cli_invocations`. Pytest ids in this question use the exact `repo-relative/path.py::ClassName::method_name` format (for example, `tests/test_widget.py::TestWidget::test_case`). Across that complete test run, inspect every invocation of `llamafactory.chat.chat_model.run_chat` in `src/llamafactory/chat/chat_model.py`. An invocation is one runtime `call` entry into that exact function and invocations are numbered 1-based in chronological entry order. Collect the runtime class of every Python exception event delivered to a target invocation's own frame: include an exception raised while evaluating an operation in that frame, an exception propagating into it from a function, callable, or iterator operation it invokes, an exception the target catches and continues from, an exception used internally by Python iteration control, and an exception that exits the target frame. Exclude exceptions raised and fully handled in another frame without propagating into the target frame, and exclude activity before target entry or after target exit. Generator resumptions are not separate target invocations; they matter only when their exception propagates to the target frame. Exception type naming MUST use the same convention as S5, stated verbatim in the question: bare `type(exc).__name__` for built-ins (e.g. `ValueError`, never `builtins.ValueError`), `module.QualName` for all others. Remove duplicate emitted type-name strings across all invocations, then sort the remaining strings in ascending lexicographic order by exact Unicode code-point order. Deduplication happens before sorting, so there is no chronological tie-breaker. Return exactly one JSON object with exactly one key, `exception_types`; its value is a JSON array of those strings in that order. Report neither messages nor counts, invocation numbers, line numbers, or values, so no `repr` versus `str`, empty-string, JSON `null`, or omitted-value convention applies.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_types": [
+      "str"
+    ]
+  }
+}

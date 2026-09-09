@@ -1,0 +1,708 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Run the single pytest test\n`sqlglot_qa/trino_parse_routine_statement_s6_calls/files/testcase.py::TestTrinoRoutineCallFlow::test_generated_routine_tree`.\nDuring that test, consider invocation 1 of\n`sqlglot.parsers.trino.TrinoParser._parse_routine_statement` in\n`sqlglot/parsers/trino.py`. An invocation means one Python `call` event for\nthat function; invocations are numbered from 1 in chronological interpreter\nevent order.\n\nReport `function_call_order`, the exact chronological sequence of Python\n`call` events beginning with that invocation's own entry event and ending\nimmediately before its matching `return` event. Include every event for any of\nthe following functions whenever invocation 1 of the target remains on the\ncall stack, including nested and transitive calls:\n\n* `sqlglot.parsers.trino.TrinoParser._parse_routine_statement`\n* `sqlglot.parsers.trino.TrinoParser._parse_routine_statements`\n* `sqlglot.parsers.trino.TrinoParser._parse_routine_block`\n* `sqlglot.parsers.trino.TrinoParser._parse_routine_if`\n* `sqlglot.parsers.trino.TrinoParser._parse_routine_case`\n* `sqlglot.parsers.trino.TrinoParser._parse_routine_while`\n* `sqlglot.parsers.trino.TrinoParser._parse_routine_loop`\n* `sqlglot.parsers.trino.TrinoParser._parse_routine_repeat`\n\nIgnore calls to every function outside this exact set, even when such a call\nis made directly by a tracked frame. Preserve repeated calls; do not\ndeduplicate or sort. Ordering is the interpreter's total event order (the test\nruns in one thread, so ties do not occur). A generator resumption would count\nas another call event and would appear in its event position, but no event\nother than `call` is an output element.\n\nReturn exactly\n`{\"function_call_order\": [{\"file\": <str>, \"func\": <str>}, ...]}`.\nFor each event, `file` is the repository-relative POSIX path obtained from the\nexecuting code object's filename, and `func` is the full dotted\n`module.Class.method` qualname; for example, a hypothetical method could be\n`package.module.Widget.run`. Keep both values as ordinary JSON strings. The\nfirst event is included, the matching return is not, and no calls after that\nreturn are included.",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_block"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_while"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_case"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_repeat"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_repeat"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_block"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_repeat"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_loop"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_case"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_case"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_block"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_case"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_while"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_loop"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_case"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_while"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_loop"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_case"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_block"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_if"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statements"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      },
+      {
+        "file": "sqlglot/parsers/trino.py",
+        "func": "sqlglot.parsers.trino.TrinoParser._parse_routine_statement"
+      }
+    ]
+  }
+}

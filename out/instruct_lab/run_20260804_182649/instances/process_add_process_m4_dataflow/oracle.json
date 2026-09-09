@@ -1,0 +1,227 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 281,
+        "use_line": 282,
+        "variable": "children_pids"
+      },
+      {
+        "def_line": 281,
+        "use_line": 285,
+        "variable": "children_pids"
+      },
+      {
+        "def_line": 281,
+        "use_line": 297,
+        "variable": "children_pids"
+      },
+      {
+        "def_line": 288,
+        "use_line": 297,
+        "variable": "children_pids"
+      },
+      {
+        "def_line": 278,
+        "use_line": 281,
+        "variable": "cmd"
+      },
+      {
+        "def_line": 241,
+        "use_line": 278,
+        "variable": "extra_imports"
+      },
+      {
+        "def_line": 241,
+        "use_line": 273,
+        "variable": "kwargs"
+      },
+      {
+        "def_line": 241,
+        "use_line": 274,
+        "variable": "kwargs"
+      },
+      {
+        "def_line": 241,
+        "use_line": 275,
+        "variable": "kwargs"
+      },
+      {
+        "def_line": 241,
+        "use_line": 278,
+        "variable": "kwargs"
+      },
+      {
+        "def_line": 241,
+        "use_line": 309,
+        "variable": "kwargs"
+      },
+      {
+        "def_line": 264,
+        "use_line": 272,
+        "variable": "local_uuid"
+      },
+      {
+        "def_line": 264,
+        "use_line": 274,
+        "variable": "local_uuid"
+      },
+      {
+        "def_line": 264,
+        "use_line": 292,
+        "variable": "local_uuid"
+      },
+      {
+        "def_line": 280,
+        "use_line": 281,
+        "variable": "log"
+      },
+      {
+        "def_line": 305,
+        "use_line": 306,
+        "variable": "log"
+      },
+      {
+        "def_line": 267,
+        "use_line": 269,
+        "variable": "log_dir"
+      },
+      {
+        "def_line": 267,
+        "use_line": 270,
+        "variable": "log_dir"
+      },
+      {
+        "def_line": 267,
+        "use_line": 272,
+        "variable": "log_dir"
+      },
+      {
+        "def_line": 272,
+        "use_line": 273,
+        "variable": "log_file"
+      },
+      {
+        "def_line": 272,
+        "use_line": 277,
+        "variable": "log_file"
+      },
+      {
+        "def_line": 272,
+        "use_line": 280,
+        "variable": "log_file"
+      },
+      {
+        "def_line": 272,
+        "use_line": 295,
+        "variable": "log_file"
+      },
+      {
+        "def_line": 272,
+        "use_line": 301,
+        "variable": "log_file"
+      },
+      {
+        "def_line": 272,
+        "use_line": 305,
+        "variable": "log_file"
+      },
+      {
+        "def_line": 281,
+        "use_line": 282,
+        "variable": "pid"
+      },
+      {
+        "def_line": 281,
+        "use_line": 285,
+        "variable": "pid"
+      },
+      {
+        "def_line": 281,
+        "use_line": 294,
+        "variable": "pid"
+      },
+      {
+        "def_line": 281,
+        "use_line": 301,
+        "variable": "pid"
+      },
+      {
+        "def_line": 287,
+        "use_line": 294,
+        "variable": "pid"
+      },
+      {
+        "def_line": 287,
+        "use_line": 301,
+        "variable": "pid"
+      },
+      {
+        "def_line": 241,
+        "use_line": 275,
+        "variable": "process_mode"
+      },
+      {
+        "def_line": 241,
+        "use_line": 276,
+        "variable": "process_mode"
+      },
+      {
+        "def_line": 241,
+        "use_line": 304,
+        "variable": "process_mode"
+      },
+      {
+        "def_line": 260,
+        "use_line": 291,
+        "variable": "process_registry"
+      },
+      {
+        "def_line": 260,
+        "use_line": 303,
+        "variable": "process_registry"
+      },
+      {
+        "def_line": 241,
+        "use_line": 267,
+        "variable": "process_type"
+      },
+      {
+        "def_line": 241,
+        "use_line": 272,
+        "variable": "process_type"
+      },
+      {
+        "def_line": 241,
+        "use_line": 296,
+        "variable": "process_type"
+      },
+      {
+        "def_line": 241,
+        "use_line": 261,
+        "variable": "target"
+      },
+      {
+        "def_line": 241,
+        "use_line": 278,
+        "variable": "target"
+      },
+      {
+        "def_line": 241,
+        "use_line": 309,
+        "variable": "target"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `instruct_lab_qa/process_add_process_m4_dataflow/files/testcase.py::TestAddProcessDataFlow::test_generated_mode_and_startup_matrix`. During that complete test run, consider every invocation of `instructlab.process.process.add_process` in `src/instructlab/process/process.py`; an invocation is one `call` of that function, numbered 1-based in chronological order. Report the union across all invocations of all unique observed dynamic def-use pairs for exactly these target-frame local variables: `children_pids`, `cmd`, `extra_imports`, `kwargs`, `local_uuid`, `log`, `log_dir`, `log_file`, `pid`, `process_mode`, `process_registry`, `process_type`, and `target`.\n\nA def is a binding of one of those local variables that actually occurs in the target function's own frame, either a completed assignment, a `with ... as name` binding, or a parameter binding. Every parameter, including the `kwargs` variadic keyword parameter, is defined at the function's `def` line. A use is a read of that local variable by an executed expression in that same target-function frame. A pair is `{variable, def_line, use_line}` when the value from that def reaches that use before any intervening def of the same variable in the same invocation. Process reads on a source line before bindings made by that line. Thus an augmented assignment such as `x += 1` first uses the old reaching def of `x` and then creates a new def of `x` on that line. A `for x in iterable` header reads target-frame variables in `iterable` and creates a new def of `x` on every iteration; iteration N means the Nth time that loop header binds its target. Binding an attribute or subscript such as `obj.value` or `obj[key]` does not redefine `obj`. For a comprehension, its outermost iterable expression is evaluated in the containing target frame, so reads in that expression count; comprehension-local bindings and reads that execute in the comprehension's separate frame are excluded.\n\nUse absolute 1-based source line numbers in the named repository file as it exists for this run. For a multi-line statement or expression, use the source line on which the relevant variable-bearing expression begins and only count it if that line executes. The function `def` line can therefore appear for parameter defs; decorator and docstring lines do not count as uses or assignment defs. Include only reads and bindings executed by the target function's own frame: events in callees are excluded. Include only pairs produced within one invocation and never carry a reaching def between invocations. Exception events do not themselves define or use variables, and a return event only ends its invocation. If the same triple is observed repeatedly, including across invocations, emit it once.\n\nReturn exactly one JSON object with key `observed_def_use_pairs`. Its value is a list of objects having exactly the keys `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string containing the source identifier exactly). Sort the list by `variable`, then `def_line`, then `use_line`, all ascending; this is the complete tie-break order. Do not apply `repr()` or `str()` formatting to line numbers or variable names.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 9,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 5,
+        "exception_type": "IndexError"
+      },
+      {
+        "count": 11,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 6,
+        "exception_type": "NameError"
+      },
+      {
+        "count": 2,
+        "exception_type": "NotImplementedError"
+      },
+      {
+        "count": 14,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 8,
+        "exception_type": "ZeroDivisionError"
+      },
+      {
+        "count": 45,
+        "exception_type": "sqlglot.errors.ExecuteError"
+      }
+    ]
+  },
+  "question": "Run pytest on every test method in class\n`TestPythonExecuteExceptions` in\n`sqlglot_qa/python_execute_m5_exceptions/files/testcase.py` and aggregate the\nresults over all of those methods. The covered methods are exactly every method\nin that class whose name starts with `test_`; an individual pytest id has the\nform\n`sqlglot_qa/python_execute_m5_exceptions/files/testcase.py::TestPythonExecuteExceptions::test_safe_long_dependency_chain`.\nThe answer is independent of pytest's method execution order because it consists\nof commutative totals over the complete class.\n\nFor the exact frame of\n`sqlglot.executor.python.PythonExecutor.execute` in\n`sqlglot/executor/python.py`, how many exception observations of each type occur\nduring the complete run?\n\nAn exception observation occurs whenever code in that exact target frame raises\nan exception or an exception propagates into that frame from a callee. Count one\nobservation for each such event in the target frame, including an exception that\nthe target subsequently catches. An exception raised and fully handled inside a\ncallee does not count because it never propagates into the target frame. If the\nsame exception object is re-raised in the target frame, count that re-raise as a\nnew observation. Do not deduplicate observations by exception identity, source\nline, invocation, or test method.\n\nException type naming MUST use the same convention as S5, stated verbatim: bare\n`type(exc).__name__` for built-ins (e.g. `ValueError`, never\n`builtins.ValueError`), `module.QualName` for all others. For non-built-ins,\n`module.QualName` is exactly\n`f\"{type(exc).__module__}.{type(exc).__qualname__}\"` (for example,\n`package.WidgetError`). Message = exact `str(exc)`, although exception messages\nare not fields in this answer.\n\nAn invocation is one `call` of the target function during the test run,\nnumbered 1-based in chronological order. Counts are totals over ALL invocations\nand ALL test methods, so the same type observed in five methods contributes five\nto its total.\n\nReturn exactly\n`{\"exception_type_counts\": [{\"count\": <JSON integer>, \"exception_type\": <JSON string>}, ...]}`.\nInclude one row for every exception type observed at least once. Merge rows with\nthe same exact formatted `exception_type` by summing their counts; preserve all\nmultiplicity in those totals and perform no other deduplication. Sort rows by\n`exception_type` ascending using Python string Unicode code-point order. After\nmerging there is exactly one row for each type string, so equal primary keys\ncannot remain and there is no secondary tie-break.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

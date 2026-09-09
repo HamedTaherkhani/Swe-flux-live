@@ -1,0 +1,217 @@
+{
+  "question_kind": "M6_InterProceduralCFG",
+  "question": "Run every pytest test method whose name begins with `test_` in class `TestSerializeCallGraphAggregation` from `lark_qa/utils_serialize_m6_calls/files/testcase.py` (equivalently, run the pytest id `lark_qa/utils_serialize_m6_calls/files/testcase.py::TestSerializeCallGraphAggregation`), and aggregate across ALL such test methods in that class. An individual method is identified by its full pytest id, for example `lark_qa/utils_serialize_m6_calls/files/testcase.py::TestSerializeCallGraphAggregation::test_coprime_three_path`; method execution order does not affect the requested totals. The primary target is `lark.utils.Serialize.serialize` in `lark/utils.py`. For the answer scope, inspect `lark/utils.py` as it exists in the repository and consider every module-level synchronous or asynchronous function definition and every synchronous or asynchronous method definition that appears directly in the body of a module-level class. Include `__init__` and every other dunder method, class methods, static methods, and functions decorated as property getters, setters, or deleters when their `def`/`async def` appears directly in that class body. Exclude lambdas, comprehension frames, generator-expression frames, nested functions or closures, functions inside nested classes, dynamically attached functions, and inherited methods whose definition is not in this file. Function identity is the dotted defining-module qualname `module.Class.method` for a method or `module.function` for a module-level function; for example, a method `run` defined by class `Widget` in module `sample.tools` is `sample.tools.Widget.run`. Use the defining module even when a method executes on a subclass instance. One invocation means one Python `call` event for that exact function's frame during the complete class run, including calls reached transitively, recursively, or from any caller frame. Count calls from all test methods and all setup/teardown activity occurring within the class run if they reach an in-scope frame. A generator or coroutine resumption that Python reports as another `call` event counts as another invocation. Calls to excluded frames do not count, even when their qualname begins with an in-scope qualname. Functions in scope that never receive a `call` event must still appear with `count: 0`. Aggregate all events having the same dotted qualname into exactly one entry; if repeated source definitions would produce the same dotted qualname, treat that qualname as one identity rather than emitting duplicates. Return exactly one JSON object with the sole key `invocation_counts`. Its value must be a JSON list containing one object per scoped function, each with exactly `count` (a JSON integer), `file` (the repo-relative JSON string `lark/utils.py`), and `func` (the dotted-qualname JSON string defined above). Sort entries by `func` ascending in Unicode code-point order; if two entries could share the same `func`, sort by `file` ascending as the tie-break, though the same-qualname aggregation rule leaves no duplicate entries. Do not deduplicate call events, and use no additional keys.",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 12,
+        "file": "lark/utils.py",
+        "func": "lark.utils.Enumerator.__init__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.Enumerator.__len__"
+      },
+      {
+        "count": 625,
+        "file": "lark/utils.py",
+        "func": "lark.utils.Enumerator.get"
+      },
+      {
+        "count": 12,
+        "file": "lark/utils.py",
+        "func": "lark.utils.Enumerator.reversed"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.FS.open"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.OrderedSet.__bool__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.OrderedSet.__contains__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.OrderedSet.__init__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.OrderedSet.__iter__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.OrderedSet.__len__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.OrderedSet.__repr__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.OrderedSet.add"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.OrderedSet.remove"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.Serialize.deserialize"
+      },
+      {
+        "count": 12,
+        "file": "lark/utils.py",
+        "func": "lark.utils.Serialize.memo_serialize"
+      },
+      {
+        "count": 945,
+        "file": "lark/utils.py",
+        "func": "lark.utils.Serialize.serialize"
+      },
+      {
+        "count": 12,
+        "file": "lark/utils.py",
+        "func": "lark.utils.SerializeMemoizer.__init__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.SerializeMemoizer.deserialize"
+      },
+      {
+        "count": 649,
+        "file": "lark/utils.py",
+        "func": "lark.utils.SerializeMemoizer.in_types"
+      },
+      {
+        "count": 12,
+        "file": "lark/utils.py",
+        "func": "lark.utils.SerializeMemoizer.serialize"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.TextSlice.__len__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.TextSlice.__post_init__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.TextSlice.cast_from"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.TextSlice.count"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.TextSlice.is_complete_text"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.TextSlice.rindex"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils._deserialize"
+      },
+      {
+        "count": 5246,
+        "file": "lark/utils.py",
+        "func": "lark.utils._serialize"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils._test_unicode_category"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.bfs"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.bfs_all_unique"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.classify"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.classify_bool"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.combine_alternatives"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.dedup_list"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.fzset.__repr__"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.get_regexp_width"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.is_id_continue"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.is_id_start"
+      },
+      {
+        "count": 0,
+        "file": "lark/utils.py",
+        "func": "lark.utils.small_factors"
+      }
+    ]
+  }
+}

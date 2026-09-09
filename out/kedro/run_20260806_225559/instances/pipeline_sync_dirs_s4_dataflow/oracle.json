@@ -1,0 +1,142 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 276,
+        "use_line": 283,
+        "variable": "content"
+      },
+      {
+        "def_line": 271,
+        "use_line": 272,
+        "variable": "existing"
+      },
+      {
+        "def_line": 271,
+        "use_line": 273,
+        "variable": "existing"
+      },
+      {
+        "def_line": 272,
+        "use_line": 290,
+        "variable": "existing_files"
+      },
+      {
+        "def_line": 273,
+        "use_line": 292,
+        "variable": "existing_folders"
+      },
+      {
+        "def_line": 305,
+        "use_line": 306,
+        "variable": "new_prefix"
+      },
+      {
+        "def_line": 254,
+        "use_line": 289,
+        "variable": "overwrite"
+      },
+      {
+        "def_line": 254,
+        "use_line": 286,
+        "variable": "prefix"
+      },
+      {
+        "def_line": 254,
+        "use_line": 305,
+        "variable": "prefix"
+      },
+      {
+        "def_line": 254,
+        "use_line": 275,
+        "variable": "source"
+      },
+      {
+        "def_line": 254,
+        "use_line": 276,
+        "variable": "source"
+      },
+      {
+        "def_line": 284,
+        "use_line": 285,
+        "variable": "source_name"
+      },
+      {
+        "def_line": 284,
+        "use_line": 290,
+        "variable": "source_name"
+      },
+      {
+        "def_line": 284,
+        "use_line": 292,
+        "variable": "source_name"
+      },
+      {
+        "def_line": 283,
+        "use_line": 284,
+        "variable": "source_path"
+      },
+      {
+        "def_line": 283,
+        "use_line": 291,
+        "variable": "source_path"
+      },
+      {
+        "def_line": 283,
+        "use_line": 295,
+        "variable": "source_path"
+      },
+      {
+        "def_line": 283,
+        "use_line": 298,
+        "variable": "source_path"
+      },
+      {
+        "def_line": 283,
+        "use_line": 306,
+        "variable": "source_path"
+      },
+      {
+        "def_line": 254,
+        "use_line": 271,
+        "variable": "target"
+      },
+      {
+        "def_line": 254,
+        "use_line": 285,
+        "variable": "target"
+      },
+      {
+        "def_line": 254,
+        "use_line": 297,
+        "variable": "target"
+      },
+      {
+        "def_line": 285,
+        "use_line": 286,
+        "variable": "target_path"
+      },
+      {
+        "def_line": 285,
+        "use_line": 298,
+        "variable": "target_path"
+      },
+      {
+        "def_line": 285,
+        "use_line": 306,
+        "variable": "target_path"
+      }
+    ]
+  },
+  "question": "Run the pytest test\n`kedro_qa/pipeline_sync_dirs_s4_dataflow/files/testcase.py::TestPipelineSyncDataFlow::test_generated_create_tree`\nagainst this repository. Across all invocations during that test, what unique\nruntime def-use pairs are observed in the exact function frame\n`kedro.framework.cli.pipeline._sync_dirs` from\n`kedro/framework/cli/pipeline.py` for the local variables `content`, `existing`,\n`existing_files`, `existing_folders`, `new_prefix`, `overwrite`, `prefix`,\n`source`, `source_name`, `source_path`, `target`, and `target_path`?\n\nA def-use pair is an object recording that a value defined for one named local\nat `def_line` is subsequently read at `use_line` in the same invocation before\nthat local is redefined. A definition is an executed assignment to that local\nor its parameter binding. Parameters count as defined on the first physical\nline of the function's `def` statement, even when the signature spans several\nlines. An ordinary assignment's definition is on the physical line containing\nits target name. A use is an actual runtime read of the local, not merely a\nname present on a path that was skipped by branching or Boolean\nshort-circuiting. Assignment targets are not reads.\n\nTreat augmented assignment as reading and then writing: for example,\n`count += step` first creates a use of `count`'s old reaching definition on\nthat line and then a new definition of `count` on the same line. A loop header\nsuch as `for item in items` reads `items` and redefines `item` on every\nexecuted iteration, before the body for that iteration. Comprehension-local\nvariables, including a comprehension's iteration variable, belong to the\ncomprehension frame and are excluded; a read performed by the exact target\nframe to supply a comprehension's outermost iterable still counts. For\nexample, in `sum(v for v in items)`, `v` is comprehension-local while the\nouter-frame read of `items` counts if `items` is tracked.\n\nOnly reads and definitions executed by an exact `_sync_dirs` frame count.\nDo not include activity in callees or comprehension frames. Each function\ninvocation starts fresh: a definition in one invocation cannot reach a use in\nanother, including between a recursive caller and callee. An invocation means\none call of the exact function during the test, numbered 1-based in\nchronological call order, although invocation numbers are not reported.\nCombine the pairs from all invocations, remove duplicate objects having the\nsame variable, definition line, and use line, and retain pairs observed at\nleast once.\n\n`def_line` and `use_line` are JSON integers containing absolute, 1-based\nphysical source line numbers in the named file as it exists in this\nrepository. For a multi-line statement or expression, attribute an operation\nto the physical line where that particular assignment target or read\nexpression begins. The function's first `def` line can therefore appear only\nas the parameter-definition line; decorator and docstring lines are not\ndefinitions or uses unless they themselves contain an executed operation\ncovered by the rules above.\n\nThe complete answer must have exactly the JSON shape\n`{\"observed_def_use_pairs\": [{\"def_line\": \"int\", \"use_line\": \"int\", \"variable\": \"str\"}]}`.\n`observed_def_use_pairs` is a JSON array. Every element has exactly those three\nkeys: `variable` is the local's exact source spelling as a JSON string, while\n`def_line` and `use_line` are JSON integers (not quoted strings). Sort the\narray by `variable` in ascending Unicode code-point order, then by `def_line`\nascending, then by `use_line` ascending. Apart from removing exact duplicate\ntriples as specified above, do not merge or omit entries. The `\"str\"` and\n`\"int\"` values in the shape are type placeholders, not answer values.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

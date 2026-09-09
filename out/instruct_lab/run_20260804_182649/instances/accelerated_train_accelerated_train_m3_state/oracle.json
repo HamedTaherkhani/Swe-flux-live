@@ -1,0 +1,61 @@
+{
+  "oracle_answer": {
+    "unique_values": [
+      "[100, 396]",
+      "[100]",
+      "[1034]",
+      "[1100, 652]",
+      "[1100]",
+      "[1153]",
+      "[116, 488]",
+      "[1168]",
+      "[116]",
+      "[1238, 1179]",
+      "[1238]",
+      "[1310]",
+      "[1384, 1732]",
+      "[1384]",
+      "[143, 656]",
+      "[143]",
+      "[1460, 19]",
+      "[1460]",
+      "[1538, 331]",
+      "[1538]",
+      "[165]",
+      "[189, 883]",
+      "[189]",
+      "[232, 1103]",
+      "[232]",
+      "[262]",
+      "[294, 1382]",
+      "[294]",
+      "[353, 1654]",
+      "[353]",
+      "[391]",
+      "[431, 1985]",
+      "[431]",
+      "[506, 292]",
+      "[506]",
+      "[552]",
+      "[600, 675]",
+      "[600]",
+      "[691, 1051]",
+      "[691]",
+      "[745]",
+      "[801, 1486]",
+      "[801]",
+      "[86]",
+      "[908]",
+      "[970, 151]",
+      "[970]",
+      "[]"
+    ]
+  },
+  "question": "Run the pytest test `instruct_lab_qa/accelerated_train_accelerated_train_m3_state/files/testcase.py::TestAcceleratedPipeline::test_seeded_phased_journals` and consider exactly `instructlab.model.accelerated_train.accelerated_train` in `src/instructlab/model/accelerated_train.py`. Across every invocation of that function during the complete test run, what is the sorted set of distinct Python `repr()` strings taken by the local variable `journal` at the observation points defined below?\n\nAn invocation is one Python function-call entry into exactly `instructlab.model.accelerated_train.accelerated_train`, counted 1-based in chronological order over the complete test run. Calls of nested functions, callees, comprehensions, generators, or any other frame do not create target invocations. Include every target invocation, from the first call entry through its normal return or an exception leaving the frame.\n\nWithin each target invocation, observation points are: (1) function-call entry, after parameters have been bound; (2) immediately before each executed source line in that target frame; (3) when an exception has just been raised into that target frame, before its handler runs or it propagates; and (4) function return, after the function body has completed and immediately before control returns to the caller. Observe only the target's own frame, not activity in callees. Record a value only when `journal` is already bound at that observation point. If a callee mutates the object referenced by `journal` in place, its changed whole-object representation is therefore first observed at the next target-frame observation point.\n\nLine numbers governing source-line observations are absolute, 1-based physical lines in the named file as it exists in the repository. For a multi-line statement or expression, use the physical line where the particular executed statement or expression begins; a continuation-only line does not create an extra observation merely because it contains text. A multi-line call can still produce observations on later lines when separately executed argument expressions begin there. The `def` line, decorator lines, and unexecuted comment or docstring lines are not source-line observation points merely because they exist in the file. Parameters count as bound at call entry, while a local assigned later (including by ordinary or augmented assignment) does not count as bound until Python has performed that assignment; augmented assignment both reads and writes its target. Comprehension-local variables belong to the comprehension frame and are excluded.\n\nFor every included observation, apply Python `repr()` to the current value of `journal`, not `str()` and not JSON serialization. For a container, this is the `repr()` of the whole container, including Python spellings such as `None` and `True`; for example, a hypothetical value could be represented by the JSON string `\"['alpha', None]\"`. Preserve every character returned by `repr()`; if it contains a newline, JSON encodes that newline normally. Deduplicate equal repr strings across all points and invocations, then sort the remaining strings in ascending lexicographic Unicode code-point order, with ordinary prefix ordering (a proper prefix sorts first). Do not perform numeric or natural sorting.\n\nReturn exactly one JSON object with the canonical shape `{\"unique_values\": [\"str\"]}`. In the actual answer, `unique_values` is the sorted list just defined; each element is a JSON string containing one Python repr string. Every observation that contributes a list element has `journal` bound and produces a non-empty repr string; JSON `null`, an empty string, and an absent list element are not substitutes. No function names, exception type names, line numbers, invocation numbers, or raw non-string values are reported.",
+  "question_kind": "M3_ProgramState",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  }
+}

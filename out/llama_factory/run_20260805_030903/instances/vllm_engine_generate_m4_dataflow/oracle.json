@@ -1,0 +1,72 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 146,
+        "use_line": 170,
+        "variable": "max_tokens"
+      },
+      {
+        "def_line": 149,
+        "use_line": 170,
+        "variable": "max_tokens"
+      },
+      {
+        "def_line": 151,
+        "use_line": 170,
+        "variable": "max_tokens"
+      },
+      {
+        "def_line": 154,
+        "use_line": 170,
+        "variable": "max_tokens"
+      },
+      {
+        "def_line": 157,
+        "use_line": 170,
+        "variable": "max_tokens"
+      },
+      {
+        "def_line": 177,
+        "use_line": 204,
+        "variable": "multi_modal_data"
+      },
+      {
+        "def_line": 185,
+        "use_line": 204,
+        "variable": "multi_modal_data"
+      },
+      {
+        "def_line": 199,
+        "use_line": 204,
+        "variable": "multi_modal_data"
+      },
+      {
+        "def_line": 201,
+        "use_line": 204,
+        "variable": "multi_modal_data"
+      },
+      {
+        "def_line": 103,
+        "use_line": 127,
+        "variable": "system"
+      },
+      {
+        "def_line": 127,
+        "use_line": 128,
+        "variable": "system"
+      }
+    ]
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/vllm_engine_generate_m4_dataflow/files/testcase.py::TestVllmEngineGenerateDataFlow::test_seeded_branch_matrix_through_chat`. Across every invocation of `llamafactory.chat.vllm_engine.VllmEngine._generate` in `src/llamafactory/chat/vllm_engine.py`, report all unique observed dynamic def-use pairs for exactly these local variables: `max_tokens`, `multi_modal_data`, and `system`. An invocation is one runtime entry into that exact function during the complete test run; invocations are numbered 1-based in chronological order, although invocation numbers are not included in the answer, and pairs from all invocations are combined before deduplication. A definition (`def`) is a binding of the local name by parameter binding or an executed assignment target. Each parameter is defined at the line where the function's `async def` statement begins on every invocation, regardless of the physical line on which that parameter is displayed. A use is a runtime evaluation of that local name in load context. A def-use pair exists when a use reads the binding produced by that def and no executed redefinition of the same local occurred between them in that invocation. Process each executed source line's uses before its definitions: thus, for an ordinary assignment whose right-hand side uses the same name, that use reads the prior definition and the assignment then creates the new definition. Augmented assignment such as `total += item` first uses the old binding and then creates a new definition on that same line, so it is both a use of the reaching definition and a new definition. A `for` loop header redefines its target on each successful iteration before the body executes. Names bound locally by a list, set, or dict comprehension or generator expression are scoped to that comprehension and are excluded as definitions and uses; reads of tracked outer locals in a comprehension's iterable or other expressions still count. Attribute or subscript writes and mutating method calls do not rebind the base local name; evaluating that base name is a use. Only defs and uses belonging lexically to this function body count; nested named functions and lambdas are excluded. A source line is observed when execution of this exact function reaches that line in an invocation; activity solely inside a called function or a comprehension's separate runtime frame does not independently add lines. Line numbers are absolute, 1-based source line numbers in the named repository file. Parameter definitions use the `async def` line. Otherwise, for a multi-line statement or expression, a def or use is attributed to the physical source line on which the relevant assignment target or loaded name begins; decorator and docstring lines do not count. Remove duplicate triples after combining all invocations, including duplicates caused by repeated invocations or multiple reads of the same reaching definition on one line. Return exactly one JSON object with key `observed_def_use_pairs`; its value is a JSON array of objects, each having exactly `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string). Sort the array by `variable`, then `def_line`, then `use_line`, all ascending by ordinary Unicode string order for `variable` and numeric order for the line numbers. No values are rendered with `repr` or `str`, no null or absent-value marker is used, and no function-name, exception-name, iteration-count, or additional tie-breaker convention applies to the answer.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

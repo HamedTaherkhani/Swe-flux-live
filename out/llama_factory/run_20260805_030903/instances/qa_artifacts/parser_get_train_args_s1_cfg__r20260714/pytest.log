@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.17, pytest-8.3.5, pluggy-1.5.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.9.0
+collected 1 item
+
+llama_factory_qa/parser_get_train_args_s1_cfg__r20260714/files/testcase.py [WARNING|2026-07-15 04:13:45] src.llamafactory.hparams.parser:148 >> Remember to add embedding layers to `additional_target` to make the added tokens trainable.
+[WARNING|2026-07-15 04:13:45] src.llamafactory.hparams.parser:148 >> We recommend enable mixed precision training.
+[WARNING|2026-07-15 04:13:45] src.llamafactory.hparams.parser:148 >> `ddp_find_unused_parameters` needs to be set as False for LoRA in DDP training.
+[INFO|2026-07-15 04:13:45] src.llamafactory.hparams.parser:383 >> Process rank: 0, world size: 1, device: cpu, distributed training: True, compute dtype: None
+[WARNING|2026-07-15 04:13:45] src.llamafactory.hparams.parser:148 >> Evaluating model in 4/8-bit mode may cause lower scores.
+[WARNING|2026-07-15 04:13:45] src.llamafactory.hparams.parser:148 >> Specify `ref_model` for computing rewards at evaluation.
+[WARNING|2026-07-15 04:13:45] src.llamafactory.hparams.parser:148 >> `ddp_find_unused_parameters` needs to be set as False for LoRA in DDP training.
+[INFO|2026-07-15 04:13:45] src.llamafactory.hparams.parser:383 >> Process rank: 0, world size: 1, device: cpu, distributed training: True, compute dtype: torch.float16
+[WARNING|2026-07-15 04:13:45] src.llamafactory.hparams.parser:148 >> Cannot resume from checkpoint in current stage.
+[INFO|2026-07-15 04:13:45] src.llamafactory.hparams.parser:383 >> Process rank: 0, world size: 1, device: cpu, distributed training: True, compute dtype: torch.bfloat16
+.
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED llama_factory_qa/parser_get_train_args_s1_cfg__r20260714/files/testcase.py::TestParserGetTrainArgsCFG::test_three_invocations_cfg_path
+============================== 1 passed in 3.19s ===============================

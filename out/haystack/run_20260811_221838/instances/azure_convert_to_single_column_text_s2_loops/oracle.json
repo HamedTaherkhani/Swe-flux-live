@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 40
+  },
+  "question": "Run only the pytest test `haystack_qa/azure_convert_to_single_column_text_s2_loops/files/testcase.py::TestAzureSingleColumnLoopBehavior::test_seeded_layout_via_run`. In the first invocation of `haystack.components.converters.azure.AzureOCRDocumentConverter._convert_to_single_column_text` in `haystack/components/converters/azure.py`, what is the exact iteration count of the `for row_of_lines in y_sorted_lines_by_page[page_idx]` loop whose header is at line 439? An invocation means one call of that exact function and invocations are numbered 1-based in chronological order during this test. An iteration means one execution, in that function's own frame, of the loop body's first executable line (the `if any(...)` statement at line 441); count every such execution without sorting or deduplication, including executions that subsequently take `continue`. Ignore events in called functions and in generator-expression or comprehension frames. Line numbers are absolute, 1-based source lines in the named file as it exists in the repository; the function's `def`, decorators, and docstring do not count as loop iterations. Return exactly one JSON object with the key `loop_iteration_count`; its value must be the count as a JSON integer, not a string. No ordering or tie-breaking rule applies because the answer contains one scalar.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

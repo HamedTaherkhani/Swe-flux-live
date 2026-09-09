@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 132
+  },
+  "question": "Consider the pytest test identified by `jinja_qa/filters_do_xmlattr_s2_loops/files/testcase.py::FiltersDoXmlattrS2LoopsTest::test_direct_xmlattr_drives_items_loop` (test class `FiltersDoXmlattrS2LoopsTest`, test method `test_direct_xmlattr_drives_items_loop`). During that single test run, the function `jinja2.filters.do_xmlattr` in `src/jinja2/filters.py` is invoked directly (not via template rendering). An invocation is one `call` of that function during the test run, counted in chronological order starting at 1. For invocation 1 only, consider the `for` loop whose header begins on line 301 of `src/jinja2/filters.py` (the loop `for key, value in d.items():`). Define iteration counting as 1-based: iteration N is the Nth time line 302 (`if value is None or isinstance(value, Undefined):`), the loop body's first line, executes during that invocation. Count an iteration whether the loop body later `continue`s or falls through to append an attribute. Line numbers are absolute, 1-based, and refer to `src/jinja2/filters.py` as it exists in the repository; for multi-line statements, attribute executed-line events to the line where that statement begins. Decorator lines, the `def do_xmlattr` line, and docstring lines are never executed and must not be counted. How many iterations did that loop perform during invocation 1? Report the answer as a JSON object with exactly one key, `loop_iteration_count`, whose value is a JSON number (bare integer, not a quoted string).",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "question_kind": "S3_ProgramState",
+  "question": "During pytest run of rich_qa/console_write_buffer_s3_state/files/testcase.py::TestConsoleWriteBufferState::test_update_screen_lines_batch_write, the function rich.console.Console._write_buffer in rich/console.py is reached indirectly (via Console.update_screen_lines and Console._check_buffer). Consider only the 1st invocation of _write_buffer during that test run (counting function entries in chronological order, 1-based).\n\nInside that invocation, when rich/console.py is compiled with WINDOWS patched to True (as the test does), execution enters the modern-Windows branch and runs the for-loop at source line 2108 that batches writes. Define loop iteration k (1 <= k <= 30) as the k-th time source line 2114 (the augmented assignment size += len(line), which both reads and writes size) finishes executing during that invocation.\n\nLine numbers are 1-based positions in rich/console.py as checked into the repository. For multi-line statements, only the line where the statement begins is numbered.\n\nThe observation point for iteration k is the program state immediately before the (k+1)-th execution of source line 2108 begins during this invocation\u2014equivalently, immediately after line 2114 has finished executing for the k-th time. The first execution of line 2108 (before iteration 1 begins) is not an observation point.\n\nAt each observation point, read the local variable size in the _write_buffer stack frame and report its value as a Python repr() string (for example, the integer 7 is reported as the two-character string '7'; containers, if any, use the repr of the whole container).\n\nReport the ordered history of size across all 30 iterations: step k (integer, 1-based, matching iteration k) paired with that repr string. Sort the list ascending by step. Use the value_history answer shape: a JSON object with key value_history whose value is a list of objects each having keys step (int) and value (str).",
+  "template_answer": {
+    "value_history": [
+      {
+        "step": "int",
+        "value": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "value_history": [
+      {
+        "step": 1,
+        "value": "355"
+      },
+      {
+        "step": 2,
+        "value": "722"
+      },
+      {
+        "step": 3,
+        "value": "1098"
+      },
+      {
+        "step": 4,
+        "value": "1490"
+      },
+      {
+        "step": 5,
+        "value": "1890"
+      },
+      {
+        "step": 6,
+        "value": "2298"
+      },
+      {
+        "step": 7,
+        "value": "2720"
+      },
+      {
+        "step": 8,
+        "value": "3074"
+      },
+      {
+        "step": 9,
+        "value": "3444"
+      },
+      {
+        "step": 10,
+        "value": "3822"
+      },
+      {
+        "step": 11,
+        "value": "4211"
+      },
+      {
+        "step": 12,
+        "value": "4614"
+      },
+      {
+        "step": 13,
+        "value": "5026"
+      },
+      {
+        "step": 14,
+        "value": "5450"
+      },
+      {
+        "step": 15,
+        "value": "5808"
+      },
+      {
+        "step": 16,
+        "value": "6174"
+      },
+      {
+        "step": 17,
+        "value": "6553"
+      },
+      {
+        "step": 18,
+        "value": "6941"
+      },
+      {
+        "step": 19,
+        "value": "7343"
+      },
+      {
+        "step": 20,
+        "value": "7754"
+      },
+      {
+        "step": 21,
+        "value": "8174"
+      },
+      {
+        "step": 22,
+        "value": "359"
+      },
+      {
+        "step": 23,
+        "value": "727"
+      },
+      {
+        "step": 24,
+        "value": "1107"
+      },
+      {
+        "step": 25,
+        "value": "1498"
+      },
+      {
+        "step": 26,
+        "value": "1896"
+      },
+      {
+        "step": 27,
+        "value": "2310"
+      },
+      {
+        "step": 28,
+        "value": "2733"
+      },
+      {
+        "step": 29,
+        "value": "3093"
+      },
+      {
+        "step": 30,
+        "value": "3462"
+      }
+    ]
+  }
+}

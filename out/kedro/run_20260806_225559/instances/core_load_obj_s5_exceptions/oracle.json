@@ -1,0 +1,16 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "AttributeError",
+      "ModuleNotFoundError",
+      "ValueError"
+    ]
+  },
+  "question": "When the pytest test\n`kedro_qa/core_load_obj_s5_exceptions/files/testcase.py::TestLoadObjExceptionsRuntime::test_traced_run`\nis executed, the function `kedro.io.core._load_obj` (defined in the\nrepository file `kedro/io/core.py`) is invoked many times indirectly,\nthrough the call chain `kedro.io.core.AbstractDataset.from_config` ->\n`kedro.io.core.parse_dataset_definition` -> `kedro.io.core._load_obj`, once\nper candidate class path tried for each dataset type in the test's\nprogrammatically built list.\n\nScope: consider ALL invocations of `kedro.io.core._load_obj` during the\nentire test run. One invocation means one entry into the function (one call\nof the function); invocations are taken in chronological order, though the\nfinal answer does not depend on their order.\n\nTask: report the set of distinct exception types that were raised inside the\nfunction's `try` blocks and CAUGHT by the function's own `except` clauses,\naggregated across all invocations.\n\nDefinitions and conventions:\n\n- An exception counts as \"caught by the function\" only if it was raised by\n  code executed inside one of the function's own `try` blocks (including by\n  functions called from those blocks, e.g. the import/attribute helper it\n  calls) and was then intercepted by one of the function's own `except`\n  clauses, so that execution of the function body continued after the\n  interception.\n- An exception that propagates out of the function is NOT counted: if an\n  invocation of the function terminates by raising (rather than by\n  returning), the exception with which it terminates is excluded. Exceptions\n  raised by the function's own `raise` statements are therefore excluded\n  unless they are themselves caught by one of the function's own `except`\n  clauses.\n- Exceptions raised and/or caught entirely inside other functions (callers\n  or callees of the target) never count; only interception by the target\n  function's own `except` clauses qualifies.\n- Exception type names are reported as bare `type(exc).__name__` for\n  built-in exception classes (for example `KeyError`, never\n  `builtins.KeyError`) and as `module.QualName` for non-built-in exception\n  classes (for example `some_package.errors.CustomError`).\n- The answer is the deduplicated set of these exception type names, sorted\n  in ascending lexicographic order exactly as Python's `sorted()` orders\n  strings (ASCII code-point order).\n\nAnswer format: a JSON object with exactly one key, `caught_exception_kinds`,\nwhose value is a list of strings (the sorted, deduplicated exception type\nnames).\n",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

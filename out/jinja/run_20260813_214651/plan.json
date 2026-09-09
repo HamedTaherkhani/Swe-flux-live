@@ -1,0 +1,1828 @@
+[
+  {
+    "instance_id": "lexer_tokeniter_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/jinja2/lexer.py",
+      "module": "src.jinja2.lexer",
+      "qualname": "Lexer.tokeniter",
+      "name": "tokeniter",
+      "lineno": 669,
+      "end_lineno": 868,
+      "params": [
+        "self",
+        "source",
+        "name",
+        "filename",
+        "state"
+      ],
+      "metrics": {
+        "body_lines": 200,
+        "branches": 28,
+        "loops": 5,
+        "while_loops": 1,
+        "max_loop_nesting": 4,
+        "excepts": 0,
+        "raises": 7,
+        "finallys": 0,
+        "calls": 42,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 27,
+        "augassigns": 3,
+        "returns": 1,
+        "boolops": 7,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 5
+      },
+      "score": 150.0,
+      "callers": [
+        "Lexer.tokenize"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=139.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "ext_parse_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/jinja2/ext.py",
+      "module": "src.jinja2.ext",
+      "qualname": "InternationalizationExtension.parse",
+      "name": "parse",
+      "lineno": 335,
+      "end_lineno": 455,
+      "params": [
+        "self",
+        "parser"
+      ],
+      "metrics": {
+        "body_lines": 121,
+        "branches": 20,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 34,
+        "local_calls": [
+          "_make_node",
+          "_parse_block",
+          "_trim_whitespace"
+        ],
+        "num_local_calls": 3,
+        "assigns": 35,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 107.0,
+      "callers": [
+        "InternationalizationExtension._extract",
+        "babel_extract"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=64.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "lexer_wrap_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/jinja2/lexer.py",
+      "module": "src.jinja2.lexer",
+      "qualname": "Lexer.wrap",
+      "name": "wrap",
+      "lineno": 615,
+      "end_lineno": 667,
+      "params": [
+        "self",
+        "stream",
+        "name",
+        "filename"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 12,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "_normalize_newlines"
+        ],
+        "num_local_calls": 1,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 62.3,
+      "callers": [
+        "Lexer.tokenize"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=54.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "parser_parse_primary_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/jinja2/parser.py",
+      "module": "src.jinja2.parser",
+      "qualname": "Parser.parse_primary",
+      "name": "parse_primary",
+      "lineno": 639,
+      "end_lineno": 679,
+      "params": [
+        "self",
+        "with_namespace"
+      ],
+      "metrics": {
+        "body_lines": 41,
+        "branches": 9,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [
+          "fail",
+          "parse_dict",
+          "parse_list",
+          "parse_tuple"
+        ],
+        "num_local_calls": 4,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 53.1,
+      "callers": [
+        "Parser.parse_assign_target",
+        "Parser.parse_test",
+        "Parser.parse_unary"
+      ],
+      "callers_2hop": [
+        "Parser.parse_filter_expr",
+        "Parser.parse_for",
+        "Parser.parse_from",
+        "Parser.parse_pow",
+        "Parser.parse_set",
+        "Parser.parse_signature"
+      ]
+    },
+    "rank_note": "affinity+score=61.6 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "environment_filter_test_common_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/jinja2/environment.py",
+      "module": "src.jinja2.environment",
+      "qualname": "Environment._filter_test_common",
+      "name": "_filter_test_common",
+      "lineno": 497,
+      "end_lineno": 549,
+      "params": [
+        "self",
+        "name",
+        "value",
+        "args",
+        "kwargs",
+        "context",
+        "eval_ctx",
+        "is_filter"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 9,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 51.3,
+      "callers": [
+        "Environment.call_filter",
+        "Environment.call_test"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=42.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "compiler_macro_body_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/jinja2/compiler.py",
+      "module": "src.jinja2.compiler",
+      "qualname": "CodeGenerator.macro_body",
+      "name": "macro_body",
+      "lineno": 610,
+      "end_lineno": 691,
+      "params": [
+        "self",
+        "node",
+        "frame"
+      ],
+      "metrics": {
+        "body_lines": 82,
+        "branches": 6,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 40,
+        "local_calls": [
+          "blockvisit",
+          "buffer",
+          "enter_frame",
+          "fail",
+          "find_undeclared",
+          "func",
+          "indent",
+          "inner",
+          "leave_frame",
+          "mark_parameter_stored",
+          "outdent",
+          "pop_parameter_definitions",
+          "push_parameter_definitions",
+          "return_buffer_contents",
+          "writeline"
+        ],
+        "num_local_calls": 15,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 59.0,
+      "callers": [
+        "CodeGenerator.visit_Macro"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=81.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "sandbox_is_internal_attribute_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/jinja2/sandbox.py",
+      "module": "src.jinja2.sandbox",
+      "qualname": "is_internal_attribute",
+      "name": "is_internal_attribute",
+      "lineno": 115,
+      "end_lineno": 149,
+      "params": [
+        "obj",
+        "attr"
+      ],
+      "metrics": {
+        "body_lines": 35,
+        "branches": 13,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 8,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 47.5,
+      "callers": [
+        "SandboxedEnvironment.is_safe_attribute"
+      ],
+      "callers_2hop": [
+        "SandboxedEnvironment.getattr",
+        "SandboxedEnvironment.getitem"
+      ]
+    },
+    "rank_note": "affinity+score=70.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "ext_extract_from_ast_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "src/jinja2/ext.py",
+      "module": "src.jinja2.ext",
+      "qualname": "extract_from_ast",
+      "name": "extract_from_ast",
+      "lineno": 635,
+      "end_lineno": 709,
+      "params": [
+        "ast",
+        "gettext_functions",
+        "babel_style"
+      ],
+      "metrics": {
+        "body_lines": 75,
+        "branches": 7,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 53.5,
+      "callers": [
+        "InternationalizationExtension._extract",
+        "babel_extract"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=45.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "parser_parse_test_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/jinja2/parser.py",
+      "module": "src.jinja2.parser",
+      "qualname": "Parser.parse_test",
+      "name": "parse_test",
+      "lineno": 952,
+      "end_lineno": 988,
+      "params": [
+        "self",
+        "node"
+      ],
+      "metrics": {
+        "body_lines": 37,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [
+          "fail",
+          "parse_call_args",
+          "parse_postfix",
+          "parse_primary"
+        ],
+        "num_local_calls": 4,
+        "assigns": 13,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 45.7,
+      "callers": [
+        "Parser.parse_filter_expr"
+      ],
+      "callers_2hop": [
+        "Parser.parse_unary"
+      ]
+    },
+    "rank_note": "affinity+score=51.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "compiler_pop_assign_tracking_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/jinja2/compiler.py",
+      "module": "src.jinja2.compiler",
+      "qualname": "CodeGenerator.pop_assign_tracking",
+      "name": "pop_assign_tracking",
+      "lineno": 780,
+      "end_lineno": 821,
+      "params": [
+        "self",
+        "frame"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 9,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 23,
+        "local_calls": [
+          "write",
+          "writeline"
+        ],
+        "num_local_calls": 2,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 3,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 50.2,
+      "callers": [
+        "CodeGenerator.visit_Assign",
+        "CodeGenerator.visit_AssignBlock"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=58.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "nodes_as_const_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/jinja2/nodes.py",
+      "module": "src.jinja2.nodes",
+      "qualname": "_FilterTestCommon.as_const",
+      "name": "as_const",
+      "lineno": 746,
+      "end_lineno": 780,
+      "params": [
+        "self",
+        "eval_ctx"
+      ],
+      "metrics": {
+        "body_lines": 35,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "args_as_const",
+          "as_const",
+          "get_eval_context"
+        ],
+        "num_local_calls": 3,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 45.5,
+      "callers": [
+        "BinExpr.as_const",
+        "Compare.as_const",
+        "CondExpr.as_const",
+        "Getattr.as_const",
+        "Getitem.as_const",
+        "MarkSafeIfAutoescape.as_const"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=38.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "sandbox_getitem_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/jinja2/sandbox.py",
+      "module": "src.jinja2.sandbox",
+      "qualname": "SandboxedEnvironment.getitem",
+      "name": "getitem",
+      "lineno": 288,
+      "end_lineno": 310,
+      "params": [
+        "self",
+        "obj",
+        "argument"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 3,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "getattr",
+          "is_safe_attribute",
+          "unsafe_undefined",
+          "wrap_str_format"
+        ],
+        "num_local_calls": 4,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 5,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 26.3,
+      "callers": [
+        "SandboxedFormatter.get_field"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "debug_get_template_locals_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/jinja2/debug.py",
+      "module": "src.jinja2.debug",
+      "qualname": "get_template_locals",
+      "name": "get_template_locals",
+      "lineno": 131,
+      "end_lineno": 172,
+      "params": [
+        "real_locals"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 4,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 45.2,
+      "callers": [
+        "fake_traceback"
+      ],
+      "callers_2hop": [
+        "rewrite_traceback_stack"
+      ]
+    },
+    "rank_note": "affinity+score=40.6 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "utils_urlize_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/jinja2/utils.py",
+      "module": "src.jinja2.utils",
+      "qualname": "urlize",
+      "name": "urlize",
+      "lineno": 230,
+      "end_lineno": 350,
+      "params": [
+        "text",
+        "trim_url_limit",
+        "rel",
+        "target",
+        "extra_schemes"
+      ],
+      "metrics": {
+        "body_lines": 121,
+        "branches": 11,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 32,
+        "local_calls": [
+          "trim_url"
+        ],
+        "num_local_calls": 1,
+        "assigns": 19,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 85.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=71.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "utils_generate_lorem_ipsum_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/jinja2/utils.py",
+      "module": "src.jinja2.utils",
+      "qualname": "generate_lorem_ipsum",
+      "name": "generate_lorem_ipsum",
+      "lineno": 353,
+      "end_lineno": 405,
+      "params": [
+        "n",
+        "html",
+        "min",
+        "max"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 7,
+        "loops": 3,
+        "while_loops": 1,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 16,
+        "augassigns": 4,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 64.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=51.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "debug_rewrite_traceback_stack_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/jinja2/debug.py",
+      "module": "src.jinja2.debug",
+      "qualname": "rewrite_traceback_stack",
+      "name": "rewrite_traceback_stack",
+      "lineno": 14,
+      "end_lineno": 73,
+      "params": [
+        "source"
+      ],
+      "metrics": {
+        "body_lines": 60,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "fake_traceback"
+        ],
+        "num_local_calls": 1,
+        "assigns": 16,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 51.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=45.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "runtime_call_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/jinja2/runtime.py",
+      "module": "src.jinja2.runtime",
+      "qualname": "Context.call",
+      "name": "call",
+      "lineno": 263,
+      "end_lineno": 308,
+      "params": [
+        "__self",
+        "__obj"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 7,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "derived",
+          "get"
+        ],
+        "num_local_calls": 2,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 42.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=44.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "bccache_get_default_cache_dir_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/jinja2/bccache.py",
+      "module": "src.jinja2.bccache",
+      "qualname": "FileSystemBytecodeCache._get_default_cache_dir",
+      "name": "_get_default_cache_dir",
+      "lineno": 210,
+      "end_lineno": 255,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "_unsafe_dir"
+        ],
+        "num_local_calls": 1,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 43.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=37.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "visitor_generic_visit_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/jinja2/visitor.py",
+      "module": "src.jinja2.visitor",
+      "qualname": "NodeTransformer.generic_visit",
+      "name": "generic_visit",
+      "lineno": 61,
+      "end_lineno": 81,
+      "params": [
+        "self",
+        "node"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 6,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "visit"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 40.1,
+      "callers": [
+        "NodeVisitor.visit"
+      ],
+      "callers_2hop": [
+        "NodeTransformer.visit_list"
+      ]
+    },
+    "rank_note": "affinity+score=31.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "environment_load_template_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/jinja2/environment.py",
+      "module": "src.jinja2.environment",
+      "qualname": "Environment._load_template",
+      "name": "_load_template",
+      "lineno": 956,
+      "end_lineno": 978,
+      "params": [
+        "self",
+        "name",
+        "globals"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "make_globals"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 29.3,
+      "callers": [
+        "Environment.get_template",
+        "Environment.select_template"
+      ],
+      "callers_2hop": [
+        "Environment.get_or_select_template"
+      ]
+    },
+    "rank_note": "affinity+score=35.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "nodes_dump_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "src/jinja2/nodes.py",
+      "module": "src.jinja2.nodes",
+      "qualname": "Node.dump._dump",
+      "name": "_dump",
+      "lineno": 253,
+      "end_lineno": 275,
+      "params": [
+        "node"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 5,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "_dump"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 33.3,
+      "callers": [
+        "Node.dump"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=29.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "loaders_load_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/jinja2/loaders.py",
+      "module": "src.jinja2.loaders",
+      "qualname": "BaseLoader.load",
+      "name": "load",
+      "lineno": 108,
+      "end_lineno": 149,
+      "params": [
+        "self",
+        "environment",
+        "name",
+        "globals"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "get_source"
+        ],
+        "num_local_calls": 1,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 29.2,
+      "callers": [
+        "ChoiceLoader.load",
+        "PrefixLoader.load"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=31.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "runtime_new_context_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/jinja2/runtime.py",
+      "module": "src.jinja2.runtime",
+      "qualname": "new_context",
+      "name": "new_context",
+      "lineno": 93,
+      "end_lineno": 119,
+      "params": [
+        "environment",
+        "template_name",
+        "blocks",
+        "vars",
+        "shared",
+        "globals",
+        "locals"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 29.7,
+      "callers": [
+        "Context.derived"
+      ],
+      "callers_2hop": [
+        "Context.call"
+      ]
+    },
+    "rank_note": "affinity+score=38.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "loaders_get_source_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/jinja2/loaders.py",
+      "module": "src.jinja2.loaders",
+      "qualname": "PackageLoader.get_source",
+      "name": "get_source",
+      "lineno": 365,
+      "end_lineno": 401,
+      "params": [
+        "self",
+        "environment",
+        "template"
+      ],
+      "metrics": {
+        "body_lines": 37,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "split_template_path"
+        ],
+        "num_local_calls": 1,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 28.7,
+      "callers": [
+        "BaseLoader.load",
+        "ChoiceLoader.get_source",
+        "PrefixLoader.get_source"
+      ],
+      "callers_2hop": [
+        "ChoiceLoader.load",
+        "PrefixLoader.load"
+      ]
+    },
+    "rank_note": "affinity+score=24.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "idtracking_store_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/jinja2/idtracking.py",
+      "module": "src.jinja2.idtracking",
+      "qualname": "Symbols.store",
+      "name": "store",
+      "lineno": 95,
+      "end_lineno": 111,
+      "params": [
+        "self",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "_define_ref",
+          "find_ref"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.7,
+      "callers": [
+        "FrameSymbolVisitor.visit_FromImport",
+        "FrameSymbolVisitor.visit_Name"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=19.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "filters_do_urlize_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/jinja2/filters.py",
+      "module": "src.jinja2.filters",
+      "qualname": "do_urlize",
+      "name": "do_urlize",
+      "lineno": 742,
+      "end_lineno": 818,
+      "params": [
+        "eval_ctx",
+        "value",
+        "trim_url_limit",
+        "nofollow",
+        "target",
+        "rel",
+        "extra_schemes"
+      ],
+      "metrics": {
+        "body_lines": 77,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 49.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "meta_find_referenced_templates_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/jinja2/meta.py",
+      "module": "src.jinja2.meta",
+      "qualname": "find_referenced_templates",
+      "name": "find_referenced_templates",
+      "lineno": 62,
+      "end_lineno": 112,
+      "params": [
+        "ast"
+      ],
+      "metrics": {
+        "body_lines": 51,
+        "branches": 7,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 44.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=38.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "filters_do_xmlattr_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/jinja2/filters.py",
+      "module": "src.jinja2.filters",
+      "qualname": "do_xmlattr",
+      "name": "do_xmlattr",
+      "lineno": 260,
+      "end_lineno": 318,
+      "params": [
+        "eval_ctx",
+        "d",
+        "autospace"
+      ],
+      "metrics": {
+        "body_lines": 59,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 38.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=26.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "nativetypes_native_concat_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/jinja2/nativetypes.py",
+      "module": "src.jinja2.nativetypes",
+      "qualname": "native_concat",
+      "name": "native_concat",
+      "lineno": 16,
+      "end_lineno": 47,
+      "params": [
+        "values"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 29.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=23.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "idtracking_branch_update_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/jinja2/idtracking.py",
+      "module": "src.jinja2.idtracking",
+      "qualname": "Symbols.branch_update",
+      "name": "branch_update",
+      "lineno": 121,
+      "end_lineno": 143,
+      "params": [
+        "self",
+        "branch_symbols"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 2,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "find_ref"
+        ],
+        "num_local_calls": 1,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 30.3,
+      "callers": [
+        "FrameSymbolVisitor.visit_If"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=27.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "bccache_dump_bytecode_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/jinja2/bccache.py",
+      "module": "src.jinja2.bccache",
+      "qualname": "FileSystemBytecodeCache.dump_bytecode",
+      "name": "dump_bytecode",
+      "lineno": 275,
+      "end_lineno": 311,
+      "params": [
+        "self",
+        "bucket"
+      ],
+      "metrics": {
+        "body_lines": 37,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 3,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "_get_cache_filename",
+          "remove_silent",
+          "write_bytecode"
+        ],
+        "num_local_calls": 3,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 24.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=23.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "generate_identifier_pattern_main_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "scripts/generate_identifier_pattern.py",
+      "module": "scripts.generate_identifier_pattern",
+      "qualname": "main",
+      "name": "main",
+      "lineno": 56,
+      "end_lineno": 69,
+      "params": [],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "build_pattern",
+          "collapse_ranges",
+          "get_characters"
+        ],
+        "num_local_calls": 3,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 15.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=17.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "async_utils_decorator_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/jinja2/async_utils.py",
+      "module": "src.jinja2.async_utils",
+      "qualname": "async_variant.decorator",
+      "name": "decorator",
+      "lineno": 16,
+      "end_lineno": 54,
+      "params": [
+        "async_func"
+      ],
+      "metrics": {
+        "body_lines": 39,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 20.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=21.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "nativetypes_render_async_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/jinja2/nativetypes.py",
+      "module": "src.jinja2.nativetypes",
+      "qualname": "NativeTemplate.render_async",
+      "name": "render_async",
+      "lineno": 114,
+      "end_lineno": 127,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 15.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=13.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "visitor_visit_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/jinja2/visitor.py",
+      "module": "src.jinja2.visitor",
+      "qualname": "NodeVisitor.visit",
+      "name": "visit",
+      "lineno": 35,
+      "end_lineno": 42,
+      "params": [
+        "self",
+        "node"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "generic_visit",
+          "get_visitor"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.8,
+      "callers": [
+        "NodeTransformer.generic_visit",
+        "NodeTransformer.visit_list"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=12.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "optimizer_generic_visit_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/jinja2/optimizer.py",
+      "module": "src.jinja2.optimizer",
+      "qualname": "Optimizer.generic_visit",
+      "name": "generic_visit",
+      "lineno": 31,
+      "end_lineno": 48,
+      "params": [
+        "self",
+        "node"
+      ],
+      "metrics": {
+        "body_lines": 18,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "generic_visit"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 13.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=11.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "async_utils_wrapper_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/jinja2/async_utils.py",
+      "module": "src.jinja2.async_utils",
+      "qualname": "async_variant.decorator.wrapper",
+      "name": "wrapper",
+      "lineno": 39,
+      "end_lineno": 48,
+      "params": [],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "is_async"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=12.4 (backfill) [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "generate_identifier_pattern_build_pattern_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "scripts/generate_identifier_pattern.py",
+      "module": "scripts.generate_identifier_pattern",
+      "qualname": "build_pattern",
+      "name": "build_pattern",
+      "lineno": 37,
+      "end_lineno": 53,
+      "params": [
+        "ranges"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 19.7,
+      "callers": [
+        "main"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=14.1 (backfill) [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tests_test_iterable_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/jinja2/tests.py",
+      "module": "src.jinja2.tests",
+      "qualname": "test_iterable",
+      "name": "test_iterable",
+      "lineno": 193,
+      "end_lineno": 200,
+      "params": [
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=6.4 (backfill) [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tests_test_sequence_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/jinja2/tests.py",
+      "module": "src.jinja2.tests",
+      "qualname": "test_sequence",
+      "name": "test_sequence",
+      "lineno": 167,
+      "end_lineno": 177,
+      "params": [
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=6.1 (backfill) [direct]",
+    "exercise_mode": "direct"
+  }
+]

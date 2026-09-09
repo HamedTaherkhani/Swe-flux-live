@@ -1,0 +1,10 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "Run only haystack_qa/extractive_nest_answers_s2_loops/files/testcase.py::TestExtractiveNestAnswersLoops::test_seeded_nested_answer_reconstruction. Consider invocations of haystack.components.readers.extractive.ExtractiveReader._nest_answers in haystack/components/readers/extractive.py. An invocation is one call of that exact function during the test run, numbered 1-based in chronological execution order; the test makes exactly one such invocation, so report for invocation 1. For the `while` loop whose header begins at absolute 1-based source line 390, compute the total number of iterations during that invocation. Iteration counting is 1-based in chronological order across every activation of this static loop within invocation 1: iteration N is the Nth execution in the target function's own frame of the loop body's first executable line, absolute source line 391 (`answer = answers_without_query[i]`). Count all such executions across all surrounding `for query_id` iterations. Ignore executions in nested comprehension frames, callees, and every function other than the exact target function. Line numbers are absolute, 1-based lines in the named repository file as it exists for this run. For a multi-line statement or expression, the executed line is where that statement or expression begins; decorator, `def`, and docstring lines do not count unless Python executes them in the target invocation, and in any case only an execution of line 391 counts as an iteration here. Do not deduplicate, reorder, or otherwise transform the iteration executions. Return exactly a JSON object with the sole key `loop_iteration_count`; its value must be a JSON integer. No string formatting or null representation is involved.",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  },
+  "oracle_answer": {
+    "loop_iteration_count": 120
+  }
+}

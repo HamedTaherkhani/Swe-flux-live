@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 270,
+        "predicate": "(sum(map(ord, spidername)) + len(args)) % 4 != 0",
+        "violations": 73
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "bool(args) and opts.list",
+        "violations": 0
+      },
+      {
+        "held_always": true,
+        "observations": 519,
+        "predicate": "len(method) > len(spidername) // 3",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 270,
+        "predicate": "len(tested_methods) > len(spidername) % 5",
+        "violations": 80
+      },
+      {
+        "held_always": false,
+        "observations": 133,
+        "predicate": "len(tested_methods) >= len(args)",
+        "violations": 61
+      },
+      {
+        "held_always": false,
+        "observations": 270,
+        "predicate": "sum(map(ord, spidername)) % 251 != len(args) % 251",
+        "violations": 1
+      }
+    ]
+  },
+  "question": "Run every test method in `scrapy_qa/check_run_m7_invariants/files/testcase.py::CheckRunInvariantTests` and aggregate observations across the whole class. The contributing pytest IDs are the class path followed by each of these method names: test_seeded_listing_explicit_forward, test_seeded_listing_loader_reverse, test_seeded_execution_explicit_reverse, test_seeded_execution_loader_interleaved, test_listing_wide_names, test_execution_wide_names, test_listing_alternate_order, test_execution_alternate_order, test_listing_dense_contracts, test_execution_dense_contracts, test_listing_final_mix, and test_execution_final_mix. Collection order does not affect the requested totals.\n\nFor the exact target frame `scrapy.commands.check.Command.run` in `scrapy/commands/check.py`, evaluate the following six candidate predicates verbatim. Each predicate has its own observation point, shown after it:\n\n- `bool(args) and opts.list` \u2014 a `line` event at line 91.\n- `(sum(map(ord, spidername)) + len(args)) % 4 != 0` \u2014 a `line` event at line 95.\n- `sum(map(ord, spidername)) % 251 != len(args) % 251` \u2014 a `line` event at line 95.\n- `len(tested_methods) > len(spidername) % 5` \u2014 a `line` event at line 99.\n- `len(method) > len(spidername) // 3` \u2014 a `line` event at line 101.\n- `len(tested_methods) >= len(args)` \u2014 a `line` event at line 103.\n\nLine numbers are absolute, 1-based source line numbers in the named repository file. A `line` event is counted immediately before Python executes the statement or expression beginning on that line, using the local values visible in that frame at that moment. Multi-line statements are associated with the line on which the executed statement or expression begins. Count only events whose frame qualname is exactly `scrapy.commands.check.Command.run`: exclude its nested `start` function, generator/comprehension frames, callees, and all other frames. `call`, `return`, and `exception` events do not count. The function's `def` line, comments, and non-executed lines do not create observations.\n\nUse ordinary Python expression semantics for `bool`, `len`, `sum`, `map`, `ord`, integer arithmetic, comparisons, and attribute access. Evaluate a predicate once for every occurrence of its stated observation event, including repeated loop visits and repeated calls, and sum across all listed test methods. An invocation means one call of the exact target function; if invocation ordering is needed to reproduce the run, invocations are 1-based in chronological execution order, though the requested counts are order-independent.\n\nReturn exactly `{\"invariant_report\": [...]}`. Include one object for each candidate, with exactly these keys: `predicate` (JSON string, copied verbatim from the candidate), `observations` (JSON integer count of evaluations), `violations` (JSON integer count whose evaluation was false), and `held_always` (JSON boolean equal to `violations == 0` only when `observations > 0`). If an observation point is never reached, report `observations: 0`, `violations: 0`, and `held_always: false`. Preserve duplicate observations; do not deduplicate events. Sort report objects by the full `predicate` string in ascending Unicode code-point order. Candidate strings are unique, so no tie can occur; if identical predicate strings were present, retain their question order as the tie-break. JSON booleans are serialized as `true` or `false`, and integers are JSON numbers, not strings. No `repr()` or `str()` conversion is applied to counts or booleans.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

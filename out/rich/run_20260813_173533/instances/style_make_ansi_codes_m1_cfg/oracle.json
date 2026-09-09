@@ -1,0 +1,144 @@
+{
+  "question_kind": "M1_IntraProceduralCFG",
+  "question": "During pytest run rich_qa/style_make_ansi_codes_m1_cfg/files/testcase.py::StyleMakeAnsiCodesM1CfgTest, consider every test method defined on that class. The answer aggregates execution across ALL test methods in the class, in the order pytest collects them (alphabetical order of test method names on the class).\n\nTarget function: rich.style.Style._make_ansi_codes defined in rich/style.py (the def statement is on line 344).\n\nCount how many times each physical source line inside the function body executes as a line trace event during the entire test run described above. Sum counts across every invocation of rich.style.Style._make_ansi_codes in every test method; do not reset between methods.\n\nAn invocation is one call event for rich.style.Style._make_ansi_codes. Only event=line records count toward line execution totals. Include line events only from frames whose func equals rich.style.Style._make_ansi_codes (module-qualified format: package.module.Class.method, e.g. rich.style.Style.render). Ignore call, return, and exception events when counting line executions. Do not count line events from callees such as Color.downgrade or list.append even when triggered from this function.\n\nScope is every line from the first statement of the function body through the final return statement, inclusive, as defined in rich/style.py at the def on line 344. That range is lines 354 through 385. The def line (344), decorator lines, and docstring lines (345-352) are outside scope and must not appear. Blank lines and comment-only lines inside the body range are in scope and must be reported with count 0 if never executed. For a multi-line statement, Python emits the line event on the line where that statement begins; for example, the background-color extend call beginning on line 379 reports line 379 when execution enters that statement, not on continuation lines 380-382.\n\nReport the answer as JSON with top-level key line_execution_counts whose value is a list of objects sorted by line ascending (numeric ascending; ties impossible). Each object has exactly these keys:\n- line (int): 1-based physical line number in rich/style.py\n- count (int): total number of line events for that line across the whole test run\n\nEvery line in scope (354-385) must appear exactly once. Lines that never execute must have count 0.",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "line": 354,
+        "count": 175
+      },
+      {
+        "line": 355,
+        "count": 175
+      },
+      {
+        "line": 356,
+        "count": 175
+      },
+      {
+        "line": 357,
+        "count": 175
+      },
+      {
+        "line": 358,
+        "count": 175
+      },
+      {
+        "line": 359,
+        "count": 175
+      },
+      {
+        "line": 360,
+        "count": 115
+      },
+      {
+        "line": 361,
+        "count": 27
+      },
+      {
+        "line": 362,
+        "count": 115
+      },
+      {
+        "line": 363,
+        "count": 20
+      },
+      {
+        "line": 364,
+        "count": 115
+      },
+      {
+        "line": 365,
+        "count": 19
+      },
+      {
+        "line": 366,
+        "count": 115
+      },
+      {
+        "line": 367,
+        "count": 23
+      },
+      {
+        "line": 368,
+        "count": 115
+      },
+      {
+        "line": 369,
+        "count": 348
+      },
+      {
+        "line": 370,
+        "count": 290
+      },
+      {
+        "line": 371,
+        "count": 115
+      },
+      {
+        "line": 372,
+        "count": 115
+      },
+      {
+        "line": 373,
+        "count": 235
+      },
+      {
+        "line": 374,
+        "count": 188
+      },
+      {
+        "line": 375,
+        "count": 86
+      },
+      {
+        "line": 376,
+        "count": 175
+      },
+      {
+        "line": 377,
+        "count": 73
+      },
+      {
+        "line": 378,
+        "count": 175
+      },
+      {
+        "line": 379,
+        "count": 58
+      },
+      {
+        "line": 380,
+        "count": 58
+      },
+      {
+        "line": 381,
+        "count": 29
+      },
+      {
+        "line": 382,
+        "count": 0
+      },
+      {
+        "line": 383,
+        "count": 0
+      },
+      {
+        "line": 384,
+        "count": 175
+      },
+      {
+        "line": 385,
+        "count": 175
+      }
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "question_kind": "M6_InterProceduralCFG",
+  "question": "Run every pytest test method in class `TestConvertCallGraph` from `sqlglot_qa/core_convert_m6_calls/files/testcase.py`, equivalently the pytest class id `sqlglot_qa/core_convert_m6_calls/files/testcase.py::TestConvertCallGraph`. Aggregate by summing across all methods defined by that class whose names start with `test_`; each individual method has a pytest id formed by appending `::<method_name>` to that class id. Do not report per-method results. Because only summed counts are requested, method execution order does not affect the answer.\n\nThe primary target is `sqlglot.expressions.core.convert`, defined in `sqlglot/expressions/core.py`. The tracked scope is every module-level function defined directly in that file. More precisely, include the unique names of all `ast.FunctionDef` and `ast.AsyncFunctionDef` nodes that are direct children of the module AST, including decorated functions. If several direct definitions have the same name, such as overload declarations followed by an implementation, they denote one dotted function identity and produce one answer entry. Exclude every class method and property accessor (including `__init__`, dunder methods, and methods inherited by any class), as well as nested functions, closures, lambda bodies, and comprehension code objects.\n\nFor each in-scope function, report its invocation count over the complete class run. One invocation is one Python `call` event for that function's frame, including calls reached directly, transitively, recursively, or from any other frame. Count every qualifying event without event-level deduplication. A CPython generator or coroutine resumption emits another `call` event for its suspended frame, so each such resumption counts again. Calls for frames outside the located scope are not reported. Every in-scope function must have exactly one answer entry even if it never executes, in which case its count is the JSON integer `0`.\n\nFunction identity is the dotted module name followed by the function's dotted `__qualname__`, with no filename, line number, or `()` suffix. For example, a hypothetical direct function named `sample_helper` in this module would be `sqlglot.expressions.core.sample_helper`. The `file` value is the repository-relative POSIX path `sqlglot/expressions/core.py`; both `file` and `func` are serialized directly as JSON strings, not as Python `repr` strings.\n\nReturn exactly `{\"invocation_counts\": [{\"count\": <integer>, \"file\": <string>, \"func\": <string>}, ...]}`. Counts are base-10 JSON integers. Retain no duplicate function entries and sort entries by `func` ascending; if two entries could share a `func`, break the tie by `file` ascending.",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core._apply_builder"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core._apply_child_list_builder"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core._apply_conjunction_builder"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core._apply_list_builder"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core._apply_set_operation"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core._combine"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core._is_wrong_expression"
+      },
+      {
+        "count": 1,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core._lazy_unnest"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core._to_s"
+      },
+      {
+        "count": 228,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core._wrap"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.alias_"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.and_"
+      },
+      {
+        "count": 178,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.column"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.condition"
+      },
+      {
+        "count": 574,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.convert"
+      },
+      {
+        "count": 68,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.maybe_copy"
+      },
+      {
+        "count": 16,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.maybe_parse"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.not_"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.or_"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.paren"
+      },
+      {
+        "count": 942,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.to_identifier"
+      },
+      {
+        "count": 0,
+        "file": "sqlglot/expressions/core.py",
+        "func": "sqlglot.expressions.core.xor"
+      }
+    ]
+  }
+}

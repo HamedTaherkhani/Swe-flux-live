@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.23, pytest-8.4.2, pluggy-1.6.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: xdist-2.2.1, mock-3.15.0, forked-1.6.0, anyio-4.10.0, requests-mock-1.12.1
+collected 1 item
+
+kedro_qa/node_from_dict_m3_state__pert_llm_s0/files/testcase.py .
+
+==================================== PASSES ====================================
+__________________ TestNodeFromDictState.test_from_dict_state __________________
+------------------------------ Captured log call -------------------------------
+ERROR    kedro.pipeline.node:node.py:445 Node probe_three: produce(None) -> [metrics_a;metrics_b;metrics_c] failed with error: 
+Failed to save outputs of node probe_three: produce(None) -> [metrics_a;metrics_b;metrics_c].
+The node's output keys {'k_alpha', 'k_wrong', 'k_gamma'} do not match with the returned output's keys {'k_beta', 'k_alpha', 'k_gamma'}.
+ERROR    kedro.pipeline.node:node.py:445 Node probe_two: produce(None) -> [series_x;series_y] failed with error: 
+Failed to save outputs of node probe_two: produce(None) -> [series_x;series_y].
+The node output is a dictionary, whereas the function output is <class 'list'>.
+=========================== short test summary info ============================
+PASSED kedro_qa/node_from_dict_m3_state__pert_llm_s0/files/testcase.py::TestNodeFromDictState::test_from_dict_state
+============================== 1 passed in 0.07s ===============================

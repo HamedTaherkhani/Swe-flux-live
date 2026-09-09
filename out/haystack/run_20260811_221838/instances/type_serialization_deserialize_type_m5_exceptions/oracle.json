@@ -1,0 +1,52 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 5,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 4,
+        "exception_type": "IndexError"
+      },
+      {
+        "count": 7,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 5,
+        "exception_type": "ModuleNotFoundError"
+      },
+      {
+        "count": 5,
+        "exception_type": "RuntimeError"
+      },
+      {
+        "count": 15,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 4,
+        "exception_type": "UnicodeDecodeError"
+      },
+      {
+        "count": 4,
+        "exception_type": "ZeroDivisionError"
+      },
+      {
+        "count": 62,
+        "exception_type": "haystack.core.errors.DeserializationError"
+      }
+    ]
+  },
+  "question": "Run all twelve `test_*` methods in `TestDeserializeTypeExceptions` from `haystack_qa/type_serialization_deserialize_type_m5_exceptions/files/testcase.py`: `test_01_generated_builtin_successes`, `test_02_nested_generic_successes`, `test_03_generated_unknown_bare_names`, `test_04_generated_missing_modules`, `test_05_existing_modules_missing_attributes`, `test_06_invalid_generic_main_types`, `test_07_invalid_nested_generic_arguments`, `test_08_unsubscriptable_builtin_mains`, `test_09_attribute_driven_generic_failures`, `test_10_arithmetic_and_reraised_lookup_failures`, `test_11_decode_bounds_and_generator_failures`, and `test_12_mixed_safe_swallowed_and_failing_paths`. The answer aggregates the complete run of every listed method. Each pytest id is the named file path followed by `::TestDeserializeTypeExceptions::` and the method name, for example `haystack_qa/type_serialization_deserialize_type_m5_exceptions/files/testcase.py::TestDeserializeTypeExceptions::test_02_nested_generic_successes`; pytest determines method execution order, but that order does not affect the requested totals.\n\nAcross that complete run, consider every invocation of the exact function `haystack.utils.type_serialization.deserialize_type` in `haystack/utils/type_serialization.py`, including calls made directly by the tests, calls made by their shared helper, and recursive calls made by the target itself. An invocation means one `call` of that exact function; invocations are 1-based in chronological order across all methods, although invocation numbers are not emitted.\n\nAn exception is observed when Python produces an exception event in that exact target-function frame. This includes an exception raised by an operation executing in the frame and an exception propagated into the frame from a callee. Count each target-frame exception event once. An exception raised and fully handled inside a callee does not count because it never produces an exception event in the target frame. If the same exception object is re-raised and produces another exception event in the same target frame, count that later event again. Likewise, when a handler observes one exception and raises a different wrapper exception, count both if both produce events in the target frame. Events in comprehension frames, helper frames, and all other functions are excluded, even when their qualified names begin with the target function's name. Normal calls, executed lines, and returns do not count.\n\nException type naming uses bare `type(exc).__name__` for built-ins (e.g. `ValueError`, never `builtins.ValueError`), `module.QualName` for all others. Message = exact `str(exc)`. Messages are not included in this answer shape. Built-in status is determined by the exception class's `__module__ == \"builtins\"`; for every other class, concatenate `__module__`, a dot, and `__qualname__`.\n\nAggregate observations by that exact normalized exception-type string over all invocations and all test methods. Counts are totals, not counts of distinct invocations or methods: the same type observed in five methods contributes five observations, and repeated observations in one invocation each contribute separately. Emit exactly `{\"exception_type_counts\": [{\"count\": <int>, \"exception_type\": <str>}, ...]}` as JSON. There is exactly one object per observed normalized type, with no unobserved types and no duplicate type objects after aggregation. Sort objects by `exception_type` ascending in lexicographic Unicode code-point order. Since aggregation makes each exception-type string unique, equal primary keys cannot occur and no secondary tie-breaker is needed. `count` is a JSON integer and `exception_type` is a JSON string; no `null`, empty-string, `repr()`, or message substitution is used.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

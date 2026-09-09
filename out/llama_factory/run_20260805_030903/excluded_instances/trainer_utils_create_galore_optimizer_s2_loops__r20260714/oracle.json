@@ -1,0 +1,17 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "During execution of pytest test `llama_factory_qa/trainer_utils_create_galore_optimizer_s2_loops__r20260714/files/testcase.py::TestCreateGaloreOptimizerLoops::test_named_modules_loop_iterations`, consider function `src.llamafactory.train.trainer_utils._create_galore_optimizer` in `src/llamafactory/train/trainer_utils.py`. Focus on the loop whose header is at source line 205 (`for name, module in model.named_modules():`). Count function invocations in 1-based order by each entry into `_create_galore_optimizer` during this test run. For each invocation, define one loop iteration as one execution of the first line in that loop body (source line 206). Return JSON with exactly two keys: `loop_line` (int) and `iterations_per_invocation` (array of int). `iterations_per_invocation[k-1]` must equal the iteration count for invocation k, preserving invocation order exactly.",
+  "template_answer": {
+    "loop_line": "int",
+    "iterations_per_invocation": [
+      "int"
+    ]
+  },
+  "oracle_answer": {
+    "loop_line": 205,
+    "iterations_per_invocation": [
+      9,
+      5
+    ]
+  }
+}

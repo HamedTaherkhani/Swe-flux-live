@@ -1,0 +1,197 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 33,
+        "use_line": 43,
+        "variable": "filepath"
+      },
+      {
+        "def_line": 33,
+        "use_line": 44,
+        "variable": "filepath"
+      },
+      {
+        "def_line": 33,
+        "use_line": 46,
+        "variable": "filepath"
+      },
+      {
+        "def_line": 33,
+        "use_line": 48,
+        "variable": "filepath"
+      },
+      {
+        "def_line": 33,
+        "use_line": 52,
+        "variable": "filepath"
+      },
+      {
+        "def_line": 69,
+        "use_line": 70,
+        "variable": "host"
+      },
+      {
+        "def_line": 68,
+        "use_line": 69,
+        "variable": "host_with_port"
+      },
+      {
+        "def_line": 65,
+        "use_line": 70,
+        "variable": "options"
+      },
+      {
+        "def_line": 65,
+        "use_line": 76,
+        "variable": "options"
+      },
+      {
+        "def_line": 65,
+        "use_line": 78,
+        "variable": "options"
+      },
+      {
+        "def_line": 48,
+        "use_line": 49,
+        "variable": "parsed_path"
+      },
+      {
+        "def_line": 48,
+        "use_line": 54,
+        "variable": "parsed_path"
+      },
+      {
+        "def_line": 48,
+        "use_line": 60,
+        "variable": "parsed_path"
+      },
+      {
+        "def_line": 48,
+        "use_line": 61,
+        "variable": "parsed_path"
+      },
+      {
+        "def_line": 48,
+        "use_line": 62,
+        "variable": "parsed_path"
+      },
+      {
+        "def_line": 48,
+        "use_line": 63,
+        "variable": "parsed_path"
+      },
+      {
+        "def_line": 48,
+        "use_line": 67,
+        "variable": "parsed_path"
+      },
+      {
+        "def_line": 48,
+        "use_line": 68,
+        "variable": "parsed_path"
+      },
+      {
+        "def_line": 48,
+        "use_line": 75,
+        "variable": "parsed_path"
+      },
+      {
+        "def_line": 48,
+        "use_line": 76,
+        "variable": "parsed_path"
+      },
+      {
+        "def_line": 54,
+        "use_line": 56,
+        "variable": "path"
+      },
+      {
+        "def_line": 54,
+        "use_line": 61,
+        "variable": "path"
+      },
+      {
+        "def_line": 54,
+        "use_line": 63,
+        "variable": "path"
+      },
+      {
+        "def_line": 54,
+        "use_line": 65,
+        "variable": "path"
+      },
+      {
+        "def_line": 58,
+        "use_line": 65,
+        "variable": "path"
+      },
+      {
+        "def_line": 61,
+        "use_line": 63,
+        "variable": "path"
+      },
+      {
+        "def_line": 61,
+        "use_line": 65,
+        "variable": "path"
+      },
+      {
+        "def_line": 63,
+        "use_line": 65,
+        "variable": "path"
+      },
+      {
+        "def_line": 49,
+        "use_line": 51,
+        "variable": "protocol"
+      },
+      {
+        "def_line": 49,
+        "use_line": 52,
+        "variable": "protocol"
+      },
+      {
+        "def_line": 49,
+        "use_line": 55,
+        "variable": "protocol"
+      },
+      {
+        "def_line": 49,
+        "use_line": 65,
+        "variable": "protocol"
+      },
+      {
+        "def_line": 49,
+        "use_line": 67,
+        "variable": "protocol"
+      },
+      {
+        "def_line": 49,
+        "use_line": 75,
+        "variable": "protocol"
+      },
+      {
+        "def_line": 56,
+        "use_line": 57,
+        "variable": "windows_path"
+      },
+      {
+        "def_line": 56,
+        "use_line": 58,
+        "variable": "windows_path"
+      }
+    ]
+  },
+  "question": "When the pytest test\n`kedro_qa/utils_parse_filepath_s4_dataflow/files/testcase.py::TestParseFilepathDataFlow::test_traced_run`\nis executed, the function `kedro.utils._parse_filepath` (defined in the\nrepository file `kedro/utils.py`) is invoked directly by the test, exactly\nonce per constructed filepath input. The test builds its inputs\nprogrammatically and deliberately mixes several shapes of filepath:\nscheme-less local paths, Windows drive-letter paths, HTTP and HTTPS URLs,\n`file://` URLs (including Windows-style targets and one carrying a netloc),\ncloud-storage URLs with assorted netloc / username / port / query-string /\nfragment combinations, and one URL whose scheme is neither HTTP(S) nor a\nknown cloud protocol yet still carries a netloc. Across these invocations\nthe target's conditional branches (the scheme-less early return, the HTTP\nearly return, the Windows-path rewrite, the query and fragment appends, the\ncloud host folding, and the abfss/oci username prefixing) are taken in many\ndifferent combinations.\n\nTask: report ALL unique observed def-use pairs, over ALL invocations of\n`kedro.utils._parse_filepath` during this test run, for exactly these eight\nlocal variables of the target function: `filepath`, `parsed_path`,\n`protocol`, `path`, `windows_path`, `options`, `host_with_port`, `host`.\n\nDefinitions and conventions:\n\n- Line numbers are absolute, 1-based, in the file `kedro/utils.py` as it\n  exists on disk in this repository.\n- A \"def\" of a tracked variable is a binding of that bare name: a simple\n  assignment to the name (e.g. `x = ...`), or a parameter binding. The\n  parameter counts as defined at the line of the function's `def` statement,\n  and that def is in effect from the moment the invocation begins, before\n  any line of the body executes.\n- A \"use\" of a tracked variable is any read of the name: any occurrence of\n  the bare name in load position, including as the base object of a\n  subscript or attribute access.\n- Subscript or attribute stores such as `d[key] = value` do NOT redefine the\n  base name `d` (they mutate the object it refers to); the occurrence of `d`\n  in such a statement is a use of `d` (and any tracked names among the\n  subscript/key/value expressions are uses as well).\n- Augmented assignment (`x += 1`) reads then writes: it counts BOTH as a use\n  of the previously reaching def AND as a new def of `x`, both on that line.\n  (The target body contains no augmented assignment; the rule is stated for\n  completeness.)\n- A `for` loop header (`for x in ...:`) would redefine `x` on the header\n  line once per iteration. (The target body contains no loops; the rule is\n  stated for completeness.)\n- Only the eight variables enumerated above are tracked. Any other local\n  names, and any comprehension-local variables, are not tracked. (The target\n  body contains no comprehensions.)\n- A use or def is attributed to the physical line on which the variable\n  reference textually appears, even when the containing statement spans\n  several physical lines: for example, a name appearing on a continuation\n  line of a multi-line condition is attributed to that continuation line,\n  not to the line where the statement begins.\n- A pair {variable, def_line, use_line} is OBSERVED if, during some\n  invocation of the target in this test run, the line use_line actually\n  executes (fires an executed-line event, equivalent to a `line` event of\n  `sys.settrace`, for the target function's own frame) and at that moment\n  the reaching def of `variable` is def_line \u2014 i.e. def_line is the most\n  recent def of that variable executed earlier within the SAME invocation\n  (the parameter binding at the `def` line counts as executed at invocation\n  start), with no other def of that variable executed in between.\n- Only the target function's own frame counts. Functions the target calls\n  (for example the URL-splitting and regular-expression helpers it calls)\n  run in separate frames; their internal lines contribute nothing. However,\n  the target's own lines performing such a call (including the lines holding\n  the argument expressions) DO count normally. Lines containing the target's\n  `return` statements also count: each is a use of every tracked variable\n  read by that return expression.\n- Aggregation and deduplication: collect the observed pairs from all\n  invocations into one set; pairs that are observed multiple times (within\n  one invocation or across invocations) are reported only once.\n- Invocation counting (for reference): one invocation is one entry into the\n  target function during the test run, counted 1-based in chronological\n  order of function entry; the answer aggregates over all of them.\n\nAnswer format: a JSON object with exactly one key, `observed_def_use_pairs`,\nwhose value is a list of objects, one per unique observed pair. Each object\nhas exactly three keys: `variable` (a JSON string, one of the eight tracked\nnames), `def_line` (a JSON integer) and `use_line` (a JSON integer). The\nlist is sorted ascending by `variable` (lexicographic), then by `def_line`,\nthen by `use_line`.\n",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

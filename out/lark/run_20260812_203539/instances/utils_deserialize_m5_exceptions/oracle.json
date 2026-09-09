@@ -1,0 +1,48 @@
+{
+  "question_kind": "M5_Exceptions",
+  "question": "Run every pytest test method whose name begins with `test_` in class `TestDeserializeExceptionAggregation` from `lark_qa/utils_deserialize_m5_exceptions/files/testcase.py` (equivalently, run the pytest id `lark_qa/utils_deserialize_m5_exceptions/files/testcase.py::TestDeserializeExceptionAggregation`), and aggregate over ALL test methods in that class. Pytest identifies an individual method as, for example, `lark_qa/utils_deserialize_m5_exceptions/files/testcase.py::TestDeserializeExceptionAggregation::test_prime_stride_rotation`. During that complete run, consider every invocation of `lark.utils.Serialize.deserialize` in `lark/utils.py`. An invocation means one `call` of that function during the run; invocations are 1-based in chronological execution order, although invocation numbers are not included in the answer. Count an exception observation whenever Python execution in that exact target frame reports an exception event. This includes an exception raised directly by code in the frame and an exception propagated into it from a callee. Count once per target-frame observation across every invocation. An exception raised and fully handled inside a callee, without propagating into the target frame, does not count. If the same exception object is re-raised in the same target frame and is thereby observed there again, count that re-raise again. When an observed exception is handled and a new wrapper exception is raised, count both observations under their respective types. Exception type naming MUST use the same convention as S5: bare `type(exc).__name__` for built-ins (e.g. `ValueError`, never `builtins.ValueError`), `module.QualName` for all others. Message = exact `str(exc)`. Messages are not fields in this answer. Counts are totals over ALL invocations and ALL test methods, so the same type raised in five methods contributes five; do not deduplicate observations. Aggregate all entries with the same canonical exception-type string. Return exactly one JSON object with the sole key `exception_type_counts`; its value is a JSON list of objects, each having exactly `count` (a JSON integer) and `exception_type` (a JSON string). Include every exception type observed at least once. Sort the list by `exception_type` ascending in Unicode code-point order. Equal type strings are aggregated into one entry, so no tie remains and no secondary tie-break is applied. Use no additional keys.",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 16,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 38,
+        "exception_type": "IndexError"
+      },
+      {
+        "count": 164,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 72,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 17,
+        "exception_type": "UnicodeDecodeError"
+      },
+      {
+        "count": 15,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 20,
+        "exception_type": "ZeroDivisionError"
+      },
+      {
+        "count": 19,
+        "exception_type": "lark.exceptions.GrammarError"
+      }
+    ]
+  }
+}

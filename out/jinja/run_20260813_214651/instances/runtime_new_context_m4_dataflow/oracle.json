@@ -1,0 +1,138 @@
+{
+  "question_kind": "M4_DataFlow",
+  "question": "During the pytest run for test class `jinja_qa/runtime_new_context_m4_dataflow/files/testcase.py::TestNewContextDataFlowIndirect`, report **all observed def-use pairs** for the target function with per-pair observation counts. The answer aggregates behavior across **every** `test_*` method in that class; methods are identified by pytest node ids and executed in unittest discovery order (ascending ASCII by method name).\n\nThe target is `jinja2.runtime.new_context` defined in `src/jinja2/runtime.py` (the `def new_context` line is line 93 in that file as checked into this repository). Tests reach it **indirectly** through Jinja template rendering: `pass_context` filters invoke `Context.call`, which may call `Context.derived`, which calls `new_context`. Some tests also call `spawn_derived`, a `pass_context` filter that calls `ctx.derived` with programmatic locals. No test imports or calls `new_context` directly.\n\n**Tracked variables** (only these ten names; ignore any other locals):\n\n`environment`, `template_name`, `blocks`, `vars`, `shared`, `globals`, `locals`, `parent`, `key`, `value`\n\n**Def and use rules** (line numbers are absolute, 1-based, in `src/jinja2/runtime.py`; the executed-line trace event fires on the line where the statement begins):\n\n- Parameters (`environment`, `template_name`, `blocks`, `vars`, `shared`, `globals`, `locals`) are **defined** at line 93 on each invocation's `call` event (the `def` line).\n- A simple assignment `name = expr` **uses** every variable referenced in `expr` on that line, then **defines** `name` on that line (for example `vars = {}` at line 104 defines `vars` after any uses on that line).\n- `for key, value in locals.items()` at line 114 **defines** `key` and `value` on line 114 and **uses** `locals` on line 114.\n- `parent[key] = value` at line 116 **uses** `parent`, `key`, and `value` on line 116; it does **not** define `parent` (the binding is unchanged).\n- `if` and `while` tests **use** referenced variables on the test's line.\n- `return environment.context_class(...)` at line 117 **uses** `environment`, `parent`, `template_name`, `blocks`, and `globals` on line 117 (each AST load counts separately, so `environment` may contribute multiple observations on that line).\n- There are no augmented assignments in this function; the augmented-assignment rule does not apply.\n\n**Observation:** one executed `line` event at `use_line` where a tracked variable is **used** as above, attributed to the **reaching definition** \u2014 the `def_line` of the definition that most recently bound that variable in the same invocation before this use (parameters reach from line 93 until reassigned). Uses inside a loop body count once per iteration. After a variable is defined on a line, that definition is in effect for subsequent lines in the same invocation (including later loop iterations unless redefined).\n\n**Invocation scope:** only trace events whose qualified name is exactly `jinja2.runtime.new_context` and whose file path ends with `src/jinja2/runtime.py` belong to the target. Process events chronologically; each `call` at line 93 starts a fresh reaching-def state for that invocation. Ignore events from other functions.\n\n**Counts:** for each triple `(variable, def_line, use_line)` that occurs at least once, `count` is the total number of observations summed across **all** invocations in **all** test methods in the class. Pairs that never occur are omitted.\n\n**Output:** JSON with top-level key `observed_def_use_pairs`: a list of objects `{variable, def_line, use_line, count}`. Sort the list by `variable` ascending (bytewise ASCII / `strcmp` order), then `def_line` ascending, then `use_line` ascending. The triple `(variable, def_line, use_line)` is unique; multiplicity lives only in `count` (no duplicate rows).",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": "int",
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "variable": "blocks",
+        "def_line": 93,
+        "use_line": 117,
+        "count": 36
+      },
+      {
+        "variable": "environment",
+        "def_line": 93,
+        "use_line": 117,
+        "count": 72
+      },
+      {
+        "variable": "globals",
+        "def_line": 93,
+        "use_line": 108,
+        "count": 12
+      },
+      {
+        "variable": "globals",
+        "def_line": 93,
+        "use_line": 117,
+        "count": 36
+      },
+      {
+        "variable": "key",
+        "def_line": 114,
+        "use_line": 116,
+        "count": 61
+      },
+      {
+        "variable": "locals",
+        "def_line": 93,
+        "use_line": 109,
+        "count": 18
+      },
+      {
+        "variable": "locals",
+        "def_line": 93,
+        "use_line": 114,
+        "count": 77
+      },
+      {
+        "variable": "parent",
+        "def_line": 106,
+        "use_line": 113,
+        "count": 4
+      },
+      {
+        "variable": "parent",
+        "def_line": 106,
+        "use_line": 117,
+        "count": 4
+      },
+      {
+        "variable": "parent",
+        "def_line": 108,
+        "use_line": 117,
+        "count": 24
+      },
+      {
+        "variable": "parent",
+        "def_line": 113,
+        "use_line": 116,
+        "count": 61
+      },
+      {
+        "variable": "parent",
+        "def_line": 113,
+        "use_line": 117,
+        "count": 8
+      },
+      {
+        "variable": "shared",
+        "def_line": 93,
+        "use_line": 105,
+        "count": 18
+      },
+      {
+        "variable": "shared",
+        "def_line": 93,
+        "use_line": 112,
+        "count": 4
+      },
+      {
+        "variable": "template_name",
+        "def_line": 93,
+        "use_line": 117,
+        "count": 36
+      },
+      {
+        "variable": "value",
+        "def_line": 114,
+        "use_line": 115,
+        "count": 73
+      },
+      {
+        "variable": "value",
+        "def_line": 114,
+        "use_line": 116,
+        "count": 61
+      },
+      {
+        "variable": "vars",
+        "def_line": 93,
+        "use_line": 103,
+        "count": 18
+      },
+      {
+        "variable": "vars",
+        "def_line": 93,
+        "use_line": 106,
+        "count": 6
+      },
+      {
+        "variable": "vars",
+        "def_line": 93,
+        "use_line": 108,
+        "count": 12
+      }
+    ]
+  }
+}

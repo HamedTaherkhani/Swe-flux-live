@@ -1,0 +1,102 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 200,
+        "use_line": 201,
+        "variable": "file"
+      },
+      {
+        "def_line": 200,
+        "use_line": 202,
+        "variable": "file"
+      },
+      {
+        "def_line": 215,
+        "use_line": 216,
+        "variable": "file"
+      },
+      {
+        "def_line": 196,
+        "use_line": 197,
+        "variable": "file_"
+      },
+      {
+        "def_line": 196,
+        "use_line": 198,
+        "variable": "file_"
+      },
+      {
+        "def_line": 173,
+        "use_line": 174,
+        "variable": "final_results_dir"
+      },
+      {
+        "def_line": 173,
+        "use_line": 176,
+        "variable": "final_results_dir"
+      },
+      {
+        "def_line": 173,
+        "use_line": 197,
+        "variable": "final_results_dir"
+      },
+      {
+        "def_line": 173,
+        "use_line": 198,
+        "variable": "final_results_dir"
+      },
+      {
+        "def_line": 173,
+        "use_line": 201,
+        "variable": "final_results_dir"
+      },
+      {
+        "def_line": 173,
+        "use_line": 202,
+        "variable": "final_results_dir"
+      },
+      {
+        "def_line": 173,
+        "use_line": 211,
+        "variable": "final_results_dir"
+      },
+      {
+        "def_line": 173,
+        "use_line": 215,
+        "variable": "final_results_dir"
+      },
+      {
+        "def_line": 187,
+        "use_line": 196,
+        "variable": "fpath"
+      },
+      {
+        "def_line": 164,
+        "use_line": 173,
+        "variable": "training_results_dir"
+      },
+      {
+        "def_line": 164,
+        "use_line": 196,
+        "variable": "training_results_dir"
+      },
+      {
+        "def_line": 164,
+        "use_line": 200,
+        "variable": "training_results_dir"
+      }
+    ]
+  },
+  "question": "Run the pytest test `instruct_lab_qa/simple_train_simple_train_s4_dataflow/files/testcase.py::TestSimpleTrainDataFlow::test_seeded_model_artifacts` and consider exactly `instructlab.model.simple_train.simple_train` in `src/instructlab/model/simple_train.py`. Across all invocations during the complete test run, what unique dynamic def-use pairs are observed for the local variables `file`, `file_`, `final_results_dir`, `fpath`, and `training_results_dir`?\n\nA \u201cdef\u201d is an assignment or binding of one of those exact local variable names in the target function's own frame. A parameter binding counts as a def on the function's `def` line. A \u201cuse\u201d is a read of that exact local variable's current value by code executing in that same target frame. A pair is observed when a value bound by a def reaches a later use without an intervening def of the same variable in that invocation. Process reads before writes on the same source line: augmented assignment such as a hypothetical `total += delta` is both a use of `total` reached by its old def and then a new def of `total` on that line. Each successful `for x in iterable` binding is a new def of `x` on the loop-header line for that iteration; evaluating the iterable can use an earlier definition before that new binding. A loop-header attempt that terminates by exhaustion creates no def. Comprehension induction variables belong to their comprehension frame, not the target frame, so their defs and uses are excluded; reads performed inside a comprehension frame are also excluded. Likewise, nested functions, callees, and all other frames are excluded.\n\nAn invocation is one Python `call` of exactly `instructlab.model.simple_train.simple_train`, counted 1-based in chronological order over the complete test run; calls or resumptions of nested functions, comprehensions, or callees do not create target invocations. Compute pairs independently within each invocation, take their set union across invocations, and remove exact duplicate triples only after that union. Definitions never reach from one invocation into another.\n\nLine numbers are absolute, 1-based physical lines in the named repository file. Attribute a def or use to the physical source line containing that binding or read. For a multi-line statement or expression, execution begins at its first executable line, but any reported identifier is attributed to the physical line on which that identifier occurs. The target has no decorators, and its `def` line can appear only for a tracked parameter binding; docstring or comment lines cannot create defs or uses.\n\nReturn exactly one JSON object with the shape `{\"observed_def_use_pairs\": [{\"def_line\": \"int\", \"use_line\": \"int\", \"variable\": \"str\"}]}`. Each actual `def_line` and `use_line` is a JSON integer, and `variable` is the exact source identifier as a JSON string. Sort the list by `variable` in ascending lexicographic Unicode code-point order, then by `def_line` numerically ascending, then by `use_line` numerically ascending. These fields form the complete tie-break order. Function names, values, exception types, and callees are not reported, so name-prefix, `repr()` versus `str()`, exception-name, and empty-versus-null conventions do not otherwise apply.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

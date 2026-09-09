@@ -1,0 +1,200 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Run the single pytest test\n`lark_qa/lalr_interactive_parser_accepts_s6_calls/files/testcase.py::TestInteractiveAcceptsCallStructure::test_programmatic_multistage_grammar`\nagainst the repository as provided. Consider the 11th invocation of\n`lark.parsers.lalr_interactive_parser.InteractiveParser.accepts` in\n`lark/parsers/lalr_interactive_parser.py`. An invocation is one Python `call`\nevent entering that function during this test, numbered from 1 in chronological\nevent order.\n\nReport the exact ordered sequence of Python `call` events for this tracked set:\n`lark.parsers.lalr_interactive_parser.InteractiveParser.accepts`,\n`lark.parsers.lalr_interactive_parser.InteractiveParser.choices`,\n`lark.parsers.lalr_interactive_parser.InteractiveParser.copy`, and\n`lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token`. Begin with\nthe `call` event that enters the specified `accepts` invocation itself, then\ninclude every call to a function in the tracked set that occurs while that\ninvocation's frame remains on the stack, whether called directly by `accepts`\nor transitively by another function. Stop before the matching return event.\nExclude calls before or after that interval and calls to every unlisted\nfunction, including builtins and comprehension frames. Retain every repeated\ncall. If a tracked generator were present, each Python `call` event used to\nstart or resume it would occupy a separate position; none of the tracked\nfunctions is a generator.\n\nOrder entries by chronological Python event emission order; do not sort or\ndeduplicate them. If events have indistinguishable clock times, their observed\nemission order is the tie-breaker. For each entry, `file` is the repository-\nrelative POSIX path and `func` is the full dotted function identity in\n`module.Class.method` or `module.function` form (for example,\n`lark.tree.Tree.pretty`). Do not use `repr()` around either string.\n\nReturn exactly one JSON object with key `function_call_order`. Its value is a\nJSON array of objects, each having exactly `file` (string) and `func` (string)\nin that key order. No other keys are permitted.",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.accepts"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.choices"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.copy"
+      },
+      {
+        "file": "lark/parsers/lalr_interactive_parser.py",
+        "func": "lark.parsers.lalr_interactive_parser.InteractiveParser.feed_token"
+      }
+    ]
+  }
+}

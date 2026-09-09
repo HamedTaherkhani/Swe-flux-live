@@ -1,0 +1,32 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "b'00:060:0070\\n01:0a5:0fd0\\n02:3ac:132a\\n03:273:0b63\\n04:1e3:2132\\n05:3aa:071d\\n06:15c:20d2\\n07:11f:0c64\\n08:0c2:0957\\n09:074:00a3\\n0a:238:070c\\n0b:095:22de\\n0c:104:20e5\\n0d:1f8:05bf\\n0e:250:05af\\n0f:31f:2030\\n10:324:1150\\n11:116:24fa\\n12:2a6:1373\\n13:1bc:0443\\n14:0e3:0eb9\\n15:39e:1dc7\\n16:32a:092c\\nO7f|Od0|O62|E82|E4d|E65|'",
+        "variable": "output"
+      },
+      {
+        "value": "(2348, (96, 627, 348, 116, 260, 799, 678, 926), 11233, 11)",
+        "variable": "return_value"
+      },
+      {
+        "value": "b'00:060:0070\\n0b:095:22de\\n0c:104:20e5\\n10:324:1150\\n12:2a6:1373\\n16:32a:092c\\nE82|E4d|E65|'",
+        "variable": "stderr"
+      },
+      {
+        "value": "b'01:0a5:0fd0\\n02:3ac:132a\\n03:273:0b63\\n04:1e3:2132\\n05:3aa:071d\\n06:15c:20d2\\n07:11f:0c64\\n08:0c2:0957\\n09:074:00a3\\n0a:238:070c\\n0d:1f8:05bf\\n0e:250:05af\\n0f:31f:2030\\n11:116:24fa\\n13:1bc:0443\\n14:0e3:0eb9\\n15:39e:1dc7\\nO7f|Od0|O62|'",
+        "variable": "stdout"
+      }
+    ]
+  },
+  "question": "Run exactly the pytest test\n`click_qa/testing_invoke_s3_state/files/testcase.py::TestInvokeProgramState::test_seeded_multi_path_invocations`.\nConsider calls of `click.testing.CliRunner.invoke` whose implementation is in\n`src/click/testing.py`, and only that function's own frame; activity in the\ntest, the invoked commands, callers, callees, context managers, and nested\nfunctions does not itself create an observation.\n\nWhat are the values of the local variables `output`, `return_value`, `stderr`,\nand `stdout` immediately after absolute line 728 of `src/click/testing.py` has\nexecuted for the fourth time during this test run? Line numbers are absolute,\n1-based source line numbers in that file as it exists in the repository. An\ninvocation is one call of exactly `click.testing.CliRunner.invoke`, counted\n1-based in chronological order. In this test, the fourth execution of line\n728 occurs in the fourth invocation. \"Immediately after line 728\" means after\nthe assignment beginning on that line has completed and before the next\nsource line in the target frame executes.\n\nFor line-event semantics, an event observes locals immediately before the\nstatement or expression at that line executes. A multi-line statement or\nexpression is associated with the absolute line on which its executed\nstatement or expression begins. Thus the observation can be obtained from the\ntarget frame at the next executed target line after line 728. The function\n`def` line, decorators, and docstring lines do not count unless Python\nactually executes a line event there; they do not affect the specified point.\n\nReport each value as the exact Python `repr()` string of that local at the\nobservation point. For a container, use `repr()` of the whole container, not\nelement-wise JSON conversion; strings retain Python quotes, bytes retain the\n`b` prefix, and `None` and booleans use Python spellings. Backslash escapes\ncreated by `repr()` remain backslash characters in the decoded JSON string.\nIf a repr string itself contains an embedded real newline, JSON escaping\npreserves that newline in the decoded string. A missing value must cause an\nerror; it is never represented by JSON null, an empty string, or an omitted\nrecord.\n\nReturn exactly\n`{\"observed_state\": [{\"value\": str, \"variable\": str}, ...]}` as\nJSON-compatible data. Include exactly one record for each of the four named\nvariables, sorted by `variable` in ascending Unicode-code-point\nlexicographic order. Do not remove records or values as duplicates; variable\nname is the sole ordering key, so no tie-breaker is needed.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

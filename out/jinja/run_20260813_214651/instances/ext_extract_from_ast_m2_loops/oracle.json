@@ -1,0 +1,12 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "Consider every test method in `jinja_qa/ext_extract_from_ast_m2_loops/files/testcase.py::TestExtractFromAstLoopDynamics`. The answer aggregates behavior across **all** `test_*` methods in that class, in the chronological order pytest collects and runs them (definition order in the file).\n\nThose tests reach `jinja2.ext.extract_from_ast` in `src/jinja2/ext.py` only **indirectly**: through `jinja2.ext.babel_extract` or `InternationalizationExtension._extract` on an i18n-enabled `Environment` \u2014 never by importing or calling `extract_from_ast` directly.\n\nTarget function: `jinja2.ext.extract_from_ast` (the function whose `def` begins at line 635 of `src/jinja2/ext.py`).\n\nTarget loop: the `for arg in node.args:` header on line 685 of `src/jinja2/ext.py`. An **iteration** of this loop is one execution of the loop body's first physical line (line 686: `if isinstance(arg, nodes.Const) and isinstance(arg.value, str):`). Count iterations using `sys.settrace` `line` events whose file path ends with `src/jinja2/ext.py`, whose qualified name is exactly `jinja2.ext.extract_from_ast`, and whose line number equals 686.\n\n**Invocation** means one `call` trace event for `jinja2.ext.extract_from_ast` during the test run, in chronological order. Because `extract_from_ast` is a generator, each time the consumer resumes it after a `yield`, Python emits another `call` event for the same logical extraction pass; treat each such `call` as a separate invocation. The matching invocation ends at the next `return` event for the same qualified name (including generator `return` events that deliver a yielded value). `exception` events are out of scope for this question.\n\nFor each invocation, count how many iterations the line 685 loop performed (line 686 executions while that invocation is active). Let **max_iterations** be the maximum of those per-invocation counts across all invocations in the run, and **min_iterations** the minimum. Ties need no special handling beyond choosing the numeric max/min.\n\nReturn JSON with exactly these top-level keys: `max_iterations` (integer) and `min_iterations` (integer).",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  },
+  "oracle_answer": {
+    "max_iterations": 6,
+    "min_iterations": 0
+  }
+}

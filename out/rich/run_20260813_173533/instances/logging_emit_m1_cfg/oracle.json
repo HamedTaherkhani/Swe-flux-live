@@ -1,0 +1,212 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 129,
+        "line": 140
+      },
+      {
+        "count": 129,
+        "line": 141
+      },
+      {
+        "count": 168,
+        "line": 142
+      },
+      {
+        "count": 129,
+        "line": 143
+      },
+      {
+        "count": 39,
+        "line": 144
+      },
+      {
+        "count": 25,
+        "line": 145
+      },
+      {
+        "count": 0,
+        "line": 146
+      },
+      {
+        "count": 18,
+        "line": 147
+      },
+      {
+        "count": 18,
+        "line": 148
+      },
+      {
+        "count": 18,
+        "line": 149
+      },
+      {
+        "count": 18,
+        "line": 150
+      },
+      {
+        "count": 0,
+        "line": 151
+      },
+      {
+        "count": 36,
+        "line": 152
+      },
+      {
+        "count": 18,
+        "line": 153
+      },
+      {
+        "count": 18,
+        "line": 154
+      },
+      {
+        "count": 18,
+        "line": 155
+      },
+      {
+        "count": 18,
+        "line": 156
+      },
+      {
+        "count": 18,
+        "line": 157
+      },
+      {
+        "count": 18,
+        "line": 158
+      },
+      {
+        "count": 18,
+        "line": 159
+      },
+      {
+        "count": 18,
+        "line": 160
+      },
+      {
+        "count": 18,
+        "line": 161
+      },
+      {
+        "count": 18,
+        "line": 162
+      },
+      {
+        "count": 18,
+        "line": 163
+      },
+      {
+        "count": 18,
+        "line": 164
+      },
+      {
+        "count": 18,
+        "line": 165
+      },
+      {
+        "count": 0,
+        "line": 166
+      },
+      {
+        "count": 18,
+        "line": 167
+      },
+      {
+        "count": 18,
+        "line": 168
+      },
+      {
+        "count": 6,
+        "line": 169
+      },
+      {
+        "count": 6,
+        "line": 170
+      },
+      {
+        "count": 6,
+        "line": 171
+      },
+      {
+        "count": 0,
+        "line": 172
+      },
+      {
+        "count": 6,
+        "line": 173
+      },
+      {
+        "count": 0,
+        "line": 174
+      },
+      {
+        "count": 129,
+        "line": 175
+      },
+      {
+        "count": 258,
+        "line": 176
+      },
+      {
+        "count": 129,
+        "line": 177
+      },
+      {
+        "count": 0,
+        "line": 178
+      },
+      {
+        "count": 129,
+        "line": 179
+      },
+      {
+        "count": 0,
+        "line": 180
+      },
+      {
+        "count": 0,
+        "line": 181
+      },
+      {
+        "count": 0,
+        "line": 182
+      },
+      {
+        "count": 5,
+        "line": 183
+      },
+      {
+        "count": 0,
+        "line": 184
+      },
+      {
+        "count": 124,
+        "line": 185
+      },
+      {
+        "count": 124,
+        "line": 186
+      },
+      {
+        "count": 4,
+        "line": 187
+      },
+      {
+        "count": 4,
+        "line": 188
+      }
+    ]
+  },
+  "question": "Consider pytest tests in `rich_qa/logging_emit_m1_cfg/files/testcase.py::TestRichHandlerEmitFlow` (all `test_*` methods in that class, executed in pytest's default collection order). The answer aggregates behavior across every test method in the class during one full pytest run of the class.\n\nTarget function: `rich.logging.RichHandler.emit` in `rich/logging.py` (the method body spans lines 140-188 as checked into the repository).\n\nScope: every physical source line from 140 through 188 inclusive in `rich/logging.py`. Blank lines and comment-only lines inside that range are included in scope and must appear in the output; if they never receive a `line` trace event, report `count: 0`. The `def` line (138), decorator lines, and docstring line (139) are outside scope.\n\nExecuted line definition: count only trace events with `event=line` whose qualname equals `rich.logging.RichHandler.emit` and whose normalized file path ends with `rich/logging.py`. Exclude `call`, `return`, and `exception` events. Each counted event contributes to the total for its reported 1-based physical line number in the source file (the same numbering `sys.settrace` uses). For multi-line statements (for example the `if` spanning lines 142-146), the `line` event fires on the physical line where execution resumes for that statement; count events on the line number reported in the trace, not on continuation lines that share the same logical statement unless execution actually visits them.\n\nCounting: for each line L in scope, `count` is the total number of `line` events at line L summed across all invocations of the target during the entire test run (all test methods combined). Each separate `emit` call is one invocation; lines inside branches execute only when that branch is taken, and repeated invocations accumulate.\n\nReturn JSON with top-level key `line_execution_counts`: a list of objects each having keys `line` (int, 1-based source line number) and `count` (int, non-negative). Include every line in scope even when `count` is 0. Sort the list by `line` ascending; when lines differ, smaller line numbers come first.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

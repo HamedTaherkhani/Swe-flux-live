@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 37
+  },
+  "question": "Run the pytest test\n`kedro_qa/runner_run_s2_loops/files/testcase.py::TestThreadedDependencyScheduling::test_programmatic_dependency_chain`\nagainst this repository. During the 1st invocation of\n`kedro.runner.runner.AbstractRunner._run` in `kedro/runner/runner.py`, how many\niterations does the `while` loop whose header is at line 254 execute?\n\nCount invocations 1-based in chronological order. An invocation is one Python\n`call` event whose frame is exactly\n`kedro.runner.runner.AbstractRunner._run`; the requested invocation is the\nfirst such call during the test run. Count loop iterations 1-based, where\niteration N is the Nth execution of the loop body's first source line, line\n255 (`ready = ...`), in that exact invocation. Thus the reported count is the\ntotal number of Python `line` events at line 255 in that frame. Include every\nsuch event, including the final pass if its subsequent control flow breaks\nout of the loop. Exclude `call`, `return`, and `exception` events and all\nevents from callees, comprehensions, generator frames, other functions, and\nother invocations.\n\nLine numbers are absolute, 1-based source line numbers in the named file as it\nexists in this repository. A Python `line` event is attributed to the source\nline where the executed statement or expression begins; continuation lines\nof a multi-line statement do not create alternative loop iterations under\nthis definition. The function's `def` line, decorator lines, and docstring\nlines do not count because only executions of line 255 count.\n\nReturn exactly one JSON object with the shape\n`{\"loop_iteration_count\": \"int\"}`, where the shown `\"int\"` is a type\nplaceholder: `loop_iteration_count` must be the count encoded as a JSON\ninteger, not as a string or a Python `repr`. This scalar count has no sorting,\ntie-breaking, ordering, or deduplication step; every qualifying line event\ncontributes one before the integer total is emitted.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

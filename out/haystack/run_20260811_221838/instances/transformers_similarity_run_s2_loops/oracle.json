@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 68
+  },
+  "question": "Run only the pytest test `haystack_qa/transformers_similarity_run_s2_loops/files/testcase.py::TestTransformersSimilarityRunLoops::test_seeded_batched_ranking`. During the first invocation of `haystack.components.rankers.transformers_similarity.TransformersSimilarityRanker.run` in `haystack/components/rankers/transformers_similarity.py`, what is the exact iteration count of the `for features in inp_dataloader` loop whose header is at line 303? An invocation means one call of that exact function; invocations are numbered 1-based in chronological order during this test. An iteration means the Nth execution, counted 1-based, in that invocation's own function frame, of the loop body's first executable line, the `model_preds = self.model(**features).logits.squeeze(dim=1)` statement beginning at line 304. Count every such execution in chronological order, without sorting or deduplication. Ignore all events in called functions, including the data-loader, model, comprehension, and generator frames. Line numbers are absolute, 1-based source lines in the named file as it exists in the repository; for a multi-line statement, use the line where the statement begins. The function's decorator, `def` line, and docstring lines do not count as loop iterations. Return exactly one JSON object with the key `loop_iteration_count`; its value is the total count as a JSON integer, not a string. No value serialization, ordering, or tie-breaking rule applies beyond that integer because the answer contains one scalar.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

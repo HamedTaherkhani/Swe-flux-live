@@ -1,0 +1,192 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 774,
+        "use_line": 778,
+        "variable": "anchor"
+      },
+      {
+        "def_line": 774,
+        "use_line": 811,
+        "variable": "anchor"
+      },
+      {
+        "def_line": 778,
+        "use_line": 811,
+        "variable": "anchor"
+      },
+      {
+        "def_line": 815,
+        "use_line": 816,
+        "variable": "arg"
+      },
+      {
+        "def_line": 821,
+        "use_line": 822,
+        "variable": "col"
+      },
+      {
+        "def_line": 715,
+        "use_line": 716,
+        "variable": "connect"
+      },
+      {
+        "def_line": 715,
+        "use_line": 777,
+        "variable": "connect"
+      },
+      {
+        "def_line": 715,
+        "use_line": 778,
+        "variable": "connect"
+      },
+      {
+        "def_line": 716,
+        "use_line": 718,
+        "variable": "connect_pred"
+      },
+      {
+        "def_line": 716,
+        "use_line": 782,
+        "variable": "connect_pred"
+      },
+      {
+        "def_line": 709,
+        "use_line": 712,
+        "variable": "expression"
+      },
+      {
+        "def_line": 709,
+        "use_line": 715,
+        "variable": "expression"
+      },
+      {
+        "def_line": 709,
+        "use_line": 722,
+        "variable": "expression"
+      },
+      {
+        "def_line": 709,
+        "use_line": 723,
+        "variable": "expression"
+      },
+      {
+        "def_line": 709,
+        "use_line": 727,
+        "variable": "expression"
+      },
+      {
+        "def_line": 709,
+        "use_line": 728,
+        "variable": "expression"
+      },
+      {
+        "def_line": 709,
+        "use_line": 729,
+        "variable": "expression"
+      },
+      {
+        "def_line": 709,
+        "use_line": 737,
+        "variable": "expression"
+      },
+      {
+        "def_line": 709,
+        "use_line": 815,
+        "variable": "expression"
+      },
+      {
+        "def_line": 748,
+        "use_line": 749,
+        "variable": "name"
+      },
+      {
+        "def_line": 748,
+        "use_line": 750,
+        "variable": "name"
+      },
+      {
+        "def_line": 748,
+        "use_line": 751,
+        "variable": "name"
+      },
+      {
+        "def_line": 748,
+        "use_line": 752,
+        "variable": "name"
+      },
+      {
+        "def_line": 804,
+        "use_line": 806,
+        "variable": "outer_query"
+      },
+      {
+        "def_line": 804,
+        "use_line": 811,
+        "variable": "outer_query"
+      },
+      {
+        "def_line": 806,
+        "use_line": 810,
+        "variable": "outer_query"
+      },
+      {
+        "def_line": 806,
+        "use_line": 811,
+        "variable": "outer_query"
+      },
+      {
+        "def_line": 811,
+        "use_line": 821,
+        "variable": "outer_query"
+      },
+      {
+        "def_line": 811,
+        "use_line": 824,
+        "variable": "outer_query"
+      },
+      {
+        "def_line": 798,
+        "use_line": 804,
+        "variable": "outer_select_exprs"
+      },
+      {
+        "def_line": 803,
+        "use_line": 804,
+        "variable": "outer_select_exprs"
+      },
+      {
+        "def_line": 718,
+        "use_line": 719,
+        "variable": "priors"
+      },
+      {
+        "def_line": 747,
+        "use_line": 750,
+        "variable": "root"
+      },
+      {
+        "def_line": 747,
+        "use_line": 752,
+        "variable": "root"
+      },
+      {
+        "def_line": 815,
+        "use_line": 816,
+        "variable": "val"
+      }
+    ]
+  },
+  "question": "Run the single pytest test\n`sqlglot_qa/duckdb_connect_by_to_recursive_cte_s4_dataflow/files/testcase.py::TestDuckDBConnectByDataFlow::test_seeded_recursive_cte_variants`\nagainst this repository. Across all invocations made by that test, what unique\nruntime def-use pairs are observed for exactly these local variables:\n`anchor`, `arg`, `col`, `connect`, `connect_pred`, `expression`, `name`,\n`outer_query`, `outer_select_exprs`, `priors`, `root`, and `val` in\n`sqlglot.generators.duckdb.connect_by_to_recursive_cte`, defined in\n`sqlglot/generators/duckdb.py`?\n\nA definition (\"def\") is a parameter binding, assignment target, or successful\n`for`-loop target binding in that function's own frame. Parameters count as\ndefined on the function's `def` line. A use is a read of the named local in\nLoad context on an executed source statement in that same frame. Attribute or\nitem mutation does not redefine the local holding the object. For an augmented\nassignment such as `total += delta`, treat `total` as a use of its old reaching\ndefinition followed by a new definition on that same line. A `for x in items`\nheader uses `items` when evaluated and redefines `x` once for each successful\niteration; the final exhausted loop check does not define `x`. Ignore all\ndefinitions and uses syntactically inside list/set/dict comprehensions and\ngenerator expressions, including their iteration variables and iterable\nexpressions, because those comprehension-local operations are outside the\ntarget function frame.\n\nWithin each invocation, a pair is observed when a tracked variable is read and\nits current reaching definition is the most recent definition executed before\nthat read in the invocation. Invocation means one call of the exact target\nfunction, numbered 1-based in chronological order. Analyze every invocation\nmade by the test, but aggregate their pairs into one set. Include only\noperations performed by the target function's own frame; exclude all callee\nframes, the nested helper frame, and synthetic comprehension or generator\nframes. Call, return, and exception event records do not themselves add defs\nor uses. A read in an executed `return` statement is still a use.\n\nLine numbers are absolute 1-based physical lines in\n`sqlglot/generators/duckdb.py` as it exists in the repository. Report the line\nwhere the containing simple or compound statement begins. Thus, for a\nmulti-line assignment, condition, or call, definitions and uses on continued\nphysical lines are attributed to the first line of that innermost containing\nstatement. Count that statement's definitions and uses once per execution even\nif evaluating its continued lines produces more than one source-line event.\nThe function's `def` line can appear only as a parameter definition; decorator\nand docstring lines do not count as uses or assignment definitions.\n\nReturn one JSON object with exactly the key `observed_def_use_pairs`. Its value\nmust be a list of objects, each with exactly `def_line` (integer), `use_line`\n(integer), and `variable` (string). Variable strings use exactly the local\nspellings enumerated above; line values are JSON integers, with no string\nformatting or null sentinel. Remove duplicate triples, including duplicates\nrepeated across iterations or invocations, then sort by `variable`\nlexicographically ascending, then `def_line` numerically ascending, then\n`use_line` numerically ascending.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

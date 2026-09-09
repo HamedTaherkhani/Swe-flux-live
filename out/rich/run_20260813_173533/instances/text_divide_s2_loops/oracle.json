@@ -1,0 +1,10 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "Category S2_Loops (loop iteration count).\n\nTest scope: pytest id `rich_qa/text_divide_s2_loops/files/testcase.py::TestTextWrapLoops::test_wrap_preserves_styled_lines` \u2014 the answer covers exactly that single test method's one execution.\n\nTarget: `rich.text.Text.divide` in repo-relative file `rich/text.py`.\n\nInvocation counting: consider only `call` events whose qualified name is exactly `rich.text.Text.divide` and whose file path ends with `rich/text.py`. Number those calls in chronological order starting at 1. Invocation 1 is the earliest such call during the test run.\n\nLoop: the `while True` loop whose header is on line 1150 of `rich/text.py` (the binary-search loop that adjusts `start_line_no` from `span_start` and `line_ranges`).\n\nIteration counting: iterations are 1-based. Iteration *n* is the *n*th time line 1151 executes during the chosen invocation \u2014 that line is the first statement in the loop body (the assignment `line_start, line_end = line_ranges[start_line_no]`). Count every `line` trace event on that line within the invocation frame; do not count the loop header line itself.\n\nQuestion: During invocation 1 of `rich.text.Text.divide`, how many iterations does the `while True` loop at line 1150 perform?\n\nAnswer format: a JSON object with exactly one key `loop_iteration_count` whose value is a JSON number (integer) giving the iteration count.",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  },
+  "oracle_answer": {
+    "loop_iteration_count": 80
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "question_kind": "S3_ProgramState",
+  "question": "Run the single pytest test method `TestAzureConvertTablesState.test_run_with_generated_tables` in `haystack_qa/azure_convert_tables_s3_state/files/testcase.py`. During that test run, consider the first invocation of `haystack.components.converters.azure.AzureOCRDocumentConverter._convert_tables` in `haystack/components/converters/azure.py`. An invocation means one call of that function and invocations are numbered from 1 in chronological order.\n\nWhat are the values of the local variables `following_context`, `preceding_context`, `table_content`, `table_list`, and `table_meta` immediately after absolute, 1-based source line 310 has executed for the third time within that invocation, and before the next source statement executes? An occurrence is counted each time the statement whose expression begins on line 310 completes, in chronological order and starting at 1. Line numbers refer to the named repository file as it exists for this test; for a multi-line statement, its line is the line on which the statement or expression begins. Decorator, `def`, and docstring lines do not count unless Python actually executes them in this invocation.\n\nReturn exactly `{\"observed_state\": [{\"value\": \"...\", \"variable\": \"...\"}]}`. `observed_state` is a JSON list with one object per requested variable, sorted by `variable` in ascending Unicode code-point order; do not deduplicate entries. Every object has exactly two JSON string fields: `value` is Python's exact `repr()` string for the complete local value at the observation point, and `variable` is the local's source-level name. For containers, take `repr()` of the whole container rather than formatting elements separately. Thus strings retain their quote characters and Python spellings such as `None` and `True` are used inside representations. Escapes are also those produced by `repr()`; for example, `repr(\"alpha\\nbeta\")` is the seven-character-content representation `'alpha\\nbeta'` with a backslash and `n` between the words, and JSON escaping may escape that backslash again in the serialized file. All five locals exist at this point, so no missing-value or JSON `null` convention applies.",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "'line-2-4-10cd\\nline-2-5-1a2c\\nline-2-6-1a9c\\nline-2-7-338\\nline-2-8-621'",
+        "variable": "following_context"
+      },
+      {
+        "value": "'line-1-24-19c9\\nline-1-25-74b\\nline-1-26-108c\\nline-1-27-10eb\\ncap-11724'",
+        "variable": "preceding_context"
+      },
+      {
+        "value": "'\"c2-0-0-7f8\\nc2-1-0-1e8f\",\"c2-0-1-18dd\\nc2-1-1-89\",\"c2-0-2-1605\\nc2-1-2-16b9\",\"c2-0-3-218a\\nc2-1-3-1729\"\\nc2-2-0-262c,c2-2-1-71e,c2-2-2-1f20,c2-2-3-14f0\\nc2-3-0-2345,c2-3-1-116c,c2-3-2-164e,c2-3-3-6fb\\nc2-4-0-19fe,c2-4-1-1865,c2-4-2-7a2,c2-4-3-c31\\nc2-5-0-1631,c2-5-1-db,c2-5-2-239c,c2-5-3-1bfa\\n'",
+        "variable": "table_content"
+      },
+      {
+        "value": "[['c2-0-0-7f8\\nc2-1-0-1e8f', 'c2-0-1-18dd\\nc2-1-1-89', 'c2-0-2-1605\\nc2-1-2-16b9', 'c2-0-3-218a\\nc2-1-3-1729'], ['c2-2-0-262c', 'c2-2-1-71e', 'c2-2-2-1f20', 'c2-2-3-14f0'], ['c2-3-0-2345', 'c2-3-1-116c', 'c2-3-2-164e', 'c2-3-3-6fb'], ['c2-4-0-19fe', 'c2-4-1-1865', 'c2-4-2-7a2', 'c2-4-3-c31'], ['c2-5-0-1631', 'c2-5-1-db', 'c2-5-2-239c', 'c2-5-3-1bfa']]",
+        "variable": "table_list"
+      },
+      {
+        "value": "{'file_path': 'generated-input.bin', 'batch': 7, 'series': 88, 'preceding_context': 'line-1-24-19c9\\nline-1-25-74b\\nline-1-26-108c\\nline-1-27-10eb\\ncap-11724', 'following_context': 'line-2-4-10cd\\nline-2-5-1a2c\\nline-2-6-1a9c\\nline-2-7-338\\nline-2-8-621', 'page': 1}",
+        "variable": "table_meta"
+      }
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "question_kind": "S4_DataFlow",
+  "question": "Category S4_DataFlow (observed def-use pairs).\n\nTest scope: pytest id `rich_qa/syntax_get_syntax_s4_dataflow/files/testcase.py::TestSyntaxGetSyntaxDataFlow::test_get_syntax_line_number_wrap_slice` \u2014 the answer covers exactly that single test method's one execution.\n\nTarget: `rich.syntax.Syntax._get_syntax` in repo-relative file `rich/syntax.py` (function header begins at line 652).\n\nInvocation: there is exactly one call to the target during the test run. All analysis is for that invocation's frame only.\n\nExecuted lines: process every `line` event delivered by CPython `sys.settrace` while `rich.syntax.Syntax._get_syntax` is on the call stack (from function entry until return), in chronological order. Repeat the same source line number each time it appears (for example inside loops). Line numbers are absolute 1-based line numbers in the repository file `rich/syntax.py`; for a multi-line statement, the reported line is where that statement begins.\n\nTracked variables: `code_width`, `line_no`, `line_offset`, `lines`, `numbers_column_width`, `render_options`, `transparent_background`, `wrapped_lines`.\n\nDefinitions: a variable is *defined* on a line when it is bound by function parameters, plain assignment (`x = ...`), annotated assignment, augmented assignment (`x += 1` counts as a new definition on that line after the read of the prior value), `for` loop targets (`for x in ...` defines `x` on the `for` header line each iteration), `with ... as x`, or exception-handler `as` bindings. Function parameters `console` and `options` are not tracked; every tracked name that is a parameter would still be defined at line 652, but only the listed names are reported. Comprehension-local variables and `except` names outside the tracked set are ignored.\n\nUses: a variable is *used* on a line when it is read (including as part of an expression, subscript, attribute base, or call argument) before any new definition of that name on the same line. For augmented assignment, the pre-update read is a use on that line and the write is a separate definition on the same line after the use.\n\nDef-use pair: for each tracked variable `v`, each use of `v` on executed line `U` pairs with the most recent definition line `D` of `v` that executed before that use and was not superseded by a later definition of `v` between `D` and `U` (inclusive of `D`, exclusive of redefinition between). Formally: walk executed lines in order; maintain the current definition line per tracked variable; on each use, record `{variable: v, def_line: D, use_line: U}`; on each definition, update the current definition line for `v` to that line. Parameters count as defined at line 652 only for tracked names that appear in the signature (none of the tracked names are parameters here).\n\nDeduplication: if the same triple `(variable, def_line, use_line)` arises multiple times (for example from repeated loop iterations), include it once.\n\nSort order: ascending by `variable` (lexicographic), then `def_line`, then `use_line`.\n\nQuestion: During the test run, what are all unique observed def-use pairs for the tracked variables listed above in `rich.syntax.Syntax._get_syntax`?\n\nAnswer format: a JSON object with exactly one key `observed_def_use_pairs` whose value is a JSON array of objects, each with exactly three keys: `variable` (string), `def_line` (integer), `use_line` (integer).",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "variable": "str",
+        "def_line": "int",
+        "use_line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "variable": "code_width",
+        "def_line": 663,
+        "use_line": 673
+      },
+      {
+        "variable": "code_width",
+        "def_line": 673,
+        "use_line": 732
+      },
+      {
+        "variable": "line_no",
+        "def_line": 746,
+        "use_line": 774
+      },
+      {
+        "variable": "line_no",
+        "def_line": 746,
+        "use_line": 775
+      },
+      {
+        "variable": "line_offset",
+        "def_line": 710,
+        "use_line": 713
+      },
+      {
+        "variable": "line_offset",
+        "def_line": 710,
+        "use_line": 715
+      },
+      {
+        "variable": "line_offset",
+        "def_line": 710,
+        "use_line": 746
+      },
+      {
+        "variable": "lines",
+        "def_line": 711,
+        "use_line": 713
+      },
+      {
+        "variable": "lines",
+        "def_line": 711,
+        "use_line": 715
+      },
+      {
+        "variable": "lines",
+        "def_line": 715,
+        "use_line": 726
+      },
+      {
+        "variable": "lines",
+        "def_line": 724,
+        "use_line": 746
+      },
+      {
+        "variable": "numbers_column_width",
+        "def_line": 731,
+        "use_line": 770
+      },
+      {
+        "variable": "numbers_column_width",
+        "def_line": 731,
+        "use_line": 774
+      },
+      {
+        "variable": "render_options",
+        "def_line": 732,
+        "use_line": 750
+      },
+      {
+        "variable": "transparent_background",
+        "def_line": 660,
+        "use_line": 752
+      },
+      {
+        "variable": "wrapped_lines",
+        "def_line": 748,
+        "use_line": 772
+      }
+    ]
+  }
+}

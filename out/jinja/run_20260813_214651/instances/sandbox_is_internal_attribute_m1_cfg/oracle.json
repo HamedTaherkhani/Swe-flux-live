@@ -1,0 +1,108 @@
+{
+  "question_kind": "M1_IntraProceduralCFG",
+  "question": "Consider every test method in `jinja_qa/sandbox_is_internal_attribute_m1_cfg/files/testcase.py::TestSandboxInternalAttributePolicy`. The answer aggregates behavior across **all** `test_*` methods in that class, in the chronological order pytest collects and runs them (definition order in the file).\n\nThose tests reach `jinja2.sandbox.is_internal_attribute` in `src/jinja2/sandbox.py` only **indirectly**: through `SandboxedEnvironment.getattr`, `SandboxedEnvironment.getitem`, or compiled templates that call those sandbox hooks \u2014 never by importing or calling `is_internal_attribute` directly.\n\nTarget function: `jinja2.sandbox.is_internal_attribute` (the function beginning at line 115 of `src/jinja2/sandbox.py`).\n\n**Scoped lines** are every physical source line from 127 through 149 inclusive that belongs to the function's executable body (all statement and continuation lines inside the `def`, excluding the `def` line itself, the docstring, blank lines, and comment-only lines). Continuation lines inside parenthesized expressions are in scope as separate physical lines.\n\n**Line execution** means one `line` trace event whose file path ends with `src/jinja2/sandbox.py`, whose qualified name is exactly `jinja2.sandbox.is_internal_attribute`, and whose line number equals L. Count every such event across the entire test run using Python's `sys.settrace` line semantics: each physical line number reported by the interpreter increments that line's total independently (continuation lines inside a multi-line call may each produce their own event). Multiple invocations of the function sum together. The `def` line, decorator lines, and docstring lines are out of scope and never appear in the answer. `call`, `return`, and `exception` events do not contribute to these counts.\n\nFor each scoped line L, report the total number of times line L executed. Lines that never executed must appear with count `0`.\n\nReturn JSON with the single top-level key `line_execution_counts`: a list of objects, each with keys `line` (absolute 1-based line number in `src/jinja2/sandbox.py`) and `count` (non-negative integer). Sort the list by `line` ascending; when line numbers tie (they cannot), break ties by `count` ascending.",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "line": 127,
+        "count": 232
+      },
+      {
+        "line": 128,
+        "count": 18
+      },
+      {
+        "line": 129,
+        "count": 0
+      },
+      {
+        "line": 130,
+        "count": 214
+      },
+      {
+        "line": 131,
+        "count": 20
+      },
+      {
+        "line": 132,
+        "count": 0
+      },
+      {
+        "line": 133,
+        "count": 194
+      },
+      {
+        "line": 134,
+        "count": 49
+      },
+      {
+        "line": 135,
+        "count": 35
+      },
+      {
+        "line": 136,
+        "count": 145
+      },
+      {
+        "line": 137,
+        "count": 40
+      },
+      {
+        "line": 138,
+        "count": 105
+      },
+      {
+        "line": 139,
+        "count": 22
+      },
+      {
+        "line": 140,
+        "count": 10
+      },
+      {
+        "line": 141,
+        "count": 83
+      },
+      {
+        "line": 142,
+        "count": 14
+      },
+      {
+        "line": 143,
+        "count": 6
+      },
+      {
+        "line": 144,
+        "count": 138
+      },
+      {
+        "line": 145,
+        "count": 69
+      },
+      {
+        "line": 146,
+        "count": 0
+      },
+      {
+        "line": 147,
+        "count": 14
+      },
+      {
+        "line": 148,
+        "count": 6
+      },
+      {
+        "line": 149,
+        "count": 135
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "question_kind": "S3_ProgramState",
+  "question": "Consider the single test method `jinja_qa/lexer_wrap_s3_state/files/testcase.py::TestLexerWrapProgramState::test_compile_programmatic_template`.\n\nThat test compiles a programmatic Jinja template by calling `Environment.from_string`, which eventually invokes `jinja2.lexer.Lexer.wrap` in `src/jinja2/lexer.py` (the `wrap` method starting at line 615).\n\nAn **invocation** of `Lexer.wrap` means one `call` trace event recorded at absolute line 615 of `src/jinja2/lexer.py` inside `jinja2.lexer.Lexer.wrap` during the test run. Count invocations in chronological order starting at 1. This test triggers exactly one such invocation.\n\nWithin that invocation, a **line execution** at absolute line number L means one `line` trace event whose file path ends with `src/jinja2/lexer.py` and whose line number equals L inside `jinja2.lexer.Lexer.wrap`. Count line executions at a given L in chronological order starting at 1. Multi-line statements use the line where the statement begins.\n\nTo determine local variable bindings at an observation point, scan every `line` event for `jinja2.lexer.Lexer.wrap` in chronological order from the invocation's `call` at line 615 up to and including the 77-th line execution at line 667. Maintain a map of variable names to value strings; each event's `locals={...}` dictionary (keys sorted in the trace output) supplies bindings that overwrite any earlier binding for the same name. Only keys present in those per-event dictionaries participate; variables never mentioned are absent.\n\nImmediately after line 667 has executed for the 77-th time during that invocation, report the bindings for `lineno`, `token`, `value`, `value_str`.\n\nEach reported value is the exact string stored in the merged map (the trace logger records each local using Python `repr()`, so strings include their surrounding quotes, `None` appears as `None`, booleans as `True`/`False`, and container values are the `repr()` of the whole container). For example, a string local holding `hello` is reported as `'hello'`, and an integer local holding 3 is reported as `3`.\n\nReturn JSON with top-level key `observed_state`: a list of objects, each with keys `variable` (the variable name) and `value` (its merged binding string). Sort the list by `variable` ascending (Unicode code-point order); break ties by `value` ascending.",
+  "template_answer": {
+    "observed_state": [
+      {
+        "variable": "str",
+        "value": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "variable": "lineno",
+        "value": "2"
+      },
+      {
+        "variable": "token",
+        "value": "'integer'"
+      },
+      {
+        "variable": "value",
+        "value": "146"
+      },
+      {
+        "variable": "value_str",
+        "value": "'0x92'"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 1,
+        "predicate": "expression.find(exp.Limit) is None",
+        "violations": 1
+      },
+      {
+        "held_always": true,
+        "observations": 173,
+        "predicate": "len(existing_ctes) >= len(new_ctes)",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 173,
+        "predicate": "len(new_ctes) % 3 != 1",
+        "violations": 66
+      },
+      {
+        "held_always": false,
+        "observations": 173,
+        "predicate": "new_cte is None",
+        "violations": 121
+      },
+      {
+        "held_always": false,
+        "observations": 173,
+        "predicate": "new_cte is not None",
+        "violations": 52
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "root is not None",
+        "violations": 0
+      }
+    ]
+  },
+  "question": "Run every test method in `sqlglot_qa/eliminate_subqueries_eliminate_subqueries_m7_invariants/files/testcase.py::TestEliminateSubqueriesInvariants` and aggregate observations across the entire class. The contributing pytest ids are the class prefix followed by each of `test_alias_and_table_name_collisions`, `test_create_table_as_select`, `test_deep_nested_chain`, `test_distinct_derived_join_fanout`, `test_existing_ctes_with_nested_sources`, `test_insert_select_source`, `test_lateral_correlated_sources`, `test_mixed_unique_and_repeated_shapes`, `test_parenthesized_root_subquery`, `test_periodic_duplicate_fanout`, `test_recursive_cte_and_derived_tail`, and `test_union_of_generated_branches`; count their runtime events in pytest's chronological execution order.\n\nFor `sqlglot.optimizer.eliminate_subqueries.eliminate_subqueries` in `sqlglot/optimizer/eliminate_subqueries.py`, evaluate the following candidate predicates verbatim:\n\n- `len(existing_ctes) >= len(new_ctes)`\n- `len(new_ctes) % 3 != 1`\n- `new_cte is None`\n- `new_cte is not None`\n- `expression.find(exp.Limit) is None`\n- `root is not None`\n\nFor the two `len(...)` predicates and the two `new_cte` predicates, the observation point is every Python `line` event at absolute 1-based line 101 in the named repository file, immediately before the statement beginning on that line executes. For `expression.find(exp.Limit) is None`, the observation point is every Python `line` event at absolute 1-based line 38, immediately before the call beginning there executes; `exp.Limit` means the `sqlglot.expressions.Limit` class, and `find` has its repository-defined runtime semantics. For `root is not None`, the observation point is every Python `line` event at absolute 1-based line 44, immediately before its `return` executes. For a multi-line statement, a line event belongs to the absolute line on which that statement or expression begins. The function's `def` line, decorator lines, and docstring-only lines are not observation points. At each observation, evaluate the predicate against that invocation's current Python local objects, using ordinary Python identity, `len`, comparison, remainder, method-call, and boolean semantics. An invocation means one `call` of this exact function, including recursive direct calls, numbered 1-based in chronological order. Events in callees, comprehension frames, and all other functions do not count.\n\nFor each predicate, report `predicate` as the exact string above, `observations` as the total number of executions of that predicate's stated observation point across all listed methods and invocations, `violations` as the number of those evaluations that were false, and `held_always` as exactly `violations == 0` when at least one observation exists. If an observation point is never reached, report `observations: 0`, `violations: 0`, and `held_always: false`. Do not deduplicate repeated observations.\n\nReturn exactly `{\"invariant_report\": [...]}`. Each list entry has exactly `held_always` (JSON boolean), `observations` (JSON integer), `predicate` (JSON string), and `violations` (JSON integer). Sort entries by the exact `predicate` string in ascending Unicode code-point order; predicate strings are unique, so no further tie-break is needed. Values are native JSON values, not `repr()` or `str()` renderings; for example, a boolean is serialized as `true`, not the Python spelling `True`.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

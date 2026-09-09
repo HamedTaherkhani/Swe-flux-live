@@ -1,0 +1,222 @@
+{
+  "question_kind": "S1_IntraProceduralCFG",
+  "question": "Run the pytest test `instruct_lab_qa/vllm_build_vllm_cmd_s1_cfg/files/testcase.py::TestVllmBuildPath::test_middle_server_uses_autodetected_configuration` against this repository. What is the exact ordered sequence of executed Python line events inside `instructlab.model.backends.vllm.build_vllm_cmd` in `src/instructlab/model/backends/vllm.py` during its second invocation? An invocation is one runtime `call` event for exactly that function, counted 1-based in chronological order from the start of the test; calls of other functions, including nested comprehension frames, do not count. Include only `line` events emitted while that second function frame is active, beginning after its call event and ending before its return event. Exclude call, return, and exception events and all events in callees. The `def` line, decorator lines, and docstring lines do not appear in the sequence. Preserve chronological event order exactly and retain every duplicate; do not sort or deduplicate. Line numbers are absolute 1-based physical line numbers in the named repository file as it exists for this test. This function contains multi-line calls and expressions: if a line event occurs on any physical line spanned by one complete assignment, expression statement, raise, return, import, or augmented assignment, report the physical line where that statement begins; likewise, an event on any line spanned by an `if` or `while` condition is reported as the line where that condition begins. Retain one output entry per original event even when this normalization creates adjacent duplicates. For example, events on lines 20 and 21 of a hypothetical call expression whose statement begins on line 19 are both reported as line 19. Return exactly one JSON object with the key `executed_path`. Its value is a JSON array whose entries have exactly the keys `file`, `func`, and `line` in that key order. In every entry, `file` is the repo-relative POSIX path string, `func` is the fully qualified Python name in `module.qualname` form (for example, `package.module.Class.method`), and `line` is a JSON integer. Serialize the two strings as JSON strings and the integer as a JSON number; no field uses Python `repr`, and no value is null or omitted.",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 392
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 393
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 395
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 396
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 398
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 399
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 401
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 402
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 404
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 405
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 409
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 410
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 411
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 412
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 421
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 422
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 423
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 424
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 425
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 426
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 427
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 428
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 429
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 431
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 432
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 437
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 438
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 442
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 446
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 446
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 446
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 450
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 450
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 450
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 450
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 450
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 450
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 450
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 450
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 458
+      },
+      {
+        "file": "src/instructlab/model/backends/vllm.py",
+        "func": "instructlab.model.backends.vllm.build_vllm_cmd",
+        "line": 460
+      }
+    ]
+  }
+}

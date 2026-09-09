@@ -1,0 +1,48 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 20,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 18,
+        "exception_type": "IndexError"
+      },
+      {
+        "count": 21,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 21,
+        "exception_type": "RuntimeError"
+      },
+      {
+        "count": 15,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 20,
+        "exception_type": "UnicodeDecodeError"
+      },
+      {
+        "count": 151,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 21,
+        "exception_type": "ZeroDivisionError"
+      }
+    ]
+  },
+  "question": "Run every test method in the unittest class `TestDialectLookupExceptions` in `sqlglot_qa/dialect_get_or_raise_m5_exceptions/files/testcase.py` (equivalently, run the pytest class selector `sqlglot_qa/dialect_get_or_raise_m5_exceptions/files/testcase.py::TestDialectLookupExceptions`). Aggregate the answer over ALL `test_...` methods in that class and over every invocation they make, including methods that finish without an exception. A test's pytest id has the exact form `repo/relative/test_file.py::ClassName::test_method`, for example `tests/test_demo.py::TestExample::test_case`; test ids do not appear in the requested answer, and test execution order does not affect the aggregation. For exactly `sqlglot.dialects.dialect.Dialect.get_or_raise` in `sqlglot/dialects/dialect.py`, report how many exception observations of each type occur in that exact target frame. An invocation means one Python `call` of exactly this function, numbered 1-based in chronological order across the run; nested callees and their frames are not target invocations. An exception is observed when Python delivers an exception event to the target frame: this includes an exception raised by code in that frame and one propagated into it from a callee. Count one observation per such target-frame event. An exception raised and fully handled inside a callee does not count. If the target catches an observed exception and later raises another exception, count both events; if the same exception object is re-raised in the target and Python delivers another target-frame exception event, count that event again as well. Counts are totals over ALL invocations and ALL test methods, not counts of distinct objects or invocations, so a type observed five times contributes a count of five. Report exception types using this convention: bare `type(exc).__name__` for built-in exceptions (for example, `ValueError`, never `builtins.ValueError`), `module.QualName` for all others. Return exactly a JSON object with the key `exception_type_counts`, whose value is a list of objects; every object has exactly two string keys: `count`, mapped to an integer, and `exception_type`, mapped to a string. Group duplicate type names into one object, include every type observed at least once, and sort the list by `exception_type` ascending using ordinary Unicode string ordering. There can be only one object per type after grouping, so no further tie-break is needed; do not deduplicate exception events before computing each total.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

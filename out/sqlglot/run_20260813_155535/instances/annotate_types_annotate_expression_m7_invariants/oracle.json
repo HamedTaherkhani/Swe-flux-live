@@ -1,0 +1,48 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 3615,
+        "predicate": "'Column(' occurs in repr(expr)",
+        "violations": 3070
+      },
+      {
+        "held_always": false,
+        "observations": 1,
+        "predicate": "'NeverSeen' occurs in repr(expr)",
+        "violations": 1
+      },
+      {
+        "held_always": true,
+        "observations": 8,
+        "predicate": "'metric_' occurs in repr(expr)",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 3615,
+        "predicate": "children_annotated is True",
+        "violations": 1821
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "identifier.this == 'NeverSeen'",
+        "violations": 0
+      }
+    ]
+  },
+  "question": "Run every pytest test method whose name begins `test_` in `sqlglot_qa/annotate_types_annotate_expression_m7_invariants/files/testcase.py::TestAnnotateExpressionInvariants`; the answer aggregates observations from ALL such methods in that class, so all 12 collected test methods contribute. A method is identified by its full pytest id `sqlglot_qa/annotate_types_annotate_expression_m7_invariants/files/testcase.py::TestAnnotateExpressionInvariants::<method_name>`, and methods execute in pytest's default collection order. During the complete run, consider Python executions of exactly `sqlglot.optimizer.annotate_types.TypeAnnotator._annotate_expression` in `sqlglot/optimizer/annotate_types.py`; calls of other functions, including callees, do not count. An invocation is one Python `call` of exactly that function, numbered 1-based in chronological call order across all covered methods. Evaluate the following five candidate predicates verbatim at their specified observation points: (1) `'Column(' occurs in repr(expr)` at every `line` event for line 464; (2) `'NeverSeen' occurs in repr(expr)` at every `line` event for line 505; (3) `'metric_' occurs in repr(expr)` at every `line` event for line 499; (4) `children_annotated is True` at every `line` event for line 464; and (5) `identifier.this == 'NeverSeen'` at every `line` event for line 529. Each observation uses the target invocation's live local values immediately before the statement beginning on that line executes. `repr(x)` means Python's standard `repr()` of the whole current object, and `occurs` means a case-sensitive substring test with no normalization. The other predicates use Python identity/equality semantics exactly as written. Line numbers are absolute, 1-based lines in the named repository file. For a multi-line statement or expression, its line event belongs to the line on which that statement or expression begins; decorator and docstring lines are not observations, and the function's `def` line is not an observation unless Python emits the specifically named line event. Count every qualifying event, including repeated events in one invocation; do not deduplicate. For each predicate, `observations` is its total number of evaluations across all methods, `violations` is the number that evaluate to false, and `held_always` is exactly `violations == 0` when observations are positive. A predicate whose observation point is never reached must instead be reported as `observations: 0`, `violations: 0`, and `held_always: false`. Return exactly a JSON object with key `invariant_report`, whose value is a list containing one object per candidate with exactly these keys and types: `held_always` (JSON boolean), `observations` (integer), `predicate` (string copied verbatim from the candidate), and `violations` (integer). Sort entries by the `predicate` string ascending using Unicode code-point order. Candidate strings are unique; if equal strings were present, break ties by observation line ascending and then by their order above. Preserve duplicate observations, emit no extra keys, and use JSON spelling (`true`/`false`, not Python `True`/`False`); no null, empty-string, exception-name, or function-name values occur in the answer.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

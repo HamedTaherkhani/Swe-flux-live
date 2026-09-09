@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 53,
+    "min_iterations": 1
+  },
+  "question": "Consider pytest tests in `rich_qa/table_get_cells_m2_loops/files/testcase.py::TestTableGetCellsLoopDynamics` (all `test_*` methods in that class, executed in pytest's default collection order). The answer aggregates behavior across every test method in the class during one full pytest run of the class.\n\nTarget function: `rich.table.Table._get_cells` in `rich/table.py`.\n\nInvocation counting: an invocation is one logical execution of the target, numbered chronologically from 1. Because `_get_cells` is a generator (it uses `yield`), CPython's trace machinery emits a `return` event at each `yield` and a new `call` event when the generator resumes at the yield line; treat the first `call` on line 627 of `rich/table.py` through the final `return` for that qualname before the next `call` on line 627 as a single invocation, ignoring those internal suspend/resume boundaries.\n\nLoop: the `for` loop whose header is on line 676 of `rich/table.py` (`for cell in column.cells:`). Iteration counting is 1-based: iteration N is the Nth time the loop body's first statement executes. The body-first statement is the initial statement in the loop body block (not the `for` header line); use its 1-based line number as it appears in the repository file.\n\nFor each invocation, count how many iterations that loop executes (line events at the body-first line while inside that invocation). Across all invocations in the run, report:\n- `max_iterations`: the largest per-invocation iteration count (integer)\n- `min_iterations`: the smallest per-invocation iteration count (integer)\n\nTie-breaking: if multiple invocations share the same max or min count, the reported integer is still that shared count (no invocation index is emitted).",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

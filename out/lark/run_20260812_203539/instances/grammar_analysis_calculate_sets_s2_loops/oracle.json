@@ -1,0 +1,10 @@
+{
+  "question_kind": "S2_Loops",
+  "question": "Run exactly the pytest test `lark_qa/grammar_analysis_calculate_sets_s2_loops/files/testcase.py::TestCalculateSetsLoopDynamics::test_seeded_dependency_propagation`. During that test, consider the first invocation of `lark.parsers.grammar_analysis.calculate_sets` in `lark/parsers/grammar_analysis.py`. An invocation means one call of that function and invocations are numbered 1-based in chronological call order during the stated pytest run. In that first invocation, how many iterations does the `while` loop whose header is at absolute, 1-based source line 106 perform? Define iteration N (counted 1-based) as the Nth execution of the loop body's first statement, at line 107, in the target function's own frame. Count only executions in that frame; exclude events in `update_set`, comprehensions, and every other callee or frame. Source line numbers refer to the named repository file as it exists for this run. For a multi-line statement or expression, execution is attributed to the absolute line where that statement or expression begins. The function's `def` line, decorator lines, and docstring lines do not count as loop iterations. Do not deduplicate any iterations and apply no sorting: return the total chronological count. Return exactly one JSON object with the sole key `loop_iteration_count`; its value must be a JSON integer, not a string, with no additional keys or formatting.",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  },
+  "oracle_answer": {
+    "loop_iteration_count": 17
+  }
+}

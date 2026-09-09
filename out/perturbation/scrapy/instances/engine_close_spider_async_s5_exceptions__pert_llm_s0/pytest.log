@@ -1,0 +1,62 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, timeout-2.4.0, twisted-1.14.3, xdist-3.8.0
+collected 1 item
+
+scrapy_qa/engine_close_spider_async_s5_exceptions__pert_llm_s0/files/testcase.py .
+
+=============================== warnings summary ===============================
+scrapy_qa/engine_close_spider_async_s5_exceptions__pert_llm_s0/files/testcase.py::TestCloseSpiderExceptionHandling::test_indirect_close_collects_failures
+  /testbed/scrapy/core/engine.py:259: ScrapyDeprecationWarning: The close_spider() method of testcase._Stats requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions.
+    await self.close_spider_async(reason=reason)  # will also close downloader
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+____ TestCloseSpiderExceptionHandling.test_indirect_close_collects_failures ____
+------------------------------ Captured log call -------------------------------
+ERROR    scrapy.core.engine:engine.py:652 Slot close failure
+Traceback (most recent call last):
+  File "/testbed/scrapy/core/engine.py", line 650, in close_spider_async
+    await self._slot.close()
+  File "/testbed/scrapy_qa/engine_close_spider_async_s5_exceptions__pert_llm_s0/files/testcase.py", line 27, in close
+    int(token)
+ValueError: invalid literal for int() with base 10: 'norwdmxkzqjebabejqzkxmdwronorwdmxkzqjebabejqzkx'
+ERROR    scrapy.core.engine:engine.py:657 Downloader close failure
+Traceback (most recent call last):
+  File "/testbed/scrapy/core/engine.py", line 655, in close_spider_async
+    self.downloader.close()
+  File "/testbed/scrapy_qa/engine_close_spider_async_s5_exceptions__pert_llm_s0/files/testcase.py", line 37, in close
+    mapping[sum(mapping) + len(mapping) + 3]
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 16246
+ERROR    scrapy.core.engine:engine.py:664 Scraper close failure
+Traceback (most recent call last):
+  File "/testbed/scrapy/core/engine.py", line 662, in close_spider_async
+    await self.scraper.close_spider_async()
+  File "/testbed/scrapy_qa/engine_close_spider_async_s5_exceptions__pert_llm_s0/files/testcase.py", line 49, in fail
+    numerator / denominator
+    ~~~~~~~~~~^~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+ERROR    scrapy.core.engine:engine.py:673 Scheduler close failure
+Traceback (most recent call last):
+  File "/testbed/scrapy/core/engine.py", line 670, in close_spider_async
+    if (d := self._slot.scheduler.close(reason)) is not None:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/testbed/scrapy_qa/engine_close_spider_async_s5_exceptions__pert_llm_s0/files/testcase.py", line 59, in close
+    getattr(object(), attribute)
+AttributeError: 'object' object has no attribute 'askcumewogyqiaskcumewogyqiaskcumewogyqiaskcumewogyqiafxphzrjbtldvnfxphzrjbtldvnfxphzrjbtldvnfxphzrjbtldvnfkcumewogyqiaskcumewogyqiaskcumewogyqiaskcumewogyqiaskphzrjbtldvnfxphzrjbtldvnfxphzrjbtldvnfxphzrjbtldvnfxpumewogyqiaskcumewogyqiaskcumewogyqiaskcumewogyqiaskcuzrjbtldvnfxphzrjbtldvnfxphzrjbtldvnfxphzrjbtldvnfxphzewogyqiaskcumewogyqiaskcumewogyqiaskcumewogyqiaskcumejbtldvnfxphzrjbtldvnfxphzrjbtldvnfxphzrjbtldvnfxphzrjogyqiaskcumewogyqiaskcumewogyqiaskcumewogyqiaskcumewotldvnfxphzrjbtldvnfxphzrjbtldvnfxphzrjbtldvnfxphzrjbtyqiaskcumewogyqiaskcumewogyqiaskcumewogyqiaskcumewogy'
+ERROR    scrapy.core.engine:engine.py:684 Error while sending spider_close signal
+Traceback (most recent call last):
+  File "/testbed/scrapy/core/engine.py", line 678, in close_spider_async
+    await self.signals.send_catch_log_async(
+  File "/testbed/scrapy_qa/engine_close_spider_async_s5_exceptions__pert_llm_s0/files/testcase.py", line 69, in send_catch_log_async
+    values[sum(values) + 2]
+    ~~~~~~^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+ERROR    scrapy.core.engine:engine.py:703 Stats close failure
+ERROR    scrapy.core.engine:engine.py:717 Error running spider_closed_callback
+=========================== short test summary info ============================
+PASSED scrapy_qa/engine_close_spider_async_s5_exceptions__pert_llm_s0/files/testcase.py::TestCloseSpiderExceptionHandling::test_indirect_close_collects_failures
+========================= 1 passed, 1 warning in 0.21s =========================

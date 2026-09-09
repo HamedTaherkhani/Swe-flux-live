@@ -1,0 +1,54 @@
+{
+  "question_kind": "M7_Invariants",
+  "question": "Run every test method in `TestAnswerBuilderRunInvariants` from `haystack_qa/answer_builder_run_m7_invariants/files/testcase.py` (every pytest node whose id starts with `haystack_qa/answer_builder_run_m7_invariants/files/testcase.py::TestAnswerBuilderRunInvariants::test_`). Run each such node exactly once in pytest's displayed collection order, with no selective repetition, and aggregate observations across ALL test methods in that class.\n\nFor the exact function frame `haystack.components.builders.answer_builder.AnswerBuilder.run` in `haystack/components/builders/answer_builder.py`, evaluate the following six candidate predicates verbatim:\n\n1. `answer_string != \"\"`\n2. `idx % 2 == 0`\n3. `isinstance(reply, ChatMessage)`\n4. `len(given_metadata) >= 2`\n5. `len(given_metadata) <= 5`\n6. `len(reference_idxs) <= 2`\n\nEvaluate predicates 1, 3, 4, and 5 at every execution-line checkpoint for absolute line 159, immediately before the statement beginning on that line executes. Evaluate predicate 6 at the same checkpoint, but only when `reference_idxs` is bound in the current invocation. Evaluate predicate 2 at every execution-line checkpoint for absolute line 150, immediately before the statement beginning on that line executes. A predicate is evaluated only when every name it uses is bound in the exact target frame at its stated checkpoint; an unbound-name checkpoint contributes no observation for that predicate. Use the variables' actual runtime values and ordinary Python semantics: `ChatMessage` means `haystack.dataclasses.chat_message.ChatMessage`.\n\nLine numbers are absolute, 1-based lines in the named repository file as it exists for this run. An execution-line checkpoint occurs before the statement or expression beginning on that line executes; for a multi-line statement, the checkpoint belongs to the line where that executed statement or expression begins. Decorator lines, the `def` line, and non-executed docstring lines are not checkpoints. Count only the exact `AnswerBuilder.run` frame; exclude helper, comprehension, and all other nested or called frames. Parameters are ordinary locals. No augmented assignment or comprehension-local variable participates in these predicates.\n\nAn invocation is one chronological entry into the exact target function, numbered from 1 across the complete pytest run, although invocation numbers are not emitted. Each qualifying execution-line checkpoint contributes one observation for its predicate, including duplicate runtime states; do not deduplicate anything. A violation is an observation at which the predicate evaluates to Python `False`. `held_always` is exactly `violations == 0` when there is at least one observation. For a predicate with no observations, report `observations: 0`, `violations: 0`, and `held_always: false`.\n\nReturn exactly `{\"invariant_report\": [...]}`. The array contains one object per predicate with exactly these keys and types: `predicate` is the verbatim JSON string shown above, `held_always` is a JSON boolean, and `observations` and `violations` are JSON integers. Sort objects by `predicate` ascending in Unicode code-point lexicographic order. Predicate strings are unique, so there is no secondary tie-break; preserve all six objects.",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 196,
+        "predicate": "answer_string != \"\"",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "idx % 2 == 0",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 196,
+        "predicate": "isinstance(reply, ChatMessage)",
+        "violations": 123
+      },
+      {
+        "held_always": true,
+        "observations": 196,
+        "predicate": "len(given_metadata) <= 5",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 196,
+        "predicate": "len(given_metadata) >= 2",
+        "violations": 104
+      },
+      {
+        "held_always": false,
+        "observations": 155,
+        "predicate": "len(reference_idxs) <= 2",
+        "violations": 68
+      }
+    ]
+  }
+}

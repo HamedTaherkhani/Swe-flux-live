@@ -1,0 +1,148 @@
+{
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRouter.app"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.matches"
+      },
+      {
+        "file": "fastapi/routing.py",
+        "func": "fastapi.routing.APIRoute.handle"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `fastapi_qa/routing_app_s6_calls/files/testcase.py::TestRouterDispatchCallOrder::test_seeded_route_matrix`. During that test run, consider the 13th invocation of `fastapi.routing.APIRouter.app` in `fastapi/routing.py` (the function whose definition begins at absolute, 1-based line 2719).\n\nReport the exact ordered sequence of Python `sys.settrace` `call` events for this tracked set of exact functions: `fastapi.routing.APIRouter.app`, `fastapi.routing.APIRoute.matches`, and `fastapi.routing.APIRoute.handle`. Function identity is formed as `frame.f_globals[\"__name__\"] + \".\" + frame.f_code.co_qualname`, i.e. `module.Class.method` for these methods; for example, an unrelated method could be `sample.mod.Widget.run`.\n\nAn invocation of `fastapi.routing.APIRouter.app` is one newly created coroutine frame entry: count, globally and chronologically from 1, only its `call` event at the function's definition line 2719. A `call` event emitted when that already-created coroutine frame resumes after an `await` does not begin another invocation. The requested invocation remains logically active from that initial entry through suspensions until that same frame's final `return` event.\n\nInclude the initial `call` event that starts the requested invocation. Then include every later `call` event for any function in the tracked set whenever it occurs while that logical invocation is active, whether called directly by the target frame or nested/transitively below it. Retain every repeated call. In particular, retain `call` events produced when an existing coroutine or generator frame in the tracked set resumes, but do not reinterpret a resumption of the target as a new invocation. Exclude all calls to functions outside the exact tracked set, including builtins and comprehension frames. Stop at the target frame's final `return`; return and exception events themselves are not list items.\n\nOrder items by chronological trace-event order, earliest first. Python dispatches these trace events serially, so this event order is the complete tie-breaker. Do not sort or deduplicate the sequence.\n\nReturn `oracle_answer` with exactly the shape `{\"function_call_order\": [{\"file\": <string>, \"func\": <string>}]}`. For every item, `file` is the repository-relative POSIX path obtained by removing the `/testbed/` repository-root prefix from the frame filename, and `func` uses the identity rule above. Both fields are JSON strings; no `repr()` or other value formatting is applied. The sequence is non-empty, so no empty-value or JSON-null convention applies.",
+  "question_kind": "S6_InterProceduralCFG",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

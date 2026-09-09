@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 34,
+    "min_iterations": 25
+  },
+  "question": "Run the pytest test\n`fastapi_qa/utils_get_openapi_operation_parameters_m2_loops/files/testcase.py::TestGeneratedParameterLoops::test_openapi_for_variable_width_query_models`\nagainst this repository. During that test, consider every invocation of\n`fastapi.openapi.utils._get_openapi_operation_parameters` whose implementation\nis in `fastapi/openapi/utils.py`. An invocation is one runtime entry into\nexactly that function, counted 1-based in chronological order from the start\nof the stated test; calls of other functions and any frames they create are\nnot invocations.\n\nFor each invocation, count the iterations of the inner `for param in\nparam_group` loop whose header is at line 187. One iteration is the Nth\nexecution, in that invocation, of the loop body's first line,\n`field_info = param.field_info`, at line 188. Count those executions across\nall passes of the enclosing `for param_type, param_group in parameter_groups`\nloop at line 186 as one per-invocation total. Every invocation contributes\nexactly one total, including a total of zero if the inner body never executes.\nDo not deduplicate invocations or iteration executions.\n\nWhat are the maximum and minimum of those per-invocation totals over the\nentire stated test run? Return exactly\n`{\"max_iterations\": \"int\", \"min_iterations\": \"int\"}`, replacing each type\nmarker with a base-10 JSON integer (not a quoted string). Both extrema range\nover all target invocations; invocation ordering only defines the counting\nscope and does not break ties or change either extremum.\n\nAll line numbers above are absolute, 1-based source line numbers in the named\nfile as it exists in this repository. For a multi-line statement, a source\nline means the line on which that statement begins; the identified loop\nheader and first body statement are each single-line statements. The\nfunction's `def` line, decorator lines, call/return boundaries, and lines\nexecuted by callees do not count as loop-body executions.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

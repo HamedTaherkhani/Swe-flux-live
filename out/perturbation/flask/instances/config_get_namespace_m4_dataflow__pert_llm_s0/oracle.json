@@ -1,0 +1,97 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 354,
+        "use_line": 355,
+        "variable": "k"
+      },
+      {
+        "def_line": 354,
+        "use_line": 358,
+        "variable": "k"
+      },
+      {
+        "def_line": 354,
+        "use_line": 360,
+        "variable": "k"
+      },
+      {
+        "def_line": 358,
+        "use_line": 362,
+        "variable": "key"
+      },
+      {
+        "def_line": 358,
+        "use_line": 363,
+        "variable": "key"
+      },
+      {
+        "def_line": 360,
+        "use_line": 362,
+        "variable": "key"
+      },
+      {
+        "def_line": 360,
+        "use_line": 363,
+        "variable": "key"
+      },
+      {
+        "def_line": 362,
+        "use_line": 363,
+        "variable": "key"
+      },
+      {
+        "def_line": 323,
+        "use_line": 361,
+        "variable": "lowercase"
+      },
+      {
+        "def_line": 323,
+        "use_line": 355,
+        "variable": "namespace"
+      },
+      {
+        "def_line": 323,
+        "use_line": 358,
+        "variable": "namespace"
+      },
+      {
+        "def_line": 353,
+        "use_line": 363,
+        "variable": "rv"
+      },
+      {
+        "def_line": 353,
+        "use_line": 364,
+        "variable": "rv"
+      },
+      {
+        "def_line": 323,
+        "use_line": 354,
+        "variable": "self"
+      },
+      {
+        "def_line": 323,
+        "use_line": 357,
+        "variable": "trim_namespace"
+      },
+      {
+        "def_line": 354,
+        "use_line": 363,
+        "variable": "v"
+      }
+    ]
+  },
+  "question": "Run the pytest test `flask_qa/config_get_namespace_m4_dataflow/files/testcase.py::TestConfigNamespaceDataFlow::test_seeded_namespace_matrix` against this repository. Across\nall invocations of `flask.config.Config.get_namespace` in `src/flask/config.py` during that test, what\nare all unique observed reaching-definition/use pairs for exactly these local\nvariables: `self`, `namespace`, `lowercase`, `trim_namespace`, `rv`, `k`, `v`,\nand `key`?\n\nAn invocation is one entry into exactly `flask.config.Config.get_namespace`, counted 1-based in\nchronological order over the entire test run. Analyze every invocation, but a\ndefinition can reach uses only within its own invocation; then take the union\nof the resulting pairs. Ignore nested callees and all other frames.\n\nA definition is a runtime execution that binds a tracked simple local name.\nThe four parameters `self`, `namespace`, `lowercase`, and `trim_namespace`\nare defined at the function's `def` line when each invocation starts.\nExecution of a plain assignment defines each tracked `Name` target after its\nright-hand side has been evaluated. Assignment through an attribute or\nsubscript is not a definition of the base name (for example, `box[i] = x`\nuses `box` and `i` but does not define `box`). A successful `for` iterator\nstep defines each simple name in its loop target at the loop-header line\nbefore the body executes; the final iterator check that exits the loop does\nnot define the target. An augmented assignment such as `x += y` first uses\nthe prior `x` and then defines `x`, both at that statement's starting line.\n\nA use is runtime evaluation of a tracked `Name` in load context in the\ntarget frame, including names used in conditions, call arguments, return\nexpressions, right-hand sides, and the base or index of a subscript target.\nStore-only name occurrences are not uses. For a statement that both uses and\ndefines the same name, pair its use with the definition that reached the\nstart of the statement, then install the new definition. A use is paired\nwith the most recent definition of that variable earlier in the same\ninvocation. Include a pair only when both that dynamic definition and use\nactually occur on the executed path. Comprehension iteration variables would\nbelong to the comprehension's implicit nested scope and are excluded; there\nare no comprehension-local variables in the tracked list.\n\n`def_line` and `use_line` are absolute 1-based physical line numbers in\n`src/flask/config.py` as it exists in the repository. For a multi-line statement or\nexpression, attribute definitions and uses to the physical line where the\nsmallest enclosing AST statement begins. Parameter definitions are attributed\nto the function's `def` line, not continuation lines. Decorator and docstring\nlines do not count as uses or definitions unless they are executable\nstatements in the target frame.\n\nDeduplicate pairs by the complete triple `(variable, def_line, use_line)`\nafter unioning all invocations. Sort the final list by `variable`\nlexicographically ascending by Python string ordering, then by `def_line`\nnumerically ascending, then by `use_line` numerically ascending. Return\nexactly one JSON object with the shape\n`{\"observed_def_use_pairs\": [{\"def_line\": \"int\", \"use_line\": \"int\", \"variable\": \"str\"}]}`\nand no other keys. `variable` is the exact source identifier as a JSON string;\nline values are JSON integers (not strings), and no value may be `null` or\nomitted.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 32,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 64,
+        "exception_type": "StopIteration"
+      },
+      {
+        "count": 31,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 30,
+        "exception_type": "UnicodeDecodeError"
+      },
+      {
+        "count": 323,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 32,
+        "exception_type": "ZeroDivisionError"
+      }
+    ]
+  },
+  "question": "Run all pytest test methods in\n`haystack_qa/jinja2_chat_extension_validate_build_chat_message_m5_exceptions/files/testcase.py::TestGeneratedChatMessageValidation`\nagainst this repository. The answer aggregates over ALL `test_*` methods in\nthat class. Pytest identifies each method as\n`haystack_qa/jinja2_chat_extension_validate_build_chat_message_m5_exceptions/files/testcase.py::TestGeneratedChatMessageValidation::method_name`;\nthe methods are collected in pytest's normal name order, although that order\ndoes not affect the requested totals.\n\nAcross that whole run, count exception observations in the exact function\n`haystack.utils.jinja2_chat_extension.ChatMessageExtension._validate_build_chat_message`\nin `haystack/utils/jinja2_chat_extension.py`. An invocation is one entry into\nthat exact function frame (one Python function-call event), numbered from 1 in\nchronological order across the complete run.\n\nAn exception is observed in the target frame each time either code executing\nin that exact frame raises it or an exception propagates into that frame from\na callee. Count it once per target-frame observation. An exception raised and\nfully handled inside a callee does not count because it never propagates into\nthe target frame. If the same exception object is re-raised in the target\nframe, each re-raise is a new target-frame observation and counts again.\nHandling or re-raising that object only inside a callee does not add another\ntarget-frame count; only its eventual propagation into the target counts.\nLikewise, catches performed later by callers or by the test do not add counts.\n\nReturn exactly one JSON object with the single key\n`exception_type_counts`. Its value is a JSON list containing one object for\nevery observed exception type; every object has exactly the keys `count`\n(a JSON integer) and `exception_type` (a JSON string). Counts are totals over\nALL invocations and ALL test methods, so the same type raised in five methods\ncontributes five. Aggregate duplicate observations of a type into one row;\ndo not deduplicate observations before counting.\n\nFor exception type names, use bare `type(exc).__name__` for built-in\nexceptions (e.g. `ValueError`, never `builtins.ValueError`), and\n`module.QualName` for all others. If an exception message is inspected while\ncomputing an observation, message means exact `str(exc)`, with no `repr`\nquotes, truncation, or whitespace normalization; messages are not emitted in\nthis answer shape. Sort the list by `exception_type` ascending using Unicode\ncode-point order. Since aggregation emits exactly one row per type, equal\nprimary sort keys cannot occur and there is no secondary tie-breaker.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

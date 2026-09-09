@@ -1,0 +1,187 @@
+{
+  "question_kind": "S1_IntraProceduralCFG",
+  "question": "During the pytest run identified by the test id `jinja_qa/meta_find_referenced_templates_s1_cfg/files/testcase.py::TestFindReferencedTemplatesBatch::test_batch_reference_scan`, consider every trace event for the function `jinja2.meta.find_referenced_templates` defined in `src/jinja2/meta.py` (the `def find_referenced_templates` line is line 62 in that file).\n\n`find_referenced_templates` is a generator. In CPython's `sys.settrace` semantics, a `call` event is emitted both when the generator is first entered and on every resume after a `yield`. For this question, an **invocation** means a `call` event whose line number is exactly 62 (the `def` line). Ignore `call` events at any other line number (generator resumptions). Number invocations **1-based** in the chronological order of those def-line `call` events across the entire pytest run.\n\nReport the **executed_path** for **invocation 7**: the ordered sequence of `line` trace events for `jinja2.meta.find_referenced_templates` that belong to that invocation. Collect every `line` event starting immediately after invocation 7's def-line `call` event and continuing through all generator resumptions within the same logical run, stopping immediately before the next def-line `call` event (invocation 8) if one exists, or at end of trace otherwise. Include only events whose `event` type is `line`; exclude `call`, `return`, and `exception` events. The `def` line (62) never appears because it only produces a `call` event, not a `line` event.\n\nEach executed_path element is an object with three keys:\n- `file`: repo-relative path `src/jinja2/meta.py` (always this exact string).\n- `func`: fully qualified name `jinja2.meta.find_referenced_templates` (always this exact string).\n- `line`: 1-based line number in `src/jinja2/meta.py` as it exists in the repository.\n\nLine numbers follow CPython's executed-line reporting: for a multi-line statement, use the line where the statement begins (for example, if an `if` condition spans lines 10\u201312 in some function, the executed `line` event is reported at line 10). Inside `find_referenced_templates`, the `elif isinstance(node, nodes.Include) and isinstance(...)` branch condition spans lines 104\u2013106; always report line 104 for that condition, not 105 or 106.\n\nPreserve chronological order exactly as traced. Do not sort, deduplicate, or collapse consecutive duplicate line numbers.\n\nReturn JSON with top-level key `executed_path` whose value is the list described above.",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 79
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 80
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 82
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 84
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 85
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 88
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 89
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 90
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 85
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 88
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 89
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 90
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 85
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 88
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 89
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 90
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 85
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 88
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 89
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 90
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 85
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 88
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 89
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 90
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 85
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 88
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 89
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 90
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 85
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 88
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 93
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 85
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 97
+      },
+      {
+        "file": "src/jinja2/meta.py",
+        "func": "jinja2.meta.find_referenced_templates",
+        "line": 79
+      }
+    ]
+  }
+}

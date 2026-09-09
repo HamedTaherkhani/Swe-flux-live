@@ -1,0 +1,34 @@
+{
+  "oracle_answer": {
+    "covered_lines": [
+      711,
+      713,
+      714,
+      716,
+      717,
+      718,
+      724,
+      726,
+      727,
+      729,
+      731,
+      733,
+      734,
+      736,
+      737,
+      738,
+      739,
+      743,
+      745,
+      748,
+      751
+    ]
+  },
+  "question": "Run only the pytest test `flask_qa/scaffold_find_package_path_m1_cfg/files/testcase.py::FindPackagePathControlFlowTest::test_generated_import_layouts`. During that entire test run, consider every invocation of exactly `flask.sansio.scaffold._find_package_path` in the repo-relative file `src/flask/sansio/scaffold.py`, including the function's lexically nested generator-expression frame. An invocation means one runtime call event for the exact function, numbered 1-based in chronological order; the number is only a definition and is not part of the answer. Report the union of source lines that produce a Python runtime `line` event in those frames across all invocations. Count only `line` events, not `call`, `return`, or `exception` events, and do not count events from callees or any other frames. The function's `def` line and decorator lines do not count because invoking the function does not produce a `line` event for them; a docstring line counts only if Python emits a runtime `line` event for it. Line numbers are absolute, 1-based source line numbers in the named file as it exists in the repository. For a multi-line statement or expression, use the physical line attached to each runtime `line` event, that is, the line where the executed statement or expression component begins; a visual continuation line with no event is not inferred. For example, events on lines 3 and 8 are represented as JSON integers in `[3, 8]`. Deduplicate line numbers across repeated events, nested-frame resumptions, and invocations, then sort them in strictly ascending numeric order. Return exactly one JSON object with the sole key `covered_lines`; its value is that sorted JSON array of integers. No `repr` or `str` conversion is applied.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "covered_lines": [
+      "int"
+    ]
+  }
+}

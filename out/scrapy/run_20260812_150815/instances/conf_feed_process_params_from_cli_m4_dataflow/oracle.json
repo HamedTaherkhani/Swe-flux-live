@@ -1,0 +1,186 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": 288,
+        "def_line": 178,
+        "use_line": 180,
+        "variable": "element"
+      },
+      {
+        "count": 146,
+        "def_line": 178,
+        "use_line": 183,
+        "variable": "element"
+      },
+      {
+        "count": 146,
+        "def_line": 178,
+        "use_line": 184,
+        "variable": "element"
+      },
+      {
+        "count": 168,
+        "def_line": 180,
+        "use_line": 181,
+        "variable": "feed_format"
+      },
+      {
+        "count": 142,
+        "def_line": 180,
+        "use_line": 188,
+        "variable": "feed_format"
+      },
+      {
+        "count": 142,
+        "def_line": 180,
+        "use_line": 189,
+        "variable": "feed_format"
+      },
+      {
+        "count": 146,
+        "def_line": 184,
+        "use_line": 188,
+        "variable": "feed_format"
+      },
+      {
+        "count": 145,
+        "def_line": 184,
+        "use_line": 189,
+        "variable": "feed_format"
+      },
+      {
+        "count": 142,
+        "def_line": 180,
+        "use_line": 186,
+        "variable": "feed_uri"
+      },
+      {
+        "count": 136,
+        "def_line": 180,
+        "use_line": 189,
+        "variable": "feed_uri"
+      },
+      {
+        "count": 29,
+        "def_line": 180,
+        "use_line": 191,
+        "variable": "feed_uri"
+      },
+      {
+        "count": 145,
+        "def_line": 183,
+        "use_line": 189,
+        "variable": "feed_uri"
+      },
+      {
+        "count": 24,
+        "def_line": 183,
+        "use_line": 191,
+        "variable": "feed_uri"
+      },
+      {
+        "count": 6,
+        "def_line": 187,
+        "use_line": 189,
+        "variable": "feed_uri"
+      },
+      {
+        "count": 4,
+        "def_line": 187,
+        "use_line": 191,
+        "variable": "feed_uri"
+      },
+      {
+        "count": 3,
+        "def_line": 144,
+        "use_line": 170,
+        "variable": "output"
+      },
+      {
+        "count": 9,
+        "def_line": 144,
+        "use_line": 178,
+        "variable": "output"
+      },
+      {
+        "count": 2,
+        "def_line": 174,
+        "use_line": 178,
+        "variable": "output"
+      },
+      {
+        "count": 230,
+        "def_line": 168,
+        "use_line": 190,
+        "variable": "overwrite"
+      },
+      {
+        "count": 57,
+        "def_line": 175,
+        "use_line": 190,
+        "variable": "overwrite"
+      },
+      {
+        "count": 12,
+        "def_line": 144,
+        "use_line": 169,
+        "variable": "overwrite_output"
+      },
+      {
+        "count": 2,
+        "def_line": 144,
+        "use_line": 174,
+        "variable": "overwrite_output"
+      },
+      {
+        "count": 287,
+        "def_line": 177,
+        "use_line": 189,
+        "variable": "result"
+      },
+      {
+        "count": 57,
+        "def_line": 177,
+        "use_line": 191,
+        "variable": "result"
+      },
+      {
+        "count": 10,
+        "def_line": 177,
+        "use_line": 194,
+        "variable": "result"
+      },
+      {
+        "count": 10,
+        "def_line": 177,
+        "use_line": 196,
+        "variable": "result"
+      },
+      {
+        "count": 12,
+        "def_line": 144,
+        "use_line": 156,
+        "variable": "settings"
+      },
+      {
+        "count": 10,
+        "def_line": 144,
+        "use_line": 194,
+        "variable": "settings"
+      }
+    ]
+  },
+  "question": "Run every pytest method in `scrapy_qa/conf_feed_process_params_from_cli_m4_dataflow/files/testcase.py::FeedProcessParamsDataFlowTest`: `test_colon_fallback_to_file_suffix`, `test_conflicting_output_modes`, `test_empty_cli_with_generated_settings`, `test_explicit_format_permutation`, `test_implicit_extension_rotation`, `test_late_invalid_format_after_valid_prefix`, `test_mixed_implicit_and_explicit`, `test_overwrite_explicit_and_stdout`, `test_overwrite_implicit_outputs`, `test_preconfigured_feeds_override_cli`, `test_repeated_uri_redefinitions`, `test_stdout_interleaved_with_uris`. Pytest identifies each method by appending `::<method-name>` to that class node id and runs them in its normal collected order. Aggregate across all of those methods: for all invocations of `scrapy.utils.conf.feed_process_params_from_cli` in `scrapy/utils/conf.py`, what observed def-use pairs and observation counts occur for exactly these outer-function locals: `element`, `feed_format`, `feed_uri`, `output`, `overwrite`, `overwrite_output`, `result`, `settings`, `valid_output_formats`? Only accesses executed by the target function's own frame count; the body and frame of its nested `check_valid_format` function are excluded. An invocation is one `call` of the target function during the complete test run, numbered 1-based in chronological order, although invocation numbers are not emitted. Definitions never flow between invocations. A def is parameter binding or an executed assignment that binds the named local. Every parameter, including one written on a continuation line, is defined at the opening `def` line. Mutation through an attribute, subscription, or method call does not redefine the local holding that object. A use is an executed evaluation that reads the named local's current value. The reaching def for a use is the most recent executed def of that variable in the same invocation with no intervening def. For an ordinary assignment, right-hand-side uses occur before its target defs. An augmented assignment such as `score += step` first uses the old `score` def and then creates a new `score` def on the same source line. For `for item in collection`, the iterable expression uses `collection` once when the loop is entered, and the loop header defines `item` once for each successfully obtained item, before that iteration's body. An iteration is one successful acquisition of the next item, equivalently one subsequent execution of the loop body's first statement; the final exhaustion check is not an iteration. All bindings and accesses syntactically inside list, set, and dict comprehensions or generator expressions are excluded, including their comprehension-local variables. Attribute names and mapping keys are not locals: for example, evaluating `record.value` uses `record`, not `value`. One observation is one execution of a use under these rules, reached by that def; therefore a use in a loop body contributes once per executed iteration. If a tracked variable had multiple syntactic reads on the same physical source line, that variable would contribute one use observation for that execution of the line. `count` is the total number of observations of the exact `(variable, def_line, use_line)` triple, summed across every invocation in every listed test method. Report absolute, 1-based physical source line numbers in the named repository file as it exists for this run. For a multi-line statement or expression, assign each def or use to the physical line where that binding or read begins; parameters are the stated exception. Decorator and docstring lines do not count unless a tracked local is actually bound or read there. Return exactly one JSON object with the single key `observed_def_use_pairs`, whose value is a JSON array. Each array element has exactly four keys: `count`, `def_line`, and `use_line` as JSON integers, and `variable` as a JSON string containing the exact source identifier without `repr()` quotes. Emit one row per unique triple: do not duplicate a row to represent multiplicity, because `count` carries that multiplicity. Sort rows by `variable` lexicographically ascending, then `def_line` numerically ascending, then `use_line` numerically ascending. Do not include invocation numbers, file names, values, null placeholders, or any additional keys.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": "int",
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

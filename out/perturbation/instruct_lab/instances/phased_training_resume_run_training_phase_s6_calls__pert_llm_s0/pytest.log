@@ -1,0 +1,62 @@
+/usr/local/lib/python3.11/site-packages/pytest_asyncio/plugin.py:207: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform linux -- Python 3.11.12, pytest-8.3.4, pluggy-1.5.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.8.0, metadata-3.1.1, cov-6.0.0, asyncio-0.25.3, html-4.1.1, langsmith-0.3.11
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=None
+collected 1 item
+
+instruct_lab_qa/phased_training_resume_run_training_phase_s6_calls__pert_llm_s0/files/testcase.py Running training to fail on phase 1
+TRAIN OUTPUT: fail_on_phase1=True, fail_on_phase2=False, fail_on_mt_bench=False
+wave-tag: corpus=knowledge shard=17 lane=3 parity=1 checksum=1549 residue=2
+epoch-trace: phase=1 status=fail bucket=4 modulus=13
+stderr-tail: exit=1 signal=training wave=0 token=17
+Training Phase 1/2...
+INTENTIONAL TRAINING FAILURE
+Running training to fail on phase 2
+TRAIN OUTPUT: fail_on_phase1=False, fail_on_phase2=True, fail_on_mt_bench=False
+wave-tag: corpus=skills shard=23 lane=5 parity=0 checksum=2117 residue=5
+epoch-trace: phase=1 status=ok bucket=6 modulus=17
+epoch-trace: phase=2 status=fail bucket=9 modulus=19
+stderr-tail: exit=1 signal=training wave=1 token=41
+Training Phase 1/2...
+Training Phase 2/2...
+INTENTIONAL TRAINING FAILURE
+Running training to fail on mt_bench
+TRAIN OUTPUT: fail_on_phase1=False, fail_on_phase2=False, fail_on_mt_bench=True
+wave-tag: corpus=blend shard=31 lane=7 parity=1 checksum=2903 residue=8
+epoch-trace: phase=2 status=resume bucket=2 modulus=23
+epoch-trace: eval=mtbench status=fail bucket=11 modulus=29
+stderr-tail: exit=1 signal=mtbench wave=2 token=67
+Training Phase 2/2...
+MT-Bench evaluation for Phase 2...
+SKIPPING: Training Phase 1/2; already in Journal
+INTENTIONAL MT_BENCH FAILURE
+Running training to completion
+TRAIN OUTPUT: fail_on_phase1=False, fail_on_phase2=False, fail_on_mt_bench=False
+wave-tag: corpus=final shard=41 lane=11 parity=0 checksum=3797 residue=13
+epoch-trace: eval=mtbench status=ok bucket=13 modulus=31
+epoch-trace: phase=2 status=skip bucket=17 modulus=37
+stderr-tail: exit=0 signal=complete wave=3 token=97
+MT-Bench evaluation for Phase 2...
+SKIPPING: Training Phase 1/2; already in Journal
+SKIPPING: Training Phase 2/2; already in Journal
+ᕦ(òᴗóˇ)ᕤ Accelerated model training completed successfully! ᕦ(òᴗóˇ)ᕤ
+Best final checkpoint: generated-checkpoint-shard-41-epoch-7
+Finished phased training resume
+.
+
+=============================== warnings summary ===============================
+../usr/local/lib/python3.11/site-packages/pydantic/_internal/_config.py:291
+  /usr/local/lib/python3.11/site-packages/pydantic/_internal/_config.py:291: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.9/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED instruct_lab_qa/phased_training_resume_run_training_phase_s6_calls__pert_llm_s0/files/testcase.py::TestPhasedTrainingResumeCalls::test_resume_sequence_with_generated_paths
+========================= 1 passed, 1 warning in 0.31s =========================

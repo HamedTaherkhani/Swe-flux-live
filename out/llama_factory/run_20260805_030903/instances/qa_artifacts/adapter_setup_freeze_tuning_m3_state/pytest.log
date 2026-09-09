@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.17, pytest-8.3.5, pluggy-1.5.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.9.0
+collected 1 item
+
+llama_factory_qa/adapter_setup_freeze_tuning_m3_state/files/testcase.py [INFO|2026-07-15 04:12:43] llamafactory.model.adapter:143 >> Fine-tuning method: Freeze
+[INFO|2026-07-15 04:12:43] llamafactory.model.adapter:143 >> Set trainable layers: .1.attn,.3.attn,.1.mlp,.3.mlp,embed_tokens
+[INFO|2026-07-15 04:12:43] llamafactory.model.adapter:143 >> Fine-tuning method: Freeze
+[INFO|2026-07-15 04:12:43] llamafactory.model.adapter:143 >> Set trainable layers: .0.,.1.,.0.attn,.1.attn,output_head
+.
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED llama_factory_qa/adapter_setup_freeze_tuning_m3_state/files/testcase.py::TestSetupFreezeTuningM3State::test_return_state_across_two_invocations
+============================== 1 passed in 3.36s ===============================

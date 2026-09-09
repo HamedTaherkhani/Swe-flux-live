@@ -1,0 +1,187 @@
+{
+  "question_kind": "S4_DataFlow",
+  "question": "During pytest run of rich_qa/wrap_divide_line_s4_dataflow/files/testcase.py::TestDivideLineDataFlow::test_divide_line_dataflow, consider the single invocation of rich._wrap.divide_line in rich/_wrap.py (source lines 26-78) performed by that test method. The test calls divide_line directly with programmatically built text and width arguments.\n\nTrack exactly these fifteen local variables of divide_line: _cell_len, append, break_positions, cell_offset, fold, folded_word, last, line, remaining_space, start, text, width, word, word_fits_remaining_space, and word_length. Do not track attributes (for example word.rstrip counts as a use of the local name word), parameters of nested calls, globals, or comprehension temporaries.\n\nDefinition rules (1-based line numbers in rich/_wrap.py as checked into the repository):\n\n- Function parameters text, width, and fold are defined at line 26 (the def line).\n- A simple assignment or annotated assignment to a name defines that name on the statement's first source line.\n- A for-loop header (for start, _end, word in words(text) or for last, line in loop_last(...)) defines each unpacked loop target on the line where the for statement begins.\n- An augmented assignment (+=) both uses the target's current value and then defines the target on that same line; the use is ordered before the definition within the line (for example cell_offset += _cell_len(word) first uses cell_offset, then defines cell_offset).\n- For multi-line statements, only the line where the statement begins is numbered.\n\nUse rules:\n\n- Any load of a tracked name in an expression is a use on that source line.\n- Augmented assignment counts the pre-update read of its target as a use on that line.\n\nAn observation is one executed use of a tracked name at source line L during the invocation, attributed to the definition line D that was the most recent definition of that name still in effect at the moment of the use (standard reaching-definitions semantics). If a name has no prior definition in that invocation, the use is ignored. Uses inside loops count once per time the containing line executes.\n\nCollect every unique tuple (variable, def_line, use_line) that occurs at least once. Omit pairs that never occur.\n\nReport observed_def_use_pairs: a JSON list of objects, each with exactly these keys in this order when serialized:\n\n- def_line (int): 1-based definition line in rich/_wrap.py\n- use_line (int): 1-based use line in rich/_wrap.py\n- variable (str): one of the fifteen tracked names\n\nSort the list ascending by variable, then def_line, then use_line. Each triple appears at most once.\n\nLine numbers never refer to decorator lines or docstring-only lines inside divide_line; only executable statements in the function body and the def line for parameters may appear.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 42,
+        "use_line": 45,
+        "variable": "_cell_len"
+      },
+      {
+        "def_line": 42,
+        "use_line": 64,
+        "variable": "_cell_len"
+      },
+      {
+        "def_line": 42,
+        "use_line": 76,
+        "variable": "_cell_len"
+      },
+      {
+        "def_line": 40,
+        "use_line": 62,
+        "variable": "append"
+      },
+      {
+        "def_line": 40,
+        "use_line": 75,
+        "variable": "append"
+      },
+      {
+        "def_line": 39,
+        "use_line": 40,
+        "variable": "break_positions"
+      },
+      {
+        "def_line": 39,
+        "use_line": 78,
+        "variable": "break_positions"
+      },
+      {
+        "def_line": 41,
+        "use_line": 46,
+        "variable": "cell_offset"
+      },
+      {
+        "def_line": 64,
+        "use_line": 46,
+        "variable": "cell_offset"
+      },
+      {
+        "def_line": 64,
+        "use_line": 72,
+        "variable": "cell_offset"
+      },
+      {
+        "def_line": 26,
+        "use_line": 57,
+        "variable": "fold"
+      },
+      {
+        "def_line": 59,
+        "use_line": 60,
+        "variable": "folded_word"
+      },
+      {
+        "def_line": 60,
+        "use_line": 63,
+        "variable": "last"
+      },
+      {
+        "def_line": 60,
+        "use_line": 64,
+        "variable": "line"
+      },
+      {
+        "def_line": 60,
+        "use_line": 66,
+        "variable": "line"
+      },
+      {
+        "def_line": 46,
+        "use_line": 47,
+        "variable": "remaining_space"
+      },
+      {
+        "def_line": 44,
+        "use_line": 61,
+        "variable": "start"
+      },
+      {
+        "def_line": 44,
+        "use_line": 62,
+        "variable": "start"
+      },
+      {
+        "def_line": 44,
+        "use_line": 66,
+        "variable": "start"
+      },
+      {
+        "def_line": 44,
+        "use_line": 72,
+        "variable": "start"
+      },
+      {
+        "def_line": 44,
+        "use_line": 75,
+        "variable": "start"
+      },
+      {
+        "def_line": 66,
+        "use_line": 61,
+        "variable": "start"
+      },
+      {
+        "def_line": 66,
+        "use_line": 62,
+        "variable": "start"
+      },
+      {
+        "def_line": 66,
+        "use_line": 66,
+        "variable": "start"
+      },
+      {
+        "def_line": 26,
+        "use_line": 44,
+        "variable": "text"
+      },
+      {
+        "def_line": 26,
+        "use_line": 46,
+        "variable": "width"
+      },
+      {
+        "def_line": 26,
+        "use_line": 54,
+        "variable": "width"
+      },
+      {
+        "def_line": 26,
+        "use_line": 59,
+        "variable": "width"
+      },
+      {
+        "def_line": 44,
+        "use_line": 45,
+        "variable": "word"
+      },
+      {
+        "def_line": 44,
+        "use_line": 59,
+        "variable": "word"
+      },
+      {
+        "def_line": 44,
+        "use_line": 76,
+        "variable": "word"
+      },
+      {
+        "def_line": 47,
+        "use_line": 49,
+        "variable": "word_fits_remaining_space"
+      },
+      {
+        "def_line": 45,
+        "use_line": 47,
+        "variable": "word_length"
+      },
+      {
+        "def_line": 45,
+        "use_line": 54,
+        "variable": "word_length"
+      }
+    ]
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "question_kind": "M4_DataFlow",
+  "question": "During pytest run rich_qa/markup_parse_m4_dataflow/files/testcase.py::MarkupParseDataflowTest, aggregate observations across all twelve test methods in that class (every def test_... method), in pytest collection order: test_bulk_alternating_style_tags, test_dense_param_link_tags, test_escape_ladder_variants, test_plain_runs_between_tags, test_unclosed_style_stack, test_implicit_slash_closers, test_hash_color_style_tags, test_mixed_escape_and_real_tags, test_single_character_tag_burst, test_nested_overlapping_styles, test_trailing_plain_tail, and test_leading_plain_then_tags.\n\nThe tests reach rich.markup._parse only indirectly through callers such as rich.markup.render (for example via render(markup, emoji=False)); your answer must still describe def-use flow inside _parse itself.\n\nCollect every observed def-use pair for the following local variable names only: markup, position, _divmod, _Tag, match, full_text, escapes, tag_text, start, end, backslashes, escaped, text, equals, parameters.\n\nDefinitions and uses are determined from the source of _parse in rich/markup.py as it exists in the repository. A def is any binding that assigns a new value to a tracked name: function parameters (including keyword-only parameters), plain assignment, for-loop targets, and the write side of augmented assignment. The parameter markup counts as defined on line 73 (the def line). A use is any read of a tracked name on an executable line in the function body. The def line itself (73), decorator lines, and docstring lines are not executed and never contribute uses; only body lines reached at runtime count.\n\nAugmented assignment (for example start += backslashes * 2 on line 93) counts as a use of the prior value on that line followed by a new def on the same line. A for-loop header such as for match in RE_TAGS.finditer(markup): defines match on the header line each time that line runs. Comprehension iteration variables are not tracked here because they are not listed above.\n\nProcess every invocation of _parse during the entire test run. _parse is a generator function. One invocation is one call event whose func equals rich.markup._parse exactly and whose line number is 73 (the function entry). While that generator runs, Python emits additional call events at yield/resume points (for example lines 87, 92, 96, 100, and 103); those resume call events do NOT start a new invocation. For each entry call at line 73, collect every line event for rich.markup._parse in chronological trace order until the next entry call at line 73 or the end of the trace; that entire sequence belongs to one invocation. Reset active definitions only at each entry call at line 73.\n\nWithin one invocation, walk those line events in chronological order. On each executed line, for every tracked use on that line, record one observation {variable, def_line, use_line} where def_line is the line number of the active definition of that variable (the most recent def at or before the use, not yet superseded) and use_line is the line where the use occurs. If a line both uses and defines the same variable, process all uses on that line against the prior active def before applying the new def on that line. After handling uses and defs on a line, update active defs for any names defined on that line. One observation is one such use event; a use inside a loop body contributes one observation per time that use line executes.\n\nSum observation counts across all invocations and all twelve test methods. Each distinct triple (variable, def_line, use_line) appears at most once in the answer; its count is the total number of observations of that triple. Pairs that never occur are omitted.\n\nSort the final list by variable ascending (ASCII), then def_line ascending, then use_line ascending.\n\nReport the answer as JSON with top-level key observed_def_use_pairs whose value is a list of objects, each with exactly these keys:\n- variable (str): one of the tracked names above\n- def_line (int): 1-based line number in rich/markup.py where the reaching definition occurred\n- use_line (int): 1-based line number in rich/markup.py where the variable was read\n- count (int): total observations of this triple across the whole test run\n\nLine numbers are absolute, 1-based, in rich/markup.py as present in the repository. For a multi-line statement, Python reports the line event on the line where that statement begins.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": "int",
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "variable": "_Tag",
+        "def_line": 82,
+        "use_line": 100,
+        "count": 395
+      },
+      {
+        "variable": "_divmod",
+        "def_line": 81,
+        "use_line": 89,
+        "count": 34
+      },
+      {
+        "variable": "backslashes",
+        "def_line": 89,
+        "use_line": 90,
+        "count": 34
+      },
+      {
+        "variable": "backslashes",
+        "def_line": 89,
+        "use_line": 92,
+        "count": 20
+      },
+      {
+        "variable": "backslashes",
+        "def_line": 89,
+        "use_line": 93,
+        "count": 20
+      },
+      {
+        "variable": "end",
+        "def_line": 85,
+        "use_line": 97,
+        "count": 17
+      },
+      {
+        "variable": "end",
+        "def_line": 85,
+        "use_line": 101,
+        "count": 395
+      },
+      {
+        "variable": "equals",
+        "def_line": 99,
+        "use_line": 100,
+        "count": 395
+      },
+      {
+        "variable": "escaped",
+        "def_line": 89,
+        "use_line": 94,
+        "count": 34
+      },
+      {
+        "variable": "escapes",
+        "def_line": 84,
+        "use_line": 88,
+        "count": 412
+      },
+      {
+        "variable": "escapes",
+        "def_line": 84,
+        "use_line": 89,
+        "count": 34
+      },
+      {
+        "variable": "escapes",
+        "def_line": 84,
+        "use_line": 96,
+        "count": 17
+      },
+      {
+        "variable": "full_text",
+        "def_line": 84,
+        "use_line": 96,
+        "count": 17
+      },
+      {
+        "variable": "markup",
+        "def_line": 73,
+        "use_line": 83,
+        "count": 424
+      },
+      {
+        "variable": "markup",
+        "def_line": 73,
+        "use_line": 87,
+        "count": 202
+      },
+      {
+        "variable": "markup",
+        "def_line": 73,
+        "use_line": 102,
+        "count": 12
+      },
+      {
+        "variable": "markup",
+        "def_line": 73,
+        "use_line": 103,
+        "count": 1
+      },
+      {
+        "variable": "match",
+        "def_line": 83,
+        "use_line": 84,
+        "count": 412
+      },
+      {
+        "variable": "match",
+        "def_line": 83,
+        "use_line": 85,
+        "count": 412
+      },
+      {
+        "variable": "parameters",
+        "def_line": 99,
+        "use_line": 100,
+        "count": 395
+      },
+      {
+        "variable": "position",
+        "def_line": 80,
+        "use_line": 86,
+        "count": 12
+      },
+      {
+        "variable": "position",
+        "def_line": 80,
+        "use_line": 87,
+        "count": 2
+      },
+      {
+        "variable": "position",
+        "def_line": 97,
+        "use_line": 86,
+        "count": 17
+      },
+      {
+        "variable": "position",
+        "def_line": 101,
+        "use_line": 86,
+        "count": 383
+      },
+      {
+        "variable": "position",
+        "def_line": 101,
+        "use_line": 87,
+        "count": 200
+      },
+      {
+        "variable": "position",
+        "def_line": 101,
+        "use_line": 102,
+        "count": 12
+      },
+      {
+        "variable": "position",
+        "def_line": 101,
+        "use_line": 103,
+        "count": 1
+      },
+      {
+        "variable": "start",
+        "def_line": 85,
+        "use_line": 86,
+        "count": 412
+      },
+      {
+        "variable": "start",
+        "def_line": 85,
+        "use_line": 87,
+        "count": 202
+      },
+      {
+        "variable": "start",
+        "def_line": 85,
+        "use_line": 92,
+        "count": 20
+      },
+      {
+        "variable": "start",
+        "def_line": 85,
+        "use_line": 93,
+        "count": 20
+      },
+      {
+        "variable": "start",
+        "def_line": 85,
+        "use_line": 96,
+        "count": 14
+      },
+      {
+        "variable": "start",
+        "def_line": 85,
+        "use_line": 100,
+        "count": 378
+      },
+      {
+        "variable": "start",
+        "def_line": 93,
+        "use_line": 96,
+        "count": 3
+      },
+      {
+        "variable": "start",
+        "def_line": 93,
+        "use_line": 100,
+        "count": 17
+      },
+      {
+        "variable": "tag_text",
+        "def_line": 84,
+        "use_line": 99,
+        "count": 395
+      },
+      {
+        "variable": "text",
+        "def_line": 99,
+        "use_line": 100,
+        "count": 395
+      }
+    ]
+  }
+}

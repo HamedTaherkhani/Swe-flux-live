@@ -1,0 +1,24 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "BufferError",
+      "ConnectionError",
+      "EOFError",
+      "EncodingWarning",
+      "KeyError",
+      "NameError",
+      "NotADirectoryError",
+      "PermissionError",
+      "ProcessLookupError",
+      "TypeError",
+      "UserWarning"
+    ]
+  },
+  "question": "Run the complete pytest test `llama_factory_qa/runner_monitor_s5_exceptions/files/testcase.py::TestRunnerCaughtExceptions::test_seeded_wait_failures_are_retried`. During that run, consider the single `llamafactory.webui.runner.Runner.monitor` generator frame in `src/llamafactory/webui/runner.py`, reached indirectly through `Runner.run_train` and `Runner._launch` and consumed until exhaustion. Report the set of dynamic exception types caught inside that frame by the `except TimeoutExpired` handler at line 435. An exception counts as caught by this handler exactly when it is raised into the target frame by the `self.trainer.wait(2)` call whose expression begins on line 433, control enters that handler, and its `continue` statement on line 436 executes; do not include exceptions caught elsewhere or exceptions that propagate out of the target frame. These are absolute 1-based line numbers in the named repository file as it exists for the test; for a multi-line statement, use the line where the executed statement or expression begins. The function's `def` line, decorator lines, and docstring line do not count as exception sites. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and `module.QualName` for all others (e.g. `haystack.core.errors.PipelineError`). Form the set by converting every qualifying exception to that type-name string, removing duplicate strings, and sorting the remaining strings in ascending lexicographic order by Python string ordering; there are no secondary ties after deduplication. Return exactly one JSON object with exactly the key `caught_exception_kinds`; its value must be a JSON array of JSON strings in that stated order. Do not use `repr`, truncate, or otherwise normalize the type-name strings, and use an empty JSON array\u2014not null or an omitted key\u2014if the set is empty.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

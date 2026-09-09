@@ -1,0 +1,52 @@
+{
+  "question_kind": "S3_ProgramState",
+  "question": "During pytest run `rich_qa/table_render_s3_state/files/testcase.py::TableRenderS3StateTest::test_table_render_state_harvest`, consider the 1st invocation of `rich.table.Table._render` in `rich/table.py` (count invocations by chronological entry at physical line 755; suspend/resume via `yield` inside the generator does not start a new invocation; the invocation ends when the generator is exhausted). Line numbers are absolute, 1-based, in `rich/table.py` as checked into the repository; a `line` trace event fires immediately before that physical source line begins executing (for a multi-line statement, the line where the statement starts). Immediately after physical line 846 (`row_height = max(len(cell) for cell in cells)`) has finished executing for the 15th time during that invocation, what are the values of the local variables `end_section`, `first`, `footer_row`, `header_row`, `index`, `last`, `max_height`, `row`, and `row_height` bound in the `Table._render` frame? Because `Table._render` is a generator function, `yield` expressions suspend execution but do not end the invocation; only the final `return` when the generator is exhausted ends it. Count completions of line 846 as the 1st, 2nd, \u2026 times Python finishes executing that statement during the invocation (each pass through the outer `for index, (first, last, row_cell) in enumerate(loop_first_last(row_cells))` loop produces one completion after all cells in that row are rendered). The observation moment is right after the 15th such completion and before any later statement in `Table._render` runs for that row (in particular, before the nested `def align_cell` on line 848 begins). At that moment, report the current binding of each listed name in the `Table._render` local namespace (names not yet rebound in the current row iteration retain their values from earlier in the same invocation). Report each value as the Python `repr()` string (for example, `repr(3)` is `'3'` and `repr(False)` is `'False'`; containers use the `repr` of the whole container). If a listed variable is not yet bound, report the JSON (only if truly unbound). Return JSON matching `template_answer`: `observed_state` is a list of objects with keys `variable` and `value`, sorted ascending by `variable` (lexicographic on the variable name), containing exactly the nine variables named above.",
+  "template_answer": {
+    "observed_state": [
+      {
+        "variable": "str",
+        "value": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "variable": "end_section",
+        "value": "True"
+      },
+      {
+        "variable": "first",
+        "value": "False"
+      },
+      {
+        "variable": "footer_row",
+        "value": "False"
+      },
+      {
+        "variable": "header_row",
+        "value": "False"
+      },
+      {
+        "variable": "index",
+        "value": "14"
+      },
+      {
+        "variable": "last",
+        "value": "False"
+      },
+      {
+        "variable": "max_height",
+        "value": "2"
+      },
+      {
+        "variable": "row",
+        "value": "Row(style=None, end_section=False)"
+      },
+      {
+        "variable": "row_height",
+        "value": "2"
+      }
+    ]
+  }
+}

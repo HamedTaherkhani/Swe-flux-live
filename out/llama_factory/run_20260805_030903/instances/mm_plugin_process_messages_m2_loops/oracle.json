@@ -1,0 +1,12 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "Run the complete pytest test `llama_factory_qa/mm_plugin_process_messages_m2_loops/files/testcase.py::TestMiniCPMVNestedLoopBehavior::test_seeded_pairwise_batch_through_public_preprocessor`. Across all invocations of `src.llamafactory.data.mm_plugin.MiniCPMVPlugin.process_messages` in `src/llamafactory/data/mm_plugin.py` during that test, determine the maximum and minimum iteration counts of the `for` loop whose header begins at line 743. An invocation means one runtime entry into that exact function; include every invocation made by the complete test, and number invocations 1-based in chronological entry order. For each invocation separately, an iteration means one execution of the loop body's first statement, the `final_text = (` statement beginning at line 744. Count every such execution in chronological order without deduplication; an invocation in which the body never executes has iteration count zero. Take `max_iterations` and `min_iterations` over the per-invocation counts, retaining duplicate counts when forming that multiset (duplicates do not alter the extrema). Line numbers are absolute, 1-based source line numbers in the named repository file as checked out for the test. For a multi-line statement or expression, attribute execution to the line where the statement or expression begins; decorator lines, the `def` line, loop-header executions, and executions in any other function or frame are not loop-body executions. Return exactly one JSON object with keys in this order: `max_iterations`, then `min_iterations`; each value must be a raw base-10 JSON integer, not a string. For example, the required serialization shape is `{\"max_iterations\": 8, \"min_iterations\": 2}`. Do not add keys. No sorting or tie-breaking is needed beyond the stated maximum and minimum, and no value formatting with `repr()` or `str()` applies because both leaves are JSON integers.",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  },
+  "oracle_answer": {
+    "max_iterations": 41,
+    "min_iterations": 16
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "Run every test method defined on TestMergeSuperComponentLoops in haystack_qa/base_merge_super_component_pipelines_m2_loops/files/testcase.py, as one pytest run, and aggregate over all of those methods. During that run, consider every invocation of haystack.core.pipeline.base.PipelineBase._merge_super_component_pipelines in haystack/core/pipeline/base.py. An invocation is one call of that exact function, numbered 1-based in actual chronological execution order across the full run; do not reorder or deduplicate invocations. For the for-loop whose header is line 1369 (`for socket_name, socket in entry_point_sockets.items():`), compute one iteration count per target invocation. An iteration is one execution, in the target function's own frame, of the loop body's first executable line 1370, where the `if` statement begins. Sum those executions across every activation of this loop caused by all surrounding loops within that same target invocation; if its body never executes, the invocation's count is 0. Ignore events from nested comprehension frames or any function other than the exact target function. Line numbers are absolute 1-based source lines in the named repository file as it exists for this run. For a multi-line statement, its executed line is the line where that statement or expression begins; decorator, `def`, and docstring lines do not count unless Python actually executes them in the target invocation (none is an iteration unless it is line 1370). Return exactly a JSON object with keys `max_iterations` then `min_iterations`, each containing a JSON integer: respectively the maximum and minimum of the per-invocation counts. The extrema retain duplicate counts naturally; there is no sorting or deduplication step and no string formatting or null representation is involved.",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  },
+  "oracle_answer": {
+    "max_iterations": 80,
+    "min_iterations": 21
+  }
+}

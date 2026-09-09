@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 43
+  },
+  "question": "Run the pytest test `instruct_lab_qa/linux_train_linux_train_s2_loops/files/testcase.py::TestLinuxTrainingLoop::test_generated_attention_parameters` and consider `instructlab.train.linux_train.linux_train` in `src/instructlab/train/linux_train.py`. During the first invocation of that function, exactly how many iterations does the `for par in list(layer.named_parameters())` loop whose header begins at line 273 execute?\n\nAn invocation is one Python call of exactly `instructlab.train.linux_train.linux_train`, counted 1-based in chronological order over the complete test run; nested functions, callees, and other frames do not create target invocations. Use the first invocation. An iteration of the loop at line 273 is the Nth execution of that loop body's first source line, `mod = par[0]`, at line 274, within the selected invocation's own frame. Count every such execution in chronological order, including executions whose later statements take different branches; do not count evaluation of the loop header, activity in `layer.named_parameters()`, or events in any callee or other frame. Do not deduplicate executions.\n\nLine numbers are absolute, 1-based physical lines in the named file as it exists in the repository. The loop header and its body-first line are each single-line statements, so no multi-line normalization is needed; the function's `def` line, decorators, and docstring do not count toward an iteration.\n\nReturn exactly one JSON object with the shape `{\"loop_iteration_count\": \"int\"}`, replacing `\"int\"` with the count encoded as a JSON integer. There is only one scalar, so sorting and tie-breaking do not apply. The value is a number, not a `str()` or `repr()` string; no null, empty-value, function-name, callee-name, or exception-name serialization convention applies.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

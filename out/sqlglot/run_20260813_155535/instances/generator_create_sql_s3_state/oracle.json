@@ -1,0 +1,40 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "'CREATE CLUSTERED COLUMNSTORE OR REPLACE OR REFRESH UNIQUE TEMPORARY VIEW CONCURRENTLY IF NOT EXISTS view_33 WITH (HEAP) AS LOCKING ROW lock_2 FOR ACCESS BEGIN SELECT field_9 AS metric_0_22, field_5 AS metric_1_0, field_1 AS metric_2_1, field_20 AS metric_3_2, field_16 AS metric_4_3, field_12 AS metric_5_4, field_8 AS metric_6_5, field_4 AS metric_7_6, field_0 AS metric_8_7, field_19 AS metric_9_8, field_15 AS metric_10_9, field_11 AS metric_11_10, field_7 AS metric_12_11, field_3 AS metric_13_12, field_22 AS metric_14_13, field_18 AS metric_15_14, field_14 AS metric_16_15, field_10 AS metric_17_16, field_6 AS metric_18_17, field_2 AS metric_19_18, field_21 AS metric_20_19, field_17 AS metric_21_20, field_13 AS metric_22_21 FROM source_12 ON COMMIT PRESERVE ROWS idx_0_9 FORCE WITH NO SCHEMA BINDING clone_20'",
+        "variable": "expression_sql"
+      },
+      {
+        "value": "' idx_0_9 FORCE'",
+        "variable": "index_sql"
+      },
+      {
+        "value": "' CLUSTERED COLUMNSTORE OR REPLACE OR REFRESH UNIQUE TEMPORARY'",
+        "variable": "modifiers"
+      },
+      {
+        "value": "' LOCKING ROW lock_2 FOR ACCESS'",
+        "variable": "postalias_props_sql"
+      },
+      {
+        "value": "' ON COMMIT PRESERVE ROWS'",
+        "variable": "postexpression_props_sql"
+      },
+      {
+        "value": "' WITH (HEAP)'",
+        "variable": "properties_sql"
+      }
+    ]
+  },
+  "question": "Run the single pytest test method `CreateSQLProgramStateTest.test_programmatic_create_variants` in `sqlglot_qa/generator_create_sql_s3_state/files/testcase.py`. During that test run, consider the exact function `sqlglot.generator.Generator.create_sql` in `sqlglot/generator.py`.\n\nReport the values of the local variables `expression_sql`, `index_sql`, `modifiers`, `postalias_props_sql`, `postexpression_props_sql`, and `properties_sql` immediately after the assignment to `expression_sql` whose statement begins on absolute line 1436 has executed in the 17th invocation of this exact function. Equivalently, this is the program state just before line 1437 executes in that invocation. An invocation means one `call` of this exact function during the test run, counted chronologically and 1-based; calls of overrides, callers, callees, or other functions are not invocations. Line numbers are absolute, 1-based line numbers in the named repository file. For a multi-line statement or expression, the executed line is the line where that statement or expression begins. Decorator, `def`, and docstring lines count only if Python executes them in this function's frame.\n\nReturn exactly `{\"observed_state\": [{\"value\": \"...\", \"variable\": \"...\"}]}` with six array elements. Each element has exactly the string keys `value` and `variable`; `variable` is the local's source name and `value` is Python's `repr()` of its value at that moment. For a container, use `repr()` of the whole container without recursively sorting or otherwise normalizing it: strings retain their quotes, and `None` and booleans use Python spellings (for example, `None` and `False`, not JSON `null` and `false`). Embedded newlines in a repr are real newline characters inside the JSON string. No requested local may be omitted, represented by JSON null, truncated, or replaced with a placeholder; if one does not exist at the observation point, the requested observation is invalid. Sort the six elements by `variable` in ascending Unicode code-point order and do not deduplicate them. Apply only the escaping required to serialize the repr strings as JSON.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8087 @@
+{
+  "root": "/testbed",
+  "targets": [
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.register",
+      "name": "register",
+      "lineno": 273,
+      "end_lineno": 377,
+      "params": [
+        "self",
+        "app",
+        "options"
+      ],
+      "metrics": {
+        "body_lines": 105,
+        "branches": 14,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "_merge_blueprint_funcs",
+          "add_url_rule",
+          "make_setup_state",
+          "register"
+        ],
+        "num_local_calls": 4,
+        "assigns": 25,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 3,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 86.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.make_response",
+      "name": "make_response",
+      "lineno": 1224,
+      "end_lineno": 1364,
+      "params": [
+        "self",
+        "rv"
+      ],
+      "metrics": {
+        "body_lines": 141,
+        "branches": 12,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 23,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 67.0,
+      "callers": [
+        "Flask.finalize_request"
+      ],
+      "callers_2hop": [
+        "Flask.full_dispatch_request",
+        "Flask.handle_exception"
+      ]
+    },
+    {
+      "file": "src/flask/debughelpers.py",
+      "module": "src.flask.debughelpers",
+      "qualname": "explain_template_loading_attempts",
+      "name": "explain_template_loading_attempts",
+      "lineno": 124,
+      "end_lineno": 179,
+      "params": [
+        "app",
+        "template",
+        "attempts"
+      ],
+      "metrics": {
+        "body_lines": 56,
+        "branches": 7,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [
+          "_dump_loader_info"
+        ],
+        "num_local_calls": 1,
+        "assigns": 12,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 58.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "find_app_by_string",
+      "name": "find_app_by_string",
+      "lineno": 120,
+      "end_lineno": 197,
+      "params": [
+        "module",
+        "app_name"
+      ],
+      "metrics": {
+        "body_lines": 78,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 4,
+        "raises": 8,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [
+          "_called_with_wrong_args"
+        ],
+        "num_local_calls": 1,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 57.8,
+      "callers": [
+        "locate_app"
+      ],
+      "callers_2hop": [
+        "ScriptInfo.load_app"
+      ]
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.url_for",
+      "name": "url_for",
+      "lineno": 1102,
+      "end_lineno": 1222,
+      "params": [
+        "endpoint"
+      ],
+      "metrics": {
+        "body_lines": 121,
+        "branches": 9,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "create_url_adapter"
+        ],
+        "num_local_calls": 1,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 56.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.add_url_rule",
+      "name": "add_url_rule",
+      "lineno": 605,
+      "end_lineno": 661,
+      "params": [
+        "self",
+        "rule",
+        "endpoint",
+        "view_func",
+        "provide_automatic_options"
+      ],
+      "metrics": {
+        "body_lines": 57,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 12,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 3,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 54.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.run",
+      "name": "run",
+      "lineno": 632,
+      "end_lineno": 753,
+      "params": [
+        "self",
+        "host",
+        "port",
+        "debug",
+        "load_dotenv"
+      ],
+      "metrics": {
+        "body_lines": 122,
+        "branches": 10,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 1,
+        "calls": 17,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 53.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "load_dotenv",
+      "name": "load_dotenv",
+      "lineno": 698,
+      "end_lineno": 763,
+      "params": [
+        "path",
+        "load_defaults"
+      ],
+      "metrics": {
+        "body_lines": 66,
+        "branches": 5,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 2,
+        "returns": 2,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 47.6,
+      "callers": [
+        "_env_file_callback"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "find_best_app",
+      "name": "find_best_app",
+      "lineno": 41,
+      "end_lineno": 91,
+      "params": [
+        "module"
+      ],
+      "metrics": {
+        "body_lines": 51,
+        "branches": 6,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [
+          "_called_with_wrong_args"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 45.1,
+      "callers": [
+        "locate_app"
+      ],
+      "callers_2hop": [
+        "ScriptInfo.load_app"
+      ]
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "routes_command",
+      "name": "routes_command",
+      "lineno": 1061,
+      "end_lineno": 1107,
+      "params": [
+        "sort",
+        "all_methods"
+      ],
+      "metrics": {
+        "body_lines": 47,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 28,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 5,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 44.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "ScriptInfo.load_app",
+      "name": "load_app",
+      "lineno": 333,
+      "end_lineno": 372,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 40,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "locate_app",
+          "prepare_import"
+        ],
+        "num_local_calls": 2,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 41.0,
+      "callers": [
+        "FlaskGroup.get_command",
+        "FlaskGroup.list_commands",
+        "run_command"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/config.py",
+      "module": "src.flask.config",
+      "qualname": "Config.from_prefixed_env",
+      "name": "from_prefixed_env",
+      "lineno": 126,
+      "end_lineno": 185,
+      "params": [
+        "self",
+        "prefix"
+      ],
+      "metrics": {
+        "body_lines": 60,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 41.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "get_root_path",
+      "name": "get_root_path",
+      "lineno": 587,
+      "end_lineno": 641,
+      "params": [
+        "import_name"
+      ],
+      "metrics": {
+        "body_lines": 55,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/testing.py",
+      "module": "src.flask.testing",
+      "qualname": "FlaskClient.open",
+      "name": "open",
+      "lineno": 204,
+      "end_lineno": 247,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 44,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "_copy_environ",
+          "_request_from_builder_args",
+          "open"
+        ],
+        "num_local_calls": 3,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 39.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "_find_package_path",
+      "name": "_find_package_path",
+      "lineno": 709,
+      "end_lineno": 751,
+      "params": [
+        "import_name"
+      ],
+      "metrics": {
+        "body_lines": 43,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 37.3,
+      "callers": [
+        "find_package"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "AppContext.pop",
+      "name": "pop",
+      "lineno": 446,
+      "end_lineno": 504,
+      "params": [
+        "self",
+        "exc"
+      ],
+      "metrics": {
+        "body_lines": 59,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "get"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 4,
+        "breaks_continues": 0
+      },
+      "score": 36.9,
+      "callers": [
+        "_AppCtxGlobals.pop"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "_validate_key",
+      "name": "_validate_key",
+      "lineno": 828,
+      "end_lineno": 864,
+      "params": [
+        "ctx",
+        "param",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 37,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 36.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.wsgi_app",
+      "name": "wsgi_app",
+      "lineno": 1566,
+      "end_lineno": 1616,
+      "params": [
+        "self",
+        "environ",
+        "start_response"
+      ],
+      "metrics": {
+        "body_lines": 51,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 1,
+        "finallys": 1,
+        "calls": 9,
+        "local_calls": [
+          "full_dispatch_request",
+          "handle_exception",
+          "request_context"
+        ],
+        "num_local_calls": 3,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 34.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SecureCookieSessionInterface.save_session",
+      "name": "save_session",
+      "lineno": 337,
+      "end_lineno": 385,
+      "params": [
+        "self",
+        "app",
+        "session",
+        "response"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "get_cookie_domain",
+          "get_cookie_httponly",
+          "get_cookie_name",
+          "get_cookie_partitioned",
+          "get_cookie_path",
+          "get_cookie_samesite",
+          "get_cookie_secure",
+          "get_expiration_time",
+          "get_signing_serializer",
+          "should_set_cookie"
+        ],
+        "num_local_calls": 10,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 33.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "prepare_import",
+      "name": "prepare_import",
+      "lineno": 200,
+      "end_lineno": 226,
+      "params": [
+        "path"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 33.7,
+      "callers": [
+        "ScriptInfo.load_app"
+      ],
+      "callers_2hop": [
+        "FlaskGroup.get_command",
+        "FlaskGroup.list_commands",
+        "run_command"
+      ]
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.handle_exception",
+      "name": "handle_exception",
+      "lineno": 897,
+      "end_lineno": 948,
+      "params": [
+        "self",
+        "ctx",
+        "e"
+      ],
+      "metrics": {
+        "body_lines": 52,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "ensure_sync",
+          "finalize_request",
+          "log_exception"
+        ],
+        "num_local_calls": 3,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 33.2,
+      "callers": [
+        "Flask.wsgi_app"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/debughelpers.py",
+      "module": "src.flask.debughelpers",
+      "qualname": "_dump_loader_info",
+      "name": "_dump_loader_info",
+      "lineno": 107,
+      "end_lineno": 121,
+      "params": [
+        "loader"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 4,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 4
+      },
+      "score": 32.5,
+      "callers": [
+        "explain_template_loading_attempts"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.process_response",
+      "name": "process_response",
+      "lineno": 1394,
+      "end_lineno": 1418,
+      "params": [
+        "self",
+        "ctx",
+        "response"
+      ],
+      "metrics": {
+        "body_lines": 25,
+        "branches": 2,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [
+          "ensure_sync"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 30.5,
+      "callers": [
+        "Flask.finalize_request"
+      ],
+      "callers_2hop": [
+        "Flask.full_dispatch_request",
+        "Flask.handle_exception"
+      ]
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.preprocess_request",
+      "name": "preprocess_request",
+      "lineno": 1366,
+      "end_lineno": 1392,
+      "params": [
+        "self",
+        "ctx"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 3,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "ensure_sync"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 29.7,
+      "callers": [
+        "Flask.full_dispatch_request"
+      ],
+      "callers_2hop": [
+        "Flask.wsgi_app"
+      ]
+    },
+    {
+      "file": "src/flask/testing.py",
+      "module": "src.flask.testing",
+      "qualname": "FlaskClient.session_transaction",
+      "name": "session_transaction",
+      "lineno": 136,
+      "end_lineno": 183,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 48,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 28.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "shell_command",
+      "name": "shell_command",
+      "lineno": 1001,
+      "end_lineno": 1045,
+      "params": [],
+      "metrics": {
+        "body_lines": 45,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 28.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App._find_error_handler",
+      "name": "_find_error_handler",
+      "lineno": 868,
+      "end_lineno": 891,
+      "params": [
+        "self",
+        "e",
+        "blueprints"
+      ],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 2,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 28.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.create_url_adapter",
+      "name": "create_url_adapter",
+      "lineno": 509,
+      "end_lineno": 560,
+      "params": [
+        "self",
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 52,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 28.2,
+      "callers": [
+        "Flask.url_for"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold._get_exc_class_and_code",
+      "name": "_get_exc_class_and_code",
+      "lineno": 657,
+      "end_lineno": 698,
+      "params": [
+        "exc_class_or_code"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 28.2,
+      "callers": [
+        "Scaffold.register_error_handler"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "run_command",
+      "name": "run_command",
+      "lineno": 935,
+      "end_lineno": 993,
+      "params": [
+        "info",
+        "host",
+        "port",
+        "reload",
+        "debugger",
+        "with_threads",
+        "cert",
+        "extra_files",
+        "exclude_patterns"
+      ],
+      "metrics": {
+        "body_lines": 59,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "load_app",
+          "show_server_banner"
+        ],
+        "num_local_calls": 2,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 27.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "find_package",
+      "name": "find_package",
+      "lineno": 754,
+      "end_lineno": 792,
+      "params": [
+        "import_name"
+      ],
+      "metrics": {
+        "body_lines": 39,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "_find_package_path"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 5,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 27.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "CertParamType.convert",
+      "name": "convert",
+      "lineno": 791,
+      "end_lineno": 825,
+      "params": [
+        "self",
+        "value",
+        "param",
+        "ctx"
+      ],
+      "metrics": {
+        "body_lines": 35,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 3,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 27.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.handle_user_exception",
+      "name": "handle_user_exception",
+      "lineno": 865,
+      "end_lineno": 895,
+      "params": [
+        "self",
+        "ctx",
+        "e"
+      ],
+      "metrics": {
+        "body_lines": 31,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "ensure_sync",
+          "handle_http_exception"
+        ],
+        "num_local_calls": 2,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 27.1,
+      "callers": [
+        "Flask.full_dispatch_request"
+      ],
+      "callers_2hop": [
+        "Flask.wsgi_app"
+      ]
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "BlueprintSetupState.add_url_rule",
+      "name": "add_url_rule",
+      "lineno": 87,
+      "end_lineno": 116,
+      "params": [
+        "self",
+        "rule",
+        "endpoint",
+        "view_func"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "add_url_rule"
+        ],
+        "num_local_calls": 1,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 27.0,
+      "callers": [
+        "Blueprint.register"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/views.py",
+      "module": "src.flask.views",
+      "qualname": "View.as_view",
+      "name": "as_view",
+      "lineno": 86,
+      "end_lineno": 135,
+      "params": [
+        "cls",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 50,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 27.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.update_template_context",
+      "name": "update_template_context",
+      "lineno": 590,
+      "end_lineno": 618,
+      "params": [
+        "self",
+        "ctx",
+        "context"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 2,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "ensure_sync"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 26.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/config.py",
+      "module": "src.flask.config",
+      "qualname": "Config.get_namespace",
+      "name": "get_namespace",
+      "lineno": 323,
+      "end_lineno": 364,
+      "params": [
+        "self",
+        "namespace",
+        "lowercase",
+        "trim_namespace"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 26.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "FlaskGroup.get_command",
+      "name": "get_command",
+      "lineno": 609,
+      "end_lineno": 634,
+      "params": [
+        "self",
+        "ctx",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "_load_plugin_commands",
+          "get_command",
+          "load_app"
+        ],
+        "num_local_calls": 3,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 25.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "DispatchingJinjaLoader._get_source_explained",
+      "name": "_get_source_explained",
+      "lineno": 64,
+      "end_lineno": 86,
+      "params": [
+        "self",
+        "environment",
+        "template"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "_iter_loaders",
+          "get_source"
+        ],
+        "num_local_calls": 2,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 25.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "DispatchingJinjaLoader.list_templates",
+      "name": "list_templates",
+      "lineno": 108,
+      "end_lineno": 120,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 2,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "list_templates"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 25.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint._merge_blueprint_funcs",
+      "name": "_merge_blueprint_funcs",
+      "lineno": 379,
+      "end_lineno": 410,
+      "params": [
+        "self",
+        "app",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 0,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "extend"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 25.2,
+      "callers": [
+        "Blueprint.register"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/provider.py",
+      "module": "src.flask.json.provider",
+      "qualname": "_default",
+      "name": "_default",
+      "lineno": 108,
+      "end_lineno": 121,
+      "params": [
+        "o"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 24.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.do_teardown_request",
+      "name": "do_teardown_request",
+      "lineno": 1420,
+      "end_lineno": 1451,
+      "params": [
+        "self",
+        "ctx",
+        "exc"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 1,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "ensure_sync"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 23.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/config.py",
+      "module": "src.flask.config",
+      "qualname": "Config.from_pyfile",
+      "name": "from_pyfile",
+      "lineno": 187,
+      "end_lineno": 216,
+      "params": [
+        "self",
+        "filename",
+        "silent"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "from_object"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 23.0,
+      "callers": [
+        "Config.from_envvar"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.inject_url_defaults",
+      "name": "inject_url_defaults",
+      "lineno": 960,
+      "end_lineno": 979,
+      "params": [
+        "self",
+        "endpoint",
+        "values"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 2,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 23.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.full_dispatch_request",
+      "name": "full_dispatch_request",
+      "lineno": 992,
+      "end_lineno": 1019,
+      "params": [
+        "self",
+        "ctx"
+      ],
+      "metrics": {
+        "body_lines": 28,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "dispatch_request",
+          "finalize_request",
+          "handle_user_exception",
+          "preprocess_request"
+        ],
+        "num_local_calls": 4,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 22.8,
+      "callers": [
+        "Flask.wsgi_app"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "locate_app",
+      "name": "locate_app",
+      "lineno": 241,
+      "end_lineno": 264,
+      "params": [
+        "module_name",
+        "app_name",
+        "raise_if_not_found"
+      ],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "find_app_by_string",
+          "find_best_app"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 22.4,
+      "callers": [
+        "ScriptInfo.load_app"
+      ],
+      "callers_2hop": [
+        "FlaskGroup.get_command",
+        "FlaskGroup.list_commands",
+        "run_command"
+      ]
+    },
+    {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SecureCookieSessionInterface.open_session",
+      "name": "open_session",
+      "lineno": 323,
+      "end_lineno": 335,
+      "params": [
+        "self",
+        "app",
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "get_cookie_name",
+          "get_signing_serializer"
+        ],
+        "num_local_calls": 2,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 22.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.create_jinja_environment",
+      "name": "create_jinja_environment",
+      "lineno": 469,
+      "end_lineno": 507,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 39,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 21.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.handle_url_build_error",
+      "name": "handle_url_build_error",
+      "lineno": 981,
+      "end_lineno": 1013,
+      "params": [
+        "self",
+        "error",
+        "endpoint",
+        "values"
+      ],
+      "metrics": {
+        "body_lines": 33,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 21.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/tag.py",
+      "module": "src.flask.json.tag",
+      "qualname": "TaggedJSONSerializer.register",
+      "name": "register",
+      "lineno": 256,
+      "end_lineno": 287,
+      "params": [
+        "self",
+        "tag_class",
+        "force",
+        "index"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 21.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/config.py",
+      "module": "src.flask.config",
+      "qualname": "Config.from_object",
+      "name": "from_object",
+      "lineno": 218,
+      "end_lineno": 254,
+      "params": [
+        "self",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 37,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 20.7,
+      "callers": [
+        "Config.from_pyfile"
+      ],
+      "callers_2hop": [
+        "Config.from_envvar"
+      ]
+    },
+    {
+      "file": "src/flask/config.py",
+      "module": "src.flask.config",
+      "qualname": "Config.from_file",
+      "name": "from_file",
+      "lineno": 256,
+      "end_lineno": 302,
+      "params": [
+        "self",
+        "filename",
+        "load",
+        "silent",
+        "text"
+      ],
+      "metrics": {
+        "body_lines": 47,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "from_mapping"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 20.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "FlaskGroup.list_commands",
+      "name": "list_commands",
+      "lineno": 636,
+      "end_lineno": 655,
+      "params": [
+        "self",
+        "ctx"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "_load_plugin_commands",
+          "list_commands",
+          "load_app"
+        ],
+        "num_local_calls": 3,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 20.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "get_flashed_messages",
+      "name": "get_flashed_messages",
+      "lineno": 360,
+      "end_lineno": 399,
+      "params": [
+        "with_categories",
+        "category_filter"
+      ],
+      "metrics": {
+        "body_lines": 40,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 19.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.add_url_rule",
+      "name": "add_url_rule",
+      "lineno": 413,
+      "end_lineno": 441,
+      "params": [
+        "self",
+        "rule",
+        "endpoint",
+        "view_func",
+        "provide_automatic_options"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "record"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.9,
+      "callers": [
+        "Blueprint.register",
+        "BlueprintSetupState.add_url_rule"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.dispatch_request",
+      "name": "dispatch_request",
+      "lineno": 966,
+      "end_lineno": 990,
+      "params": [
+        "self",
+        "ctx"
+      ],
+      "metrics": {
+        "body_lines": 25,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "ensure_sync",
+          "make_default_options_response",
+          "raise_routing_exception"
+        ],
+        "num_local_calls": 3,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.5,
+      "callers": [
+        "Flask.full_dispatch_request"
+      ],
+      "callers_2hop": [
+        "Flask.wsgi_app"
+      ]
+    },
+    {
+      "file": "src/flask/json/provider.py",
+      "module": "src.flask.json.provider",
+      "qualname": "JSONProvider._prepare_response_obj",
+      "name": "_prepare_response_obj",
+      "lineno": 75,
+      "end_lineno": 87,
+      "params": [
+        "self",
+        "args",
+        "kwargs"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.3,
+      "callers": [
+        "DefaultJSONProvider.response",
+        "JSONProvider.response"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "stream_with_context",
+      "name": "stream_with_context",
+      "lineno": 63,
+      "end_lineno": 148,
+      "params": [
+        "generator_or_function"
+      ],
+      "metrics": {
+        "body_lines": 86,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "generator"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/config.py",
+      "module": "src.flask.config",
+      "qualname": "Config.from_mapping",
+      "name": "from_mapping",
+      "lineno": 304,
+      "end_lineno": 321,
+      "params": [
+        "self",
+        "mapping"
+      ],
+      "metrics": {
+        "body_lines": 18,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 17.8,
+      "callers": [
+        "Config.from_file"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/provider.py",
+      "module": "src.flask.json.provider",
+      "qualname": "DefaultJSONProvider.response",
+      "name": "response",
+      "lineno": 189,
+      "end_lineno": 215,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "_prepare_response_obj",
+          "dumps"
+        ],
+        "num_local_calls": 2,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 17.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/logging.py",
+      "module": "src.flask.logging",
+      "qualname": "has_level_handler",
+      "name": "has_level_handler",
+      "lineno": 31,
+      "end_lineno": 47,
+      "params": [
+        "logger"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 17.7,
+      "callers": [
+        "create_logger"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "FlaskGroup.parse_args",
+      "name": "parse_args",
+      "lineno": 678,
+      "end_lineno": 688,
+      "params": [
+        "self",
+        "ctx",
+        "args"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "parse_args"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 17.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "AppContext.push",
+      "name": "push",
+      "lineno": 416,
+      "end_lineno": 444,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "_get_session",
+          "match_request"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.handle_http_exception",
+      "name": "handle_http_exception",
+      "lineno": 830,
+      "end_lineno": 863,
+      "params": [
+        "self",
+        "ctx",
+        "e"
+      ],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "ensure_sync"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.4,
+      "callers": [
+        "Flask.handle_user_exception"
+      ],
+      "callers_2hop": [
+        "Flask.full_dispatch_request"
+      ]
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.trap_http_exception",
+      "name": "trap_http_exception",
+      "lineno": 893,
+      "end_lineno": 926,
+      "params": [
+        "self",
+        "e"
+      ],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "AppContext._get_session",
+      "name": "_get_session",
+      "lineno": 381,
+      "end_lineno": 393,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.3,
+      "callers": [
+        "AppContext.push",
+        "AppContext.session"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.finalize_request",
+      "name": "finalize_request",
+      "lineno": 1021,
+      "end_lineno": 1051,
+      "params": [
+        "self",
+        "ctx",
+        "rv",
+        "from_error_handler"
+      ],
+      "metrics": {
+        "body_lines": 31,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "make_response",
+          "process_response"
+        ],
+        "num_local_calls": 2,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.1,
+      "callers": [
+        "Flask.full_dispatch_request",
+        "Flask.handle_exception"
+      ],
+      "callers_2hop": [
+        "Flask.wsgi_app"
+      ]
+    },
+    {
+      "file": "src/flask/json/tag.py",
+      "module": "src.flask.json.tag",
+      "qualname": "TaggedJSONSerializer._untag_scan",
+      "name": "_untag_scan",
+      "lineno": 309,
+      "end_lineno": 319,
+      "params": [
+        "self",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "_untag_scan",
+          "untag"
+        ],
+        "num_local_calls": 2,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.do_teardown_appcontext",
+      "name": "do_teardown_appcontext",
+      "lineno": 1453,
+      "end_lineno": 1479,
+      "params": [
+        "self",
+        "ctx",
+        "exc"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 0,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "ensure_sync"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 15.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.open_resource",
+      "name": "open_resource",
+      "lineno": 414,
+      "end_lineno": 445,
+      "params": [
+        "self",
+        "resource",
+        "mode",
+        "encoding"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 15.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/logging.py",
+      "module": "src.flask.logging",
+      "qualname": "create_logger",
+      "name": "create_logger",
+      "lineno": 58,
+      "end_lineno": 79,
+      "params": [
+        "app"
+      ],
+      "metrics": {
+        "body_lines": 22,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "has_level_handler"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 15.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "_env_file_callback",
+      "name": "_env_file_callback",
+      "lineno": 493,
+      "end_lineno": 512,
+      "params": [
+        "ctx",
+        "param",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "load_dotenv"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 15.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "make_response",
+      "name": "make_response",
+      "lineno": 151,
+      "end_lineno": 197,
+      "params": [],
+      "metrics": {
+        "body_lines": 47,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "make_response"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/blueprints.py",
+      "module": "src.flask.blueprints",
+      "qualname": "Blueprint.open_resource",
+      "name": "open_resource",
+      "lineno": 104,
+      "end_lineno": 128,
+      "params": [
+        "self",
+        "resource",
+        "mode",
+        "encoding"
+      ],
+      "metrics": {
+        "body_lines": 25,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "get_version",
+      "name": "get_version",
+      "lineno": 267,
+      "end_lineno": 280,
+      "params": [
+        "ctx",
+        "param",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "copy_current_request_context",
+      "name": "copy_current_request_context",
+      "lineno": 154,
+      "end_lineno": 206,
+      "params": [
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "get"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "after_this_request",
+      "name": "after_this_request",
+      "lineno": 118,
+      "end_lineno": 148,
+      "params": [
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 31,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "get"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/views.py",
+      "module": "src.flask.views",
+      "qualname": "MethodView.dispatch_request",
+      "name": "dispatch_request",
+      "lineno": 182,
+      "end_lineno": 191,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "DispatchingJinjaLoader._get_source_fast",
+      "name": "_get_source_fast",
+      "lineno": 88,
+      "end_lineno": 96,
+      "params": [
+        "self",
+        "environment",
+        "template"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 0,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_iter_loaders",
+          "get_source"
+        ],
+        "num_local_calls": 2,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 13.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "DispatchingJinjaLoader._iter_loaders",
+      "name": "_iter_loaders",
+      "lineno": 98,
+      "end_lineno": 106,
+      "params": [
+        "self",
+        "template"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 13.9,
+      "callers": [
+        "DispatchingJinjaLoader._get_source_explained",
+        "DispatchingJinjaLoader._get_source_fast"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Request.on_json_loading_failed",
+      "name": "on_json_loading_failed",
+      "lineno": 212,
+      "end_lineno": 219,
+      "params": [
+        "self",
+        "e"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "on_json_loading_failed"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 13.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "_called_with_wrong_args",
+      "name": "_called_with_wrong_args",
+      "lineno": 94,
+      "end_lineno": 117,
+      "params": [
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 1,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 1,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 13.4,
+      "callers": [
+        "find_app_by_string",
+        "find_best_app"
+      ],
+      "callers_2hop": [
+        "locate_app"
+      ]
+    },
+    {
+      "file": "src/flask/testing.py",
+      "module": "src.flask.testing",
+      "qualname": "FlaskCliRunner.invoke",
+      "name": "invoke",
+      "lineno": 275,
+      "end_lineno": 298,
+      "params": [
+        "self",
+        "cli",
+        "args"
+      ],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "invoke"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 13.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/config.py",
+      "module": "src.flask.config",
+      "qualname": "Config.from_envvar",
+      "name": "from_envvar",
+      "lineno": 102,
+      "end_lineno": 124,
+      "params": [
+        "self",
+        "variable_name",
+        "silent"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "from_pyfile"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 13.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "FlaskGroup.make_context",
+      "name": "make_context",
+      "lineno": 657,
+      "end_lineno": 676,
+      "params": [
+        "self",
+        "info_name",
+        "args",
+        "parent"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "make_context"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 13.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.test_request_context",
+      "name": "test_request_context",
+      "lineno": 1517,
+      "end_lineno": 1564,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 48,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 1,
+        "calls": 4,
+        "local_calls": [
+          "request_context"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "FlaskGroup._load_plugin_commands",
+      "name": "_load_plugin_commands",
+      "lineno": 600,
+      "end_lineno": 607,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 1,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.8,
+      "callers": [
+        "FlaskGroup.get_command",
+        "FlaskGroup.list_commands"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.raise_routing_exception",
+      "name": "raise_routing_exception",
+      "lineno": 562,
+      "end_lineno": 588,
+      "params": [
+        "self",
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.7,
+      "callers": [
+        "Flask.dispatch_request"
+      ],
+      "callers_2hop": [
+        "Flask.full_dispatch_request"
+      ]
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.get_send_file_max_age",
+      "name": "get_send_file_max_age",
+      "lineno": 365,
+      "end_lineno": 390,
+      "params": [
+        "self",
+        "filename"
+      ],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.6,
+      "callers": [
+        "Flask.send_static_file"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/blueprints.py",
+      "module": "src.flask.blueprints",
+      "qualname": "Blueprint.get_send_file_max_age",
+      "name": "get_send_file_max_age",
+      "lineno": 55,
+      "end_lineno": 80,
+      "params": [
+        "self",
+        "filename"
+      ],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.6,
+      "callers": [
+        "Blueprint.send_static_file"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "stream_with_context.generator",
+      "name": "generator",
+      "lineno": 126,
+      "end_lineno": 141,
+      "params": [],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 1,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 12.6,
+      "callers": [
+        "stream_with_context"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.make_config",
+      "name": "make_config",
+      "lineno": 479,
+      "end_lineno": 493,
+      "params": [
+        "self",
+        "instance_relative"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "show_server_banner",
+      "name": "show_server_banner",
+      "lineno": 766,
+      "end_lineno": 777,
+      "params": [
+        "debug",
+        "app_import_path"
+      ],
+      "metrics": {
+        "body_lines": 12,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.2,
+      "callers": [
+        "run_command"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "flash",
+      "name": "flash",
+      "lineno": 326,
+      "end_lineno": 357,
+      "params": [
+        "message",
+        "category"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.send_static_file",
+      "name": "send_static_file",
+      "lineno": 392,
+      "end_lineno": 412,
+      "params": [
+        "self",
+        "filename"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "get_send_file_max_age"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/blueprints.py",
+      "module": "src.flask.blueprints",
+      "qualname": "Blueprint.send_static_file",
+      "name": "send_static_file",
+      "lineno": 82,
+      "end_lineno": 102,
+      "params": [
+        "self",
+        "filename"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "get_send_file_max_age"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/tag.py",
+      "module": "src.flask.json.tag",
+      "qualname": "TaggedJSONSerializer.untag",
+      "name": "untag",
+      "lineno": 297,
+      "end_lineno": 307,
+      "params": [
+        "self",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "to_python"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.1,
+      "callers": [
+        "TaggedJSONSerializer._untag_scan"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "send_file",
+      "name": "send_file",
+      "lineno": 417,
+      "end_lineno": 540,
+      "params": [
+        "path_or_file",
+        "mimetype",
+        "as_attachment",
+        "download_name",
+        "conditional",
+        "etag",
+        "last_modified",
+        "max_age"
+      ],
+      "metrics": {
+        "body_lines": 124,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "_prepare_send_file_kwargs",
+          "send_file"
+        ],
+        "num_local_calls": 2,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SecureCookieSessionInterface.get_signing_serializer",
+      "name": "get_signing_serializer",
+      "lineno": 303,
+      "end_lineno": 321,
+      "params": [
+        "self",
+        "app"
+      ],
+      "metrics": {
+        "body_lines": 19,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 11.9,
+      "callers": [
+        "SecureCookieSessionInterface.open_session",
+        "SecureCookieSessionInterface.save_session"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.test_client",
+      "name": "test_client",
+      "lineno": 755,
+      "end_lineno": 811,
+      "params": [
+        "self",
+        "use_cookies"
+      ],
+      "metrics": {
+        "body_lines": 57,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 11.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.name",
+      "name": "name",
+      "lineno": 423,
+      "end_lineno": 437,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 11.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "_set_debug",
+      "name": "_set_debug",
+      "lineno": 468,
+      "end_lineno": 482,
+      "params": [
+        "ctx",
+        "param",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.static_url_path",
+      "name": "static_url_path",
+      "lineno": 249,
+      "end_lineno": 262,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Request._load_form_data",
+      "name": "_load_form_data",
+      "lineno": 197,
+      "end_lineno": 210,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_load_form_data"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "_prepare_send_file_kwargs",
+      "name": "_prepare_send_file_kwargs",
+      "lineno": 402,
+      "end_lineno": 414,
+      "params": [],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.3,
+      "callers": [
+        "send_file",
+        "send_from_directory"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/__init__.py",
+      "module": "src.flask.json",
+      "qualname": "dumps",
+      "name": "dumps",
+      "lineno": 13,
+      "end_lineno": 44,
+      "params": [
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "dumps"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.open_instance_resource",
+      "name": "open_instance_resource",
+      "lineno": 447,
+      "end_lineno": 467,
+      "params": [
+        "self",
+        "resource",
+        "mode",
+        "encoding"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.make_shell_context",
+      "name": "make_shell_context",
+      "lineno": 620,
+      "end_lineno": 630,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 0,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/testing.py",
+      "module": "src.flask.testing",
+      "qualname": "FlaskClient._request_from_builder_args",
+      "name": "_request_from_builder_args",
+      "lineno": 193,
+      "end_lineno": 202,
+      "params": [
+        "self",
+        "args",
+        "kwargs"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 1,
+        "calls": 5,
+        "local_calls": [
+          "_copy_environ"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.0,
+      "callers": [
+        "FlaskClient.open"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/__init__.py",
+      "module": "src.flask.json",
+      "qualname": "dump",
+      "name": "dump",
+      "lineno": 47,
+      "end_lineno": 74,
+      "params": [
+        "obj",
+        "fp"
+      ],
+      "metrics": {
+        "body_lines": 28,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "dump"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Request.max_content_length",
+      "name": "max_content_length",
+      "lineno": 60,
+      "end_lineno": 86,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Request.blueprint",
+      "name": "blueprint",
+      "lineno": 162,
+      "end_lineno": 178,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.add_url_rule",
+      "name": "add_url_rule",
+      "lineno": 368,
+      "end_lineno": 433,
+      "params": [
+        "self",
+        "rule",
+        "endpoint",
+        "view_func",
+        "provide_automatic_options"
+      ],
+      "metrics": {
+        "body_lines": 66,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "redirect",
+      "name": "redirect",
+      "lineno": 254,
+      "end_lineno": 278,
+      "params": [
+        "location",
+        "code",
+        "Response"
+      ],
+      "metrics": {
+        "body_lines": 25,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "redirect"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.template_test",
+      "name": "template_test",
+      "lineno": 720,
+      "end_lineno": 753,
+      "params": [
+        "self",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "add_template_test"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "_default_template_ctx_processor",
+      "name": "_default_template_ctx_processor",
+      "lineno": 21,
+      "end_lineno": 33,
+      "params": [],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.async_to_sync",
+      "name": "async_to_sync",
+      "lineno": 1079,
+      "end_lineno": 1100,
+      "params": [
+        "self",
+        "func"
+      ],
+      "metrics": {
+        "body_lines": 22,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.2,
+      "callers": [
+        "Flask.ensure_sync"
+      ],
+      "callers_2hop": [
+        "Flask.dispatch_request",
+        "Flask.do_teardown_appcontext",
+        "Flask.do_teardown_request",
+        "Flask.handle_exception",
+        "Flask.handle_http_exception",
+        "Flask.handle_user_exception"
+      ]
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.auto_find_instance_path",
+      "name": "auto_find_instance_path",
+      "lineno": 507,
+      "end_lineno": 518,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 12,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "abort",
+      "name": "abort",
+      "lineno": 281,
+      "end_lineno": 301,
+      "params": [
+        "code"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "_render",
+      "name": "_render",
+      "lineno": 123,
+      "end_lineno": 133,
+      "params": [
+        "ctx",
+        "template",
+        "context"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.1,
+      "callers": [
+        "render_template",
+        "render_template_string"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Request.max_form_memory_size",
+      "name": "max_form_memory_size",
+      "lineno": 93,
+      "end_lineno": 113,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Request.max_form_parts",
+      "name": "max_form_parts",
+      "lineno": 120,
+      "end_lineno": 140,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "AppContext.match_request",
+      "name": "match_request",
+      "lineno": 405,
+      "end_lineno": 414,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.0,
+      "callers": [
+        "AppContext.push"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/__init__.py",
+      "module": "src.flask.json",
+      "qualname": "loads",
+      "name": "loads",
+      "lineno": 77,
+      "end_lineno": 105,
+      "params": [
+        "s"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "loads"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.template_global",
+      "name": "template_global",
+      "lineno": 779,
+      "end_lineno": 807,
+      "params": [
+        "self",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "add_template_global"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/__init__.py",
+      "module": "src.flask.json",
+      "qualname": "load",
+      "name": "load",
+      "lineno": 108,
+      "end_lineno": 135,
+      "params": [
+        "fp"
+      ],
+      "metrics": {
+        "body_lines": 28,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "load"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.template_filter",
+      "name": "template_filter",
+      "lineno": 670,
+      "end_lineno": 696,
+      "params": [
+        "self",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "add_template_filter"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "stream_template",
+      "name": "stream_template",
+      "lineno": 181,
+      "end_lineno": 197,
+      "params": [
+        "template_name_or_list"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_stream"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.register_blueprint",
+      "name": "register_blueprint",
+      "lineno": 256,
+      "end_lineno": 271,
+      "params": [
+        "self",
+        "blueprint"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.app_template_test",
+      "name": "app_template_test",
+      "lineno": 504,
+      "end_lineno": 529,
+      "params": [
+        "self",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "add_app_template_test"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.app_template_global",
+      "name": "app_template_global",
+      "lineno": 562,
+      "end_lineno": 587,
+      "params": [
+        "self",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "add_app_template_global"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "_stream",
+      "name": "_stream",
+      "lineno": 163,
+      "end_lineno": 178,
+      "params": [
+        "ctx",
+        "template",
+        "context"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "generate"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.6,
+      "callers": [
+        "stream_template",
+        "stream_template_string"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/debughelpers.py",
+      "module": "src.flask.debughelpers",
+      "qualname": "attach_enctype_error_multidict",
+      "name": "attach_enctype_error_multidict",
+      "lineno": 81,
+      "end_lineno": 104,
+      "params": [
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.app_template_filter",
+      "name": "app_template_filter",
+      "lineno": 450,
+      "end_lineno": 473,
+      "params": [
+        "self",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "add_app_template_filter"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "get_load_dotenv",
+      "name": "get_load_dotenv",
+      "lineno": 36,
+      "end_lineno": 48,
+      "params": [
+        "default"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "render_template",
+      "name": "render_template",
+      "lineno": 136,
+      "end_lineno": 148,
+      "params": [
+        "template_name_or_list"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_render"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "stream_template_string",
+      "name": "stream_template_string",
+      "lineno": 200,
+      "end_lineno": 212,
+      "params": [
+        "source"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_stream"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "url_for",
+      "name": "url_for",
+      "lineno": 200,
+      "end_lineno": 251,
+      "params": [
+        "endpoint"
+      ],
+      "metrics": {
+        "body_lines": 52,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "url_for"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "send_from_directory",
+      "name": "send_from_directory",
+      "lineno": 543,
+      "end_lineno": 584,
+      "params": [
+        "directory",
+        "path"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "_prepare_send_file_kwargs",
+          "send_from_directory"
+        ],
+        "num_local_calls": 2,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.make_default_options_response",
+      "name": "make_default_options_response",
+      "lineno": 1053,
+      "end_lineno": 1063,
+      "params": [
+        "self",
+        "ctx"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.1,
+      "callers": [
+        "Flask.dispatch_request"
+      ],
+      "callers_2hop": [
+        "Flask.full_dispatch_request"
+      ]
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold._method_route",
+      "name": "_method_route",
+      "lineno": 284,
+      "end_lineno": 293,
+      "params": [
+        "self",
+        "method",
+        "rule",
+        "options"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "route"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "render_template_string",
+      "name": "render_template_string",
+      "lineno": 151,
+      "end_lineno": 160,
+      "params": [
+        "source"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_render"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/provider.py",
+      "module": "src.flask.json.provider",
+      "qualname": "JSONProvider.response",
+      "name": "response",
+      "lineno": 89,
+      "end_lineno": 105,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_prepare_response_obj",
+          "dumps"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.test_cli_runner",
+      "name": "test_cli_runner",
+      "lineno": 813,
+      "end_lineno": 828,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.select_jinja_autoescape",
+      "name": "select_jinja_autoescape",
+      "lineno": 533,
+      "end_lineno": 547,
+      "params": [
+        "self",
+        "filename"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SessionInterface.should_set_cookie",
+      "name": "should_set_cookie",
+      "lineno": 233,
+      "end_lineno": 247,
+      "params": [
+        "self",
+        "app",
+        "session"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.5,
+      "callers": [
+        "SecureCookieSessionInterface.save_session"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Request.blueprints",
+      "name": "blueprints",
+      "lineno": 181,
+      "end_lineno": 195,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "has_request_context",
+      "name": "has_request_context",
+      "lineno": 209,
+      "end_lineno": 232,
+      "params": [],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "get"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/provider.py",
+      "module": "src.flask.json.provider",
+      "qualname": "DefaultJSONProvider.dumps",
+      "name": "dumps",
+      "lineno": 166,
+      "end_lineno": 179,
+      "params": [
+        "self",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "dumps"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.4,
+      "callers": [
+        "DefaultJSONProvider.response",
+        "JSONProvider.dump",
+        "JSONProvider.response"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.ensure_sync",
+      "name": "ensure_sync",
+      "lineno": 1065,
+      "end_lineno": 1077,
+      "params": [
+        "self",
+        "func"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "async_to_sync"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.3,
+      "callers": [
+        "Flask.dispatch_request",
+        "Flask.do_teardown_appcontext",
+        "Flask.do_teardown_request",
+        "Flask.handle_exception",
+        "Flask.handle_http_exception",
+        "Flask.handle_user_exception"
+      ],
+      "callers_2hop": [
+        "Flask.finalize_request",
+        "Flask.full_dispatch_request",
+        "Flask.wsgi_app"
+      ]
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "_AppCtxGlobals.pop",
+      "name": "pop",
+      "lineno": 79,
+      "end_lineno": 91,
+      "params": [
+        "self",
+        "name",
+        "default"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "pop"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.teardown_request",
+      "name": "teardown_request",
+      "lineno": 508,
+      "end_lineno": 539,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App._check_setup_finished",
+      "name": "_check_setup_finished",
+      "lineno": 410,
+      "end_lineno": 420,
+      "params": [
+        "self",
+        "f_name"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.jinja_loader",
+      "name": "jinja_loader",
+      "lineno": 272,
+      "end_lineno": 282,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "AppContext.from_environ",
+      "name": "from_environ",
+      "lineno": 340,
+      "end_lineno": 348,
+      "params": [],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "AppContext.request",
+      "name": "request",
+      "lineno": 371,
+      "end_lineno": 379,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint._check_setup_finished",
+      "name": "_check_setup_finished",
+      "lineno": 213,
+      "end_lineno": 221,
+      "params": [
+        "self",
+        "f_name"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.add_template_test",
+      "name": "add_template_test",
+      "lineno": 756,
+      "end_lineno": 770,
+      "params": [
+        "self",
+        "f",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.5,
+      "callers": [
+        "App.template_test"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.add_template_global",
+      "name": "add_template_global",
+      "lineno": 810,
+      "end_lineno": 824,
+      "params": [
+        "self",
+        "f",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.5,
+      "callers": [
+        "App.template_global"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.before_request",
+      "name": "before_request",
+      "lineno": 460,
+      "end_lineno": 484,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 25,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/__init__.py",
+      "module": "src.flask.json",
+      "qualname": "jsonify",
+      "name": "jsonify",
+      "lineno": 138,
+      "end_lineno": 170,
+      "params": [],
+      "metrics": {
+        "body_lines": 33,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.add_template_filter",
+      "name": "add_template_filter",
+      "lineno": 699,
+      "end_lineno": 711,
+      "params": [
+        "self",
+        "f",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.3,
+      "callers": [
+        "App.template_filter"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.register_error_handler",
+      "name": "register_error_handler",
+      "lineno": 642,
+      "end_lineno": 654,
+      "params": [
+        "self",
+        "code_or_exception",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "_get_exc_class_and_code"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.errorhandler",
+      "name": "errorhandler",
+      "lineno": 598,
+      "end_lineno": 639,
+      "params": [
+        "self",
+        "code_or_exception"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Response.max_cookie_size",
+      "name": "max_cookie_size",
+      "lineno": 247,
+      "end_lineno": 257,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "get_template_attribute",
+      "name": "get_template_attribute",
+      "lineno": 304,
+      "end_lineno": 323,
+      "params": [
+        "template_name",
+        "attribute"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "AppGroup.group",
+      "name": "group",
+      "lineno": 429,
+      "end_lineno": 437,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "group"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.teardown_appcontext",
+      "name": "teardown_appcontext",
+      "lineno": 827,
+      "end_lineno": 855,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.after_request",
+      "name": "after_request",
+      "lineno": 487,
+      "end_lineno": 505,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 19,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SessionInterface.get_expiration_time",
+      "name": "get_expiration_time",
+      "lineno": 223,
+      "end_lineno": 231,
+      "params": [
+        "self",
+        "app",
+        "session"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.9,
+      "callers": [
+        "SecureCookieSessionInterface.save_session"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "AppContext.session",
+      "name": "session",
+      "lineno": 396,
+      "end_lineno": 403,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "_get_session"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "setupmethod",
+      "name": "setupmethod",
+      "lineno": 42,
+      "end_lineno": 49,
+      "params": [
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.static_folder",
+      "name": "static_folder",
+      "lineno": 224,
+      "end_lineno": 231,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.register_blueprint",
+      "name": "register_blueprint",
+      "lineno": 570,
+      "end_lineno": 595,
+      "params": [
+        "self",
+        "blueprint"
+      ],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "AppGroup.command",
+      "name": "command",
+      "lineno": 413,
+      "end_lineno": 427,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.logger",
+      "name": "logger",
+      "lineno": 440,
+      "end_lineno": 464,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 25,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "with_appcontext",
+      "name": "with_appcontext",
+      "lineno": 380,
+      "end_lineno": 402,
+      "params": [
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "has_app_context",
+      "name": "has_app_context",
+      "lineno": 235,
+      "end_lineno": 257,
+      "params": [],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "get"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/logging.py",
+      "module": "src.flask.logging",
+      "qualname": "wsgi_errors_stream",
+      "name": "wsgi_errors_stream",
+      "lineno": 16,
+      "end_lineno": 28,
+      "params": [],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.url_value_preprocessor",
+      "name": "url_value_preprocessor",
+      "lineno": 559,
+      "end_lineno": 581,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SessionInterface.open_session",
+      "name": "open_session",
+      "lineno": 249,
+      "end_lineno": 261,
+      "params": [
+        "self",
+        "app",
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Request.endpoint",
+      "name": "endpoint",
+      "lineno": 147,
+      "end_lineno": 159,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.record_once",
+      "name": "record_once",
+      "lineno": 233,
+      "end_lineno": 244,
+      "params": [
+        "self",
+        "func"
+      ],
+      "metrics": {
+        "body_lines": 12,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "record"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.2,
+      "callers": [
+        "Blueprint.add_app_template_filter",
+        "Blueprint.add_app_template_global",
+        "Blueprint.add_app_template_test",
+        "Blueprint.after_app_request",
+        "Blueprint.app_context_processor",
+        "Blueprint.app_url_defaults"
+      ],
+      "callers_2hop": [
+        "Blueprint.app_template_filter",
+        "Blueprint.app_template_global",
+        "Blueprint.app_template_test"
+      ]
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.add_app_template_test",
+      "name": "add_app_template_test",
+      "lineno": 532,
+      "end_lineno": 553,
+      "params": [
+        "self",
+        "f",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 22,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "record_once"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.2,
+      "callers": [
+        "Blueprint.app_template_test"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.add_app_template_global",
+      "name": "add_app_template_global",
+      "lineno": 590,
+      "end_lineno": 611,
+      "params": [
+        "self",
+        "f",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 22,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "record_once"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.2,
+      "callers": [
+        "Blueprint.app_template_global"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.redirect",
+      "name": "redirect",
+      "lineno": 939,
+      "end_lineno": 958,
+      "params": [
+        "self",
+        "location",
+        "code"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.add_app_template_filter",
+      "name": "add_app_template_filter",
+      "lineno": 476,
+      "end_lineno": 495,
+      "params": [
+        "self",
+        "f",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "record_once"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.0,
+      "callers": [
+        "Blueprint.app_template_filter"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.route",
+      "name": "route",
+      "lineno": 336,
+      "end_lineno": 365,
+      "params": [
+        "self",
+        "rule"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.0,
+      "callers": [
+        "Scaffold._method_route"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.app_context",
+      "name": "app_context",
+      "lineno": 1481,
+      "end_lineno": 1499,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 19,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/json/provider.py",
+      "module": "src.flask.json.provider",
+      "qualname": "JSONProvider.dump",
+      "name": "dump",
+      "lineno": 49,
+      "end_lineno": 57,
+      "params": [
+        "self",
+        "obj",
+        "fp"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "dumps"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SessionInterface.save_session",
+      "name": "save_session",
+      "lineno": 263,
+      "end_lineno": 270,
+      "params": [
+        "self",
+        "app",
+        "session",
+        "response"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.log_exception",
+      "name": "log_exception",
+      "lineno": 950,
+      "end_lineno": 964,
+      "params": [
+        "self",
+        "ctx",
+        "exc_info"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.5,
+      "callers": [
+        "Flask.handle_exception"
+      ],
+      "callers_2hop": [
+        "Flask.wsgi_app"
+      ]
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.request_context",
+      "name": "request_context",
+      "lineno": 1501,
+      "end_lineno": 1515,
+      "params": [
+        "self",
+        "environ"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.5,
+      "callers": [
+        "Flask.test_request_context",
+        "Flask.wsgi_app"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.context_processor",
+      "name": "context_processor",
+      "lineno": 542,
+      "end_lineno": 556,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "AppContext.copy",
+      "name": "copy",
+      "lineno": 355,
+      "end_lineno": 368,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.create_global_jinja_loader",
+      "name": "create_global_jinja_loader",
+      "lineno": 520,
+      "end_lineno": 531,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 12,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.endpoint",
+      "name": "endpoint",
+      "lineno": 436,
+      "end_lineno": 457,
+      "params": [
+        "self",
+        "endpoint"
+      ],
+      "metrics": {
+        "body_lines": 22,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold.url_defaults",
+      "name": "url_defaults",
+      "lineno": 584,
+      "end_lineno": 595,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 12,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "_AppCtxGlobals.setdefault",
+      "name": "setdefault",
+      "lineno": 93,
+      "end_lineno": 103,
+      "params": [
+        "self",
+        "name",
+        "default"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "setdefault"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.make_aborter",
+      "name": "make_aborter",
+      "lineno": 495,
+      "end_lineno": 505,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SessionInterface.make_null_session",
+      "name": "make_null_session",
+      "lineno": 150,
+      "end_lineno": 160,
+      "params": [
+        "self",
+        "app"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "add_ctx",
+      "name": "add_ctx",
+      "lineno": 97,
+      "end_lineno": 106,
+      "params": [
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "_AppCtxGlobals.get",
+      "name": "get",
+      "lineno": 68,
+      "end_lineno": 77,
+      "params": [
+        "self",
+        "name",
+        "default"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "get"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.0,
+      "callers": [
+        "AppContext.pop",
+        "after_this_request",
+        "copy_current_request_context",
+        "has_app_context",
+        "has_request_context"
+      ],
+      "callers_2hop": [
+        "_AppCtxGlobals.pop"
+      ]
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.app_context_processor",
+      "name": "app_context_processor",
+      "lineno": 644,
+      "end_lineno": 653,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "record_once"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.app_url_value_preprocessor",
+      "name": "app_url_value_preprocessor",
+      "lineno": 673,
+      "end_lineno": 682,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "record_once"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.shell_context_processor",
+      "name": "shell_context_processor",
+      "lineno": 858,
+      "end_lineno": 866,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "remove_ctx",
+      "name": "remove_ctx",
+      "lineno": 85,
+      "end_lineno": 92,
+      "params": [
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.jinja_env",
+      "name": "jinja_env",
+      "lineno": 467,
+      "end_lineno": 474,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "create_jinja_environment"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.make_setup_state",
+      "name": "make_setup_state",
+      "lineno": 246,
+      "end_lineno": 253,
+      "params": [
+        "self",
+        "app",
+        "options",
+        "first_registration"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.8,
+      "callers": [
+        "Blueprint.register"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.before_app_request",
+      "name": "before_app_request",
+      "lineno": 614,
+      "end_lineno": 621,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "record_once"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.after_app_request",
+      "name": "after_app_request",
+      "lineno": 624,
+      "end_lineno": 631,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "record_once"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.teardown_app_request",
+      "name": "teardown_app_request",
+      "lineno": 634,
+      "end_lineno": 641,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "record_once"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.app_url_defaults",
+      "name": "app_url_defaults",
+      "lineno": 685,
+      "end_lineno": 692,
+      "params": [
+        "self",
+        "f"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "record_once"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SessionInterface.is_null_session",
+      "name": "is_null_session",
+      "lineno": 162,
+      "end_lineno": 169,
+      "params": [
+        "self",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.app_errorhandler",
+      "name": "app_errorhandler",
+      "lineno": 656,
+      "end_lineno": 670,
+      "params": [
+        "self",
+        "code"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.debug",
+      "name": "debug",
+      "lineno": 550,
+      "end_lineno": 560,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SessionInterface.get_cookie_domain",
+      "name": "get_cookie_domain",
+      "lineno": 175,
+      "end_lineno": 185,
+      "params": [
+        "self",
+        "app"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.1,
+      "callers": [
+        "SecureCookieSessionInterface.save_session"
+      ],
+      "callers_2hop": []
+    }
+  ]
+}

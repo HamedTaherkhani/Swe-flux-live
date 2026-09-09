@@ -1,0 +1,122 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 774,
+        "use_line": 806,
+        "variable": "checkout"
+      },
+      {
+        "def_line": 774,
+        "use_line": 816,
+        "variable": "checkout"
+      },
+      {
+        "def_line": 774,
+        "use_line": 822,
+        "variable": "checkout"
+      },
+      {
+        "def_line": 774,
+        "use_line": 799,
+        "variable": "config"
+      },
+      {
+        "def_line": 774,
+        "use_line": 801,
+        "variable": "config"
+      },
+      {
+        "def_line": 774,
+        "use_line": 808,
+        "variable": "config"
+      },
+      {
+        "def_line": 774,
+        "use_line": 809,
+        "variable": "config"
+      },
+      {
+        "def_line": 798,
+        "use_line": 805,
+        "variable": "cookiecutter_args"
+      },
+      {
+        "def_line": 798,
+        "use_line": 806,
+        "variable": "cookiecutter_args"
+      },
+      {
+        "def_line": 798,
+        "use_line": 814,
+        "variable": "cookiecutter_args"
+      },
+      {
+        "def_line": 798,
+        "use_line": 815,
+        "variable": "cookiecutter_args"
+      },
+      {
+        "def_line": 798,
+        "use_line": 820,
+        "variable": "cookiecutter_args"
+      },
+      {
+        "def_line": 798,
+        "use_line": 821,
+        "variable": "cookiecutter_args"
+      },
+      {
+        "def_line": 798,
+        "use_line": 828,
+        "variable": "cookiecutter_args"
+      },
+      {
+        "def_line": 774,
+        "use_line": 804,
+        "variable": "directory"
+      },
+      {
+        "def_line": 774,
+        "use_line": 805,
+        "variable": "directory"
+      },
+      {
+        "def_line": 809,
+        "use_line": 818,
+        "variable": "example_pipeline"
+      },
+      {
+        "def_line": 810,
+        "use_line": 828,
+        "variable": "starter_path"
+      },
+      {
+        "def_line": 826,
+        "use_line": 828,
+        "variable": "starter_path"
+      },
+      {
+        "def_line": 774,
+        "use_line": 826,
+        "variable": "template_path"
+      },
+      {
+        "def_line": 808,
+        "use_line": 812,
+        "variable": "tools"
+      }
+    ]
+  },
+  "question": "When the pytest test\n`kedro_qa/starters_make_cookiecutter_args_and_fetch_template_s4_dataflow/files/testcase.py::TestCookiecutterArgsDataFlow::test_traced_run`\nis executed, the function\n`kedro.framework.cli.starters._make_cookiecutter_args_and_fetch_template`\n(defined in the repository file `kedro/framework/cli/starters.py`) is invoked\neight times indirectly: the test invokes the callback of the `new` command\ndefined in the same module (the `new` command's body calls the target\nfunction directly, exactly once per invocation), once per scripted round,\nwith the module's template-fetching helper and project-creation helper\nmocked out. Across the eight rounds, the test varies the `--starter`,\n`--tools`, `--example`, `--checkout` and `--directory` inputs so that the\ntarget's conditional branches are taken in different combinations: some\nrounds select the PySpark tooling branch, some select the example-pipeline\nbranch (without PySpark), some fall through to the default branch, and only\nsome rounds pass a truthy `directory` argument.\n\nTask: report ALL unique observed def-use pairs, over ALL eight invocations\nof `kedro.framework.cli.starters._make_cookiecutter_args_and_fetch_template`\nduring this test run, for exactly these eight local variables of the target\nfunction: `config`, `checkout`, `directory`, `template_path`,\n`cookiecutter_args`, `tools`, `example_pipeline`, `starter_path`.\n\nDefinitions and conventions:\n\n- Line numbers are absolute, 1-based, in the file\n  `kedro/framework/cli/starters.py` as it exists on disk in this repository.\n- A \"def\" of a tracked variable is a binding of that bare name: a simple\n  assignment to the name (e.g. `x = ...`), or a parameter binding. The four\n  parameters count as defined at the line of the function's `def` statement,\n  and that def is in effect from the moment the invocation begins, before\n  any line of the body executes.\n- A \"use\" of a tracked variable is any read of the name: any occurrence of\n  the bare name in load position, including as the base object of a\n  subscript or attribute access.\n- Subscript or attribute stores such as `d[key] = value` do NOT redefine the\n  base name `d` (they mutate the object it refers to); the occurrence of `d`\n  in such a statement is a use of `d` (and any tracked names among the\n  subscript/key/value expressions are uses as well).\n- Augmented assignment (`x += 1`) reads then writes: it counts BOTH as a use\n  of the previously reaching def AND as a new def of `x`, both on that line.\n  (The target body contains no augmented assignment; the rule is stated for\n  completeness.)\n- A `for` loop header (`for x in ...:`) would redefine `x` on the header\n  line once per iteration. (The target body contains no loops; the rule is\n  stated for completeness.)\n- Only the eight variables enumerated above are tracked. Any other local\n  names, and any comprehension-local variables, are not tracked. (The target\n  body contains no comprehensions.)\n- A use or def is attributed to the physical line on which the variable\n  reference textually appears, even when the containing statement spans\n  several physical lines: for example, a name appearing on a continuation\n  line of a multi-line call or multi-line dict display is attributed to that\n  continuation line, not to the line where the statement begins.\n- A pair {variable, def_line, use_line} is OBSERVED if, during some\n  invocation of the target in this test run, the line use_line actually\n  executes (fires an executed-line event, equivalent to a `line` event of\n  `sys.settrace`, for the target function's own frame) and at that moment\n  the reaching def of `variable` is def_line \u2014 i.e. def_line is the most\n  recent def of that variable executed earlier within the SAME invocation\n  (parameter bindings at the `def` line count as executed at invocation\n  start), with no other def of that variable executed in between.\n- Only the target function's own frame counts. Functions the target calls\n  (for example the same-module helper it calls to resolve the checkout\n  branch) run in separate frames; their internal lines contribute nothing.\n  However, the target's own lines performing such a call (including the\n  lines holding the argument expressions) DO count normally. The line\n  containing the target's `return` statement also counts: it is a use of\n  every tracked variable read by the return expression.\n- Aggregation and deduplication: collect the observed pairs from all eight\n  invocations into one set; pairs that are observed multiple times (within\n  one invocation or across invocations) are reported only once.\n- Invocation counting (for reference): one invocation is one entry into the\n  target function during the test run, counted 1-based in chronological\n  order of function entry; this test run produces exactly eight invocations,\n  and the answer aggregates over all of them.\n\nAnswer format: a JSON object with exactly one key, `observed_def_use_pairs`,\nwhose value is a list of objects, one per unique observed pair. Each object\nhas exactly three keys: `variable` (a JSON string, one of the eight tracked\nnames), `def_line` (a JSON integer) and `use_line` (a JSON integer). The\nlist is sorted ascending by `variable` (lexicographic), then by `def_line`,\nthen by `use_line`.\n",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

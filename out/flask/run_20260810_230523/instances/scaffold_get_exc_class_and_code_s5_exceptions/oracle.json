@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "SKGQCKECU('bhzxyqhajvnhaahzc') is an instance, not a class. Handlers can only be registered for Exception classes or HTTP error codes.",
+    "exception_type": "TypeError"
+  },
+  "question": "Run the pytest test `flask_qa/scaffold_get_exc_class_and_code_s5_exceptions/files/testcase.py::TestErrorHandlerRegistration::test_seeded_registration_matrix_then_instance` against this repository. Consider\nthe final invocation of `flask.sansio.scaffold.Scaffold._get_exc_class_and_code` in `src/flask/sansio/scaffold.py`, namely the\ninvocation reached from the last `Flask.register_error_handler` call inside\nthe test's `assertRaises` context. What exact exception propagates out of that\ntarget invocation to its caller?\n\nAn invocation is one entry into exactly `flask.sansio.scaffold.Scaffold._get_exc_class_and_code`, counted 1-based in\nchronological order over the whole test run; \"final\" means the invocation with\nthe greatest such index. Report only the exception that leaves that target\nframe. Exclude exceptions from all earlier invocations, exceptions raised in\nnested callees, and any exception caught and handled within the selected\ntarget invocation. There is exactly one propagated exception to report, so no\nsorting, tie-breaking, or deduplication applies.\n\nReturn exactly one JSON object with the shape\n`{\"exception_message\": \"str\", \"exception_type\": \"str\"}`, with no other keys.\n`exception_message` is exact `str(exc)`, character for character; it is the\ndecoded JSON string value, with JSON escaping used only as required to encode\nthat string (an absent message would be the empty string `\"\"`, never `null` or\nan omitted key). Exception type naming MUST use this convention: bare\n`type(exc).__name__` for built-in exceptions (e.g. `ValueError` \u2014 never\n`builtins.ValueError`), and `module.QualName` for all others (e.g.\n`haystack.core.errors.PipelineError`).",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

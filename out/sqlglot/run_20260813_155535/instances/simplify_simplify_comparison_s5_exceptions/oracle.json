@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "Invalid numeric literal: 'ltqunjrkvrhsipgirosjgnq'",
+    "exception_type": "ValueError"
+  },
+  "question": "Run the single pytest test\n`sqlglot_qa/simplify_simplify_comparison_s5_exceptions/files/testcase.py::TestSimplifyComparisonExceptions::test_generated_comparisons_then_malformed_number`\nagainst this repository. Across all direct invocations made by that test of\n`sqlglot.optimizer.simplify.Simplifier._simplify_comparison`, defined in\n`sqlglot/optimizer/simplify.py`, what exception propagates out of the target\nfunction and reaches the test's enclosing exception-catching context?\n\nAn invocation is one entry into the original target function body (one Python\nfunction-frame `call`), numbered 1-based in chronological order. Consider only\nexceptions raised while that exact target frame is active. An exception is\n\"caught inside the function\" if the target handles it and then executes a\nlater source-line event in the same invocation. It \"propagates out\" if it is\nnot handled by the target, its frame unwinds, and the exception reaches its\ncaller. Ignore caught exceptions and exceptions confined to other frames. The\ntest has exactly one exception that meets the propagated-out definition, so\nthere is no sorting, tie-breaking, or deduplication choice.\n\nReturn one JSON object using exactly the canonical shape\n`{\"exception_message\": <string>, \"exception_type\": <string>}`. The message is\nthe exact value of `str(exc)`, character for character, without surrounding\n`repr` quotes or truncation; normal JSON string escaping applies.\n\nException type naming MUST use this convention: bare `type(exc).__name__` for\nbuilt-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and\n`module.QualName` for all others (e.g. `haystack.core.errors.PipelineError`).\nBoth output values are strings; neither an absent key, an empty string, nor\nJSON `null` represents a missing value.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

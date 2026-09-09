@@ -1,0 +1,41 @@
+{
+  "oracle_answer": {
+    "unique_values": [
+      "<Request 'http://localhost/probe/ccuyq?q=215' [POST]>",
+      "<Request 'http://localhost/probe/cishd?q=73' [PUT]>",
+      "<Request 'http://localhost/probe/cpeqi?q=36e' [PUT]>",
+      "<Request 'http://localhost/probe/ejvew?q=368' [POST]>",
+      "<Request 'http://localhost/probe/gdfjj?q=2e9' [POST]>",
+      "<Request 'http://localhost/probe/geadn?q=190' [PUT]>",
+      "<Request 'http://localhost/probe/lefsu?q=394' [POST]>",
+      "<Request 'http://localhost/probe/mkzvy?q=363' [POST]>",
+      "<Request 'http://localhost/probe/nekwy?q=305' [POST]>",
+      "<Request 'http://localhost/probe/nxgeh?q=1b3' [POST]>",
+      "<Request 'http://localhost/probe/nymjy?q=339' [POST]>",
+      "<Request 'http://localhost/probe/ojwjb?q=3cd' [PUT]>",
+      "<Request 'http://localhost/probe/oveag?q=140' [GET]>",
+      "<Request 'http://localhost/probe/pjubh?q=22c' [POST]>",
+      "<Request 'http://localhost/probe/ppsoc?q=168' [POST]>",
+      "<Request 'http://localhost/probe/pptrc?q=1fd' [GET]>",
+      "<Request 'http://localhost/probe/purbo?q=d4' [POST]>",
+      "<Request 'http://localhost/probe/rkunm?q=ca' [POST]>",
+      "<Request 'http://localhost/probe/sutzt?q=349' [PUT]>",
+      "<Request 'http://localhost/probe/swiuh?q=365' [POST]>",
+      "<Request 'http://localhost/probe/tjtwz?q=20f' [POST]>",
+      "<Request 'http://localhost/probe/waeuk?q=245' [POST]>",
+      "<Request 'http://localhost/probe/watys?q=134' [POST]>",
+      "<Request 'http://localhost/probe/wcdtd?q=241' [PUT]>",
+      "<Request 'http://localhost/probe/xfcce?q=f5' [POST]>",
+      "<Request 'http://localhost/probe/xpcbn?q=1e0' [PUT]>",
+      "<Request 'http://localhost/probe/zjltw?q=25e' [GET]>",
+      "<Request 'http://localhost/probe/znksg?q=81' [POST]>"
+    ]
+  },
+  "question": "Run the pytest test `flask_qa/testing_open_m3_state/files/testcase.py::TestOpenProgramState::test_generated_request_forms` from the repository root. During that run, consider every invocation of `FlaskClient.open` (runtime qualified name `flask.testing.FlaskClient.open`) whose frame executes code in `src/flask/testing.py`. An invocation means one entry into that function, numbered 1-based in chronological entry order; include all such invocations made by the test. Within each invocation, observe the local variable `request` immediately before every executable source line reached after `request` has first been bound and through the final executed line in that frame. An observation point is the state immediately before Python executes that line. Source line numbers, if used to reproduce the observations, are absolute 1-based lines in the named repository file. For a multi-line statement or expression, associate execution with the line where that statement or expression begins. The function's `def` signature, decorators, comments, and docstring are not observation points. At every observation point take exact Python `repr(request)`; this means the repr of the whole request object, not `str(request)`, and Python spellings such as `None` and `True` would be retained if present. Combine observations from all invocations, remove duplicate strings by exact equality, then sort the remaining strings in ascending lexicographic order by Unicode code point (Python's ordinary ascending string order, with no secondary tie-breaker because duplicates were removed). Return a JSON object with exactly one key, `unique_values`, whose value is the sorted array of strings. Do not use JSON null or an omitted key as a sentinel; an empty repr, if one occurred, would be represented by the corresponding repr string.",
+  "question_kind": "M3_ProgramState",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  }
+}

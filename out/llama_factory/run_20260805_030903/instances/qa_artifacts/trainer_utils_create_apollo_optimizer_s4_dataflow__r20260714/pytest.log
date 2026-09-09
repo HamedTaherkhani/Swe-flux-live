@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.17, pytest-8.3.5, pluggy-1.5.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.9.0
+collected 1 item
+
+llama_factory_qa/trainer_utils_create_apollo_optimizer_s4_dataflow__r20260714/files/testcase.py [INFO|2026-07-15 04:14:11] src.llamafactory.model.model_utils.misc:143 >> Found linear modules: 0,proj_a,proj_b
+[WARNING|2026-07-15 04:14:11] src.llamafactory.train.trainer_utils:148 >> The displayed gradient norm will be all zeros in layerwise APOLLO.
+[INFO|2026-07-15 04:14:11] src.llamafactory.train.trainer_utils:143 >> Using APOLLO optimizer with args: {'rank': 8, 'proj': 'random', 'proj_type': 'std', 'update_proj_gap': 16, 'scale': 1.0, 'scale_type': 'channel', 'scale_front': False}.
+[INFO|2026-07-15 04:14:11] src.llamafactory.train.trainer_utils:143 >> Using APOLLO optimizer with args: {'rank': 4, 'proj': 'random', 'proj_type': 'left', 'update_proj_gap': 8, 'scale': 2.0, 'scale_type': 'tensor', 'scale_front': True}.
+.
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED llama_factory_qa/trainer_utils_create_apollo_optimizer_s4_dataflow__r20260714/files/testcase.py::TestCreateApolloOptimizerDataFlow::test_observed_reaching_defs
+============================== 1 passed in 3.55s ===============================

@@ -1,0 +1,67 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 12,
+        "file": "scrapy/extensions/httpcache.py",
+        "func": "scrapy.extensions.httpcache.RFC2616Policy.__init__"
+      },
+      {
+        "count": 185,
+        "file": "scrapy/extensions/httpcache.py",
+        "func": "scrapy.extensions.httpcache.RFC2616Policy._compute_current_age"
+      },
+      {
+        "count": 185,
+        "file": "scrapy/extensions/httpcache.py",
+        "func": "scrapy.extensions.httpcache.RFC2616Policy._compute_freshness_lifetime"
+      },
+      {
+        "count": 370,
+        "file": "scrapy/extensions/httpcache.py",
+        "func": "scrapy.extensions.httpcache.RFC2616Policy._get_max_age"
+      },
+      {
+        "count": 701,
+        "file": "scrapy/extensions/httpcache.py",
+        "func": "scrapy.extensions.httpcache.RFC2616Policy._parse_cachecontrol"
+      },
+      {
+        "count": 130,
+        "file": "scrapy/extensions/httpcache.py",
+        "func": "scrapy.extensions.httpcache.RFC2616Policy._set_conditional_validators"
+      },
+      {
+        "count": 258,
+        "file": "scrapy/extensions/httpcache.py",
+        "func": "scrapy.extensions.httpcache.RFC2616Policy.is_cached_response_fresh"
+      },
+      {
+        "count": 0,
+        "file": "scrapy/extensions/httpcache.py",
+        "func": "scrapy.extensions.httpcache.RFC2616Policy.is_cached_response_valid"
+      },
+      {
+        "count": 0,
+        "file": "scrapy/extensions/httpcache.py",
+        "func": "scrapy.extensions.httpcache.RFC2616Policy.should_cache_request"
+      },
+      {
+        "count": 0,
+        "file": "scrapy/extensions/httpcache.py",
+        "func": "scrapy.extensions.httpcache.RFC2616Policy.should_cache_response"
+      }
+    ]
+  },
+  "question": "Run pytest on every test item selected by\n`scrapy_qa/httpcache_is_cached_response_fresh_m6_calls/files/testcase.py::TestRFC2616FreshnessCallGraph`.\nAggregate the result across ALL `test_*` methods in that class; each covered\ntest item is identified by its full pytest id\n`scrapy_qa/httpcache_is_cached_response_fresh_m6_calls/files/testcase.py::TestRFC2616FreshnessCallGraph::test_method_name`.\nCount activity during each complete selected test item, including its\n`unittest.TestCase.setUp` execution, test body, and registered cleanup\ncallbacks.\n\nThe primary target is\n`scrapy.extensions.httpcache.RFC2616Policy.is_cached_response_fresh`, defined\nin `scrapy/extensions/httpcache.py`.  The tracked scope is every synchronous\nor asynchronous function defined directly in the body of class\n`RFC2616Policy` in that file.  Include `__init__`, all other dunder methods,\nand decorated methods or property accessors when their `def`/`async def` is a\ndirect class-body statement.  Exclude inherited methods, module-level\nfunctions, nested classes and their methods, and nested functions, closures,\nlambda bodies, and comprehension frames inside a method.  Calls to excluded\nfunctions can cause later in-scope calls but do not receive answer rows.\n\nFunction identity is the dotted `module.qualname`, for example\n`pkg.mod.Widget.run`.  The `file` value is the forward-slash,\nrepository-relative path of the file containing the definition.  Emit\nordinary JSON strings for `file` and `func` and JSON integers for `count`;\nthere are no `null` or omitted values.\n\nOne invocation means one Python `call` trace event for that in-scope\nfunction's frame during any selected test item.  Count calls originating from\nany frame, including direct, transitive, and recursive calls, and do not\ndeduplicate events.  A generator or coroutine resumption that produces\nanother Python `call` event counts as another invocation.  Sum all such events\nacross all selected test methods rather than reporting per-method values.\n\nReturn exactly\n`{\"invocation_counts\": [{\"count\": int, \"file\": str, \"func\": str}, ...]}`.\nProduce exactly one row for each distinct function qualname in the tracked\nscope.  A scoped function that never executes must still appear with\n`count: 0`.  Sort rows by `func` ascending; if two rows have the same `func`,\nbreak the tie by `file` ascending.  Counts are aggregated, but answer rows are\nnot otherwise deduplicated or reordered.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1615 @@
+[
+  {
+    "instance_id": "app_make_response_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.make_response",
+      "name": "make_response",
+      "lineno": 1224,
+      "end_lineno": 1364,
+      "params": [
+        "self",
+        "rv"
+      ],
+      "metrics": {
+        "body_lines": 141,
+        "branches": 12,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 23,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 67.0,
+      "callers": [
+        "Flask.finalize_request"
+      ],
+      "callers_2hop": [
+        "Flask.full_dispatch_request",
+        "Flask.handle_exception"
+      ]
+    },
+    "rank_note": "affinity+score=63.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "cli_load_dotenv_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "load_dotenv",
+      "name": "load_dotenv",
+      "lineno": 698,
+      "end_lineno": 763,
+      "params": [
+        "path",
+        "load_defaults"
+      ],
+      "metrics": {
+        "body_lines": 66,
+        "branches": 5,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 2,
+        "returns": 2,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 47.6,
+      "callers": [
+        "_env_file_callback"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=32.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "cli_find_app_by_string_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/flask/cli.py",
+      "module": "src.flask.cli",
+      "qualname": "find_app_by_string",
+      "name": "find_app_by_string",
+      "lineno": 120,
+      "end_lineno": 197,
+      "params": [
+        "module",
+        "app_name"
+      ],
+      "metrics": {
+        "body_lines": 78,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 4,
+        "raises": 8,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [
+          "_called_with_wrong_args"
+        ],
+        "num_local_calls": 1,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 57.8,
+      "callers": [
+        "locate_app"
+      ],
+      "callers_2hop": [
+        "ScriptInfo.load_app"
+      ]
+    },
+    "rank_note": "affinity+score=48.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "scaffold_find_package_path_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "_find_package_path",
+      "name": "_find_package_path",
+      "lineno": 709,
+      "end_lineno": 751,
+      "params": [
+        "import_name"
+      ],
+      "metrics": {
+        "body_lines": 43,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 37.3,
+      "callers": [
+        "find_package"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=33.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "ctx_pop_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "AppContext.pop",
+      "name": "pop",
+      "lineno": 446,
+      "end_lineno": 504,
+      "params": [
+        "self",
+        "exc"
+      ],
+      "metrics": {
+        "body_lines": 59,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "get"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 4,
+        "breaks_continues": 0
+      },
+      "score": 36.9,
+      "callers": [
+        "_AppCtxGlobals.pop"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=29.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "app_handle_exception_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/flask/app.py",
+      "module": "src.flask.app",
+      "qualname": "Flask.handle_exception",
+      "name": "handle_exception",
+      "lineno": 897,
+      "end_lineno": 948,
+      "params": [
+        "self",
+        "ctx",
+        "e"
+      ],
+      "metrics": {
+        "body_lines": 52,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "ensure_sync",
+          "finalize_request",
+          "log_exception"
+        ],
+        "num_local_calls": 3,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 33.2,
+      "callers": [
+        "Flask.wsgi_app"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=29.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "scaffold_get_exc_class_and_code_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/flask/sansio/scaffold.py",
+      "module": "src.flask.sansio.scaffold",
+      "qualname": "Scaffold._get_exc_class_and_code",
+      "name": "_get_exc_class_and_code",
+      "lineno": 657,
+      "end_lineno": 698,
+      "params": [
+        "exc_class_or_code"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 28.2,
+      "callers": [
+        "Scaffold.register_error_handler"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=28.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "debughelpers_dump_loader_info_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "src/flask/debughelpers.py",
+      "module": "src.flask.debughelpers",
+      "qualname": "_dump_loader_info",
+      "name": "_dump_loader_info",
+      "lineno": 107,
+      "end_lineno": 121,
+      "params": [
+        "loader"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 4,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 4
+      },
+      "score": 32.5,
+      "callers": [
+        "explain_template_loading_attempts"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=37.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "blueprints_register_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "Blueprint.register",
+      "name": "register",
+      "lineno": 273,
+      "end_lineno": 377,
+      "params": [
+        "self",
+        "app",
+        "options"
+      ],
+      "metrics": {
+        "body_lines": 105,
+        "branches": 14,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "_merge_blueprint_funcs",
+          "add_url_rule",
+          "make_setup_state",
+          "register"
+        ],
+        "num_local_calls": 4,
+        "assigns": 25,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 3,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 86.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=99.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "blueprints_add_url_rule_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/flask/sansio/blueprints.py",
+      "module": "src.flask.sansio.blueprints",
+      "qualname": "BlueprintSetupState.add_url_rule",
+      "name": "add_url_rule",
+      "lineno": 87,
+      "end_lineno": 116,
+      "params": [
+        "self",
+        "rule",
+        "endpoint",
+        "view_func"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "add_url_rule"
+        ],
+        "num_local_calls": 1,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 27.0,
+      "callers": [
+        "Blueprint.register"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=32.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "config_from_pyfile_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/flask/config.py",
+      "module": "src.flask.config",
+      "qualname": "Config.from_pyfile",
+      "name": "from_pyfile",
+      "lineno": 187,
+      "end_lineno": 216,
+      "params": [
+        "self",
+        "filename",
+        "silent"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "from_object"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 23.0,
+      "callers": [
+        "Config.from_envvar"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=18.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "sessions_save_session_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SecureCookieSessionInterface.save_session",
+      "name": "save_session",
+      "lineno": 337,
+      "end_lineno": 385,
+      "params": [
+        "self",
+        "app",
+        "session",
+        "response"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "get_cookie_domain",
+          "get_cookie_httponly",
+          "get_cookie_name",
+          "get_cookie_partitioned",
+          "get_cookie_path",
+          "get_cookie_samesite",
+          "get_cookie_secure",
+          "get_expiration_time",
+          "get_signing_serializer",
+          "should_set_cookie"
+        ],
+        "num_local_calls": 10,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 33.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=61.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "logging_has_level_handler_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/flask/logging.py",
+      "module": "src.flask.logging",
+      "qualname": "has_level_handler",
+      "name": "has_level_handler",
+      "lineno": 31,
+      "end_lineno": 47,
+      "params": [
+        "logger"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 17.7,
+      "callers": [
+        "create_logger"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=16.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "debughelpers_explain_template_loading_attempts_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/flask/debughelpers.py",
+      "module": "src.flask.debughelpers",
+      "qualname": "explain_template_loading_attempts",
+      "name": "explain_template_loading_attempts",
+      "lineno": 124,
+      "end_lineno": 179,
+      "params": [
+        "app",
+        "template",
+        "attempts"
+      ],
+      "metrics": {
+        "body_lines": 56,
+        "branches": 7,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [
+          "_dump_loader_info"
+        ],
+        "num_local_calls": 1,
+        "assigns": 12,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 58.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=46.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "config_from_prefixed_env_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/flask/config.py",
+      "module": "src.flask.config",
+      "qualname": "Config.from_prefixed_env",
+      "name": "from_prefixed_env",
+      "lineno": 126,
+      "end_lineno": 185,
+      "params": [
+        "self",
+        "prefix"
+      ],
+      "metrics": {
+        "body_lines": 60,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 41.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=34.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "app_add_url_rule_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App.add_url_rule",
+      "name": "add_url_rule",
+      "lineno": 605,
+      "end_lineno": 661,
+      "params": [
+        "self",
+        "rule",
+        "endpoint",
+        "view_func",
+        "provide_automatic_options"
+      ],
+      "metrics": {
+        "body_lines": 57,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 12,
+        "augassigns": 1,
+        "returns": 0,
+        "boolops": 3,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 54.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=50.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "helpers_get_root_path_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "get_root_path",
+      "name": "get_root_path",
+      "lineno": 587,
+      "end_lineno": 641,
+      "params": [
+        "import_name"
+      ],
+      "metrics": {
+        "body_lines": 55,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=38.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "testing_session_transaction_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/flask/testing.py",
+      "module": "src.flask.testing",
+      "qualname": "FlaskClient.session_transaction",
+      "name": "session_transaction",
+      "lineno": 136,
+      "end_lineno": 183,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 48,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 28.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=21.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tag_untag_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/flask/json/tag.py",
+      "module": "src.flask.json.tag",
+      "qualname": "TaggedJSONSerializer.untag",
+      "name": "untag",
+      "lineno": 297,
+      "end_lineno": 307,
+      "params": [
+        "self",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "to_python"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.1,
+      "callers": [
+        "TaggedJSONSerializer._untag_scan"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=12.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "provider_default_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/flask/json/provider.py",
+      "module": "src.flask.json.provider",
+      "qualname": "_default",
+      "name": "_default",
+      "lineno": 108,
+      "end_lineno": 121,
+      "params": [
+        "o"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 24.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=28.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "app_find_error_handler_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "src/flask/sansio/app.py",
+      "module": "src.flask.sansio.app",
+      "qualname": "App._find_error_handler",
+      "name": "_find_error_handler",
+      "lineno": 868,
+      "end_lineno": 891,
+      "params": [
+        "self",
+        "e",
+        "blueprints"
+      ],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 2,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 28.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=34.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "testing_open_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/flask/testing.py",
+      "module": "src.flask.testing",
+      "qualname": "FlaskClient.open",
+      "name": "open",
+      "lineno": 204,
+      "end_lineno": 247,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 44,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "_copy_environ",
+          "_request_from_builder_args",
+          "open"
+        ],
+        "num_local_calls": 3,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 39.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "views_as_view_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/flask/views.py",
+      "module": "src.flask.views",
+      "qualname": "View.as_view",
+      "name": "as_view",
+      "lineno": 86,
+      "end_lineno": 135,
+      "params": [
+        "cls",
+        "name"
+      ],
+      "metrics": {
+        "body_lines": 50,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 27.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=39.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "templating_get_source_explained_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "DispatchingJinjaLoader._get_source_explained",
+      "name": "_get_source_explained",
+      "lineno": 64,
+      "end_lineno": 86,
+      "params": [
+        "self",
+        "environment",
+        "template"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "_iter_loaders",
+          "get_source"
+        ],
+        "num_local_calls": 2,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 25.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=19.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "sessions_open_session_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/flask/sessions.py",
+      "module": "src.flask.sessions",
+      "qualname": "SecureCookieSessionInterface.open_session",
+      "name": "open_session",
+      "lineno": 323,
+      "end_lineno": 335,
+      "params": [
+        "self",
+        "app",
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "get_cookie_name",
+          "get_signing_serializer"
+        ],
+        "num_local_calls": 2,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 22.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=22.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "templating_list_templates_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/flask/templating.py",
+      "module": "src.flask.templating",
+      "qualname": "DispatchingJinjaLoader.list_templates",
+      "name": "list_templates",
+      "lineno": 108,
+      "end_lineno": 120,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 2,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "list_templates"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 25.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=23.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "provider_prepare_response_obj_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/flask/json/provider.py",
+      "module": "src.flask.json.provider",
+      "qualname": "JSONProvider._prepare_response_obj",
+      "name": "_prepare_response_obj",
+      "lineno": 75,
+      "end_lineno": 87,
+      "params": [
+        "self",
+        "args",
+        "kwargs"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.3,
+      "callers": [
+        "DefaultJSONProvider.response",
+        "JSONProvider.response"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=20.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "helpers_get_flashed_messages_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/flask/helpers.py",
+      "module": "src.flask.helpers",
+      "qualname": "get_flashed_messages",
+      "name": "get_flashed_messages",
+      "lineno": 360,
+      "end_lineno": 399,
+      "params": [
+        "with_categories",
+        "category_filter"
+      ],
+      "metrics": {
+        "body_lines": 40,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 19.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=16.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tag_register_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/flask/json/tag.py",
+      "module": "src.flask.json.tag",
+      "qualname": "TaggedJSONSerializer.register",
+      "name": "register",
+      "lineno": 256,
+      "end_lineno": 287,
+      "params": [
+        "self",
+        "tag_class",
+        "force",
+        "index"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 21.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=20.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "wrappers_on_json_loading_failed_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Request.on_json_loading_failed",
+      "name": "on_json_loading_failed",
+      "lineno": 212,
+      "end_lineno": 219,
+      "params": [
+        "self",
+        "e"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "on_json_loading_failed"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 13.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=14.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "ctx_push_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/flask/ctx.py",
+      "module": "src.flask.ctx",
+      "qualname": "AppContext.push",
+      "name": "push",
+      "lineno": 416,
+      "end_lineno": 444,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "_get_session",
+          "match_request"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=18.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "logging_create_logger_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/flask/logging.py",
+      "module": "src.flask.logging",
+      "qualname": "create_logger",
+      "name": "create_logger",
+      "lineno": 58,
+      "end_lineno": 79,
+      "params": [
+        "app"
+      ],
+      "metrics": {
+        "body_lines": 22,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "has_level_handler"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 15.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=12.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "json_dumps_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/flask/json/__init__.py",
+      "module": "src.flask.json",
+      "qualname": "dumps",
+      "name": "dumps",
+      "lineno": 13,
+      "end_lineno": 44,
+      "params": [
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "dumps"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=10.6 (backfill) [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "blueprints_open_resource_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/flask/blueprints.py",
+      "module": "src.flask.blueprints",
+      "qualname": "Blueprint.open_resource",
+      "name": "open_resource",
+      "lineno": 104,
+      "end_lineno": 128,
+      "params": [
+        "self",
+        "resource",
+        "mode",
+        "encoding"
+      ],
+      "metrics": {
+        "body_lines": 25,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=14.0 (backfill) [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "blueprints_send_static_file_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/flask/blueprints.py",
+      "module": "src.flask.blueprints",
+      "qualname": "Blueprint.send_static_file",
+      "name": "send_static_file",
+      "lineno": 82,
+      "end_lineno": 102,
+      "params": [
+        "self",
+        "filename"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "get_send_file_max_age"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 12.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=9.8 (backfill) [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "wrappers_load_form_data_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/flask/wrappers.py",
+      "module": "src.flask.wrappers",
+      "qualname": "Request._load_form_data",
+      "name": "_load_form_data",
+      "lineno": 197,
+      "end_lineno": 210,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_load_form_data"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=9.7 (backfill) [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "json_loads_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/flask/json/__init__.py",
+      "module": "src.flask.json",
+      "qualname": "loads",
+      "name": "loads",
+      "lineno": 77,
+      "end_lineno": 105,
+      "params": [
+        "s"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "loads"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=9.3 (backfill) [direct]",
+    "exercise_mode": "direct"
+  }
+]

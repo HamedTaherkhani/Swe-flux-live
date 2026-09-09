@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: /testbed
+configfile: pyproject.toml
+plugins: anyio-4.14.2, cov-7.1.0, timeout-2.4.0, twisted-1.14.3, xdist-3.8.0
+collected 1 item
+
+scrapy_qa/engine_open_spider_async_s6_calls__pert_llm_s0/files/testcase.py .
+
+==================================== PASSES ====================================
+__________ TestEngineOpenSpiderCallFlow.test_dynamic_signal_dispatch ___________
+------------------------------ Captured log call -------------------------------
+WARNING  asyncio:base_events.py:1931 Executing <Task pending name='Task-2' coro=<TestEngineOpenSpiderCallFlow.test_dynamic_signal_dispatch() running at /testbed/scrapy_qa/engine_open_spider_async_s6_calls__pert_llm_s0/files/testcase.py:88> wait_for=<Future pending cb=[Deferred.asFuture.<locals>.checkCancel() at /usr/local/lib/python3.11/site-packages/twisted/internet/defer.py:1208, Task.task_wakeup()] created at /usr/local/lib/python3.11/asyncio/base_events.py:428> cb=[_run_until_complete_cb() at /usr/local/lib/python3.11/asyncio/base_events.py:181] created at /usr/local/lib/python3.11/asyncio/runners.py:100> took 9.641 seconds
+WARNING  asyncio:base_events.py:1931 Executing <Task pending name='Task-3' coro=<ExecutionEngine.open_spider_async() running at /testbed/scrapy/core/engine.py:583> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()] created at /usr/local/lib/python3.11/asyncio/tasks.py:709> cb=[Deferred.fromFuture.<locals>.adapt() at /usr/local/lib/python3.11/site-packages/twisted/internet/defer.py:1245] created at /usr/local/lib/python3.11/asyncio/tasks.py:680> took 0.454 seconds
+WARNING  asyncio:base_events.py:1931 Executing <Task pending name='Task-2' coro=<TestEngineOpenSpiderCallFlow.test_dynamic_signal_dispatch() running at /testbed/scrapy_qa/engine_open_spider_async_s6_calls__pert_llm_s0/files/testcase.py:95> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()] created at /usr/local/lib/python3.11/asyncio/tasks.py:709> cb=[_run_until_complete_cb() at /usr/local/lib/python3.11/asyncio/base_events.py:181] created at /usr/local/lib/python3.11/asyncio/runners.py:100> took 0.155 seconds
+=========================== short test summary info ============================
+PASSED scrapy_qa/engine_open_spider_async_s6_calls__pert_llm_s0/files/testcase.py::TestEngineOpenSpiderCallFlow::test_dynamic_signal_dispatch
+============================== 1 passed in 10.85s ==============================

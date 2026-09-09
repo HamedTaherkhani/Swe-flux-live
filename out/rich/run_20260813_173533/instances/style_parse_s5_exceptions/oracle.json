@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "unable to parse 'q9da41097f' as background color; 'q9da41097f' is not a valid color",
+    "exception_type": "rich.errors.StyleSyntaxError"
+  },
+  "question": "For pytest test `rich_qa/style_parse_s5_exceptions/files/testcase.py::TestStyleNormalizeIndirectParse::test_normalize_programmatic_style_specs`, consider `rich.style.Style.parse` in `rich/style.py` during that test run.\n\nInvocation counting: an invocation is one `call` event for this qualname, numbered chronologically from 1 in the order those `call` events appear during the test.\n\nThe answer covers the invocation triggered when the test calls `Style.normalize` on the style specification inserted at the computed `fault_index` position in the test's `specs` list (0-based index). That invocation does not complete with a `return` event; an exception propagates out of `Style.parse` to its caller.\n\nReport the propagated exception's type and message:\n- `exception_type`: use bare `type(exc).__name__` for built-in exceptions (for example `ValueError`, never `builtins.ValueError`), and `module.QualName` for all others (for example `rich.errors.StyleSyntaxError`).\n- `exception_message`: the exact `str(exc)` value, character for character.\n\nPropagated exception: among `exception` events recorded for that invocation, take the last one \u2014 that is the exception instance that leaves `Style.parse` uncaught.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

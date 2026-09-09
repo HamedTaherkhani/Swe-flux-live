@@ -1,0 +1,15 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "KeyboardInterrupt",
+      "instructlab.model.chat.ChatQuitException"
+    ]
+  },
+  "question": "Run the pytest test `instruct_lab_qa/chat_chat_cli_s5_exceptions/files/testcase.py::ChatModelExceptionFlowTest::test_generated_prompt_failures_are_handled` against the repository as provided. During the complete run, consider every invocation of `instructlab.model.chat.chat_cli` in `src/instructlab/model/chat.py`. An invocation means one Python call of that function; invocations are numbered 1-based in chronological call order, and the answer is aggregated across all invocations. Report the set of concrete exception types caught inside that function. Here, an exception is caught inside the function only when it reaches an expression executing in a `chat_cli` frame and Python matches it to an `except` handler lexically belonging to that function; include exceptions originating in callees when they reach that frame, but exclude exceptions that propagate out without a matching handler. Multiple catches of the same normalized type contribute one set member. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and `module.QualName` for all others (e.g. `haystack.core.errors.PipelineError`). Return exactly `{\"caught_exception_kinds\": [<strings>]}`. Sort the normalized strings in ascending lexicographic order by Unicode code point; this is also the sole tie-breaker after deduplication. The list is JSON, and each element is the type-name string itself, not `repr()` or `str()` of an exception object.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

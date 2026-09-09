@@ -1,0 +1,1870 @@
+[
+  {
+    "instance_id": "base_streaming_read_response_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "scrapy/core/downloader/handlers/_base_streaming.py",
+      "module": "scrapy.core.downloader.handlers._base_streaming",
+      "qualname": "BaseStreamingDownloadHandler._read_response",
+      "name": "_read_response",
+      "lineno": 157,
+      "end_lineno": 242,
+      "params": [
+        "self",
+        "response",
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 86,
+        "branches": 10,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 33,
+        "local_calls": [
+          "_build_base_response_args",
+          "_cancel_maxsize",
+          "_extract_headers",
+          "_is_dataloss_exception",
+          "_iter_body_chunks",
+          "_log_tls_info"
+        ],
+        "num_local_calls": 6,
+        "assigns": 13,
+        "augassigns": 1,
+        "returns": 4,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 70.0,
+      "callers": [
+        "BaseStreamingDownloadHandler.download_request"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=63.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "curl_parse_headers_and_cookies_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "scrapy/utils/curl.py",
+      "module": "scrapy.utils.curl",
+      "qualname": "_parse_headers_and_cookies",
+      "name": "_parse_headers_and_cookies",
+      "lineno": 62,
+      "end_lineno": 89,
+      "params": [
+        "parsed_args"
+      ],
+      "metrics": {
+        "body_lines": 28,
+        "branches": 3,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 45.8,
+      "callers": [
+        "curl_to_request_kwargs"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=38.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "retry_get_retry_request_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "scrapy/downloadermiddlewares/retry.py",
+      "module": "scrapy.downloadermiddlewares.retry",
+      "qualname": "get_retry_request",
+      "name": "get_retry_request",
+      "lineno": 35,
+      "end_lineno": 138,
+      "params": [
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 104,
+        "branches": 9,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 54.0,
+      "callers": [
+        "RetryMiddleware._retry"
+      ],
+      "callers_2hop": [
+        "RetryMiddleware.process_exception",
+        "RetryMiddleware.process_response"
+      ]
+    },
+    "rank_note": "affinity+score=54.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "crawler_apply_settings_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "scrapy/crawler.py",
+      "module": "scrapy.crawler",
+      "qualname": "Crawler._apply_settings",
+      "name": "_apply_settings",
+      "lineno": 147,
+      "end_lineno": 209,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 63,
+        "branches": 9,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 27,
+        "local_calls": [
+          "_apply_deprecated_spider_attr",
+          "_apply_reactorless_default_settings"
+        ],
+        "num_local_calls": 2,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 51.3,
+      "callers": [
+        "Crawler.crawl",
+        "Crawler.crawl_async"
+      ],
+      "callers_2hop": [
+        "AsyncCrawlerRunner._crawl_and_track",
+        "CrawlerRunner._crawl"
+      ]
+    },
+    "rank_note": "affinity+score=54.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "engine_close_spider_async_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "scrapy/core/engine.py",
+      "module": "scrapy.core.engine",
+      "qualname": "ExecutionEngine.close_spider_async",
+      "name": "close_spider_async",
+      "lineno": 628,
+      "end_lineno": 717,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 90,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 7,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 27,
+        "local_calls": [
+          "close",
+          "close_spider",
+          "close_spider_async"
+        ],
+        "num_local_calls": 3,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 52.0,
+      "callers": [
+        "ExecutionEngine._process_start_next",
+        "ExecutionEngine._spider_idle",
+        "ExecutionEngine.close_async",
+        "ExecutionEngine.close_spider",
+        "ExecutionEngine.stop_async"
+      ],
+      "callers_2hop": [
+        "ExecutionEngine._start_request_processing",
+        "ExecutionEngine._start_scheduled_requests"
+      ]
+    },
+    "rank_note": "affinity+score=52.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "protocol_handle_events_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "scrapy/core/http2/protocol.py",
+      "module": "scrapy.core.http2.protocol",
+      "qualname": "H2ClientProtocol._handle_events",
+      "name": "_handle_events",
+      "lineno": 378,
+      "end_lineno": 401,
+      "params": [
+        "self",
+        "events"
+      ],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 8,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [
+          "connection_terminated",
+          "data_received",
+          "response_received",
+          "settings_acknowledged",
+          "stream_ended",
+          "stream_reset",
+          "window_updated"
+        ],
+        "num_local_calls": 7,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 34.4,
+      "callers": [
+        "H2ClientProtocol.dataReceived"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=47.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "redirect_build_redirect_request_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "scrapy/downloadermiddlewares/redirect.py",
+      "module": "scrapy.downloadermiddlewares.redirect",
+      "qualname": "BaseRedirectMiddleware._build_redirect_request",
+      "name": "_build_redirect_request",
+      "lineno": 123,
+      "end_lineno": 178,
+      "params": [
+        "self",
+        "source_request",
+        "response"
+      ],
+      "metrics": {
+        "body_lines": 56,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "handle_referer"
+        ],
+        "num_local_calls": 1,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 7,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 51.6,
+      "callers": [
+        "BaseRedirectMiddleware._redirect_request_using_get",
+        "RedirectMiddleware.process_response"
+      ],
+      "callers_2hop": [
+        "MetaRefreshMiddleware.process_response"
+      ]
+    },
+    "rank_note": "affinity+score=59.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "stream_get_request_headers_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "scrapy/core/http2/stream.py",
+      "module": "scrapy.core.http2.stream",
+      "qualname": "Stream._get_request_headers",
+      "name": "_get_request_headers",
+      "lineno": 220,
+      "end_lineno": 269,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 50,
+        "branches": 5,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 2,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 45.0,
+      "callers": [
+        "Stream.initiate_request"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "form_get_form_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "scrapy/http/request/form.py",
+      "module": "scrapy.http.request.form",
+      "qualname": "_get_form",
+      "name": "_get_form",
+      "lineno": 173,
+      "end_lineno": 214,
+      "params": [
+        "response",
+        "formname",
+        "formid",
+        "formnumber",
+        "formxpath"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 9,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 52.2,
+      "callers": [
+        "FormRequest.from_response"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=54.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "exporters_get_serialized_fields_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "scrapy/exporters.py",
+      "module": "scrapy.exporters",
+      "qualname": "BaseItemExporter.get_serialized_fields",
+      "name": "get_serialized_fields",
+      "lineno": 88,
+      "end_lineno": 133,
+      "params": [
+        "self",
+        "item",
+        "default_value",
+        "include_empty"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 7,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "_get_populated_field_names",
+          "serialize_field"
+        ],
+        "num_local_calls": 2,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 45.6,
+      "callers": [
+        "CsvItemExporter.export_item",
+        "XmlItemExporter.export_item"
+      ],
+      "callers_2hop": [
+        "PythonItemExporter._serialize_value"
+      ]
+    },
+    "rank_note": "affinity+score=66.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "crawler_crawl_async_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "scrapy/crawler.py",
+      "module": "scrapy.crawler",
+      "qualname": "Crawler.crawl_async",
+      "name": "crawl_async",
+      "lineno": 285,
+      "end_lineno": 317,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 33,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [
+          "_apply_settings",
+          "_create_engine",
+          "_create_spider",
+          "_update_root_log_handler"
+        ],
+        "num_local_calls": 4,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 32.3,
+      "callers": [
+        "AsyncCrawlerRunner._crawl_and_track"
+      ],
+      "callers_2hop": [
+        "AsyncCrawlerRunner._crawl"
+      ]
+    },
+    "rank_note": "affinity+score=35.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "media_process_request_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "scrapy/pipelines/media.py",
+      "module": "scrapy.pipelines.media",
+      "qualname": "MediaPipeline._process_request",
+      "name": "_process_request",
+      "lineno": 169,
+      "end_lineno": 217,
+      "params": [
+        "self",
+        "request",
+        "info",
+        "item"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 7,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [
+          "_cache_result_and_execute_waiters",
+          "_check_media_to_download",
+          "_media_request_filtered",
+          "media_to_download"
+        ],
+        "num_local_calls": 4,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 42.9,
+      "callers": [
+        "MediaPipeline.process_item"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=46.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "contracts_from_method_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "scrapy/contracts/__init__.py",
+      "module": "scrapy.contracts",
+      "qualname": "ContractsManager.from_method",
+      "name": "from_method",
+      "lineno": 157,
+      "end_lineno": 192,
+      "params": [
+        "self",
+        "method",
+        "results"
+      ],
+      "metrics": {
+        "body_lines": 36,
+        "branches": 3,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "_clean_req",
+          "add_post_hook",
+          "add_pre_hook",
+          "adjust_request_args",
+          "extract_contracts"
+        ],
+        "num_local_calls": 5,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 41.6,
+      "callers": [
+        "ContractsManager.from_spider"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=41.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "redirect_process_response_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "scrapy/downloadermiddlewares/redirect.py",
+      "module": "scrapy.downloadermiddlewares.redirect",
+      "qualname": "RedirectMiddleware.process_response",
+      "name": "process_response",
+      "lineno": 202,
+      "end_lineno": 247,
+      "params": [
+        "self",
+        "request",
+        "response",
+        "spider"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 7,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [
+          "_build_redirect_request",
+          "_redirect",
+          "_redirect_request_using_get"
+        ],
+        "num_local_calls": 3,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 48.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=47.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "iterators_xmliter_lxml_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "scrapy/utils/iterators.py",
+      "module": "scrapy.utils.iterators",
+      "qualname": "xmliter_lxml",
+      "name": "xmliter_lxml",
+      "lineno": 21,
+      "end_lineno": 61,
+      "params": [
+        "obj",
+        "nodename",
+        "namespace",
+        "prefix"
+      ],
+      "metrics": {
+        "body_lines": 41,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 51.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=34.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "curl_curl_to_request_kwargs_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "scrapy/utils/curl.py",
+      "module": "scrapy.utils.curl",
+      "qualname": "curl_to_request_kwargs",
+      "name": "curl_to_request_kwargs",
+      "lineno": 92,
+      "end_lineno": 143,
+      "params": [
+        "curl_command",
+        "ignore_unknown_options"
+      ],
+      "metrics": {
+        "body_lines": 52,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "_parse_headers_and_cookies"
+        ],
+        "num_local_calls": 1,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 49.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=46.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "stream_close_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "scrapy/core/http2/stream.py",
+      "module": "scrapy.core.http2.stream",
+      "qualname": "Stream.close",
+      "name": "close",
+      "lineno": 434,
+      "end_lineno": 528,
+      "params": [
+        "self",
+        "reason",
+        "errors",
+        "from_protocol"
+      ],
+      "metrics": {
+        "body_lines": 95,
+        "branches": 10,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 23,
+        "local_calls": [
+          "_fire_response_deferred"
+        ],
+        "num_local_calls": 1,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 50.0,
+      "callers": [
+        "Stream._cancel",
+        "Stream.initiate_request",
+        "Stream.reset_stream"
+      ],
+      "callers_2hop": [
+        "Stream.receive_data",
+        "Stream.receive_headers"
+      ]
+    },
+    "rank_note": "affinity+score=50.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "httpx_make_request_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "scrapy/core/downloader/handlers/_httpx.py",
+      "module": "scrapy.core.downloader.handlers._httpx",
+      "qualname": "HttpxDownloadHandler._make_request",
+      "name": "_make_request",
+      "lineno": 150,
+      "end_lineno": 183,
+      "params": [
+        "self",
+        "request",
+        "timeout"
+      ],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 5,
+        "raises": 7,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "_get_client"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 41.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=48.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "engine_open_spider_async_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "scrapy/core/engine.py",
+      "module": "scrapy.core.engine",
+      "qualname": "ExecutionEngine.open_spider_async",
+      "name": "open_spider_async",
+      "lineno": 547,
+      "end_lineno": 590,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 44,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "open_spider",
+          "open_spider_async"
+        ],
+        "num_local_calls": 2,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 48.4,
+      "callers": [
+        "ExecutionEngine.open_spider"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "pqueues_next_slot_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "scrapy/pqueues.py",
+      "module": "scrapy.pqueues",
+      "qualname": "DownloaderAwarePriorityQueue._next_slot",
+      "name": "_next_slot",
+      "lineno": 364,
+      "end_lineno": 389,
+      "params": [
+        "self",
+        "stats"
+      ],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 42.6,
+      "callers": [
+        "DownloaderAwarePriorityQueue.peek",
+        "DownloaderAwarePriorityQueue.pop"
+      ],
+      "callers_2hop": [
+        "ScrapyPriorityQueue.peek",
+        "ScrapyPriorityQueue.pop"
+      ]
+    },
+    "rank_note": "affinity+score=49.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "cookies_format_cookie_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "scrapy/downloadermiddlewares/cookies.py",
+      "module": "scrapy.downloadermiddlewares.cookies",
+      "qualname": "CookiesMiddleware._format_cookie",
+      "name": "_format_cookie",
+      "lineno": 133,
+      "end_lineno": 152,
+      "params": [
+        "self",
+        "cookie",
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 2,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 2,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 34.0,
+      "callers": [
+        "CookiesMiddleware._get_request_cookies"
+      ],
+      "callers_2hop": [
+        "CookiesMiddleware.process_request"
+      ]
+    },
+    "rank_note": "affinity+score=31.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "referer_policy_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "scrapy/spidermiddlewares/referer.py",
+      "module": "scrapy.spidermiddlewares.referer",
+      "qualname": "RefererMiddleware.policy",
+      "name": "policy",
+      "lineno": 336,
+      "end_lineno": 384,
+      "params": [
+        "self",
+        "response",
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [
+          "_load_policy_class"
+        ],
+        "num_local_calls": 1,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 44.9,
+      "callers": [
+        "RefererMiddleware.get_processed_request"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=46.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "ssl_get_temp_key_info_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "scrapy/utils/ssl.py",
+      "module": "scrapy.utils.ssl",
+      "qualname": "_get_temp_key_info",
+      "name": "_get_temp_key_info",
+      "lineno": 156,
+      "end_lineno": 188,
+      "params": [
+        "ssl_object"
+      ],
+      "metrics": {
+        "body_lines": 33,
+        "branches": 7,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 22,
+        "local_calls": [
+          "_ffi_buf_to_string"
+        ],
+        "num_local_calls": 1,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 39.3,
+      "callers": [
+        "_log_ssl_conn_debug_info"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=55.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "form_get_clickable_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "scrapy/http/request/form.py",
+      "module": "scrapy.http.request.form",
+      "qualname": "_get_clickable",
+      "name": "_get_clickable",
+      "lineno": 278,
+      "end_lineno": 325,
+      "params": [
+        "clickdata",
+        "form"
+      ],
+      "metrics": {
+        "body_lines": 48,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 3,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 42.8,
+      "callers": [
+        "_get_inputs"
+      ],
+      "callers_2hop": [
+        "FormRequest.from_response"
+      ]
+    },
+    "rank_note": "affinity+score=31.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "downloader_process_queue_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "scrapy/core/downloader/__init__.py",
+      "module": "scrapy.core.downloader",
+      "qualname": "Downloader._process_queue",
+      "name": "_process_queue",
+      "lineno": 178,
+      "end_lineno": 200,
+      "params": [
+        "self",
+        "slot"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "_process_queue",
+          "_wait_for_download",
+          "download_delay",
+          "free_transfer_slots"
+        ],
+        "num_local_calls": 4,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 33.3,
+      "callers": [
+        "Downloader._download",
+        "Downloader._enqueue_request"
+      ],
+      "callers_2hop": [
+        "Downloader._wait_for_download"
+      ]
+    },
+    "rank_note": "affinity+score=39.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "check_run_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "scrapy/commands/check.py",
+      "module": "scrapy.commands.check",
+      "qualname": "Command.run",
+      "name": "run",
+      "lineno": 73,
+      "end_lineno": 122,
+      "params": [
+        "self",
+        "args",
+        "opts"
+      ],
+      "metrics": {
+        "body_lines": 50,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 26,
+        "local_calls": [
+          "printSummary",
+          "start"
+        ],
+        "num_local_calls": 2,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 3,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 47.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=44.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "lxmlhtml_link_allowed_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "scrapy/linkextractors/lxmlhtml.py",
+      "module": "scrapy.linkextractors.lxmlhtml",
+      "qualname": "LxmlLinkExtractor._link_allowed",
+      "name": "_link_allowed",
+      "lineno": 361,
+      "end_lineno": 379,
+      "params": [
+        "self",
+        "link"
+      ],
+      "metrics": {
+        "body_lines": 19,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 7,
+        "boolops": 6,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 36.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=44.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "sitemap_process_sitemap_element_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "scrapy/utils/sitemap.py",
+      "module": "scrapy.utils.sitemap",
+      "qualname": "Sitemap._process_sitemap_element",
+      "name": "_process_sitemap_element",
+      "lineno": 62,
+      "end_lineno": 96,
+      "params": [
+        "self",
+        "elem"
+      ],
+      "metrics": {
+        "body_lines": 35,
+        "branches": 7,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 1,
+        "calls": 8,
+        "local_calls": [
+          "_get_tag_name"
+        ],
+        "num_local_calls": 1,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 44.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=33.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "request_fingerprint_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "scrapy/utils/request.py",
+      "module": "scrapy.utils.request",
+      "qualname": "fingerprint",
+      "name": "fingerprint",
+      "lineno": 39,
+      "end_lineno": 107,
+      "params": [
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 69,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 49.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=43.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "cmdline_execute_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "scrapy/cmdline.py",
+      "module": "scrapy.cmdline",
+      "qualname": "execute",
+      "name": "execute",
+      "lineno": 169,
+      "end_lineno": 215,
+      "params": [
+        "argv",
+        "settings"
+      ],
+      "metrics": {
+        "body_lines": 47,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 21,
+        "local_calls": [
+          "_get_commands_dict",
+          "_pop_command_name",
+          "_print_commands",
+          "_print_unknown_command",
+          "_run_print_help"
+        ],
+        "num_local_calls": 5,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 47.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=50.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "download_handlers_wrap_twisted_exceptions_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "scrapy/utils/_download_handlers.py",
+      "module": "scrapy.utils._download_handlers",
+      "qualname": "wrap_twisted_exceptions",
+      "name": "wrap_twisted_exceptions",
+      "lineno": 52,
+      "end_lineno": 67,
+      "params": [],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 6,
+        "raises": 6,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 31.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=40.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "genspider_run_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "scrapy/commands/genspider.py",
+      "module": "scrapy.commands.genspider",
+      "qualname": "Command.run",
+      "name": "run",
+      "lineno": 93,
+      "end_lineno": 123,
+      "params": [
+        "self",
+        "args",
+        "opts"
+      ],
+      "metrics": {
+        "body_lines": 31,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "_find_template",
+          "_genspider",
+          "_list_templates",
+          "_spider_exists",
+          "sanitize_module_name",
+          "verify_url_scheme"
+        ],
+        "num_local_calls": 6,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 41.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=47.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "mail_send_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "scrapy/mail.py",
+      "module": "scrapy.mail",
+      "qualname": "MailSender.send",
+      "name": "send",
+      "lineno": 99,
+      "end_lineno": 165,
+      "params": [
+        "self",
+        "to",
+        "subject",
+        "body",
+        "cc",
+        "attachs",
+        "mimetype",
+        "charset",
+        "_callback"
+      ],
+      "metrics": {
+        "body_lines": 67,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 33,
+        "local_calls": [
+          "_sendmail"
+        ],
+        "num_local_calls": 1,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 47.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=48.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "misc_is_generator_with_return_value_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "scrapy/utils/misc.py",
+      "module": "scrapy.utils.misc",
+      "qualname": "is_generator_with_return_value",
+      "name": "is_generator_with_return_value",
+      "lineno": 265,
+      "end_lineno": 293,
+      "params": [
+        "callable"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 4,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "_returns_none",
+          "walk_callable"
+        ],
+        "num_local_calls": 2,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.9,
+      "callers": [
+        "warn_on_generator_with_return_value"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=27.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "httpcompression_process_response_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "scrapy/downloadermiddlewares/httpcompression.py",
+      "module": "scrapy.downloadermiddlewares.httpcompression",
+      "qualname": "HttpCompressionMiddleware.process_response",
+      "name": "process_response",
+      "lineno": 89,
+      "end_lineno": 137,
+      "params": [
+        "self",
+        "request",
+        "response",
+        "spider"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 7,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "_handle_encoding",
+          "_warn_unknown_encoding"
+        ],
+        "num_local_calls": 2,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 43.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=47.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "conf_feed_process_params_from_cli_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "scrapy/utils/conf.py",
+      "module": "scrapy.utils.conf",
+      "qualname": "feed_process_params_from_cli",
+      "name": "feed_process_params_from_cli",
+      "lineno": 144,
+      "end_lineno": 196,
+      "params": [
+        "settings",
+        "output"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "check_valid_format"
+        ],
+        "num_local_calls": 1,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 43.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=54.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "files_media_downloaded_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "scrapy/pipelines/files.py",
+      "module": "scrapy.pipelines.files",
+      "qualname": "FilesPipeline.media_downloaded",
+      "name": "media_downloaded",
+      "lineno": 629,
+      "end_lineno": 695,
+      "params": [
+        "self",
+        "response",
+        "request",
+        "info"
+      ],
+      "metrics": {
+        "body_lines": 67,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "file_downloaded",
+          "file_path",
+          "inc_stats"
+        ],
+        "num_local_calls": 3,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 34.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=35.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "httpcache_is_cached_response_fresh_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "scrapy/extensions/httpcache.py",
+      "module": "scrapy.extensions.httpcache",
+      "qualname": "RFC2616Policy.is_cached_response_fresh",
+      "name": "is_cached_response_fresh",
+      "lineno": 119,
+      "end_lineno": 160,
+      "params": [
+        "self",
+        "cachedresponse",
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [
+          "_compute_current_age",
+          "_compute_freshness_lifetime",
+          "_get_max_age",
+          "_parse_cachecontrol",
+          "_set_conditional_validators"
+        ],
+        "num_local_calls": 5,
+        "assigns": 8,
+        "augassigns": 0,
+        "returns": 5,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 42.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=48.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "cookies_add_cookie_header_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "scrapy/http/cookies.py",
+      "module": "scrapy.http.cookies",
+      "qualname": "CookieJar.add_cookie_header",
+      "name": "add_cookie_header",
+      "lineno": 44,
+      "end_lineno": 73,
+      "params": [
+        "self",
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [
+          "add_unredirected_header",
+          "has_header",
+          "potential_domain_matches"
+        ],
+        "num_local_calls": 3,
+        "assigns": 7,
+        "augassigns": 2,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 42.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=38.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "text_follow_all_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "scrapy/http/response/text.py",
+      "module": "scrapy.http.response.text",
+      "qualname": "TextResponse.follow_all",
+      "name": "follow_all",
+      "lineno": 236,
+      "end_lineno": 313,
+      "params": [
+        "self",
+        "urls",
+        "callback",
+        "method",
+        "headers",
+        "body",
+        "cookies",
+        "meta",
+        "encoding",
+        "priority",
+        "dont_filter",
+        "errback",
+        "cb_kwargs",
+        "flags",
+        "css",
+        "xpath"
+      ],
+      "metrics": {
+        "body_lines": 78,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "_url_from_selector",
+          "css",
+          "follow_all",
+          "xpath"
+        ],
+        "num_local_calls": 4,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 1,
+        "breaks_continues": 0
+      },
+      "score": 39.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.9 [direct]",
+    "exercise_mode": "direct"
+  }
+]

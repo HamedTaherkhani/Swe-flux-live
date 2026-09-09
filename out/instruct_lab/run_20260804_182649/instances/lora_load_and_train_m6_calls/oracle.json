@@ -1,0 +1,36 @@
+{
+  "question_kind": "M6_InterProceduralCFG",
+  "question": "Run the pytest test `instruct_lab_qa/lora_load_and_train_m6_calls/files/testcase.py::TestLoraPublicModelCommand::test_generated_prompt_batch` against this repository. The primary target is `instructlab.train.lora_mlx.lora.load_and_train` in `src/instructlab/train/lora_mlx/lora.py`. Considering the following exact tracked function set, which members execute at least once: `instructlab.train.lora_mlx.lora.Dataset.__getitem__`, `instructlab.train.lora_mlx.lora.Dataset.__init__`, `instructlab.train.lora_mlx.lora.Dataset.__len__`, `instructlab.train.lora_mlx.lora.evaluate`, `instructlab.train.lora_mlx.lora.generate`, `instructlab.train.lora_mlx.lora.iterate_batches`, `instructlab.train.lora_mlx.lora.load`, `instructlab.train.lora_mlx.lora.load.<locals>.load_and_check`, `instructlab.train.lora_mlx.lora.load_and_train`, `instructlab.train.lora_mlx.lora.loss`, `instructlab.train.lora_mlx.lora.train_model`? A tracked function executes if, anywhere during the complete named test run, Python enters a frame and emits a `call` event whose fully qualified identity exactly equals that tracked member and whose code is defined in the repo-relative file `src/instructlab/train/lora_mlx/lora.py`. The caller is irrelevant: direct calls, transitive calls, and calls made while or outside a primary-target frame all qualify. Calls to builtins, mocks, callable objects, comprehension frames, and all functions outside the exact tracked set do not qualify. A function identity is the executing frame's dotted `module.qualname`, for example `package.submodule.ExampleClass.example_method`; do not use a bare name and do not prefix it with `src`. An invocation is one such `call` event, numbered 1-based in chronological order from the beginning of the test. Repeated and recursive invocations are counted as separate events when deciding whether an event exists, but the output contains only one entry for that function. Python generators can emit a call event on first entry and again on later resumptions; each is an invocation under this rule, but all resumptions are likewise deduplicated to one coverage entry. Omit every tracked member with zero qualifying call events. Return exactly one JSON object with the sole key `covered_functions`. Its value is a JSON array. Each element is an object with exactly the keys `file` then `func`, and both values are JSON strings. For every element, `file` is the repo-relative POSIX path `src/instructlab/train/lora_mlx/lora.py`, and `func` is the exact fully qualified identity defined above. Deduplicate by the (`file`, `func`) pair, then sort the array in ascending lexicographic Unicode-code-point order by `file`, with `func` as the tie-breaker; this sorted order, not call chronology, is the output order. Use ordinary JSON serialization and JSON string escaping, not Python `repr`. No reported value is represented by JSON null, an empty string, or an omitted object key.",
+  "template_answer": {
+    "covered_functions": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "covered_functions": [
+      {
+        "file": "src/instructlab/train/lora_mlx/lora.py",
+        "func": "instructlab.train.lora_mlx.lora.Dataset.__init__"
+      },
+      {
+        "file": "src/instructlab/train/lora_mlx/lora.py",
+        "func": "instructlab.train.lora_mlx.lora.generate"
+      },
+      {
+        "file": "src/instructlab/train/lora_mlx/lora.py",
+        "func": "instructlab.train.lora_mlx.lora.load"
+      },
+      {
+        "file": "src/instructlab/train/lora_mlx/lora.py",
+        "func": "instructlab.train.lora_mlx.lora.load.<locals>.load_and_check"
+      },
+      {
+        "file": "src/instructlab/train/lora_mlx/lora.py",
+        "func": "instructlab.train.lora_mlx.lora.load_and_train"
+      }
+    ]
+  }
+}

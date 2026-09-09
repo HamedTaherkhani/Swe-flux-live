@@ -1,0 +1,20 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "AssertionError",
+      "AttributeError",
+      "IndexError",
+      "KeyError",
+      "TypeError",
+      "ValueError",
+      "ZeroDivisionError"
+    ]
+  },
+  "question": "During the sole test method `scrapy_qa/engine_close_spider_async_s5_exceptions/files/testcase.py::TestCloseSpiderExceptionHandling::test_indirect_close_collects_failures`, consider invocation 1 of `scrapy.core.engine.ExecutionEngine.close_spider_async` in `scrapy/core/engine.py`. An invocation means one call event for that exact function during the test run, numbered from 1 in chronological order. What is the set of exception types caught inside that invocation by the function's own explicit `except Exception` handlers? An exception counts only if it arises while the corresponding protected suite is executing and control then enters that handler; exclude exceptions merely observed during coroutine suspension or resumption, exceptions handled in callees, and exceptions propagated out of the function. Remove duplicate type names, then sort the names lexicographically in ascending Unicode code-point order. Exception type naming MUST use this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError` \u2014 never `builtins.ValueError`), and `module.QualName` for all others (e.g. `haystack.core.errors.PipelineError`). Return exactly `{\"caught_exception_kinds\": [\"str\", ...]}`, where every list element is a JSON string and the list follows the ordering rule above.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

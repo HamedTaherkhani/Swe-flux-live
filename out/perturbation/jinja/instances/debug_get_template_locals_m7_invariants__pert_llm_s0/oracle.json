@@ -1,0 +1,54 @@
+{
+  "question_kind": "M7_Invariants",
+  "question": "During the pytest run for test class `jinja_qa/debug_get_template_locals_m7_invariants/files/testcase.py::TestGetTemplateLocalsIndirect`, aggregate invariant observations across **all** `test_*` methods in that class. Methods are identified by their pytest node ids and are ordered chronologically as pytest executes them (unittest discovery order: ascending ASCII by method name).\n\nThe target function is `jinja2.debug.get_template_locals` defined in `src/jinja2/debug.py` (the `def get_template_locals` line is line 131 in that file as checked into this repository). It is reached **indirectly** when a template render raises and `Environment.handle_exception` rewrites the traceback via `rewrite_traceback_stack` \u2192 `fake_traceback`; none of the tests call `get_template_locals` directly.\n\nFor each candidate predicate below, evaluate it at the stated observation point on every qualifying trace event during the run. Count **observations** (how many times the predicate was evaluated) and **violations** (how many evaluations were false). Set `held_always` to true only when `violations` is zero and `observations` is greater than zero; when `observations` is zero the predicate was not evaluable and `held_always` must be false with `violations` zero.\n\n**Observation points** (only events whose qualified function name is exactly `jinja2.debug.get_template_locals` and whose file path ends with `src/jinja2/debug.py` count):\n\n1. **Line 150, `line` event** \u2014 the statement `if not name.startswith(\"l_\") or value is missing:`. This line executes once per iteration of the `for name, value in real_locals.items()` loop; at each such event both locals `name` and `value` are bound. Line numbers are absolute, 1-based, and refer to the file as it exists in the repository; the `line` event fires immediately before that statement executes.\n\n2. **Line 167, `line` event** \u2014 the statement `if value is missing:`. This line executes once per iteration of the `for name, (_, value) in local_overrides.items()` loop; at each such event both locals `name` and `value` are bound.\n\n3. **Line 141, `line` event** \u2014 the assignment `data = {}` on the branch where `ctx is None`. An observation counts only when local `data` is already bound in the frame at this event (which requires that branch to have been taken).\n\n**Parsing traced locals:** each logged local value is the `repr()` string recorded in the trace's `locals={...}` mapping (the same serialization produced by the tracer's `repr()` call). For `name`, parse with `ast.literal_eval` to obtain the runtime `str`. For `value`, if the logged repr is exactly the seven-character token `missing` with no surrounding quote characters, treat the value as the Jinja `missing` singleton; otherwise the repr is opaque (predicates that only inspect `name` still apply).\n\n**Candidate predicates** (evaluate verbatim):\n\n- `data equals an empty dict` \u2014 at observation point 3 only; true when `data` parses as an empty dict via `ast.literal_eval` on its logged repr (for example `{}`).\n- `len(name) is strictly greater than 8` \u2014 at observation point 1 only.\n- `len(name) is strictly less than 6` \u2014 at observation point 2 only.\n- `name equals context` \u2014 at observation point 1 only; true when the parsed `name` equals the four-character string `context`.\n- `name starts with l underscore` \u2014 at observation point 1 only; true when the parsed `name` begins with the two-character prefix `l_`.\n- `value is the missing singleton` \u2014 at observation point 1 only; true when the `value` local is the Jinja `missing` singleton (identity with `jinja2.utils.missing`, not the four-character string `missing`).\n\nReturn JSON with top-level key `invariant_report`: a list of objects `{predicate, held_always, observations, violations}`, one per candidate predicate above. Sort the list by `predicate` ascending (bytewise ASCII / `strcmp` order).",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "predicate": "data equals an empty dict",
+        "held_always": false,
+        "observations": 0,
+        "violations": 0
+      },
+      {
+        "predicate": "len(name) is strictly greater than 8",
+        "held_always": false,
+        "observations": 617,
+        "violations": 384
+      },
+      {
+        "predicate": "len(name) is strictly less than 6",
+        "held_always": false,
+        "observations": 222,
+        "violations": 3
+      },
+      {
+        "predicate": "name equals context",
+        "held_always": false,
+        "observations": 617,
+        "violations": 573
+      },
+      {
+        "predicate": "name starts with l underscore",
+        "held_always": false,
+        "observations": 617,
+        "violations": 395
+      },
+      {
+        "predicate": "value is the missing singleton",
+        "held_always": false,
+        "observations": 617,
+        "violations": 573
+      }
+    ]
+  }
+}

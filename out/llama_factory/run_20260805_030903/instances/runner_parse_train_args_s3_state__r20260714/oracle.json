@@ -1,0 +1,36 @@
+{
+  "question_kind": "S3_ProgramState",
+  "question": "During execution of pytest test `llama_factory_qa/runner_parse_train_args_s3_state__r20260714/files/testcase.py::TestRunnerParseTrainArgsS3State::test_second_invocation_return_state`, consider function `src.llamafactory.webui.runner.Runner._parse_train_args` defined in `src/llamafactory/webui/runner.py`. Count invocations in 1-based order by each entry into this function during that single test run. For invocation 2, take the program point at function return (immediately after the return statement in that invocation is executed). Report the values of local variables `args`, `ds_offload`, `ds_stage`, `finetuning_type`, and `model_name` at that program point. Values must be reported as Python repr strings. Return JSON with exactly one key `observed_state`, whose value is an array of objects with keys `variable` (str) and `value` (str). Sort `observed_state` by `variable` in ascending lexicographic order; if duplicate variable names ever appear, break ties by `value` ascending lexicographic order.",
+  "template_answer": {
+    "observed_state": [
+      {
+        "variable": "str",
+        "value": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "variable": "args",
+        "value": "{'stage': 'dpo', 'do_train': True, 'model_name_or_path': '/models/tiny', 'cache_dir': 'custom-cache', 'preprocessing_num_workers': 16, 'finetuning_type': 'lora', 'template': 'default', 'rope_scaling': None, 'flash_attn': 'fa2', 'use_unsloth': False, 'enable_liger_kernel': False, 'dataset_dir': 'data', 'dataset': 'alpaca,sharegpt', 'cutoff_len': 1024, 'learning_rate': 0.0002, 'num_train_epochs': 3.0, 'max_samples': 200, 'per_device_train_batch_size': 4, 'gradient_accumulation_steps': 8, 'lr_sched..."
+      },
+      {
+        "variable": "ds_offload",
+        "value": "'offload_'"
+      },
+      {
+        "variable": "ds_stage",
+        "value": "'3'"
+      },
+      {
+        "variable": "finetuning_type",
+        "value": "'lora'"
+      },
+      {
+        "variable": "model_name",
+        "value": "'TinyModel'"
+      }
+    ]
+  }
+}

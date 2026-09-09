@@ -1,0 +1,232 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 86,
+        "use_line": 113,
+        "variable": "class_args"
+      },
+      {
+        "def_line": 86,
+        "use_line": 113,
+        "variable": "class_kwargs"
+      },
+      {
+        "def_line": 86,
+        "use_line": 104,
+        "variable": "cls"
+      },
+      {
+        "def_line": 86,
+        "use_line": 113,
+        "variable": "cls"
+      },
+      {
+        "def_line": 86,
+        "use_line": 118,
+        "variable": "cls"
+      },
+      {
+        "def_line": 86,
+        "use_line": 120,
+        "variable": "cls"
+      },
+      {
+        "def_line": 86,
+        "use_line": 121,
+        "variable": "cls"
+      },
+      {
+        "def_line": 86,
+        "use_line": 129,
+        "variable": "cls"
+      },
+      {
+        "def_line": 86,
+        "use_line": 131,
+        "variable": "cls"
+      },
+      {
+        "def_line": 86,
+        "use_line": 132,
+        "variable": "cls"
+      },
+      {
+        "def_line": 86,
+        "use_line": 133,
+        "variable": "cls"
+      },
+      {
+        "def_line": 86,
+        "use_line": 134,
+        "variable": "cls"
+      },
+      {
+        "def_line": 121,
+        "use_line": 122,
+        "variable": "decorator"
+      },
+      {
+        "def_line": 86,
+        "use_line": 119,
+        "variable": "name"
+      },
+      {
+        "def_line": 86,
+        "use_line": 130,
+        "variable": "name"
+      },
+      {
+        "def_line": 106,
+        "use_line": 119,
+        "variable": "view"
+      },
+      {
+        "def_line": 106,
+        "use_line": 120,
+        "variable": "view"
+      },
+      {
+        "def_line": 106,
+        "use_line": 122,
+        "variable": "view"
+      },
+      {
+        "def_line": 106,
+        "use_line": 129,
+        "variable": "view"
+      },
+      {
+        "def_line": 106,
+        "use_line": 130,
+        "variable": "view"
+      },
+      {
+        "def_line": 106,
+        "use_line": 131,
+        "variable": "view"
+      },
+      {
+        "def_line": 106,
+        "use_line": 132,
+        "variable": "view"
+      },
+      {
+        "def_line": 106,
+        "use_line": 133,
+        "variable": "view"
+      },
+      {
+        "def_line": 106,
+        "use_line": 134,
+        "variable": "view"
+      },
+      {
+        "def_line": 106,
+        "use_line": 135,
+        "variable": "view"
+      },
+      {
+        "def_line": 115,
+        "use_line": 119,
+        "variable": "view"
+      },
+      {
+        "def_line": 115,
+        "use_line": 120,
+        "variable": "view"
+      },
+      {
+        "def_line": 115,
+        "use_line": 122,
+        "variable": "view"
+      },
+      {
+        "def_line": 115,
+        "use_line": 129,
+        "variable": "view"
+      },
+      {
+        "def_line": 115,
+        "use_line": 130,
+        "variable": "view"
+      },
+      {
+        "def_line": 115,
+        "use_line": 131,
+        "variable": "view"
+      },
+      {
+        "def_line": 115,
+        "use_line": 132,
+        "variable": "view"
+      },
+      {
+        "def_line": 115,
+        "use_line": 133,
+        "variable": "view"
+      },
+      {
+        "def_line": 115,
+        "use_line": 134,
+        "variable": "view"
+      },
+      {
+        "def_line": 115,
+        "use_line": 135,
+        "variable": "view"
+      },
+      {
+        "def_line": 122,
+        "use_line": 122,
+        "variable": "view"
+      },
+      {
+        "def_line": 122,
+        "use_line": 129,
+        "variable": "view"
+      },
+      {
+        "def_line": 122,
+        "use_line": 130,
+        "variable": "view"
+      },
+      {
+        "def_line": 122,
+        "use_line": 131,
+        "variable": "view"
+      },
+      {
+        "def_line": 122,
+        "use_line": 132,
+        "variable": "view"
+      },
+      {
+        "def_line": 122,
+        "use_line": 133,
+        "variable": "view"
+      },
+      {
+        "def_line": 122,
+        "use_line": 134,
+        "variable": "view"
+      },
+      {
+        "def_line": 122,
+        "use_line": 135,
+        "variable": "view"
+      }
+    ]
+  },
+  "question": "Run only the pytest test `flask_qa/views_as_view_m4_dataflow/files/testcase.py::TestViewAsViewDataFlow::test_generated_view_classes_and_decorators`. Across all runtime invocations of `flask.views.View.as_view` in `src/flask/views.py` during that test, what are all unique observed def-use pairs for exactly these local variables: `class_args`, `class_kwargs`, `cls`, `decorator`, `name`, and `view`? A def is a successful runtime binding produced by parameter binding, an assignment target, a nested function-definition statement, or a loop target; each parameter is defined on the target function's `def` line on every call. A use is a runtime read of that variable's current value on a source line in the target function's own frame. A pair is observed when the value from that def reaches that use without an intervening def of the same variable in that invocation. Definitions never reach across invocations. An invocation is one `call` of the target function during this test run, numbered from 1 in chronological call-entry order, although invocation numbers are not included in the answer. For augmented assignment such as `x += 1`, treat the line first as a use of the old reaching def and then as a new def of `x` on that same line. A `for x in values` loop header defines `x` anew for each successful iteration before the body executes; iteration N is the Nth such binding during that invocation. On any statement containing both reads and bindings, all reads use the definitions reaching the start of the statement, and successful bindings then become the reaching definitions. Comprehension-local and generator-expression-local bindings belong to their implicit separate frames and are excluded, even if their spelling matches a tracked variable; reads performed in those implicit frames, including reads of outer variables, are also excluded. The bodies of nested functions are separate frames and are excluded, but executing a nested `def view(...):` statement in the target frame is a definition of `view`. Count reads only when runtime evaluation actually reaches them, so a short-circuited operand is not a use. Source line numbers are absolute, 1-based line numbers in the named file as it exists in the repository. For a multi-line statement or expression, `def_line` is the line where its assignment target or binding statement begins and `use_line` is the line containing the evaluated variable read; the target function's `def` line can therefore appear for parameter definitions, while decorator and docstring lines are not definitions or uses. Return a JSON object with exactly one key, `observed_def_use_pairs`, whose value is a JSON list of objects. Every object has exactly the keys `def_line` (JSON integer), `use_line` (JSON integer), and `variable` (JSON string). Remove duplicate objects produced by repeated reads, iterations, or invocations, then sort the list by `variable` in ascending Unicode lexicographic order, then by `def_line` ascending, then by `use_line` ascending. The object keys are serialized in ascending Unicode lexicographic order. No `repr` or `str` formatting, empty-value or null sentinel, function-name normalization, or exception-name formatting applies because the only reported values are exact variable spellings and integer source lines.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

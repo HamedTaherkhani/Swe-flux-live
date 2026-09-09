@@ -1,0 +1,18 @@
+{
+  "question_kind": "S5_Exceptions",
+  "question": "During the pytest run identified by the test id `jinja_qa/environment_filter_test_common_s5_exceptions/files/testcase.py::TestEnvironmentFilterTestDispatch::test_indirect_filter_and_test_dispatch`, consider every trace event for the function `jinja2.environment.Environment._filter_test_common` defined in `src/jinja2/environment.py` (the `def _filter_test_common` line is line 497 in that file).\n\nAn **invocation** is one `call` event for this function during the pytest run. Number invocations 1-based in chronological order. For each invocation, the invocation span runs from its `call` event up to but not including the next `call` event for this function, or through the end of the trace if no later `call` exists.\n\nAn exception is **caught inside** `jinja2.environment.Environment._filter_test_common` when, within a single invocation span, a trace `exception` event for this function is followed by at least one subsequent `line` event for this function before that invocation's `return` event. Exceptions whose `exception` event is not followed by any `line` event in the same invocation before its `return` are propagated out and must not be counted.\n\nCollect the set of exception types for all caught exceptions across every invocation during this test run. Each type is reported using this naming convention: if the exception class's defining module is `builtins`, report bare `type(exc).__name__` (for example `ValueError`, never `builtins.ValueError`); otherwise report `{exc.__class__.__module__}.{exc.__class__.__qualname__}` (for example `haystack.core.errors.PipelineError`). Derive the type from the `exc=` field on each qualifying `exception` event, which has the form `ShortName: ...` where `ShortName` is `type(exc).__name__`.\n\nSort the reported type strings in ascending ASCII order. Remove duplicates: each distinct type appears at most once.\n\nReturn JSON with top-level key `caught_exception_kinds` whose value is the sorted list of type strings described above.",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  },
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "BlockingIOError",
+      "OSError",
+      "jinja2.exceptions.FilterArgumentError",
+      "jinja2.exceptions.SecurityError",
+      "jinja2.exceptions.UndefinedError"
+    ]
+  }
+}

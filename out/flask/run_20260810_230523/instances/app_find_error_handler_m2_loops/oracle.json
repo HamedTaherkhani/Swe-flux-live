@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 85,
+    "min_iterations": 1
+  },
+  "question": "Run only the pytest test `flask_qa/app_find_error_handler_m2_loops/files/testcase.py::TestFindErrorHandlerNestedLoops::test_generated_handler_searches`. Across every invocation of `flask.sansio.app.App._find_error_handler` in `src/flask/sansio/app.py` during that test, determine the maximum and minimum per-invocation iteration counts of the innermost `for` loop whose header is on line 886 (`for cls in exc_class.__mro__:`). An invocation is one runtime `call` of that exact function; number invocations from 1 in chronological call-entry order. For each invocation, iteration N is the Nth execution in that function's frame of the loop body's first executable statement, `handler = handler_map.get(cls)`, on line 887. Since the loop can be entered multiple times within one invocation by the enclosing loops on lines 879 and 880, first form one cumulative count for the invocation across all such entries. Count every execution of line 887, including ones whose lookup misses, without deduplication; do not count loop-header evaluations, executions of any other line, the `def` line, or docstring lines. Then take the ordinary integer maximum and minimum over all per-invocation cumulative counts; repeated equal counts remain separate observations, although repetition does not change either extremum. Source line numbers are absolute, 1-based line numbers in the named repository file. If a statement spans multiple source lines, its executed-line event belongs to the 1-based line where that statement begins; the counted statement here occupies only line 887. Return a JSON object with exactly two keys: `max_iterations` and `min_iterations`. Both values are JSON integers, not quoted strings; there are no string, null, container-repr, function-name, or exception-name values to format. Emit the two object keys in ascending lexicographic order. Do not sort or deduplicate invocation counts before computing the extrema, and there are no ordering ties to resolve.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "oracle_answer": {
+    "is_invariant_always_held": false,
+    "total_iterations_observed": 53,
+    "violating_iteration_count": 3
+  },
+  "question": "Run the pytest test\n`flask_qa/logging_has_level_handler_m7_invariants/files/testcase.py::TestLoggerHierarchyInvariants::test_seeded_indirect_logger_resolution`\nagainst this repository. For all loop iterations observed across every\ninvocation of `flask.logging.has_level_handler` in `src/flask/logging.py`,\ndid the candidate predicate\n`(sum((index + 1) * ord(character) for index, character in enumerate(current.name)) + level) % 13 != 0`\nhold at every iteration? Report the total number of iterations observed and\nthe number that violated the predicate.\n\nAn invocation is one runtime call of exactly\n`flask.logging.has_level_handler`, counted 1-based in chronological order\nfrom the start of the named test. Include every invocation caused by the test.\nCalls of other functions, including the generator expression used by `any`,\ndo not create target invocations. An iteration is one execution, in the\ntarget function's own frame, of the `if any(...)` statement whose expression\nbegins at line 39. Evaluate the predicate from the values of the target\nframe's local variables `current` and `level` at the line event immediately\nbefore that line-39 expression executes. `current.name` is the runtime string\nattribute, `level` is the runtime integer, `enumerate` uses its default\nzero-based indices, and `ord` has its standard Python meaning.\n\nCount observations across invocations in chronological execution order.\nEvery repeated execution counts independently; do not sort or deduplicate\nobservations. `is_invariant_always_held` is true only when at least one\niteration was observed and the predicate evaluated true at every observation.\nIf zero iterations are observed, report false with both integer counts equal\nto zero.\n\nLine numbers are absolute, 1-based source line numbers in the named\nrepo-relative file as it exists in this checkout. For a multi-line statement\nor expression, its line event is attributed to the line where the statement\nor expression begins. The function's `def` line, decorator lines, and\ndocstring-only lines are not iterations.\n\nReturn exactly one JSON object with exactly these keys in this order:\n`is_invariant_always_held`, `total_iterations_observed`, and\n`violating_iteration_count`. The first value is a JSON boolean and the other\ntwo are JSON integers written as base-10 numbers, not strings. There are no\nserialized function names, exception names, local values, Python `repr` or\n`str` values, containers, empty strings, or null values in the answer.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "is_invariant_always_held": "bool",
+    "total_iterations_observed": "int",
+    "violating_iteration_count": "int"
+  }
+}

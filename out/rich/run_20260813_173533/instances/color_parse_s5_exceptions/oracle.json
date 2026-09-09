@@ -1,0 +1,12 @@
+{
+  "question_kind": "S5_Exceptions",
+  "question": "During the pytest run of rich_qa/color_parse_s5_exceptions/files/testcase.py::ColorParseExceptionsTest::test_seeded_parse_batch_with_single_propagated_error, consider the function rich.color.Color.parse defined in rich/color.py (the def statement begins on line 433).\n\nThe test calls rich.color.Color.parse many times with programmatically built color strings. Exactly one of those calls raises an exception that propagates out of rich.color.Color.parse to the test caller without being caught inside rich.color.Color.parse. Report that propagated exception (the exception object whose raise site is inside rich.color.Color.parse on one of the raise statements in that function body).\n\nException type naming: report bare type(exc).__name__ for built-in exceptions (for example ValueError, never builtins.ValueError) and module.QualName for all other exception classes (for example rich.color.ColorParseError). The solver must apply this rule exactly.\n\nException message: report the exact str(exc) string, character for character, for that exception object (not repr(exc) and not the args tuple repr).\n\nReport JSON with exactly these top-level keys inside oracle_answer:\n- exception_type (str)\n- exception_message (str)",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  },
+  "oracle_answer": {
+    "exception_type": "rich.color.ColorParseError",
+    "exception_message": "color number must be <= 255 in 'color(307)'"
+  }
+}
