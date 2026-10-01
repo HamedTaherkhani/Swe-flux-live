@@ -1,26 +1,27 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-23T01:16:28",
+  "generated_at": "2026-09-30T12:43:29",
   "method": "intrinsic_complexity",
   "category": "S4_DataFlow",
   "answer_archetype": "observed_def_use_pairs",
   "difficulty": {
     "semantic_reasoning": "very_hard",
     "answer_construction": "easy",
-    "repository_navigation": "very_hard",
-    "combined": "very_hard"
+    "repository_navigation": "hard",
+    "combined": "easy"
   },
   "scores": {
-    "semantic_reasoning": 5.672,
+    "semantic_reasoning": 6.619,
     "answer_construction": 5.504,
     "repository_navigation": 5.975,
-    "combined": 5.689
+    "combined": 4.389,
+    "weighted_combined": 6.068
   },
   "components": {
     "semantic_reasoning": {
-      "control_flow": 2.579,
-      "state_tracking": 6.847,
-      "interprocedural": 3.563,
+      "control_flow": 4.679,
+      "state_tracking": 7.698,
+      "interprocedural": 5.947,
       "exception_semantics": 0.0,
       "execution_workload": 8.13
     },
@@ -39,36 +40,43 @@
       "executed_code_footprint": 1.703,
       "weighted_navigation_support": 2.194,
       "navigation_uncertainty": 7.806
+    },
+    "combined": {
+      "answer.string_characters": 0.005,
+      "answer.leaf_count": -0.0057,
+      "trace.line_events": -0.0558,
+      "archetype_offset": 0.2021,
+      "expected_success": 0.5611
     }
   },
   "strata": {
     "semantic_reasoning": {
       "name": "observed_def_use_pairs",
-      "instances": 4,
-      "easy_max_score": 2.7535,
-      "medium_max_score": 3.802,
-      "very_hard_min_score": 4.8785
+      "instances": 65,
+      "easy_max_score": 2.779,
+      "medium_max_score": 3.423,
+      "very_hard_min_score": 4.509
     },
     "answer_construction": {
       "name": "observed_def_use_pairs",
-      "instances": 4,
-      "easy_max_score": 5.88875,
-      "medium_max_score": 6.1455,
-      "very_hard_min_score": 6.53475
+      "instances": 65,
+      "easy_max_score": 7.111,
+      "medium_max_score": 7.799,
+      "very_hard_min_score": 8.13
     },
     "repository_navigation": {
       "name": "all",
-      "instances": 9,
-      "easy_max_score": 4.618,
-      "medium_max_score": 4.836,
-      "very_hard_min_score": 5.975
+      "instances": 445,
+      "easy_max_score": 4.567,
+      "medium_max_score": 5.321,
+      "very_hard_min_score": 6.113
     },
     "combined": {
-      "name": "observed_def_use_pairs",
-      "instances": 4,
-      "easy_max_score": 4.5495,
-      "medium_max_score": 5.001,
-      "very_hard_min_score": 5.49925
+      "name": "all",
+      "instances": 445,
+      "easy_max_score": 4.842,
+      "medium_max_score": 5.695,
+      "very_hard_min_score": 6.377
     }
   },
   "excluded_inputs": [

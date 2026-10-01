@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-26T02:48:09",
+  "generated_at": "2026-09-30T12:43:02",
   "method": "intrinsic_complexity",
   "category": "S2_Loops",
   "answer_archetype": "nth_iteration+value+variable",
@@ -8,13 +8,14 @@
     "semantic_reasoning": "easy",
     "answer_construction": "very_hard",
     "repository_navigation": "very_hard",
-    "combined": "very_hard"
+    "combined": "hard"
   },
   "scores": {
     "semantic_reasoning": 2.871,
     "answer_construction": 2.776,
     "repository_navigation": 6.124,
-    "combined": 3.651
+    "combined": 6.152,
+    "weighted_combined": 3.651
   },
   "components": {
     "semantic_reasoning": {
@@ -39,6 +40,13 @@
       "executed_code_footprint": 2.835,
       "weighted_navigation_support": 2.466,
       "navigation_uncertainty": 7.534
+    },
+    "combined": {
+      "answer.string_characters": -0.0076,
+      "answer.leaf_count": 0.081,
+      "trace.line_events": 0.005,
+      "archetype_offset": -0.1091,
+      "expected_success": 0.3848
     }
   },
   "strata": {
@@ -64,11 +72,11 @@
       "very_hard_min_score": 6.113
     },
     "combined": {
-      "name": "nth_iteration+value+variable",
-      "instances": 2,
-      "easy_max_score": 3.207,
-      "medium_max_score": 3.355,
-      "very_hard_min_score": 3.503
+      "name": "all",
+      "instances": 445,
+      "easy_max_score": 4.842,
+      "medium_max_score": 5.695,
+      "very_hard_min_score": 6.377
     }
   },
   "excluded_inputs": [

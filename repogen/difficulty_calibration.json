@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-30T12:42:53",
+  "method": "ridge regression of mean partial credit on log1p features (standardized) plus answer-archetype offsets",
+  "target": {
+    "scopes": [
+      "kimi/kimi-k3",
+      "deepseek/deepseek-v4-flash",
+      "fireworks/accounts_fireworks_models_gpt-oss-120b",
+      "claude-code-noexec/claude-opus-5-5-medium"
+    ],
+    "definition": "0.5 * mean partial-credit score + 0.5 * exact-match rate across scopes; unanswered = 0"
+  },
+  "fitted_on": {
+    "complexity_report": "/home/hamed/PycharmProjects/repobehave-gen/out/complexity_report.json",
+    "instances": 432,
+    "repositories": [
+      "click",
+      "fastapi",
+      "flask",
+      "haystack",
+      "instruct_lab",
+      "jinja",
+      "kedro",
+      "lark",
+      "llama_factory",
+      "rich",
+      "scrapy",
+      "sqlglot"
+    ],
+    "archetypes": {
+      "observed_def_use_pairs": 57,
+      "caught_exception_kinds": 20,
+      "exception_message+exception_type": 14,
+      "exception_type_counts": 17,
+      "max_iterations+min_iterations": 27,
+      "invariant_report": 17,
+      "function_call_order": 39,
+      "invocation_counts": 20,
+      "observed_state": 27,
+      "unique_values": 32,
+      "loop_iteration_count": 34,
+      "executed_path": 40,
+      "line_execution_counts": 17,
+      "covered_lines": 6,
+      "exception_types": 11,
+      "covered_functions": 14,
+      "is_invariant_always_held+total_iterations_observed+violating_iteration_count": 13,
+      "nth_iteration+value+variable": 2,
+      "value_history": 7,
+      "total_iterations": 4,
+      "temporal_value_history": 3,
+      "crashing_tests+safe_tests": 1,
+      "state_snapshots": 2,
+      "always_executed+never_executed+sometimes_executed": 1,
+      "exception_events": 1,
+      "executed_line_sequence": 2,
+      "invocations+loop_headers": 1,
+      "callee_sequence": 1,
+      "invocations": 1,
+      "dead_defs+observed_def_use_pairs+tracked_variables": 1
+    }
+  },
+  "features": [
+    "answer.string_characters",
+    "answer.leaf_count",
+    "trace.line_events"
+  ],
+  "transform": "log1p, then standardize with feature_mean/feature_std",
+  "feature_mean": [
+    5.094928,
+    3.385449,
+    7.180338
+  ],
+  "feature_std": [
+    3.47301,
+    1.897983,
+    1.562077
+  ],
+  "coefficients": [
+    -0.065352,
+    -0.076892,
+    -0.03775
+  ],
+  "archetype_offsets": {
+    "always_executed+never_executed+sometimes_executed": -0.079243,
+    "callee_sequence": 0.079862,
+    "caught_exception_kinds": 0.008803,
+    "covered_functions": 0.392486,
+    "covered_lines": 0.096315,
+    "crashing_tests+safe_tests": 0.077247,
+    "dead_defs+observed_def_use_pairs+tracked_variables": 0.10735,
+    "exception_events": -0.00192,
+    "exception_message+exception_type": -0.080822,
+    "exception_type_counts": -0.036666,
+    "exception_types": 0.137241,
+    "executed_line_sequence": -0.013652,
+    "executed_path": 0.050442,
+    "function_call_order": 0.082242,
+    "invariant_report": 0.023906,
+    "invocation_counts": 0.062241,
+    "invocations": 0.007411,
+    "invocations+loop_headers": 0.085788,
+    "is_invariant_always_held+total_iterations_observed+violating_iteration_count": -0.188272,
+    "line_execution_counts": -0.064528,
+    "loop_iteration_count": -0.154716,
+    "max_iterations+min_iterations": -0.125375,
+    "nth_iteration+value+variable": -0.109064,
+    "observed_def_use_pairs": 0.202096,
+    "observed_state": -0.094175,
+    "state_snapshots": 0.136064,
+    "temporal_value_history": -0.200955,
+    "total_iterations": -0.097319,
+    "unique_values": -0.160367,
+    "value_history": -0.142418
+  },
+  "unknown_archetype_offset": 0.0,
+  "intercept": 0.41551,
+  "ridge_alpha": 3.0,
+  "score": "10 * (1 - expected_success); higher = harder",
+  "validation": {
+    "leave_one_repository_out_spearman_by_alpha": {
+      "0.1": 0.5664,
+      "0.3": 0.5666,
+      "1.0": 0.5697,
+      "3.0": 0.5703,
+      "10.0": 0.5612,
+      "30.0": 0.5234,
+      "100.0": 0.4309
+    },
+    "leave_one_repository_out_spearman": 0.5703,
+    "leave_one_repository_out_spearman_vs_partial_credit": 0.5308,
+    "leave_one_repository_out_spearman_vs_exact_match": 0.4612,
+    "in_sample_spearman": 0.6584,
+    "in_sample_spearman_vs_partial_credit": 0.6054,
+    "in_sample_spearman_vs_exact_match": 0.5578
+  }
+}

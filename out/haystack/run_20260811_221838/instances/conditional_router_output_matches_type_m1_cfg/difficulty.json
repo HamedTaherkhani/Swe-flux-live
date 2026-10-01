@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-26T02:48:09",
+  "generated_at": "2026-09-30T12:43:02",
   "method": "intrinsic_complexity",
   "category": "M1_IntraProceduralCFG",
   "answer_archetype": "line_execution_counts",
@@ -8,13 +8,14 @@
     "semantic_reasoning": "easy",
     "answer_construction": "hard",
     "repository_navigation": "easy",
-    "combined": "easy"
+    "combined": "hard"
   },
   "scores": {
     "semantic_reasoning": 4.11,
     "answer_construction": 7.649,
     "repository_navigation": 4.545,
-    "combined": 5.457
+    "combined": 6.043,
+    "weighted_combined": 5.457
   },
   "components": {
     "semantic_reasoning": {
@@ -39,6 +40,13 @@
       "executed_code_footprint": 2.641,
       "weighted_navigation_support": 4.639,
       "navigation_uncertainty": 5.361
+    },
+    "combined": {
+      "answer.string_characters": 0.0959,
+      "answer.leaf_count": -0.0482,
+      "trace.line_events": -0.003,
+      "archetype_offset": -0.0645,
+      "expected_success": 0.3957
     }
   },
   "strata": {
@@ -64,11 +72,11 @@
       "very_hard_min_score": 6.113
     },
     "combined": {
-      "name": "line_execution_counts",
-      "instances": 17,
-      "easy_max_score": 5.556,
-      "medium_max_score": 5.819,
-      "very_hard_min_score": 6.278
+      "name": "all",
+      "instances": 445,
+      "easy_max_score": 4.842,
+      "medium_max_score": 5.695,
+      "very_hard_min_score": 6.377
     }
   },
   "excluded_inputs": [

@@ -1,26 +1,27 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-23T01:16:27",
+  "generated_at": "2026-09-30T12:43:29",
   "method": "intrinsic_complexity",
   "category": "S1_IntraProceduralCFG",
   "answer_archetype": "executed_path",
   "difficulty": {
-    "semantic_reasoning": "medium",
-    "answer_construction": "medium",
-    "repository_navigation": "very_hard",
-    "combined": "medium"
+    "semantic_reasoning": "hard",
+    "answer_construction": "easy",
+    "repository_navigation": "hard",
+    "combined": "hard"
   },
   "scores": {
-    "semantic_reasoning": 2.959,
+    "semantic_reasoning": 4.009,
     "answer_construction": 6.758,
     "repository_navigation": 5.995,
-    "combined": 5.048
+    "combined": 5.884,
+    "weighted_combined": 5.468
   },
   "components": {
     "semantic_reasoning": {
-      "control_flow": 2.978,
-      "state_tracking": 2.706,
-      "interprocedural": 1.472,
+      "control_flow": 4.825,
+      "state_tracking": 4.265,
+      "interprocedural": 3.933,
       "exception_semantics": 0.0,
       "execution_workload": 4.003
     },
@@ -39,36 +40,43 @@
       "executed_code_footprint": 2.93,
       "weighted_navigation_support": 2.691,
       "navigation_uncertainty": 7.309
+    },
+    "combined": {
+      "answer.string_characters": -0.0215,
+      "answer.leaf_count": -0.018,
+      "trace.line_events": -0.0149,
+      "archetype_offset": 0.0504,
+      "expected_success": 0.4116
     }
   },
   "strata": {
     "semantic_reasoning": {
       "name": "executed_path",
-      "instances": 1,
-      "easy_max_score": 2.959,
-      "medium_max_score": 2.959,
-      "very_hard_min_score": 2.959
+      "instances": 41,
+      "easy_max_score": 2.518,
+      "medium_max_score": 3.599,
+      "very_hard_min_score": 5.226
     },
     "answer_construction": {
       "name": "executed_path",
-      "instances": 1,
-      "easy_max_score": 6.758,
-      "medium_max_score": 6.758,
-      "very_hard_min_score": 6.758
+      "instances": 41,
+      "easy_max_score": 8.14,
+      "medium_max_score": 9.036,
+      "very_hard_min_score": 9.08
     },
     "repository_navigation": {
       "name": "all",
-      "instances": 8,
-      "easy_max_score": 5.066,
-      "medium_max_score": 5.385,
-      "very_hard_min_score": 5.9785
+      "instances": 445,
+      "easy_max_score": 4.567,
+      "medium_max_score": 5.321,
+      "very_hard_min_score": 6.113
     },
     "combined": {
-      "name": "executed_path",
-      "instances": 1,
-      "easy_max_score": 5.048,
-      "medium_max_score": 5.048,
-      "very_hard_min_score": 5.048
+      "name": "all",
+      "instances": 445,
+      "easy_max_score": 4.842,
+      "medium_max_score": 5.695,
+      "very_hard_min_score": 6.377
     }
   },
   "excluded_inputs": [

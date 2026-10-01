@@ -60,6 +60,13 @@ DEFAULT_KIMI_REQUEST_TIMEOUT_SECONDS = float(
 )
 DEFAULT_KIMI_MAX_RETRIES = int(os.environ.get("REPOBEHAVE_KIMI_MAX_RETRIES", "2"))
 DEFAULT_KIMI_BASE_URL = "https://api.moonshot.ai/v1"
+# Groq is OpenAI-compatible. Retries are on by default: its per-minute token
+# limits are tight, and the SDK backs off on 429s.
+DEFAULT_GROQ_REQUEST_TIMEOUT_SECONDS = float(
+    os.environ.get("REPOBEHAVE_GROQ_REQUEST_TIMEOUT_SECONDS", "600")
+)
+DEFAULT_GROQ_MAX_RETRIES = int(os.environ.get("REPOBEHAVE_GROQ_MAX_RETRIES", "6"))
+DEFAULT_GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 TOOL_PHASE_DONE_SENTINEL = "DONE_WITH_FILE_READING"
 TOOL_PHASE_REMINDER_PROMPT = (
     "Do not answer yet. If you still need repository context, continue with tool calls. "
@@ -459,6 +466,14 @@ class ProviderRunner:
                 enable_tools=enable_tools,
                 tool_names=active_tool_names,
             )
+        if self.provider == "groq":
+            return self._run_groq(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                tool_callback=tool_callback,
+                enable_tools=enable_tools,
+                tool_names=active_tool_names,
+            )
         raise ValueError(f"Unsupported provider: {self.provider}")
 
     def _run_openai(
@@ -809,6 +824,44 @@ class ProviderRunner:
             trace_label="kimi-chat",
             usage_source="openai-chat-kimi",
             request_counter=request_counter,
+        )
+
+    def _run_groq(
+        self, *, system_prompt: str, user_prompt: str, tool_callback, enable_tools: bool, tool_names: List[str]
+    ) -> str:
+        """Groq (https://api.groq.com/openai/v1) — OpenAI-compatible."""
+        import openai
+
+        api_key = os.environ.get("GROQ_API_KEY") or os.environ.get("groq_api_key")
+        if not api_key:
+            raise RuntimeError(
+                "Groq API key not found. Set GROQ_API_KEY (or groq_api_key) in your environment/.env."
+            )
+        if not hasattr(openai, "OpenAI"):
+            raise RuntimeError(
+                "Modern OpenAI SDK required. Install or upgrade the 'openai' package in the host environment."
+            )
+
+        base_url = os.environ.get("GROQ_BASE_URL") or DEFAULT_GROQ_BASE_URL
+        client = openai.OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+            timeout=max(1.0, float(DEFAULT_GROQ_REQUEST_TIMEOUT_SECONDS)),
+            max_retries=max(0, int(DEFAULT_GROQ_MAX_RETRIES)),
+        )
+        messages: List[Dict[str, Any]] = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ]
+        return self._run_openai_chat(
+            client=client,
+            messages=messages,
+            tool_callback=tool_callback,
+            enable_tools=enable_tools,
+            tool_names=tool_names,
+            trace_label="groq-chat",
+            usage_source="openai-chat-groq",
+            request_counter=[0],
         )
 
     def _run_openrouter(

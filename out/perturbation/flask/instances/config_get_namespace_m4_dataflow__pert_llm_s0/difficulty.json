@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-22T20:25:38",
+  "generated_at": "2026-09-30T12:43:29",
   "method": "intrinsic_complexity",
   "category": "M4_DataFlow",
   "answer_archetype": "observed_def_use_pairs",
@@ -8,19 +8,20 @@
     "semantic_reasoning": "very_hard",
     "answer_construction": "easy",
     "repository_navigation": "hard",
-    "combined": "very_hard"
+    "combined": "easy"
   },
   "scores": {
-    "semantic_reasoning": 4.618,
+    "semantic_reasoning": 5.259,
     "answer_construction": 5.974,
     "repository_navigation": 5.922,
-    "combined": 5.419
+    "combined": 4.374,
+    "weighted_combined": 5.675
   },
   "components": {
     "semantic_reasoning": {
-      "control_flow": 1.799,
-      "state_tracking": 6.956,
-      "interprocedural": 0.532,
+      "control_flow": 3.502,
+      "state_tracking": 7.806,
+      "interprocedural": 1.401,
       "exception_semantics": 0.0,
       "execution_workload": 6.968
     },
@@ -39,36 +40,43 @@
       "executed_code_footprint": 1.364,
       "weighted_navigation_support": 2.124,
       "navigation_uncertainty": 7.876
+    },
+    "combined": {
+      "answer.string_characters": 0.0162,
+      "answer.leaf_count": -0.0205,
+      "trace.line_events": -0.0507,
+      "archetype_offset": 0.2021,
+      "expected_success": 0.5626
     }
   },
   "strata": {
     "semantic_reasoning": {
       "name": "observed_def_use_pairs",
-      "instances": 5,
-      "easy_max_score": 4.117,
-      "medium_max_score": 4.484,
-      "very_hard_min_score": 4.618
+      "instances": 65,
+      "easy_max_score": 2.779,
+      "medium_max_score": 3.423,
+      "very_hard_min_score": 4.509
     },
     "answer_construction": {
       "name": "observed_def_use_pairs",
-      "instances": 5,
-      "easy_max_score": 5.974,
-      "medium_max_score": 6.107,
-      "very_hard_min_score": 6.511
+      "instances": 65,
+      "easy_max_score": 7.111,
+      "medium_max_score": 7.799,
+      "very_hard_min_score": 8.13
     },
     "repository_navigation": {
       "name": "all",
-      "instances": 19,
-      "easy_max_score": 4.4865,
-      "medium_max_score": 4.739,
-      "very_hard_min_score": 5.9465
+      "instances": 445,
+      "easy_max_score": 4.567,
+      "medium_max_score": 5.321,
+      "very_hard_min_score": 6.113
     },
     "combined": {
-      "name": "observed_def_use_pairs",
-      "instances": 5,
-      "easy_max_score": 5.17,
-      "medium_max_score": 5.342,
-      "very_hard_min_score": 5.419
+      "name": "all",
+      "instances": 445,
+      "easy_max_score": 4.842,
+      "medium_max_score": 5.695,
+      "very_hard_min_score": 6.377
     }
   },
   "excluded_inputs": [

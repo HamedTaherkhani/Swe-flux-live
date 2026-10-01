@@ -1,27 +1,28 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-23T01:16:28",
+  "generated_at": "2026-09-30T12:43:29",
   "method": "intrinsic_complexity",
   "category": "S5_Exceptions",
   "answer_archetype": "exception_message+exception_type",
   "difficulty": {
-    "semantic_reasoning": "medium",
-    "answer_construction": "medium",
-    "repository_navigation": "hard",
+    "semantic_reasoning": "hard",
+    "answer_construction": "easy",
+    "repository_navigation": "medium",
     "combined": "medium"
   },
   "scores": {
-    "semantic_reasoning": 1.641,
+    "semantic_reasoning": 2.926,
     "answer_construction": 1.323,
-    "repository_navigation": 4.748,
-    "combined": 2.306
+    "repository_navigation": 4.622,
+    "combined": 5.396,
+    "weighted_combined": 2.789
   },
   "components": {
     "semantic_reasoning": {
-      "control_flow": 1.556,
-      "state_tracking": 1.709,
-      "interprocedural": 0.844,
-      "exception_semantics": 0.317,
+      "control_flow": 4.62,
+      "state_tracking": 2.253,
+      "interprocedural": 3.563,
+      "exception_semantics": 3.429,
       "execution_workload": 2.113
     },
     "answer_construction": {
@@ -35,40 +36,47 @@
       "explicit_file_clues": 3.297,
       "explicit_function_clues": 0.0,
       "test_context": 7.691,
-      "api_centrality": 0.0,
+      "api_centrality": 1.813,
       "executed_code_footprint": 2.442,
-      "weighted_navigation_support": 4.263,
-      "navigation_uncertainty": 5.737
+      "weighted_navigation_support": 4.444,
+      "navigation_uncertainty": 5.556
+    },
+    "combined": {
+      "answer.string_characters": 0.0269,
+      "answer.leaf_count": 0.0926,
+      "trace.line_events": 0.0061,
+      "archetype_offset": -0.0808,
+      "expected_success": 0.4604
     }
   },
   "strata": {
     "semantic_reasoning": {
       "name": "exception_message+exception_type",
-      "instances": 1,
-      "easy_max_score": 1.641,
-      "medium_max_score": 1.641,
-      "very_hard_min_score": 1.641
+      "instances": 14,
+      "easy_max_score": 2.29875,
+      "medium_max_score": 2.636,
+      "very_hard_min_score": 3.38225
     },
     "answer_construction": {
       "name": "exception_message+exception_type",
-      "instances": 1,
-      "easy_max_score": 1.323,
-      "medium_max_score": 1.323,
-      "very_hard_min_score": 1.323
+      "instances": 14,
+      "easy_max_score": 1.4845,
+      "medium_max_score": 1.6145,
+      "very_hard_min_score": 1.9435
     },
     "repository_navigation": {
       "name": "all",
-      "instances": 6,
-      "easy_max_score": 4.44725,
-      "medium_max_score": 4.7045,
-      "very_hard_min_score": 4.97225
+      "instances": 445,
+      "easy_max_score": 4.567,
+      "medium_max_score": 5.321,
+      "very_hard_min_score": 6.113
     },
     "combined": {
-      "name": "exception_message+exception_type",
-      "instances": 1,
-      "easy_max_score": 2.306,
-      "medium_max_score": 2.306,
-      "very_hard_min_score": 2.306
+      "name": "all",
+      "instances": 445,
+      "easy_max_score": 4.842,
+      "medium_max_score": 5.695,
+      "very_hard_min_score": 6.377
     }
   },
   "excluded_inputs": [

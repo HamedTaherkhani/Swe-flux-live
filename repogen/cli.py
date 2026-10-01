@@ -227,7 +227,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     evaluate.add_argument(
         "--llm-provider", default="openai",
-        choices=["openai", "anthropic", "gemini", "fireworks", "deepseek", "openrouter", "vllm", "kimi"],
+        choices=["openai", "anthropic", "gemini", "fireworks", "deepseek", "openrouter", "vllm", "kimi", "groq"],
         help="provider for the solver_llm evaluator",
     )
     evaluate.add_argument(
@@ -275,6 +275,205 @@ def build_parser() -> argparse.ArgumentParser:
         "--env-file", type=Path, default=None,
         help=".env file with API keys; defaults to <project root>/.env",
     )
+    evaluate.add_argument(
+        "--agent", default="claude-code", choices=["claude-code", "codex"],
+        help="agent for the solver_agent_noexec evaluator (static mode: the "
+        "agent reads a READ-ONLY copy of the repo inside a minimal sandbox with "
+        "no python/pytest/project environment, and cannot execute anything)",
+    )
+    evaluate.add_argument(
+        "--agent-model", default="",
+        help="model for the solver_agent_noexec evaluator (required), e.g. "
+        "claude-sonnet-4-6 or gpt-5.4",
+    )
+    evaluate.add_argument(
+        "--agent-effort", default="",
+        choices=["", "low", "medium", "high", "xhigh", "max"],
+        help="reasoning effort for the agent (claude --effort / codex "
+        "model_reasoning_effort; codex has no 'max'). Appended to the output "
+        "model dir name. Default: the CLI's built-in default",
+    )
+    evaluate.add_argument(
+        "--agent-timeout", type=int, default=900,
+        help="per-instance agent session timeout in seconds",
+    )
+    evaluate.add_argument(
+        "--sandbox-image", default="ubuntu:22.04",
+        help="base image for the no-exec sandbox; refused if it contains "
+        "python or pytest",
+    )
+    evaluate.add_argument(
+        "--claude-bin", default="",
+        help="host claude binary copied into the sandbox (default: `claude` on PATH)",
+    )
+    evaluate.add_argument(
+        "--codex-bin", default="",
+        help="host codex binary copied into the sandbox (default: `codex` on "
+        "PATH, else the newest Cursor-bundled codex)",
+    )
+    evaluate.add_argument(
+        "--checkpoints", default="off", choices=["off", "inline", "probe"],
+        help="also ask the trace-grounded intermediate checkpoints. 'inline': in "
+        "the same response as the answer (changes the prompt, so results go to "
+        "scope <provider>/<model>__ckpt_inline). 'probe': in a separate session "
+        "after the answer; the answer run is unchanged and existing answers are "
+        "reused, so only the probe is paid for",
+    )
+
+    checkpoints = sub.add_parser(
+        "checkpoints",
+        help="derive trace-grounded intermediate checkpoints for every instance "
+        "and, where a model answered them, score the checkpoint ladder",
+    )
+    kgroup = checkpoints.add_mutually_exclusive_group(required=True)
+    kgroup.add_argument("--run-dir", type=Path, help="one run directory")
+    kgroup.add_argument("--repo", help="latest run of this repo under --output-root")
+    kgroup.add_argument(
+        "--all-runs", action="store_true",
+        help="pool every run containing instances under --output-root",
+    )
+    checkpoints.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "out")
+    checkpoints.add_argument(
+        "--evaluation-scope", default="",
+        help="evaluation scope to score (for example kimi/kimi-k3 for probe runs, "
+        "kimi/kimi-k3__ckpt_inline for inline runs); when omitted, score every "
+        "scope that has checkpoint answers",
+    )
+    checkpoints.add_argument(
+        "--refresh", action="store_true",
+        help="re-derive checkpoint specs instead of reusing cached ones",
+    )
+    checkpoints.add_argument("--float-tol", type=float, default=1e-6)
+    checkpoints.add_argument(
+        "--report", type=Path, default=None,
+        help="output JSON path (default: checkpoint_report.json in the run or output root)",
+    )
+
+    evidence = sub.add_parser(
+        "evidence",
+        help="evidence coverage: how much of the code the test executed, by call "
+        "distance from the target, a solver actually read",
+    )
+    vgroup = evidence.add_mutually_exclusive_group(required=True)
+    vgroup.add_argument("--run-dir", type=Path, help="one run directory")
+    vgroup.add_argument("--repo", help="latest run of this repo under --output-root")
+    vgroup.add_argument(
+        "--all-runs", action="store_true",
+        help="pool every run containing instances under --output-root",
+    )
+    evidence.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "out")
+    evidence.add_argument(
+        "--harvest", action="store_true",
+        help="first re-run instances that have no evidence file in a container "
+        "with the whole-repository tracer (no model calls, instances unchanged)",
+    )
+    evidence.add_argument(
+        "--refresh", action="store_true",
+        help="with --harvest: re-run instances that already have evidence",
+    )
+    evidence.add_argument(
+        "--pull", action="store_true",
+        help="with --harvest: pull images that are not available locally "
+        "(by default such runs are skipped)",
+    )
+    evidence.add_argument("--image", default=None, help="override the image (single run only)")
+    evidence.add_argument(
+        "--repos-file", type=Path, default=PROJECT_ROOT / "repositories.json"
+    )
+    evidence.add_argument(
+        "--only-instances", default="",
+        help="with --harvest: comma-separated instance ids to harvest",
+    )
+    evidence.add_argument("--parallel", type=int, default=4, help="concurrent containers")
+    evidence.add_argument("--timeout", type=int, default=900, help="seconds per instance")
+    evidence.add_argument(
+        "--evaluation-scope", default="",
+        help="evaluation scope to score (for example kimi/kimi-k3); when "
+        "omitted, score every scope found",
+    )
+    evidence.add_argument("--float-tol", type=float, default=1e-6)
+    evidence.add_argument(
+        "--report", type=Path, default=None,
+        help="output JSON path (default: evidence_report.json in the run or output root)",
+    )
+
+    required = sub.add_parser(
+        "required-code",
+        help="have an agent with full ground truth decide, once per instance, "
+        "which repository code the answer depends on",
+    )
+    rgroup = required.add_mutually_exclusive_group(required=True)
+    rgroup.add_argument("--run-dir", type=Path, help="one run directory")
+    rgroup.add_argument("--repo", help="latest run of this repo under --output-root")
+    rgroup.add_argument(
+        "--all-runs", action="store_true",
+        help="every run containing instances under --output-root",
+    )
+    required.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "out")
+    required.add_argument("--agent", default="claude-code", help="agent backend")
+    required.add_argument("--model", default="claude-opus-5-5", help="agent model id")
+    required.add_argument(
+        "--effort", default="medium",
+        help="reasoning effort passed to the agent (low|medium|high|xhigh|max)",
+    )
+    required.add_argument(
+        "--parallel", type=int, default=4,
+        help="concurrent instances; each gets its own container and session",
+    )
+    required.add_argument("--timeout", type=int, default=1200, help="seconds per instance")
+    required.add_argument(
+        "--only-instances", default="", help="comma-separated instance ids to analyse",
+    )
+    required.add_argument(
+        "--limit", type=int, default=0,
+        help="analyse at most this many pending instances per run (0 = all)",
+    )
+    required.add_argument(
+        "--refresh", action="store_true",
+        help="re-analyse instances that already have a result",
+    )
+    required.add_argument(
+        "--summary-only", action="store_true",
+        help="run no agent; only summarise existing results",
+    )
+    required.add_argument("--image", default=None, help="override the image (single run only)")
+    required.add_argument(
+        "--repos-file", type=Path, default=PROJECT_ROOT / "repositories.json"
+    )
+    required.add_argument(
+        "--env-file", type=Path, default=None,
+        help=".env file with agent credentials; defaults to <project root>/.env",
+    )
+
+    decompose = sub.add_parser(
+        "decompose",
+        help="partial credit and error labels for existing answers: separates "
+        "what was identified from how much was measured (no model calls)",
+    )
+    dgroup = decompose.add_mutually_exclusive_group(required=True)
+    dgroup.add_argument("--run-dir", type=Path, help="one run directory")
+    dgroup.add_argument("--repo", help="latest run of this repo under --output-root")
+    dgroup.add_argument(
+        "--all-runs", action="store_true",
+        help="pool every run containing instances under --output-root",
+    )
+    decompose.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "out")
+    decompose.add_argument(
+        "--evaluation-scope", default="",
+        help="scope to analyse (for example kimi/kimi-k3, or "
+        "agent:claude-code/claude-haiku-4-5-20251001 with --source validation); "
+        "when omitted, analyse every scope found",
+    )
+    decompose.add_argument(
+        "--source", default="evaluation", choices=["evaluation", "validation", "all"],
+        help="which answers to read: raw-LLM and no-execution agent evaluation "
+        "answers, execution-enabled validation rollouts, or both",
+    )
+    decompose.add_argument("--float-tol", type=float, default=1e-6)
+    decompose.add_argument(
+        "--report", type=Path, default=None,
+        help="output JSON path (default: decomposition_report.json in the run or output root)",
+    )
 
     complexity = sub.add_parser(
         "complexity",
@@ -314,8 +513,9 @@ def build_parser() -> argparse.ArgumentParser:
     complexity.add_argument(
         "--stratify-by", default="answer_archetype",
         choices=["none", "category", "answer_archetype", "category_archetype"],
-        help="compute score quantiles within comparable task groups "
-        "(default answer_archetype)",
+        help="compute score quantiles within comparable task groups for the "
+        "component metrics (default answer_archetype). The calibrated combined "
+        "score is always binned globally: its archetype offsets are part of the score",
     )
     complexity.add_argument(
         "--navigation-stratify-by", default="none",
@@ -712,6 +912,9 @@ def _refresh_frozen_perturbation_report(run_dir: Path) -> Optional[dict]:
             continue
         source_records[str(record.get("instance_id", ""))] = record
 
+    from .complexity import calibrated_difficulty, label_with_thresholds
+
+    thresholds = source_report.get("thresholds", {})
     records = []
     for attempt in perturbation.get("attempts", []):
         new_id = str(attempt.get("new_id", ""))
@@ -719,15 +922,31 @@ def _refresh_frozen_perturbation_report(run_dir: Path) -> Optional[dict]:
             continue
         original_id = str(attempt.get("original_id", ""))
         source = source_records.get(original_id, {})
+        archetype = source.get("answer_archetype", "")
+        scores = dict(attempt.get("candidate_complexity_scores", {}))
+        components = dict(attempt.get("candidate_complexity_components", {}))
+        features = attempt.get("candidate_complexity_features", {})
+        difficulty = dict(attempt.get("candidate_complexity_difficulties", {}))
+        # The combined score is the calibrated difficulty, which may have been
+        # (re)calibrated after this perturbation ran: recompute it from the
+        # stored pre-inference features and re-label it with the source
+        # thresholds, leaving the component scores as harvested.
+        if features and "combined" in thresholds:
+            if "combined" in scores and "weighted_combined" not in scores:
+                scores["weighted_combined"] = scores["combined"]
+            scores["combined"], components["combined"] = calibrated_difficulty(features, archetype)
+            record_for_label = {"category": attempt.get("category", source.get("category", "")),
+                                "answer_archetype": archetype, "scores": scores}
+            difficulty["combined"] = label_with_thresholds(record_for_label, "combined", thresholds)
         records.append({
             "run_dir": str(run_dir),
             "instance_id": new_id,
             "category": attempt.get("category", source.get("category", "")),
-            "answer_archetype": source.get("answer_archetype", ""),
-            "scores": attempt.get("candidate_complexity_scores", {}),
-            "components": attempt.get("candidate_complexity_components", {}),
-            "features": attempt.get("candidate_complexity_features", {}),
-            "difficulty": attempt.get("candidate_complexity_difficulties", {}),
+            "answer_archetype": archetype,
+            "scores": scores,
+            "components": components,
+            "features": features,
+            "difficulty": difficulty,
             "perturbed_from": original_id,
             "source_difficulty": attempt.get("source_complexity_difficulties", {}),
             "source_scores": attempt.get("source_complexity_scores", {}),
@@ -746,11 +965,7 @@ def _refresh_frozen_perturbation_report(run_dir: Path) -> Optional[dict]:
                 "evaluation_report.json", "downstream model outcomes",
                 "solver rollout effort",
             ],
-            "combined_weights": {
-                "semantic_reasoning": 0.40,
-                "answer_construction": 0.35,
-                "repository_navigation": 0.25,
-            },
+            "combined": source_report.get("methodology", {}).get("combined", {}),
             "binning": "thresholds frozen from the source complexity report",
         },
         "source_complexity_report": str(source_report_path),
@@ -933,6 +1148,12 @@ def cmd_evaluate(args: argparse.Namespace) -> int:
     if "solver_llm" in names and not args.llm_model:
         print("ERROR: --llm-model is required for the solver_llm evaluator.", file=sys.stderr)
         return 2
+    if "solver_agent_noexec" in names and not args.agent_model:
+        print(
+            "ERROR: --agent-model is required for the solver_agent_noexec evaluator.",
+            file=sys.stderr,
+        )
+        return 2
 
     evaluators = []
     for name in names:
@@ -948,6 +1169,24 @@ def cmd_evaluate(args: argparse.Namespace) -> int:
                 "reasoning_effort": args.llm_reasoning_effort,
                 "max_repair_rounds": args.llm_max_repair_rounds,
                 "float_tol": args.float_tol,
+                "only_agent_validated": not args.all_instances,
+                "instance_ids": [
+                    i.strip() for i in args.only_instances.split(",") if i.strip()
+                ],
+                "parallel": args.parallel,
+                "checkpoints": args.checkpoints,
+            }
+        elif name == "solver_agent_noexec":
+            settings = {
+                "agent": args.agent,
+                "model": args.agent_model,
+                "effort": args.agent_effort,
+                "timeout_s": args.agent_timeout,
+                "float_tol": args.float_tol,
+                "sandbox_image": args.sandbox_image,
+                "container_runtime": args.container_runtime,
+                "claude_bin": args.claude_bin,
+                "codex_bin": args.codex_bin,
                 "only_agent_validated": not args.all_instances,
                 "instance_ids": [
                     i.strip() for i in args.only_instances.split(",") if i.strip()
@@ -971,6 +1210,281 @@ def cmd_evaluate(args: argparse.Namespace) -> int:
             print(f"  {mark} {verdict['instance_id']}{reason}")
     print(f"\nEvaluation outputs: {run_dir / 'evaluation'}")
     print(f"Report: {run_dir / 'evaluation_report.json'}")
+    return 0
+
+
+def cmd_required_code(args: argparse.Namespace) -> int:
+    from .evidence import resolve_image
+    from .required_code import analyse_run, summarise
+
+    loaded = load_env_file(args.env_file)
+    if loaded:
+        print(f"[env] loaded {loaded}")
+
+    if args.all_runs:
+        run_dirs = sorted(
+            path for path in args.output_root.glob("*/run_*")
+            if (path / "instances").is_dir()
+        )
+        if not run_dirs:
+            print(f"ERROR: no runs with instances found under {args.output_root}", file=sys.stderr)
+            return 2
+    else:
+        run_dir = _resolve_run_dir(args)
+        if run_dir is None:
+            return 2
+        run_dirs = [run_dir]
+
+    if not args.summary_only:
+        only = [i.strip() for i in args.only_instances.split(",") if i.strip()]
+        for run_dir in run_dirs:
+            image, workdir = resolve_image(run_dir, args.repos_file)
+            if args.image and len(run_dirs) == 1:
+                image = args.image
+            print(f"[required-code] {run_dir} ({args.agent}/{args.model}, "
+                  f"effort {args.effort or 'default'}, {args.parallel} parallel)")
+            results = analyse_run(
+                run_dir, image=image, workdir=workdir, agent=args.agent, model=args.model,
+                effort=args.effort, instance_ids=only, limit=args.limit,
+                refresh=args.refresh, parallel=args.parallel, timeout_s=args.timeout,
+            )
+            if any(r["status"] == "infra_failed" for r in results):
+                break
+
+    summary = summarise(run_dirs)
+    print(f"\nRequired code: {summary['analysed']}/{summary['instances']} instance(s) analysed")
+    if summary["analysed"]:
+        confidence = ", ".join(f"{k}={v}" for k, v in sorted(summary["confidence"].items()))
+        print(f"  confidence: {confidence}")
+        print(f"  median required lines: {summary['median_required_lines']}")
+        share = summary["mean_share_of_reachable_executed_lines"]
+        if share is not None:
+            print(f"  share of target-reachable executed lines judged required: {share:.1%}")
+    for item in summary["failed"]:
+        print(f"  failed: {item['instance_id']} ({item['reason']})")
+    print("\nScore solver coverage against it with 'repogen evidence'.")
+    return 0
+
+
+def cmd_evidence(args: argparse.Namespace) -> int:
+    import subprocess
+
+    from .evidence import CLASSES, build_report, harvest_run, resolve_image, write_report
+
+    if args.all_runs:
+        run_dirs = sorted(
+            path for path in args.output_root.glob("*/run_*")
+            if (path / "instances").is_dir()
+        )
+        if not run_dirs:
+            print(f"ERROR: no runs with instances found under {args.output_root}", file=sys.stderr)
+            return 2
+        default_report = args.output_root / "evidence_report.json"
+    else:
+        run_dir = _resolve_run_dir(args)
+        if run_dir is None:
+            return 2
+        run_dirs = [run_dir]
+        default_report = run_dir / "evidence_report.json"
+
+    if args.harvest:
+        only = [i.strip() for i in args.only_instances.split(",") if i.strip()]
+        for run_dir in run_dirs:
+            image, workdir = resolve_image(run_dir, args.repos_file)
+            if args.image and len(run_dirs) == 1:
+                image = args.image
+            present = subprocess.run(
+                ["docker", "image", "inspect", image], capture_output=True
+            ).returncode == 0
+            if not present and not args.pull:
+                print(f"[evidence] skipping {run_dir}: image not available locally "
+                      f"({image}); pass --pull to fetch it")
+                continue
+            print(f"[evidence] harvesting {run_dir} with {image}")
+            results = harvest_run(
+                run_dir, image=image, workdir=workdir, instance_ids=only,
+                refresh=args.refresh, parallel=args.parallel, timeout_s=args.timeout,
+            )
+            failed = [r for r in results if r["status"] != "ok"]
+            print(f"[evidence] {run_dir.parent.name}: {len(results) - len(failed)} harvested, "
+                  f"{len(failed)} failed")
+
+    report = build_report(
+        run_dirs, evaluation_scope=args.evaluation_scope, float_tol=args.float_tol
+    )
+    report_path = args.report or default_report
+    write_report(report, report_path)
+
+    have = report["evidence"]
+    print(f"\nEvidence: {have['with_evidence']}/{have['instances']} instance(s) harvested")
+    if have["low_agreement"]:
+        print(f"  {len(have['low_agreement'])} instance(s) disagree with the original "
+              "harvest on the target's lines (see report)")
+    if not report["scopes"]:
+        print("No solver trajectories to score; run with --harvest first if evidence is missing.")
+
+    def show(value) -> str:
+        return "  n/a" if value is None else f"{value:.3f}"
+
+    for scope, payload in report["scopes"].items():
+        print(f"\nEvidence coverage [{scope}]: {payload['summary']['instances']} instance(s)")
+        print(f"  {'':<10} {'n':>4} {'recall':>7} " + " ".join(f"{c:>7}" for c in CLASSES)
+              + f" {'suffic.':>8} {'precis.':>8} {'calls':>6}")
+        for label in ("correct", "wrong"):
+            row = payload[label]
+            if not row.get("instances"):
+                continue
+            print(
+                f"  {label:<10} {row['instances']:>4} {show(row['recall']):>7} "
+                + " ".join(f"{show(row['recall_by_class'][c]):>7}" for c in CLASSES)
+                + f" {show(row['sufficient_rate']):>8} {show(row['precision']):>8}"
+                f" {row['tool_calls']:>6.1f}"
+            )
+        table = payload.get("required_code")
+        if table:
+            print(f"  required code fully read: {table['fully_read']}/{table['instances']} "
+                  f"({table['fully_read_rate']:.1%})   [essential entries only]")
+            print(f"    fully read:     correct {table['fully_read_correct']:<4} "
+                  f"wrong {table['fully_read_wrong']}")
+            print(f"    not fully read: correct {table['not_fully_read_correct']:<4} "
+                  f"wrong {table['not_fully_read_wrong']}")
+            if table["no_answer"]:
+                print(f"    no answer:      {table['no_answer']}")
+        cross = payload["sufficiency_by_correctness"]
+        print("  sufficient & correct {sufficient_correct}, sufficient & wrong {sufficient_wrong}, "
+              "insufficient & correct {insufficient_correct}, "
+              "insufficient & wrong {insufficient_wrong}".format(**cross))
+    print(f"\nReport: {report_path}")
+    return 0
+
+
+def cmd_decompose(args: argparse.Namespace) -> int:
+    from .scoring.decompose import build_report, write_report
+
+    if args.all_runs:
+        run_dirs = sorted(
+            path for path in args.output_root.glob("*/run_*")
+            if (path / "instances").is_dir()
+        )
+        if not run_dirs:
+            print(f"ERROR: no runs with instances found under {args.output_root}", file=sys.stderr)
+            return 2
+        default_report = args.output_root / "decomposition_report.json"
+    else:
+        run_dir = _resolve_run_dir(args)
+        if run_dir is None:
+            return 2
+        run_dirs = [run_dir]
+        default_report = run_dir / "decomposition_report.json"
+
+    report = build_report(
+        run_dirs,
+        evaluation_scope=args.evaluation_scope,
+        source=args.source,
+        float_tol=args.float_tol,
+    )
+    report_path = args.report or default_report
+    write_report(report, report_path)
+
+    if not report["scopes"]:
+        requested = f" for scope {args.evaluation_scope!r}" if args.evaluation_scope else ""
+        print(f"No answers found{requested}.")
+    for scope, payload in report["scopes"].items():
+        summary = payload["summary"]
+        print(
+            f"\nDecomposition [{scope}]: {summary['answers']} answer(s), "
+            f"exact {summary['exact']} ({summary['exact_rate']:.1%}), "
+            f"mean partial score {summary['mean_score']:.3f}"
+        )
+        if summary.get("not_in_evaluation_report"):
+            print(
+                f"  note: {summary['not_in_evaluation_report']} answer(s) on disk are "
+                "not in evaluation_report.json"
+            )
+        failed = summary.get("failed")
+        if failed:
+            near = failed["score_at_least"]
+            print(
+                f"  failed answers: mean score {failed['mean_score']:.3f}, "
+                f"median {failed['median_score']:.3f}; "
+                f">=0.8: {near['0.8']}, >=0.9: {near['0.9']} of {failed['answers']}"
+            )
+        labels = ", ".join(
+            f"{name}={count}" for name, count in summary["labels"].items() if name != "correct"
+        )
+        print(f"  error labels: {labels}")
+        for shape, row in payload["by_shape"].items():
+            print(
+                f"  {shape:<14} n={row['answers']:<4} exact {row['exact_rate']:.1%}  "
+                f"mean score {row['mean_score']:.3f}"
+            )
+    print(f"\nReport: {report_path}")
+    return 0
+
+
+def cmd_checkpoints(args: argparse.Namespace) -> int:
+    from .checkpoints import LADDER, build_report, write_report
+
+    if args.all_runs:
+        run_dirs = sorted(
+            path for path in args.output_root.glob("*/run_*")
+            if (path / "instances").is_dir()
+        )
+        if not run_dirs:
+            print(f"ERROR: no runs with instances found under {args.output_root}", file=sys.stderr)
+            return 2
+        default_report = args.output_root / "checkpoint_report.json"
+    else:
+        run_dir = _resolve_run_dir(args)
+        if run_dir is None:
+            return 2
+        run_dirs = [run_dir]
+        default_report = run_dir / "checkpoint_report.json"
+
+    report = build_report(
+        run_dirs,
+        evaluation_scope=args.evaluation_scope,
+        refresh=args.refresh,
+        float_tol=args.float_tol,
+    )
+    report_path = args.report or default_report
+    write_report(report, report_path)
+
+    derived = report["derived"]
+    print(
+        f"Checkpoints: {derived['available']}/{derived['instances']} instance(s) "
+        f"across {len(run_dirs)} run(s)"
+    )
+    for level, count in derived["levels"].items():
+        print(f"  {level:<9} {count} instance(s)")
+    for item in derived["unavailable"]:
+        print(f"  unavailable: {item['instance_id']} ({item['reason']})")
+
+    if not report["scopes"]:
+        requested = f" for scope {args.evaluation_scope!r}" if args.evaluation_scope else ""
+        print(
+            f"\nNo checkpoint answers found{requested}; specs were still written. "
+            "Collect answers with 'repogen evaluate --checkpoints probe|inline'."
+        )
+    for scope, payload in report["scopes"].items():
+        summary = payload["summary"]
+        print(
+            f"\nLadder [{scope}]: {summary['answered']} answered, "
+            f"{summary['unanswered']} without checkpoint answers"
+        )
+        for level in LADDER:
+            row = summary["overall"]["levels"].get(level)
+            if row:
+                print(
+                    f"  {level:<9} pass {row['passed']}/{row['instances']} "
+                    f"({row['pass_rate']:.1%})  mean score {row['mean_score']:.3f}"
+                )
+        first = ", ".join(
+            f"{level}={count}" for level, count in summary["overall"]["first_failed_level"].items()
+        )
+        print(f"  first failed level: {first}")
+        print(f"  monotone ladders: {summary['consistency']['monotone_rate']:.1%}")
+    print(f"\nReport: {report_path}")
     return 0
 
 
@@ -1291,6 +1805,14 @@ def main(argv=None) -> int:
         return cmd_cascade(args)
     if args.command == "evaluate":
         return cmd_evaluate(args)
+    if args.command == "checkpoints":
+        return cmd_checkpoints(args)
+    if args.command == "decompose":
+        return cmd_decompose(args)
+    if args.command == "evidence":
+        return cmd_evidence(args)
+    if args.command == "required-code":
+        return cmd_required_code(args)
     if args.command == "complexity":
         return cmd_complexity(args)
     if args.command == "rollout-effort":

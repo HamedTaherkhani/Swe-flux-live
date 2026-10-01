@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-23T01:16:27",
+  "generated_at": "2026-09-30T12:43:29",
   "method": "intrinsic_complexity",
   "category": "S3_ProgramState",
   "answer_archetype": "observed_state",
@@ -11,17 +11,18 @@
     "combined": "very_hard"
   },
   "scores": {
-    "semantic_reasoning": 4.435,
+    "semantic_reasoning": 5.247,
     "answer_construction": 3.218,
     "repository_navigation": 5.973,
-    "combined": 4.394
+    "combined": 6.461,
+    "weighted_combined": 4.718
   },
   "components": {
     "semantic_reasoning": {
-      "control_flow": 2.373,
-      "state_tracking": 5.774,
-      "interprocedural": 1.769,
-      "exception_semantics": 4.815,
+      "control_flow": 3.565,
+      "state_tracking": 6.625,
+      "interprocedural": 4.071,
+      "exception_semantics": 5.969,
       "execution_workload": 5.749
     },
     "answer_construction": {
@@ -39,36 +40,43 @@
       "executed_code_footprint": 2.341,
       "weighted_navigation_support": 2.47,
       "navigation_uncertainty": 7.53
+    },
+    "combined": {
+      "answer.string_characters": 0.0154,
+      "answer.leaf_count": 0.0481,
+      "trace.line_events": -0.031,
+      "archetype_offset": -0.0942,
+      "expected_success": 0.3539
     }
   },
   "strata": {
     "semantic_reasoning": {
       "name": "observed_state",
-      "instances": 2,
-      "easy_max_score": 1.93525,
-      "medium_max_score": 2.7685,
-      "very_hard_min_score": 3.60175
+      "instances": 28,
+      "easy_max_score": 2.39,
+      "medium_max_score": 2.801,
+      "very_hard_min_score": 4.0585
     },
     "answer_construction": {
       "name": "observed_state",
-      "instances": 2,
-      "easy_max_score": 3.70625,
-      "medium_max_score": 4.1945,
-      "very_hard_min_score": 4.68275
+      "instances": 28,
+      "easy_max_score": 4.066,
+      "medium_max_score": 4.7955,
+      "very_hard_min_score": 4.99375
     },
     "repository_navigation": {
       "name": "all",
-      "instances": 8,
-      "easy_max_score": 5.066,
-      "medium_max_score": 5.385,
-      "very_hard_min_score": 5.9785
+      "instances": 445,
+      "easy_max_score": 4.567,
+      "medium_max_score": 5.321,
+      "very_hard_min_score": 6.113
     },
     "combined": {
-      "name": "observed_state",
-      "instances": 2,
-      "easy_max_score": 3.74,
-      "medium_max_score": 3.958,
-      "very_hard_min_score": 4.176
+      "name": "all",
+      "instances": 445,
+      "easy_max_score": 4.842,
+      "medium_max_score": 5.695,
+      "very_hard_min_score": 6.377
     }
   },
   "excluded_inputs": [

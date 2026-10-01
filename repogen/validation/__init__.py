@@ -168,6 +168,7 @@ def _discard(
 # Import concrete validators so they self-register.
 from . import solver_agent  # noqa: E402,F401
 from . import solver_llm  # noqa: E402,F401
+from . import solver_agent_noexec  # noqa: E402,F401
 
 def available_evaluators() -> list[str]:
     return sorted(n for n, cls in _REGISTRY.items() if getattr(cls, "evaluation_only", False))

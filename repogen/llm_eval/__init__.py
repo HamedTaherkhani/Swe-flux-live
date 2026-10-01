@@ -10,12 +10,14 @@ from .run_llm_repomap_eval_host import (
     compute_usage_cost_for_model,
     load_model_costs_db,
     resolve_model_cost_entry,
+    run_checkpoint_probe,
     run_single_instance,
 )
 from .container_runtime import build_container_runtime, CONTAINER_RUNTIME_CHOICES
 
 __all__ = [
     "run_single_instance",
+    "run_checkpoint_probe",
     "compute_usage_cost_for_model",
     "resolve_model_cost_entry",
     "load_model_costs_db",

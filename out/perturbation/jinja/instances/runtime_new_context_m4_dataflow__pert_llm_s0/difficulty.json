@@ -1,26 +1,27 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-23T01:16:28",
+  "generated_at": "2026-09-30T12:43:29",
   "method": "intrinsic_complexity",
   "category": "M4_DataFlow",
   "answer_archetype": "observed_def_use_pairs",
   "difficulty": {
     "semantic_reasoning": "medium",
-    "answer_construction": "medium",
+    "answer_construction": "easy",
     "repository_navigation": "easy",
-    "combined": "medium"
+    "combined": "easy"
   },
   "scores": {
-    "semantic_reasoning": 2.375,
+    "semantic_reasoning": 3.071,
     "answer_construction": 7.006,
-    "repository_navigation": 4.253,
-    "combined": 4.465
+    "repository_navigation": 4.022,
+    "combined": 4.16,
+    "weighted_combined": 4.686
   },
   "components": {
     "semantic_reasoning": {
-      "control_flow": 2.085,
-      "state_tracking": 3.787,
-      "interprocedural": 0.668,
+      "control_flow": 4.063,
+      "state_tracking": 4.638,
+      "interprocedural": 1.537,
       "exception_semantics": 0.0,
       "execution_workload": 2.75
     },
@@ -35,40 +36,47 @@
       "explicit_file_clues": 3.297,
       "explicit_function_clues": 0.0,
       "test_context": 9.658,
-      "api_centrality": 0.0,
+      "api_centrality": 3.297,
       "executed_code_footprint": 1.479,
-      "weighted_navigation_support": 4.558,
-      "navigation_uncertainty": 5.442
+      "weighted_navigation_support": 4.888,
+      "navigation_uncertainty": 5.112
+    },
+    "combined": {
+      "answer.string_characters": 0.0052,
+      "answer.leaf_count": -0.0409,
+      "trace.line_events": 0.0021,
+      "archetype_offset": 0.2021,
+      "expected_success": 0.584
     }
   },
   "strata": {
     "semantic_reasoning": {
       "name": "observed_def_use_pairs",
-      "instances": 1,
-      "easy_max_score": 2.375,
-      "medium_max_score": 2.375,
-      "very_hard_min_score": 2.375
+      "instances": 65,
+      "easy_max_score": 2.779,
+      "medium_max_score": 3.423,
+      "very_hard_min_score": 4.509
     },
     "answer_construction": {
       "name": "observed_def_use_pairs",
-      "instances": 1,
-      "easy_max_score": 7.006,
-      "medium_max_score": 7.006,
-      "very_hard_min_score": 7.006
+      "instances": 65,
+      "easy_max_score": 7.111,
+      "medium_max_score": 7.799,
+      "very_hard_min_score": 8.13
     },
     "repository_navigation": {
       "name": "all",
-      "instances": 9,
-      "easy_max_score": 4.456,
-      "medium_max_score": 5.002,
-      "very_hard_min_score": 5.815
+      "instances": 445,
+      "easy_max_score": 4.567,
+      "medium_max_score": 5.321,
+      "very_hard_min_score": 6.113
     },
     "combined": {
-      "name": "observed_def_use_pairs",
-      "instances": 1,
-      "easy_max_score": 4.465,
-      "medium_max_score": 4.465,
-      "very_hard_min_score": 4.465
+      "name": "all",
+      "instances": 445,
+      "easy_max_score": 4.842,
+      "medium_max_score": 5.695,
+      "very_hard_min_score": 6.377
     }
   },
   "excluded_inputs": [

@@ -17,7 +17,7 @@ Outputs are namespaced by <provider>/<model>, exactly like the solver_agent
 validator's <agent>/<model>, so several models accumulate side by side.
 
 Settings (via CLI):
-  provider     openai | anthropic | gemini | fireworks | deepseek | openrouter | vllm | kimi
+  provider     openai | anthropic | gemini | fireworks | deepseek | openrouter | vllm | kimi | groq
   model        provider model id (required)
   repo_map_mode  repomap (needs aider-chat) | cheap_repomap | none
   container_runtime  docker | apptainer  (for the one-time repo snapshot)
@@ -27,6 +27,10 @@ Settings (via CLI):
   parallel     concurrent instances (default 1). Pure API work over a shared
                read-only snapshot, so the practical ceiling is the provider's
                rate limit, not local resources.
+  checkpoints  off | inline | probe. Also asks the trace-grounded intermediate
+               checkpoints (repogen/checkpoints). `inline` changes the prompt,
+               so it records under its own scope; `probe` asks them in a
+               separate session and leaves the answer run untouched.
 """
 
 from __future__ import annotations
@@ -63,11 +67,23 @@ class SolverLLMValidator(Validator):
     def model(self) -> str:
         return self.settings.get("model") or ""
 
+    @property
+    def checkpoint_mode(self) -> str:
+        return str(self.settings.get("checkpoints") or "off")
+
     def scope_key(self) -> str:
-        return f"{safe_name(self.provider)}/{safe_name(self.model or 'unset')}"
+        from ..checkpoints import INLINE_SCOPE_SUFFIX
+
+        # Inline checkpoints change the prompt the answer is produced from, so
+        # those answers must not accumulate with the plain runs of the model.
+        suffix = INLINE_SCOPE_SUFFIX if self.checkpoint_mode == "inline" else ""
+        return f"{safe_name(self.provider)}/{safe_name(self.model or 'unset')}{suffix}"
 
     def describe(self) -> dict:
-        return {"kind": "llm", "provider": self.provider, "model": self.model}
+        out = {"kind": "llm", "provider": self.provider, "model": self.model}
+        if self.checkpoint_mode != "off":
+            out["checkpoints"] = self.checkpoint_mode
+        return out
 
     # -- main ------------------------------------------------------------
 
@@ -240,6 +256,66 @@ class SolverLLMValidator(Validator):
         # completed but before evaluation_report.json is assembled. Reuse only
         # complete per-instance artifacts so a resumed run does not repeat
         # those calls; incomplete directories fall through to fresh inference.
+        checkpoint_mode = self.checkpoint_mode
+        checkpoint_path = host_out / "checkpoints.json"
+        spec = None
+        checkpoint_view = None
+        if checkpoint_mode != "off":
+            from ..checkpoints import ensure_spec, public_view
+
+            spec = ensure_spec(ctx.run_dir, instance_dir, workdir=ctx.workdir)
+            checkpoint_view = public_view(spec)
+
+        def probe_checkpoints(trace_sink) -> None:
+            if checkpoint_mode != "probe" or checkpoint_view is None or checkpoint_path.is_file():
+                return
+            from ..llm_eval import run_checkpoint_probe
+
+            with tempfile.TemporaryDirectory(prefix="repogen_llm_") as probe_tmp:
+                probe_bundle = write_eval_bundle(instance_dir, oracle, Path(probe_tmp) / instance_id)
+                record = run_checkpoint_probe(
+                    provider=provider,
+                    model=model,
+                    question_path=probe_bundle / "question.json",
+                    repo_root=repo_root,
+                    checkpoints=checkpoint_view,
+                    max_read_lines=max_read_lines,
+                    repo_map_mode=repo_map_mode,
+                    cheap_repomap_max_files=cheap_repomap_max_files,
+                    temperature=temperature,
+                    reasoning_effort=reasoning_effort,
+                    trace=trace_sink,
+                )
+            checkpoint_path.write_text(
+                json.dumps(record, indent=2, default=str) + "\n", encoding="utf-8"
+            )
+
+        def ladder_details(correct: bool) -> dict:
+            if spec is None or spec.get("status") != "ok" or not checkpoint_path.is_file():
+                return {}
+            from ..checkpoints import score_instance
+
+            try:
+                record = json.loads(checkpoint_path.read_text(encoding="utf-8"))
+            except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+                return {}
+            row = score_instance(
+                spec, record.get("answer"), final_correct=correct, float_tol=float_tol
+            )
+            return {
+                "checkpoints": {
+                    "mode": record.get("mode", checkpoint_mode),
+                    "answered": row["answered"],
+                    "depth": row["depth"],
+                    "first_failed_level": row["first_failed_level"],
+                    "levels": {
+                        name: {"passed": level["passed"], "score": level["score"]}
+                        for name, level in row["levels"].items()
+                    },
+                    "cost": record.get("cost"),
+                }
+            }
+
         if answer_path.is_file() and debug_path.is_file() and trace_path.is_file():
             try:
                 parsed = json.loads(answer_path.read_text(encoding="utf-8"))
@@ -247,6 +323,14 @@ class SolverLLMValidator(Validator):
             except (OSError, UnicodeDecodeError, json.JSONDecodeError):
                 pass
             else:
+                # Checkpoints can be probed for answers produced by an earlier
+                # run; the stored answer and its trace are left as they are.
+                probe_lines: list[str] = []
+                probe_checkpoints(probe_lines.append)
+                if probe_lines:
+                    (host_out / "checkpoints_trace.log").write_text(
+                        "\n".join(probe_lines), encoding="utf-8"
+                    )
                 cost_obj = debug.get("cost") if isinstance(debug, dict) else None
                 inst_cost = cost_obj.get("cost_usd") if isinstance(cost_obj, dict) else None
                 correct, reason = score_answer(
@@ -264,6 +348,7 @@ class SolverLLMValidator(Validator):
                     "score_reason": reason,
                     "reused_artifact": True,
                 }
+                details.update(ladder_details(correct))
                 if correct:
                     return ValidationVerdict(
                         instance_id, True, "llm matched oracle", details
@@ -290,6 +375,7 @@ class SolverLLMValidator(Validator):
                     reasoning_effort=reasoning_effort,
                     max_repair_rounds=max_repair_rounds,
                     trace=trace_lines.append,
+                    checkpoints=checkpoint_view if checkpoint_mode == "inline" else None,
                 )
             except Exception as exc:  # API error / no valid JSON after repairs
                 trace_path.write_text("\n".join(trace_lines), encoding="utf-8")
@@ -306,6 +392,16 @@ class SolverLLMValidator(Validator):
             json.dumps(debug, indent=2, default=str) + "\n", encoding="utf-8"
         )
         trace_path.write_text("\n".join(trace_lines), encoding="utf-8")
+        if isinstance(debug.get("checkpoints"), dict):
+            checkpoint_path.write_text(
+                json.dumps(debug["checkpoints"], indent=2, default=str) + "\n", encoding="utf-8"
+            )
+        probe_lines: list[str] = []
+        probe_checkpoints(probe_lines.append)
+        if probe_lines:
+            (host_out / "checkpoints_trace.log").write_text(
+                "\n".join(probe_lines), encoding="utf-8"
+            )
 
         cost_obj = debug.get("cost") if isinstance(debug, dict) else None
         inst_cost = None
@@ -322,6 +418,7 @@ class SolverLLMValidator(Validator):
             "repair_attempts": debug.get("repair_attempts") if isinstance(debug, dict) else None,
             "score_reason": reason,
         }
+        details.update(ladder_details(correct))
         if correct:
             return ValidationVerdict(instance_id, True, "llm matched oracle", details), inst_cost
         return ValidationVerdict(

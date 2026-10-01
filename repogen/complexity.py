@@ -5,6 +5,14 @@ The scores in this module deliberately do not read ``difficulty_report.json``,
 from the generation plan, harvested execution trace, testcase, and oracle.
 Evaluation outcomes are joined only after scores and difficulty bins have been
 fixed.
+
+The ``combined`` score is the calibrated difficulty: a frozen linear model
+(``difficulty_calibration.json``, fitted once by ``scripts/calibrate_difficulty.py``
+on the evaluated models' partial credit and validated on held-out repositories)
+that predicts expected partial credit from three pre-inference signals and the
+answer archetype. Labelling a new instance needs no inference. The previous
+hand-weighted combination of the three component scores is kept as
+``weighted_combined`` for reference.
 """
 
 from __future__ import annotations
@@ -29,6 +37,72 @@ METRICS = (
 )
 
 DIFFICULTY_LABELS = ("easy", "medium", "hard", "very_hard")
+
+# Pre-inference signals the calibrated score is built from, as
+# "<feature group>.<key>" paths into an instance's ``features``.
+CALIBRATION_FEATURES = (
+    "answer.string_characters",
+    "answer.leaf_count",
+    "trace.line_events",
+)
+CALIBRATION_PATH = Path(__file__).resolve().parent / "difficulty_calibration.json"
+_CALIBRATION: Optional[dict] = None
+
+
+def load_calibration(path: Path = CALIBRATION_PATH) -> dict:
+    global _CALIBRATION
+    if _CALIBRATION is None or path != CALIBRATION_PATH:
+        data = _read_json(path, None)
+        if not isinstance(data, dict) or "coefficients" not in data:
+            raise RuntimeError(
+                f"difficulty calibration not found or invalid: {path} "
+                "(run scripts/calibrate_difficulty.py)"
+            )
+        if path == CALIBRATION_PATH:
+            _CALIBRATION = data
+        return data
+    return _CALIBRATION
+
+
+def calibration_inputs(features: dict) -> dict[str, float]:
+    """The raw values of CALIBRATION_FEATURES for one instance's features."""
+    out = {}
+    for name in CALIBRATION_FEATURES:
+        group, key = name.split(".", 1)
+        value = (features.get(group) or {}).get(key, 0)
+        out[name] = float(value) if isinstance(value, (int, float)) else 0.0
+    return out
+
+
+def calibrated_difficulty(features: dict, answer_archetype: str) -> tuple[float, dict]:
+    """Calibrated difficulty score (higher = harder) and its terms.
+
+    expected_success = intercept + sum_i w_i * z(log1p(feature_i)) + offset[archetype]
+    score = 10 * (1 - expected_success)
+    where expected_success is the calibrated mean of partial credit and exact-match rate
+    """
+    calibration = load_calibration()
+    inputs = calibration_inputs(features)
+    expected = float(calibration["intercept"])
+    terms: dict[str, float] = {}
+    for name, mean, std, coef in zip(
+        calibration["features"], calibration["feature_mean"],
+        calibration["feature_std"], calibration["coefficients"],
+    ):
+        z = (math.log1p(max(0.0, inputs.get(name, 0.0))) - mean) / (std or 1.0)
+        terms[name] = round(coef * z, 4)
+        expected += coef * z
+    offset = float(
+        calibration["archetype_offsets"].get(
+            answer_archetype, calibration.get("unknown_archetype_offset", 0.0)
+        )
+    )
+    expected += offset
+    terms["archetype_offset"] = round(offset, 4)
+    terms["expected_success"] = round(expected, 4)
+    # Not clipped to 0..10: an expected success slightly outside 0..1
+    # must keep its rank, and the bins are quantiles of the score.
+    return round(10.0 * (1.0 - expected), 3), terms
 
 _TRACE_EVENT_RE = re.compile(
     r" (?P<path>/\S+?):(?P<lineno>\d+) (?P<func>\S+) "
@@ -485,37 +559,44 @@ def extract_instance(
         callers=callers,
         executed_lines=int(trace.get("distinct_lines", 0)),
     )
-    combined = _round(0.40 * semantic + 0.35 * construction + 0.25 * navigation)
+    weighted_combined = _round(0.40 * semantic + 0.35 * construction + 0.25 * navigation)
+    answer_archetype = (
+        "+".join(sorted(oracle["oracle_answer"].keys()))
+        if isinstance(oracle["oracle_answer"], dict) else type(oracle["oracle_answer"]).__name__
+    )
+    features = {
+        "static_target": static,
+        "trace": trace,
+        "answer": answer,
+        "navigation": {
+            "exercise_mode": exercise_mode,
+            "relevant_file_count": len(relevant_files),
+            "relevant_function_count": len(relevant_functions),
+            "known_callers": callers,
+            "distinct_executed_lines": int(trace.get("distinct_lines", 0)),
+            **test,
+        },
+    }
+    combined, combined_terms = calibrated_difficulty(features, answer_archetype)
 
     return {
         "run_dir": str(run_dir),
         "instance_id": instance_id,
         "category": str(oracle.get("question_kind", plan.get("category", ""))),
-        "answer_archetype": "+".join(sorted(oracle["oracle_answer"].keys()))
-        if isinstance(oracle["oracle_answer"], dict) else type(oracle["oracle_answer"]).__name__,
-        "features": {
-            "static_target": static,
-            "trace": trace,
-            "answer": answer,
-            "navigation": {
-                "exercise_mode": exercise_mode,
-                "relevant_file_count": len(relevant_files),
-                "relevant_function_count": len(relevant_functions),
-                "known_callers": callers,
-                "distinct_executed_lines": int(trace.get("distinct_lines", 0)),
-                **test,
-            },
-        },
+        "answer_archetype": answer_archetype,
+        "features": features,
         "components": {
             "semantic_reasoning": semantic_components,
             "answer_construction": construction_components,
             "repository_navigation": navigation_components,
+            "combined": combined_terms,
         },
         "scores": {
             "semantic_reasoning": semantic,
             "answer_construction": construction,
             "repository_navigation": navigation,
             "combined": combined,
+            "weighted_combined": weighted_combined,
         },
     }
 
@@ -540,6 +621,7 @@ def assign_difficulties(
     medium_quantile: float = 0.50, very_hard_quantile: float = 0.75,
     stratify_by: str = "answer_archetype",
     repository_navigation_stratify_by: str = "none",
+    combined_stratify_by: str = "none",
 ) -> dict[str, dict]:
     if not 0 < easy_quantile < medium_quantile < very_hard_quantile < 1:
         raise ValueError(
@@ -554,6 +636,8 @@ def assign_difficulties(
             "repository_navigation_stratify_by must be one of "
             f"{sorted(allowed_strata)}"
         )
+    if combined_stratify_by not in allowed_strata:
+        raise ValueError(f"combined_stratify_by must be one of {sorted(allowed_strata)}")
 
     def stratum(instance: dict, mode: str) -> str:
         if mode == "category":
@@ -566,10 +650,15 @@ def assign_difficulties(
 
     thresholds: dict[str, dict] = {}
     for metric in METRICS:
-        metric_stratify_by = (
-            repository_navigation_stratify_by
-            if metric == "repository_navigation" else stratify_by
-        )
+        # The calibrated combined score already carries the archetype effect,
+        # so it is binned globally; stratifying it by archetype would cancel
+        # the strongest difficulty signal it has.
+        if metric == "repository_navigation":
+            metric_stratify_by = repository_navigation_stratify_by
+        elif metric == "combined":
+            metric_stratify_by = combined_stratify_by
+        else:
+            metric_stratify_by = stratify_by
         grouped: dict[str, list[dict]] = {}
         for instance in instances:
             grouped.setdefault(stratum(instance, metric_stratify_by), []).append(instance)
@@ -657,6 +746,7 @@ def build_report(
     very_hard_quantile: float = 0.75,
     stratify_by: str = "answer_archetype",
     repository_navigation_stratify_by: str = "none",
+    combined_stratify_by: str = "none",
 ) -> dict:
     normalized_dirs = [Path(path) for path in run_dirs]
     instances: list[dict] = []
@@ -684,7 +774,9 @@ def build_report(
         very_hard_quantile=very_hard_quantile,
         stratify_by=stratify_by,
         repository_navigation_stratify_by=repository_navigation_stratify_by,
+        combined_stratify_by=combined_stratify_by,
     ) if instances else {}
+    calibration = load_calibration()
 
     all_scopes: set[str] = set()
     for run_dir in normalized_dirs:
@@ -715,7 +807,16 @@ def build_report(
                 "accuracy includes only instances where at least one Haiku or "
                 "Fable solver-agent rollout matched the oracle"
             ),
-            "combined_weights": {
+            "combined": {
+                "definition": "calibrated difficulty: 10 * (1 - expected success), expected success = calibrated mean of partial credit and exact-match rate",
+                "calibration": str(CALIBRATION_PATH.name),
+                "calibration_generated_at": calibration.get("generated_at"),
+                "features": list(calibration.get("features", [])),
+                "archetype_offsets": len(calibration.get("archetype_offsets", {})),
+                "fitted_to": calibration.get("target", {}),
+                "validation": calibration.get("validation", {}),
+            },
+            "weighted_combined_weights": {
                 "semantic_reasoning": 0.40,
                 "answer_construction": 0.35,
                 "repository_navigation": 0.25,
@@ -724,7 +825,8 @@ def build_report(
                 f"four levels at the {easy_quantile:.0%}/{medium_quantile:.0%}/"
                 f"{very_hard_quantile:.0%} score quantiles within "
                 f"{stratify_by} (repository navigation: "
-                f"{repository_navigation_stratify_by}): easy, medium, hard, "
+                f"{repository_navigation_stratify_by}; combined: "
+                f"{combined_stratify_by}): easy, medium, hard, "
                 "very_hard; evaluation outcomes are joined only after bins are frozen"
             ),
         },
@@ -743,6 +845,21 @@ def write_report(report: dict, path: Path) -> None:
     with path.open("w", encoding="utf-8") as handle:
         json.dump(report, handle, indent=2)
         handle.write("\n")
+
+
+def label_with_thresholds(record: dict, metric: str, thresholds: dict) -> str:
+    """Difficulty label of one record's metric score under frozen thresholds."""
+    _, threshold = _difficulty_stratum(record, thresholds.get(metric, {}))
+    score = float(record["scores"][metric])
+    if not threshold:
+        return "medium"
+    if score <= threshold["easy_max_score"]:
+        return "easy"
+    if score <= threshold["medium_max_score"]:
+        return "medium"
+    if score >= threshold["very_hard_min_score"]:
+        return "very_hard"
+    return "hard"
 
 
 def _difficulty_stratum(record: dict, metric_thresholds: dict) -> tuple[str, dict]:

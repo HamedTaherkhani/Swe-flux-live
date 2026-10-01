@@ -280,11 +280,8 @@ class PerturbationPipeline:
                 "require_all_metric_increases": self.config.require_all_metric_increases,
                 "report": str(self.config.complexity_report)
                 if self.config.complexity_report else None,
-                "combined_weights": {
-                    "semantic_reasoning": 0.40,
-                    "answer_construction": 0.35,
-                    "repository_navigation": 0.25,
-                },
+                "combined": "calibrated difficulty (repogen/difficulty_calibration.json); "
+                "weighted_combined keeps the 0.40/0.35/0.25 component average",
             },
         })
         (self.output_root / "run_config.json").write_text(
@@ -1243,11 +1240,8 @@ class PerturbationPipeline:
                 "target": self.config.complexity_target,
                 "keep_below_target": self.config.keep_below_complexity_target,
                 "require_all_metric_increases": self.config.require_all_metric_increases,
-                "combined_weights": {
-                    "semantic_reasoning": 0.40,
-                    "answer_construction": 0.35,
-                    "repository_navigation": 0.25,
-                },
+                "combined": "calibrated difficulty (repogen/difficulty_calibration.json); "
+                "weighted_combined keeps the 0.40/0.35/0.25 component average",
                 "uses_downstream_evaluation": bool(self.config.flip_check),
             },
             "summary": {
@@ -1333,11 +1327,8 @@ class PerturbationPipeline:
                     "evaluation_report.json", "downstream model outcomes",
                     "solver rollout effort",
                 ],
-                "combined_weights": {
-                    "semantic_reasoning": 0.40,
-                    "answer_construction": 0.35,
-                    "repository_navigation": 0.25,
-                },
+                "combined": "calibrated difficulty (repogen/difficulty_calibration.json); "
+                "weighted_combined keeps the 0.40/0.35/0.25 component average",
                 "binning": "thresholds frozen from the source complexity report",
             },
             "source_complexity_report": str(self.config.complexity_report)

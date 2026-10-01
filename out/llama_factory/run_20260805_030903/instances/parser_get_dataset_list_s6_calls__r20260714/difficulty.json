@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-26T02:48:09",
+  "generated_at": "2026-09-30T12:43:02",
   "method": "intrinsic_complexity",
   "category": "S6_InterProceduralCFG",
   "answer_archetype": "callee_sequence",
@@ -8,13 +8,14 @@
     "semantic_reasoning": "medium",
     "answer_construction": "medium",
     "repository_navigation": "hard",
-    "combined": "medium"
+    "combined": "easy"
   },
   "scores": {
     "semantic_reasoning": 3.256,
     "answer_construction": 4.123,
     "repository_navigation": 5.932,
-    "combined": 4.228
+    "combined": 4.146,
+    "weighted_combined": 4.228
   },
   "components": {
     "semantic_reasoning": {
@@ -39,6 +40,13 @@
       "executed_code_footprint": 4.512,
       "weighted_navigation_support": 3.459,
       "navigation_uncertainty": 6.541
+    },
+    "combined": {
+      "answer.string_characters": -0.0093,
+      "answer.leaf_count": 0.0529,
+      "trace.line_events": 0.0465,
+      "archetype_offset": 0.0799,
+      "expected_success": 0.5854
     }
   },
   "strata": {
@@ -64,11 +72,11 @@
       "very_hard_min_score": 6.113
     },
     "combined": {
-      "name": "callee_sequence",
-      "instances": 1,
-      "easy_max_score": 4.228,
-      "medium_max_score": 4.228,
-      "very_hard_min_score": 4.228
+      "name": "all",
+      "instances": 445,
+      "easy_max_score": 4.842,
+      "medium_max_score": 5.695,
+      "very_hard_min_score": 6.377
     }
   },
   "excluded_inputs": [

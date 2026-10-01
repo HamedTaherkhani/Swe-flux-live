@@ -1,26 +1,27 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-22T20:25:38",
+  "generated_at": "2026-09-30T12:43:29",
   "method": "intrinsic_complexity",
   "category": "M2_Loops",
   "answer_archetype": "max_iterations+min_iterations",
   "difficulty": {
-    "semantic_reasoning": "easy",
-    "answer_construction": "easy",
-    "repository_navigation": "medium",
-    "combined": "easy"
+    "semantic_reasoning": "medium",
+    "answer_construction": "medium",
+    "repository_navigation": "easy",
+    "combined": "medium"
   },
   "scores": {
-    "semantic_reasoning": 4.025,
+    "semantic_reasoning": 5.049,
     "answer_construction": 0.902,
-    "repository_navigation": 4.605,
-    "combined": 3.077
+    "repository_navigation": 4.375,
+    "combined": 5.524,
+    "weighted_combined": 3.429
   },
   "components": {
     "semantic_reasoning": {
-      "control_flow": 1.64,
-      "state_tracking": 6.228,
-      "interprocedural": 0.577,
+      "control_flow": 3.619,
+      "state_tracking": 7.468,
+      "interprocedural": 3.109,
       "exception_semantics": 0.0,
       "execution_workload": 5.913
     },
@@ -35,40 +36,47 @@
       "explicit_file_clues": 3.297,
       "explicit_function_clues": 0.0,
       "test_context": 6.941,
-      "api_centrality": 0.0,
+      "api_centrality": 3.297,
       "executed_code_footprint": 1.703,
-      "weighted_navigation_support": 4.151,
-      "navigation_uncertainty": 5.849
+      "weighted_navigation_support": 4.48,
+      "navigation_uncertainty": 5.52
+    },
+    "combined": {
+      "answer.string_characters": 0.0959,
+      "answer.leaf_count": 0.0926,
+      "trace.line_events": -0.0311,
+      "archetype_offset": -0.1254,
+      "expected_success": 0.4476
     }
   },
   "strata": {
     "semantic_reasoning": {
       "name": "max_iterations+min_iterations",
-      "instances": 2,
-      "easy_max_score": 4.1945,
-      "medium_max_score": 4.364,
-      "very_hard_min_score": 4.5335
+      "instances": 27,
+      "easy_max_score": 4.6565,
+      "medium_max_score": 5.359,
+      "very_hard_min_score": 6.1535
     },
     "answer_construction": {
       "name": "max_iterations+min_iterations",
-      "instances": 2,
-      "easy_max_score": 0.9055,
-      "medium_max_score": 0.909,
-      "very_hard_min_score": 0.9125
+      "instances": 27,
+      "easy_max_score": 0.889,
+      "medium_max_score": 0.903,
+      "very_hard_min_score": 0.903
     },
     "repository_navigation": {
       "name": "all",
-      "instances": 19,
-      "easy_max_score": 4.5255,
-      "medium_max_score": 4.64,
-      "very_hard_min_score": 4.7435
+      "instances": 445,
+      "easy_max_score": 4.567,
+      "medium_max_score": 5.321,
+      "very_hard_min_score": 6.113
     },
     "combined": {
-      "name": "max_iterations+min_iterations",
-      "instances": 2,
-      "easy_max_score": 3.14825,
-      "medium_max_score": 3.2195,
-      "very_hard_min_score": 3.29075
+      "name": "all",
+      "instances": 445,
+      "easy_max_score": 4.842,
+      "medium_max_score": 5.695,
+      "very_hard_min_score": 6.377
     }
   },
   "excluded_inputs": [

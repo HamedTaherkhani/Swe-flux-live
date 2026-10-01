@@ -91,6 +91,7 @@ _PROVIDER_KEY_ALIASES = {
     "OPENROUTER_API_KEY": ["openrouter_api_key", "openrouter_key"],
     "CURSOR_API_KEY": ["cursor_api_key"],
     "MOONSHOT_API_KEY": ["moonshot_api_key", "kimi_api_key", "moonshot_key", "kimi_key"],
+    "GROQ_API_KEY": ["groq_api_key", "groq_key"],
 }
 
 

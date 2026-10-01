@@ -8,17 +8,43 @@ set — and each task is one non-interactive `claude -p` session
 whose stream-json output is persisted as the trajectory. Root containers get
 `--permission-mode acceptEdits --allowedTools "Bash(*)"` (bypassPermissions is
 blocked for root); non-root gets `--dangerously-skip-permissions`.
+
+Static mode (settings["no_exec"]) mirrors the script's --no-exec: the target is
+a minimal sandbox with no package manager setup, so the host's native claude
+binary is copied in instead of running the installer, and the session runs with
+the Bash, WebFetch and WebSearch tools removed from its tool set.
 """
 
 from __future__ import annotations
 
-import json
+import os
+import shutil
 from pathlib import Path
 
 from ..config import env_file_lookup, env_lookup
 from ..docker_env import Container
-from .base import AgentBackend, AgentResult
+from .base import AgentBackend, AgentResult, ndjson_to_json
 from . import register
+
+# Static mode: remove Bash/Web tools from the tool set entirely, and deny them as
+# well so subagents cannot use them either. Read/Glob/Grep need no approval;
+# Write/Edit are auto-approved by acceptEdits (the repo mount is read-only
+# regardless). --strict-mcp-config with an empty server list keeps account-level
+# MCP connectors (e.g. claude.ai connectors attached to a subscription login)
+# out of the session.
+NO_EXEC_TOOLS = "Read,Glob,Grep,Write,Edit"
+NO_EXEC_DISALLOWED_TOOLS = "Bash,WebFetch,WebSearch,Task,Agent,NotebookEdit"
+_NO_EXEC_PERMISSION_ARGS = (
+    "CLAUDE_CMD+=(--permission-mode acceptEdits "
+    f'--tools "{NO_EXEC_TOOLS}" '
+    f'--disallowedTools "{NO_EXEC_DISALLOWED_TOOLS}" '
+    "--strict-mcp-config --mcp-config '{\"mcpServers\":{}}'); "
+)
+_EXEC_PERMISSION_ARGS = (
+    'if [[ "$(id -u)" -eq 0 ]]; then '
+    'CLAUDE_CMD+=(--permission-mode acceptEdits --allowedTools "Bash(*)"); '
+    "else CLAUDE_CMD+=(--dangerously-skip-permissions); fi; "
+)
 
 _INSTALL_SCRIPT = r"""
 set -euo pipefail
@@ -121,6 +147,14 @@ class ClaudeCodeBackend(AgentBackend):
                 self.oauth_token = ""
             else:
                 self._auth_warning = hint + " No API-key fallback; auth will likely fail."
+        self.no_exec = bool(self.settings.get("no_exec"))
+        self.claude_bin = str(self.settings.get("claude_bin") or "")
+        # Subscription login of the host; used only when there is neither an
+        # OAuth token nor an API key to authenticate with.
+        self.credentials_file = Path(
+            self.settings.get("credentials_file")
+            or Path.home() / ".claude" / ".credentials.json"
+        )
         self.extra_args = self.settings.get("extra_args", "")
         # Reasoning effort for the claude CLI (--effort). Empty = CLI default
         # (high on current Claude models).
@@ -135,12 +169,43 @@ class ClaudeCodeBackend(AgentBackend):
 
     # -- setup ---------------------------------------------------------
 
-    def prepare(self, container: Container) -> None:
-        result = container.exec(_INSTALL_SCRIPT, timeout_s=900)
+    def host_binary(self) -> Path:
+        """The host's native claude binary, copied into the no-exec sandbox."""
+        candidate = self.claude_bin or shutil.which("claude") or ""
+        path = Path(os.path.realpath(candidate)) if candidate else None
+        if path is None or not path.is_file() or not os.access(path, os.X_OK):
+            raise RuntimeError(
+                "no-exec mode needs a host claude binary (install Claude Code "
+                "or pass --claude-bin)"
+            )
+        return path
+
+    def _install_host_binary(self, container: Container) -> None:
+        container.cp_to(self.host_binary(), "/usr/local/bin/claude")
+        result = container.exec(
+            "chmod +x /usr/local/bin/claude && claude --version"
+        )
         if not result.ok:
             raise RuntimeError(
-                f"failed to install claude CLI in container: {result.stderr or result.stdout}"
+                "claude binary does not run inside the sandbox: "
+                f"{result.stderr or result.stdout}"
             )
+
+    def prepare(self, container: Container) -> None:
+        if self.no_exec:
+            self._install_host_binary(container)
+        else:
+            result = container.exec(_INSTALL_SCRIPT, timeout_s=900)
+            if not result.ok:
+                raise RuntimeError(
+                    f"failed to install claude CLI in container: {result.stderr or result.stdout}"
+                )
+        if not self.oauth_token and not self.api_key and self.credentials_file.is_file():
+            container.exec('mkdir -p "$HOME/.claude"')
+            container.cp_to(self.credentials_file, "/root/.claude/.credentials.json")
+            container.exec('chmod 600 "$HOME/.claude/.credentials.json"')
+            print(f"[claude-code] auth: host credentials file ({self.credentials_file})")
+            return
         if self._auth_warning:
             print(f"[claude-code] WARNING: {self._auth_warning}")
         if self.oauth_token:
@@ -180,10 +245,8 @@ class ClaudeCodeBackend(AgentBackend):
             f"mkdir -p /tmp/repogen && cd '{workspace}' && "
             "CLAUDE_CMD=(claude -p --verbose --output-format stream-json "
             '--model "$CLAUDE_MODEL"); '
-            'if [[ "$(id -u)" -eq 0 ]]; then '
-            'CLAUDE_CMD+=(--permission-mode acceptEdits --allowedTools "Bash(*)"); '
-            "else CLAUDE_CMD+=(--dangerously-skip-permissions); fi; "
-            'if [[ -n "${CLAUDE_EXTRA_ARGS:-}" ]]; then '
+            + (_NO_EXEC_PERMISSION_ARGS if self.no_exec else _EXEC_PERMISSION_ARGS)
+            + 'if [[ -n "${CLAUDE_EXTRA_ARGS:-}" ]]; then '
             "CLAUDE_CMD+=(${CLAUDE_EXTRA_ARGS}); fi; "
             f"CLAUDE_CMD+=(-- \"$(cat '{prompt_container_path}')\"); "
             f"timeout -k 60s {timeout_s}s \"${{CLAUDE_CMD[@]}}\" "
@@ -206,7 +269,7 @@ class ClaudeCodeBackend(AgentBackend):
         container.cp_from(run_log, host_log)
         raw_host = host_log_dir / f"{tag}.traj.ndjson"
         if container.cp_from(raw_traj, raw_host):
-            self._ndjson_to_json(raw_host, host_traj)
+            ndjson_to_json(raw_host, host_traj)
             raw_host.unlink(missing_ok=True)
         container.exec(f"rm -f '{raw_traj}' '{run_log}'")
 
@@ -220,19 +283,3 @@ class ClaudeCodeBackend(AgentBackend):
             traj_path=host_traj if host_traj.exists() else None,
             note=note,
         )
-
-    @staticmethod
-    def _ndjson_to_json(src: Path, dst: Path) -> None:
-        events = []
-        with src.open("r", encoding="utf-8", errors="replace") as f:
-            for line in f:
-                line = line.strip()
-                if not line:
-                    continue
-                try:
-                    events.append(json.loads(line))
-                except json.JSONDecodeError:
-                    events.append({"type": "raw_line", "text": line})
-        with dst.open("w", encoding="utf-8") as f:
-            json.dump({"events": events}, f, indent=2, sort_keys=True)
-            f.write("\n")

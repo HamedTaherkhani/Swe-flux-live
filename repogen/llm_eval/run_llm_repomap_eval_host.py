@@ -1094,6 +1094,150 @@ def build_reasoning_trace_prompt(
     )
 
 
+def make_inline_checkpoint_question(
+    question_data: Dict[str, Any], checkpoints: Dict[str, Any]
+) -> Dict[str, Any]:
+    """Wrap the question so one response carries the final answer and the
+    intermediate checkpoints. The answer keeps its own template under
+    "answer", so it is validated and scored exactly as without checkpoints."""
+    wrapped = dict(question_data)
+    wrapped["question"] = (
+        f"{question_data.get('question', '')}\n\n{checkpoints['prompt']}\n\n"
+        'Return one JSON object with exactly two keys: "answer", holding the final answer '
+        'to the question, and "checkpoints", holding the intermediate checkpoints.'
+    )
+    wrapped["template_answer"] = {
+        "answer": question_data.get("template_answer", {}),
+        "checkpoints": checkpoints["template"],
+    }
+    return wrapped
+
+
+def split_checkpoint_response(response: Any, template: Any) -> Tuple[Any, Any]:
+    """Separate an inline response into (answer, checkpoints). A model that
+    ignored the wrapper and returned the bare answer keeps its answer."""
+    if not isinstance(response, dict):
+        return response, None
+    own_answer_key = isinstance(template, dict) and "answer" in template
+    if "answer" in response and ("checkpoints" in response or not own_answer_key):
+        return response["answer"], response.get("checkpoints")
+    if "checkpoints" in response:
+        rest = {k: v for k, v in response.items() if k != "checkpoints"}
+        return rest, response.get("checkpoints")
+    return response, None
+
+
+def make_probe_checkpoint_question(
+    question_data: Dict[str, Any], checkpoints: Dict[str, Any]
+) -> Dict[str, Any]:
+    probe = dict(question_data)
+    probe["question"] = (
+        "The question below describes a run. Do not answer that question; it is context "
+        "for the intermediate checkpoints that follow it.\n\n"
+        f"Question (context only):\n{question_data.get('question', '')}\n\n"
+        f"{checkpoints['prompt']}"
+    )
+    probe["template_answer"] = checkpoints["template"]
+    return probe
+
+
+def run_checkpoint_probe(
+    *,
+    provider: str,
+    model: str,
+    question_path: Path,
+    repo_root: Path,
+    checkpoints: Dict[str, Any],
+    max_read_lines: int,
+    repo_map_mode: str,
+    cheap_repomap_max_files: int,
+    temperature: float,
+    reasoning_effort: str = "",
+    trace: Optional[Callable[[str], None]] = None,
+) -> Dict[str, Any]:
+    """Ask only the checkpoints, in a session of their own. The final answer is
+    produced by an unchanged prompt, so its accuracy stays comparable with runs
+    that never saw checkpoints. Usage is accounted separately for that reason."""
+    question_data = load_json(question_path)
+    instance_dir = question_path.parent
+    instance_files = []
+    files_dir = instance_dir / "files"
+    if files_dir.exists():
+        instance_files = [str(p.relative_to(instance_dir)) for p in sorted(files_dir.rglob("*")) if p.is_file()]
+
+    tools = ReadOnlyRepoTools(
+        repo_root=repo_root,
+        instance_dir=instance_dir,
+        max_read_lines=max_read_lines,
+        repo_map_mode=repo_map_mode,
+        cheap_repomap_max_files=cheap_repomap_max_files,
+    )
+
+    def _emit(msg: str) -> None:
+        if trace:
+            trace(msg)
+
+    def tool_callback(name: str, args: Dict[str, Any]) -> Dict[str, Any]:
+        _emit(f"[tool] call {name} args={json.dumps(args, ensure_ascii=False)}")
+        if name == "get_repo_map":
+            result = tools.get_repo_map(focus_paths=args.get("focus_paths"))
+        elif name == "list_dir":
+            result = tools.list_dir(path=args.get("path", "."), max_entries=args.get("max_entries", 200))
+        elif name == "read_file":
+            result = tools.read_file(
+                path=args.get("path", ""),
+                start_line=args.get("start_line", 1),
+                end_line=args.get("end_line", 250),
+            )
+        else:
+            return {"ok": False, "error": f"unknown tool: {name}"}
+        out = shrink_tool_payload_for_llm(name, {"ok": result.ok, **result.payload})
+        if name == "read_file":
+            _emit(
+                f"[tool] result {name} ok={out.get('ok')} path={out.get('path')} "
+                f"lines={out.get('start_line')}-{out.get('end_line')}"
+            )
+        return out
+
+    runner = ProviderRunner(
+        provider=provider,
+        model=model,
+        temperature=temperature,
+        trace=_emit,
+        reasoning_effort=reasoning_effort,
+    )
+    record: Dict[str, Any] = {"mode": "probe", "answer": None, "raw": "", "error": ""}
+    _emit("[checkpoints] probe start")
+    try:
+        raw = runner.run(
+            system_prompt=make_system_prompt(
+                repo_map_mode=repo_map_mode, max_read_lines=max_read_lines
+            ),
+            user_prompt=build_user_prompt(
+                question_data=make_probe_checkpoint_question(question_data, checkpoints),
+                repo_root=repo_root,
+                instance_dir=instance_dir,
+                instance_files_preview=instance_files,
+            ),
+            tool_callback=tool_callback,
+            tool_names=tools.enabled_tool_names(),
+        )
+        record["raw"] = raw[:30000]
+        candidate = extract_first_json_object(raw)
+        if isinstance(candidate, dict):
+            record["answer"], _ = coerce_against_template(candidate, checkpoints["template"])
+        else:
+            record["error"] = "response was not a JSON object"
+        _emit("[checkpoints] probe complete")
+    except Exception as exc:
+        record["error"] = f"{type(exc).__name__}: {exc}"
+        _emit(f"[checkpoints] probe failed: {record['error']}")
+    usage = runner.usage_summary()
+    record["usage"] = usage
+    record["cost"] = compute_usage_cost_for_model(provider=provider, model=model, usage=usage)
+    return record
+
+
 def run_single_instance(
     *,
     provider: str,
@@ -1108,7 +1252,10 @@ def run_single_instance(
     answer_format: str = "json",
     reasoning_effort: str = "",
     trace: Optional[Callable[[str], None]] = None,
+    checkpoints: Optional[Dict[str, Any]] = None,
 ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+    """`checkpoints` (a spec's prompt and template) switches on the inline
+    protocol: the model returns {"answer": ..., "checkpoints": ...}."""
     question_data = load_json(question_path)
     instance_dir = question_path.parent
 
@@ -1138,8 +1285,10 @@ def run_single_instance(
             serialized = json.dumps(payload, ensure_ascii=False)
         except Exception:
             serialized = str(payload)
+        # The repo map is kept whole: it shows signatures and code lines, and
+        # evidence coverage has to know everything the model was shown.
         max_chars = 5000
-        if len(serialized) > max_chars:
+        if name != "get_repo_map" and len(serialized) > max_chars:
             serialized = serialized[:max_chars] + "...<truncated>"
         _emit_trace(f"[tool] send_to_llm {name} result={serialized}")
 
@@ -1190,8 +1339,12 @@ def run_single_instance(
         max_read_lines=max_read_lines,
         answer_format=answer_format,
     )
+    prompt_question = (
+        make_inline_checkpoint_question(question_data, checkpoints)
+        if checkpoints else question_data
+    )
     user_prompt = build_user_prompt(
-        question_data=question_data,
+        question_data=prompt_question,
         repo_root=repo_root,
         instance_dir=instance_dir,
         instance_files_preview=instance_files,
@@ -1199,6 +1352,22 @@ def run_single_instance(
     )
 
     template = question_data.get("template_answer", {})
+    requested_template = prompt_question.get("template_answer", {})
+    checkpoint_answer: Any = None
+
+    def _take_checkpoints(candidate: Any) -> Any:
+        # Only the answer is held to its template; a malformed checkpoint
+        # block costs checkpoint credit, never the final answer.
+        nonlocal checkpoint_answer
+        if not checkpoints:
+            return candidate
+        answer_part, checkpoint_part = split_checkpoint_response(candidate, template)
+        if isinstance(checkpoint_part, dict):
+            checkpoint_answer, _ = coerce_against_template(
+                checkpoint_part, checkpoints["template"]
+            )
+        return answer_part
+
     raw_response = runner.run(
         system_prompt=system_prompt,
         user_prompt=user_prompt,
@@ -1206,7 +1375,7 @@ def run_single_instance(
         tool_names=enabled_tool_names,
     )
     _emit_trace(f"[final-raw] {raw_response}")
-    parsed = extract_answer_for_format(raw_response, answer_format)
+    parsed = _take_checkpoints(extract_answer_for_format(raw_response, answer_format))
 
     coercion_notes: List[str] = []
 
@@ -1244,7 +1413,7 @@ def run_single_instance(
             f"Your previous answer was invalid.\n"
             f"Error: {err}\n"
             f"Return ONLY one valid JSON object matching this template:\n"
-            f"{json.dumps(template, sort_keys=True, separators=(',', ':'))}"
+            f"{json.dumps(requested_template, sort_keys=True, separators=(',', ':'))}"
         )
         repair_messages.append(err)
 
@@ -1255,7 +1424,7 @@ def run_single_instance(
             enable_tools=False,
             tool_names=enabled_tool_names,
         )
-        parsed = extract_first_json_object(raw_response)
+        parsed = _take_checkpoints(extract_first_json_object(raw_response))
         _apply_coercion()
 
     if parsed is None:
@@ -1315,6 +1484,12 @@ def run_single_instance(
         "reasoning_trace_raw": reasoning_trace_raw,
         "reasoning_trace_error": reasoning_trace_error,
     }
+    if checkpoints:
+        debug["checkpoints"] = {
+            "mode": "inline",
+            "answer": checkpoint_answer,
+            "error": "" if checkpoint_answer is not None else "no checkpoints object in response",
+        }
     return parsed, debug
 
 
@@ -1820,7 +1995,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Run host-side read-only LLM RepoMap QA eval")
     p.add_argument(
         "--provider",
-        choices=["openai", "gemini", "anthropic", "fireworks", "deepseek", "openrouter", "vllm"],
+        choices=["openai", "gemini", "anthropic", "fireworks", "deepseek", "openrouter", "vllm", "groq"],
         required=True,
     )
     p.add_argument("--model", required=True)

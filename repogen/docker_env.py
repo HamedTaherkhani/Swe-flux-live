@@ -27,10 +27,20 @@ class ExecResult:
 class Container:
     """Context-managed throwaway container kept alive with `tail -f`."""
 
-    def __init__(self, image: str, workdir: str = "/testbed", name: Optional[str] = None):
+    def __init__(
+        self,
+        image: str,
+        workdir: str = "/testbed",
+        name: Optional[str] = None,
+        volumes: Optional[list[str]] = None,
+        env: Optional[dict[str, str]] = None,
+    ):
         self.image = image
         self.workdir = workdir
         self.name = name or f"repogen-{uuid.uuid4().hex[:10]}"
+        # `docker run -v` specs ("host:container[:ro]") and container-wide env.
+        self.volumes = list(volumes or [])
+        self.env = dict(env or {})
         self._started = False
 
     # -- lifecycle ---------------------------------------------------------
@@ -39,13 +49,13 @@ class Container:
         if not self._image_present():
             self._host(["docker", "pull", self.image], check=True)
         self._host(["docker", "rm", "-f", self.name], check=False)
-        self._host(
-            [
-                "docker", "run", "-d", "--name", self.name,
-                "-w", self.workdir, self.image, "tail", "-f", "/dev/null",
-            ],
-            check=True,
-        )
+        argv = ["docker", "run", "-d", "--name", self.name, "-w", self.workdir]
+        for spec in self.volumes:
+            argv += ["-v", spec]
+        for key, value in self.env.items():
+            argv += ["-e", f"{key}={value}"]
+        argv += [self.image, "tail", "-f", "/dev/null"]
+        self._host(argv, check=True)
         self._started = True
         return self
 
@@ -85,6 +95,14 @@ class Container:
         self.exec(f"mkdir -p '{Path(container_path).parent}'")
         self._host(
             ["docker", "cp", str(host_path), f"{self.name}:{container_path}"],
+            check=True,
+        )
+
+    def cp_dir_contents_to(self, host_dir: Path, container_dir: str) -> None:
+        """Copy the CONTENTS of host_dir into container_dir (docker cp `dir/.`)."""
+        self.exec(f"mkdir -p '{container_dir}'")
+        self._host(
+            ["docker", "cp", f"{host_dir}/.", f"{self.name}:{container_dir}/"],
             check=True,
         )
 
