@@ -1,0 +1,52 @@
+{
+  "oracle_answer": {
+    "value_history": [
+      {
+        "step": 1,
+        "value": "('LU', 'KALU', 'PENEMI', '', '')"
+      },
+      {
+        "step": 2,
+        "value": "('LUPE', 'NEPELU')"
+      },
+      {
+        "step": 3,
+        "value": "('', '')"
+      },
+      {
+        "step": 4,
+        "value": "('KATSU', 'RO', '', '')"
+      },
+      {
+        "step": 5,
+        "value": "('NETSU', 'LUNELU')"
+      },
+      {
+        "step": 6,
+        "value": "('KATSULU', 'NE', '')"
+      },
+      {
+        "step": 7,
+        "value": "('', '')"
+      },
+      {
+        "step": 8,
+        "value": "('PELU', '', '', '', '')"
+      },
+      {
+        "step": 9,
+        "value": "('NERORO', 'KA', 'KANE')"
+      }
+    ]
+  },
+  "question": "Test: `marshmallow_qa/validate_options_s3_state/files/testcase.py::OneOfOptionsTest::test_options_label_padding` (test class `OneOfOptionsTest`, single test method `test_options_label_padding`).\nTarget function: `marshmallow.validate.OneOf.options` defined in `src/marshmallow/validate.py`.\n\nDuring this test run, `OneOf.options` is invoked several times. An invocation is one call of `OneOf.options` (only frames of the function `OneOf.options` itself count; the generator expression it returns is not an invocation). Invocations are counted 1-based in chronological order of their call over the whole test run.\n\nFor each invocation, observe the local variable `padded_labels` immediately after the (multi-line) assignment statement `padded_labels = labels[: len(choices)] + ...` that begins on line 647 of `src/marshmallow/validate.py` has finished executing (equivalently: at the moment the `return` statement that begins on line 651 starts executing in that invocation). Line numbers are absolute, 1-based, in the file as it exists in the repository.\n\nAnswer format: a JSON object `{\"value_history\": [{\"step\": int, \"value\": str}, ...]}` with exactly one entry per invocation of `OneOf.options` during the test, ordered by ascending `step`, no deduplication (identical values in different invocations are each listed). `step` is the 1-based invocation index (first invocation is 1). `value` is the Python `repr()` of the whole tuple held by `padded_labels` at the observation point, exactly as `repr()` produces it: strings inside keep their single quotes, elements are separated by `, `, an empty tuple is `()` and a one-element tuple keeps its trailing comma (e.g. a tuple with the single string x would be `('x',)`; a tuple with three empty strings would be `('', '', '')`).",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "value_history": [
+      {
+        "step": "int",
+        "value": "str"
+      }
+    ]
+  }
+}

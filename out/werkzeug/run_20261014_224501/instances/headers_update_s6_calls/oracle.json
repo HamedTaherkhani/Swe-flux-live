@@ -1,0 +1,696 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Consider the pytest test `werkzeug_qa/headers_update_s6_calls/files/testcase.py::TestHeadersUpdateCalls::test_update_sequence` (test file `werkzeug_qa/headers_update_s6_calls/files/testcase.py`, class `TestHeadersUpdateCalls`, single test method `test_update_sequence`). The test calls the method `werkzeug.datastructures.headers.Headers.update`, defined in `src/werkzeug/datastructures/headers.py`, several times on the same `Headers` object.\n\nInvocations of `Headers.update` are numbered 1, 2, 3, ... in chronological order of their Python-level `call` event (frame entry, in the `sys.settrace` sense) during this single test run. Focus on invocation number 2, i.e. the 2nd time an `update` frame is entered.\n\nReport the exact ordered sequence of function calls that happen while that invocation's frame is on the call stack (from its entry until it returns), using these inclusion rules:\n- Count every Python function frame entered whose code object is defined in a `.py` file under `src/werkzeug/` (any werkzeug module), whether called directly by `update` or transitively by anything it calls (any nesting depth). This includes every method of `Headers` (dunder methods such as `__iter__` and `__init__` included) and module-level helper functions such as those in `headers.py`.\n- Exclude the `update` frame itself.\n- Exclude frames whose code name starts with `<` - i.e. list/set/dict comprehensions, generator expressions and lambdas (a qualname ending in `.<locals>.<listcomp>` or `.<locals>.<genexpr>` is never listed).\n- Generator functions (functions containing `yield`, e.g. `Headers.items`/`Headers.keys`): a generator call is listed exactly once, at the moment its frame first starts executing (the first `next()` on the generator object, NOT when the generator object is created). Later resumptions of an already-started generator frame are NOT listed.\n- Functions defined outside `src/werkzeug/` (standard library, `abc`/`isinstance` checks, builtins such as `str`, the test file's own helpers) are not listed.\n- Every call is listed separately, in chronological order of entry; repeated calls of the same function are NOT deduplicated.\n\nAnswer format: `{\"function_call_order\": [{\"file\": str, \"func\": str}, ...]}` where each element is one call, in order. `file` is the repo-relative path of the file defining the function (e.g. `src/werkzeug/routing/map.py`). `func` is the dotted name `<module>.<qualname>` using the module's import name `werkzeug....` (no `src.` prefix) and the function's `__qualname__`, e.g. `werkzeug.routing.map.MapAdapter.match` (a module-level function `foo` in `werkzeug.bar` would be `werkzeug.bar.foo`).",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.keys"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.items"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.getlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.__iter__"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.remove"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers._del_key"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.remove"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers._del_key"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.setlist"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.set"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers.Headers.add"
+      },
+      {
+        "file": "src/werkzeug/datastructures/headers.py",
+        "func": "werkzeug.datastructures.headers._str_header_value"
+      }
+    ]
+  }
+}

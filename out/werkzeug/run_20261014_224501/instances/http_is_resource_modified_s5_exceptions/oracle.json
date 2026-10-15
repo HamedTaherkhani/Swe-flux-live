@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "'microsecond' is an invalid keyword argument for replace()",
+    "exception_type": "TypeError"
+  },
+  "question": "In the werkzeug repository, run the pytest test `werkzeug_qa/http_is_resource_modified_s5_exceptions/files/testcase.py::IsResourceModifiedBatchTest::test_conditional_batch` (test class `IsResourceModifiedBatchTest`, its single test method `test_conditional_batch`). The test calls the target function `werkzeug.sansio.http._is_resource_modified` (defined in `src/werkzeug/sansio/http.py`) once per generated request, in the order the requests are generated. An invocation is one call of that function during the test run; invocations are numbered 1-based in chronological order. Some invocations return a bool normally, while others terminate because an exception propagates out of the target function's frame to the test (whether that exception is raised by a `raise` statement in the target itself or is raised inside a function the target calls and is not handled in the target). Consider the LAST invocation, chronologically, that terminates with a propagated exception. Report that exception object as it reaches the test. `exception_type`: for a built-in exception use the bare `type(exc).__name__` (e.g. `KeyError`, never `builtins.KeyError`); for any other exception use `module.QualName` of its class (e.g. `werkzeug.exceptions.NotFound`). `exception_message`: exactly `str(exc)`, character for character (no type prefix, no added surrounding quotes). Answer as a JSON object with exactly the keys `exception_type` (string) and `exception_message` (string).",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

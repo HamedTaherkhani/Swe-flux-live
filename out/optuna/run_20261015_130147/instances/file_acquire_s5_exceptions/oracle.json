@@ -1,0 +1,19 @@
+{
+  "question_kind": "S5_Exceptions",
+  "question": "Consider the pytest test `optuna_qa/file_acquire_s5_exceptions/files/testcase.py::JournalFileOpenLockAcquireTest::test_acquire_under_contention` (file `optuna_qa/file_acquire_s5_exceptions/files/testcase.py`, class `JournalFileOpenLockAcquireTest`, single test method `test_acquire_under_contention`). The test replaces the `os` and `time` modules seen by `optuna/storages/journal/_file.py` with seeded in-memory fakes and then calls `optuna.storages.journal._file.JournalFileOpenLock.acquire` (defined in `optuna/storages/journal/_file.py`) several times. An invocation is one call of that `acquire` method during the test run, numbered 1-based in chronological order; consider ALL invocations. An exception counts as CAUGHT by `acquire` when it arrives in the `acquire` frame (raised there or propagated into it from a callee such as the fake `os` functions or `self.release()`) and one of the `except` clauses written lexically inside `JournalFileOpenLock.acquire` matches it, so that the handler body starts executing. This includes exceptions that the handler later re-raises (e.g. via `raise err` or bare `raise`): the original exception still counts as caught. It does NOT include an exception raised from inside a handler body that no enclosing `except` clause of `acquire` matches (it propagates out of `acquire` to the test), nor exceptions raised and handled entirely inside other functions (e.g. inside `release` itself) that never reach the `acquire` frame. Report the set of distinct runtime types (`type(exc)`, the concrete class of the exception object, not the class named in the `except` clause) of all caught exceptions as JSON `{\"caught_exception_kinds\": [...]}`, a list of strings, each type listed once (duplicates removed), sorted in ascending plain Python string order (code-point order, so uppercase letters sort before lowercase ones). Type-naming convention: use the bare `type(exc).__name__` for built-in exceptions (e.g. `KeyError`, never `builtins.KeyError`), and `module.QualName` for all others, where `module` is the class's `__module__` and `QualName` its `__qualname__` (e.g. `json.decoder.JSONDecodeError`). Note that the concrete class of an `OSError(errno_code, ...)` object is determined by Python from the errno code.",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  },
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "FileExistsError",
+      "FileNotFoundError",
+      "InterruptedError",
+      "OSError",
+      "RuntimeError",
+      "optuna.exceptions.StorageInternalError"
+    ]
+  }
+}

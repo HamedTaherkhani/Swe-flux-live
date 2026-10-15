@@ -1,0 +1,248 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Test: `marshmallow_qa/decorators_validates_schema_s6_calls/files/testcase.py`, test class `ValidatesSchemaDecorationTest`, single test method `test_decorate_pool` (pytest id `marshmallow_qa/decorators_validates_schema_s6_calls/files/testcase.py::ValidatesSchemaDecorationTest::test_decorate_pool`), run with pytest from the repository root under the container's CPython 3.11 interpreter.\n\nTarget function: `validates_schema` defined in `src/marshmallow/decorators.py` (module imported as `marshmallow.decorators`; dotted name `marshmallow.decorators.validates_schema`). The test calls it directly, both as a plain decorator and as a decorator factory, and it also runs implicitly when the `Probe` schema class at the end of the test is defined.\n\nTracked set (all defined in `src/marshmallow/decorators.py`): `marshmallow.decorators.validates_schema`, `marshmallow.decorators.set_hook`, `marshmallow.decorators.validates`, `marshmallow.decorators.pre_load`, `marshmallow.decorators.post_load`.\n\nQuestion: what is the exact chronological sequence of calls to tracked functions during the whole execution of the test method `test_decorate_pool` (from its first line until it returns; setUp/tearDown/fixtures contribute nothing)?\n\nInclusion rules:\n- One element per function entry (one new Python frame of a tracked function starting to execute, i.e. one `call` event of `sys.settrace`), in the order the frames are entered.\n- Every entry counts, regardless of who makes the call: calls made directly by the test code, calls made from inside another tracked function (e.g. `validates_schema` calling `set_hook`), and calls made later through the `functools.partial` objects returned by `set_hook` when it is used as a decorator factory (calling such a partial enters `set_hook` again and counts as a `set_hook` entry at the moment the partial is called).\n- Repeated calls are all kept (no deduplication). None of the tracked functions are generators, so there are no resumptions.\n- Calls to any function outside the tracked set (e.g. `functools.partial` itself, `defaultdict`, `random` methods, the test's own helper functions, the decorated `hook_*` functions, or any marshmallow code outside the five functions listed, such as Schema class-creation or `load` machinery) are not included, but tracked functions they call would be (should any occur).\n\nAnswer format: a JSON object `{\"function_call_order\": [...]}` where each element is `{\"file\": \"src/marshmallow/decorators.py\", \"func\": \"<dotted module.qualname>\"}`. `file` is the repo-relative path; `func` is the dotted `module.qualname` of the entered function, e.g. `marshmallow.decorators.pre_dump` (so always one of the five tracked names above). Elements are in chronological call order.\n",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.pre_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.post_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates_schema"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates_schema"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.pre_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.post_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.pre_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.pre_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.pre_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates_schema"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates_schema"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.post_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates_schema"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates_schema"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.pre_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.pre_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.post_load"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.validates_schema"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook"
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "could not convert string to float: ' 46. 67 '",
+    "exception_type": "ValueError"
+  },
+  "question": "Consider the pytest test `werkzeug_qa/converters_to_url_s5_exceptions/files/testcase.py::FloatToUrlTest::test_float_to_url_stream` (file `werkzeug_qa/converters_to_url_s5_exceptions/files/testcase.py`, class `FloatToUrlTest`, single test method `test_float_to_url_stream`). The test builds a seeded list of heterogeneous values and feeds them one by one, in list order, directly to `werkzeug.routing.converters.FloatConverter.to_url` (defined in `src/werkzeug/routing/converters.py`) on a converter created with `max=1e31` (unsigned), stopping at the first value for which the call raises. An invocation is one call of `FloatConverter.to_url` during the test run, counted 1-based in chronological order. Exactly one invocation during this test does not return normally: an exception propagates out of `FloatConverter.to_url` to the test (whether it was raised by a `raise` statement of the method itself or by something the method calls). What is the type and the exact message of that exception object, as seen by the caller? Type naming convention: for built-in exceptions use the bare `type(exc).__name__` (e.g. `KeyError`, never `builtins.KeyError`); for all other exceptions use `type(exc).__module__ + '.' + type(exc).__qualname__` (e.g. `http.client.HTTPException`). The message is exactly `str(exc)`, character for character (including any quotes, spaces and punctuation inside it; no surrounding quotes added, no type prefix, no stripping). Answer as JSON: {\"exception_message\": <str>, \"exception_type\": <str>}.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Consider the pytest test `werkzeug_qa/map_build_s6_calls/files/testcase.py::TestAliasRedirectBuild::test_alias_redirects` (file `werkzeug_qa/map_build_s6_calls/files/testcase.py`, class `TestAliasRedirectBuild`, its single test method `test_alias_redirects`). During this test, each `adapter.match(...)` call hits an alias rule and ends up invoking the target function `werkzeug.routing.map.MapAdapter.build` defined in `src/werkzeug/routing/map.py`.\n\nInvocations of the target are numbered 1, 2, 3, ... in chronological order of their Python `call` events over the whole test run (invocation N = the N-th time `MapAdapter.build` is entered). Focus on invocation 15.\n\nTracked function set (exactly these six functions, identified by dotted `module.qualname`):\n- `werkzeug.routing.map.Map.update` (file `src/werkzeug/routing/map.py`)\n- `werkzeug.routing.map.MapAdapter._partial_build` (file `src/werkzeug/routing/map.py`)\n- `werkzeug.routing.map.MapAdapter.build` (file `src/werkzeug/routing/map.py`)\n- `werkzeug.routing.map.MapAdapter.get_host` (file `src/werkzeug/routing/map.py`)\n- `werkzeug.routing.rules.Rule.build` (file `src/werkzeug/routing/rules.py`)\n- `werkzeug.routing.rules.Rule.suitable_for` (file `src/werkzeug/routing/rules.py`)\n\nReport the ordered sequence of calls to tracked functions that start while invocation 15 of `MapAdapter.build` is on the call stack, i.e. strictly after that invocation is entered and before it returns. Inclusion rule: count calls TRANSITIVELY (calls made directly by the target's frame AND calls made from any deeper frame, e.g. `Rule.suitable_for` called by `MapAdapter._partial_build`, are all included). Do NOT include the entry of invocation 15 itself. Every call is listed each time it happens (no deduplication), including calls that return early or return `None`. Calls to any function not in the tracked set (builtins, comprehension frames, lambdas, methods of other classes such as converters, matcher methods, `Rule._build`/`Rule._build_unknown` compiled builder functions, `MapAdapter.make_redirect_url`, etc.) are ignored entirely and do not appear, but tracked functions they call still count. None of the tracked functions are generators. Order = chronological order in which each call begins.\n\nAnswer format: a JSON object `{\"function_call_order\": [{\"file\": ..., \"func\": ...}, ...]}` where each element describes one call: `file` is the repo-relative path of the file defining the called function (e.g. `src/werkzeug/routing/rules.py`), and `func` is its dotted `module.qualname` exactly as written in the tracked list above (e.g. `werkzeug.routing.rules.Rule.suitable_for`; no `src.` prefix, no bare names).",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "src/werkzeug/routing/map.py",
+        "func": "werkzeug.routing.map.Map.update"
+      },
+      {
+        "file": "src/werkzeug/routing/map.py",
+        "func": "werkzeug.routing.map.MapAdapter._partial_build"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.suitable_for"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.build"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.suitable_for"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.suitable_for"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.build"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.suitable_for"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.build"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.suitable_for"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.build"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.suitable_for"
+      },
+      {
+        "file": "src/werkzeug/routing/rules.py",
+        "func": "werkzeug.routing.rules.Rule.build"
+      },
+      {
+        "file": "src/werkzeug/routing/map.py",
+        "func": "werkzeug.routing.map.MapAdapter.get_host"
+      }
+    ]
+  }
+}

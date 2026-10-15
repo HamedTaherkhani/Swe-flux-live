@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 27
+  },
+  "question": "Consider the pytest test `optuna_qa/elite_population_selection_strategy_preserve_niche_individuals_s2_loops/files/testcase.py::TestPreserveNicheIndividuals::test_preserve_niche_selection` (test class `TestPreserveNicheIndividuals`, its single test method `test_preserve_niche_selection`). The test directly calls the function `_preserve_niche_individuals` (qualified name `optuna.samplers._nsgaiii._elite_population_selection_strategy._preserve_niche_individuals`) defined in the file `optuna/samplers/_nsgaiii/_elite_population_selection_strategy.py`. Invocations are counted 1-based, in chronological order of calls to this function during the test run. Look at the `while` loop whose header is at line 288 of that file (the statement `while len(additional_elite_population) < target_population_size:`), using absolute 1-based line numbers in the file as it exists in the repository. In the 1st invocation, how many iterations does this loop execute in total? An iteration is defined as one execution of the loop body's first line (line 289, `if len(nearest_points_count_to_reference_points[count]) == 0:`). Every pass through the body counts, INCLUDING passes that end at the `continue` statement on line 292 (i.e. passes that only increment `count` and shuffle, without selecting an individual); the final evaluation of the header condition that terminates the loop is not an iteration. Answer as a JSON object of the form {\"loop_iteration_count\": <int>} where the value is a plain JSON integer (not a string).",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

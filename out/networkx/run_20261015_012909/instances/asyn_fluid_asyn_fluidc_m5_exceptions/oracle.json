@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 995,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 3,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 2,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 9,
+        "exception_type": "networkx.exception.NetworkXError"
+      },
+      {
+        "count": 1,
+        "exception_type": "networkx.exception.NetworkXPointlessConcept"
+      }
+    ]
+  },
+  "question": "Consider running ALL test methods of the pytest class `TestAsynFluidcScenarios` in `networkx_qa/asyn_fluid_asyn_fluidc_m5_exceptions/files/testcase.py` (i.e. `pytest networkx_qa/asyn_fluid_asyn_fluidc_m5_exceptions/files/testcase.py::TestAsynFluidcScenarios`; every `test_*` method in the class runs, and the answer aggregates over all of them). The target is the function `networkx.algorithms.community.asyn_fluid.asyn_fluidc` defined in `networkx/algorithms/community/asyn_fluid.py` (the body of `def asyn_fluidc(G, k, max_iter=100, seed=None)` itself, not its decorator wrappers such as `not_implemented_for`, `py_random_state` or the `_dispatchable` dispatcher, and not any callee). An invocation is one execution of that function's own frame. Count every exception OBSERVED in the target's own frame across every invocation in every test method. An exception is observed in the target frame each time it is raised by code executing in that frame (an explicit `raise` statement, or a failing operation such as a dict subscript or comparison evaluated directly in that frame) or propagates into that frame out of a callee; each such occurrence counts once, regardless of whether a `try/except` in the target frame then catches and swallows it or it continues propagating out to the caller. Exceptions raised and fully handled inside a callee (never reaching the target frame) do NOT count, nor do exceptions raised by the decorator wrappers before the target frame is entered. (The target contains no bare re-raise; a single exception object propagating through the frame counts once.) Lines inside the list comprehension of the target count as the target frame. Answer as a JSON object with a single key `exception_type_counts`, whose value is a list of objects, each with exactly two keys: `exception_type` (string) and `count` (integer, the total number of observations of that type summed over all invocations and all test methods; the same type raised in five different methods contributes five). Include every type observed at least once and no other type. `exception_type` naming convention: use the bare `type(exc).__name__` for built-in exceptions (e.g. `IndexError`, never `builtins.IndexError`), and `module.QualName` built from `type(exc).__module__` and `type(exc).__qualname__` for any non-built-in exception (e.g. `networkx.exception.NodeNotFound`). Use the exact class of the exception object, not a base class. Sort the list by `exception_type` ascending (plain Python string ordering, case-sensitive); type names are unique in the list so no further tie-break is needed.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

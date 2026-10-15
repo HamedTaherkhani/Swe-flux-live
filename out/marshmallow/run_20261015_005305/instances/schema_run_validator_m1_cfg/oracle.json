@@ -1,0 +1,128 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 282,
+        "line": 786
+      },
+      {
+        "count": 282,
+        "line": 787
+      },
+      {
+        "count": 188,
+        "line": 788
+      },
+      {
+        "count": 94,
+        "line": 789
+      },
+      {
+        "count": 0,
+        "line": 790
+      },
+      {
+        "count": 0,
+        "line": 791
+      },
+      {
+        "count": 188,
+        "line": 792
+      },
+      {
+        "count": 48,
+        "line": 793
+      },
+      {
+        "count": 46,
+        "line": 794
+      },
+      {
+        "count": 0,
+        "line": 795
+      },
+      {
+        "count": 46,
+        "line": 796
+      },
+      {
+        "count": 11,
+        "line": 797
+      },
+      {
+        "count": 0,
+        "line": 798
+      },
+      {
+        "count": 35,
+        "line": 799
+      },
+      {
+        "count": 35,
+        "line": 800
+      },
+      {
+        "count": 35,
+        "line": 801
+      },
+      {
+        "count": 6,
+        "line": 802
+      },
+      {
+        "count": 6,
+        "line": 803
+      },
+      {
+        "count": 3,
+        "line": 804
+      },
+      {
+        "count": 35,
+        "line": 805
+      },
+      {
+        "count": 32,
+        "line": 806
+      },
+      {
+        "count": 16,
+        "line": 807
+      },
+      {
+        "count": 32,
+        "line": 808
+      },
+      {
+        "count": 16,
+        "line": 809
+      },
+      {
+        "count": 0,
+        "line": 810
+      },
+      {
+        "count": 0,
+        "line": 811
+      },
+      {
+        "count": 3,
+        "line": 812
+      },
+      {
+        "count": 46,
+        "line": 813
+      }
+    ]
+  },
+  "question": "Consider the test class `TestRunValidatorCFG` in `marshmallow_qa/schema_run_validator_m1_cfg/files/testcase.py`. Run ALL of its test methods (pytest ids `marshmallow_qa/schema_run_validator_m1_cfg/files/testcase.py::TestRunValidatorCFG::test_*`, 12 methods, run in one pytest session under the repository's Python interpreter); the answer aggregates over every one of them. The target is the method `marshmallow.schema.Schema._run_validator` defined in `src/marshmallow/schema.py` (the test never calls it directly; it is reached via `Schema.load` / `Schema.validate`). An invocation is one call of that function (whatever Schema subclass instance it runs on), and counts are TOTALS summed over all invocations in all test methods. Definition of an executed line: a `line` event delivered by `sys.settrace` for a frame of this function, with the event's `f_lineno` being the line; each such event adds 1 to that line's count. So a line executed multiple times in one invocation counts multiple times; `call`, `return` and `exception` events do NOT count; for multi-line statements/expressions, count exactly where the interpreter reports line events (normally the line where the statement begins, but if CPython reports an event on a continuation line, that line is counted too). Scope: every physical line from 786 to 813 inclusive, i.e. from the `try:` line (the first statement of the body) to the last line of the function. The `def` line and the parameter-list lines of the signature are excluded. Every line in scope must appear exactly once, including blank lines, comments, `else:` lines, type-only annotations and continuation lines; a line that never receives a line event is reported with `count` 0. Answer as JSON `{\"line_execution_counts\": [{\"count\": <int>, \"line\": <int>}, ...]}` where `line` is the absolute 1-based line number in `src/marshmallow/schema.py` and `count` is a non-negative JSON integer; sort the list by `line` ascending (one entry per line, no duplicates).",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

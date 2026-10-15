@@ -1,0 +1,52 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "{'003': 0, '012': 174, '102': 188, '021D': 2, '021U': 5, '021C': 4, '111D': 9, '111U': 10, '030T': 0, '030C': 0, '201': 13, '120D': 0, '120U': 0, '120C': 0, '210': 2, '300': 1}",
+        "variable": "census"
+      },
+      {
+        "value": "15",
+        "variable": "dbl_edges_outside"
+      },
+      {
+        "value": "0",
+        "variable": "dbl_unbrs_bdy"
+      },
+      {
+        "value": "2",
+        "variable": "dbl_unbrs_out"
+      },
+      {
+        "value": "12",
+        "variable": "sgl_edges_outside"
+      },
+      {
+        "value": "0",
+        "variable": "sgl_unbrs_bdy"
+      },
+      {
+        "value": "3",
+        "variable": "sgl_unbrs_out"
+      },
+      {
+        "value": "157",
+        "variable": "u"
+      },
+      {
+        "value": "80",
+        "variable": "v"
+      }
+    ]
+  },
+  "question": "Consider the pytest test `networkx_qa/triads_triadic_census_s3_state/files/testcase.py::TestTriadicCensusSubset::test_census_on_node_subset` (test file `networkx_qa/triads_triadic_census_s3_state/files/testcase.py`, class `TestTriadicCensusSubset`, single test method `test_census_on_node_subset`). During this test the function `networkx.algorithms.triads.triadic_census` (defined in `networkx/algorithms/triads.py`) is invoked more than once; an invocation is one call of the function body, counted 1-based in chronological order. Focus ONLY on invocation 1 (the call `triadic_census(G, nodelist)` with the node subset).\n\nWithin invocation 1, line 269 of `networkx/algorithms/triads.py` (the statement `census[\"102\"] += dbl_edges_outside - (dbl_unbrs_out + dbl_unbrs_bdy // 2)` inside the `if Nnot:` block at the end of the main `for v in nodeset:` loop body) executes several times. Line numbers are absolute and 1-based in the file as it exists in the repository. Observe the function's local variables immediately AFTER line 269 has finished executing for the 6th time in invocation 1 (i.e. including the effect of that execution of the augmented assignment, and before any later statement runs).\n\nReport the value of each of these local variables at that moment: `census`, `dbl_edges_outside`, `dbl_unbrs_bdy`, `dbl_unbrs_out`, `sgl_edges_outside`, `sgl_unbrs_bdy`, `sgl_unbrs_out`, `u`, `v`. Each value is the Python `repr()` of the variable's current value, given as a JSON string (for a dict, the `repr` of the whole dict in its actual insertion order, e.g. `\"{'a': 1, 'b': 2}\"`; integers as e.g. `\"7\"`). Note that a loop variable such as `u` keeps the value it was last bound to by the inner `for u in vnbrs:` loop, even if that iteration hit `continue`.\n\nAnswer format: a JSON object `{\"observed_state\": [...]}` where the list has exactly one entry per variable listed above, each entry an object `{\"value\": <repr string>, \"variable\": <variable name string>}`, with entries sorted by `variable` in ascending (lexicographic) order.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

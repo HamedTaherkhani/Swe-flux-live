@@ -1,0 +1,112 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 12,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.__init__"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.__repr__"
+      },
+      {
+        "count": 127,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client._add_cookies_to_wsgi"
+      },
+      {
+        "count": 127,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client._update_cookies_from_response"
+      },
+      {
+        "count": 2,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.delete"
+      },
+      {
+        "count": 5,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.delete_cookie"
+      },
+      {
+        "count": 14,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.get"
+      },
+      {
+        "count": 15,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.get_cookie"
+      },
+      {
+        "count": 6,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.head"
+      },
+      {
+        "count": 127,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.open"
+      },
+      {
+        "count": 4,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.options"
+      },
+      {
+        "count": 1,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.patch"
+      },
+      {
+        "count": 1,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.post"
+      },
+      {
+        "count": 6,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.put"
+      },
+      {
+        "count": 1,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.query"
+      },
+      {
+        "count": 93,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.resolve_redirect"
+      },
+      {
+        "count": 127,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.run_wsgi_app"
+      },
+      {
+        "count": 15,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.set_cookie"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/test.py",
+        "func": "werkzeug.test.Client.trace"
+      }
+    ]
+  },
+  "question": "Consider the test class `ClientFlowTest` in `werkzeug_qa/test_open_m6_calls/files/testcase.py`, run with pytest as a whole (pytest id `werkzeug_qa/test_open_m6_calls/files/testcase.py::ClientFlowTest`, i.e. ALL of its test methods, in the order pytest collects them). The test drives werkzeug's test client, whose request entry point `werkzeug.test.Client.open` (file `src/werkzeug/test.py`) is reached only through the client's public helpers and its redirect-following machinery. Consider every method defined directly in the body of class `Client` in `src/werkzeug/test.py` (every `def` statement that is an immediate member of the class body, including `__init__` and other dunder methods and private underscore-prefixed methods; there are no properties or decorated methods in this class). Excluded: methods inherited from `object` or other classes, methods of any other class in that file (e.g. `EnvironBuilder`, `TestResponse`, `Cookie`), module-level functions (e.g. the module-level `run_wsgi_app`), any overriding methods defined outside `src/werkzeug/test.py`, and frames of nested functions, lambdas, comprehensions or generator expressions that appear inside those methods. For each in-scope method, count how many times it was invoked during the run of ALL test methods of the class, summed together (not per test method). One invocation = one Python `call` event for a frame executing that method's code object, regardless of who called it (the test itself, another `Client` method, or werkzeug internals), including transitive and repeated calls, and including invocations that end by raising an exception. None of the in-scope methods are generators or coroutines, so no resumption events arise. Methods that never ran must still be listed with `count: 0`. Identify each method by its dotted name `<module>.<class qualname>.<method>` where the module is the importable name `werkzeug.test` (not `src.werkzeug.test`); for example the constructor is written `werkzeug.test.Client.__init__`. The `file` field is the repo-relative path `src/werkzeug/test.py` for every entry. `count` is a JSON integer. Sort the list by `func` ascending using plain Python string comparison (code-point order, so names beginning with `_` sort after upper-case letters and before lower-case letters); qualnames are unique so no tie-break is needed. Answer as JSON of the form {\"invocation_counts\": [{\"count\": <int>, \"file\": \"src/werkzeug/test.py\", \"func\": \"werkzeug.test.Client.<method>\"}, ...]}.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 5,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 16,
+        "exception_type": "werkzeug.routing.converters.ValidationError"
+      },
+      {
+        "count": 64,
+        "exception_type": "werkzeug.routing.exceptions.NoMatch"
+      },
+      {
+        "count": 6,
+        "exception_type": "werkzeug.routing.exceptions.RequestAliasRedirect"
+      },
+      {
+        "count": 9,
+        "exception_type": "werkzeug.routing.exceptions.RequestPath"
+      },
+      {
+        "count": 8,
+        "exception_type": "werkzeug.routing.matcher.SlashRequired"
+      }
+    ]
+  },
+  "question": "Run the whole test class `MatcherExceptionScenarios` in `werkzeug_qa/matcher_match_m5_exceptions/files/testcase.py` (all 13 of its test methods, e.g. pytest id `werkzeug_qa/matcher_match_m5_exceptions/files/testcase.py::MatcherExceptionScenarios::test_static_hits_only`). Consider every invocation of the method `StateMachineMatcher.match` defined in `src/werkzeug/routing/matcher.py` (qualname `werkzeug.routing.matcher.StateMachineMatcher.match`; it is reached indirectly through `MapAdapter.match`). An exception is 'observed in the target frame' each time it is raised by a statement executing in the frame of `StateMachineMatcher.match` itself, or propagates into that frame out of a callee (including out of its nested helper `_match` and out of converter `to_python` calls). Each such observation counts once per frame per exception object: an exception raised inside the nested `_match` function and passing up through several recursive `_match` frames is counted only once, when it arrives in the `StateMachineMatcher.match` frame; an exception that propagates in and is then caught by an `except` clause in that frame still counts once; and a new exception raised from inside that `except` clause (e.g. `raise X(...) from None` / `from e`) counts as a separate observation. Exceptions that are raised and fully handled inside a callee (never reaching the `StateMachineMatcher.match` frame) do not count, and neither do exceptions raised by callers after `StateMachineMatcher.match` has returned or raised. Counts are totals over ALL invocations of the target in ALL 13 test methods (the same type observed in five different invocations contributes five). Answer with JSON `{\"exception_type_counts\": [{\"count\": int, \"exception_type\": str}, ...]}` containing one entry per exception type observed at least once (types never observed are omitted; no zero counts). Name each type as bare `type(exc).__name__` for built-in exceptions (e.g. `KeyError`, never `builtins.KeyError`) and as `type(exc).__module__ + '.' + type(exc).__qualname__` for all other exceptions, using the module where the class is defined (e.g. `werkzeug.exceptions.BadRequest`). Classify by the exact runtime class, not by any base class. Sort entries by `exception_type` ascending (plain Python string ordering, case-sensitive); types are unique so no further tie-break is needed.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

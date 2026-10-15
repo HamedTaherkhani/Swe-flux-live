@@ -1,0 +1,147 @@
+{
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 101
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 104
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 105
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 112
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 117
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 118
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 124
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 126
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 128
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 134
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 145
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 146
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 147
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 151
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 154
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 155
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 156
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 157
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 158
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 160
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 163
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 168
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 170
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 171
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 173
+      },
+      {
+        "file": "optuna/study/_tell.py",
+        "func": "optuna.study._tell._tell_with_warning",
+        "line": 175
+      }
+    ]
+  },
+  "question": "Consider the pytest test `optuna_qa/tell_tell_with_warning_s1_cfg/files/testcase.py::TestTellWithWarningFlow::test_many_tells` (file `optuna_qa/tell_tell_with_warning_s1_cfg/files/testcase.py`, class `TestTellWithWarningFlow`, the single test method `test_many_tells`), run from the repository root.\n\nDuring this test, the function `optuna.study._tell._tell_with_warning` (defined at module level in `optuna/study/_tell.py`) is invoked many times. Invocations are counted 1-based in chronological order of the function being entered (one invocation = one call of this function), and EVERY call made during the test counts: the main call in each loop iteration, the extra `state=TrialState.FAIL` call made after a `ValueError` is caught, and the periodic re-tell call on an already-finished trial (including re-tell calls that raise). Report the control-flow path of invocation number 23.\n\nDefinition of the path:\n1. Consider only the lines executed in the frame of this function itself during that invocation. Lines executed in other frames are excluded: callees (e.g. `_get_frozen_trial`, `_check_state_and_values`, `_check_values_are_feasible`, `optuna_warn`, logger and sampler methods) and the list-comprehension frame (on this Python version, 3.11, a list comprehension runs in its own frame). The `def` line and signature lines are NOT included, and the docstring never appears: the sequence starts with the first executable statement of the body.\n2. Each time the interpreter starts (or re-reaches) a source line of this frame, i.e. each `line` event that `sys.settrace` would report for this frame, map that line number to the FIRST line of the innermost statement (Python `ast` statement node: assignment, expression statement, `assert`, `if`/`elif` header, `try` header, `return`, `raise`, ...) that contains it. Some statements in this function span several physical lines (most notably the multi-line `_logger.info(...)` call whose f-string arguments are split over several lines); such a statement is reported as the line where the statement begins. An `elif` is reported at the line of the `elif` keyword; an `if`/`elif` header appears whenever its condition is evaluated, whether or not it is true. A `try:` header line appears exactly when `sys.settrace` reports a line event for it; statements inside the `finally:` block are reported at their own lines (the `finally:` keyword line itself is not a statement). If the invocation ends by raising, the path ends with the last line executed in this frame.\n3. After this mapping, collapse runs of consecutive identical line numbers into a single element (e.g. a mapped sequence 10, 10, 12, 10 becomes 10, 12, 10). No other deduplication is applied.\n\nLine numbers are absolute, 1-based line numbers of `optuna/study/_tell.py` as it exists in the repository.\n\nAnswer format: a JSON object `{\"executed_path\": [...]}` whose list contains one object per element of the path, in execution order, each of the form `{\"file\": \"optuna/study/_tell.py\", \"func\": \"optuna.study._tell._tell_with_warning\", \"line\": <int>}`. `file` is the repo-relative path and `func` the dotted module.qualname exactly as shown (identical in every element); `line` is a JSON integer.\n",
+  "question_kind": "S1_IntraProceduralCFG",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  }
+}

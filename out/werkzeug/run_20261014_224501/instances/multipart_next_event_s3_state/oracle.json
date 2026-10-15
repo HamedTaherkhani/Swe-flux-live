@@ -1,0 +1,44 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "'form-data'",
+        "variable": "disposition"
+      },
+      {
+        "value": "{'tag': 'XO', 'name': 'zuka2', 'filename': 'xo€pa.bin'}",
+        "variable": "extra"
+      },
+      {
+        "value": "'xo€pa.bin'",
+        "variable": "filename"
+      },
+      {
+        "value": "Headers([('Content-Disposition', 'form-data; tag=XO; name=\"zuka2\"; filename*=UTF-8\\'\\'xo%E2%82%ACpa.bin')])",
+        "variable": "headers"
+      },
+      {
+        "value": "91",
+        "variable": "headers_end"
+      },
+      {
+        "value": "<re.Match object; span=(89, 93), match=b''>",
+        "variable": "match"
+      },
+      {
+        "value": "'zuka2'",
+        "variable": "name"
+      }
+    ]
+  },
+  "question": "While running the pytest test `werkzeug_qa/multipart_next_event_s3_state/files/testcase.py::TestMultipartNextEventState::test_chunked_decode` (test file `werkzeug_qa/multipart_next_event_s3_state/files/testcase.py`, class `TestMultipartNextEventState`, method `test_chunked_decode`), the method `werkzeug.sansio.multipart.MultipartDecoder.next_event` defined in `src/werkzeug/sansio/multipart.py` is called many times. Consider line 190 of that file (absolute, 1-based line number in the repository file as checked in), the statement `self.state = State.DATA_START` inside the `State.PART` branch. Counting across the whole test run (all invocations of `next_event` together, in chronological order), take the moment immediately after line 190 has finished executing for the 7th time (1-based count of executions of that line). At that moment, in the frame of that `next_event` invocation, report the values of the local variables `disposition`, `extra`, `filename`, `headers`, `headers_end`, `match` and `name`. Each value must be given as the Python `repr()` string of the object bound to that local name (for containers and objects, the `repr` of the whole object exactly as Python prints it: strings keep their quotes, `None` is spelled `None`, bytes appear as `b'...'` with escapes such as `\\r`/`\\n` exactly as Python's repr writes them, a `werkzeug` `Headers` object is the repr produced by its own `__repr__`, and an `re.Match` is the standard `<re.Match object; span=(...), match=...>` form; e.g. the repr of the string a'b is `\"a'b\"` and of the dict {1: 'x'} is `\"{1: 'x'}\"`). Any newline characters inside a repr string appear as real characters in the JSON string. Answer as JSON of the form {\"observed_state\": [{\"value\": <repr string>, \"variable\": <local name>}, ...]} with exactly one entry per listed variable, sorted by `variable` in ascending lexicographic order.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

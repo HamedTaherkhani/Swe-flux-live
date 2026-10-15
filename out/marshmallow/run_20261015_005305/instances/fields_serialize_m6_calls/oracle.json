@@ -1,0 +1,112 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 4,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Constant._serialize"
+      },
+      {
+        "count": 11,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Enum._serialize"
+      },
+      {
+        "count": 19,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Field._serialize"
+      },
+      {
+        "count": 145,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Field.get_value"
+      },
+      {
+        "count": 160,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Field.serialize"
+      },
+      {
+        "count": 5,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Function._serialize"
+      },
+      {
+        "count": 3,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.IP._serialize"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.IPInterface._serialize"
+      },
+      {
+        "count": 10,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.List._serialize"
+      },
+      {
+        "count": 2,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Mapping._serialize"
+      },
+      {
+        "count": 6,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Method._serialize"
+      },
+      {
+        "count": 4,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Nested._serialize"
+      },
+      {
+        "count": 78,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Number._serialize"
+      },
+      {
+        "count": 3,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Pluck._serialize"
+      },
+      {
+        "count": 38,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.String._serialize"
+      },
+      {
+        "count": 2,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.TimeDelta._serialize"
+      },
+      {
+        "count": 4,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Tuple._serialize"
+      },
+      {
+        "count": 2,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.UUID._serialize"
+      },
+      {
+        "count": 9,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._serialize"
+      }
+    ]
+  },
+  "question": "In this repository, the test file `marshmallow_qa/fields_serialize_m6_calls/files/testcase.py` defines the unittest class `TestDirectFieldSerialize` with twelve test methods (`test_01_...` through `test_12_...`). Run ALL test methods of this class with pytest (pytest id `marshmallow_qa/fields_serialize_m6_calls/files/testcase.py::TestDirectFieldSerialize`). Each test builds field instances and calls the target `marshmallow.fields.Field.serialize` (i.e. `Field.serialize` in `src/marshmallow/fields.py`) directly; some of those calls fan out further (container fields delegating to their inner fields, nested schemas dumping their own fields, `super()` chains).\n\nScope: consider every method in `src/marshmallow/fields.py` whose name is exactly `serialize`, exactly `_serialize`, or exactly `get_value`, and whose `def` statement appears directly in the body of a module-level class of that file - i.e. the methods of `Field` with those names plus EVERY class in the file that defines (overrides) one of them in its own body. You must find these classes yourself by reading the file. Each such (class, method name) pair is one function in scope. Code that only appears inside docstrings is not a definition. Inherited methods do NOT get their own entry: a class that does not define the method itself is not in scope for it, and when an instance of such a class runs an inherited method, the invocation is credited to the class whose body contains the executed `def`. Nested functions, lambdas, comprehensions and generator expressions created inside these methods are not entries and are not counted. No other methods (e.g. `deserialize`, `_deserialize`, `__init__`, `_to_string`, `_format_num`, properties) and no functions from other files (e.g. `Schema._serialize` in `src/marshmallow/schema.py` or the module-level `get_value` in `src/marshmallow/utils.py`) are in scope.\n\nIdentity: `func` is the dotted name `<module>.<ClassName>.<method>` where the module is the import name `marshmallow.fields` (not `src.marshmallow.fields`); for example, the method `_bind_to_schema` of class `Tuple` would be written `marshmallow.fields.Tuple._bind_to_schema`. `file` is the repo-relative path `src/marshmallow/fields.py` for every entry.\n\nCounting: one invocation = one Python function call of that method's code (one `'call'` event for a new frame of it, as seen by `sys.settrace`), regardless of who calls it: calls made directly by the test, by `Field.serialize` itself, by other fields (e.g. container fields calling an inner field's `_serialize`), via `super()`, recursively, or by schemas dumping nested data all count. Only calls made while the test methods run count (field/schema construction at import time cannot call these methods anyway). None of the in-scope methods are generators or coroutines, so there are no resumptions to consider. Counts are summed over ALL twelve test methods of the class (not reported per test). Functions in scope that never run in any test MUST still be listed with `count` 0.\n\nAnswer format: a JSON object with the single key `invocation_counts`, whose value is a list with exactly one object per in-scope function, each of the form `{\"count\": <int>, \"file\": <str>, \"func\": <str>}`. Sort the list by `func` ascending using plain Python string comparison (Unicode code point order, so uppercase letters sort before `_`, which sorts before lowercase letters). `func` values are unique, so no tie-break is needed.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

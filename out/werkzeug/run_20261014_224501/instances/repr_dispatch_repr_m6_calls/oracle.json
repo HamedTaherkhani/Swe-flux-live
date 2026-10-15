@@ -1,0 +1,107 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 13,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.__init__"
+      },
+      {
+        "count": 10,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.dict_repr"
+      },
+      {
+        "count": 257,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.dispatch_repr"
+      },
+      {
+        "count": 1,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.dump_locals"
+      },
+      {
+        "count": 3,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.dump_object"
+      },
+      {
+        "count": 3,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.fallback_repr"
+      },
+      {
+        "count": 85,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.object_repr"
+      },
+      {
+        "count": 3,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.regex_repr"
+      },
+      {
+        "count": 4,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.render_object_dump"
+      },
+      {
+        "count": 257,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.repr"
+      },
+      {
+        "count": 48,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.DebugReprGenerator.string_repr"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr._Helper.__call__"
+      },
+      {
+        "count": 1,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr._Helper.__repr__"
+      },
+      {
+        "count": 101,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr._add_subclass_info"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr._sequence_repr_maker"
+      },
+      {
+        "count": 43,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr._sequence_repr_maker.<locals>.proxy"
+      },
+      {
+        "count": 8,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.debug_repr"
+      },
+      {
+        "count": 2,
+        "file": "src/werkzeug/debug/repr.py",
+        "func": "werkzeug.debug.repr.dump"
+      }
+    ]
+  },
+  "question": "Run the whole test class `TestDebugReprScenarios` in `werkzeug_qa/repr_dispatch_repr_m6_calls/files/testcase.py` with pytest (pytest id `werkzeug_qa/repr_dispatch_repr_m6_calls/files/testcase.py::TestDebugReprScenarios`; all 13 `test_*` methods, which all pass). These tests exercise the HTML debug-repr machinery whose central type-dispatch method is `werkzeug.debug.repr.DebugReprGenerator.dispatch_repr` in `src/werkzeug/debug/repr.py`.\n\nScope: consider EVERY function and method defined with `def` anywhere in the file `src/werkzeug/debug/repr.py`: all module-level functions, all methods of every class defined in that file (including dunder methods such as `__init__`, `__repr__`, `__call__`), and functions nested inside other functions (closures). Lambdas, comprehension frames (list/dict/set comprehensions, generator expressions), class bodies and the module body are NOT in scope. Methods inherited from `object` or from builtins, and functions/methods defined in other files (including the test file), are NOT in scope even when invoked from in-scope code. Class attributes that are produced by calling a factory (e.g. assigned function objects returned from another function) are not separate scope entries: a nested function is ONE entry identified by its definition, no matter how many function objects are created from it or under which attribute names they are called.\n\nIdentity: `func` is the module name `werkzeug.debug.repr` followed by a dot and the function's Python `__qualname__` (as in `code.co_qualname`), e.g. a method `bar` of a class `Foo` in that file would be `werkzeug.debug.repr.Foo.bar`, and a function `inner` nested in a module-level function `outer` would be `werkzeug.debug.repr.outer.<locals>.inner`. `file` is always the repo-relative path `src/werkzeug/debug/repr.py`.\n\nCounting: `count` is the number of times a new Python frame for that function is entered (one `call` event per invocation) while the test methods are executing, including invocations made indirectly, recursively, via implicit protocols (e.g. `repr()`/`!r` formatting calling a `__repr__`), or from any caller. There are no generators or coroutines in scope, so no resumption is ever counted. Calls that happen outside the test methods' execution (e.g. while importing modules, collecting tests, or in class-level setup at import time) are NOT counted. Counts are summed over ALL 13 test methods of the class (not per method). Every in-scope function must be listed, including those never invoked, which get `count: 0`.\n\nAnswer format: a JSON object `{\"invocation_counts\": [...]}` whose list contains one object `{\"count\": <int>, \"file\": <str>, \"func\": <str>}` per in-scope function, sorted by `func` ascending using plain Python string ordering (code-point order; qualnames are unique so no tie-break is needed). Use the Python interpreter installed in the repository's environment.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

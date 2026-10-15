@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "float division by zero",
+    "exception_type": "ZeroDivisionError"
+  },
+  "question": "Consider the pytest test `networkx_qa/community_stochastic_block_model_s5_exceptions/files/testcase.py::TestGaussianPartitionTinyCrossProbability::test_tiny_inter_cluster_probability` (test class `TestGaussianPartitionTinyCrossProbability` in file `networkx_qa/community_stochastic_block_model_s5_exceptions/files/testcase.py`, single test method `test_tiny_inter_cluster_probability`). During this test run, the function `networkx.generators.community.stochastic_block_model` (defined in `networkx/generators/community.py`) is invoked exactly once (reached indirectly through the public generator called by the test; an invocation is one call of that function's own frame, not of the dispatch/decorator wrappers around it). In that invocation an exception is raised that is NOT handled inside `stochastic_block_model` and propagates out of its frame to its caller. Report that single propagated exception (i.e. the exception object that leaves the `stochastic_block_model` frame; exceptions that are raised and caught inside the function, e.g. ones that only end a loop, do not count). Answer as a JSON object with exactly two string keys: `exception_type` and `exception_message`. `exception_type` naming convention: use bare `type(exc).__name__` for built-in exceptions (e.g. `KeyError`, never `builtins.KeyError`), and the fully qualified `module.QualName` of the class for all non-built-in exceptions (e.g. `networkx.exception.NetworkXUnfeasible`, using the module where the class is defined, i.e. `type(exc).__module__ + '.' + type(exc).__qualname__`). `exception_message` must be exactly `str(exc)` of that exception object, character for character (no type prefix, no quotes, no traceback; an empty message would be the empty string).",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

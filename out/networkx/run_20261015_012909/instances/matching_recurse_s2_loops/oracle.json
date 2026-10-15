@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 40
+  },
+  "question": "Consider the pytest test `networkx_qa/matching_recurse_s2_loops/files/testcase.py::TestMaxWeightMatchingBlossoms::test_random_dense_graph` (file `networkx_qa/matching_recurse_s2_loops/files/testcase.py`, class `TestMaxWeightMatchingBlossoms`, single test method `test_random_dense_graph`). It calls `networkx.max_weight_matching` on a seeded random weighted graph. During that call, the nested generator function `networkx.algorithms.matching.max_weight_matching.<locals>.expandBlossom.<locals>._recurse` (defined in `networkx/algorithms/matching.py`, lines 676-767) is created and driven by `expandBlossom`'s trampoline possibly many times, for different blossoms and with different `endstage` values.\n\nFocus on the `while b.childs[j] != entrychild:` loop whose header is at line 736 of `networkx/algorithms/matching.py` (line numbers are absolute, 1-based, as the file exists in the repository). Define one iteration of this loop as one execution of the loop body's first statement, `bv = b.childs[j]` (the line directly below the header); iterations that end early via `continue` still count, and evaluations of the loop condition that do not enter the body do not count.\n\nWhat is the TOTAL number of iterations of this loop, summed over every `_recurse` generator instance (every blossom expansion, nested or top-level, mid-stage or end-of-stage) executed during the whole test method? Instances in which the loop is never reached contribute 0.\n\nAnswer as JSON of the form {\"loop_iteration_count\": <int>}, where the value is a plain JSON integer (not a string).",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

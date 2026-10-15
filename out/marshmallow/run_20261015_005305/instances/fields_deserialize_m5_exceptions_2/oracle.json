@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 1,
+        "exception_type": "IndexError"
+      },
+      {
+        "count": 2,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 5,
+        "exception_type": "StopIteration"
+      },
+      {
+        "count": 1,
+        "exception_type": "ZeroDivisionError"
+      },
+      {
+        "count": 74,
+        "exception_type": "marshmallow.exceptions.ValidationError"
+      }
+    ]
+  },
+  "question": "Consider the test class `ListLoadScenarios` in `marshmallow_qa/fields_deserialize_m5_exceptions_2/files/testcase.py`. Run ALL of its test methods (the whole class, e.g. `pytest marshmallow_qa/fields_deserialize_m5_exceptions_2/files/testcase.py::ListLoadScenarios`). Across the entire run, aggregated over every test method and every invocation, count how many times each exception type is observed in a frame of the target function `marshmallow.fields.List._deserialize` (the `_deserialize` method of class `List` defined in `src/marshmallow/fields.py`). Observation rule: one observation = one 'exception' event that Python's `sys.settrace` line-level tracing delivers for a frame executing `List._deserialize`. This happens when an exception is raised by a `raise` statement in that frame, or when an exception propagates into that frame from a callee (including from code invoked implicitly by a `for` loop's iteration protocol; e.g. a `StopIteration` raised by a Python-level `__next__` that ends the loop is delivered to the looping frame and DOES count). Exceptions raised and fully handled inside a callee, never reaching the target frame, do NOT count. Each such event counts once, whether the exception is then caught by the target's `except` clause or escapes the frame; an exception that leaves the frame is not counted again for that frame. Every distinct frame counts separately: when `List._deserialize` is (indirectly) nested inside another `List._deserialize` call, one exception passing through both frames counts once per frame. A new `raise` statement in the frame (even if it creates a new exception of the same type) is a separate observation. Counts are totals over all invocations (an invocation = one call of the function) and all test methods, so the same type observed in five invocations contributes five. Exception type naming: use bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError`, never `builtins.ValueError`), and `module.QualName` using the class's defining module `__module__` for all others (e.g. `json.decoder.JSONDecodeError`). Answer format: a JSON object with key `exception_type_counts` whose value is a list of objects `{\"exception_type\": <str>, \"count\": <int>}`, one per exception type observed at least once (types never observed are omitted; no zero counts), sorted by `exception_type` ascending using plain case-sensitive string (code point) comparison; since each type appears exactly once, no further tie-break is needed.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

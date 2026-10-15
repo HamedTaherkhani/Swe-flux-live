@@ -1,0 +1,62 @@
+{
+  "question_kind": "S4_DataFlow",
+  "question": "Test: `marshmallow_qa/benchmark_run_timeit_s4_dataflow/files/testcase.py`, test class `BenchmarkMainTest`, test method `test_main_degenerate_runs` (pytest id `marshmallow_qa/benchmark_run_timeit_s4_dataflow/files/testcase.py::BenchmarkMainTest::test_main_degenerate_runs`; it is the only test method in the class), run with pytest from the repository root under the container's CPython 3.11 interpreter.\n\nTarget function: `performance.benchmark.run_timeit`, defined in `performance/benchmark.py` (the `def` is at line 85; the test reaches it only through `performance.benchmark.main`).\n\nQuestion: across ALL invocations of `run_timeit` during this test (an invocation = one call of the function, i.e. one new frame of `run_timeit`), which def-use pairs are actually observed at runtime for the six tracked local variables `best`, `iterations`, `profile`, `quotes`, `quotes_schema`, `repeat`?\n\nDefinitions:\n- A \"def\" of a variable is a binding of it. Parameters (`quotes`, `iterations`, `repeat`, `profile`) are defined at the `def` line (85) when the invocation starts. An assignment statement defines its target at the line where the assignment statement begins (for a multi-line assignment, its first line). A def only takes effect if the assignment actually completes (if the right-hand side raises, no new def happens).\n- A \"use\" is a read of the variable's value that is actually evaluated at runtime. The use line is the physical source line on which the variable name token appears (for a multi-line call, each argument's own line, not the statement's first line). Sub-expressions that are never evaluated (e.g. a branch body that is not entered, or the remainder of an expression after an operation in it raised an exception, following Python's left-to-right evaluation order) produce NO use. Assignment targets are not uses; there is no augmented assignment, loop or comprehension in this function.\n- The `lambda` at line 94 is part of `run_timeit`: merely creating the lambda object is NOT a use of `quotes_schema` or `quotes`; a use at line 94 occurs only when the lambda's body is actually executed (each execution reads the closure variables `quotes_schema` and `quotes`, whose reaching defs are the ones current in the enclosing invocation).\n- A def-use pair (variable, def_line, use_line) is observed when, in some invocation, the value bound at def_line is read at use_line before the variable is rebound in that invocation. Pairs never cross invocations.\n- Global names, attributes, builtins and keyword-argument names (e.g. `number=`) are not tracked variables; only the six names above count.\n\nOutput: a JSON object `{\"observed_def_use_pairs\": [...]}`, where each element is `{\"def_line\": int, \"use_line\": int, \"variable\": str}` (variable is the bare local name, e.g. \"x\"; line numbers are absolute 1-based line numbers in `performance/benchmark.py` as JSON integers). Include each distinct (variable, def_line, use_line) triple exactly once (deduplicated across all invocations). A tracked variable for which no pair is observed simply contributes no elements. Sort ascending by `variable` (plain string order), then by `def_line`, then by `use_line`.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 92,
+        "use_line": 104,
+        "variable": "best"
+      },
+      {
+        "def_line": 85,
+        "use_line": 96,
+        "variable": "iterations"
+      },
+      {
+        "def_line": 85,
+        "use_line": 104,
+        "variable": "iterations"
+      },
+      {
+        "def_line": 85,
+        "use_line": 87,
+        "variable": "profile"
+      },
+      {
+        "def_line": 88,
+        "use_line": 89,
+        "variable": "profile"
+      },
+      {
+        "def_line": 88,
+        "use_line": 100,
+        "variable": "profile"
+      },
+      {
+        "def_line": 88,
+        "use_line": 101,
+        "variable": "profile"
+      },
+      {
+        "def_line": 88,
+        "use_line": 102,
+        "variable": "profile"
+      },
+      {
+        "def_line": 85,
+        "use_line": 97,
+        "variable": "repeat"
+      }
+    ]
+  }
+}

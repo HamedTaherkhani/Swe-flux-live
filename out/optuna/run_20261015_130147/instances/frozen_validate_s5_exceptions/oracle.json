@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "The value 0.9500000000000002 of parameter 'float_417' isn't contained in the distribution FloatDistribution(high=-1.55, log=False, low=-3.55, step=0.5).",
+    "exception_type": "ValueError"
+  },
+  "question": "Consider the pytest test `optuna_qa/frozen_validate_s5_exceptions/files/testcase.py::TestFrozenTrialCreation::test_create_trials_until_invalid` (test class `TestFrozenTrialCreation`, its only test method `test_create_trials_until_invalid`). During this test run, the method `optuna.trial._frozen.FrozenTrial._validate` (defined in `optuna/trial/_frozen.py`) is invoked (indirectly, via `optuna.trial.create_trial`) several times; an invocation is one call of the method, counted 1-based in chronological order. Exactly one of these invocations does not return normally: an exception propagates out of `_validate` to its caller (the exception may be raised directly by a `raise` statement in `_validate` or by a callee and propagated through it). Report that exception. `exception_type` must be the exception class name using this convention: bare `type(exc).__name__` for built-in exceptions (e.g. `KeyError`, never `builtins.KeyError`), and `module.QualName` (i.e. `type(exc).__module__ + '.' + type(exc).__qualname__`, e.g. `optuna.exceptions.TrialPruned`) for all non-built-in exceptions. `exception_message` must be exactly `str(exc)` of that exception object, character for character (including any floating-point digits exactly as Python formats them, quotes, punctuation and the trailing period if present). Answer as a JSON object with exactly the keys `exception_message` (string) and `exception_type` (string).",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

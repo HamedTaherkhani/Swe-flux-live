@@ -1,0 +1,142 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 6,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.__apply_nested_option"
+      },
+      {
+        "count": 28,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.__init__"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.__repr__"
+      },
+      {
+        "count": 68,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._bind_field"
+      },
+      {
+        "count": 430,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._call_and_store"
+      },
+      {
+        "count": 162,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._deserialize"
+      },
+      {
+        "count": 97,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._do_load"
+      },
+      {
+        "count": 28,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._init_fields"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._invoke_dump_processors"
+      },
+      {
+        "count": 97,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._invoke_field_validators"
+      },
+      {
+        "count": 36,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._invoke_load_processors"
+      },
+      {
+        "count": 72,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._invoke_processors"
+      },
+      {
+        "count": 72,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._invoke_schema_validators"
+      },
+      {
+        "count": 28,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._normalize_nested_options"
+      },
+      {
+        "count": 27,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._run_validator"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema._serialize"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.dump"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.dumps"
+      },
+      {
+        "count": 2,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.from_dict"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.get_attribute"
+      },
+      {
+        "count": 48,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.handle_error"
+      },
+      {
+        "count": 97,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.load"
+      },
+      {
+        "count": 17,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.loads"
+      },
+      {
+        "count": 66,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.on_bind_field"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/schema.py",
+        "func": "marshmallow.schema.Schema.validate"
+      }
+    ]
+  },
+  "question": "Consider the test class `TestSchemaLoadsCalls` in `marshmallow_qa/schema_loads_m6_calls/files/testcase.py`, run with `pytest marshmallow_qa/schema_loads_m6_calls/files/testcase.py::TestSchemaLoadsCalls` (all of its test methods, in the order pytest collects them; the answer aggregates over ALL of them). Every test method calls `marshmallow.schema.Schema.loads` (file `src/marshmallow/schema.py`) directly, on various `Schema` subclasses.\n\nScope: every function/method whose `def` statement appears DIRECTLY in the body of class `Schema` in `src/marshmallow/schema.py` (the class named exactly `Schema`, not `SchemaMeta` or `SchemaOpts`, and not any module-level function). This includes `__init__`, dunder methods, classmethods, staticmethods and name-mangled private methods defined there. Excluded: nested functions/closures/lambdas defined inside those methods, comprehension and generator-expression frames, methods of any other class (including the `Schema` subclasses defined in the test file \u2014 if a test subclass overrides a method, a call that resolves to the override does NOT count for `Schema`'s version), and functions in other files (e.g. `src/marshmallow/fields.py`, `src/marshmallow/decorators.py`). A call made on a subclass instance that resolves (by inheritance) to the method defined in `Schema`'s body DOES count for that `Schema` method.\n\nIdentity: `func` is `marshmallow.schema.` followed by the function's `__qualname__` as Python reports it, e.g. `marshmallow.schema.Schema.some_method` (format example only). Name-mangled methods use their source spelling (the qualname is not mangled), e.g. a method written `def __helper(self)` in the class would be `marshmallow.schema.Schema.__helper`. `file` is the repo-relative path `src/marshmallow/schema.py` for every entry.\n\nCounting: one invocation = one Python `call` event (a new frame created for that function's code object), regardless of who called it (the test, another `Schema` method, field code such as `Nested`/`List`, recursion for `many=True` or nested schemas, decorators' hooks, etc.) and regardless of whether the call returns normally or raises. Recursive/re-entrant calls each count. None of the in-scope functions are generators or coroutines, so no resumption issue arises. Count only calls made while the test methods run (including schema instantiation and any schema classes created lazily during a test, e.g. by `Nested` with a dict); calls during module import / test-module class-body definitions do not count.\n\nZero rule: every in-scope function appears exactly once in the answer, with `count: 0` if it never ran.\n\nAggregation: counts are summed across all test methods of the class (whether each method's `loads` call succeeds or raises).\n\nOutput: `{\"invocation_counts\": [{\"count\": int, \"file\": str, \"func\": str}, ...]}`, sorted by `func` ascending using plain Python string ordering (code-point order, so `_` sorts after uppercase letters and before lowercase letters); qualnames are unique, so no tie-break is needed.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

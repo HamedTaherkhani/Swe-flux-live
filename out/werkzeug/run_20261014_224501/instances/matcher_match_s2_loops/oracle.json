@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 162
+  },
+  "question": "Consider the pytest test `werkzeug_qa/matcher_match_s2_loops/files/testcase.py::TestMatcherLoops::test_backtracking_dynamic_transitions` (test class `TestMatcherLoops`, its only test method). During this test, the nested function `werkzeug.routing.matcher.StateMachineMatcher.match.<locals>._match` defined in `src/werkzeug/routing/matcher.py` is invoked many times (recursively, once or twice per `StateMachineMatcher.match` call, since a retry with merged slashes may occur). Focus on the `for test_part, new_state in state.dynamic:` loop whose header is at line 127 of that file. Define one iteration of this loop as one execution of the loop body's first line (line 128, `target = part`). Count iterations in EVERY invocation of `_match` during the whole test run (an invocation = one call of `_match`, counting both the top-level calls made by `StateMachineMatcher.match` and all recursive calls, regardless of how the invocation ends: return of a value, return of None, or propagating `SlashRequired`), and sum them. An iteration of an outer frame's loop is not re-counted when a nested recursive invocation runs; each execution of line 128 counts exactly once. Iterations that end early because the regex does not match, or that recurse and fail, still count. Answer with a JSON object `{\"loop_iteration_count\": <int>}` where the value is a plain JSON integer (not a string).",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

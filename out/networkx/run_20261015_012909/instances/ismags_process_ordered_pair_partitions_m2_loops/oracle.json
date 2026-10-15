@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 36,
+    "min_iterations": 3
+  },
+  "question": "Run all test methods of the class `TestIsmagsSymmetricPatterns` in the pytest test file `networkx_qa/ismags_process_ordered_pair_partitions_m2_loops/files/testcase.py` (i.e. the pytest node `networkx_qa/ismags_process_ordered_pair_partitions_m2_loops/files/testcase.py::TestIsmagsSymmetricPatterns`; the answer aggregates over ALL test methods of that class together, there are no other tests involved). During this run, the method `networkx.algorithms.isomorphism.ismags.ISMAGS._process_ordered_pair_partitions` (file `networkx/algorithms/isomorphism/ismags.py`) is invoked one or more times; it is never called directly by the tests but is reached through ISMAGS's public search methods. An invocation is one call of this method (one execution of its frame from call to return), counted 1-based in chronological order over the whole run. Inside it there is a `while queue:` loop whose header is at line 1493, and nested inside that a `for node2 in node2_iter:` loop whose header is at line 1496. Line numbers are absolute, 1-based, in that file as it exists in the repository. For each invocation, define its inner-loop iteration count as the total number of times line 1497 (the inner loop body's first line, `if node != node2 and orbit_id[node] == orbit_id[node2]:`) executes in that invocation's own frame, summed over all iterations of the enclosing `while` loop (every execution counts, including ones that then hit `continue` or `break`; a `node2_iter` iterator that is resumed in a later `while` iteration keeps contributing to the same invocation's count). Executions inside nested function frames (e.g. `_load_next_queue_entry`, comprehensions/generator expressions) or inside other methods called from it do not count. An invocation that returns before reaching the `while` loop has a count of 0 and is still included. What are the maximum and the minimum of this per-invocation count over all invocations during the run? Answer with JSON of the form {\"max_iterations\": <int>, \"min_iterations\": <int>}, both values plain JSON integers.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

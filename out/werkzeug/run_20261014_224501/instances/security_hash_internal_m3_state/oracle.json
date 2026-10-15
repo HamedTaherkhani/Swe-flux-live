@@ -1,0 +1,29 @@
+{
+  "oracle_answer": {
+    "unique_values": [
+      "('pbkdf2', 'md5', 1200)",
+      "('pbkdf2', 'sha1', 1488)",
+      "('pbkdf2', 'sha224', 195)",
+      "('pbkdf2', 'sha256', 1592)",
+      "('pbkdf2', 'sha384', 92)",
+      "('pbkdf2', 'sha512', 1000000)",
+      "('scrypt', 1216512)",
+      "('scrypt', 135168)",
+      "('scrypt', 1351680)",
+      "('scrypt', 1486848)",
+      "('scrypt', 1622016)",
+      "('scrypt', 270336)",
+      "('scrypt', 3244032)",
+      "('scrypt', 337920)",
+      "('scrypt', 34603008)",
+      "('scrypt', 67584)"
+    ]
+  },
+  "question": "Run the whole pytest class `werkzeug_qa/security_hash_internal_m3_state/files/testcase.py::TestPasswordHashState` (ALL of its test methods; the answer aggregates over every one of them, regardless of the order in which they execute). Consider every invocation of the module-level function `werkzeug.security._hash_internal` defined in `src/werkzeug/security.py` (an invocation is one call of that function, whether reached via `generate_password_hash` or `check_password_hash`). Only invocations that RETURN NORMALLY (return a tuple) are counted; invocations that raise or propagate any exception contribute nothing.\n\nFor each counted invocation, look at the function's local variables at the moment it returns (note `method` is the local re-bound on the first line of the function, i.e. the part before the first ':'), and build one entry:\n- if local `method` == 'scrypt': the Python `repr()` of the 2-tuple `(method, maxmem)`;\n- if local `method` == 'pbkdf2': the Python `repr()` of the 3-tuple `(method, hash_name, iterations)`.\nAll values are the actual Python objects held by those locals (str or int), so e.g. a hypothetical entry looks like `('scrypt', 123)` or `('pbkdf2', 'sha3_256', 7)` (single-quoted strings, ints without separators or quotes, \", \" between items).\n\nAnswer with JSON `{\"unique_values\": [...]}`: the list of DISTINCT entry strings (duplicates removed), sorted ascending by plain Python string comparison of the repr strings (Unicode code-point / lexicographic order, NOT numeric order).",
+  "question_kind": "M3_ProgramState",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  }
+}

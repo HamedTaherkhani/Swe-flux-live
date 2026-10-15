@@ -1,0 +1,137 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 34,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.DateTime._make_object_from_format"
+      },
+      {
+        "count": 12,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.NaiveDateTime.__init__"
+      },
+      {
+        "count": 195,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.NaiveDateTime._deserialize"
+      },
+      {
+        "count": 12,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField.__init__"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._bind_to_schema"
+      },
+      {
+        "count": 195,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._deserialize"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._make_object_from_format"
+      },
+      {
+        "count": 18,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._serialize"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils._get_value_for_key"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.callable_or_raise"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.ensure_text_type"
+      },
+      {
+        "count": 67,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.from_timestamp"
+      },
+      {
+        "count": 34,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.from_timestamp_ms"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.get_value"
+      },
+      {
+        "count": 178,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.is_aware"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.is_collection"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.is_generator"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.is_iterable_but_not_string"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.is_sequence_but_not_string"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.pluck"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.set_value"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.timedelta_to_microseconds"
+      },
+      {
+        "count": 18,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.timestamp"
+      },
+      {
+        "count": 13,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.timestamp_ms"
+      }
+    ]
+  },
+  "question": "Test file: `marshmallow_qa/fields_deserialize_m6_calls_3/files/testcase.py`, test class `TestNaiveDateTimeDeserialize`. Run ALL test methods of that class (pytest ids `marshmallow_qa/fields_deserialize_m6_calls_3/files/testcase.py::TestNaiveDateTimeDeserialize::<method>`, every `test_*` method in the class; all of them pass). The tests call the target `NaiveDateTime._deserialize` (defined in `src/marshmallow/fields.py`) directly, plus a few other field methods.\n\nScope (the tracked set of functions), resolved from the repository source as it exists:\n  (a) every function defined at module level in `src/marshmallow/utils.py` (including names that start with an underscore), and\n  (b) every method whose `def` appears directly in the class body of `_TemporalField`, of `DateTime`, or of `NaiveDateTime` in `src/marshmallow/fields.py` -- including `__init__`, static methods and abstract methods. Methods these classes merely inherit (e.g. anything defined only in `Field`) are NOT in scope unless redefined in one of these three class bodies; a method redefined in several of these classes yields one separate entry per defining class. Class attributes that merely hold references to callables (such as the values of the SERIALIZATION_FUNCS / DESERIALIZATION_FUNCS dicts, which point at standard-library functions or at the utils functions themselves) do not create extra entries; calls to functions outside the scope (standard library, `Field.make_error`, `ValidationError`, etc.) are not counted. There are no nested functions, lambdas or closures in scope; comprehension frames are never counted as separate functions.\n\nIdentity: `func` = `<runtime module name>.<qualname>` where the module name is the importable package path (no `src.` prefix), e.g. a method `bar` of a class `Foo` in `src/marshmallow/schema.py` would be `marshmallow.schema.Foo.bar`, and a module-level function `baz` in that file would be `marshmallow.schema.baz`. `file` = the repo-relative path of the defining file (`src/marshmallow/utils.py` or `src/marshmallow/fields.py`).\n\nCounting: one invocation = one Python `call` event for a frame executing that function's code object (as `sys.settrace` would report it), counting every call regardless of who made it -- calls from the test code, from other in-scope functions, via `super()`, via dict lookup of a format function, or from anywhere else. A call that ends by raising an exception still counts once. None of the in-scope functions are generators or coroutines, so there are no resumption events to consider. Counts are SUMMED over all test methods of the class (one aggregate number per function, not per method). Functions in scope that never execute must still appear, with `count: 0`.\n\nAnswer format: {\"invocation_counts\": [{\"count\": <int>, \"file\": <str>, \"func\": <str>}, ...]} with exactly one entry per in-scope function, sorted by `func` ascending (plain Python string ordering, i.e. by Unicode code point; qualnames are unique so no tie-break is needed). `count` is a JSON integer.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

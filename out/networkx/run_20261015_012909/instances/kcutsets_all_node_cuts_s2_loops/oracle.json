@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 76
+  },
+  "question": "Consider the single pytest test `networkx_qa/kcutsets_all_node_cuts_s2_loops/files/testcase.py::TestAllNodeCutsLoops::test_all_node_cuts_regular_graph` (class `TestAllNodeCutsLoops`, method `test_all_node_cuts_regular_graph`). Target function: `networkx.algorithms.connectivity.kcutsets.all_node_cuts`, defined in `networkx/algorithms/connectivity/kcutsets.py` (a generator). The test creates exactly one generator object from `all_node_cuts` and consumes it completely with `list(...)`; treat that whole consumption (across all suspensions/resumptions at `yield`) as the single invocation the question is about. Focus on the loop `for antichain in nx.antichains(L):` whose header is on line 179 of that file (absolute, 1-based line numbers in the file as it exists in the repository). This loop is nested inside `if flow_value == k:` (line 151), the `for v in non_adjacent:` loop (line 139) and the `for x in X:` loop (line 135), so it may be entered several times. One iteration = one execution of the loop body's first line, line 180 (`if not antichain:`); every such execution counts, including iterations that are cut short by any of the `continue` statements in the body (e.g. for the empty antichain). Report the total number of iterations of the line-179 loop, summed over every entry of that loop during the whole invocation. Answer as a JSON object with exactly one key, `loop_iteration_count`, whose value is a JSON integer (e.g. {\"loop_iteration_count\": 3}), not a string.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

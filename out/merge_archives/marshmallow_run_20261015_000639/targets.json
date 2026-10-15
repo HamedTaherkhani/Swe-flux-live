@@ -1,0 +1,3354 @@
+{
+  "root": "/testbed",
+  "targets": [
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._deserialize",
+      "name": "_deserialize",
+      "lineno": 597,
+      "end_lineno": 705,
+      "params": [
+        "self",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 109,
+        "branches": 11,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "_call_and_store",
+          "_deserialize"
+        ],
+        "num_local_calls": 2,
+        "assigns": 18,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 3,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 73.0,
+      "callers": [
+        "Schema._do_load"
+      ],
+      "callers_2hop": [
+        "Schema.load",
+        "Schema.validate"
+      ]
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._init_fields",
+      "name": "_init_fields",
+      "lineno": 982,
+      "end_lineno": 1053,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 72,
+        "branches": 8,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 25,
+        "local_calls": [
+          "_bind_field"
+        ],
+        "num_local_calls": 1,
+        "assigns": 20,
+        "augassigns": 2,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 4,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 68.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Mapping._deserialize",
+      "name": "_deserialize",
+      "lineno": 1688,
+      "end_lineno": 1728,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 41,
+        "branches": 8,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [
+          "deserialize",
+          "make_error",
+          "mapping_type"
+        ],
+        "num_local_calls": 3,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 61.1,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._invoke_field_validators",
+      "name": "_invoke_field_validators",
+      "lineno": 1124,
+      "end_lineno": 1172,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 4,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 3,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "_call_and_store"
+        ],
+        "num_local_calls": 1,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 55.9,
+      "callers": [
+        "Schema._do_load"
+      ],
+      "callers_2hop": [
+        "Schema.load",
+        "Schema.validate"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Nested.schema",
+      "name": "schema",
+      "lineno": 567,
+      "end_lineno": 613,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 47,
+        "branches": 10,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 23,
+        "local_calls": [
+          "_nested_normalized_option"
+        ],
+        "num_local_calls": 1,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 55.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._do_load",
+      "name": "_do_load",
+      "lineno": 842,
+      "end_lineno": 944,
+      "params": [
+        "self",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 103,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "_deserialize",
+          "_invoke_field_validators",
+          "_invoke_load_processors",
+          "_invoke_schema_validators",
+          "handle_error"
+        ],
+        "num_local_calls": 5,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 54.0,
+      "callers": [
+        "Schema.load",
+        "Schema.validate"
+      ],
+      "callers_2hop": [
+        "Schema.loads"
+      ]
+    },
+    {
+      "file": "src/marshmallow/error_store.py",
+      "module": "src.marshmallow.error_store",
+      "qualname": "merge_errors",
+      "name": "merge_errors",
+      "lineno": 37,
+      "end_lineno": 71,
+      "params": [
+        "errors1",
+        "errors2"
+      ],
+      "metrics": {
+        "body_lines": 35,
+        "branches": 10,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "merge_errors"
+        ],
+        "num_local_calls": 1,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 10,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 44.5,
+      "callers": [
+        "ErrorStore.store_error"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._invoke_schema_validators",
+      "name": "_invoke_schema_validators",
+      "lineno": 1174,
+      "end_lineno": 1219,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "_run_validator"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 34.6,
+      "callers": [
+        "Schema._do_load"
+      ],
+      "callers_2hop": [
+        "Schema.load",
+        "Schema.validate"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Mapping._serialize",
+      "name": "_serialize",
+      "lineno": 1662,
+      "end_lineno": 1686,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 25,
+        "branches": 5,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "_serialize",
+          "mapping_type"
+        ],
+        "num_local_calls": 2,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 33.5,
+      "callers": [
+        "Enum._serialize",
+        "Field.serialize",
+        "Tuple._serialize"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._invoke_processors",
+      "name": "_invoke_processors",
+      "lineno": 1221,
+      "end_lineno": 1250,
+      "params": [
+        "self",
+        "tag"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 4,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 33.0,
+      "callers": [
+        "Schema._invoke_dump_processors",
+        "Schema._invoke_load_processors"
+      ],
+      "callers_2hop": [
+        "Schema._do_load",
+        "Schema.dump"
+      ]
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "SchemaMeta.resolve_hooks",
+      "name": "resolve_hooks",
+      "lineno": 158,
+      "end_lineno": 199,
+      "params": [
+        "cls"
+      ],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 0,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 32.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema.__apply_nested_option",
+      "name": "__apply_nested_option",
+      "lineno": 963,
+      "end_lineno": 980,
+      "params": [
+        "self",
+        "option_name",
+        "field_names",
+        "set_operation"
+      ],
+      "metrics": {
+        "body_lines": 18,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 2,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 31.8,
+      "callers": [
+        "Schema._normalize_nested_options"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Tuple._deserialize",
+      "name": "_deserialize",
+      "lineno": 866,
+      "end_lineno": 891,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "deserialize",
+          "make_error"
+        ],
+        "num_local_calls": 2,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 30.6,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Field.deserialize",
+      "name": "deserialize",
+      "lineno": 362,
+      "end_lineno": 399,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 38,
+        "branches": 2,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "_deserialize",
+          "_validate",
+          "_validate_missing"
+        ],
+        "num_local_calls": 3,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 28.8,
+      "callers": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ],
+      "callers_2hop": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "NaiveDateTime._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "List._deserialize",
+      "name": "_deserialize",
+      "lineno": 780,
+      "end_lineno": 795,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [
+          "deserialize",
+          "make_error"
+        ],
+        "num_local_calls": 2,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 28.6,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._run_validator",
+      "name": "_run_validator",
+      "lineno": 773,
+      "end_lineno": 813,
+      "params": [
+        "self",
+        "validator_func",
+        "output"
+      ],
+      "metrics": {
+        "body_lines": 41,
+        "branches": 4,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 28.1,
+      "callers": [
+        "Schema._invoke_schema_validators"
+      ],
+      "callers_2hop": [
+        "Schema._do_load"
+      ]
+    },
+    {
+      "file": "src/marshmallow/validate.py",
+      "module": "src.marshmallow.validate",
+      "qualname": "URL.RegexMemoizer._regex_generator",
+      "name": "_regex_generator",
+      "lineno": 104,
+      "end_lineno": 175,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 72,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 26.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/utils.py",
+      "module": "src.marshmallow.utils",
+      "qualname": "from_timestamp",
+      "name": "from_timestamp",
+      "lineno": 40,
+      "end_lineno": 54,
+      "params": [
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 25.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._serialize",
+      "name": "_serialize",
+      "lineno": 530,
+      "end_lineno": 546,
+      "params": [
+        "self",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "_serialize"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 22.7,
+      "callers": [
+        "Schema.dump"
+      ],
+      "callers_2hop": [
+        "Schema.dumps"
+      ]
+    },
+    {
+      "file": "src/marshmallow/class_registry.py",
+      "module": "src.marshmallow.class_registry",
+      "qualname": "register",
+      "name": "register",
+      "lineno": 30,
+      "end_lineno": 69,
+      "params": [
+        "classname",
+        "cls"
+      ],
+      "metrics": {
+        "body_lines": 40,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 22.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "_get_fields",
+      "name": "_get_fields",
+      "lineno": 46,
+      "end_lineno": 61,
+      "params": [
+        "attrs"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 2,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 21.6,
+      "callers": [
+        "_get_fields_by_mro"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "_TemporalField._deserialize",
+      "name": "_deserialize",
+      "lineno": 1290,
+      "end_lineno": 1303,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "_make_object_from_format",
+          "make_error"
+        ],
+        "num_local_calls": 2,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 21.4,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Enum._deserialize",
+      "name": "_deserialize",
+      "lineno": 1988,
+      "end_lineno": 2001,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "_deserialize",
+          "make_error"
+        ],
+        "num_local_calls": 2,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 20.4,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Mapping._bind_to_schema",
+      "name": "_bind_to_schema",
+      "lineno": 1650,
+      "end_lineno": 1660,
+      "params": [
+        "self",
+        "field_name",
+        "parent"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [
+          "_bind_to_schema"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 20.1,
+      "callers": [
+        "Method._bind_to_schema",
+        "Tuple._bind_to_schema"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "performance/benchmark.py",
+      "module": "performance.benchmark",
+      "qualname": "run_timeit",
+      "name": "run_timeit",
+      "lineno": 85,
+      "end_lineno": 104,
+      "params": [
+        "quotes",
+        "iterations",
+        "repeat"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 20.0,
+      "callers": [
+        "main"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Decimal._validated",
+      "name": "_validated",
+      "lineno": 1140,
+      "end_lineno": 1147,
+      "params": [
+        "self",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "_validated",
+          "make_error"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 19.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "performance/benchmark.py",
+      "module": "performance.benchmark",
+      "qualname": "main",
+      "name": "main",
+      "lineno": 107,
+      "end_lineno": 148,
+      "params": [],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "run_timeit"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 19.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Decimal._format_num",
+      "name": "_format_num",
+      "lineno": 1130,
+      "end_lineno": 1137,
+      "params": [
+        "self",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.8,
+      "callers": [
+        "Number._validated"
+      ],
+      "callers_2hop": [
+        "Decimal._validated"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Field.serialize",
+      "name": "serialize",
+      "lineno": 314,
+      "end_lineno": 340,
+      "params": [
+        "self",
+        "attr",
+        "obj",
+        "accessor"
+      ],
+      "metrics": {
+        "body_lines": 27,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "_serialize",
+          "get_value"
+        ],
+        "num_local_calls": 2,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "TimeDelta._deserialize",
+      "name": "_deserialize",
+      "lineno": 1572,
+      "end_lineno": 1587,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "make_error"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.6,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/validate.py",
+      "module": "src.marshmallow.validate",
+      "qualname": "OneOf.options",
+      "name": "options",
+      "lineno": 630,
+      "end_lineno": 654,
+      "params": [
+        "self",
+        "valuegetter"
+      ],
+      "metrics": {
+        "body_lines": 25,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/decorators.py",
+      "module": "src.marshmallow.decorators",
+      "qualname": "set_hook",
+      "name": "set_hook",
+      "lineno": 221,
+      "end_lineno": 254,
+      "params": [
+        "fn",
+        "tag"
+      ],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.4,
+      "callers": [
+        "post_dump",
+        "post_load",
+        "pre_dump",
+        "pre_load",
+        "validates",
+        "validates_schema"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema.dump",
+      "name": "dump",
+      "lineno": 548,
+      "end_lineno": 579,
+      "params": [
+        "self",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "_invoke_dump_processors",
+          "_serialize"
+        ],
+        "num_local_calls": 2,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.2,
+      "callers": [
+        "Schema.dumps"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Number._validated",
+      "name": "_validated",
+      "lineno": 981,
+      "end_lineno": 991,
+      "params": [
+        "self",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "_format_num",
+          "make_error"
+        ],
+        "num_local_calls": 2,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.1,
+      "callers": [
+        "Decimal._validated"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "UUID._validated",
+      "name": "_validated",
+      "lineno": 926,
+      "end_lineno": 935,
+      "params": [
+        "self",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "make_error"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.0,
+      "callers": [
+        "Decimal._validated"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/utils.py",
+      "module": "src.marshmallow.utils",
+      "qualname": "set_value",
+      "name": "set_value",
+      "lineno": 126,
+      "end_lineno": 146,
+      "params": [
+        "dct",
+        "key",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "set_value"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 17.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Boolean._deserialize",
+      "name": "_deserialize",
+      "lineno": 1224,
+      "end_lineno": 1240,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "make_error"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.7,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Field.make_error",
+      "name": "make_error",
+      "lineno": 288,
+      "end_lineno": 303,
+      "params": [
+        "self",
+        "key"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.6,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Boolean._deserialize",
+        "Decimal._validated",
+        "Enum._deserialize",
+        "Field._validate_missing",
+        "IP._deserialize"
+      ],
+      "callers_2hop": [
+        "Field.deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/class_registry.py",
+      "module": "src.marshmallow.class_registry",
+      "qualname": "get_class",
+      "name": "get_class",
+      "lineno": 82,
+      "end_lineno": 103,
+      "params": [
+        "classname"
+      ],
+      "metrics": {
+        "body_lines": 22,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "NaiveDateTime._deserialize",
+      "name": "_deserialize",
+      "lineno": 1380,
+      "end_lineno": 1390,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "_deserialize",
+          "make_error"
+        ],
+        "num_local_calls": 2,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.1,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/error_store.py",
+      "module": "src.marshmallow.error_store",
+      "qualname": "ErrorStore.store_error",
+      "name": "store_error",
+      "lineno": 17,
+      "end_lineno": 26,
+      "params": [
+        "self",
+        "messages",
+        "field_name",
+        "index"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "copy_containers",
+          "merge_errors"
+        ],
+        "num_local_calls": 2,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "_resolve_field_instance",
+      "name": "_resolve_field_instance",
+      "lineno": 107,
+      "end_lineno": 118,
+      "params": [
+        "cls_or_instance"
+      ],
+      "metrics": {
+        "body_lines": 12,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 15.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Method._bind_to_schema",
+      "name": "_bind_to_schema",
+      "lineno": 2035,
+      "end_lineno": 2046,
+      "params": [
+        "self",
+        "field_name",
+        "parent"
+      ],
+      "metrics": {
+        "body_lines": 12,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [
+          "_bind_to_schema"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 15.2,
+      "callers": [
+        "Mapping._bind_to_schema",
+        "Tuple._bind_to_schema"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "AwareDateTime._deserialize",
+      "name": "_deserialize",
+      "lineno": 1417,
+      "end_lineno": 1427,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 11,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "_deserialize",
+          "make_error"
+        ],
+        "num_local_calls": 2,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 15.1,
+      "callers": [
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Tuple._bind_to_schema",
+      "name": "_bind_to_schema",
+      "lineno": 845,
+      "end_lineno": 853,
+      "params": [
+        "self",
+        "field_name",
+        "parent"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 0,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "_bind_to_schema"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.9,
+      "callers": [
+        "Mapping._bind_to_schema",
+        "Method._bind_to_schema"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Field._validate_missing",
+      "name": "_validate_missing",
+      "lineno": 305,
+      "end_lineno": 312,
+      "params": [
+        "self",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "make_error"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.8,
+      "callers": [
+        "Field.deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/utils.py",
+      "module": "src.marshmallow.utils",
+      "qualname": "get_value",
+      "name": "get_value",
+      "lineno": 97,
+      "end_lineno": 113,
+      "params": [
+        "obj",
+        "key",
+        "default"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 1,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_get_value_for_key"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._normalize_nested_options",
+      "name": "_normalize_nested_options",
+      "lineno": 946,
+      "end_lineno": 961,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [
+          "__apply_nested_option"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Field._normalize_processors",
+      "name": "_normalize_processors",
+      "lineno": 460,
+      "end_lineno": 473,
+      "params": [
+        "processors"
+      ],
+      "metrics": {
+        "body_lines": 14,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "_TemporalField._serialize",
+      "name": "_serialize",
+      "lineno": 1281,
+      "end_lineno": 1288,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 13.8,
+      "callers": [
+        "Enum._serialize",
+        "Field.serialize",
+        "Mapping._serialize",
+        "Tuple._serialize"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Field._bind_to_schema",
+      "name": "_bind_to_schema",
+      "lineno": 403,
+      "end_lineno": 414,
+      "params": [
+        "self",
+        "field_name",
+        "parent"
+      ],
+      "metrics": {
+        "body_lines": 12,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 13.2,
+      "callers": [
+        "Mapping._bind_to_schema",
+        "Method._bind_to_schema",
+        "Tuple._bind_to_schema"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._bind_field",
+      "name": "_bind_field",
+      "lineno": 1062,
+      "end_lineno": 1074,
+      "params": [
+        "self",
+        "field_name",
+        "field_obj"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "on_bind_field"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 11.3,
+      "callers": [
+        "Schema._init_fields"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "IP._deserialize",
+      "name": "_deserialize",
+      "lineno": 1831,
+      "end_lineno": 1839,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "make_error"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.9,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "IPInterface._deserialize",
+      "name": "_deserialize",
+      "lineno": 1893,
+      "end_lineno": 1901,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "make_error"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.9,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._call_and_store",
+      "name": "_call_and_store",
+      "lineno": 511,
+      "end_lineno": 528,
+      "params": [
+        "getter_func",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 18,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.8,
+      "callers": [
+        "Schema._deserialize",
+        "Schema._invoke_field_validators"
+      ],
+      "callers_2hop": [
+        "Schema._do_load"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Enum._serialize",
+      "name": "_serialize",
+      "lineno": 1977,
+      "end_lineno": 1986,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "_serialize"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 10.0,
+      "callers": [
+        "Field.serialize",
+        "Mapping._serialize",
+        "Tuple._serialize"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema.from_dict",
+      "name": "from_dict",
+      "lineno": 454,
+      "end_lineno": 482,
+      "params": [
+        "cls",
+        "fields"
+      ],
+      "metrics": {
+        "body_lines": 29,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Nested._serialize",
+      "name": "_serialize",
+      "lineno": 623,
+      "end_lineno": 630,
+      "params": [
+        "self",
+        "nested_obj",
+        "attr",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.8,
+      "callers": [
+        "Enum._serialize",
+        "Field.serialize",
+        "Mapping._serialize",
+        "Tuple._serialize"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/utils.py",
+      "module": "src.marshmallow.utils",
+      "qualname": "_get_value_for_key",
+      "name": "_get_value_for_key",
+      "lineno": 116,
+      "end_lineno": 123,
+      "params": [
+        "obj",
+        "key",
+        "default"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.8,
+      "callers": [
+        "get_value"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Nested._load",
+      "name": "_load",
+      "lineno": 637,
+      "end_lineno": 648,
+      "params": [
+        "self",
+        "value",
+        "partial"
+      ],
+      "metrics": {
+        "body_lines": 12,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.2,
+      "callers": [
+        "Nested._deserialize"
+      ],
+      "callers_2hop": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "_get_fields_by_mro",
+      "name": "_get_fields_by_mro",
+      "lineno": 66,
+      "end_lineno": 86,
+      "params": [
+        "klass"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "_get_fields"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 9.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Field.get_value",
+      "name": "get_value",
+      "lineno": 258,
+      "end_lineno": 276,
+      "params": [
+        "self",
+        "obj",
+        "attr",
+        "accessor",
+        "default"
+      ],
+      "metrics": {
+        "body_lines": 19,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.9,
+      "callers": [
+        "Field.serialize"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema.loads",
+      "name": "loads",
+      "lineno": 738,
+      "end_lineno": 771,
+      "params": [],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "load",
+          "loads"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema.validate",
+      "name": "validate",
+      "lineno": 815,
+      "end_lineno": 838,
+      "params": [
+        "self",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 24,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "_do_load"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Tuple._serialize",
+      "name": "_serialize",
+      "lineno": 855,
+      "end_lineno": 864,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_serialize"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.0,
+      "callers": [
+        "Enum._serialize",
+        "Field.serialize",
+        "Mapping._serialize"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._invoke_load_processors",
+      "name": "_invoke_load_processors",
+      "lineno": 1093,
+      "end_lineno": 1122,
+      "params": [
+        "self",
+        "tag",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "_invoke_processors"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 8.0,
+      "callers": [
+        "Schema._do_load"
+      ],
+      "callers_2hop": [
+        "Schema.load",
+        "Schema.validate"
+      ]
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "TimeDelta._serialize",
+      "name": "_serialize",
+      "lineno": 1563,
+      "end_lineno": 1570,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 8,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 7.8,
+      "callers": [
+        "Enum._serialize",
+        "Field.serialize",
+        "Mapping._serialize",
+        "Tuple._serialize"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/experimental/context.py",
+      "module": "src.marshmallow.experimental.context",
+      "qualname": "Context.get",
+      "name": "get",
+      "lineno": 65,
+      "end_lineno": 73,
+      "params": [
+        "cls",
+        "default"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "get"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._invoke_dump_processors",
+      "name": "_invoke_dump_processors",
+      "lineno": 1076,
+      "end_lineno": 1091,
+      "params": [
+        "self",
+        "tag",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 16,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "_invoke_processors"
+        ],
+        "num_local_calls": 1,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.6,
+      "callers": [
+        "Schema.dump"
+      ],
+      "callers_2hop": [
+        "Schema.dumps"
+      ]
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema.dumps",
+      "name": "dumps",
+      "lineno": 581,
+      "end_lineno": 595,
+      "params": [
+        "self",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "dump",
+          "dumps"
+        ],
+        "num_local_calls": 2,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/decorators.py",
+      "module": "src.marshmallow.decorators",
+      "qualname": "validates_schema",
+      "name": "validates_schema",
+      "lineno": 97,
+      "end_lineno": 130,
+      "params": [
+        "fn"
+      ],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "set_hook"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema.load",
+      "name": "load",
+      "lineno": 707,
+      "end_lineno": 736,
+      "params": [
+        "self",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 30,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "_do_load"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.0,
+      "callers": [
+        "Schema.loads"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Nested._deserialize",
+      "name": "_deserialize",
+      "lineno": 650,
+      "end_lineno": 667,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data",
+        "partial"
+      ],
+      "metrics": {
+        "body_lines": 18,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "_load",
+          "_test_collection"
+        ],
+        "num_local_calls": 2,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.8,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/decorators.py",
+      "module": "src.marshmallow.decorators",
+      "qualname": "post_load",
+      "name": "post_load",
+      "lineno": 196,
+      "end_lineno": 218,
+      "params": [
+        "fn"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "set_hook"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/decorators.py",
+      "module": "src.marshmallow.decorators",
+      "qualname": "post_dump",
+      "name": "post_dump",
+      "lineno": 152,
+      "end_lineno": 172,
+      "params": [
+        "fn"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "set_hook"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 5.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/decorators.py",
+      "module": "src.marshmallow.decorators",
+      "qualname": "pre_load",
+      "name": "pre_load",
+      "lineno": 175,
+      "end_lineno": 193,
+      "params": [
+        "fn"
+      ],
+      "metrics": {
+        "body_lines": 19,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "set_hook"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "SchemaMeta.get_declared_fields",
+      "name": "get_declared_fields",
+      "lineno": 133,
+      "end_lineno": 150,
+      "params": [
+        "mcs",
+        "klass",
+        "cls_fields",
+        "inherited_fields",
+        "dict_cls"
+      ],
+      "metrics": {
+        "body_lines": 18,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.8,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/decorators.py",
+      "module": "src.marshmallow.decorators",
+      "qualname": "pre_dump",
+      "name": "pre_dump",
+      "lineno": 133,
+      "end_lineno": 149,
+      "params": [
+        "fn"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "set_hook"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Field._serialize",
+      "name": "_serialize",
+      "lineno": 416,
+      "end_lineno": 436,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 21,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.1,
+      "callers": [
+        "Enum._serialize",
+        "Field.serialize",
+        "Mapping._serialize",
+        "Tuple._serialize"
+      ],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Field._deserialize",
+      "name": "_deserialize",
+      "lineno": 438,
+      "end_lineno": 457,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 4.0,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    {
+      "file": "src/marshmallow/decorators.py",
+      "module": "src.marshmallow.decorators",
+      "qualname": "validates",
+      "name": "validates",
+      "lineno": 86,
+      "end_lineno": 94,
+      "params": [],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "set_hook"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema.handle_error",
+      "name": "handle_error",
+      "lineno": 486,
+      "end_lineno": 498,
+      "params": [
+        "self",
+        "error",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 13,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 3.3,
+      "callers": [
+        "Schema._do_load"
+      ],
+      "callers_2hop": [
+        "Schema.load",
+        "Schema.validate"
+      ]
+    },
+    {
+      "file": "src/marshmallow/utils.py",
+      "module": "src.marshmallow.utils",
+      "qualname": "pluck",
+      "name": "pluck",
+      "lineno": 83,
+      "end_lineno": 91,
+      "params": [
+        "dictlist",
+        "key"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 0,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 2.9,
+      "callers": [],
+      "callers_2hop": []
+    }
+  ]
+}

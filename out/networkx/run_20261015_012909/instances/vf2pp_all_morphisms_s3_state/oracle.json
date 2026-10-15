@@ -1,0 +1,48 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "4",
+        "variable": "cand"
+      },
+      {
+        "value": "4",
+        "variable": "candidate"
+      },
+      {
+        "value": "11",
+        "variable": "current_node"
+      },
+      {
+        "value": "{66: 8, 46: 3, 51: 11, 71: 2, 16: 6}",
+        "variable": "mapping"
+      },
+      {
+        "value": "36",
+        "variable": "node"
+      },
+      {
+        "value": "5",
+        "variable": "node_number"
+      },
+      {
+        "value": "[66, 46, 51, 71, 16, 36, 11, 76, 21, 41, 26, 31, 56, 61]",
+        "variable": "node_order"
+      },
+      {
+        "value": "{8: 66, 3: 46, 11: 51, 2: 71, 6: 16}",
+        "variable": "rev_map"
+      }
+    ]
+  },
+  "question": "Test: networkx_qa/vf2pp_all_morphisms_s3_state/files/testcase.py::TestVF2ppExhaustiveSearch::test_cubic_pair_not_isomorphic (test class `TestVF2ppExhaustiveSearch`, single test method `test_cubic_pair_not_isomorphic`).\n\nTarget function: `networkx.algorithms.isomorphism.vf2pp._all_morphisms` in file `networkx/algorithms/isomorphism/vf2pp.py` (a generator function). The test reaches it only indirectly, through the public API.\n\nObservation point: line 543 of `networkx/algorithms/isomorphism/vf2pp.py` (absolute, 1-based line number in the file as it exists in the repository; it is the `restore_Tinout(node, cand, graph_info, state_info)` statement in the backtracking branch of the main `while stack:` loop). Count every execution of that line inside `_all_morphisms` over the whole test run, 1-based, in chronological order (during this test the function is invoked exactly once). Consider the moment immediately after line 543 has finished executing for the 87-th time (occurrence number 87 in the 1-based count), i.e. after the `restore_Tinout` call has returned and before the following `continue` statement runs.\n\nAt that moment, report the values of these local variables of the `_all_morphisms` frame: `cand`, `candidate`, `current_node`, `mapping`, `node`, `node_number`, `node_order`, `rev_map`.\n\nAnswer format: a JSON object {\"observed_state\": [...]} whose list contains exactly one entry per variable listed above, each entry being {\"variable\": <variable name as a string>, \"value\": <string>}. Entries are sorted by variable name in ascending lexicographic (code-point) order. Each \"value\" is the Python `repr()` of the variable's current value at the observation point, as a string. For containers this is the `repr` of the whole container exactly as Python prints it (dicts in their current insertion order, lists in their element order, strings inside them keep their single quotes, e.g. a dict would look like {2: 'x', 7: 'y'} and a list like [5, 'q']). Python spellings such as `None`/`True` would appear inside the strings, never JSON `null`/`true`. No variable is omitted and no extra variables are added.\n",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}

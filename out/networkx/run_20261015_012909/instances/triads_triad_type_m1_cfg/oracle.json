@@ -1,0 +1,196 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 237,
+        "line": 456
+      },
+      {
+        "count": 1,
+        "line": 457
+      },
+      {
+        "count": 236,
+        "line": 458
+      },
+      {
+        "count": 236,
+        "line": 459
+      },
+      {
+        "count": 44,
+        "line": 460
+      },
+      {
+        "count": 192,
+        "line": 461
+      },
+      {
+        "count": 36,
+        "line": 462
+      },
+      {
+        "count": 156,
+        "line": 463
+      },
+      {
+        "count": 70,
+        "line": 464
+      },
+      {
+        "count": 70,
+        "line": 465
+      },
+      {
+        "count": 18,
+        "line": 466
+      },
+      {
+        "count": 52,
+        "line": 467
+      },
+      {
+        "count": 6,
+        "line": 468
+      },
+      {
+        "count": 46,
+        "line": 469
+      },
+      {
+        "count": 26,
+        "line": 470
+      },
+      {
+        "count": 20,
+        "line": 471
+      },
+      {
+        "count": 20,
+        "line": 472
+      },
+      {
+        "count": 86,
+        "line": 473
+      },
+      {
+        "count": 73,
+        "line": 474
+      },
+      {
+        "count": 73,
+        "line": 475
+      },
+      {
+        "count": 14,
+        "line": 476
+      },
+      {
+        "count": 7,
+        "line": 477
+      },
+      {
+        "count": 0,
+        "line": 478
+      },
+      {
+        "count": 7,
+        "line": 479
+      },
+      {
+        "count": 59,
+        "line": 480
+      },
+      {
+        "count": 41,
+        "line": 481
+      },
+      {
+        "count": 9,
+        "line": 482
+      },
+      {
+        "count": 0,
+        "line": 483
+      },
+      {
+        "count": 32,
+        "line": 484
+      },
+      {
+        "count": 31,
+        "line": 485
+      },
+      {
+        "count": 187,
+        "line": 486
+      },
+      {
+        "count": 187,
+        "line": 487
+      },
+      {
+        "count": 0,
+        "line": 488
+      },
+      {
+        "count": 31,
+        "line": 489
+      },
+      {
+        "count": 0,
+        "line": 490
+      },
+      {
+        "count": 31,
+        "line": 491
+      },
+      {
+        "count": 4,
+        "line": 492
+      },
+      {
+        "count": 27,
+        "line": 493
+      },
+      {
+        "count": 3,
+        "line": 494
+      },
+      {
+        "count": 24,
+        "line": 495
+      },
+      {
+        "count": 16,
+        "line": 496
+      },
+      {
+        "count": 8,
+        "line": 497
+      },
+      {
+        "count": 5,
+        "line": 498
+      },
+      {
+        "count": 3,
+        "line": 499
+      },
+      {
+        "count": 3,
+        "line": 500
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `TestTriadsByTypeScenarios` in the file `networkx_qa/triads_triad_type_m1_cfg/files/testcase.py`, run in full with pytest (all of its test methods: pytest ids `networkx_qa/triads_triad_type_m1_cfg/files/testcase.py::TestTriadsByTypeScenarios::<method>`). The test methods never call the target directly; they call public NetworkX APIs which reach it.\n\nTarget function: `networkx.algorithms.triads.triad_type` (the function `triad_type` defined at `networkx/algorithms/triads.py` line 407, below its decorators).\n\nFor every physical source line in the inclusive range 456..500 of `networkx/algorithms/triads.py` (i.e. the whole body of `triad_type` after its docstring; the `def` line, the decorator lines and the docstring are NOT in scope), report how many times that line executed, totalled over ALL invocations of `triad_type` in ALL test methods of the class (including invocations whose test expects an exception).\n\nDefinitions:\n- \"Line executed\" = a CPython line event (as observed by a `sys.settrace` line-level tracer on frames of `triad_type` itself, Python 3.12) reporting that line number inside a `triad_type` frame. Lines of other functions (callees such as `is_triad`, decorators/wrappers, helpers) never count toward this function's lines.\n- A `for` statement's header line fires once each time the loop fetches its next item (i.e. once per iteration started, plus once more if the iterator is exhausted normally); `if`/`elif` lines fire each time their condition is evaluated. All statements in scope are single physical lines.\n- Lines in scope that are comments-only, blank, or never executed MUST still appear, with `count` 0. Every line number from 456 to 500 inclusive appears exactly once.\n\nOutput format: a JSON object `{\"line_execution_counts\": [{\"count\": <int>, \"line\": <int>}, ...]}` where `line` is the absolute 1-based line number in `networkx/algorithms/triads.py` and `count` is a non-negative integer; the list is sorted by `line` ascending (no duplicates). Example of one element (not from the answer): {\"count\": 3, \"line\": 1234}.\n",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

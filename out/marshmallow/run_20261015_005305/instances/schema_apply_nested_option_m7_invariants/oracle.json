@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 133,
+        "predicate": "line 970: '.' not in nested_names",
+        "violations": 51
+      },
+      {
+        "held_always": false,
+        "observations": 46,
+        "predicate": "line 975: len(options) >= 2",
+        "violations": 14
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "line 977: len(original_options) >= len(options)",
+        "violations": 0
+      },
+      {
+        "held_always": true,
+        "observations": 46,
+        "predicate": "line 980: len(new_options) <= len(options)",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 46,
+        "predicate": "line 980: len(new_options) == len(options)",
+        "violations": 10
+      },
+      {
+        "held_always": false,
+        "observations": 46,
+        "predicate": "line 980: len(new_options) > 0",
+        "violations": 1
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `marshmallow_qa/schema_apply_nested_option_m7_invariants/files/testcase.py::ApplyNestedOptionsInvariantTest` (12 test methods). Run ALL test methods of this class (e.g. `pytest marshmallow_qa/schema_apply_nested_option_m7_invariants/files/testcase.py::ApplyNestedOptionsInvariantTest`); the answer aggregates over every invocation of the target that happens while any of these test methods runs (counts are totals across all methods; their execution order does not affect the answer).\n\nTarget function: `Schema.__apply_nested_option` (name-mangled private method; qualname `marshmallow.schema.Schema.__apply_nested_option`) in `src/marshmallow/schema.py`. The test never calls it directly: it is reached via `Schema.__init__` -> `Schema._normalize_nested_options`, including for nested child schemas that are instantiated lazily (e.g. when `Nested.schema` is first accessed during `dump`). Every such invocation counts, whichever schema class it runs on.\n\nCandidate predicates (each prefixed by its observation line; line numbers are absolute, 1-based line numbers in `src/marshmallow/schema.py` as it exists in the repository):\n  - `line 970: '.' not in nested_names`\n  - `line 975: len(options) >= 2`\n  - `line 977: len(original_options) >= len(options)`\n  - `line 980: len(new_options) <= len(options)`\n  - `line 980: len(new_options) == len(options)`\n  - `line 980: len(new_options) > 0`\n\nObservation semantics: a predicate prefixed `line N:` is evaluated once each time line N of the target begins executing (i.e. at the Python trace `line` event for line N, BEFORE that line's statement runs), using the target frame's local variables as they are at that instant. So at line 970 `nested_names` is the value just bound by the `for` on line 969; at line 975 `options`, `new_options` and `original_options` are the values bound by lines 972-974; at line 980 `new_options` reflects any `|=` / `&=` already applied on lines 977/979. `len(...)` is the ordinary Python `len` of the actual local object (an `OrderedSet`, list, tuple, etc.); `options` is the per-parent list built on line 970 and may contain duplicates, while `new_options` (an `OrderedSet`) does not. Predicates are evaluated in the target's own frame only (the list comprehension on line 966 is not an observation).\n\nFor each predicate report:\n  - `predicate`: the predicate text exactly as written above, including the `line N: ` prefix (a JSON string; e.g. a hypothetical predicate written `line 1: x > 0` would be reported as \"line 1: x > 0\");\n  - `observations`: integer, the number of times it was evaluated (number of executions of its observation line, summed over all invocations in all test methods);\n  - `violations`: integer, the number of those evaluations that were false;\n  - `held_always`: JSON boolean, `true` iff `violations == 0` AND `observations > 0`. A predicate whose observation line never executes is reported with `observations: 0`, `violations: 0`, `held_always: false`.\n\nAnswer format: a JSON object `{\"invariant_report\": [...]}` with exactly one entry per candidate predicate (6 entries), each an object with exactly the keys `held_always`, `observations`, `predicate`, `violations`. Sort the list by `predicate` ascending using plain Python string ordering (code-point order); predicate strings are all distinct, so no tie-break is needed.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

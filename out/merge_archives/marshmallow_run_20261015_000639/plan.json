@@ -1,0 +1,761 @@
+[
+  {
+    "instance_id": "schema_deserialize_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._deserialize",
+      "name": "_deserialize",
+      "lineno": 597,
+      "end_lineno": 705,
+      "params": [
+        "self",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 109,
+        "branches": 11,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "_call_and_store",
+          "_deserialize"
+        ],
+        "num_local_calls": 2,
+        "assigns": 18,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 3,
+        "comprehensions": 3,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 73.0,
+      "callers": [
+        "Schema._do_load"
+      ],
+      "callers_2hop": [
+        "Schema.load",
+        "Schema.validate"
+      ]
+    },
+    "rank_note": "affinity+score=66.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "schema_invoke_field_validators_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/marshmallow/schema.py",
+      "module": "src.marshmallow.schema",
+      "qualname": "Schema._invoke_field_validators",
+      "name": "_invoke_field_validators",
+      "lineno": 1124,
+      "end_lineno": 1172,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 4,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 3,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [
+          "_call_and_store"
+        ],
+        "num_local_calls": 1,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 55.9,
+      "callers": [
+        "Schema._do_load"
+      ],
+      "callers_2hop": [
+        "Schema.load",
+        "Schema.validate"
+      ]
+    },
+    "rank_note": "affinity+score=46.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "fields_deserialize_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Mapping._deserialize",
+      "name": "_deserialize",
+      "lineno": 1688,
+      "end_lineno": 1728,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 41,
+        "branches": 8,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [
+          "deserialize",
+          "make_error",
+          "mapping_type"
+        ],
+        "num_local_calls": 3,
+        "assigns": 11,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 2,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 61.1,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Tuple._deserialize"
+      ]
+    },
+    "rank_note": "affinity+score=51.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "error_store_merge_errors_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/marshmallow/error_store.py",
+      "module": "src.marshmallow.error_store",
+      "qualname": "merge_errors",
+      "name": "merge_errors",
+      "lineno": 37,
+      "end_lineno": 71,
+      "params": [
+        "errors1",
+        "errors2"
+      ],
+      "metrics": {
+        "body_lines": 35,
+        "branches": 10,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 17,
+        "local_calls": [
+          "merge_errors"
+        ],
+        "num_local_calls": 1,
+        "assigns": 5,
+        "augassigns": 0,
+        "returns": 10,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 44.5,
+      "callers": [
+        "ErrorStore.store_error"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=49.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "fields_deserialize_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/marshmallow/fields.py",
+      "module": "src.marshmallow.fields",
+      "qualname": "Tuple._deserialize",
+      "name": "_deserialize",
+      "lineno": 866,
+      "end_lineno": 891,
+      "params": [
+        "self",
+        "value",
+        "attr",
+        "data"
+      ],
+      "metrics": {
+        "body_lines": 26,
+        "branches": 3,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 11,
+        "local_calls": [
+          "deserialize",
+          "make_error"
+        ],
+        "num_local_calls": 2,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 30.6,
+      "callers": [
+        "AwareDateTime._deserialize",
+        "Enum._deserialize",
+        "Field.deserialize",
+        "NaiveDateTime._deserialize"
+      ],
+      "callers_2hop": [
+        "List._deserialize",
+        "Mapping._deserialize"
+      ]
+    },
+    "rank_note": "affinity+score=27.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "error_store_store_error_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/marshmallow/error_store.py",
+      "module": "src.marshmallow.error_store",
+      "qualname": "ErrorStore.store_error",
+      "name": "store_error",
+      "lineno": 17,
+      "end_lineno": 26,
+      "params": [
+        "self",
+        "messages",
+        "field_name",
+        "index"
+      ],
+      "metrics": {
+        "body_lines": 10,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "copy_containers",
+          "merge_errors"
+        ],
+        "num_local_calls": 2,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=17.0 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "validate_regex_generator_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/marshmallow/validate.py",
+      "module": "src.marshmallow.validate",
+      "qualname": "URL.RegexMemoizer._regex_generator",
+      "name": "_regex_generator",
+      "lineno": 104,
+      "end_lineno": 175,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 72,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 5,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 26.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=25.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "utils_from_timestamp_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/marshmallow/utils.py",
+      "module": "src.marshmallow.utils",
+      "qualname": "from_timestamp",
+      "name": "from_timestamp",
+      "lineno": 40,
+      "end_lineno": 54,
+      "params": [
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 15,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 4,
+        "finallys": 0,
+        "calls": 7,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 25.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=28.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "class_registry_register_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/marshmallow/class_registry.py",
+      "module": "src.marshmallow.class_registry",
+      "qualname": "register",
+      "name": "register",
+      "lineno": 30,
+      "end_lineno": 69,
+      "params": [
+        "classname",
+        "cls"
+      ],
+      "metrics": {
+        "body_lines": 40,
+        "branches": 3,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 22.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=18.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "utils_get_value_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/marshmallow/utils.py",
+      "module": "src.marshmallow.utils",
+      "qualname": "get_value",
+      "name": "get_value",
+      "lineno": 97,
+      "end_lineno": 113,
+      "params": [
+        "obj",
+        "key",
+        "default"
+      ],
+      "metrics": {
+        "body_lines": 17,
+        "branches": 1,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [
+          "_get_value_for_key"
+        ],
+        "num_local_calls": 1,
+        "assigns": 2,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 14.7,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=12.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "validate_options_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/marshmallow/validate.py",
+      "module": "src.marshmallow.validate",
+      "qualname": "OneOf.options",
+      "name": "options",
+      "lineno": 630,
+      "end_lineno": 654,
+      "params": [
+        "self",
+        "valuegetter"
+      ],
+      "metrics": {
+        "body_lines": 25,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.5,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=13.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "benchmark_run_timeit_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "performance/benchmark.py",
+      "module": "performance.benchmark",
+      "qualname": "run_timeit",
+      "name": "run_timeit",
+      "lineno": 85,
+      "end_lineno": 104,
+      "params": [
+        "quotes",
+        "iterations",
+        "repeat"
+      ],
+      "metrics": {
+        "body_lines": 20,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 20.0,
+      "callers": [
+        "main"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=16.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "class_registry_get_class_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/marshmallow/class_registry.py",
+      "module": "src.marshmallow.class_registry",
+      "qualname": "get_class",
+      "name": "get_class",
+      "lineno": 82,
+      "end_lineno": 103,
+      "params": [
+        "classname"
+      ],
+      "metrics": {
+        "body_lines": 22,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 3,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 1,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 16.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=16.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "benchmark_main_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "performance/benchmark.py",
+      "module": "performance.benchmark",
+      "qualname": "main",
+      "name": "main",
+      "lineno": 107,
+      "end_lineno": 148,
+      "params": [],
+      "metrics": {
+        "body_lines": 42,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "run_timeit"
+        ],
+        "num_local_calls": 1,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 19.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=12.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "decorators_set_hook_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/marshmallow/decorators.py",
+      "module": "src.marshmallow.decorators",
+      "qualname": "set_hook",
+      "name": "set_hook",
+      "lineno": 221,
+      "end_lineno": 254,
+      "params": [
+        "fn",
+        "tag"
+      ],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 2,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 18.4,
+      "callers": [
+        "post_dump",
+        "post_load",
+        "pre_dump",
+        "pre_load",
+        "validates",
+        "validates_schema"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=14.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "context_get_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/marshmallow/experimental/context.py",
+      "module": "src.marshmallow.experimental.context",
+      "qualname": "Context.get",
+      "name": "get",
+      "lineno": 65,
+      "end_lineno": 73,
+      "params": [
+        "cls",
+        "default"
+      ],
+      "metrics": {
+        "body_lines": 9,
+        "branches": 1,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 2,
+        "local_calls": [
+          "get"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=8.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "decorators_validates_schema_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/marshmallow/decorators.py",
+      "module": "src.marshmallow.decorators",
+      "qualname": "validates_schema",
+      "name": "validates_schema",
+      "lineno": 97,
+      "end_lineno": 130,
+      "params": [
+        "fn"
+      ],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 0,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 1,
+        "local_calls": [
+          "set_hook"
+        ],
+        "num_local_calls": 1,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 6.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=7.5 [direct]",
+    "exercise_mode": "direct"
+  }
+]

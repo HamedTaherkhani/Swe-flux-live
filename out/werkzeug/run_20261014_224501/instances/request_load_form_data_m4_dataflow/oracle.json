@@ -1,0 +1,150 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": 56,
+        "def_line": 451,
+        "use_line": 453,
+        "variable": "result"
+      },
+      {
+        "count": 47,
+        "def_line": 451,
+        "use_line": 457,
+        "variable": "result"
+      },
+      {
+        "count": 110,
+        "def_line": 396,
+        "use_line": 403,
+        "variable": "self"
+      },
+      {
+        "count": 85,
+        "def_line": 396,
+        "use_line": 407,
+        "variable": "self"
+      },
+      {
+        "count": 24,
+        "def_line": 396,
+        "use_line": 417,
+        "variable": "self"
+      },
+      {
+        "count": 12,
+        "def_line": 396,
+        "use_line": 418,
+        "variable": "self"
+      },
+      {
+        "count": 3,
+        "def_line": 396,
+        "use_line": 428,
+        "variable": "self"
+      },
+      {
+        "count": 3,
+        "def_line": 396,
+        "use_line": 429,
+        "variable": "self"
+      },
+      {
+        "count": 9,
+        "def_line": 396,
+        "use_line": 431,
+        "variable": "self"
+      },
+      {
+        "count": 9,
+        "def_line": 396,
+        "use_line": 432,
+        "variable": "self"
+      },
+      {
+        "count": 61,
+        "def_line": 396,
+        "use_line": 434,
+        "variable": "self"
+      },
+      {
+        "count": 13,
+        "def_line": 396,
+        "use_line": 446,
+        "variable": "self"
+      },
+      {
+        "count": 48,
+        "def_line": 396,
+        "use_line": 449,
+        "variable": "self"
+      },
+      {
+        "count": 57,
+        "def_line": 396,
+        "use_line": 451,
+        "variable": "self"
+      },
+      {
+        "count": 9,
+        "def_line": 396,
+        "use_line": 454,
+        "variable": "self"
+      },
+      {
+        "count": 9,
+        "def_line": 396,
+        "use_line": 455,
+        "variable": "self"
+      },
+      {
+        "count": 47,
+        "def_line": 396,
+        "use_line": 457,
+        "variable": "self"
+      },
+      {
+        "count": 13,
+        "def_line": 446,
+        "use_line": 451,
+        "variable": "stream"
+      },
+      {
+        "count": 44,
+        "def_line": 449,
+        "use_line": 451,
+        "variable": "stream"
+      },
+      {
+        "count": 24,
+        "def_line": 408,
+        "use_line": 410,
+        "variable": "warnings"
+      },
+      {
+        "count": 3,
+        "def_line": 419,
+        "use_line": 421,
+        "variable": "warnings"
+      },
+      {
+        "count": 13,
+        "def_line": 438,
+        "use_line": 440,
+        "variable": "warnings"
+      }
+    ]
+  },
+  "question": "Test file: werkzeug_qa/request_load_form_data_m4_dataflow/files/testcase.py\nTest class: LoadFormDataFlowTest (run ALL of its test methods, e.g. with\n`pytest werkzeug_qa/request_load_form_data_m4_dataflow/files/testcase.py::LoadFormDataFlowTest`).\n\nTarget function: `werkzeug.wrappers.request.Request._load_form_data`, defined in\n`src/werkzeug/wrappers/request.py` (the `def` line is line 396). The test never\ncalls it by name; it is reached through `Request.form`, `Request.files`,\n`Request.values`, `Request.data` and `Request.get_data(...)`, including from the\nRequest subclasses defined in the test file (none of them overrides\n`_load_form_data` itself, so every execution runs the code at that location).\n\nQuestion: over ALL invocations of this function during the whole test class\n(summed over every test method; an invocation = one call of the function), report\nevery observed def-use pair of the tracked local variables together with how many\ntimes it was observed.\n\nDefinitions:\n- Tracked variables: exactly the four local names `self`, `warnings`, `stream`,\n  `result`. Module globals and builtins (`Request`, `ImmutableMultiDict`, `type`,\n  `DeprecationWarning`, ...) and attributes (`self.form`, `self.files`, ...) are\n  NOT tracked variables.\n- Def: the parameter `self` is defined at the `def` line (396) on entry of each\n  invocation. `import warnings` defines `warnings` at the line of that import\n  statement. `stream = ...` / `result = ...` define the variable at the line of\n  the assignment statement. A def only takes effect if its statement completes\n  (an assignment whose right-hand side raises defines nothing). Assigning to an\n  attribute such as `self.form = ...` or `self.form, self.files = result` is NOT a\n  def of `self`; it is a USE of `self` (and of `result` on the right-hand side).\n- Use: any read (load) of a tracked name in an executed statement, including\n  `self` inside `type(self)`, `self.__dict__`, `self.<attr> = ...` targets and\n  call arguments. A use is attributed to the line where its statement begins; for\n  an `if` statement, uses in its condition are attributed to the line of the `if`\n  keyword, even when the condition spans several physical lines (e.g. a\n  parenthesized condition starting on line N and continuing on N+1, N+2 is\n  reported as use_line N). Likewise a multi-line call statement is reported at\n  the line where the statement begins.\n- Observation: one execution of a statement that reads the variable, paired with\n  the def that reaches it at that moment (the most recent completed def of that\n  variable in the same invocation). If a statement reads the same variable\n  several times (e.g. `self.x = self.y()`), that is still ONE observation for\n  that execution. A statement that starts executing but raises still counts its\n  uses. Flows never cross invocations.\n- count = total number of observations of that exact (variable, def_line,\n  use_line) triple, summed across all invocations in all test methods of the\n  class. Pairs never observed are omitted (no zero counts).\n- The function body contains no loops, augmented assignments, comprehensions or\n  try blocks; the docstring is not a statement and never appears as a use line.\n- Line numbers are absolute, 1-based line numbers in\n  src/werkzeug/wrappers/request.py as it exists in the repository.\n\nOutput format: a JSON object\n{\"observed_def_use_pairs\": [{\"count\": int, \"def_line\": int, \"use_line\": int, \"variable\": str}, ...]}\nwhere `variable` is the bare name (e.g. \"stream\"). Each (variable, def_line,\nuse_line) triple appears exactly once. Sort the list by variable (ascending,\nplain string order), then def_line ascending, then use_line ascending.\n",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": "int",
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

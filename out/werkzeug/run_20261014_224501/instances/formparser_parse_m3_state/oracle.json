@@ -1,0 +1,55 @@
+{
+  "oracle_answer": {
+    "unique_values": [
+      "0",
+      "1",
+      "101",
+      "102",
+      "108",
+      "13",
+      "13582",
+      "15",
+      "16",
+      "174",
+      "18",
+      "185",
+      "19",
+      "2",
+      "20",
+      "22",
+      "23",
+      "23688",
+      "24",
+      "25",
+      "27",
+      "28",
+      "36",
+      "37",
+      "38",
+      "51846",
+      "52",
+      "55",
+      "55375",
+      "55744",
+      "6",
+      "64",
+      "65389",
+      "65411",
+      "7",
+      "72",
+      "74443",
+      "79",
+      "9",
+      "94",
+      "95351",
+      "None"
+    ]
+  },
+  "question": "Consider the test class `MultipartStateTest` in `werkzeug_qa/formparser_parse_m3_state/files/testcase.py` (run all of its test methods with pytest, e.g. pytest id `werkzeug_qa/formparser_parse_m3_state/files/testcase.py::MultipartStateTest`). The test never calls the target directly; it builds multipart/form-data request bodies and parses them through werkzeug's form-data parsing entry point. The target function is `werkzeug.formparser.MultiPartParser.parse` in `src/werkzeug/formparser.py`. Aggregate over ALL invocations of this function during the run of ALL test methods in the class (an invocation is one call of the function; invocations that end by raising an exception count too). Collect every value that the local variable `field_size` is ever bound to inside the function's own frame: this includes its initial annotated assignment, the resets when a new part starts, and every update by the augmented assignment `field_size += ...` (the value after the update counts, including an update that is immediately followed by a raise). Values from different invocations are pooled together. Report each distinct value as its Python `repr()` string (an int such as 7 is written as \"7\"; Python's None is written as \"None\", not JSON null). Remove duplicates and sort the strings ascending by plain lexicographic Python string comparison (code-point order, so e.g. \"105\" sorts before \"23\", and \"None\" sorts after all digit strings). Answer as JSON of the form {\"unique_values\": [\"...\", ...]}.",
+  "question_kind": "M3_ProgramState",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  }
+}

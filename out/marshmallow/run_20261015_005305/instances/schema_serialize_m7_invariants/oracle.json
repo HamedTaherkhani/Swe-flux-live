@@ -1,0 +1,60 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "attr_name.islower()",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 227,
+        "predicate": "key == attr_name",
+        "violations": 51
+      },
+      {
+        "held_always": false,
+        "observations": 16,
+        "predicate": "len(obj) > 0",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 281,
+        "predicate": "len(ret) < 3",
+        "violations": 119
+      },
+      {
+        "held_always": true,
+        "observations": 54,
+        "predicate": "obj is not None",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 227,
+        "predicate": "type(value) is str",
+        "violations": 155
+      },
+      {
+        "held_always": false,
+        "observations": 227,
+        "predicate": "value is not None",
+        "violations": 25
+      }
+    ]
+  },
+  "question": "Test file: `marshmallow_qa/schema_serialize_m7_invariants/files/testcase.py`, test class `SerializeInvariantTest` (pytest id prefix `marshmallow_qa/schema_serialize_m7_invariants/files/testcase.py::SerializeInvariantTest`). Run ALL 12 test methods of the class (test_01 ... test_12); the answer aggregates over every one of them.\n\nTarget function: `marshmallow.schema.Schema._serialize` in `src/marshmallow/schema.py` (the method whose `def` is on line 530). Every invocation of this function counts, regardless of which schema instance or caller (top-level `dump`/`dumps`, or recursive invocations reached through `Nested` fields, or the function's own recursive call for collections) triggered it. Line numbers below are absolute, 1-based line numbers of that file as it exists in the repository.\n\nCandidate invariants. Each predicate is evaluated on the local variables of the target function's own frame at an \"observation\", where an observation is one line event on the stated line, i.e. the moment JUST BEFORE that line starts executing (so variables assigned on that very line still hold their values from earlier in the same frame, and variables assigned on earlier lines already hold their new values). Every time the line is about to execute, in any invocation, that is one observation; observations from all invocations in all 12 test methods are summed. Line 540 is the `for` statement header: it is observed once before every loop iteration AND once more when the loop finds its iterator exhausted (also after a `continue`). The predicates, verbatim:\n\n1. `len(obj) > 0` \u2014 observed at line 538 (the `return [...]` list-comprehension line).\n2. `obj is not None` \u2014 observed at line 539 (`ret = self.dict_class()`).\n3. `len(ret) < 3` \u2014 observed at line 540 (the `for attr_name, field_obj in ...` line).\n4. `value is not None` \u2014 observed at line 542 (`if value is missing:`).\n5. `attr_name.islower()` \u2014 observed at line 543 (`continue`).\n6. `key == attr_name` \u2014 observed at line 545 (`ret[key] = value`).\n7. `type(value) is str` \u2014 observed at line 545 (`ret[key] = value`).\n\nFor each predicate report one object with keys:\n- `predicate` (str): the predicate text exactly as written between backticks above (e.g. for a hypothetical predicate `x >= 0` the string is \"x >= 0\").\n- `observations` (int): total number of observations of that predicate across all invocations in all 12 test methods.\n- `violations` (int): how many of those observations evaluated the predicate to False.\n- `held_always` (bool): true iff `observations > 0` and `violations == 0`. A predicate whose observation line is never reached is reported as `observations: 0`, `violations: 0`, `held_always: false`.\n\nReturn JSON of the form {\"invariant_report\": [...]} with exactly one entry per predicate (7 entries), sorted by the `predicate` string in ascending order using plain Python string comparison (code-point order; predicates are all distinct, so no tie-break is needed). Integers are JSON numbers, booleans are JSON true/false.\n",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

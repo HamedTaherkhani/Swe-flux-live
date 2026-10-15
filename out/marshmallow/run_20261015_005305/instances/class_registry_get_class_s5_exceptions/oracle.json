@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "Multiple classes with name 'NavikaSchema' were found. Please use the full, module-qualified path.",
+    "exception_type": "marshmallow.exceptions.RegistryError"
+  },
+  "question": "Run the single test `marshmallow_qa/class_registry_get_class_s5_exceptions/files/testcase.py::TestGetClassExceptions::test_lookup_storm` (test class `TestGetClassExceptions`, file `marshmallow_qa/class_registry_get_class_s5_exceptions/files/testcase.py`) with pytest. The target function is `marshmallow.class_registry.get_class`, defined in `src/marshmallow/class_registry.py`.\n\nAn invocation is one call of `get_class` during the test run; invocations are numbered 1, 2, 3, ... in chronological order. An invocation 'propagated an exception' if it did not return normally, i.e. an exception left the `get_class` frame and reached its caller (the test's `try`). An exception is 'caught inside' an invocation if it was raised in that `get_class` frame and handled by an `except` clause of `get_class` itself.\n\nAmong all invocations that propagated an exception AND in which no exception at all was caught inside `get_class`, select the one with the HIGHEST invocation number. Report the exception object that propagated out of that invocation (the object itself, not its `__cause__` or `__context__`).\n\nAnswer format: a JSON object with exactly two string keys: `exception_type` and `exception_message`. `exception_type` naming: use the bare `type(exc).__name__` for built-in exception types (e.g. `ValueError`, never `builtins.ValueError`) and `module.QualName` for every other exception type, where `module` is the class's `__module__` and `QualName` its `__qualname__` (e.g. `json.decoder.JSONDecodeError`). Report the concrete type of the object, not a base class. `exception_message` is exactly `str(exc)`, character for character (no type prefix, no surrounding quotes added, quotes inside the message kept as they appear).",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

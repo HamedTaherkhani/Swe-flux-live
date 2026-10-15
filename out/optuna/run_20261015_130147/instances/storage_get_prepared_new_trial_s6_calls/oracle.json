@@ -1,0 +1,72 @@
+{
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_value_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_value_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_value_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_param_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_param_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_attr_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_attr_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_attr_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_attr_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_intermediate_value_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_intermediate_value_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_intermediate_value_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_intermediate_value_without_commit"
+      },
+      {
+        "file": "optuna/storages/_rdb/storage.py",
+        "func": "optuna.storages._rdb.storage.RDBStorage._set_trial_intermediate_value_without_commit"
+      }
+    ]
+  },
+  "question": "Run the pytest test `optuna_qa/storage_get_prepared_new_trial_s6_calls/files/testcase.py::TestPreparedNewTrial::test_prepare_many_templates` (file `optuna_qa/storage_get_prepared_new_trial_s6_calls/files/testcase.py`, class `TestPreparedNewTrial`, the only test method `test_prepare_many_templates`). The test calls the target function `RDBStorage._get_prepared_new_trial` defined in `optuna/storages/_rdb/storage.py` (qualname `optuna.storages._rdb.storage.RDBStorage._get_prepared_new_trial`) several times. An invocation of the target is one Python function call of it (one `call` event of a new frame); invocations are numbered 1-based in chronological order over the whole test run. Consider invocation number 5 of the target. Report the ordered sequence of calls made to the following tracked functions, all defined in `optuna/storages/_rdb/storage.py`: `RDBStorage._set_trial_value_without_commit`, `RDBStorage._set_trial_param_without_commit`, `RDBStorage._set_trial_attr_without_commit`, and `RDBStorage._set_trial_intermediate_value_without_commit`. Inclusion rule: a call counts if it starts (a `call` event of a new frame of one of those four functions) at any time while invocation 5 of the target is on the call stack (direct or nested calls both count; in practice they are direct calls from the target's body). Every call is listed separately in the chronological order of its `call` event, with repeats kept (no deduplication). Calls to any other function (e.g. `BaseStorage.check_trial_is_updatable`, model classmethods, SQLAlchemy, builtins) and the target invocation itself are NOT included. Answer as JSON `{\"function_call_order\": [{\"file\": str, \"func\": str}, ...]}` where `file` is the repo-relative path of the callee's source file (forward slashes) and `func` is the callee's dotted `module.Class.method` name, e.g. `optuna.storages._rdb.storage.RDBStorage.set_trial_param`.",
+  "question_kind": "S6_InterProceduralCFG",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

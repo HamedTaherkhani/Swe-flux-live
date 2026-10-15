@@ -1,0 +1,44 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 86,
+        "exception_type": "FileNotFoundError"
+      },
+      {
+        "count": 32,
+        "exception_type": "IsADirectoryError"
+      },
+      {
+        "count": 12,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 23,
+        "exception_type": "NotADirectoryError"
+      },
+      {
+        "count": 14,
+        "exception_type": "PermissionError"
+      },
+      {
+        "count": 17,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 33,
+        "exception_type": "io.UnsupportedOperation"
+      }
+    ]
+  },
+  "question": "Run the whole test class `MachineIdProbeTest` in `werkzeug_qa/debug_generate_m5_exceptions/files/testcase.py` (all of its test methods, e.g. pytest id `werkzeug_qa/debug_generate_m5_exceptions/files/testcase.py::MachineIdProbeTest::test_plain_linux_host`). The tests reach the nested function `_generate`, defined inside `get_machine_id` in `src/werkzeug/debug/__init__.py` (qualname `werkzeug.debug.get_machine_id.<locals>._generate`), only indirectly through `werkzeug.debug.get_pin_and_cookie_name`. Across ALL invocations of `_generate` in ALL test methods of the class (an invocation is one call of the function; every simulated host triggers a fresh one), count how many times each exception type is observed in the `_generate` frame.\n\nObservation rule: an exception is observed once each time it is raised by a statement executing in the `_generate` frame or propagates into the `_generate` frame out of a function that `_generate` called (directly or through deeper callees, e.g. an error raised deep inside a call made on one of its lines counts once, in `_generate`). This holds whether the exception is then caught by one of `_generate`'s own `except` clauses or escapes `_generate` and ends the invocation. The same exception object leaving a `with` block in `_generate` (after the context manager's `__exit__` declines to suppress it) is NOT counted again, and nothing is re-raised explicitly. Exceptions that are raised and fully handled inside a callee without ever reaching the `_generate` frame do not count, and exceptions raised in other frames (including the test's own helpers, `get_machine_id`, or `get_pin_and_cookie_name`) are only counted if they propagate into `_generate`. Counts are totals over every observation in the run, so the same type observed in several invocations or test methods contributes once per observation.\n\nNaming: use bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError`, never `builtins.ValueError`) and `module.QualName` (i.e. `type(exc).__module__ + '.' + type(exc).__qualname__`) for all others (e.g. `json.decoder.JSONDecodeError`). Use the exact class of the exception instance, not a base class it is caught as.\n\nAnswer format: a JSON object with a single key `exception_type_counts` whose value is a list of objects `{\"exception_type\": <str>, \"count\": <int>}`, one per exception type observed at least once (types with zero observations are omitted; each type appears exactly once). `count` is a JSON integer. Sort the list by `exception_type` ascending using plain code-point string comparison (types are unique, so no further tie-break is needed).",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 6,
+        "exception_type": "AssertionError"
+      },
+      {
+        "count": 12,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 23,
+        "exception_type": "OverflowError"
+      },
+      {
+        "count": 12,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 25,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 2,
+        "exception_type": "ZeroDivisionError"
+      },
+      {
+        "count": 14,
+        "exception_type": "decimal.InvalidOperation"
+      },
+      {
+        "count": 47,
+        "exception_type": "marshmallow.exceptions.ValidationError"
+      }
+    ]
+  },
+  "question": "Consider the test class `TestNumberValidatedExceptions` in `marshmallow_qa/fields_validated_m5_exceptions/files/testcase.py`, run with `pytest marshmallow_qa/fields_validated_m5_exceptions/files/testcase.py::TestNumberValidatedExceptions` (all of its test methods, aggregated together). Focus on the method `marshmallow.fields.Number._validated` defined in `src/marshmallow/fields.py` (the `_validated` method of the abstract class `Number`, which the test calls directly as `Number._validated(field, value)`; NOT the overrides `Integer._validated`, `Float._validated`, `Decimal._validated` or `UUID._validated`, none of which run here). Across ALL invocations of `Number._validated` during ALL test methods of the class, count how many times each exception type is observed in the `Number._validated` frame.\n\nObservation rule: an exception is observed in the frame when it is raised by code executing in that exact frame (a `raise` statement in the method body), OR when it propagates into that frame out of a callee (e.g. escaping `self._format_num(value)` / the field's `num_type`, or escaping `self.make_error(...)`). Each such event counts once per frame invocation per exception: an exception that propagates in and is caught by an `except` clause of the method counts once; an exception that propagates in and is NOT caught by the method (so it continues out of the method) also counts exactly once (leaving the frame does not count again). A new exception raised while handling another one inside an `except` clause (including one that escapes from a `make_error` call evaluated inside the handler) is a separate observation of its own type, in addition to the one that was caught. There is no bare re-raise of the same exception object in this method; each observation is a distinct exception. Exceptions raised AND fully handled inside a callee (never escaping into the `Number._validated` frame) do NOT count. Exceptions in other frames (the test's helper `_run`, the `num_type` callables, `make_error`, etc.) do NOT count on their own. Counts are totals over all invocations and all test methods: the same type observed in five different invocations contributes five.\n\nNaming: use bare `type(exc).__name__` for built-in exception classes (e.g. `IndexError`, never `builtins.IndexError`), and `module.QualName` (i.e. `f\"{type(exc).__module__}.{type(exc).__qualname__}\"`, e.g. `json.decoder.JSONDecodeError`) for every non-built-in exception class. Use the concrete runtime class of the exception object, not the class named in an `except` clause.\n\nAnswer format: a JSON object with a single key `exception_type_counts`, whose value is a list of objects `{\"count\": <int>, \"exception_type\": <str>}`, one per exception type observed at least once (types never observed are omitted; no entry has count 0). Sort the list by `exception_type` ascending (plain Python string ordering, case-sensitive, so uppercase letters sort before lowercase); since each type appears exactly once, there are no ties.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

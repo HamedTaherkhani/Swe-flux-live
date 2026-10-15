@@ -1,0 +1,40 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 105,
+        "exception_type": "FileExistsError"
+      },
+      {
+        "count": 13,
+        "exception_type": "FileNotFoundError"
+      },
+      {
+        "count": 2,
+        "exception_type": "NotADirectoryError"
+      },
+      {
+        "count": 5,
+        "exception_type": "RuntimeError"
+      },
+      {
+        "count": 1,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 1,
+        "exception_type": "ValueError"
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `TestJournalFileSymlinkLockAcquireMatrix` in `optuna_qa/file_acquire_m5_exceptions/files/testcase.py`. Run ALL test methods of this class (the whole class, e.g. `pytest optuna_qa/file_acquire_m5_exceptions/files/testcase.py::TestJournalFileSymlinkLockAcquireMatrix`), and consider the method `optuna.storages.journal._file.JournalFileSymlinkLock.acquire` (i.e. `JournalFileSymlinkLock.acquire`) defined in `optuna/storages/journal/_file.py`. The test calls `acquire` directly, with the `time` module used by `optuna/storages/journal/_file.py` replaced by the deterministic `_Clock` object defined in the test file.\n\nCount how many times exceptions of each type are OBSERVED in the frame of `JournalFileSymlinkLock.acquire`, aggregated over the whole run: over every invocation of `acquire` (an invocation is one call of the method) and over every test method of the class. Only calls of `JournalFileSymlinkLock.acquire` matter (not `JournalFileOpenLock.acquire`), and only the `acquire` frame itself: observations in other frames (e.g. inside `release`, or inside the test's `_Clock` hooks) are ignored.\n\nObservation rule: an exception is observed in the `acquire` frame each time either (a) a statement executing in that frame raises it (including an explicit `raise <expr>` statement), or (b) it propagates into that frame out of a call made from that frame (e.g. an exception escaping `os.symlink(...)`, `os.stat(...)` or `self.release()`; it does not matter whether the callee is a C builtin or Python code, nor how deep inside the callee it was originally raised). Each such event counts once. An explicit `raise <expr>` that raises an exception object that was already observed earlier in the same frame counts AGAIN as a new observation. A bare `raise` statement (re-raising the exception currently being handled, with no operand) does NOT count again. Exceptions raised and fully handled inside a callee (never escaping into `acquire`) are NOT observed. Being caught by an `except` clause of `acquire` (and swallowed via `continue`, or otherwise) does not undo an observation.\n\nException type naming: use the bare `type(exc).__name__` for built-in exception classes (e.g. `KeyError`, never `builtins.KeyError`), and `type(exc).__module__ + \".\" + type(exc).__qualname__` for all other classes (e.g. `optuna.exceptions.DuplicatedStudyError`). Always use the concrete class of the exception object, not the class named in the `except` clause that catches it.\n\nAnswer format: a JSON object with a single key `exception_type_counts` whose value is a list of objects `{\"exception_type\": <str>, \"count\": <int>}`, one object per distinct exception type observed at least once (types never observed are omitted; no zero counts). `count` is the total number of observations of that type (totals over all invocations and all test methods, not the number of distinct invocations or tests). Sort the list by `exception_type` ascending using plain Python string ordering (code-point order); exception_type values are unique so no further tie-break is needed.\n",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "question_kind": "S4_DataFlow",
+  "question": "Consider the pytest test `networkx_qa/pajek_parse_pajek_s4_dataflow/files/testcase.py::TestPajekRoundTrip::test_read_mixed_sections` (test file `networkx_qa/pajek_parse_pajek_s4_dataflow/files/testcase.py`, class `TestPajekRoundTrip`, single test method `test_read_mixed_sections`), run from the repository root with the repository's Python (CPython 3.12). During this test the function `parse_pajek` defined in `networkx/readwrite/pajek.py` (fully qualified `networkx.readwrite.pajek.parse_pajek`) is reached indirectly through `nx.read_pajek`. Consider every invocation of `parse_pajek` during the test (one invocation = one call of the function; aggregate over all of them) and report the dynamic def-use pairs observed in the function's own frame for exactly these tracked local variable names: `G`, `edge_data`, `extra_attr`, `l`, `label`, `lines`, `nodelabels`, `splitline`, `u`, `v`, `w`. No other names are tracked.\n\nStatement-level model. Work at the granularity of executed statements of `parse_pajek` itself. Every def and every use is attributed to the line where the statement BEGINS (absolute 1-based line number in `networkx/readwrite/pajek.py` as it exists in the repository); for a statement spanning several physical lines, use its first line even if the interpreter reports a later line while evaluating it. For compound statements only the header counts: an `if`/`elif`/`while` header is attributed to the line of the `if`/`elif`/`while` keyword and uses the names read in its condition (a header executes whenever its condition is evaluated); a `for` header is attributed to the line of the `for` keyword; `try:`, `except ...:`, `pass`, `break` and `continue` neither define nor use tracked names. Decorator lines never appear.\n\nDef: a tracked name is defined (a) at the `def parse_pajek(` line (the `def` keyword line, not the decorator line) for the parameter `lines` when the function is entered, (b) at a statement that binds it as a plain assignment target (including tuple-unpacking targets), and (c) at a `for` header each time the loop yields an item and binds the loop target (the final evaluation of the header that finds the iterator exhausted binds nothing). A statement that raises an exception while executing (whether or not it is caught later) defines nothing. Augmented assignment (`x += 1`) would count as a use of the current def of `x` followed by a new def of `x` on that line (none of the tracked names is augmented-assigned here). Assigning through a subscript or attribute (`d[k] = v`, `obj.a[k] = v`) and calling a mutating method (`d.update(...)`) are uses of `d`/`obj`, NOT defs. Names bound only inside a comprehension (comprehension loop variables) are comprehension-local and are never tracked; none of the tracked names is a comprehension variable.\n\nUse: a tracked name is used at a statement each time that statement executes and its source text reads the name (a load, anywhere in the statement or header, including inside a comprehension's expressions and including the iterable expression of a `for` header, which counts as read on every evaluation of the header). A statement that raises still counts as using every tracked name it reads (in this run all such reads happen before the raise). Within one statement, uses happen before defs, so e.g. `y = f(y)` uses the previous def of `y` and then creates a new one.\n\nPair: `{variable, def_line, use_line}` is observed when, at some execution of the use statement, the most recent def of `variable` in the same invocation's frame happened at `def_line` (i.e. the value defined there is read before being redefined). A def that is never read before being redefined or before the function returns produces no pair. Pairs are deduplicated across all executions and invocations.\n\nAnswer format: a JSON object `{\"observed_def_use_pairs\": [...]}` whose list contains one object per unique pair with exactly the keys `variable` (string, the bare local name exactly as listed above), `def_line` (integer) and `use_line` (integer). Sort the list by `variable` (ascending, plain code-point string comparison, so uppercase names sort before lowercase), then `def_line` ascending, then `use_line` ascending.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 216,
+        "use_line": 230,
+        "variable": "G"
+      },
+      {
+        "def_line": 216,
+        "use_line": 244,
+        "variable": "G"
+      },
+      {
+        "def_line": 216,
+        "use_line": 246,
+        "variable": "G"
+      },
+      {
+        "def_line": 216,
+        "use_line": 249,
+        "variable": "G"
+      },
+      {
+        "def_line": 216,
+        "use_line": 255,
+        "variable": "G"
+      },
+      {
+        "def_line": 216,
+        "use_line": 259,
+        "variable": "G"
+      },
+      {
+        "def_line": 259,
+        "use_line": 290,
+        "variable": "G"
+      },
+      {
+        "def_line": 259,
+        "use_line": 301,
+        "variable": "G"
+      },
+      {
+        "def_line": 277,
+        "use_line": 281,
+        "variable": "edge_data"
+      },
+      {
+        "def_line": 277,
+        "use_line": 287,
+        "variable": "edge_data"
+      },
+      {
+        "def_line": 277,
+        "use_line": 290,
+        "variable": "edge_data"
+      },
+      {
+        "def_line": 254,
+        "use_line": 255,
+        "variable": "extra_attr"
+      },
+      {
+        "def_line": 286,
+        "use_line": 287,
+        "variable": "extra_attr"
+      },
+      {
+        "def_line": 220,
+        "use_line": 223,
+        "variable": "l"
+      },
+      {
+        "def_line": 220,
+        "use_line": 225,
+        "variable": "l"
+      },
+      {
+        "def_line": 220,
+        "use_line": 231,
+        "variable": "l"
+      },
+      {
+        "def_line": 220,
+        "use_line": 233,
+        "variable": "l"
+      },
+      {
+        "def_line": 220,
+        "use_line": 256,
+        "variable": "l"
+      },
+      {
+        "def_line": 220,
+        "use_line": 257,
+        "variable": "l"
+      },
+      {
+        "def_line": 220,
+        "use_line": 260,
+        "variable": "l"
+      },
+      {
+        "def_line": 220,
+        "use_line": 291,
+        "variable": "l"
+      },
+      {
+        "def_line": 235,
+        "use_line": 237,
+        "variable": "l"
+      },
+      {
+        "def_line": 235,
+        "use_line": 241,
+        "variable": "l"
+      },
+      {
+        "def_line": 263,
+        "use_line": 265,
+        "variable": "l"
+      },
+      {
+        "def_line": 263,
+        "use_line": 269,
+        "variable": "l"
+      },
+      {
+        "def_line": 242,
+        "use_line": 243,
+        "variable": "label"
+      },
+      {
+        "def_line": 242,
+        "use_line": 244,
+        "variable": "label"
+      },
+      {
+        "def_line": 242,
+        "use_line": 245,
+        "variable": "label"
+      },
+      {
+        "def_line": 242,
+        "use_line": 246,
+        "variable": "label"
+      },
+      {
+        "def_line": 242,
+        "use_line": 249,
+        "variable": "label"
+      },
+      {
+        "def_line": 242,
+        "use_line": 255,
+        "variable": "label"
+      },
+      {
+        "def_line": 193,
+        "use_line": 213,
+        "variable": "lines"
+      },
+      {
+        "def_line": 193,
+        "use_line": 215,
+        "variable": "lines"
+      },
+      {
+        "def_line": 215,
+        "use_line": 218,
+        "variable": "lines"
+      },
+      {
+        "def_line": 215,
+        "use_line": 220,
+        "variable": "lines"
+      },
+      {
+        "def_line": 215,
+        "use_line": 235,
+        "variable": "lines"
+      },
+      {
+        "def_line": 215,
+        "use_line": 263,
+        "variable": "lines"
+      },
+      {
+        "def_line": 232,
+        "use_line": 245,
+        "variable": "nodelabels"
+      },
+      {
+        "def_line": 232,
+        "use_line": 274,
+        "variable": "nodelabels"
+      },
+      {
+        "def_line": 232,
+        "use_line": 275,
+        "variable": "nodelabels"
+      },
+      {
+        "def_line": 241,
+        "use_line": 242,
+        "variable": "splitline"
+      },
+      {
+        "def_line": 241,
+        "use_line": 248,
+        "variable": "splitline"
+      },
+      {
+        "def_line": 241,
+        "use_line": 254,
+        "variable": "splitline"
+      },
+      {
+        "def_line": 269,
+        "use_line": 271,
+        "variable": "splitline"
+      },
+      {
+        "def_line": 269,
+        "use_line": 273,
+        "variable": "splitline"
+      },
+      {
+        "def_line": 269,
+        "use_line": 280,
+        "variable": "splitline"
+      },
+      {
+        "def_line": 269,
+        "use_line": 286,
+        "variable": "splitline"
+      },
+      {
+        "def_line": 274,
+        "use_line": 290,
+        "variable": "u"
+      },
+      {
+        "def_line": 275,
+        "use_line": 290,
+        "variable": "v"
+      },
+      {
+        "def_line": 280,
+        "use_line": 281,
+        "variable": "w"
+      }
+    ]
+  }
+}

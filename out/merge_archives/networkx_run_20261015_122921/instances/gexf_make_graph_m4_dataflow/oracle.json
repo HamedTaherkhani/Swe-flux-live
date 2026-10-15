@@ -1,0 +1,606 @@
+{
+  "question_kind": "M4_DataFlow",
+  "question": "Consider the pytest test class `TestGEXFMakeGraph` in `networkx_qa/gexf_make_graph_m4_dataflow/files/testcase.py` (pytest ids `networkx_qa/gexf_make_graph_m4_dataflow/files/testcase.py::TestGEXFMakeGraph::<method>`). Run ALL test methods of that class (every `test_*` method; the answer aggregates over all of them, so method order does not matter). During this run the method `GEXFReader.make_graph` (qualname `networkx.readwrite.gexf.GEXFReader.make_graph`, defined at line 845 of `networkx/readwrite/gexf.py`) is invoked a number of times; an invocation is one call of that function (including invocations that end by raising an exception).\n\nReport every def-use pair observed inside `make_graph` together with how many times it was observed, as {\"observed_def_use_pairs\": [{\"count\": int, \"def_line\": int, \"use_line\": int, \"variable\": str}, ...]}.\n\nDefinitions:\n- Tracked variables: the function's parameters (`self`, `graph_xml`, `meta_xml`) plus every plain local name bound inside `make_graph` by an assignment target (including each name of a tuple target such as `x, y = ...`) or a `for` target. Module-level/global names (e.g. `nx`) are NOT tracked. Attribute or subscript stores (e.g. `obj.attr = v`, `d[k] = v`) are NOT defs of anything; the base name they are written through (`obj`, `d`) is a USE.\n- Line numbers are absolute 1-based line numbers in `networkx/readwrite/gexf.py` as it exists in the repository. Every statement in `make_graph` fits on a single line.\n- Defs: parameters are defined at the `def` line (845) at the start of every invocation. An assignment statement defines its target names at its line. A `for` header line defines its loop target once per loop iteration (i.e. once each time the loop body is about to be entered); when the loop is exhausted no def happens.\n- Uses: a tracked name read (loaded) on a line. For an `if`/`elif` line only the condition is considered. For an assignment, the right-hand side is evaluated (uses) before the targets are bound (defs), so a statement like `x = f(x)` uses the previous def of `x`. For a `for` header, the iterable expression is evaluated exactly ONCE per execution of the whole loop (once each time control reaches the loop from above, even if the loop then runs zero iterations) \u2014 it is NOT re-counted per iteration.\n- Observation: every time a line executes, each distinct tracked variable read on that line produces exactly one observation (a variable appearing twice in the same statement still counts once per execution of that statement). The pair is (variable, line of the def that reaches this use at runtime, line of the use). The reaching def is the most recent def of that variable executed earlier in the SAME invocation (parameter defs reset at each invocation; nothing carries over between invocations). A use inside a loop body therefore counts once per iteration in which that line runs. Lines not executed (untaken branches, statements after a raised exception) produce nothing.\n- `count` = total number of observations of that exact (variable, def_line, use_line) triple, summed over ALL invocations in ALL test methods of the class. Pairs never observed are omitted; no entry has count 0.\n\nOutput format: `variable` is the bare variable name string (e.g. \"foo\"); `def_line`, `use_line`, `count` are JSON integers. Each (variable, def_line, use_line) triple appears at most once. Sort the list by `variable` (ascending, plain string comparison), then `def_line` ascending, then `use_line` ascending.",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": "int",
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": 2,
+        "def_line": 849,
+        "use_line": 857,
+        "variable": "G"
+      },
+      {
+        "count": 2,
+        "def_line": 849,
+        "use_line": 860,
+        "variable": "G"
+      },
+      {
+        "count": 2,
+        "def_line": 849,
+        "use_line": 868,
+        "variable": "G"
+      },
+      {
+        "count": 1,
+        "def_line": 849,
+        "use_line": 871,
+        "variable": "G"
+      },
+      {
+        "count": 1,
+        "def_line": 849,
+        "use_line": 874,
+        "variable": "G"
+      },
+      {
+        "count": 8,
+        "def_line": 849,
+        "use_line": 876,
+        "variable": "G"
+      },
+      {
+        "count": 5,
+        "def_line": 849,
+        "use_line": 896,
+        "variable": "G"
+      },
+      {
+        "count": 6,
+        "def_line": 849,
+        "use_line": 901,
+        "variable": "G"
+      },
+      {
+        "count": 9,
+        "def_line": 849,
+        "use_line": 911,
+        "variable": "G"
+      },
+      {
+        "count": 66,
+        "def_line": 849,
+        "use_line": 917,
+        "variable": "G"
+      },
+      {
+        "count": 104,
+        "def_line": 849,
+        "use_line": 923,
+        "variable": "G"
+      },
+      {
+        "count": 6,
+        "def_line": 849,
+        "use_line": 927,
+        "variable": "G"
+      },
+      {
+        "count": 6,
+        "def_line": 849,
+        "use_line": 928,
+        "variable": "G"
+      },
+      {
+        "count": 3,
+        "def_line": 849,
+        "use_line": 931,
+        "variable": "G"
+      },
+      {
+        "count": 3,
+        "def_line": 851,
+        "use_line": 857,
+        "variable": "G"
+      },
+      {
+        "count": 2,
+        "def_line": 851,
+        "use_line": 860,
+        "variable": "G"
+      },
+      {
+        "count": 3,
+        "def_line": 851,
+        "use_line": 865,
+        "variable": "G"
+      },
+      {
+        "count": 1,
+        "def_line": 851,
+        "use_line": 871,
+        "variable": "G"
+      },
+      {
+        "count": 12,
+        "def_line": 851,
+        "use_line": 876,
+        "variable": "G"
+      },
+      {
+        "count": 11,
+        "def_line": 851,
+        "use_line": 896,
+        "variable": "G"
+      },
+      {
+        "count": 9,
+        "def_line": 851,
+        "use_line": 901,
+        "variable": "G"
+      },
+      {
+        "count": 11,
+        "def_line": 851,
+        "use_line": 911,
+        "variable": "G"
+      },
+      {
+        "count": 91,
+        "def_line": 851,
+        "use_line": 917,
+        "variable": "G"
+      },
+      {
+        "count": 101,
+        "def_line": 851,
+        "use_line": 923,
+        "variable": "G"
+      },
+      {
+        "count": 9,
+        "def_line": 851,
+        "use_line": 927,
+        "variable": "G"
+      },
+      {
+        "count": 9,
+        "def_line": 851,
+        "use_line": 930,
+        "variable": "G"
+      },
+      {
+        "count": 2,
+        "def_line": 851,
+        "use_line": 931,
+        "variable": "G"
+      },
+      {
+        "count": 6,
+        "def_line": 928,
+        "use_line": 931,
+        "variable": "G"
+      },
+      {
+        "count": 9,
+        "def_line": 930,
+        "use_line": 931,
+        "variable": "G"
+      },
+      {
+        "count": 32,
+        "def_line": 890,
+        "use_line": 891,
+        "variable": "a"
+      },
+      {
+        "count": 16,
+        "def_line": 890,
+        "use_line": 893,
+        "variable": "a"
+      },
+      {
+        "count": 15,
+        "def_line": 890,
+        "use_line": 898,
+        "variable": "a"
+      },
+      {
+        "count": 32,
+        "def_line": 891,
+        "use_line": 892,
+        "variable": "attr_class"
+      },
+      {
+        "count": 16,
+        "def_line": 891,
+        "use_line": 897,
+        "variable": "attr_class"
+      },
+      {
+        "count": 1,
+        "def_line": 891,
+        "use_line": 903,
+        "variable": "attr_class"
+      },
+      {
+        "count": 21,
+        "def_line": 884,
+        "use_line": 890,
+        "variable": "attributes_elements"
+      },
+      {
+        "count": 8,
+        "def_line": 855,
+        "use_line": 856,
+        "variable": "description"
+      },
+      {
+        "count": 5,
+        "def_line": 855,
+        "use_line": 857,
+        "variable": "description"
+      },
+      {
+        "count": 15,
+        "def_line": 898,
+        "use_line": 899,
+        "variable": "ea"
+      },
+      {
+        "count": 20,
+        "def_line": 907,
+        "use_line": 909,
+        "variable": "ea"
+      },
+      {
+        "count": 15,
+        "def_line": 898,
+        "use_line": 900,
+        "variable": "ed"
+      },
+      {
+        "count": 20,
+        "def_line": 908,
+        "use_line": 910,
+        "variable": "ed"
+      },
+      {
+        "count": 15,
+        "def_line": 888,
+        "use_line": 899,
+        "variable": "edge_attr"
+      },
+      {
+        "count": 20,
+        "def_line": 888,
+        "use_line": 909,
+        "variable": "edge_attr"
+      },
+      {
+        "count": 205,
+        "def_line": 888,
+        "use_line": 923,
+        "variable": "edge_attr"
+      },
+      {
+        "count": 15,
+        "def_line": 889,
+        "use_line": 900,
+        "variable": "edge_default"
+      },
+      {
+        "count": 15,
+        "def_line": 889,
+        "use_line": 901,
+        "variable": "edge_default"
+      },
+      {
+        "count": 20,
+        "def_line": 889,
+        "use_line": 910,
+        "variable": "edge_default"
+      },
+      {
+        "count": 20,
+        "def_line": 889,
+        "use_line": 911,
+        "variable": "edge_default"
+      },
+      {
+        "count": 205,
+        "def_line": 922,
+        "use_line": 923,
+        "variable": "edge_xml"
+      },
+      {
+        "count": 21,
+        "def_line": 847,
+        "use_line": 848,
+        "variable": "edgedefault"
+      },
+      {
+        "count": 20,
+        "def_line": 920,
+        "use_line": 921,
+        "variable": "edges_element"
+      },
+      {
+        "count": 18,
+        "def_line": 920,
+        "use_line": 922,
+        "variable": "edges_element"
+      },
+      {
+        "count": 21,
+        "def_line": 869,
+        "use_line": 870,
+        "variable": "graph_end"
+      },
+      {
+        "count": 2,
+        "def_line": 869,
+        "use_line": 871,
+        "variable": "graph_end"
+      },
+      {
+        "count": 21,
+        "def_line": 872,
+        "use_line": 873,
+        "variable": "graph_mode"
+      },
+      {
+        "count": 21,
+        "def_line": 863,
+        "use_line": 864,
+        "variable": "graph_name"
+      },
+      {
+        "count": 3,
+        "def_line": 863,
+        "use_line": 865,
+        "variable": "graph_name"
+      },
+      {
+        "count": 21,
+        "def_line": 866,
+        "use_line": 867,
+        "variable": "graph_start"
+      },
+      {
+        "count": 2,
+        "def_line": 866,
+        "use_line": 868,
+        "variable": "graph_start"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 847,
+        "variable": "graph_xml"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 863,
+        "variable": "graph_xml"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 866,
+        "variable": "graph_xml"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 869,
+        "variable": "graph_xml"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 872,
+        "variable": "graph_xml"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 879,
+        "variable": "graph_xml"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 884,
+        "variable": "graph_xml"
+      },
+      {
+        "count": 20,
+        "def_line": 845,
+        "use_line": 914,
+        "variable": "graph_xml"
+      },
+      {
+        "count": 20,
+        "def_line": 845,
+        "use_line": 920,
+        "variable": "graph_xml"
+      },
+      {
+        "count": 8,
+        "def_line": 858,
+        "use_line": 859,
+        "variable": "keywords"
+      },
+      {
+        "count": 4,
+        "def_line": 858,
+        "use_line": 860,
+        "variable": "keywords"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 854,
+        "variable": "meta_xml"
+      },
+      {
+        "count": 8,
+        "def_line": 845,
+        "use_line": 855,
+        "variable": "meta_xml"
+      },
+      {
+        "count": 8,
+        "def_line": 845,
+        "use_line": 858,
+        "variable": "meta_xml"
+      },
+      {
+        "count": 16,
+        "def_line": 893,
+        "use_line": 894,
+        "variable": "na"
+      },
+      {
+        "count": 16,
+        "def_line": 893,
+        "use_line": 895,
+        "variable": "nd"
+      },
+      {
+        "count": 16,
+        "def_line": 886,
+        "use_line": 894,
+        "variable": "node_attr"
+      },
+      {
+        "count": 157,
+        "def_line": 886,
+        "use_line": 917,
+        "variable": "node_attr"
+      },
+      {
+        "count": 16,
+        "def_line": 887,
+        "use_line": 895,
+        "variable": "node_default"
+      },
+      {
+        "count": 16,
+        "def_line": 887,
+        "use_line": 896,
+        "variable": "node_default"
+      },
+      {
+        "count": 157,
+        "def_line": 916,
+        "use_line": 917,
+        "variable": "node_xml"
+      },
+      {
+        "count": 20,
+        "def_line": 914,
+        "use_line": 915,
+        "variable": "nodes_element"
+      },
+      {
+        "count": 18,
+        "def_line": 914,
+        "use_line": 916,
+        "variable": "nodes_element"
+      },
+      {
+        "count": 8,
+        "def_line": 845,
+        "use_line": 855,
+        "variable": "self"
+      },
+      {
+        "count": 8,
+        "def_line": 845,
+        "use_line": 858,
+        "variable": "self"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 879,
+        "variable": "self"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 880,
+        "variable": "self"
+      },
+      {
+        "count": 1,
+        "def_line": 845,
+        "use_line": 881,
+        "variable": "self"
+      },
+      {
+        "count": 21,
+        "def_line": 845,
+        "use_line": 884,
+        "variable": "self"
+      },
+      {
+        "count": 16,
+        "def_line": 845,
+        "use_line": 893,
+        "variable": "self"
+      },
+      {
+        "count": 15,
+        "def_line": 845,
+        "use_line": 898,
+        "variable": "self"
+      },
+      {
+        "count": 20,
+        "def_line": 845,
+        "use_line": 914,
+        "variable": "self"
+      },
+      {
+        "count": 18,
+        "def_line": 845,
+        "use_line": 916,
+        "variable": "self"
+      },
+      {
+        "count": 157,
+        "def_line": 845,
+        "use_line": 917,
+        "variable": "self"
+      },
+      {
+        "count": 20,
+        "def_line": 845,
+        "use_line": 920,
+        "variable": "self"
+      },
+      {
+        "count": 18,
+        "def_line": 845,
+        "use_line": 922,
+        "variable": "self"
+      },
+      {
+        "count": 205,
+        "def_line": 845,
+        "use_line": 923,
+        "variable": "self"
+      },
+      {
+        "count": 20,
+        "def_line": 845,
+        "use_line": 926,
+        "variable": "self"
+      }
+    ]
+  }
+}

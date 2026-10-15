@@ -1,0 +1,232 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 0,
+        "line": 311
+      },
+      {
+        "count": 0,
+        "line": 312
+      },
+      {
+        "count": 0,
+        "line": 313
+      },
+      {
+        "count": 0,
+        "line": 314
+      },
+      {
+        "count": 0,
+        "line": 315
+      },
+      {
+        "count": 0,
+        "line": 316
+      },
+      {
+        "count": 35,
+        "line": 317
+      },
+      {
+        "count": 35,
+        "line": 318
+      },
+      {
+        "count": 0,
+        "line": 319
+      },
+      {
+        "count": 35,
+        "line": 320
+      },
+      {
+        "count": 10,
+        "line": 321
+      },
+      {
+        "count": 0,
+        "line": 322
+      },
+      {
+        "count": 25,
+        "line": 323
+      },
+      {
+        "count": 0,
+        "line": 324
+      },
+      {
+        "count": 0,
+        "line": 325
+      },
+      {
+        "count": 25,
+        "line": 326
+      },
+      {
+        "count": 1,
+        "line": 327
+      },
+      {
+        "count": 1,
+        "line": 328
+      },
+      {
+        "count": 0,
+        "line": 329
+      },
+      {
+        "count": 24,
+        "line": 330
+      },
+      {
+        "count": 403,
+        "line": 331
+      },
+      {
+        "count": 379,
+        "line": 332
+      },
+      {
+        "count": 55,
+        "line": 333
+      },
+      {
+        "count": 324,
+        "line": 334
+      },
+      {
+        "count": 324,
+        "line": 335
+      },
+      {
+        "count": 324,
+        "line": 336
+      },
+      {
+        "count": 324,
+        "line": 337
+      },
+      {
+        "count": 324,
+        "line": 338
+      },
+      {
+        "count": 324,
+        "line": 339
+      },
+      {
+        "count": 0,
+        "line": 340
+      },
+      {
+        "count": 324,
+        "line": 341
+      },
+      {
+        "count": 297,
+        "line": 342
+      },
+      {
+        "count": 0,
+        "line": 343
+      },
+      {
+        "count": 27,
+        "line": 344
+      },
+      {
+        "count": 324,
+        "line": 345
+      },
+      {
+        "count": 0,
+        "line": 346
+      },
+      {
+        "count": 324,
+        "line": 347
+      },
+      {
+        "count": 324,
+        "line": 348
+      },
+      {
+        "count": 0,
+        "line": 349
+      },
+      {
+        "count": 0,
+        "line": 350
+      },
+      {
+        "count": 277,
+        "line": 351
+      },
+      {
+        "count": 0,
+        "line": 352
+      },
+      {
+        "count": 47,
+        "line": 353
+      },
+      {
+        "count": 22,
+        "line": 354
+      },
+      {
+        "count": 47,
+        "line": 355
+      },
+      {
+        "count": 25,
+        "line": 356
+      },
+      {
+        "count": 0,
+        "line": 357
+      },
+      {
+        "count": 0,
+        "line": 358
+      },
+      {
+        "count": 48,
+        "line": 359
+      },
+      {
+        "count": 24,
+        "line": 360
+      },
+      {
+        "count": 24,
+        "line": 361
+      },
+      {
+        "count": 24,
+        "line": 362
+      },
+      {
+        "count": 24,
+        "line": 363
+      },
+      {
+        "count": 0,
+        "line": 364
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `optuna_qa/contour_get_contour_subplot_info_m1_cfg/files/testcase.py::TestContourSubplots` (file `optuna_qa/contour_get_contour_subplot_info_m1_cfg/files/testcase.py`, class `TestContourSubplots`), run from the repository root with CPython 3.11 as `pytest optuna_qa/contour_get_contour_subplot_info_m1_cfg/files/testcase.py::TestContourSubplots`. The answer aggregates over ALL test methods (`def test_...`) of this class; every method runs exactly once, in the same process, and all of them contribute.\n\nTarget function: `optuna.visualization._contour._get_contour_subplot_info`, defined at module level in `optuna/visualization/_contour.py` (its `def` line is line 310 and the function's last physical line is line 364). The test never calls it directly; it is reached through `optuna.visualization.plot_contour`, and every call made during any test method counts, however many times it is called per method (possibly zero).\n\nQuestion: for every physical source line from line 311 through line 364 (inclusive) of `optuna/visualization/_contour.py`, how many times was that line executed in total during the whole test class run?\n\nDefinition of \"executed\": count the `line` events that CPython's `sys.settrace` line tracing reports for that line number in frames whose code object is this function itself, summed over all invocations of the function in all test methods. Precisely:\n- Only frames of `optuna.visualization._contour._get_contour_subplot_info` itself count. Lines executed in callees (e.g. `_get_axis_info`, `_satisfy_constraints`, logger methods, the `target` lambdas) do not count, and neither do lines of the separate list-comprehension frame (`<listcomp>`, which is its own frame on Python 3.11) - only the line events the function's own frame reports.\n- `call` and `return` events are not counted; the `def` line (310) is outside the scope and receives no line events anyway. The signature continuation lines, blank lines, comment-only lines, `else:` lines, and closing-parenthesis lines are INCLUDED in the scope and simply get whatever number of line events the tracer reports for them (usually 0).\n- Multi-line statements: do NOT remap events to the first line of the statement. Each physical line is credited with exactly the line events reported for that line number. A multi-line statement/expression may therefore produce events on several of its physical lines, and the same physical line may receive more than one event during a single execution of the statement - every reported event counts. A `for` header receives one event each time the loop condition is (re)checked, including the final check that ends the loop.\n\nAnswer format: a JSON object `{\"line_execution_counts\": [...]}`. The list has exactly one element per physical line from 311 to 364 inclusive (no line omitted, lines that never executed appear with `\"count\": 0`), each of the form `{\"line\": <int>, \"count\": <int>}`, where `line` is the absolute 1-based line number in `optuna/visualization/_contour.py` as it exists in the repository and `count` is a non-negative JSON integer total. Sort the list by `line` ascending; there are no duplicate `line` values.\n",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

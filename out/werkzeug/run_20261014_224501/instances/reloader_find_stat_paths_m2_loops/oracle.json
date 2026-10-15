@@ -1,0 +1,12 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "Run every test method of the unittest class `FindStatPathsLoopTest` in `werkzeug_qa/reloader_find_stat_paths_m2_loops/files/testcase.py` (all 12 `test_*` methods, e.g. `pytest werkzeug_qa/reloader_find_stat_paths_m2_loops/files/testcase.py::FindStatPathsLoopTest`). The tests never call the target directly; they reach it through `StatReloaderLoop.__enter__` / `StatReloaderLoop.run_step`. Target: the function `werkzeug._reloader._find_stat_paths` in `src/werkzeug/_reloader.py`. Consider the innermost loop `for name in files:` whose header is on line 102 (nested inside the `for root, dirs, files in os.walk(path):` loop, which is itself inside the `for path in chain(list(sys.path), extra_files):` loop). One iteration of this loop = one execution of its body's first line (line 103, `if name.endswith((\".py\", \".pyc\")):`), counted 1-based. An invocation = one call of `_find_stat_paths` during the whole test run (all test methods together, every call counts, including repeated `run_step` calls within one test). For each invocation, sum the iterations of this loop over ALL the times the loop is entered during that invocation (i.e. over every directory visited by every `os.walk` in that call); an invocation in which the loop body never runs has count 0 and is included. Report `max_iterations` = the largest such per-invocation total and `min_iterations` = the smallest, taken over all invocations of the test run. Both are plain JSON integers.",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  },
+  "oracle_answer": {
+    "max_iterations": 27,
+    "min_iterations": 1
+  }
+}

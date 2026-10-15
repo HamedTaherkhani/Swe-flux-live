@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 71,
+        "predicate": "i <= 7",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 85,
+        "predicate": "i == len(cont_dists)",
+        "violations": 50
+      },
+      {
+        "held_always": false,
+        "observations": 71,
+        "predicate": "not is_log",
+        "violations": 15
+      },
+      {
+        "held_always": false,
+        "observations": 27,
+        "predicate": "step < 1.0",
+        "violations": 18
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "step <= d.low",
+        "violations": 0
+      },
+      {
+        "held_always": true,
+        "observations": 27,
+        "predicate": "step >= 0.2",
+        "violations": 0
+      }
+    ]
+  },
+  "question": "Test file: `optuna_qa/probability_distributions_log_pdf_m7_invariants/files/testcase.py`, test class `TestMixtureLogPdfInvariants`. Run the WHOLE class with pytest (all of its `test_...` methods; the answer aggregates over ALL of them \u2014 counts are totals summed across every method and every invocation, regardless of test order).\n\nTarget function: `optuna.samplers._tpe.probability_distributions._MixtureOfProductDistribution.log_pdf` (method `_MixtureOfProductDistribution.log_pdf` in `optuna/samplers/_tpe/probability_distributions.py`). An \"invocation\" is one call of this method during the run (1-based, chronological); all invocations from all test methods count, including those made by helper methods of the test class. Calls to `sample` and other functions are irrelevant except as they shape the inputs.\n\nEach candidate predicate below is evaluated on the local variables of the `log_pdf` frame at a specific observation point. An observation point is \"the moment just before the given source line executes\" (i.e. each time execution reaches that line, before its statement runs), using the code as it exists in the repository. `len(cont_dists)` means the length of that list at that moment in the current invocation (it starts empty in every invocation); `i` and `d` are the current loop variables. Each arrival at the observation point (with its extra condition, if any, satisfied) is one observation.\n\nCandidate predicates (copy the predicate strings exactly as written between backticks):\n1. `i == len(cont_dists)` \u2014 observed at line 195 (`if isinstance(d, _BatchedCategoricalDistributions):`, first line of the `for i, d in enumerate(self.distributions)` loop body), once per loop iteration.\n2. `not is_log` \u2014 observed at line 202 (`if (step := d.step) == 0.0:`); `is_log` is the value assigned on the preceding line in the same iteration.\n3. `i <= 7` \u2014 observed at line 202 as well (same observations as predicate 2, evaluated independently).\n4. `step < 1.0` \u2014 observed at line 208 (`xi_uniq, xi_inv = np.unique(x[:, i], return_inverse=True)`, discrete branch); `step` is the value bound by the walrus on line 202 in the same iteration (compare the Python float exactly, no rounding).\n5. `step >= 0.2` \u2014 observed at line 208 as well (same observations as predicate 4, evaluated independently, exact float comparison).\n6. `step <= d.low` \u2014 observed at line 208 as well, but ONLY in iterations where `d` is an instance of `_BatchedDiscreteTruncLogNormDistributions` (in other iterations reaching that line it is not observed at all).\n\nFor each predicate report: `observations` = total number of observations (int); `violations` = how many of those observations had the predicate evaluate to False (int); `held_always` = true iff `violations == 0` AND `observations > 0`. A predicate that is never observed must be reported as `observations: 0`, `violations: 0`, `held_always: false`.\n\nAnswer format: a JSON object `{\"invariant_report\": [...]}` whose list holds exactly one object per candidate predicate (6 entries), each with keys `held_always` (JSON boolean true/false), `observations` (int), `predicate` (the exact predicate string, e.g. an entry for a hypothetical predicate `a > b` would have `\"predicate\": \"a > b\"`), `violations` (int). Sort the list by the `predicate` string ascending using plain Python string ordering (codepoint order); predicate strings are all distinct so no tie-break is needed.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

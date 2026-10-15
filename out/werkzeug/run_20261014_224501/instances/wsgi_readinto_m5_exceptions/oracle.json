@@ -1,0 +1,40 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 7,
+        "exception_type": "OSError"
+      },
+      {
+        "count": 12,
+        "exception_type": "UnicodeDecodeError"
+      },
+      {
+        "count": 40,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 7,
+        "exception_type": "io.UnsupportedOperation"
+      },
+      {
+        "count": 97,
+        "exception_type": "werkzeug.exceptions.ClientDisconnected"
+      },
+      {
+        "count": 22,
+        "exception_type": "werkzeug.exceptions.RequestEntityTooLarge"
+      }
+    ]
+  },
+  "question": "Consider the test file `werkzeug_qa/wsgi_readinto_m5_exceptions/files/testcase.py` and its `unittest.TestCase` class `LimitedStreamReadintoTest`. Run ALL test methods of that class with pytest (pytest ids of the form `werkzeug_qa/wsgi_readinto_m5_exceptions/files/testcase.py::LimitedStreamReadintoTest::test_<name>`); the answer aggregates over every test method in the class together. The test methods call the method `werkzeug.wsgi._LimitedStream.readinto` (defined in `src/werkzeug/wsgi.py`; `LimitedStream` is the public alias of `_LimitedStream`) many times, directly. An invocation is one call of that method; every invocation in every test method counts. Question: for each exception type, how many times was an exception of that type OBSERVED in the frame of `_LimitedStream.readinto`? Observation rule: an exception is observed once each time it is raised by code executing in that exact frame, OR propagates into that frame from a callee (e.g. from the wrapped stream's `readinto`/`read`, or from `self.on_exhausted()` / `self.on_disconnect()`), whether or not an `except` clause of `readinto` then catches it, and whether or not it then leaves `readinto`. Each distinct exception object counts exactly once per invocation in whose frame it is observed (an exception that propagates into the frame and then straight out of it counts once, not twice; `readinto` contains no `raise` statements, so there are no re-raises to consider). If, while handling one exception, the frame observes a second, different exception object (e.g. one raised by a method called from inside an `except` handler), both are counted, each under its own type. Exceptions raised AND fully handled inside a callee (never reaching the `readinto` frame) do not count, and exceptions observed only in caller frames (e.g. the test's own `try`/`except`) do not count. Report the concrete runtime type `type(exc)` of the exception object, never the class named in an `except` clause. Naming convention: for built-in exceptions use the bare `type(exc).__name__` (e.g. `KeyError`, never `builtins.KeyError`); for all other exceptions use `type(exc).__module__ + '.' + type(exc).__qualname__` (e.g. `json.decoder.JSONDecodeError`), i.e. the module where the class is defined, not a re-exporting package. Counts are totals over ALL invocations and ALL test methods (the same type observed in five different invocations contributes five). Every type observed at least once appears exactly once in the list; types never observed are omitted. Sort the list by `exception_type` ascending in Python default string order (types are unique, so no tie-break is needed). Answer as JSON: {\"exception_type_counts\": [{\"count\": <int>, \"exception_type\": <str>}, ...]}.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "{0: {0: ['Length must be 2.'], 1: {0: ['Not a valid integer.']}}, 5: {1: {0: ['Not a valid integer.']}}, 8: ['Not a valid string.'], 9: {0: {0: ['Not a valid integer.']}}, 10: ['Length must be 3.'], 11: {0: {0: ['Not a valid integer.']}}, 14: ['Not a valid string.'], 15: ['Length must be 3.']}",
+    "exception_type": "marshmallow.exceptions.ValidationError"
+  },
+  "question": "Consider the test `marshmallow_qa/fields_deserialize_s5_exceptions/files/testcase.py::TupleRecordSchemaTest::test_load_record_with_mixed_slots` (test file `marshmallow_qa/fields_deserialize_s5_exceptions/files/testcase.py`, test class `TupleRecordSchemaTest`, its single test method `test_load_record_with_mixed_slots`). During this test run the method `marshmallow.fields.Tuple._deserialize` (defined in `src/marshmallow/fields.py`) is invoked several times, including recursively for nested tuple fields. An invocation is one call of that method during the test run; invocations are numbered 1, 2, 3, ... in chronological order of when the call starts (so the outer call is numbered before any calls it triggers). Invocation 1 does not return normally: an exception propagates out of it to its caller. Report that propagated exception (the exception object that actually leaves invocation 1, not any exception raised and caught inside it or inside nested invocations).\nAnswer as a JSON object with exactly two string keys:\n- `exception_type`: the exception's type name. Use bare `type(exc).__name__` for built-in exceptions (e.g. `ValueError`, never `builtins.ValueError`) and `module.QualName` for all others, where module is `type(exc).__module__` and QualName is `type(exc).__qualname__` (e.g. `haystack.core.errors.PipelineError`).\n- `exception_message`: exactly `str(exc)` of that exception object, character for character (Python's own str() output, including any Python-style quoting, brackets and spacing it produces; not JSON-reformatted, no truncation).",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

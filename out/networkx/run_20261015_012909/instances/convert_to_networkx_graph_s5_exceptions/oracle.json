@@ -1,0 +1,17 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "AttributeError",
+      "TypeError",
+      "ZeroDivisionError",
+      "networkx.exception.NetworkXError"
+    ]
+  },
+  "question": "Consider the pytest test `networkx_qa/convert_to_networkx_graph_s5_exceptions/files/testcase.py::TestToNetworkxGraphExceptions::test_mixed_inputs` (test class `TestToNetworkxGraphExceptions`, its only test method `test_mixed_inputs`). During this test, the function `networkx.convert.to_networkx_graph` (defined in `networkx/convert.py`) is invoked many times directly by the test. Aggregating over ALL of its invocations in this test run, which exception types are CAUGHT inside `to_networkx_graph`? An exception counts as caught when it is raised in, or propagates into, the frame of `to_networkx_graph` (including exceptions raised in callees such as `from_dict_of_dicts`, `from_dict_of_lists`, `from_edgelist`, `from_numpy_array`, `empty_graph`, graph methods, or user-supplied generators that the function consumes) and is matched by one of `to_networkx_graph`'s own `except` clauses (including the bare `except:`), regardless of whether that handler then swallows it, falls through, or raises a different exception. A NEW exception raised by a `raise` statement inside a handler counts only if some `except` clause of `to_networkx_graph` in turn catches it; exceptions that leave `to_networkx_graph` uncaught (propagate to the test) do not count by themselves. The type reported is the concrete class of the exception object at the moment it is caught (`type(exc)`), not the class named in the `except` clause. Naming convention: for built-in exceptions use the bare `type(exc).__name__` (e.g. `KeyError`, never `builtins.KeyError`); for all other exceptions use `type(exc).__module__ + '.' + type(exc).__qualname__` (e.g. `networkx.exception.NodeNotFound`). Answer as JSON `{\"caught_exception_kinds\": [...]}` where the list contains each distinct type name exactly once (deduplicated), sorted in ascending order by plain Python string comparison (code-point order, so uppercase-initial names sort before lowercase-initial ones).",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

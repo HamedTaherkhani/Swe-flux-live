@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "NaN found as an edge weight. Edge (32, 5, {'weight': nan, 'cap': 2})",
+    "exception_type": "ValueError"
+  },
+  "question": "Consider the pytest test `networkx_qa/mst_prim_mst_edges_s5_exceptions/files/testcase.py::TestPrimNaNEdge::test_prim_maximum_hits_nan` (file `networkx_qa/mst_prim_mst_edges_s5_exceptions/files/testcase.py`, class `TestPrimNaNEdge`, single test method `test_prim_maximum_hits_nan`). During this test the generator function `networkx.algorithms.tree.mst.prim_mst_edges` (defined in `networkx/algorithms/tree/mst.py`) is iterated over the seeded random graph built by `build_graph()`, and an exception is raised inside the generator's own frame by one of its `raise` statements and propagates out of it to the test. Report that exception. Answer as a JSON object with exactly two string keys: `exception_type` and `exception_message`. `exception_type` naming convention: use the bare `type(exc).__name__` for built-in exceptions (e.g. `KeyError`, never `builtins.KeyError`), and `module.QualName` for any non-built-in exception (e.g. `networkx.exception.NetworkXError`). `exception_message` is exactly `str(exc)` of the raised exception object, character for character (including any punctuation, spacing, and the Python reprs of any values interpolated into it), as a plain JSON string with no added quotes or prefix.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

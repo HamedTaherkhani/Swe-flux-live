@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 19,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 11,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 25,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 74,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 118,
+        "exception_type": "marshmallow.exceptions.ValidationError"
+      }
+    ]
+  },
+  "question": "Run the pytest test class `TestUUIDValidated` in `marshmallow_qa/fields_validated_m5_exceptions_2/files/testcase.py` (all 12 test methods; the answer aggregates over ALL of them). Consider every invocation of the method `marshmallow.fields.UUID._validated` defined in `src/marshmallow/fields.py` (an invocation = one call of that function's frame during the run). An exception is OBSERVED in the target frame each time an exception is raised by a statement executing in that frame, OR propagates into that frame out of a callee (e.g. raised inside `uuid.UUID.__init__` or inside a `replace` method and not caught there). Exceptions that are raised and fully caught inside a callee (never reaching the target frame) are NOT observed. Each exception object is counted once per frame in which it is observed: a propagated-in exception counts once when it arrives, an exception raised by a `raise` statement in the frame counts once at that statement, and evaluating an `except` clause or letting the exception continue to propagate out of the frame does not add another observation (no re-raise of the same object occurs within the frame). An exception raised with `raise X from Y` is a new observation of X, independent of the earlier observation of Y. For each exception type observed at least once, report the TOTAL number of observations summed over all invocations and all test methods (the same type observed in five invocations contributes 5). Types never observed are omitted. Exception type naming: bare `type(exc).__name__` for built-in exceptions (e.g. `IndexError`, never `builtins.IndexError`); for all other exceptions use `type(exc).__module__ + '.' + type(exc).__qualname__` (e.g. `json.decoder.JSONDecodeError`). Answer as JSON `{\"exception_type_counts\": [{\"count\": <int>, \"exception_type\": <str>}, ...]}` where `count` is a JSON integer, sorted by `exception_type` ascending (plain codepoint string comparison; types are unique so no tie-break is needed).",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 20,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Decimal.__init__"
+      },
+      {
+        "count": 155,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Decimal._format_num"
+      },
+      {
+        "count": 4,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Decimal._to_string"
+      },
+      {
+        "count": 157,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Decimal._validated"
+      },
+      {
+        "count": 22,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Number.__init__"
+      },
+      {
+        "count": 10,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Number._deserialize"
+      },
+      {
+        "count": 12,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Number._format_num"
+      },
+      {
+        "count": 8,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Number._serialize"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Number._to_string"
+      },
+      {
+        "count": 169,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Number._validated"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Number.num_type"
+      }
+    ]
+  },
+  "question": "In this repository, the test file `marshmallow_qa/fields_validated_m6_calls/files/testcase.py` defines the unittest class `TestDecimalValidated` with twelve test methods (`test_01_...` through `test_12_...`). Run ALL test methods of this class with pytest (pytest id `marshmallow_qa/fields_validated_m6_calls/files/testcase.py::TestDecimalValidated`). The tests build `marshmallow.fields.Decimal` fields (and a few other number fields) from seeded random generators and call the target `marshmallow.fields.Decimal._validated` (the `_validated` method of class `Decimal` in `src/marshmallow/fields.py`) directly, plus some `serialize`/`deserialize` calls.\n\nScope: consider every function whose `def` statement appears directly in the body of class `Number` or directly in the body of class `Decimal` in `src/marshmallow/fields.py` (the two module-level classes with those names). This includes `__init__`, dunder methods, underscore-prefixed methods, and decorated defs such as properties/abstract properties (a property getter counts as a function of the class whose body contains its `def`). Each such def is one entry; you must find them yourself by reading the file. Methods inherited from other classes (e.g. anything defined only in `Field`, such as `make_error`, `serialize` or `deserialize`) are NOT entries, and methods of other subclasses of `Number` (e.g. those defined in `Integer` or `Float`) are NOT entries. Nested functions, lambdas and comprehensions are not entries. Code inside docstrings is not a definition. When an instance of any class (e.g. a `Decimal`, `Integer` or `Float` field) executes a method, the invocation is credited to the class whose body contains the executed `def`; e.g. a `super().__init__(...)` call from `Integer.__init__` that lands in `Number.__init__` counts for `Number.__init__`.\n\nIdentity: `func` is the dotted name `<module>.<ClassName>.<method>` where the module is the import name `marshmallow.fields` (not `src.marshmallow.fields`); for example, the method `_bind_to_schema` of class `Tuple` would be written `marshmallow.fields.Tuple._bind_to_schema`. `file` is the repo-relative path `src/marshmallow/fields.py` for every entry.\n\nCounting: one invocation = one Python function call of that def's code (one `'call'` event for a new frame of it, as seen by `sys.settrace`), regardless of who calls it: calls made directly by the test, via `super()`, via `Field.serialize`/`Field.deserialize`, from field constructors, or from any other frame all count; a call that ends by raising an exception still counts as one invocation. Only calls made while the test methods run count (module import does not call any of these). None of the in-scope functions are generators or coroutines, so there are no resumptions to consider. Counts are summed over ALL twelve test methods of the class (not reported per test). Functions in scope that never run in any test MUST still be listed with `count` 0.\n\nAnswer format: a JSON object with the single key `invocation_counts`, whose value is a list with exactly one object per in-scope function, each of the form `{\"count\": <int>, \"file\": <str>, \"func\": <str>}`. Sort the list by `func` ascending using plain Python string comparison (Unicode code point order, so uppercase letters sort before `_`, which sorts before lowercase letters). `func` values are unique, so no tie-break is needed.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

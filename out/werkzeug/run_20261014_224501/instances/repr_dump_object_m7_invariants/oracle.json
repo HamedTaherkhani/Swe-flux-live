@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 73,
+        "predicate": "isinstance(key, str)",
+        "violations": 4
+      },
+      {
+        "held_always": false,
+        "observations": 19,
+        "predicate": "items is not None",
+        "violations": 9
+      },
+      {
+        "held_always": false,
+        "observations": 299,
+        "predicate": "key.startswith('__')",
+        "violations": 90
+      },
+      {
+        "held_always": false,
+        "observations": 8,
+        "predicate": "len(items) < 3",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 69,
+        "predicate": "len(items) < 6",
+        "violations": 18
+      },
+      {
+        "held_always": false,
+        "observations": 19,
+        "predicate": "len(items) > 0",
+        "violations": 2
+      }
+    ]
+  },
+  "question": "Run the whole test class `DumpObjectScenarios` in `werkzeug_qa/repr_dump_object_m7_invariants/files/testcase.py` with pytest (all of its test methods, e.g. pytest id `werkzeug_qa/repr_dump_object_m7_invariants/files/testcase.py::DumpObjectScenarios::test_empty_dict`); the answer aggregates over ALL test methods of the class (all invocations in all methods, summed). Consider every invocation of the method `DebugReprGenerator.dump_object` defined in `src/werkzeug/debug/repr.py` (qualname `werkzeug.debug.repr.DebugReprGenerator.dump_object`, lines 242-264). An invocation is one call of that method; only its own frame matters (not callees such as `DebugReprGenerator.repr`, `getattr` or `__getattr__` hooks). An 'observation at line N' happens every time line N of that file is about to execute in the frame of `dump_object` (a Python 'line' event for line N, i.e. before the statement on line N runs; one observation per execution of that line, so a line inside a loop is observed once per iteration that reaches it). At each observation a predicate is evaluated with ordinary Python semantics on the current runtime values of the method's local variables at that moment (so `key` is the value bound by the most recent loop header, and `items` reflects only the appends that have actually completed so far in this invocation; an append on line 259 whose argument raised did not happen). The candidate predicates, each with its observation line, are: `isinstance(key, str)` observed at line 250; `items is not None` observed at line 254; `key.startswith('__')` observed at line 259; `len(items) < 3` observed at line 261; `len(items) < 6` observed at line 253; `len(items) > 0` observed at line 263. For each predicate report: `predicate` = the predicate text exactly as written between the backticks above (e.g. a predicate written `x is y` is reported as the string \"x is y\"); `observations` = total number of observations of its line across all invocations in all test methods (int); `violations` = how many of those evaluations were False (int); `held_always` = true iff `violations` is 0 and `observations` is greater than 0 (a predicate whose line is never observed is reported with observations 0, violations 0, held_always false). Answer as JSON `{\"invariant_report\": [{\"held_always\": bool, \"observations\": int, \"predicate\": str, \"violations\": int}, ...]}` with exactly one entry per candidate predicate, sorted by `predicate` ascending using plain Python string ordering (code-point order; predicate strings are unique so no tie-break is needed). Use JSON `true`/`false` for booleans.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": 23,
+        "def_line": 1679,
+        "use_line": 1680,
+        "variable": "k"
+      },
+      {
+        "count": 23,
+        "def_line": 1679,
+        "use_line": 1681,
+        "variable": "k"
+      },
+      {
+        "count": 80,
+        "def_line": 1683,
+        "use_line": 1684,
+        "variable": "k"
+      },
+      {
+        "count": 40,
+        "def_line": 1670,
+        "use_line": 1684,
+        "variable": "keys"
+      },
+      {
+        "count": 23,
+        "def_line": 1672,
+        "use_line": 1680,
+        "variable": "keys"
+      },
+      {
+        "count": 23,
+        "def_line": 1672,
+        "use_line": 1681,
+        "variable": "keys"
+      },
+      {
+        "count": 40,
+        "def_line": 1672,
+        "use_line": 1684,
+        "variable": "keys"
+      },
+      {
+        "count": 21,
+        "def_line": 1662,
+        "use_line": 1672,
+        "variable": "kwargs"
+      },
+      {
+        "count": 80,
+        "def_line": 1662,
+        "use_line": 1684,
+        "variable": "kwargs"
+      },
+      {
+        "count": 23,
+        "def_line": 1677,
+        "use_line": 1681,
+        "variable": "result"
+      },
+      {
+        "count": 80,
+        "def_line": 1677,
+        "use_line": 1684,
+        "variable": "result"
+      },
+      {
+        "count": 39,
+        "def_line": 1677,
+        "use_line": 1686,
+        "variable": "result"
+      },
+      {
+        "count": 59,
+        "def_line": 1662,
+        "use_line": 1665,
+        "variable": "self"
+      },
+      {
+        "count": 20,
+        "def_line": 1662,
+        "use_line": 1666,
+        "variable": "self"
+      },
+      {
+        "count": 39,
+        "def_line": 1662,
+        "use_line": 1669,
+        "variable": "self"
+      },
+      {
+        "count": 21,
+        "def_line": 1662,
+        "use_line": 1672,
+        "variable": "self"
+      },
+      {
+        "count": 39,
+        "def_line": 1662,
+        "use_line": 1677,
+        "variable": "self"
+      },
+      {
+        "count": 39,
+        "def_line": 1662,
+        "use_line": 1678,
+        "variable": "self"
+      },
+      {
+        "count": 80,
+        "def_line": 1662,
+        "use_line": 1684,
+        "variable": "self"
+      },
+      {
+        "count": 23,
+        "def_line": 1679,
+        "use_line": 1681,
+        "variable": "v"
+      },
+      {
+        "count": 80,
+        "def_line": 1683,
+        "use_line": 1684,
+        "variable": "v"
+      },
+      {
+        "count": 69,
+        "def_line": 1662,
+        "use_line": 1663,
+        "variable": "value"
+      },
+      {
+        "count": 20,
+        "def_line": 1662,
+        "use_line": 1666,
+        "variable": "value"
+      },
+      {
+        "count": 18,
+        "def_line": 1662,
+        "use_line": 1670,
+        "variable": "value"
+      },
+      {
+        "count": 21,
+        "def_line": 1662,
+        "use_line": 1672,
+        "variable": "value"
+      },
+      {
+        "count": 8,
+        "def_line": 1662,
+        "use_line": 1679,
+        "variable": "value"
+      },
+      {
+        "count": 31,
+        "def_line": 1662,
+        "use_line": 1683,
+        "variable": "value"
+      }
+    ]
+  },
+  "question": "Consider the test class `MappingDumpScenarios` in `marshmallow_qa/fields_serialize_m4_dataflow/files/testcase.py`. Run ALL test methods of that class (pytest ids of the form `marshmallow_qa/fields_serialize_m4_dataflow/files/testcase.py::MappingDumpScenarios::test_<name>`) as one pytest run. The answer is a TOTAL aggregated over every test method in the class (summing makes it independent of test order).\n\nTarget function: `marshmallow.fields.Mapping._serialize`, defined in `src/marshmallow/fields.py` (the `def` line is line 1662). Line numbers are absolute, 1-based line numbers in that file as it exists in the repository. The tests never call the target directly; it is reached through `Schema.dump` -> `Field.serialize` and through container fields (`fields.List`, `fields.Tuple`, `fields.Nested`, and `Mapping._serialize` itself via `self.value_field._serialize(...)`). An invocation = one call of `Mapping._serialize` (on any `fields.Dict` instance) during the run, including recursive calls; every invocation is analysed independently with its own variables (a recursive call does not affect the caller's def-use state).\n\nTracked variables: the function's parameters `self`, `value`, `attr`, `obj`, `kwargs` and its local variables `keys`, `result`, `k`, `v`. Names that are not these (e.g. `None`, `dict`) are not tracked. The comprehension variable `k` inside the dict comprehensions on the `keys = ...` statements is local to the comprehension and is NOT the tracked `k`; a comprehension's references to `k` are neither uses nor defs.\n\nDefinitions (defs):\n- every parameter is defined at the `def` line once at the start of each invocation;\n- an assignment statement `name = ...` defines `name` at the statement's first line (the multi-line `keys = { ... }` statement is identified by the line on which it begins);\n- a `for` header defines its target variables (`k` and `v`) once per iteration, i.e. each time the iterator yields an item, at the header line.\n- A subscript assignment `result[...] = ...` is NOT a def of `result`; it is a use of `result` (and of every tracked name in the subscript and right-hand side).\n\nUses: a statement uses each tracked variable whose name it reads (attribute access like `self.key_field` is a use of `self`; `**kwargs` is a use of `kwargs`). A variable read several times in one statement counts as ONE use per statement execution. For an `if` statement, the use belongs to the `if` line and its condition is considered as a whole (short-circuiting does not remove a use of a variable that appears in it). A `return X` statement uses the tracked names in `X`. A statement that contains a comprehension (`keys = {...}`) is executed once and uses each outer tracked name that appears anywhere in it exactly once per execution of the statement, regardless of how many elements the comprehension processes. For a `for` header, the iterable expression (`value.items()`) is evaluated once each time the loop is entered, so it records exactly one use of `value` per loop entry (including entries where the mapping is empty), NOT one per iteration. Within a statement, uses are evaluated before the statement's defs.\n\nObservation: each time a statement executes and uses a variable, record one observation of the pair (variable, def_line, use_line), where use_line is the line on which the using statement begins and def_line is the line of the most recent def of that variable in the same invocation (the def that reaches that use on the executed path). A use inside a loop body therefore counts once per iteration. `count` = the total number of observations of that exact (variable, def_line, use_line) triple summed over all invocations in all test methods of the class.\n\nAnswer format: a JSON object with a single key `observed_def_use_pairs` whose value is a list of objects with exactly the keys `variable` (str, the bare variable name such as \"self\"), `def_line` (int), `use_line` (int) and `count` (int, >= 1). Include only triples observed at least once; each triple appears exactly once (multiplicity lives in `count`). Sort the list ascending by `variable` (plain string order), then by `def_line`, then by `use_line`.",
+  "question_kind": "M4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "count": "int",
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

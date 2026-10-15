@@ -1,0 +1,1851 @@
+[
+  {
+    "instance_id": "utils_send_file_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/utils.py",
+      "module": "src.werkzeug.utils",
+      "qualname": "send_file",
+      "name": "send_file",
+      "lineno": 311,
+      "end_lineno": 557,
+      "params": [
+        "path_or_file",
+        "environ",
+        "mimetype",
+        "as_attachment",
+        "download_name",
+        "conditional",
+        "etag",
+        "last_modified",
+        "max_age",
+        "use_x_sendfile",
+        "response_class",
+        "_root_path"
+      ],
+      "metrics": {
+        "body_lines": 247,
+        "branches": 31,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 46,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 46,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 143.0,
+      "callers": [
+        "send_from_directory"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=139.0 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "matcher_match_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/werkzeug/routing/matcher.py",
+      "module": "src.werkzeug.routing.matcher",
+      "qualname": "StateMachineMatcher.match._match",
+      "name": "_match",
+      "lineno": 85,
+      "end_lineno": 173,
+      "params": [
+        "state",
+        "parts",
+        "values"
+      ],
+      "metrics": {
+        "body_lines": 89,
+        "branches": 17,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "_match",
+          "match",
+          "update"
+        ],
+        "num_local_calls": 3,
+        "assigns": 14,
+        "augassigns": 0,
+        "returns": 7,
+        "boolops": 4,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 88.0,
+      "callers": [
+        "StateMachineMatcher.match"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "rules_parse_rule_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/werkzeug/routing/rules.py",
+      "module": "src.werkzeug.routing.rules",
+      "qualname": "Rule._parse_rule",
+      "name": "_parse_rule",
+      "lineno": 605,
+      "end_lineno": 696,
+      "params": [
+        "self",
+        "rule"
+      ],
+      "metrics": {
+        "body_lines": 92,
+        "branches": 11,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 27,
+        "local_calls": [
+          "get_converter",
+          "parse_converter_args"
+        ],
+        "num_local_calls": 2,
+        "assigns": 27,
+        "augassigns": 6,
+        "returns": 0,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 86.0,
+      "callers": [
+        "Rule.compile"
+      ],
+      "callers_2hop": [
+        "Rule._compile_builder",
+        "Rule.bind"
+      ]
+    },
+    "rank_note": "affinity+score=96.3 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "rules_compile_builder_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/werkzeug/routing/rules.py",
+      "module": "src.werkzeug.routing.rules",
+      "qualname": "Rule._compile_builder",
+      "name": "_compile_builder",
+      "lineno": 739,
+      "end_lineno": 837,
+      "params": [
+        "self",
+        "append_unknown"
+      ],
+      "metrics": {
+        "body_lines": 99,
+        "branches": 8,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 27,
+        "local_calls": [
+          "_get_func_code",
+          "_join",
+          "_parts",
+          "_prefix_names",
+          "compile"
+        ],
+        "num_local_calls": 5,
+        "assigns": 23,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 4,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 78.0,
+      "callers": [
+        "Rule.compile"
+      ],
+      "callers_2hop": [
+        "Rule.bind"
+      ]
+    },
+    "rank_note": "affinity+score=84.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "map_match_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/werkzeug/routing/map.py",
+      "module": "src.werkzeug.routing.map",
+      "qualname": "MapAdapter.match",
+      "name": "match",
+      "lineno": 538,
+      "end_lineno": 715,
+      "params": [
+        "self",
+        "path_info",
+        "method",
+        "return_rule",
+        "query_args",
+        "websocket"
+      ],
+      "metrics": {
+        "body_lines": 178,
+        "branches": 13,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 3,
+        "raises": 7,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "get_default_redirect",
+          "make_alias_redirect_url",
+          "make_redirect_url",
+          "match",
+          "update"
+        ],
+        "num_local_calls": 5,
+        "assigns": 16,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 81.0,
+      "callers": [
+        "MapAdapter.allowed_methods",
+        "MapAdapter.dispatch",
+        "MapAdapter.test"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=73.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "serving_make_environ_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/serving.py",
+      "module": "src.werkzeug.serving",
+      "qualname": "WSGIRequestHandler.make_environ",
+      "name": "make_environ",
+      "lineno": 172,
+      "end_lineno": 251,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 80,
+        "branches": 9,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "address_string",
+          "log",
+          "port_integer"
+        ],
+        "num_local_calls": 3,
+        "assigns": 18,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 69.0,
+      "callers": [
+        "WSGIRequestHandler.run_wsgi"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=53.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "response_get_wsgi_headers_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/wrappers/response.py",
+      "module": "src.werkzeug.wrappers.response",
+      "qualname": "Response.get_wsgi_headers",
+      "name": "get_wsgi_headers",
+      "lineno": 543,
+      "end_lineno": 653,
+      "params": [
+        "self",
+        "environ"
+      ],
+      "metrics": {
+        "body_lines": 111,
+        "branches": 11,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [
+          "calculate_content_length"
+        ],
+        "num_local_calls": 1,
+        "assigns": 16,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 68.0,
+      "callers": [
+        "Response.get_wsgi_response"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=72.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "reloader_find_stat_paths_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "src/werkzeug/_reloader.py",
+      "module": "src.werkzeug._reloader",
+      "qualname": "_find_stat_paths",
+      "name": "_find_stat_paths",
+      "lineno": 69,
+      "end_lineno": 117,
+      "params": [
+        "extra_files",
+        "exclude_patterns"
+      ],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 4,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 3,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [
+          "_iter_module_paths",
+          "_remove_by_pattern"
+        ],
+        "num_local_calls": 2,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 49.9,
+      "callers": [
+        "StatReloaderLoop.run_step"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=49.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "formparser_parse_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/werkzeug/formparser.py",
+      "module": "src.werkzeug.formparser",
+      "qualname": "MultiPartParser.parse",
+      "name": "parse",
+      "lineno": 420,
+      "end_lineno": 487,
+      "params": [
+        "self",
+        "stream",
+        "boundary",
+        "content_length"
+      ],
+      "metrics": {
+        "body_lines": 68,
+        "branches": 8,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 26,
+        "local_calls": [
+          "_chunk_iter",
+          "get_part_charset",
+          "start_file_streaming"
+        ],
+        "num_local_calls": 3,
+        "assigns": 16,
+        "augassigns": 1,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 62.8,
+      "callers": [
+        "_FormDataParser._parse_multipart",
+        "_FormDataParser.parse_from_environ"
+      ],
+      "callers_2hop": [
+        "_parse_form_data"
+      ]
+    },
+    "rank_note": "affinity+score=69.5 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "test_get_environ_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/werkzeug/test.py",
+      "module": "src.werkzeug.test",
+      "qualname": "EnvironBuilder.get_environ",
+      "name": "get_environ",
+      "lineno": 677,
+      "end_lineno": 763,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 87,
+        "branches": 7,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 30,
+        "local_calls": [
+          "_path_encode",
+          "stream_encode_multipart"
+        ],
+        "num_local_calls": 2,
+        "assigns": 20,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 60.0,
+      "callers": [
+        "EnvironBuilder.get_request",
+        "create_environ"
+      ],
+      "callers_2hop": [
+        "Client.open"
+      ]
+    },
+    "rank_note": "affinity+score=90.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "matcher_match_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/werkzeug/routing/matcher.py",
+      "module": "src.werkzeug.routing.matcher",
+      "qualname": "StateMachineMatcher.match",
+      "name": "match",
+      "lineno": 75,
+      "end_lineno": 209,
+      "params": [
+        "self",
+        "domain",
+        "path",
+        "method",
+        "websocket"
+      ],
+      "metrics": {
+        "body_lines": 135,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 3,
+        "raises": 7,
+        "finallys": 0,
+        "calls": 18,
+        "local_calls": [
+          "_match",
+          "update"
+        ],
+        "num_local_calls": 2,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 62.0,
+      "callers": [
+        "StateMachineMatcher.match._match"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=57.1 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "test_open_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/test.py",
+      "module": "src.werkzeug.test",
+      "qualname": "Client.open",
+      "name": "open",
+      "lineno": 1073,
+      "end_lineno": 1161,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 89,
+        "branches": 8,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 20,
+        "local_calls": [
+          "close",
+          "from_environ",
+          "get_request",
+          "resolve_redirect",
+          "run_wsgi_app"
+        ],
+        "num_local_calls": 5,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 2,
+        "breaks_continues": 0
+      },
+      "score": 56.0,
+      "callers": [
+        "Client.resolve_redirect"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.8 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "tbtools_render_traceback_html_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/werkzeug/debug/tbtools.py",
+      "module": "src.werkzeug.debug.tbtools",
+      "qualname": "DebugTraceback.render_traceback_html",
+      "name": "render_traceback_html",
+      "lineno": 272,
+      "end_lineno": 322,
+      "params": [
+        "self",
+        "include_title"
+      ],
+      "metrics": {
+        "body_lines": 51,
+        "branches": 6,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [
+          "render_html"
+        ],
+        "num_local_calls": 1,
+        "assigns": 17,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 54.1,
+      "callers": [
+        "DebugTraceback.render_debugger_html"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=52.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "http_parse_options_header_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/http.py",
+      "module": "src.werkzeug.http",
+      "qualname": "parse_options_header",
+      "name": "parse_options_header",
+      "lineno": 517,
+      "end_lineno": 692,
+      "params": [
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 176,
+        "branches": 18,
+        "loops": 3,
+        "while_loops": 2,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 35,
+        "local_calls": [
+          "unquote_header_value"
+        ],
+        "num_local_calls": 1,
+        "assigns": 27,
+        "augassigns": 3,
+        "returns": 3,
+        "boolops": 3,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 3
+      },
+      "score": 105.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=94.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "tbtools_process_traceback_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/werkzeug/debug/tbtools.py",
+      "module": "src.werkzeug.debug.tbtools",
+      "qualname": "_process_traceback",
+      "name": "_process_traceback",
+      "lineno": 126,
+      "end_lineno": 214,
+      "params": [
+        "exc",
+        "te"
+      ],
+      "metrics": {
+        "body_lines": 89,
+        "branches": 16,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 15,
+        "local_calls": [
+          "_process_traceback"
+        ],
+        "num_local_calls": 1,
+        "assigns": 21,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 5
+      },
+      "score": 86.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=58.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "multipart_next_event_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/werkzeug/sansio/multipart.py",
+      "module": "src.werkzeug.sansio.multipart",
+      "qualname": "MultipartDecoder.next_event",
+      "name": "next_event",
+      "lineno": 140,
+      "end_lineno": 223,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 84,
+        "branches": 14,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 33,
+        "local_calls": [
+          "_parse_data",
+          "_parse_headers"
+        ],
+        "num_local_calls": 2,
+        "assigns": 26,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 86.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=85.4 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "http_dump_cookie_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/werkzeug/http.py",
+      "module": "src.werkzeug.http",
+      "qualname": "dump_cookie",
+      "name": "dump_cookie",
+      "lineno": 1323,
+      "end_lineno": 1480,
+      "params": [
+        "key",
+        "value",
+        "max_age",
+        "expires",
+        "path",
+        "domain",
+        "secure",
+        "httponly",
+        "sync_expires",
+        "max_size",
+        "samesite",
+        "partitioned"
+      ],
+      "metrics": {
+        "body_lines": 158,
+        "branches": 13,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 27,
+        "local_calls": [
+          "http_date"
+        ],
+        "num_local_calls": 1,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 72.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=76.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "http_is_resource_modified_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/werkzeug/sansio/http.py",
+      "module": "src.werkzeug.sansio.http",
+      "qualname": "_is_resource_modified",
+      "name": "_is_resource_modified",
+      "lineno": 13,
+      "end_lineno": 91,
+      "params": [
+        "http_range",
+        "http_if_range",
+        "http_if_modified_since",
+        "http_if_none_match",
+        "http_if_match",
+        "etag",
+        "data",
+        "last_modified",
+        "ignore_if_range"
+      ],
+      "metrics": {
+        "body_lines": 79,
+        "branches": 12,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 13,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 67.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=49.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "map_build_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/routing/map.py",
+      "module": "src.werkzeug.routing.map",
+      "qualname": "MapAdapter.build",
+      "name": "build",
+      "lineno": 879,
+      "end_lineno": 981,
+      "params": [
+        "self",
+        "endpoint",
+        "values",
+        "method",
+        "force_external",
+        "append_unknown",
+        "url_scheme"
+      ],
+      "metrics": {
+        "body_lines": 103,
+        "branches": 7,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "_partial_build",
+          "get_host",
+          "update"
+        ],
+        "num_local_calls": 3,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 5,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 57.0,
+      "callers": [
+        "MapAdapter._partial_build",
+        "MapAdapter.get_default_redirect",
+        "MapAdapter.make_alias_redirect_url"
+      ],
+      "callers_2hop": [
+        "MapAdapter.match"
+      ]
+    },
+    "rank_note": "affinity+score=47.2 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "range_from_header_m1_cfg",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/datastructures/range.py",
+      "module": "src.werkzeug.datastructures.range",
+      "qualname": "Range.from_header",
+      "name": "from_header",
+      "lineno": 200,
+      "end_lineno": 264,
+      "params": [
+        "cls",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 65,
+        "branches": 8,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 3,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 10,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 63.5,
+      "callers": [
+        "IfRange.from_header"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=68.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "reloader_iter_module_paths_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "src/werkzeug/_reloader.py",
+      "module": "src.werkzeug._reloader",
+      "qualname": "_iter_module_paths",
+      "name": "_iter_module_paths",
+      "lineno": 44,
+      "end_lineno": 61,
+      "params": [],
+      "metrics": {
+        "body_lines": 18,
+        "branches": 2,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 2,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 6,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 3,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 28.8,
+      "callers": [
+        "_find_stat_paths",
+        "_find_watchdog_paths"
+      ],
+      "callers_2hop": [
+        "StatReloaderLoop.run_step",
+        "WatchdogReloaderLoop.run_step"
+      ]
+    },
+    "rank_note": "affinity+score=32.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "security_hash_internal_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/werkzeug/security.py",
+      "module": "src.werkzeug.security",
+      "qualname": "_hash_internal",
+      "name": "_hash_internal",
+      "lineno": 27,
+      "end_lineno": 76,
+      "params": [
+        "method",
+        "salt",
+        "password"
+      ],
+      "metrics": {
+        "body_lines": 50,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 15,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 49.0,
+      "callers": [
+        "check_password_hash",
+        "generate_password_hash"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=51.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "request_load_form_data_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/werkzeug/wrappers/request.py",
+      "module": "src.werkzeug.wrappers.request",
+      "qualname": "Request._load_form_data",
+      "name": "_load_form_data",
+      "lineno": 396,
+      "end_lineno": 457,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 62,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [
+          "_get_stream_for_parsing",
+          "_parse_form_data",
+          "_private_get_stream_for_parsing"
+        ],
+        "num_local_calls": 3,
+        "assigns": 10,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.2,
+      "callers": [
+        "Request.files",
+        "Request.form",
+        "Request.get_data"
+      ],
+      "callers_2hop": [
+        "Request.data",
+        "Request.get_json"
+      ]
+    },
+    "rank_note": "affinity+score=55.4 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "debug_generate_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/werkzeug/debug/__init__.py",
+      "module": "src.werkzeug.debug",
+      "qualname": "get_machine_id._generate",
+      "name": "_generate",
+      "lineno": 62,
+      "end_lineno": 124,
+      "params": [],
+      "metrics": {
+        "body_lines": 63,
+        "branches": 5,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 4,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 5,
+        "augassigns": 2,
+        "returns": 5,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 3,
+        "breaks_continues": 2
+      },
+      "score": 49.3,
+      "callers": [
+        "get_machine_id"
+      ],
+      "callers_2hop": [
+        "get_pin_and_cookie_name"
+      ]
+    },
+    "rank_note": "affinity+score=38.9 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "repr_dispatch_repr_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/debug/repr.py",
+      "module": "src.werkzeug.debug.repr",
+      "qualname": "DebugReprGenerator.dispatch_repr",
+      "name": "dispatch_repr",
+      "lineno": 194,
+      "end_lineno": 215,
+      "params": [
+        "self",
+        "obj",
+        "recursive"
+      ],
+      "metrics": {
+        "body_lines": 22,
+        "branches": 10,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 19,
+        "local_calls": [
+          "dict_repr",
+          "object_repr",
+          "regex_repr",
+          "string_repr"
+        ],
+        "num_local_calls": 4,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 11,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 36.2,
+      "callers": [
+        "DebugReprGenerator.repr"
+      ],
+      "callers_2hop": [
+        "DebugReprGenerator.dict_repr",
+        "DebugReprGenerator.dump_object",
+        "DebugReprGenerator.string_repr",
+        "_sequence_repr_maker.proxy"
+      ]
+    },
+    "rank_note": "affinity+score=46.7 [indirect]",
+    "exercise_mode": "indirect"
+  },
+  {
+    "instance_id": "debug_get_pin_and_cookie_name_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/werkzeug/debug/__init__.py",
+      "module": "src.werkzeug.debug",
+      "qualname": "get_pin_and_cookie_name",
+      "name": "get_pin_and_cookie_name",
+      "lineno": 143,
+      "end_lineno": 225,
+      "params": [
+        "app"
+      ],
+      "metrics": {
+        "body_lines": 83,
+        "branches": 8,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 28,
+        "local_calls": [
+          "get_machine_id"
+        ],
+        "num_local_calls": 1,
+        "assigns": 17,
+        "augassigns": 0,
+        "returns": 2,
+        "boolops": 1,
+        "comprehensions": 1,
+        "with_blocks": 0,
+        "breaks_continues": 2
+      },
+      "score": 65.0,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=56.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "multipart_send_event_s1_cfg",
+    "category": "S1_IntraProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/sansio/multipart.py",
+      "module": "src.werkzeug.sansio.multipart",
+      "qualname": "MultipartEncoder.send_event",
+      "name": "send_event",
+      "lineno": 306,
+      "end_lineno": 337,
+      "params": [
+        "self",
+        "event"
+      ],
+      "metrics": {
+        "body_lines": 32,
+        "branches": 8,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 5,
+        "augassigns": 4,
+        "returns": 6,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 53.2,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=52.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "http_proxy_application_s2_loops",
+    "category": "S2_Loops",
+    "target": {
+      "file": "src/werkzeug/middleware/http_proxy.py",
+      "module": "src.werkzeug.middleware.http_proxy",
+      "qualname": "ProxyMiddleware.proxy_to.application",
+      "name": "application",
+      "lineno": 112,
+      "end_lineno": 182,
+      "params": [
+        "request"
+      ],
+      "metrics": {
+        "body_lines": 71,
+        "branches": 6,
+        "loops": 2,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 2,
+        "finallys": 0,
+        "calls": 29,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 17,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 2,
+        "comprehensions": 2,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 62.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=41.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "serving_readinto_s3_state",
+    "category": "S3_ProgramState",
+    "target": {
+      "file": "src/werkzeug/serving.py",
+      "module": "src.werkzeug.serving",
+      "qualname": "DechunkedInput.readinto",
+      "name": "readinto",
+      "lineno": 122,
+      "end_lineno": 160,
+      "params": [
+        "self",
+        "buf"
+      ],
+      "metrics": {
+        "body_lines": 39,
+        "branches": 6,
+        "loops": 1,
+        "while_loops": 1,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 1,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "read_chunk_len"
+        ],
+        "num_local_calls": 1,
+        "assigns": 8,
+        "augassigns": 3,
+        "returns": 1,
+        "boolops": 1,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 45.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=44.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "lint_close_s4_dataflow",
+    "category": "S4_DataFlow",
+    "target": {
+      "file": "src/werkzeug/middleware/lint.py",
+      "module": "src.werkzeug.middleware.lint",
+      "qualname": "GuardedIterator.close",
+      "name": "close",
+      "lineno": 164,
+      "end_lineno": 216,
+      "params": [
+        "self"
+      ],
+      "metrics": {
+        "body_lines": 53,
+        "branches": 9,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 10,
+        "local_calls": [
+          "close"
+        ],
+        "num_local_calls": 1,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 47.3,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=47.8 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "converters_to_url_s5_exceptions",
+    "category": "S5_Exceptions",
+    "target": {
+      "file": "src/werkzeug/routing/converters.py",
+      "module": "src.werkzeug.routing.converters",
+      "qualname": "FloatConverter.to_url",
+      "name": "to_url",
+      "lineno": 275,
+      "end_lineno": 308,
+      "params": [
+        "self",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 34,
+        "branches": 6,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 3,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 3,
+        "boolops": 4,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 45.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=35.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "headers_update_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/datastructures/headers.py",
+      "module": "src.werkzeug.datastructures.headers",
+      "qualname": "Headers.update",
+      "name": "update",
+      "lineno": 508,
+      "end_lineno": 556,
+      "params": [],
+      "metrics": {
+        "body_lines": 49,
+        "branches": 5,
+        "loops": 4,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 14,
+        "local_calls": [
+          "getlist",
+          "items",
+          "keys",
+          "set",
+          "setlist"
+        ],
+        "num_local_calls": 5,
+        "assigns": 0,
+        "augassigns": 0,
+        "returns": 0,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 36.9,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=39.1 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "range_from_header_m1_cfg_2",
+    "category": "M1_IntraProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/datastructures/range.py",
+      "module": "src.werkzeug.datastructures.range",
+      "qualname": "ContentRange.from_header",
+      "name": "from_header",
+      "lineno": 423,
+      "end_lineno": 468,
+      "params": [
+        "cls",
+        "value"
+      ],
+      "metrics": {
+        "body_lines": 46,
+        "branches": 8,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 16,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 7,
+        "augassigns": 0,
+        "returns": 10,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 47.6,
+      "callers": [
+        "IfRange.from_header"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=57.7 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "testapp_test_app_m2_loops",
+    "category": "M2_Loops",
+    "target": {
+      "file": "src/werkzeug/testapp.py",
+      "module": "src.werkzeug.testapp",
+      "qualname": "test_app",
+      "name": "test_app",
+      "lineno": 125,
+      "end_lineno": 188,
+      "params": [
+        "req"
+      ],
+      "metrics": {
+        "body_lines": 64,
+        "branches": 2,
+        "loops": 3,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 2,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 29,
+        "local_calls": [
+          "_get_werkzeug_version",
+          "iter_sys_path"
+        ],
+        "num_local_calls": 2,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 46.4,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=33.9 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "utils_host_is_trusted_m3_state",
+    "category": "M3_ProgramState",
+    "target": {
+      "file": "src/werkzeug/sansio/utils.py",
+      "module": "src.werkzeug.sansio.utils",
+      "qualname": "host_is_trusted",
+      "name": "host_is_trusted",
+      "lineno": 25,
+      "end_lineno": 82,
+      "params": [
+        "hostname",
+        "trusted_list"
+      ],
+      "metrics": {
+        "body_lines": 58,
+        "branches": 7,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 8,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 6,
+        "augassigns": 0,
+        "returns": 7,
+        "boolops": 3,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 47.8,
+      "callers": [
+        "get_host"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=44.5 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "urls_iri_to_uri_m4_dataflow",
+    "category": "M4_DataFlow",
+    "target": {
+      "file": "src/werkzeug/urls.py",
+      "module": "src.werkzeug.urls",
+      "qualname": "iri_to_uri",
+      "name": "iri_to_uri",
+      "lineno": 116,
+      "end_lineno": 171,
+      "params": [
+        "iri"
+      ],
+      "metrics": {
+        "body_lines": 56,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 9,
+        "local_calls": [],
+        "num_local_calls": 0,
+        "assigns": 12,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 38.6,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=53.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "wsgi_readinto_m5_exceptions",
+    "category": "M5_Exceptions",
+    "target": {
+      "file": "src/werkzeug/wsgi.py",
+      "module": "src.werkzeug.wsgi",
+      "qualname": "_LimitedStream.readinto",
+      "name": "readinto",
+      "lineno": 527,
+      "end_lineno": 577,
+      "params": [
+        "self",
+        "b"
+      ],
+      "metrics": {
+        "body_lines": 51,
+        "branches": 5,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 3,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 13,
+        "local_calls": [
+          "on_disconnect",
+          "on_exhausted",
+          "readinto"
+        ],
+        "num_local_calls": 3,
+        "assigns": 9,
+        "augassigns": 1,
+        "returns": 6,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 43.1,
+      "callers": [],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=34.6 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "lint_check_start_response_m6_calls",
+    "category": "M6_InterProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/middleware/lint.py",
+      "module": "src.werkzeug.middleware.lint",
+      "qualname": "LintMiddleware.check_start_response",
+      "name": "check_start_response",
+      "lineno": 300,
+      "end_lineno": 350,
+      "params": [
+        "self",
+        "status",
+        "headers",
+        "exc_info"
+      ],
+      "metrics": {
+        "body_lines": 51,
+        "branches": 8,
+        "loops": 1,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 0,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 23,
+        "local_calls": [
+          "check_headers",
+          "check_type"
+        ],
+        "num_local_calls": 2,
+        "assigns": 4,
+        "augassigns": 0,
+        "returns": 1,
+        "boolops": 5,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 51.1,
+      "callers": [
+        "LintMiddleware.__call__.checking_start_response"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=41.3 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "repr_dump_object_m7_invariants",
+    "category": "M7_Invariants",
+    "target": {
+      "file": "src/werkzeug/debug/repr.py",
+      "module": "src.werkzeug.debug.repr",
+      "qualname": "DebugReprGenerator.dump_object",
+      "name": "dump_object",
+      "lineno": 242,
+      "end_lineno": 264,
+      "params": [
+        "self",
+        "obj"
+      ],
+      "metrics": {
+        "body_lines": 23,
+        "branches": 3,
+        "loops": 2,
+        "while_loops": 0,
+        "max_loop_nesting": 1,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 12,
+        "local_calls": [
+          "__repr__",
+          "render_object_dump",
+          "repr"
+        ],
+        "num_local_calls": 3,
+        "assigns": 8,
+        "augassigns": 1,
+        "returns": 1,
+        "boolops": 0,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 1
+      },
+      "score": 38.3,
+      "callers": [
+        "dump"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=36.2 [direct]",
+    "exercise_mode": "direct"
+  },
+  {
+    "instance_id": "request_get_json_s6_calls",
+    "category": "S6_InterProceduralCFG",
+    "target": {
+      "file": "src/werkzeug/wrappers/request.py",
+      "module": "src.werkzeug.wrappers.request",
+      "qualname": "Request.get_json",
+      "name": "get_json",
+      "lineno": 851,
+      "end_lineno": 904,
+      "params": [
+        "self",
+        "force",
+        "silent",
+        "cache"
+      ],
+      "metrics": {
+        "body_lines": 54,
+        "branches": 7,
+        "loops": 0,
+        "while_loops": 0,
+        "max_loop_nesting": 0,
+        "excepts": 1,
+        "raises": 0,
+        "finallys": 0,
+        "calls": 4,
+        "local_calls": [
+          "get_data",
+          "on_json_loading_failed"
+        ],
+        "num_local_calls": 2,
+        "assigns": 9,
+        "augassigns": 0,
+        "returns": 4,
+        "boolops": 2,
+        "comprehensions": 0,
+        "with_blocks": 0,
+        "breaks_continues": 0
+      },
+      "score": 40.4,
+      "callers": [
+        "Request.json"
+      ],
+      "callers_2hop": []
+    },
+    "rank_note": "affinity+score=32.4 [direct]",
+    "exercise_mode": "direct"
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 1,
+        "exception_type": "AssertionError"
+      },
+      {
+        "count": 9,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 7,
+        "exception_type": "IndexError"
+      },
+      {
+        "count": 28,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 6,
+        "exception_type": "NotImplementedError"
+      },
+      {
+        "count": 3,
+        "exception_type": "RuntimeError"
+      },
+      {
+        "count": 1,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 21,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 2,
+        "exception_type": "ZeroDivisionError"
+      },
+      {
+        "count": 15,
+        "exception_type": "optuna.exceptions.TrialPruned"
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `TestRunTrialExceptionMix` in `optuna_qa/optimize_run_trial_m5_exceptions/files/testcase.py`. Run ALL test methods of this class (the whole class, e.g. `pytest optuna_qa/optimize_run_trial_m5_exceptions/files/testcase.py::TestRunTrialExceptionMix`), and consider the function `optuna.study._optimize._run_trial` defined in `optuna/study/_optimize.py` (it is reached indirectly via `optuna.study.Study.optimize`).\n\nCount how many times exceptions of each type are OBSERVED in the frame of `_run_trial`, aggregated over the whole run: over every invocation of `_run_trial` (an invocation is one call of the function) and over every test method of the class.\n\nObservation rule: an exception is observed in the `_run_trial` frame each time either (a) a statement executing in that frame raises it (including an explicit `raise <expr>` statement and a failing `assert`), or (b) it propagates into that frame out of a call made from that frame (e.g. an exception escaping `func(trial)`, `study.ask()` or `_tell_with_warning(...)`; it does not matter how deep in the callee it was originally raised). Each such event counts once. An explicit `raise <expr>` that raises an exception object that was already observed earlier in the same frame counts AGAIN as a new observation. A bare `raise` statement (re-raising the exception currently being handled, with no operand) does NOT count again. Exceptions raised and fully handled inside a callee (never escaping into `_run_trial`) are NOT observed. Being caught by an `except` clause of `_run_trial` does not undo an observation. Only the `_run_trial` frame itself matters; observations in other frames are ignored.\n\nException type naming: use the bare `type(exc).__name__` for built-in exception classes (e.g. `OSError`, never `builtins.OSError`), and `type(exc).__module__ + \".\" + type(exc).__qualname__` for all other classes (e.g. `optuna.exceptions.DuplicatedStudyError`).\n\nAnswer format: a JSON object with a single key `exception_type_counts` whose value is a list of objects `{\"exception_type\": <str>, \"count\": <int>}`, one object per distinct exception type observed at least once (types never observed are omitted; no zero counts). `count` is the total number of observations of that type (totals over all invocations and all test methods, not the number of distinct invocations or tests). Sort the list by `exception_type` ascending using plain Python string ordering (code-point order); exception_type values are unique so no further tie-break is needed.\n",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

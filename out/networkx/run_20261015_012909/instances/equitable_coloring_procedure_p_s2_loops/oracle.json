@@ -1,0 +1,14 @@
+{
+  "oracle_answer": {
+    "nth_iteration": 13,
+    "value": 2,
+    "variable": "pop"
+  },
+  "question": "Consider the pytest test `networkx_qa/equitable_coloring_procedure_p_s2_loops/files/testcase.py::TestEquitableColoringRegular::test_tight_equitable_coloring_of_random_regular_graph` (test file `networkx_qa/equitable_coloring_procedure_p_s2_loops/files/testcase.py`, class `TestEquitableColoringRegular`, its single test method). During this test, the function `networkx.algorithms.coloring.equitable_coloring.procedure_P` (file `networkx/algorithms/coloring/equitable_coloring.py`) is invoked several times. An invocation is one call of `procedure_P` during the test run, counted 1-based in chronological order of the calls (a recursive call made by `procedure_P` itself, if any, also counts as its own invocation, numbered by when it starts). Look at the `while` loop whose header is at line 156 (`while idx < len(reachable):`, the BFS over colors that builds `A_cal`). Iterations of this loop are counted 1-based per invocation: iteration N is the Nth time the loop body's first line (line 157, `pop = reachable[idx]`) executes within that invocation. In invocation number 9, what is the value of the local variable `pop` immediately after line 157 executes in iteration 13 of this loop? Answer with JSON of the form {\"nth_iteration\": <int>, \"value\": <int>, \"variable\": <str>}, where \"nth_iteration\" is the iteration number asked about, \"variable\" is the bare local variable name (e.g. \"idx\"), and \"value\" is the variable's value as a plain JSON integer (not a string, not a repr).",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "nth_iteration": "int",
+    "value": "int",
+    "variable": "str"
+  }
+}

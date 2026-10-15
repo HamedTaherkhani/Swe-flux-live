@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 132
+  },
+  "question": "Run the pytest test `marshmallow_qa/schema_invoke_field_validators_s2_loops/files/testcase.py::InvokeFieldValidatorsLoopTest::test_load_many_with_exclusions` (class `InvokeFieldValidatorsLoopTest`, the file's only test method). During this test, the method `marshmallow.schema.Schema._invoke_field_validators` defined in `src/marshmallow/schema.py` is called exactly once (invocation 1 = the first and only call, counting calls in chronological order, 1-based). Consider the inner `for` loop whose header is at line 1144 of `src/marshmallow/schema.py` (the loop over `enumerate(data)` inside the `if many:` branch; line numbers are absolute and 1-based in the file as it exists in the repository). Note that this loop may be entered several times within that single invocation (once per validator/field pair that reaches it). Define one iteration as one execution of the loop body's first line (line 1145, the `try:` statement). How many iterations of this loop occur in total during invocation 1, summed over every entry into the loop within that invocation? Iterations in which the subsequent lookup raises `KeyError` (and the item is skipped) still count. Answer as JSON of the form {\"loop_iteration_count\": <int>}, where the value is a plain JSON integer (e.g. {\"loop_iteration_count\": 7}).",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

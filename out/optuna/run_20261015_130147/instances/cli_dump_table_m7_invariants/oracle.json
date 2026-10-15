@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "column == 0",
+        "violations": 0
+      },
+      {
+        "held_always": true,
+        "observations": 83,
+        "predicate": "len(header_string) == len(separator)",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 83,
+        "predicate": "max_width < 61",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 83,
+        "predicate": "max_width == len(header[column])",
+        "violations": 45
+      },
+      {
+        "held_always": false,
+        "observations": 956,
+        "predicate": "t != ValueType.NONE",
+        "violations": 36
+      },
+      {
+        "held_always": false,
+        "observations": 956,
+        "predicate": "value_type == ValueType.NUMERIC",
+        "violations": 554
+      }
+    ]
+  },
+  "question": "Run the pytest class `optuna_qa/cli_dump_table_m7_invariants/files/testcase.py::TestDumpTableThroughCli` (all 12 test methods; their execution order does not matter because the answer AGGREGATES totals over ALL of them). The test methods never call the target directly: they drive the Optuna CLI (`optuna.cli.main`) with `-f table`, which reaches `optuna.cli._dump_table` (file `optuna/cli.py`) via `optuna.cli._format_output`. Consider every invocation of `optuna.cli._dump_table` during the run (an invocation = one call of the function).\n\nFor each candidate predicate below, evaluate it as a Python expression over the local variables of the `_dump_table` frame at the stated observation point. An observation point 'line N' means: each time line N of `optuna/cli.py` (absolute, 1-based line numbers of the file as it exists in the repository) is about to execute inside `_dump_table` -- i.e. the locals are those BEFORE the statement on line N runs. Each such execution counts as exactly one observation (across all invocations and all test methods). `ValueType` is `optuna.cli.ValueType`; enum comparison is by member identity.\n  - predicate string \"column == 0\" -- observed at every `line` event of line 222 of optuna/cli.py\n  - predicate string \"len(header_string) == len(separator)\" -- observed at every `line` event of line 225 of optuna/cli.py\n  - predicate string \"max_width < 61\" -- observed at every `line` event of line 225 of optuna/cli.py\n  - predicate string \"max_width == len(header[column])\" -- observed at every `line` event of line 225 of optuna/cli.py\n  - predicate string \"t != ValueType.NONE\" -- observed at every `line` event of line 219 of optuna/cli.py\n  - predicate string \"value_type == ValueType.NUMERIC\" -- observed at every `line` event of line 219 of optuna/cli.py\n\nFor each predicate report: `predicate` (the predicate string exactly as written above, without the surrounding quotes), `observations` (int: total number of times its observation line executed inside `_dump_table`), `violations` (int: how many of those evaluations were False), and `held_always` (bool: true iff `violations == 0` AND `observations > 0`; a predicate whose observation line is never executed is reported as `observations: 0, violations: 0, held_always: false`).\n\nAnswer as a JSON object {\"invariant_report\": [...]} with exactly one entry per predicate (6 entries), each having exactly the keys `held_always`, `observations`, `predicate`, `violations`. Sort the list by the `predicate` string ascending using plain Python string ordering (code-point order; predicate strings are unique so there are no ties). Use JSON booleans `true`/`false` and JSON integers.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 2538,
+        "predicate": "best_com == u_com",
+        "violations": 594
+      },
+      {
+        "held_always": true,
+        "observations": 209,
+        "predicate": "best_gain > 0",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 834,
+        "predicate": "degree >= 2",
+        "violations": 45
+      },
+      {
+        "held_always": false,
+        "observations": 2538,
+        "predicate": "gain != remove_cost",
+        "violations": 852
+      },
+      {
+        "held_always": false,
+        "observations": 209,
+        "predicate": "nb_moves < 28",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "x >= 0",
+        "violations": 0
+      }
+    ]
+  },
+  "question": "Test: `networkx_qa/louvain_one_level_m7_invariants/files/testcase.py`, class `TestLouvainScenarios`. The answer aggregates over ALL test methods of this class (every `test_*` method, i.e. every pytest id of the form `networkx_qa/louvain_one_level_m7_invariants/files/testcase.py::TestLouvainScenarios::<method>`), run together in one pytest session. Counts are totals summed across all of them.\n\nTarget function: the module-level function `_one_level` in `networkx/algorithms/community/louvain.py` (dotted name `networkx.algorithms.community.louvain._one_level`). The tests never call it directly; it is reached through the public Louvain entry points. Every invocation (one call of the target = one new frame), however it is reached, contributes.\n\nCandidate predicates. Each is a Python expression over the target's own local variables, evaluated with the values those locals hold at the observation point. The observation point of a predicate is: every time execution reaches the stated line of `networkx/algorithms/community/louvain.py` (absolute, 1-based line number in the file as it exists in the repository), evaluated just BEFORE that line's statement executes (i.e. with the locals as they are when control arrives at that line; for an `if` line, before its condition is evaluated). Each arrival at the line is one observation, so a line inside a loop yields one observation per loop iteration in which it is reached:\n  - `best_com == u_com` \u2014 observed at line 320\n  - `gain != remove_cost` \u2014 observed at line 320\n  - `degree >= 2` \u2014 observed at line 330\n  - `best_gain > 0` \u2014 observed at line 336\n  - `nb_moves < 28` \u2014 observed at line 336\n  - `x >= 0` \u2014 observed at line 312\n\nQuestion: for each candidate predicate, over the whole test class, how many times was it observed, how many of those observations evaluated to False, and did it hold at every observation?\n\nAnswer format: JSON object `{\"invariant_report\": [...]}` with exactly one element per candidate predicate above (6 elements). Each element is an object with exactly the keys:\n  - `predicate` (str): the predicate expression copied verbatim from the backticks above (e.g. a predicate written `a < b` is reported as \"a < b\"; the line number is not part of the string);\n  - `observations` (int): the number of observations as defined above, summed over all invocations in all test methods;\n  - `violations` (int): how many of those observations evaluated to False;\n  - `held_always` (bool): true iff `observations > 0` and `violations == 0`. A predicate whose observation line is never reached is reported as `observations: 0`, `violations: 0`, `held_always: false`.\nSort the list ascending by `predicate` using plain Python string ordering (code-point order); predicate strings are all distinct, so no tie-break is needed.\n",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

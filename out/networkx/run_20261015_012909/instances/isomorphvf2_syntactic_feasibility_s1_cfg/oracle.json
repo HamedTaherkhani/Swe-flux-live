@@ -1,0 +1,952 @@
+{
+  "question_kind": "S1_IntraProceduralCFG",
+  "question": "Test: `networkx_qa/isomorphvf2_syntactic_feasibility_s1_cfg/files/testcase.py`, class `TestDiGraphSubgraphSearch`, test method `test_induced_subgraph_embeddings` (pytest id `networkx_qa/isomorphvf2_syntactic_feasibility_s1_cfg/files/testcase.py::TestDiGraphSubgraphSearch::test_induced_subgraph_embeddings`).\n\nTarget function: `DiGraphMatcher.syntactic_feasibility` defined in `networkx/algorithms/isomorphism/isomorphvf2.py` (dotted name `networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility`). Only this method counts; `GraphMatcher.syntactic_feasibility` in the same file and methods of subclasses in other files are NOT the target.\n\nInvocation counting: number the calls (Python function-call entries into a new frame of the target) that happen while this test method runs, 1-based, in chronological order, counting every call regardless of who the caller is. Consider invocation number 16.\n\nQuestion: what is the exact ordered sequence of executed source lines inside the target function during invocation 16, from function entry until it returns?\n\nLine-event rules:\n- Report one entry each time Python's line tracer (`sys.settrace` \"line\" events, CPython 3.12 as installed in this repository's environment) reports a line executing in that invocation's own frame. Lines executed in other functions called by the target (e.g. `number_of_edges`, graph views) are NOT included.\n- The `def` line, the docstring and comments never appear. The function-entry (\"call\") and function-exit (\"return\") events themselves are not entries; the final `return` statement appears exactly once as a normal executed line.\n- Several statements in this function span multiple physical lines (e.g. `if` conditions comparing two `number_of_edges(...)` calls written over 2-3 lines). Any line event that falls on a continuation line of a statement (or of a compound statement's header such as an `if`/`elif` condition) is reported as the line number where that statement begins (the line containing `if`/`elif`). After this mapping, collapse every run of consecutive identical line numbers into a single entry (within this function a single statement never legitimately executes twice back-to-back, so such runs only come from a multi-line statement being evaluated).\n- A `for` header line is reported every time it is reported by the tracer: on loop entry, before each further iteration, and the final check when the iterator is exhausted. `elif`/`else` follow Python 3.12 tracing: an `elif` line appears when its condition is evaluated; an `else:` line itself never appears (only the first statement inside it).\n- Line numbers are absolute, 1-based line numbers in `networkx/algorithms/isomorphism/isomorphvf2.py` as it exists in the repository.\n\nAnswer format: a JSON object `{\"executed_path\": [...]}` where each element is `{\"file\": str, \"func\": str, \"line\": int}`, in execution order (no sorting, no deduplication beyond the consecutive-run collapse described above). `file` is always the repo-relative path `networkx/algorithms/isomorphism/isomorphvf2.py` and `func` is always the dotted name `networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility` (identical in every element); `line` is a JSON integer.\n",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 762
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 768
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 778
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 779
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 780
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 779
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 780
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 779
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 780
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 781
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 783
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 779
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 780
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 779
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 780
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 779
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 780
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 779
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 780
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 779
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 780
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 779
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 788
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 789
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 790
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 792
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 798
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 788
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 789
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 788
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 808
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 809
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 810
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 809
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 810
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 811
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 813
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 809
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 810
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 809
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 818
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 819
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 820
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 822
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 828
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 818
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 819
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 818
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 833
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 839
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 840
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 841
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 840
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 841
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 842
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 840
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 841
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 840
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 841
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 840
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 841
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 840
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 841
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 840
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 841
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 840
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 841
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 840
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 843
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 844
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 845
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 844
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 845
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 844
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 847
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 851
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 856
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 857
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 858
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 859
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 857
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 858
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 857
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 858
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 857
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 860
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 861
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 862
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 861
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 862
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 861
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 864
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 868
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 875
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 876
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 877
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 878
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 876
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 877
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 876
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 877
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 876
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 877
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 876
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 877
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 876
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 877
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 876
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 877
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 878
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 876
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 877
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 876
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 879
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 880
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 881
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 880
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 881
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 880
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 883
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 887
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 892
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 893
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 894
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 893
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 894
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 893
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 894
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 893
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 896
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 897
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 898
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 897
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 898
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 897
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 900
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 904
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 914
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 915
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 916
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 915
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 916
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 915
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 916
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 915
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 916
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 917
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 915
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 916
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 917
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 915
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 916
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 917
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 915
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 916
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 915
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 916
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 917
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 915
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 918
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 919
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 920
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 919
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 920
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 921
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 919
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 922
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 926
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 932
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 933
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 934
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 933
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 934
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 933
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 934
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 935
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 933
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 936
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 937
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 938
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 937
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 938
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 939
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 937
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 940
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 944
+      },
+      {
+        "file": "networkx/algorithms/isomorphism/isomorphvf2.py",
+        "func": "networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.syntactic_feasibility",
+        "line": 948
+      }
+    ]
+  }
+}

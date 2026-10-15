@@ -1,0 +1,22 @@
+{
+  "oracle_answer": {
+    "unique_values": [
+      "OrderedSet(['paruru', 'shmika', 'karu', 'zone', 'vune', 'lorush', 'zozopa'])",
+      "OrderedSet(['paruru', 'vune'])",
+      "OrderedSet(['rush', 'mishte', 'tete', 'teruru'])",
+      "OrderedSet(['shru', 'vuzo', 'netene', 'zoru', 'nezo'])",
+      "OrderedSet(['temiru'])",
+      "OrderedSet(['zotepa'])",
+      "dict_keys(['kavu', 'miru', 'kami', 'rulozo', 'zoruru', 'zorute', 'rushne', 'nelone', 'neshzo'])",
+      "dict_keys(['vunene', 'mivu', 'shmilo', 'temilo', 'shpa', 'shmish', 'vulo'])",
+      "set()"
+    ]
+  },
+  "question": "Consider the test class `TestNestedSchemaState` in `marshmallow_qa/fields_schema_m3_state/files/testcase.py`. Run ALL of its test methods (pytest ids `marshmallow_qa/fields_schema_m3_state/files/testcase.py::TestNestedSchemaState::test_*`, 12 methods); the answer aggregates over every one of them and over every invocation of the property getter `marshmallow.fields.Nested.schema` (the `@property def schema` of class `Nested` in `src/marshmallow/fields.py`) that happens while those tests run. An invocation is one call of that getter function (including calls on the cached path that simply return `self._schema`, and calls that end by propagating an exception). Observe the local variable `original` of that getter: every time an assignment statement `original = ...` inside the getter completes, record `repr(original)` as it is right after that assignment (the builtin `repr` of the bound object at that moment). Invocations that never assign `original` contribute nothing. Reprs use Python spellings exactly as `repr()` produces them, e.g. a dict keys view looks like `dict_keys(['p', 'q'])`, marshmallow's `OrderedSet` looks like `OrderedSet(['p', 'q'])` (or `OrderedSet()` when empty), builtin sets and frozensets use their builtin repr, a tuple is `('p',)`, a list is `['p']`, with single-quoted strings. Answer with JSON `{\"unique_values\": [...]}` whose list contains every DISTINCT recorded repr string (duplicates removed by exact string equality), sorted ascending by plain Python string ordering (`sorted()` on the strings, i.e. Unicode code point order, so uppercase letters sort before lowercase, e.g. `\"Zz\"` before `\"aa\"`). Each element is the repr text itself as a JSON string.",
+  "question_kind": "M3_ProgramState",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  }
+}

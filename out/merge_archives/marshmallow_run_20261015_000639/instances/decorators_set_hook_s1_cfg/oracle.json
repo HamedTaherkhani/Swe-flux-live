@@ -1,0 +1,352 @@
+{
+  "question_kind": "S1_IntraProceduralCFG",
+  "question": "Run the pytest test `marshmallow_qa/decorators_set_hook_s1_cfg/files/testcase.py::HookRegistrationTest::test_generated_schema_hooks` (test file `marshmallow_qa/decorators_set_hook_s1_cfg/files/testcase.py`, test class `HookRegistrationTest`, its single test method `test_generated_schema_hooks`). Consider the function `marshmallow.decorators.set_hook` (`set_hook`, defined at module level in `src/marshmallow/decorators.py`). An invocation is one call of `set_hook` (one Python frame of it being entered) during this test, regardless of who calls it (the public decorators `pre_dump`, `post_dump`, `pre_load`, `post_load`, `validates`, `validates_schema`, or a `functools.partial` object that later calls `set_hook` itself); invocations are numbered 1-based in chronological order of entry. Only calls made while the test method runs count (nothing happens at module import time). Give the executed path of invocations 9 through 20 inclusive: for each of these invocations in order, list the source lines of `set_hook` that execute in that invocation's own frame, in execution order, then concatenate those per-invocation lists in invocation order into one list (no separators between invocations, no deduplication: a line that executes in several invocations appears once per execution). A line is listed each time Python's line tracer (a `sys.settrace` 'line' event, CPython 3.11 as installed here) reports it for that frame; the `def` line / signature lines, the docstring, comments and blank lines never appear; 'call', 'return' and 'exception' events contribute no entries; a `try:` line and an `except ...:` clause line appear whenever the tracer reports them. Every statement in `set_hook` fits on one physical line, so each entry is simply that statement's line. Lines executed inside other functions called from `set_hook` are not included. Line numbers are absolute and 1-based in `src/marshmallow/decorators.py` as it exists in the repository. Answer as a JSON object with the single key `executed_path`, a list of objects, each with exactly the keys `file` (str, the repo-relative path, always \"src/marshmallow/decorators.py\"), `func` (str, the dotted module.qualname, always \"marshmallow.decorators.set_hook\"), and `line` (int). The list order is the execution order described above.",
+  "template_answer": {
+    "executed_path": [
+      {
+        "file": "str",
+        "func": "str",
+        "line": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "executed_path": [
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 244
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 245
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 246
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 247
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 248
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 251
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 252
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 254
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 244
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 245
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 246
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 251
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 254
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 240
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 244
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 245
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 246
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 247
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 248
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 251
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 252
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 254
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 244
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 245
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 246
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 247
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 248
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 251
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 252
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 254
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 240
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 244
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 245
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 246
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 251
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 252
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 254
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 240
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 244
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 245
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 246
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 251
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 252
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 254
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 244
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 245
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 246
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 251
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 254
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 244
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 245
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 246
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 251
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 254
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 239
+      },
+      {
+        "file": "src/marshmallow/decorators.py",
+        "func": "marshmallow.decorators.set_hook",
+        "line": 240
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "oracle_answer": {
+    "nth_iteration": 38,
+    "value": "Box('n00')",
+    "variable": "obj"
+  },
+  "question": "Run the pytest test `marshmallow_qa/utils_get_value_s2_loops/files/testcase.py::GetValueWalkTest::test_dotted_walk_over_box_graph` (test class `GetValueWalkTest`, single test method `test_dotted_walk_over_box_graph`). During this test the function `marshmallow.utils.get_value` defined in `src/marshmallow/utils.py` is invoked exactly once (invocation 1 = the first and only call in chronological order). Consider the `for` loop whose header is at line 109 of `src/marshmallow/utils.py` (absolute, 1-based line numbers in the file as it exists in the repository); its body is the single statement at line 110. Iterations are counted 1-based: iteration N is the Nth time line 110 begins executing during that invocation. What is the value of the local variable `obj` at the moment line 110 begins executing in iteration 38, i.e. BEFORE that iteration's assignment to `obj` runs (equivalently, the value `obj` holds after iteration 37 finished)? Answer as a JSON object with exactly the keys `nth_iteration` (int, the iteration number asked about, i.e. 38), `variable` (str, the bare variable name, i.e. \"obj\"), and `value` (str, the Python `repr()` of the object exactly as produced by its class's `__repr__`, e.g. a Box tagged 'x9' would be written as the string \"Box('x9')\" with single quotes inside).",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "nth_iteration": "int",
+    "value": "str",
+    "variable": "str"
+  }
+}

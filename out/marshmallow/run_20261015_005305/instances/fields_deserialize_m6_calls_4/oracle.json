@@ -1,0 +1,147 @@
+{
+  "question_kind": "M6_InterProceduralCFG",
+  "question": "In this repository, the test file `marshmallow_qa/fields_deserialize_m6_calls_4/files/testcase.py` defines the unittest class `TestAwareDateTimeDeserialize` with twelve test methods (`test_01_...` through `test_12_...`). Run ALL test methods of this class with pytest (pytest id `marshmallow_qa/fields_deserialize_m6_calls_4/files/testcase.py::TestAwareDateTimeDeserialize`). Each test calls the target method `marshmallow.fields.AwareDateTime._deserialize` (class `AwareDateTime` in `src/marshmallow/fields.py`) directly on freshly built field instances.\n\nScope: the tracked functions are (a) EVERY module-level function defined in `src/marshmallow/utils.py` (every top-level `def` of that file, including those whose name starts with an underscore), and (b) EVERY method whose `def` statement appears directly in the class body of one of these four classes in `src/marshmallow/fields.py`: `_TemporalField`, `DateTime`, `NaiveDateTime`, `AwareDateTime` (this includes `__init__`, static methods and abstract methods defined there, regardless of whether they are ever called). You must find the members yourself by reading those files. Inherited methods do NOT get their own entry: a method inherited from another class (e.g. from `Field`) is out of scope unless its `def` sits in one of the four class bodies, and when an instance runs an inherited in-scope method, the call is credited to the class whose body contains the executed `def` (e.g. `super().__init__` reaching `_TemporalField.__init__` counts for `_TemporalField.__init__`). Nothing else is in scope: no methods of other classes in `fields.py` (e.g. `Field.make_error`, `Field.__init__`), no functions from other files (schema, exceptions, the standard library, or the test file itself, including its helper functions and its `tzinfo` subclass), and no lambdas, comprehensions, or nested functions.\n\nIdentity: `func` is the dotted name `<module>.<qualname>` using the import names `marshmallow.utils` and `marshmallow.fields` (not `src.marshmallow...`); for example the `_serialize` method of class `Date` would be written `marshmallow.fields.Date._serialize`, and a module-level utils function `foo` would be `marshmallow.utils.foo`. `file` is the repo-relative path of the file containing the `def`: `src/marshmallow/utils.py` or `src/marshmallow/fields.py`.\n\nCounting: one invocation = one Python function call of that function's code (one `'call'` event for a new frame of it, as seen by `sys.settrace`), from ANY caller and at any depth - calls made directly by the test body, transitively through other functions (including through `super()`, through functions looked up in class-level dictionaries, through field constructors, through schema construction, and through another in-scope function) all count. Calls that end by raising an exception still count. None of the in-scope functions are generators or coroutines, so there are no resumptions. Only what happens while the test methods themselves run is counted (test collection and module import are excluded; there are no `setUp`/`tearDown` methods). Counts are summed over ALL twelve test methods (not reported per test). Every in-scope function that never runs MUST still be listed, with `count` 0.\n\nAnswer format: a JSON object with the single key `invocation_counts`, whose value is a list with exactly one object per in-scope function, each of the form `{\"count\": <int>, \"file\": <str>, \"func\": <str>}`. Sort the list by `func` ascending using plain Python string comparison (Unicode code point order, so uppercase letters sort before `_`, which sorts before lowercase letters). `func` values are unique, so no tie-break is needed.",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 27,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.AwareDateTime.__init__"
+      },
+      {
+        "count": 225,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.AwareDateTime._deserialize"
+      },
+      {
+        "count": 18,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.DateTime._make_object_from_format"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.NaiveDateTime.__init__"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.NaiveDateTime._deserialize"
+      },
+      {
+        "count": 27,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField.__init__"
+      },
+      {
+        "count": 3,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._bind_to_schema"
+      },
+      {
+        "count": 225,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._deserialize"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._make_object_from_format"
+      },
+      {
+        "count": 16,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._serialize"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils._get_value_for_key"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.callable_or_raise"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.ensure_text_type"
+      },
+      {
+        "count": 76,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.from_timestamp"
+      },
+      {
+        "count": 50,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.from_timestamp_ms"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.get_value"
+      },
+      {
+        "count": 159,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.is_aware"
+      },
+      {
+        "count": 1,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.is_collection"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.is_generator"
+      },
+      {
+        "count": 3,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.is_iterable_but_not_string"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.is_sequence_but_not_string"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.pluck"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.set_value"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.timedelta_to_microseconds"
+      },
+      {
+        "count": 16,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.timestamp"
+      },
+      {
+        "count": 16,
+        "file": "src/marshmallow/utils.py",
+        "func": "marshmallow.utils.timestamp_ms"
+      }
+    ]
+  }
+}

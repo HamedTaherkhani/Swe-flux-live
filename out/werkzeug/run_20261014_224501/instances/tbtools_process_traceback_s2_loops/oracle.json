@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 174
+  },
+  "question": "Consider the pytest test `werkzeug_qa/tbtools_process_traceback_s2_loops/files/testcase.py::TestProcessTracebackLoops::test_chained_collatz_traceback` (test class `TestProcessTracebackLoops` in `werkzeug_qa/tbtools_process_traceback_s2_loops/files/testcase.py`, its only test method). The test calls the module-level function `werkzeug.debug.tbtools._process_traceback` defined in `src/werkzeug/debug/tbtools.py` once directly; that function then calls itself recursively for the `__context__` and `__cause__` entries of the `traceback.TracebackException` it processes. An invocation is one `call` of `_process_traceback` during the test run (the direct call plus every recursive call). Focus on the loop `for (f, _), fs in zip(frame_gen, te.stack, strict=True):` whose header is at line 157 of that file (absolute, 1-based line numbers of the file as it exists in the repository). Define one iteration of this loop as one execution of the loop body's first line (line 158, `if hide:`). An iteration counts even if it later hits `continue` and does not append a frame. Count the iterations across ALL invocations of `_process_traceback` during the test (each execution of that line counts exactly once; iterations of a caller invocation are not re-counted when a nested recursive invocation runs) and report the total. Answer with a JSON object `{\"loop_iteration_count\": <int>}` where the value is a plain JSON integer (not a string).",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 21,
+        "exception_type": "OverflowError"
+      },
+      {
+        "count": 20,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 15,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 1,
+        "exception_type": "ZeroDivisionError"
+      },
+      {
+        "count": 47,
+        "exception_type": "marshmallow.exceptions.ValidationError"
+      }
+    ]
+  },
+  "question": "Consider the test class `TestTimeDeltaDeserializeExceptions` in `marshmallow_qa/fields_deserialize_m5_exceptions_3/files/testcase.py`, run with `pytest marshmallow_qa/fields_deserialize_m5_exceptions_3/files/testcase.py::TestTimeDeltaDeserializeExceptions` (all 12 of its test methods, aggregated together; method order does not matter for the answer). Focus on the method `marshmallow.fields.TimeDelta._deserialize` defined in `src/marshmallow/fields.py` (the `_deserialize` method of class `TimeDelta`; NOT any other field class's `_deserialize`). Across ALL invocations of that method (an invocation = one call of the method) during ALL test methods of the class, count how many times each exception type is observed in the `TimeDelta._deserialize` frame.\n\nObservation rule: an exception is observed in the frame when it is raised by code executing in that exact frame (e.g. a `raise` statement in the method body), OR when it propagates into that frame out of a callee (e.g. an exception escaping a builtin/constructor call, or escaping a user-defined `__float__` method that the frame's `float(...)` call invokes). Each such event counts once per frame invocation per exception: an exception that propagates into the frame and is then caught by an `except` clause in the frame counts once; an exception that propagates in and is not caught (so it continues to propagate out of the method) also counts exactly once (leaving the frame does not count again). A new exception raised inside an `except` handler (e.g. via `raise ... from error`) is a separate observation of its own type, in addition to the one that was caught. A bare re-raise of the same exception object in the same frame would count again, but none of this method's code does that. Exceptions raised AND fully handled inside a callee (never escaping the callee into the `TimeDelta._deserialize` frame) do NOT count. Exceptions in other frames (the test methods, helper functions, or `__float__` methods themselves) do NOT count on their own. Counts are totals over all invocations and all test methods: the same type observed in five different invocations contributes five.\n\nNaming: use bare `type(exc).__name__` for built-in exception classes (e.g. `ArithmeticError`, never `builtins.ArithmeticError`), and `module.QualName` (i.e. `f\"{type(exc).__module__}.{type(exc).__qualname__}\"`, e.g. `json.decoder.JSONDecodeError`) for every non-built-in exception class.\n\nAnswer format: a JSON object with a single key `exception_type_counts`, whose value is a list of objects `{\"count\": <int>, \"exception_type\": <str>}`, one per exception type observed at least once (types never observed are omitted; no entry has count 0). Sort the list by `exception_type` ascending (plain Python string ordering, case-sensitive); since each type appears exactly once, there are no ties.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

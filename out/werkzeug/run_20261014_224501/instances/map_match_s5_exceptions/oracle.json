@@ -1,0 +1,15 @@
+{
+  "oracle_answer": {
+    "caught_exception_kinds": [
+      "werkzeug.routing.exceptions.NoMatch",
+      "werkzeug.routing.exceptions.RequestPath"
+    ]
+  },
+  "question": "Consider the pytest test `werkzeug_qa/map_match_s5_exceptions/files/testcase.py::RoutingDispatchTest::test_dispatch_matrix` (file `werkzeug_qa/map_match_s5_exceptions/files/testcase.py`, class `RoutingDispatchTest`, single test method `test_dispatch_matrix`). During this one test run, the method `werkzeug.routing.map.MapAdapter.match` (defined in `src/werkzeug/routing/map.py`) is invoked many times, always indirectly (through `MapAdapter.dispatch` from the WSGI app driven by the test client, and through `MapAdapter.test` / `MapAdapter.allowed_methods`). Over ALL invocations of `MapAdapter.match` during the test (every call of the method counts; an invocation is one call), which exception types were CAUGHT by one of the `except` clauses written in the body of `MapAdapter.match` itself? An exception counts only if it propagated into the frame of `MapAdapter.match` (i.e. was raised inside the `try` block of that method, including from callees) and execution then entered the body of one of that method's own `except` handlers. Do NOT count: exceptions raised by `MapAdapter.match` (e.g. by its `raise` statements) that leave the method; exceptions that propagate through `MapAdapter.match` uncaught; exceptions raised and handled entirely inside callees (e.g. inside the matcher or converters) that never reach the frame of `MapAdapter.match`; or exceptions handled by the callers. Report the concrete runtime type of the caught exception object (`type(exc)`), not the class named in the `except` clause, if they differ. Naming convention: for built-in exceptions use the bare `type(exc).__name__` (e.g. `ValueError`, never `builtins.ValueError`); for all other exceptions use `type(exc).__module__ + '.' + type(exc).__qualname__` (e.g. `http.client.HTTPException`), i.e. the module where the class is defined, not a re-exporting module. Each type is listed once (deduplicated) no matter how many times it was caught, and the list is sorted in ascending lexicographic (Python default string) order. Answer as JSON: {\"caught_exception_kinds\": [<str>, ...]}.",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "caught_exception_kinds": [
+      "str"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 24,
+        "exception_type": "KeyError"
+      },
+      {
+        "count": 3,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 9,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 9,
+        "exception_type": "optuna.exceptions.StorageInternalError"
+      },
+      {
+        "count": 11,
+        "exception_type": "optuna.exceptions.UpdateFinishedTrialError"
+      },
+      {
+        "count": 24,
+        "exception_type": "sqlalchemy.exc.IntegrityError"
+      },
+      {
+        "count": 9,
+        "exception_type": "sqlalchemy.exc.OperationalError"
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `TestRDBStorageSessionScenarios` in `optuna_qa/storage_create_scoped_session_m5_exceptions/files/testcase.py`. Run ALL of its test methods (the whole class, e.g. `pytest optuna_qa/storage_create_scoped_session_m5_exceptions/files/testcase.py::TestRDBStorageSessionScenarios`); every method builds its own fresh in-memory SQLite `RDBStorage` instance(s), shared with no other method. The test file never calls the target directly; it is reached through `RDBStorage` / `optuna` public APIs.\n\nTarget: the generator-based context manager `optuna.storages._rdb.storage._create_scoped_session` defined in `optuna/storages/_rdb/storage.py` (decorated with `@contextmanager`). Its frame is the generator frame of that function; one generator frame exists per `with _create_scoped_session(...)` entry, and it may be suspended at `yield session` while the caller's `with` body runs.\n\nQuestion: across the ENTIRE run (all invocations of the target, in all test methods of the class, totals summed), how many times was each exception type OBSERVED in the target's frame?\n\nObservation rule (one observation = one time an exception becomes active/propagates at a line of the target frame):\n- An exception raised by the caller's `with` body and thrown into the generator at the `yield session` line counts once (at that line).\n- An exception propagating out of a call made directly on a line of the target frame (e.g. raised somewhere inside `session.commit()` and not handled there) counts once.\n- An exception newly raised by a `raise X(...)` / `raise X(...) from e` statement in the target frame counts once (a new exception object).\n- A bare `raise` that re-raises the exception currently being handled (the same exception object, in the same frame) does NOT count again.\n- Exceptions raised and fully handled inside callees (never reaching the target frame), and exceptions that only exist in the callers (e.g. a caller converting an exception into another type after the context manager exits, or a caller catching what the target re-raised) do NOT count. Whether a handler in the target later swallows the exception is irrelevant: the observation still counts.\n- Count every observation, not distinct invocations or distinct types: if the same type is observed five times (in any invocations/test methods), its count is 5.\n\nException type naming: bare `type(exc).__name__` for built-in exceptions (e.g. `LookupError`, never `builtins.LookupError`); for every non-builtin exception use `type(exc).__module__ + \".\" + type(exc).__qualname__` (e.g. `optuna.exceptions.DuplicatedStudyError` style, `json.decoder.JSONDecodeError` style).\n\nOutput: a JSON object `{\"exception_type_counts\": [{\"count\": <int>, \"exception_type\": <str>}, ...]}` with one entry for every exception type observed at least once (types never observed are omitted; no zero counts). Sort entries by `exception_type` ascending using plain Python string ordering (code-point order, case-sensitive); type names are unique so there is no tie. `count` is a JSON integer.\n",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

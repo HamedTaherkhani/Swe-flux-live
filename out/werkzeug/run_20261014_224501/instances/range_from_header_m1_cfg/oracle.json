@@ -1,0 +1,272 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 0,
+        "line": 201
+      },
+      {
+        "count": 0,
+        "line": 202
+      },
+      {
+        "count": 0,
+        "line": 203
+      },
+      {
+        "count": 0,
+        "line": 204
+      },
+      {
+        "count": 0,
+        "line": 205
+      },
+      {
+        "count": 29,
+        "line": 206
+      },
+      {
+        "count": 2,
+        "line": 207
+      },
+      {
+        "count": 0,
+        "line": 208
+      },
+      {
+        "count": 27,
+        "line": 209
+      },
+      {
+        "count": 27,
+        "line": 210
+      },
+      {
+        "count": 27,
+        "line": 211
+      },
+      {
+        "count": 27,
+        "line": 212
+      },
+      {
+        "count": 0,
+        "line": 213
+      },
+      {
+        "count": 218,
+        "line": 214
+      },
+      {
+        "count": 199,
+        "line": 215
+      },
+      {
+        "count": 0,
+        "line": 216
+      },
+      {
+        "count": 199,
+        "line": 217
+      },
+      {
+        "count": 1,
+        "line": 218
+      },
+      {
+        "count": 0,
+        "line": 219
+      },
+      {
+        "count": 198,
+        "line": 220
+      },
+      {
+        "count": 8,
+        "line": 221
+      },
+      {
+        "count": 0,
+        "line": 222
+      },
+      {
+        "count": 0,
+        "line": 223
+      },
+      {
+        "count": 8,
+        "line": 224
+      },
+      {
+        "count": 8,
+        "line": 225
+      },
+      {
+        "count": 1,
+        "line": 226
+      },
+      {
+        "count": 1,
+        "line": 227
+      },
+      {
+        "count": 0,
+        "line": 228
+      },
+      {
+        "count": 0,
+        "line": 229
+      },
+      {
+        "count": 7,
+        "line": 230
+      },
+      {
+        "count": 1,
+        "line": 231
+      },
+      {
+        "count": 0,
+        "line": 232
+      },
+      {
+        "count": 6,
+        "line": 233
+      },
+      {
+        "count": 6,
+        "line": 234
+      },
+      {
+        "count": 0,
+        "line": 235
+      },
+      {
+        "count": 0,
+        "line": 236
+      },
+      {
+        "count": 190,
+        "line": 237
+      },
+      {
+        "count": 190,
+        "line": 238
+      },
+      {
+        "count": 190,
+        "line": 239
+      },
+      {
+        "count": 0,
+        "line": 240
+      },
+      {
+        "count": 190,
+        "line": 241
+      },
+      {
+        "count": 190,
+        "line": 242
+      },
+      {
+        "count": 1,
+        "line": 243
+      },
+      {
+        "count": 1,
+        "line": 244
+      },
+      {
+        "count": 0,
+        "line": 245
+      },
+      {
+        "count": 189,
+        "line": 246
+      },
+      {
+        "count": 3,
+        "line": 247
+      },
+      {
+        "count": 0,
+        "line": 248
+      },
+      {
+        "count": 186,
+        "line": 249
+      },
+      {
+        "count": 182,
+        "line": 250
+      },
+      {
+        "count": 182,
+        "line": 251
+      },
+      {
+        "count": 0,
+        "line": 252
+      },
+      {
+        "count": 0,
+        "line": 253
+      },
+      {
+        "count": 0,
+        "line": 254
+      },
+      {
+        "count": 182,
+        "line": 255
+      },
+      {
+        "count": 1,
+        "line": 256
+      },
+      {
+        "count": 0,
+        "line": 257
+      },
+      {
+        "count": 4,
+        "line": 258
+      },
+      {
+        "count": 0,
+        "line": 259
+      },
+      {
+        "count": 185,
+        "line": 260
+      },
+      {
+        "count": 0,
+        "line": 261
+      },
+      {
+        "count": 191,
+        "line": 262
+      },
+      {
+        "count": 0,
+        "line": 263
+      },
+      {
+        "count": 19,
+        "line": 264
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `RangeRequestFlowTest` in the file `werkzeug_qa/range_from_header_m1_cfg/files/testcase.py` (pytest id `werkzeug_qa/range_from_header_m1_cfg/files/testcase.py::RangeRequestFlowTest`). Run ALL of its test methods (every `test_...` method of the class; pytest runs them in alphabetical order, but the answer does not depend on order). The tests never call the target directly; they go through `werkzeug.wrappers.Request` / `werkzeug.wrappers.Response` APIs (e.g. `Request.range`, `Response.apply_range`), which reach it internally, possibly several times per request.\n\nTarget function: the classmethod `werkzeug.datastructures.range.Range.from_header` defined in `src/werkzeug/datastructures/range.py` (its `def` statement is on line 200). Only this exact function counts \u2014 NOT `IfRange.from_header`, `ContentRange.from_header`, `ETag.from_header`, or any other `from_header`, and not any function it calls (such as `_plain_int`).\n\nAn invocation is one call of `Range.from_header` during the run. Aggregate over EVERY invocation in EVERY test method of the class (totals, not per method).\n\nExecuted line: a line counts once each time the Python interpreter reports a line event (as `sys.settrace` 'line' events do on CPython 3.11) for that line inside a frame of `Range.from_header`. Consequences: a `for` header line is counted each time it is evaluated, including the final evaluation that finds the iterable exhausted; an `except ...:` line is counted each time it is reached because the exception it handles was raised inside its `try` block; a `try:` line is counted each time it is entered; an `if` line is counted each time its test is evaluated; a `return` line is counted when it is executed. The `def` line (200) and the `@classmethod` decorator line are out of scope (call events are not line events). For a multi-line statement the event fires on the line where the statement begins.\n\nScope: every physical line from line 201 through line 264 inclusive (the line right after the `def` line through the function's last line, the `return cls(units, ranges)` line). Every one of these lines must appear exactly once in the answer, including docstring lines, blank lines, comment lines, and lines that never execute \u2014 all of those are reported with `count` 0. Line numbers are absolute, 1-based line numbers in `src/werkzeug/datastructures/range.py` as it exists in the repository.\n\nAnswer format: a JSON object `{\"line_execution_counts\": [...]}` whose list contains one object per line in scope with exactly the keys `line` (int) and `count` (int, total number of executions, 0 if never executed), sorted by `line` ascending, with no duplicates.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

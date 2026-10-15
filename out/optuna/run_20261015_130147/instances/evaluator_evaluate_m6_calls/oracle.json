@@ -1,0 +1,97 @@
+{
+  "question_kind": "M6_InterProceduralCFG",
+  "question": "Consider the pytest test class `TestPedAnovaEvaluateCallGraph` in the file `optuna_qa/evaluator_evaluate_m6_calls/files/testcase.py`, run as `pytest optuna_qa/evaluator_evaluate_m6_calls/files/testcase.py::TestPedAnovaEvaluateCallGraph` (i.e. ALL test methods of the class, each identified by its pytest id `optuna_qa/evaluator_evaluate_m6_calls/files/testcase.py::TestPedAnovaEvaluateCallGraph::<method name>`). Every test method calls `optuna.importance._ped_anova.evaluator.PedAnovaImportanceEvaluator.evaluate` (defined in `optuna/importance/_ped_anova/evaluator.py`) directly on a study it builds.\n\nScope: the two source files of the package directory `optuna/importance/_ped_anova/`, namely `optuna/importance/_ped_anova/evaluator.py` (module `optuna.importance._ped_anova.evaluator`) and `optuna/importance/_ped_anova/scott_parzen_estimator.py` (module `optuna.importance._ped_anova.scott_parzen_estimator`); `__init__.py` contains no functions. INCLUDED in the scope: every function defined by a `def` statement at the top level of either file, and every method defined by a `def` statement directly in the body of any class defined at the top level of either file (including `__init__`, private underscore-prefixed methods, and methods that are never called). EXCLUDED: lambdas (including lambdas passed in by the tests), comprehension and generator-expression frames, module-level code, methods inherited from base classes but not defined in these files (e.g. anything from `optuna/importance/_base.py`), functions merely imported into these modules from elsewhere (e.g. `optuna.samplers._tpe.sampler._split_complete_trials_multi_objective`, the `_Batched*`/`_MixtureOfProductDistribution` classes, distribution methods), and same-named functions in any other file.\n\nInvocation: one invocation is one Python `call` event for a frame executing that function's code object (as seen by `sys.settrace`), i.e. one entry into the function. Calls made from ANY frame count: directly from the tests, from other in-scope functions, from inside comprehensions, transitively, or recursively. Instantiating a class counts as one invocation of its `__init__` defined in these files. None of the in-scope functions is a generator or coroutine, so there are no resumption events. A call that later exits by raising an exception still counts. Count across ALL test methods of the class combined (sum over the whole class run, not per method); `setUp`/`tearDown` and test-module helpers are not in scope but any in-scope calls they cause count. A function in scope that never executes in any test method has count 0.\n\nAnswer format: a JSON object `{\"invocation_counts\": [...]}` whose list contains exactly one object per in-scope function, with keys `count` (int, the total number of invocations), `file` (str, the repo-relative path of the file that defines the function, e.g. `optuna/importance/_ped_anova/scott_parzen_estimator.py`), and `func` (str, the dotted name `<module>.<qualname>` where qualname is Python's `__qualname__`, e.g. `optuna.importance._ped_anova.evaluator._QuantileFilter.filter`). Sort the list by `func` ascending using plain Python string ordering (code-point order; note that `_` sorts after uppercase letters and before lowercase letters). No two entries share a `func`, so no further tie-break is needed. Do not omit zero-count functions and do not add entries outside the scope.",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 12,
+        "file": "optuna/importance/_ped_anova/evaluator.py",
+        "func": "optuna.importance._ped_anova.evaluator.PedAnovaImportanceEvaluator.__init__"
+      },
+      {
+        "count": 25,
+        "file": "optuna/importance/_ped_anova/evaluator.py",
+        "func": "optuna.importance._ped_anova.evaluator.PedAnovaImportanceEvaluator._compute_pearson_divergence"
+      },
+      {
+        "count": 20,
+        "file": "optuna/importance/_ped_anova/evaluator.py",
+        "func": "optuna.importance._ped_anova.evaluator.PedAnovaImportanceEvaluator._get_top_quantile_trials"
+      },
+      {
+        "count": 14,
+        "file": "optuna/importance/_ped_anova/evaluator.py",
+        "func": "optuna.importance._ped_anova.evaluator.PedAnovaImportanceEvaluator.evaluate"
+      },
+      {
+        "count": 11,
+        "file": "optuna/importance/_ped_anova/evaluator.py",
+        "func": "optuna.importance._ped_anova.evaluator._QuantileFilter.__init__"
+      },
+      {
+        "count": 11,
+        "file": "optuna/importance/_ped_anova/evaluator.py",
+        "func": "optuna.importance._ped_anova.evaluator._QuantileFilter.filter"
+      },
+      {
+        "count": 11,
+        "file": "optuna/importance/_ped_anova/evaluator.py",
+        "func": "optuna.importance._ped_anova.evaluator._get_filtered_trials"
+      },
+      {
+        "count": 27,
+        "file": "optuna/importance/_ped_anova/evaluator.py",
+        "func": "optuna.importance._ped_anova.evaluator._partition_by_regime"
+      },
+      {
+        "count": 14,
+        "file": "optuna/importance/_ped_anova/evaluator.py",
+        "func": "optuna.importance._ped_anova.evaluator._resolve_params"
+      },
+      {
+        "count": 43,
+        "file": "optuna/importance/_ped_anova/scott_parzen_estimator.py",
+        "func": "optuna.importance._ped_anova.scott_parzen_estimator.ScottParzenEstimator.__init__"
+      },
+      {
+        "count": 0,
+        "file": "optuna/importance/_ped_anova/scott_parzen_estimator.py",
+        "func": "optuna.importance._ped_anova.scott_parzen_estimator.ScottParzenEstimator._calculate_categorical_distributions"
+      },
+      {
+        "count": 43,
+        "file": "optuna/importance/_ped_anova/scott_parzen_estimator.py",
+        "func": "optuna.importance._ped_anova.scott_parzen_estimator.ScottParzenEstimator._calculate_numerical_distributions"
+      },
+      {
+        "count": 43,
+        "file": "optuna/importance/_ped_anova/scott_parzen_estimator.py",
+        "func": "optuna.importance._ped_anova.scott_parzen_estimator.ScottParzenEstimator.pdf"
+      },
+      {
+        "count": 0,
+        "file": "optuna/importance/_ped_anova/scott_parzen_estimator.py",
+        "func": "optuna.importance._ped_anova.scott_parzen_estimator._count_categorical_param_in_grid"
+      },
+      {
+        "count": 43,
+        "file": "optuna/importance/_ped_anova/scott_parzen_estimator.py",
+        "func": "optuna.importance._ped_anova.scott_parzen_estimator._count_numerical_param_in_grid"
+      },
+      {
+        "count": 43,
+        "file": "optuna/importance/_ped_anova/scott_parzen_estimator.py",
+        "func": "optuna.importance._ped_anova.scott_parzen_estimator.build_parzen_estimator_on_grid"
+      }
+    ]
+  }
+}

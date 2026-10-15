@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "total_iterations": 1253
+  },
+  "question": "Consider the pytest test class `TestSpannerLoops` in the file `networkx_qa/sparsifiers_spanner_m2_loops/files/testcase.py`. The answer aggregates over ALL test methods of that class (every `test_*` method, i.e. pytest ids `networkx_qa/sparsifiers_spanner_m2_loops/files/testcase.py::TestSpannerLoops::<method>`), run together in one pytest session. Target function: `networkx.algorithms.sparsifiers.spanner`, defined in `networkx/algorithms/sparsifiers.py`. An invocation is one call of this function's own frame during the test run (1-based, chronological order); invocations that raise before reaching any loop still count as invocations but contribute nothing. Focus on the inner `for neighbor in residual_graph.adj[v]:` loop whose header is on line 139 of that file (the edge-removal loop inside the `else:` branch for a node that has a neighboring sampled center; it is nested in the `for v in residual_graph.nodes:` loop on line 98, which is itself nested in the `while i < k - 1:` loop on line 87). Do NOT confuse it with the similar loop on line 117. One iteration of the line-139 loop = one execution of its body's first line, line 140 (`nbr_cluster = clustering[neighbor]`), counted 1-based. Every execution counts, including executions during passes of the `while` loop that are later discarded by the `continue` on line 152 (size-limit retry). Report the total number of iterations of the line-139 loop summed over every entry of that loop, over every invocation of `spanner`, over all test methods of the class. Answer as a JSON object with exactly one key, `total_iterations`, whose value is a JSON integer (e.g. {\"total_iterations\": 3}), not a string.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "total_iterations": "int"
+  }
+}

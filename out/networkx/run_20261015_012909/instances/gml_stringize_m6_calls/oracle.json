@@ -1,0 +1,137 @@
+{
+  "question_kind": "M6_InterProceduralCFG",
+  "question": "Test file: `networkx_qa/gml_stringize_m6_calls/files/testcase.py`, test class `TestGmlWriterScenarios`. Run ALL test methods of this class (every `test_*` method; pytest ids of the form `networkx_qa/gml_stringize_m6_calls/files/testcase.py::TestGmlWriterScenarios::<method>`) and aggregate over all of them; the answer is a single total per function, not per method.\n\nThe writer path exercised here ends in the nested generator `generate_gml.<locals>.stringize` in `networkx/readwrite/gml.py` (module `networkx.readwrite.gml`), reached via `nx.write_gml`, `nx.generate_gml` and the parsing round trips in the tests.\n\nScope: consider every function defined with `def` anywhere in `networkx/readwrite/gml.py`: all module-level functions AND all functions nested inside other functions (closures / inner functions at any depth). The file defines no methods inside its classes, so nothing from class bodies is in scope. Excluded: lambdas, comprehension and generator-expression frames (`<genexpr>`, `<listcomp>`, ...), the module body itself, and any function defined in other files (e.g. the decorators' wrapper functions in `networkx/utils`, the dispatch machinery, `re`, builtins).\n\nIdentity: `func` is the module name followed by the function's Python `__qualname__`, joined by a dot, with `<locals>` segments kept exactly as Python writes them. Example format (not necessarily part of the answer): a function `inner` defined inside module-level `outer` in module `pkg.mod` is `pkg.mod.outer.<locals>.inner`. `file` is the repo-relative path `networkx/readwrite/gml.py` for every entry.\n\nWhat counts as one invocation: one fresh call of the function, i.e. one new frame of that function starting to execute its body, whatever frame it is called from (directly, transitively, recursively, via callbacks such as `re.sub` replacement functions or a `stringizer`/`destringizer` argument, or via `yield from`). For generator functions, an invocation is counted once when the generator object first starts running (its first `next()`); every later resumption of the same suspended generator (each subsequent `next()`/`yield from` step after a `yield`) does NOT count again. A generator object that is created but never started is not counted. A call that ends by raising an exception still counts.\n\nZero rule: every in-scope function appears exactly once in the list, including those that never run during the test class (`count: 0`).\n\nOutput: `{\"invocation_counts\": [{\"count\": int, \"file\": str, \"func\": str}, ...]}`, sorted by `func` ascending (plain Python string ordering / codepoint order); qualnames are unique so no tie-break is needed. `count` is a JSON integer.\n",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 41,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.escape"
+      },
+      {
+        "count": 21,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.escape.<locals>.fixup"
+      },
+      {
+        "count": 13,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.generate_gml"
+      },
+      {
+        "count": 200,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.generate_gml.<locals>.stringize"
+      },
+      {
+        "count": 10,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.literal_destringizer"
+      },
+      {
+        "count": 13,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.literal_stringizer"
+      },
+      {
+        "count": 26,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.literal_stringizer.<locals>.stringize"
+      },
+      {
+        "count": 2,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml"
+      },
+      {
+        "count": 2,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml.<locals>.decode_line"
+      },
+      {
+        "count": 2,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml.<locals>.filter_lines"
+      },
+      {
+        "count": 2,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml_lines"
+      },
+      {
+        "count": 42,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml_lines.<locals>.consume"
+      },
+      {
+        "count": 21,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml_lines.<locals>.parse_dict"
+      },
+      {
+        "count": 2,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml_lines.<locals>.parse_graph"
+      },
+      {
+        "count": 23,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml_lines.<locals>.parse_kv"
+      },
+      {
+        "count": 66,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml_lines.<locals>.parse_kv.<locals>.clean_dict_value"
+      },
+      {
+        "count": 38,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml_lines.<locals>.pop_attr"
+      },
+      {
+        "count": 2,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml_lines.<locals>.tokenize"
+      },
+      {
+        "count": 0,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.parse_gml_lines.<locals>.unexpected"
+      },
+      {
+        "count": 0,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.read_gml"
+      },
+      {
+        "count": 0,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.read_gml.<locals>.filter_lines"
+      },
+      {
+        "count": 21,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.unescape"
+      },
+      {
+        "count": 2,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.unescape.<locals>.fixup"
+      },
+      {
+        "count": 10,
+        "file": "networkx/readwrite/gml.py",
+        "func": "networkx.readwrite.gml.write_gml"
+      }
+    ]
+  }
+}

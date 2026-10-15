@@ -1,0 +1,33 @@
+{
+  "oracle_answer": {
+    "unique_values": [
+      "[-0.11998368607405191, 2.5196574075550897]",
+      "[-0.3471749014710751, 3.4559346342706103]",
+      "[-0.960814986853583, 1.7396321924654516]",
+      "[-1.181640578236903, 2.3095934057886573]",
+      "[-1.9843723305757281, 2.0905647105409892]",
+      "[-2.055792599122394, 1.561490522906206]",
+      "[-2.139165365354727, 2.19398639720653]",
+      "[-2.4445087798196425, 2.6431499328951094]",
+      "[-2.827470580779127, 1.1781381208126445]",
+      "[-2.8848903655367693, 1.431816095307635]",
+      "[-2.999427493209515, -0.7195715484243104]",
+      "[-3.284188701363655, 4.004825776034529]",
+      "[-3.5390056972473385, 0.0852094356881025]",
+      "[-3.9895771543291243, 0.1671894504574907]",
+      "[-5.134681909188116, -1.0469682230759836]",
+      "[-6.089634835166542, -2.40384721059164]",
+      "[0.15307792604792655, 3.4080234576011295]",
+      "[0.3542776592640835, 3.0568367592868215]",
+      "[0.49332793169494, 2.885433243621433]",
+      "[0.8998916969121746, 3.1022743648443334]"
+    ]
+  },
+  "question": "Run ALL test methods of the test class `TestContourLogRanges` in the file `optuna_qa/contour_get_contour_plot_m3_state/files/testcase.py` (pytest id `optuna_qa/contour_get_contour_plot_m3_state/files/testcase.py::TestContourLogRanges`; the answer aggregates over every test method in that class, regardless of the order in which they run). Each test reaches the function `optuna.visualization._contour._get_contour_plot` (defined in `optuna/visualization/_contour.py`) indirectly through the public `optuna.visualization.plot_contour` entry point. Over every invocation of `_get_contour_plot` during the whole run (an invocation = one call of the function; some invocations may never bind the variable), consider every value ever bound to the local variable `log_range` in the frame of `_get_contour_plot` itself, i.e. each result of the statements `log_range = [math.log10(p) for p in ...]` in both the two-parameter branch and the multi-parameter (grid) branch, for both x and y axes. What is the set of distinct values? Represent each value as the Python `repr()` string of the list object bound to `log_range` (a list of two Python floats, e.g. a list like `[-0.75, 1.5]` would be written as the string `\"[-0.75, 1.5]\"`, using Python's shortest round-trip float repr with full precision and `, ` as separator). Two values are duplicates iff their repr strings are identical; keep each distinct repr string once. Answer as a JSON object with the single key `unique_values` whose value is the list of these repr strings sorted in ascending order by plain Python string comparison (code-point lexicographic order, i.e. `sorted()` on the strings, so e.g. `\"[-1...\"` sorts before `\"[0...\"`).",
+  "question_kind": "M3_ProgramState",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 21
+  },
+  "question": "Consider the pytest test `werkzeug_qa/http_proxy_application_s2_loops/files/testcase.py::TestProxyApplicationLoops::test_header_and_body_forwarding` (test class `TestProxyApplicationLoops`, its only test method `test_header_and_body_forwarding`). The test calls `ProxyMiddleware.proxy_to` several times and invokes each returned WSGI app. The target is the nested function `application` defined inside `ProxyMiddleware.proxy_to` in `src/werkzeug/middleware/http_proxy.py` (qualname `werkzeug.middleware.http_proxy.ProxyMiddleware.proxy_to.<locals>.application`, i.e. the undecorated function body that the `@Request.application` decorator wraps, not the decorator's own wrapper in `src/werkzeug/wrappers/request.py`). An invocation is one call of that nested function's body during the test run, counted 1-based in chronological order. Focus on the `for k, v in headers.items():` loop whose header is at line 163 of that file. Define one iteration as one execution of the loop body's first line (line 164, `con.putheader(k, v)`). How many iterations does this loop perform during invocation number 2 (the second invocation)? Count only that one invocation (do not sum across invocations). Answer with a JSON object `{\"loop_iteration_count\": <int>}` where the value is a plain JSON integer (not a string), e.g. `{\"loop_iteration_count\": 3}`.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

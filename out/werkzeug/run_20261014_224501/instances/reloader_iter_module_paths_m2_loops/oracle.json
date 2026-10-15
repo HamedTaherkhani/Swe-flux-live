@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "max_iterations": 69,
+    "min_iterations": 2
+  },
+  "question": "Run every test method of the unittest class `IterModulePathsLoopTest` in `werkzeug_qa/reloader_iter_module_paths_m2_loops/files/testcase.py` (i.e. the whole class, pytest id prefix `werkzeug_qa/reloader_iter_module_paths_m2_loops/files/testcase.py::IterModulePathsLoopTest`), with pytest launched from the repository root as the working directory. The answer aggregates over ALL test methods in the class. Consider the generator function `werkzeug._reloader._iter_module_paths` defined in `src/werkzeug/_reloader.py`. It contains an outer `for` loop over the module objects and, nested inside it, a `while` loop whose header is on line 53 (`while not os.path.isfile(name):`). Define an invocation as one generator object created by calling `_iter_module_paths()` during the run (counted in chronological order, 1-based); suspending at `yield` and later resuming the same generator belongs to the SAME invocation, it is not a new one. Define one iteration of the `while` loop as one execution of its body's first statement, `old = name` on line 55; the `while` loop's iterations are summed over all outer `for`-loop iterations within one invocation (an iteration that ends via `break` still counts; a `while` that never enters its body contributes 0). Every invocation during the run counts, including ones that occur in `__enter__` of the reloader loop, in later `run_step()` calls, and via `_find_watchdog_paths`, even if that invocation yields nothing. Report `max_iterations`: the largest per-invocation `while`-iteration total over all invocations, and `min_iterations`: the smallest such total (both plain JSON integers). Answer as JSON exactly of the form {\"max_iterations\": <int>, \"min_iterations\": <int>}.",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "max_iterations": "int",
+    "min_iterations": "int"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 36
+  },
+  "question": "Consider the pytest test `networkx_qa/graphml_add_graph_element_s2_loops/files/testcase.py::TestGraphMLLxmlMultigraph::test_write_multigraph_with_mixed_edge_data` (the file defines this single test method in class `TestGraphMLLxmlMultigraph`). During this test run, the method `networkx.readwrite.graphml.GraphMLWriterLxml.add_graph_element` (defined in `networkx/readwrite/graphml.py`) is called exactly once (invocation 1, the only call to that function during the test; it is reached indirectly through `networkx.write_graphml`, which with lxml installed is `write_graphml_lxml`). Look at the `for` loop whose header is at line 836 of `networkx/readwrite/graphml.py` (line numbers absolute and 1-based, as the file exists in the repository). An iteration of this loop is defined as one execution of the loop body's first line, line 837; count iterations cumulatively over every time the loop is entered during that single invocation (the loop is nested inside an enclosing loop, so it is entered multiple times; sum all of its body executions across all entries). How many iterations does this loop execute in total during invocation 1? Answer as JSON of the form {\"loop_iteration_count\": <int>}, where the value is a plain JSON integer (not a string), e.g. {\"loop_iteration_count\": 7}.",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

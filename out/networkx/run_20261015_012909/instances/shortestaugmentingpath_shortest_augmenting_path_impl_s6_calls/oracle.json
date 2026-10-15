@@ -1,0 +1,340 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Test: `networkx_qa/shortestaugmentingpath_shortest_augmenting_path_impl_s6_calls/files/testcase.py`, class `TestShortestAugmentingPathBatch`, method `test_batch_of_max_flows` (pytest id `networkx_qa/shortestaugmentingpath_shortest_augmenting_path_impl_s6_calls/files/testcase.py::TestShortestAugmentingPathBatch::test_batch_of_max_flows`).\n\nTarget function: `networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl` (file `networkx/algorithms/flow/shortestaugmentingpath.py`). The test never calls it directly; it is reached through `networkx.maximum_flow_value(..., flow_func=shortest_augmenting_path, ...)`.\n\nNumber the invocations of `shortest_augmenting_path_impl` 1, 2, 3, ... in chronological order of their Python `call` events (function entry) over the whole test run. Consider ONLY invocation number 2.\n\nTracked functions (exactly these two, both nested functions defined inside the target):\n  - `networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.augment`\n  - `networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel`\n\nReport the ordered sequence of every call (Python `call` event, i.e. each time the function is entered) to one of the two tracked functions that happens while invocation 2 of the target is executing (between its entry and its return). Every call is listed separately, in chronological order; repeated calls are NOT deduplicated. Calls to any other function (e.g. `CurrentEdge.move_to_next`, `build_residual_network`, `edmonds_karp_core`, builtins such as `min`) are excluded, and the target function itself is not listed. (Both tracked functions are only ever called directly from the target's own frame and are not generators.)\n\nAnswer format: JSON object `{\"function_call_order\": [{\"file\": str, \"func\": str}, ...]}` where each element is one call, `file` is the repo-relative path `networkx/algorithms/flow/shortestaugmentingpath.py` and `func` is the dotted `module.qualname` of the called function, using Python's `__qualname__` including the `<locals>` component \u2014 e.g. a nested function `helper` inside `pkg.mod.outer` is written `pkg.mod.outer.<locals>.helper`. If no tracked call occurred the list would be empty.",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.augment"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.augment"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.augment"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.augment"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.augment"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.augment"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.augment"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.augment"
+      },
+      {
+        "file": "networkx/algorithms/flow/shortestaugmentingpath.py",
+        "func": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path_impl.<locals>.relabel"
+      }
+    ]
+  }
+}

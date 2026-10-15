@@ -1,0 +1,196 @@
+{
+  "oracle_answer": {
+    "line_execution_counts": [
+      {
+        "count": 0,
+        "line": 424
+      },
+      {
+        "count": 0,
+        "line": 425
+      },
+      {
+        "count": 0,
+        "line": 426
+      },
+      {
+        "count": 0,
+        "line": 427
+      },
+      {
+        "count": 121,
+        "line": 428
+      },
+      {
+        "count": 5,
+        "line": 429
+      },
+      {
+        "count": 0,
+        "line": 430
+      },
+      {
+        "count": 116,
+        "line": 431
+      },
+      {
+        "count": 116,
+        "line": 432
+      },
+      {
+        "count": 0,
+        "line": 433
+      },
+      {
+        "count": 116,
+        "line": 434
+      },
+      {
+        "count": 7,
+        "line": 435
+      },
+      {
+        "count": 0,
+        "line": 436
+      },
+      {
+        "count": 109,
+        "line": 437
+      },
+      {
+        "count": 32,
+        "line": 438
+      },
+      {
+        "count": 0,
+        "line": 439
+      },
+      {
+        "count": 77,
+        "line": 440
+      },
+      {
+        "count": 77,
+        "line": 441
+      },
+      {
+        "count": 4,
+        "line": 442
+      },
+      {
+        "count": 4,
+        "line": 443
+      },
+      {
+        "count": 0,
+        "line": 444
+      },
+      {
+        "count": 73,
+        "line": 445
+      },
+      {
+        "count": 2,
+        "line": 446
+      },
+      {
+        "count": 0,
+        "line": 447
+      },
+      {
+        "count": 103,
+        "line": 448
+      },
+      {
+        "count": 13,
+        "line": 449
+      },
+      {
+        "count": 3,
+        "line": 450
+      },
+      {
+        "count": 0,
+        "line": 451
+      },
+      {
+        "count": 10,
+        "line": 452
+      },
+      {
+        "count": 0,
+        "line": 453
+      },
+      {
+        "count": 90,
+        "line": 454
+      },
+      {
+        "count": 0,
+        "line": 455
+      },
+      {
+        "count": 90,
+        "line": 456
+      },
+      {
+        "count": 7,
+        "line": 457
+      },
+      {
+        "count": 0,
+        "line": 458
+      },
+      {
+        "count": 83,
+        "line": 459
+      },
+      {
+        "count": 83,
+        "line": 460
+      },
+      {
+        "count": 77,
+        "line": 461
+      },
+      {
+        "count": 13,
+        "line": 462
+      },
+      {
+        "count": 13,
+        "line": 463
+      },
+      {
+        "count": 0,
+        "line": 464
+      },
+      {
+        "count": 70,
+        "line": 465
+      },
+      {
+        "count": 13,
+        "line": 466
+      },
+      {
+        "count": 0,
+        "line": 467
+      },
+      {
+        "count": 57,
+        "line": 468
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `ContentRangeParseTest` in the file `werkzeug_qa/range_from_header_m1_cfg_2/files/testcase.py` (pytest id `werkzeug_qa/range_from_header_m1_cfg_2/files/testcase.py::ContentRangeParseTest`). Run ALL of its test methods (every `test_...` method of the class, each identified by its pytest id `werkzeug_qa/range_from_header_m1_cfg_2/files/testcase.py::ContentRangeParseTest::<method_name>`; pytest runs them in alphabetical order, but the answer does not depend on order). The test methods call the target directly, sometimes several times each, with header values built from seeded `random.Random` generators.\n\nTarget function: the classmethod `werkzeug.datastructures.range.ContentRange.from_header` defined in `src/werkzeug/datastructures/range.py` (its `def` statement is on line 423). Only this exact function's own frames count \u2014 NOT `Range.from_header`, `IfRange.from_header`, or any other `from_header`, and not lines of any function it calls (such as `werkzeug._internal._plain_int` or `ContentRange.__init__`).\n\nAn invocation is one call of `ContentRange.from_header` during the run. Aggregate over EVERY invocation in EVERY test method of the class (totals summed over all methods, not per method).\n\nExecuted line: a line counts once each time the Python interpreter reports a line event (as `sys.settrace` 'line' events do on CPython 3.11) for that line inside a frame of `ContentRange.from_header`. Consequences: a `try:` line is counted each time it is entered; an `except ValueError:` line is counted each time it is reached because a `ValueError` was raised inside its `try` block; an `if`/`else` test is counted on the `if` line each time its condition is evaluated (an `else:` line itself never produces an event); a `return` line is counted each time it executes. The `def` line (423) and the `@classmethod` decorator line are out of scope (call events are not line events). For a multi-line statement the event fires on the line where the statement begins; all other physical lines of it are reported with count 0.\n\nScope: every physical line from line 424 through line 468 inclusive (the line right after the `def` line through the function's last line, `return cls(units, start, stop + 1, length)`). Every one of these lines must appear exactly once in the answer, including docstring lines, blank lines, comment lines, `else:` lines, and lines that never execute \u2014 all of those are reported with `count` 0. Line numbers are absolute, 1-based line numbers in `src/werkzeug/datastructures/range.py` as it exists in the repository.\n\nAnswer format: a JSON object `{\"line_execution_counts\": [...]}` whose list contains one object per line in scope with exactly the keys `line` (int) and `count` (int, total number of executions, 0 if never executed), sorted by `line` ascending, with no duplicates.",
+  "question_kind": "M1_IntraProceduralCFG",
+  "template_answer": {
+    "line_execution_counts": [
+      {
+        "count": "int",
+        "line": "int"
+      }
+    ]
+  }
+}

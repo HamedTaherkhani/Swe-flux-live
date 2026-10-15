@@ -1,0 +1,112 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 172,
+        "use_line": 191,
+        "variable": "bytes_sent"
+      },
+      {
+        "def_line": 172,
+        "use_line": 204,
+        "variable": "bytes_sent"
+      },
+      {
+        "def_line": 172,
+        "use_line": 210,
+        "variable": "bytes_sent"
+      },
+      {
+        "def_line": 173,
+        "use_line": 198,
+        "variable": "content_length"
+      },
+      {
+        "def_line": 173,
+        "use_line": 210,
+        "variable": "content_length"
+      },
+      {
+        "def_line": 171,
+        "use_line": 173,
+        "variable": "headers"
+      },
+      {
+        "def_line": 171,
+        "use_line": 176,
+        "variable": "headers"
+      },
+      {
+        "def_line": 176,
+        "use_line": 179,
+        "variable": "key"
+      },
+      {
+        "def_line": 176,
+        "use_line": 185,
+        "variable": "key"
+      },
+      {
+        "def_line": 164,
+        "use_line": 165,
+        "variable": "self"
+      },
+      {
+        "def_line": 164,
+        "use_line": 167,
+        "variable": "self"
+      },
+      {
+        "def_line": 164,
+        "use_line": 168,
+        "variable": "self"
+      },
+      {
+        "def_line": 164,
+        "use_line": 170,
+        "variable": "self"
+      },
+      {
+        "def_line": 164,
+        "use_line": 171,
+        "variable": "self"
+      },
+      {
+        "def_line": 164,
+        "use_line": 172,
+        "variable": "self"
+      },
+      {
+        "def_line": 171,
+        "use_line": 175,
+        "variable": "status_code"
+      },
+      {
+        "def_line": 171,
+        "use_line": 197,
+        "variable": "status_code"
+      },
+      {
+        "def_line": 171,
+        "use_line": 199,
+        "variable": "status_code"
+      },
+      {
+        "def_line": 171,
+        "use_line": 205,
+        "variable": "status_code"
+      }
+    ]
+  },
+  "question": "Consider the pytest test `werkzeug_qa/lint_close_s4_dataflow/files/testcase.py::GuardedIteratorCloseDataFlowTest::test_close_many_responses` (file `werkzeug_qa/lint_close_s4_dataflow/files/testcase.py`, class `GuardedIteratorCloseDataFlowTest`, single test method `test_close_many_responses`). During this test the method `werkzeug.middleware.lint.GuardedIterator.close` defined in `src/werkzeug/middleware/lint.py` is called directly many times on `GuardedIterator` objects built from programmatically generated (seeded) bodies, status codes and headers. An invocation is one call of `GuardedIterator.close`; consider ALL invocations made during the test, in chronological order. Calls of other functions (e.g. `GuardedIterator.__next__`, the body's own `close`, `Headers.get`, `warn`) are not invocations; only the locals of the `GuardedIterator.close` frame matter.\n\nReport every unique dynamic def-use pair observed for these local variables of `GuardedIterator.close` (and only these): `_value`, `bytes_sent`, `content_length`, `headers`, `key`, `self`, `status_code`.\n\nDefinitions (line numbers are absolute, 1-based line numbers in `src/werkzeug/middleware/lint.py` as it exists in the repository):\n- Statement line: every statement of `close` is identified by the line on which it begins. For a multi-line statement, every name occurrence anywhere inside it is attributed to its first line (e.g. a call whose arguments span several lines is entirely attributed to the line holding the start of the statement). For `if`/`elif` the statement is only the header test expression (even if it spans several lines), attributed to the `if`/`elif` line. For the `for` loop the statement is only the header, i.e. the loop target plus the iterable expression, attributed to the `for` line. Comment lines and blank lines never appear.\n- Def: the variable is bound by an assignment target in an executed statement (`x = ...`; each name in a tuple-unpacking target such as `a, b = ...` is defined on that line), or as a `for` loop target each time the `for` header binds a new element (every iteration, each name of a tuple target; the final header evaluation that finds the iterable exhausted binds nothing). The parameter `self` is defined at the line of the `def` keyword (the line `def close(self) -> None:`) when the invocation starts. Attribute assignment such as `self.closed = True` is NOT a def of `self`; it is a use of `self` (the name `self` is read to store the attribute). Method calls such as `x.m(...)` are a use of `x`, not a def. Augmented assignment `x += 1` would count as both a use of the old def and a new def on that line (none occurs here).\n- Use: the variable name appears in a read (load) context anywhere in the executed statement, including as the base object of an attribute access or method call and inside f-string replacement fields. A use counts whenever the statement executes, regardless of short-circuit evaluation of `and`/`or` or chained comparisons (every load occurrence in an executed `if`/`elif` test counts, even if Python did not actually evaluate that operand). There are no comprehensions or lambdas in this function (the `{...}` in the `if` test is a set literal).\n- Within one statement, uses are evaluated before defs (so in `x = f(x)` the `x` use is reached by the previous def of `x`).\n- A pair (variable, def_line, use_line) is observed when, in some invocation, an executed statement at use_line uses the variable and the most recent def of that variable executed earlier in the same invocation is at def_line. Pairs never cross invocations. A tracked variable that is defined but never read produces no pair.\n\nAnswer format: a JSON object `{\"observed_def_use_pairs\": [...]}` where each element is an object with exactly the keys `variable` (string, the bare variable name), `def_line` (int), `use_line` (int). Each distinct triple appears once (deduplicate across all iterations and invocations). Sort ascending by `variable` (plain string comparison, so e.g. `_x` sorts before `a`), then by `def_line`, then by `use_line`.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

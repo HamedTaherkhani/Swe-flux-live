@@ -1,0 +1,142 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 1,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.ErrorStream.__init__"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.ErrorStream.close"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.ErrorStream.flush"
+      },
+      {
+        "count": 15,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.ErrorStream.write"
+      },
+      {
+        "count": 1,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.ErrorStream.writelines"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.GuardedIterator.__del__"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.GuardedIterator.__init__"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.GuardedIterator.__iter__"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.GuardedIterator.__next__"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.GuardedIterator.close"
+      },
+      {
+        "count": 8,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.GuardedWrite.__call__"
+      },
+      {
+        "count": 1,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.GuardedWrite.__init__"
+      },
+      {
+        "count": 1,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.InputStream.__init__"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.InputStream.__iter__"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.InputStream.close"
+      },
+      {
+        "count": 3,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.InputStream.read"
+      },
+      {
+        "count": 6,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.InputStream.readline"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.LintMiddleware.__call__"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.LintMiddleware.__call__.<locals>.checking_start_response"
+      },
+      {
+        "count": 18,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.LintMiddleware.__init__"
+      },
+      {
+        "count": 7,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.LintMiddleware.check_environ"
+      },
+      {
+        "count": 132,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.LintMiddleware.check_headers"
+      },
+      {
+        "count": 0,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.LintMiddleware.check_iterator"
+      },
+      {
+        "count": 169,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.LintMiddleware.check_start_response"
+      },
+      {
+        "count": 192,
+        "file": "src/werkzeug/middleware/lint.py",
+        "func": "werkzeug.middleware.lint.check_type"
+      }
+    ]
+  },
+  "question": "Consider the test class `CheckStartResponseFlowTest` in `werkzeug_qa/lint_check_start_response_m6_calls/files/testcase.py`, run with pytest as a whole (pytest id `werkzeug_qa/lint_check_start_response_m6_calls/files/testcase.py::CheckStartResponseFlowTest`, i.e. ALL of its test methods, in the order pytest collects them). The tests call `werkzeug.middleware.lint.LintMiddleware.check_start_response` (file `src/werkzeug/middleware/lint.py`) directly with generated inputs, under various `warnings` filters (note that a warning filtered as \"error\" makes `warn(...)` raise the warning as an exception). Scope: every function and method whose `def` statement appears anywhere in `src/werkzeug/middleware/lint.py` \u2014 all module-level functions, all methods of every class defined in that file (including `__init__` and all other dunder methods), and nested functions defined inside those methods (closures). Excluded: methods inherited from base classes or from `object` (e.g. the warning classes in this file define no methods of their own, so they contribute nothing), anything defined in other files (e.g. `werkzeug.datastructures.Headers` methods, `warnings.warn`, `urlparse`), class bodies, module bodies, lambdas, comprehensions and generator expressions. Only execution that happens while the test methods themselves run counts (module import / test collection is not part of any test method). For each in-scope function, count how many times it was invoked, summed over ALL test methods of the class (not per method). One invocation = one Python `call` event for a frame executing that function's code object, regardless of who called it (the test directly, or another lint.py function transitively), including invocations that end by raising or propagating an exception. None of the in-scope functions are generators or coroutines, so no resumption events arise. In-scope functions that never ran must still be listed with `count: 0`. Identify each function by its dotted name `<module>.<__qualname__>`, where the module is the importable name `werkzeug.middleware.lint` (not `src.werkzeug.middleware.lint`) and the qualname is Python's `__qualname__` (nested functions include the `<locals>` segment); for example the constructor of the input-stream wrapper is written `werkzeug.middleware.lint.InputStream.__init__`. The `file` field is the repo-relative path `src/werkzeug/middleware/lint.py` for every entry. `count` is a JSON integer. Sort the list by `func` ascending using plain Python string comparison (code-point order); qualnames are unique so no tie-break is needed. Answer as JSON of the form {\"invocation_counts\": [{\"count\": <int>, \"file\": \"src/werkzeug/middleware/lint.py\", \"func\": \"werkzeug.middleware.lint.<qualname>\"}, ...]}.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

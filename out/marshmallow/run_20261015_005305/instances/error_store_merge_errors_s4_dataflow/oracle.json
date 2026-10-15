@@ -1,0 +1,202 @@
+{
+  "oracle_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": 37,
+        "use_line": 43,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 46,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 47,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 49,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 50,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 52,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 54,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 55,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 56,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 59,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 60,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 62,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 63,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 64,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 65,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 67,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 71,
+        "variable": "errors1"
+      },
+      {
+        "def_line": 37,
+        "use_line": 44,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 45,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 48,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 49,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 51,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 52,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 53,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 54,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 57,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 58,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 64,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 66,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 67,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 68,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 37,
+        "use_line": 71,
+        "variable": "errors2"
+      },
+      {
+        "def_line": 58,
+        "use_line": 59,
+        "variable": "key"
+      },
+      {
+        "def_line": 58,
+        "use_line": 60,
+        "variable": "key"
+      },
+      {
+        "def_line": 58,
+        "use_line": 62,
+        "variable": "key"
+      },
+      {
+        "def_line": 58,
+        "use_line": 60,
+        "variable": "val"
+      },
+      {
+        "def_line": 58,
+        "use_line": 62,
+        "variable": "val"
+      }
+    ]
+  },
+  "question": "Run the pytest test `marshmallow_qa/error_store_merge_errors_s4_dataflow/files/testcase.py::MergeErrorsDataFlowTest::test_load_many_collects_errors` (test class `MergeErrorsDataFlowTest`, its single test method `test_load_many_collects_errors`). During that test, the function `marshmallow.error_store.merge_errors` defined in `src/marshmallow/error_store.py` is invoked many times (reached via `ErrorStore.store_error` during `Schema.load`, and recursively by itself). Considering ALL invocations of `merge_errors` during the test run (every call, including recursive calls; each call is its own frame with its own local variables), report every unique dynamically observed def-use pair for exactly these local variable names: `errors1`, `errors2`, `key`, `val`. Definitions: a 'def' of a variable is a binding of the bare name: the parameters `errors1` and `errors2` are defined at the line of the `def merge_errors(...)` statement when the call starts; the `for` loop header line binds `key` and `val` (a new def on every iteration, all attributed to the header line). Item/subscript assignment such as `errors1[key] = ...` or `errors2[SCHEMA] = ...` is NOT a def of `errors1`/`errors2` (it mutates the object); instead it is a USE of that variable (the name is read), and any tracked name inside the subscript or right-hand side is also a use. A 'use' is any read of the bare variable name on a source line that actually executed (e.g. in a condition, call argument, method receiver like `errors1.extend`, subscript, membership test, or return expression). (There are no augmented assignments or comprehensions involving these names in this function; if there were, `x += 1` would count as a use of the old def and a new def on that line.) A pair (variable, def_line, use_line) is observed when, in some invocation, the value bound at def_line is read at use_line before that variable is redefined in the same frame. Uses are attributed to the line on which the statement begins, which here is always the line containing the name. Values from different frames never pair with each other. All line numbers are absolute, 1-based line numbers in `src/marshmallow/error_store.py` as it exists in the repository. Return a JSON object with a single key `observed_def_use_pairs` whose value is a list of objects, each with exactly the keys `variable` (string, the bare variable name), `def_line` (integer) and `use_line` (integer). Each distinct triple appears exactly once (duplicates across iterations/invocations removed). Sort the list ascending by `variable` (plain string comparison), then by `def_line`, then by `use_line`.",
+  "question_kind": "S4_DataFlow",
+  "template_answer": {
+    "observed_def_use_pairs": [
+      {
+        "def_line": "int",
+        "use_line": "int",
+        "variable": "str"
+      }
+    ]
+  }
+}

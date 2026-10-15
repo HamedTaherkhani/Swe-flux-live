@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "line 305: nswap > 0",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 202,
+        "predicate": "line 339: u < x",
+        "violations": 92
+      },
+      {
+        "held_always": false,
+        "observations": 42,
+        "predicate": "line 352: window == 1",
+        "violations": 26
+      },
+      {
+        "held_always": true,
+        "observations": 27,
+        "predicate": "line 360: window <= 2",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 852,
+        "predicate": "line 390: swapcount <= n",
+        "violations": 3
+      },
+      {
+        "held_always": false,
+        "observations": 9,
+        "predicate": "line 405: window < 7",
+        "violations": 1
+      }
+    ]
+  },
+  "question": "Consider the pytest test class `TestConnectedDoubleEdgeSwapInvariants` in the file `networkx_qa/swap_connected_double_edge_swap_m7_invariants/files/testcase.py`. The answer aggregates over ALL 13 `test_*` methods of that class (pytest ids `networkx_qa/swap_connected_double_edge_swap_m7_invariants/files/testcase.py::TestConnectedDoubleEdgeSwapInvariants::<method>`), run together in one pytest session in file order. Target function: `networkx.algorithms.swap.connected_double_edge_swap`, defined in `networkx/algorithms/swap.py` (lines 232-406 of the repository file as it exists; line numbers below are absolute and 1-based in that file). An invocation is one call of this function's own frame (1-based, chronological); all invocations count, including one that raises. Each candidate predicate below is written as `line L: <Python expression>`. Its observation point is the line event of line L in the target function's own frame, i.e. the moment immediately BEFORE line L executes; every time line L is about to execute counts as one observation (a line inside a loop is observed once per execution). The expression is evaluated on the values the function's local variables hold at that moment (before line L's own effects; e.g. at a `n += 1` line, `n` still has its old value). Observations are summed over all invocations and all test methods. The candidate predicates, verbatim:\n  - `line 305: nswap > 0`\n  - `line 339: u < x`\n  - `line 352: window == 1`\n  - `line 360: window <= 2`\n  - `line 390: swapcount <= n`\n  - `line 405: window < 7`\n(For reference: line 305 is `raise nx.NetworkXError(\"Graph has fewer than four nodes.\")`; 339 is the `if x not in G[u] and y not in G[v]:` in the small-window branch; 352 is the first undo statement `G.add_edge(u, v)` of the small-window `else:` branch; 360 is `window = math.ceil(window / 2)` in the small-window branch (under `if fail:`); 390 is `n += 1` in the large-window branch; 405 is `window = math.ceil(window / 2)` after the large-window undo loop.) For each predicate report: `predicate` = the predicate string exactly as listed above (including the `line L: ` prefix, without backticks); `observations` = the number of observations (JSON integer); `violations` = how many of those observations evaluated to false (JSON integer); `held_always` = JSON boolean, true iff `violations == 0` AND `observations > 0`. A predicate whose line is never reached must still be reported, with `observations: 0`, `violations: 0`, `held_always: false`. Answer as a JSON object with exactly one key, `invariant_report`, whose value is a list with one object per predicate (keys `held_always`, `observations`, `predicate`, `violations`), sorted by `predicate` ascending by plain string comparison (the strings are unique, so no tie-break is needed). Example of one entry's shape: {\"held_always\": false, \"observations\": 4, \"predicate\": \"line 1: a < b\", \"violations\": 3}.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

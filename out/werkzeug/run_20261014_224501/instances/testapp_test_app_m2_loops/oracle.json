@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "total_iterations": 448
+  },
+  "question": "Consider the test class `TestTestAppLoops` in `werkzeug_qa/testapp_test_app_m2_loops/files/testcase.py` (run with pytest from the repository root; e.g. `pytest werkzeug_qa/testapp_test_app_m2_loops/files/testcase.py::TestTestAppLoops`). The answer aggregates over ALL test methods in that class. During that run, the WSGI application function `werkzeug.testapp.test_app` defined in `src/werkzeug/testapp.py` (the inner function decorated with `@Request.application`, whose `def` is at line 125; the `application` wrapper created by the decorator, the sort-key lambdas, and the `iter_sys_path` generator are NOT part of it) is invoked a number of times. An invocation is one call (one new frame) of that function, counted 1-based in chronological order. The function contains three `for` loops, identified by their header lines: line 152 (`for egg in eggs:`), line 163 (`for key, value in sorted_environ:`) and line 168 (`for item, virtual, expanded in iter_sys_path():`). An iteration of a loop is one execution of the first line of its body (line 153, line 164 and line 169 respectively); a loop that is never entered or whose iterable is empty contributes 0 iterations. Compute the total number of iterations of these three loops, summed over all three loops and over every invocation of `test_app` during the whole test run (all test methods of the class). Answer as a JSON object of the form {\"total_iterations\": <int>}, where the value is a plain JSON integer (not a string).",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "total_iterations": "int"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "oracle_answer": {
+    "invocation_counts": [
+      {
+        "count": 3,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.AwareDateTime.__init__"
+      },
+      {
+        "count": 18,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.AwareDateTime._deserialize"
+      },
+      {
+        "count": 10,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Date._make_object_from_format"
+      },
+      {
+        "count": 14,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.DateTime._make_object_from_format"
+      },
+      {
+        "count": 3,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.NaiveDateTime.__init__"
+      },
+      {
+        "count": 34,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.NaiveDateTime._deserialize"
+      },
+      {
+        "count": 1,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields.Time._make_object_from_format"
+      },
+      {
+        "count": 22,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField.__init__"
+      },
+      {
+        "count": 22,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._bind_to_schema"
+      },
+      {
+        "count": 188,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._deserialize"
+      },
+      {
+        "count": 0,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._make_object_from_format"
+      },
+      {
+        "count": 18,
+        "file": "src/marshmallow/fields.py",
+        "func": "marshmallow.fields._TemporalField._serialize"
+      }
+    ]
+  },
+  "question": "Consider the test class `TestTemporalDeserializeCalls` in `marshmallow_qa/fields_deserialize_m6_calls_2/files/testcase.py`, run with `pytest marshmallow_qa/fields_deserialize_m6_calls_2/files/testcase.py::TestTemporalDeserializeCalls` (all 12 of its test methods, in the order pytest collects them; the answer aggregates over ALL of them). The schemas in these tests eventually reach `marshmallow.fields._TemporalField._deserialize` (file `src/marshmallow/fields.py`) through `Field.deserialize` and container fields.\n\nScope: every function/method whose `def` appears DIRECTLY in the class body of one of these six classes in `src/marshmallow/fields.py`: `_TemporalField`, `DateTime`, `NaiveDateTime`, `AwareDateTime`, `Time`, `Date`. This includes `__init__`, dunder methods, staticmethods and abstract methods defined there (whether or not they can ever execute). Inherited methods are NOT re-listed under a subclass: a method belongs only to the class whose body textually defines it (e.g. a call to `DateTime(...).method` that resolves to `_TemporalField.method` counts toward `_TemporalField.method`). Methods of other classes (e.g. `Field`, `List`, `Schema`) and functions in other files are out of scope. There are no nested functions, lambdas, or properties inside these six class bodies, so none are tracked.\n\nIdentity: `func` is the dotted `module.qualname` of the function, where the module is `marshmallow.fields`, e.g. `marshmallow.fields.Field.serialize` (format example only; that method is not in scope). `file` is the repo-relative path `src/marshmallow/fields.py` for every entry.\n\nCounting: one invocation = one Python `call` event (a new frame created for that function's code object), regardless of who called it (the test, another in-scope method via `super()`, marshmallow internals, a container field, etc.) and regardless of whether the call returns normally or raises. Recursive/re-entrant calls each count. None of the in-scope functions are generators, so no resumption issue arises. Count only during the execution of the test methods themselves (class bodies of the test-local Schema classes are evaluated inside the test method and so any calls they trigger count; module import of marshmallow does not).\n\nZero rule: every in-scope function appears exactly once in the answer, with `count: 0` if it never ran.\n\nAggregation: counts are summed across all test methods of the class.\n\nOutput: `{\"invocation_counts\": [{\"count\": int, \"file\": str, \"func\": str}, ...]}`, sorted by `func` ascending (plain Python string ordering, so uppercase letters sort before `_`); qualnames are unique, so no tie-break is needed.",
+  "question_kind": "M6_InterProceduralCFG",
+  "template_answer": {
+    "invocation_counts": [
+      {
+        "count": "int",
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "oracle_answer": {
+    "unique_values": [
+      "'0:10|1:9|4:8'",
+      "'4:8'",
+      "('zed', 9)",
+      "['0:10', '1:9', '4:8']",
+      "[{'code': 'CC', 'level': 3, 'pos': 0, 'rank': 6}, {'code': 'A', 'level': 4, 'pos': 1, 'rank': 4}, {'code': 'FFF', 'level': 5, 'pos': 2, 'rank': 15}, {'code': 'EE', 'level': 5, 'pos': 3, 'rank': 10}]",
+      "[{'code': 'CC', 'level': 3, 'pos': 0}, {'code': 'A', 'level': 4, 'pos': 1}, {'code': 'FFF', 'level': 5, 'pos': 2}, {'code': 'EE', 'level': 5, 'pos': 3}]",
+      "[{'code': 'EE', 'level': 5}, {'code': 'FFF', 'level': 5}, {'code': 'A', 'level': 4}, {'code': 'CC', 'level': 3}]",
+      "[{'code': 'ee', 'level': 5}, {'code': 'fff', 'level': 5}, {'code': 'a', 'level': 4}, {'code': 'cc', 'level': 3}]",
+      "[{'name': 'ann', 'score': 1, 'delta': -1}, {'name': 'bo', 'score': 4, 'delta': -2}, {'name': 'cy', 'score': 7, 'delta': -3}]",
+      "[{'name': 'ann', 'score': 1}, {'name': 'bo', 'score': 4}, {'name': 'cy', 'score': 7}]",
+      "[{'name': 'kiwi', 'score': 8}, {'name': 'fig', 'score': 6}, {'name': 'plum', 'score': 8}]",
+      "[{'sku': 's54', 'qty': 9, 'price': -1, 'total': -9}, {'sku': 's75', 'qty': 14, 'price': -6, 'total': -84}, {'sku': 's63', 'qty': 6, 'price': 22, 'total': 132}]",
+      "[{'sku': 's54', 'qty': 9, 'price': -1}, {'sku': 's75', 'qty': 14, 'price': -6}, {'sku': 's63', 'qty': 6, 'price': 22}]",
+      "[{'sku': 's54', 'qty': 9, 'price': 4}, {'sku': 's75', 'qty': 14, 'price': 4}, {'sku': 's63', 'qty': 6, 'price': 14}]",
+      "[{'sku': 's81', 'qty': 8, 'price': 29}, {'sku': 's75', 'qty': 16, 'price': 16}, {'sku': 's75', 'qty': 4, 'price': 7}, {'sku': 's88', 'qty': 16, 'price': 22}]",
+      "[{'sku': 's81', 'qty': 8, 'price': 50, 'total': 400}, {'sku': 's75', 'qty': 16, 'price': 16, 'total': 256}, {'sku': 's75', 'qty': 4, 'price': 10, 'total': 40}, {'sku': 's88', 'qty': 16, 'price': 28, 'total': 448}]",
+      "[{'sku': 's81', 'qty': 8, 'price': 50}, {'sku': 's75', 'qty': 16, 'price': 16}, {'sku': 's75', 'qty': 4, 'price': 10}, {'sku': 's88', 'qty': 16, 'price': 28}]",
+      "[{'val': 1}, {'val': 2}, {'val': 3}]",
+      "[{'val': 1}, {'val': 4}, {'val': 9}]",
+      "[{'val': 2}, {'val': 3}, {'val': 4}]",
+      "[{'val': 3}, {'val': 12}, {'val': 27}]",
+      "[{'val': 3}, {'val': 1}, {'val': 5}]",
+      "[{'x': 0, 'y': 10}, {'x': 1, 'y': 9}, {'x': 4, 'y': 8}]",
+      "{'code': '7BA', 'level': 3, 'rank': 9}",
+      "{'code': '7BA', 'level': 3}",
+      "{'code': 'ab7', 'level': 8}",
+      "{'n': 3, 'sum': 39}",
+      "{'n': 4, 'sum': 1144}",
+      "{'name': 'zed', 'score': 8}",
+      "{'names': 'kfp', 'raw': 3}",
+      "{'one': 4}",
+      "{'rows': [{'code': 'ee', 'level': 5}, {'code': 'cc', 'level': 3}, {'code': 'fff', 'level': 5}, {'code': 'a', 'level': 4}]}",
+      "{'sku': 's79', 'qty': 4, 'price': 20}",
+      "{'sku': 's79', 'qty': 4, 'price': 36, 'total': 144}",
+      "{'sku': 's79', 'qty': 4, 'price': 36}",
+      "{'tag': 'ok'}",
+      "{'tag': 'okok'}",
+      "{'tag': 'xxxxxx'}",
+      "{'val': 24}",
+      "{'val': 4}",
+      "{'val': 5}",
+      "{'val': 8}",
+      "{'x': 4, 'y': 8}"
+    ]
+  },
+  "question": "Consider the test class `TestInvokeProcessorsState` in `marshmallow_qa/schema_invoke_processors_m3_state/files/testcase.py`. Run ALL of its test methods (pytest ids `marshmallow_qa/schema_invoke_processors_m3_state/files/testcase.py::TestInvokeProcessorsState::test_*`, 12 methods); the answer aggregates over every one of them, and every invocation of the method `marshmallow.schema.Schema._invoke_processors` (defined in `src/marshmallow/schema.py`) that happens during those tests (an invocation = one call of that function, whatever schema subclass it is called on and whichever caller reaches it). Within each invocation, observe the local variable `data` (the keyword parameter that the function rebinds inside its loop) at these points: (a) its value on entry to the function, i.e. the argument it received; and (b) its value immediately after EACH completed assignment statement `data = ...` inside the function body (both the list-comprehension assignments and the direct `processor(...)` assignments). An assignment whose right-hand side raises never completes and contributes nothing. Values are taken at the moment of observation, so if an object is later mutated in place, the earlier observation keeps the earlier state. For each observation, take Python `repr(data)` (builtin repr: dicts in insertion order with single-quoted string keys, e.g. `{'k': 1}`; lists as `[...]`; tuples as `(...)`; strings as `'abc'`; Python spellings `None`/`True`/`False`). Answer with JSON `{\"unique_values\": [...]}` where the list contains every DISTINCT repr string observed (duplicates removed, exact string equality), sorted ascending by plain Python string ordering (`sorted()` on the str values, i.e. Unicode code point order, so e.g. `\"['x']\"` sorts before `\"{'x': 1}\"`). Each list element is the repr text itself as a JSON string.",
+  "question_kind": "M3_ProgramState",
+  "template_answer": {
+    "unique_values": [
+      "str"
+    ]
+  }
+}

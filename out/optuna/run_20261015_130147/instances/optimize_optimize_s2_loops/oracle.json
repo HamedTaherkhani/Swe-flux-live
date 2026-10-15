@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "loop_iteration_count": 51
+  },
+  "question": "Run the single test method `test_parallel_submission_loop_until_stop` of class `TestOptimizeInlineParallel` in `optuna_qa/optimize_optimize_s2_loops/files/testcase.py` (pytest id `optuna_qa/optimize_optimize_s2_loops/files/testcase.py::TestOptimizeInlineParallel::test_parallel_submission_loop_until_stop`). During that test the function `optuna.study._optimize._optimize` (defined in `optuna/study/_optimize.py`) is invoked exactly once (invocation = one `call` of that function, 1-based, chronological; this question concerns invocation 1).\n\nConsider the `for` loop whose header is at line 88 of `optuna/study/_optimize.py` (absolute 1-based line number in the file as it exists in the repository): `for n_submitted_trials in itertools.count():`. Define one iteration as one execution of the first line of that loop's body, line 89 (`if study._stop_flag:`). An iteration counts even if it ends immediately with `break` on that line or a later line of the body; so the final pass that exits via a `break` IS counted. Iterations are counted only for this one invocation of `optuna.study._optimize._optimize`; executions of lines in other functions (e.g. `_optimize_sequential`, whose own `while` loop is unrelated) do not count.\n\nHow many iterations does this loop perform? Answer as a JSON object `{\"loop_iteration_count\": <int>}` where the value is a plain JSON integer (not a string).\n",
+  "question_kind": "S2_Loops",
+  "template_answer": {
+    "loop_iteration_count": "int"
+  }
+}

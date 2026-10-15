@@ -1,0 +1,66 @@
+{
+  "question_kind": "M7_Invariants",
+  "question": "Consider the pytest test class `marshmallow_qa/fields_bind_to_schema_m7_invariants/files/testcase.py::TupleBindInvariantTest` (12 test methods, pytest ids `marshmallow_qa/fields_bind_to_schema_m7_invariants/files/testcase.py::TupleBindInvariantTest::test_...`). Run ALL test methods of this class (e.g. `pytest marshmallow_qa/fields_bind_to_schema_m7_invariants/files/testcase.py::TupleBindInvariantTest`); the answer aggregates over every invocation of the target that happens while any of these test methods runs. Counts are totals across all methods; method execution order does not affect them.\n\nTarget function: `Tuple._bind_to_schema` (qualname `marshmallow.fields.Tuple._bind_to_schema`) in `src/marshmallow/fields.py` (the `def` is on line 845). An invocation is one call of exactly this function, whether made directly by the test code or recursively from line 850 of the function itself (when an element of `self.tuple_fields` is itself a `Tuple`), or from any other caller during the test (e.g. a `Tuple` bound only to serve as a parent). Calls of other classes' `_bind_to_schema` (e.g. `Field._bind_to_schema` via `super()` on line 846, or `DateTime`'s override) are NOT invocations and contribute no observations, but their side effects on objects are real.\n\nCandidate predicates (each prefixed by its observation line; line numbers are absolute, 1-based line numbers in `src/marshmallow/fields.py` as it exists in the repository):\n  - `line 846: '_' not in field_name`\n  - `line 846: isinstance(parent, Tuple)`\n  - `line 849: field.required or field.allow_none`\n  - `line 849: isinstance(field, Tuple)`\n  - `line 849: len(new_tuple_fields) < 4`\n  - `line 850 [only where isinstance(new_field, fields.Dict)]: new_field.required`\n  - `line 853: len(new_tuple_fields) % 2 == 1`\n  - `line 853: len(new_tuple_fields) <= 7`\n\nObservation semantics:\n  - A predicate prefixed `line N:` is evaluated once each time line N is about to execute (a Python `line` event for line N in a frame of the target), using the values the target's local variables (`self`, `field_name`, `parent`, `new_tuple_fields`, `field`, `new_field`) hold at that moment, i.e. BEFORE line N runs. So at line 849 `field` is the current loop element and `new_tuple_fields` holds only the elements appended in earlier iterations of the same invocation; at line 846 the `super()` call has not run yet. Line 849 therefore produces exactly one observation per loop iteration, line 846 and line 853 exactly one per invocation (an invocation over an empty `tuple_fields` still reaches line 853).\n  - `Tuple` means `marshmallow.fields.Tuple`; `isinstance` uses the real classes. `field.required` and `field.allow_none` are the instance attributes (note `allow_none` may be set implicitly by the `Field` constructor); `or` is Python's boolean `or` and the predicate is judged by truthiness.\n  - The predicate with the bracketed guard `[only where isinstance(new_field, fields.Dict)]` is evaluated only at line-850 events where the guard is true; events where the guard is false are not observations at all (they count neither as observations nor as violations).\n  - `observations` = number of times the predicate was evaluated; `violations` = number of those evaluations that were false.\n  - `held_always` = true iff `observations > 0` and `violations == 0`. A predicate that was never evaluated is reported with `observations: 0`, `violations: 0`, `held_always: false`.\n\nAnswer format: JSON object `{\"invariant_report\": [...]}` with exactly one entry per candidate predicate above, each `{\"held_always\": bool, \"observations\": int, \"predicate\": str, \"violations\": int}`. `predicate` is the predicate text copied verbatim exactly as listed above (including its `line N:` prefix and any bracketed guard, without the surrounding backticks). Sort entries by `predicate` ascending using plain Python string comparison (code-point order); predicate strings are unique so no tie-break is needed. Booleans are JSON `true`/`false`; counts are JSON integers.",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 43,
+        "predicate": "line 846: '_' not in field_name",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 43,
+        "predicate": "line 846: isinstance(parent, Tuple)",
+        "violations": 17
+      },
+      {
+        "held_always": false,
+        "observations": 126,
+        "predicate": "line 849: field.required or field.allow_none",
+        "violations": 69
+      },
+      {
+        "held_always": false,
+        "observations": 126,
+        "predicate": "line 849: isinstance(field, Tuple)",
+        "violations": 101
+      },
+      {
+        "held_always": false,
+        "observations": 126,
+        "predicate": "line 849: len(new_tuple_fields) < 4",
+        "violations": 8
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "line 850 [only where isinstance(new_field, fields.Dict)]: new_field.required",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 43,
+        "predicate": "line 853: len(new_tuple_fields) % 2 == 1",
+        "violations": 19
+      },
+      {
+        "held_always": true,
+        "observations": 43,
+        "predicate": "line 853: len(new_tuple_fields) <= 7",
+        "violations": 0
+      }
+    ]
+  }
+}

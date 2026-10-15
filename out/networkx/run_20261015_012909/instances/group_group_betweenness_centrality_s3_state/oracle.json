@@ -1,0 +1,88 @@
+{
+  "oracle_answer": {
+    "value_history": [
+      {
+        "step": 1,
+        "value": "0"
+      },
+      {
+        "step": 2,
+        "value": "37.46666666666666"
+      },
+      {
+        "step": 3,
+        "value": "49.133333333333326"
+      },
+      {
+        "step": 4,
+        "value": "15.133333333333326"
+      },
+      {
+        "step": 5,
+        "value": "7.566666666666663"
+      },
+      {
+        "step": 6,
+        "value": "0"
+      },
+      {
+        "step": 7,
+        "value": "51.3"
+      },
+      {
+        "step": 8,
+        "value": "67.16666666666666"
+      },
+      {
+        "step": 9,
+        "value": "78.83333333333333"
+      },
+      {
+        "step": 10,
+        "value": "22.83333333333333"
+      },
+      {
+        "step": 11,
+        "value": "11.416666666666664"
+      },
+      {
+        "step": 12,
+        "value": "0"
+      },
+      {
+        "step": 13,
+        "value": "26.4"
+      },
+      {
+        "step": 14,
+        "value": "50.3"
+      },
+      {
+        "step": 15,
+        "value": "50.3"
+      },
+      {
+        "step": 16,
+        "value": "79.26666666666665"
+      },
+      {
+        "step": 17,
+        "value": "13.266666666666652"
+      },
+      {
+        "step": 18,
+        "value": "6.633333333333326"
+      }
+    ]
+  },
+  "question": "Run the single pytest test `networkx_qa/group_group_betweenness_centrality_s3_state/files/testcase.py::TestGroupBetweennessHistory::test_multi_group_unnormalized` (test file `networkx_qa/group_group_betweenness_centrality_s3_state/files/testcase.py`, class `TestGroupBetweennessHistory`, method `test_multi_group_unnormalized`) under CPython 3.12. During this test the function `networkx.algorithms.centrality.group.group_betweenness_centrality` (defined in `networkx/algorithms/centrality/group.py`) is invoked exactly once (one `call` of the function's own frame; the `nx._dispatchable` wrapper is not a separate invocation). Report the complete ordered history of values bound to the local variable `GBC_group` in that invocation's frame. A history step is recorded every time a statement that assigns `GBC_group` finishes executing: the plain assignment `GBC_group = 0` and every augmented assignment (`+=`, `-=`, `/=`) to `GBC_group`, in chronological execution order, over all groups processed by the outer `for group in C` loop. Every such execution is a step, even if the new value has the same repr as the previous one (no deduplication). Each value is Python `repr()` of the object bound to `GBC_group` immediately after that statement executed, emitted as a JSON string containing exactly the repr text with no added quotes (so an int 3 is written as the JSON string \"3\", a float uses CPython's shortest round-trip repr, e.g. \"2.5\" or \"-0.75\", never rounded or reformatted; an int and a float of equal value are different reprs, e.g. \"4\" vs \"4.0\"). Answer with JSON of the form {\"value_history\": [{\"step\": <int>, \"value\": <str>}, ...]} where `step` is 1-based and increases by one per recorded assignment, and the list is ordered by `step` ascending.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "value_history": [
+      {
+        "step": "int",
+        "value": "str"
+      }
+    ]
+  }
+}

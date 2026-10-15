@@ -1,0 +1,10 @@
+{
+  "oracle_answer": {
+    "total_iterations": 8885
+  },
+  "question": "Run ALL test methods of the class `ResolveHooksLoopTest` in `marshmallow_qa/schema_resolve_hooks_m2_loops/files/testcase.py` (e.g. `pytest marshmallow_qa/schema_resolve_hooks_m2_loops/files/testcase.py::ResolveHooksLoopTest`, all 12 `test_*` methods in a single pytest process, identified by their pytest ids; the answer aggregates over ALL of them and does not depend on their execution order). Consider the classmethod-style metaclass method `SchemaMeta.resolve_hooks` (dotted name `marshmallow.schema.SchemaMeta.resolve_hooks`) defined in `src/marshmallow/schema.py`. It contains an outer loop `for attr_name in dir(cls):` (line 168) and, directly nested inside it, an inner loop `for parent in mro:` (line 172). Define one iteration of the inner loop as one execution of its body's first real statement, `attr = parent.__dict__[attr_name]` (line 174); every inner-loop iteration executes that line exactly once, whether the dictionary lookup succeeds (followed by `break`) or raises KeyError (followed by `continue`). Count these iterations summed over EVERY invocation of `resolve_hooks` that happens while the test methods execute (inside the test method bodies, i.e. not during module import/collection), and over all outer-loop iterations of each invocation. An invocation is one call of the function; this includes BOTH the explicit `resolve_hooks()` calls written in the tests AND the implicit calls made by `SchemaMeta.__init__` whenever a schema class is created during a test (via `SchemaMeta(...)`, a subclass of `SchemaMeta`, or `Schema.from_dict`). Use the repository source exactly as checked in and the Python interpreter of this environment (the result of `dir()` depends on it). Answer with a JSON object with the single key `total_iterations` whose value is a JSON integer (the plain base-10 total, e.g. {\"total_iterations\": 4321}).",
+  "question_kind": "M2_Loops",
+  "template_answer": {
+    "total_iterations": "int"
+  }
+}

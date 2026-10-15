@@ -1,0 +1,10 @@
+{
+  "question_kind": "M2_Loops",
+  "question": "Run every test method of the test class `TestGreedyColorInterchangeBatch` in `networkx_qa/greedy_coloring_greedy_coloring_with_interchange_m2_loops/files/testcase.py` (pytest id prefix `networkx_qa/greedy_coloring_greedy_coloring_with_interchange_m2_loops/files/testcase.py::TestGreedyColorInterchangeBatch::`; the answer aggregates over ALL test methods of the class). Those tests reach the private function `networkx.algorithms.coloring.greedy_coloring._greedy_coloring_with_interchange` (file `networkx/algorithms/coloring/greedy_coloring.py`) indirectly via `greedy_color(..., interchange=True)`. Consider the innermost Kempe-chain breadth-first-search loop `while i < len(frontier):` whose header is at line 512 of that file (nested inside the `while connected and col2 < k:` and `while connected and col1 < k:` loops). One iteration of this loop is one execution of its body's first line, `search_node = frontier[i]` (line 513). An invocation is one call of `_greedy_coloring_with_interchange`; the loop may be entered zero, one, or many times per invocation. What is the total number of iterations of this loop summed over every time it is entered, across every invocation of the function in all test methods of the class? Count every iteration, including those in passes where no color interchange ultimately happens. Answer as JSON {\"total_iterations\": <int>}, a plain base-10 integer (e.g. {\"total_iterations\": 7}).",
+  "template_answer": {
+    "total_iterations": "int"
+  },
+  "oracle_answer": {
+    "total_iterations": 505
+  }
+}

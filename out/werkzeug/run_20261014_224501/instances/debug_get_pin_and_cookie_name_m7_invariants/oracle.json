@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 570,
+        "predicate": "isinstance(bit, str)",
+        "violations": 122
+      },
+      {
+        "held_always": false,
+        "observations": 243,
+        "predicate": "len(num) % group_size == 0",
+        "violations": 171
+      },
+      {
+        "held_always": true,
+        "observations": 243,
+        "predicate": "len(num) >= 2",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 95,
+        "predicate": "len(rv) != 10",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "pin.isdecimal()",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 95,
+        "predicate": "rv is None",
+        "violations": 10
+      }
+    ]
+  },
+  "question": "Run the whole pytest class `werkzeug_qa/debug_get_pin_and_cookie_name_m7_invariants/files/testcase.py::TestPinAndCookieInvariants` (ALL 12 of its test methods; the answer aggregates over every one of them — counts are totals across the entire class run, independent of method order). Consider every invocation (one call of the function, wherever it comes from) of the module-level function `werkzeug.debug.get_pin_and_cookie_name` defined in `src/werkzeug/debug/__init__.py`.\n\nCandidate invariants. Each predicate below is a Python expression over the target function's own local variables, evaluated at an observation point given as an absolute 1-based line number in `src/werkzeug/debug/__init__.py` (as it exists in the repository). An OBSERVATION happens each time that line is about to execute inside the target function's own frame (i.e. a Python line event for that line — for loop-body lines, once per loop iteration that reaches it); the predicate is evaluated on the values the locals hold at that moment, i.e. BEFORE the statement on that line runs (so at line 216 `group_size` is the current loop value, at line 225 `rv` is the value about to be returned); `len()` of a str counts code points. Lines executed inside the generator expression on lines 217-220 are a separate frame and are never observations.\n  - predicate `pin.isdecimal()` — observed at line 159 (`return None, None`)\n  - predicate `isinstance(bit, str)` — observed at line 197 (`if not bit:`)\n  - predicate `rv is None` — observed at line 208 (`if num is None:`)\n  - predicate `len(num) % group_size == 0` — observed at line 216 (`if len(num) % group_size == 0:`)\n  - predicate `len(num) >= 2` — observed at line 216 (`if len(num) % group_size == 0:`)\n  - predicate `len(rv) != 10` — observed at line 225 (`return rv, cookie_name`)\n\nFor each predicate report:\n- `predicate`: the predicate text exactly as written between backticks above (e.g. a hypothetical predicate `x > 0` is reported as the string \"x > 0\");\n- `observations`: the total number of observations of its line over the whole class run (int);\n- `violations`: how many of those observations evaluated to false (int);\n- `held_always`: true iff `violations == 0` AND `observations > 0`. A predicate whose line is never executed is reported with `observations: 0`, `violations: 0`, `held_always: false`.\n\nAnswer with JSON `{\"invariant_report\": [...]}` containing exactly one object per predicate (all 6 of them), with keys `held_always` (JSON bool), `observations` (int), `predicate` (str), `violations` (int), sorted ascending by the `predicate` string using plain Python string comparison (code-point order); predicates are all distinct, so no tie-break is needed.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

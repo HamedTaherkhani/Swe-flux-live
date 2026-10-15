@@ -1,0 +1,12 @@
+{
+  "oracle_answer": {
+    "exception_message": "Another study with study_name='htmf-1' already exists. Please specify a name not in the storage, or reuse the existing one by setting `load_if_exists` (for Python API) or `--skip-if-exists` flag (for CLI).\nUse `optuna.study.get_all_study_names(storage)` to list all the used names.",
+    "exception_type": "optuna.exceptions.DuplicatedStudyError"
+  },
+  "question": "Consider the pytest test `optuna_qa/study_create_study_s5_exceptions/files/testcase.py::CreateStudyEscapeTest::test_first_escaping_error` (file `optuna_qa/study_create_study_s5_exceptions/files/testcase.py`, class `CreateStudyEscapeTest`, single test method `test_first_escaping_error`). The test calls the function `optuna.study.study.create_study` (defined in `optuna/study/study.py`) repeatedly with seeded, programmatically generated arguments until one call raises. An invocation is one call of `create_study` during this test run, numbered 1-based in chronological order. Exceptions raised and caught inside `create_study` itself (i.e. handled by its own `except` clause without leaving the function) do NOT count; we care only about the exception object that propagates OUT of `create_study` to its caller in the FIRST invocation that does not return normally. Report that exception as a JSON object with exactly two string keys: `exception_type` and `exception_message`. `exception_type` naming convention: use the bare `type(exc).__name__` for built-in exceptions (e.g. `KeyError`, never `builtins.KeyError`), and `module.QualName` for all others, where `module` is the class's `__module__` and `QualName` its `__qualname__` (e.g. `json.decoder.JSONDecodeError`). `exception_message` is exactly `str(exc)` of the propagated exception, character for character (any newline characters it contains are kept as real newlines, i.e. `\\n` in the JSON encoding; no surrounding quotes, no type prefix).",
+  "question_kind": "S5_Exceptions",
+  "template_answer": {
+    "exception_message": "str",
+    "exception_type": "str"
+  }
+}

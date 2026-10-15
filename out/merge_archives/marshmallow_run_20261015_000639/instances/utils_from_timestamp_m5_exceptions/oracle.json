@@ -1,0 +1,40 @@
+{
+  "oracle_answer": {
+    "exception_type_counts": [
+      {
+        "count": 6,
+        "exception_type": "AttributeError"
+      },
+      {
+        "count": 4,
+        "exception_type": "OSError"
+      },
+      {
+        "count": 26,
+        "exception_type": "OverflowError"
+      },
+      {
+        "count": 12,
+        "exception_type": "TypeError"
+      },
+      {
+        "count": 80,
+        "exception_type": "ValueError"
+      },
+      {
+        "count": 3,
+        "exception_type": "ZeroDivisionError"
+      }
+    ]
+  },
+  "question": "Consider the test class `TestFromTimestampExceptions` in `marshmallow_qa/utils_from_timestamp_m5_exceptions/files/testcase.py`. Run ALL of its test methods with pytest (e.g. `pytest marshmallow_qa/utils_from_timestamp_m5_exceptions/files/testcase.py::TestFromTimestampExceptions`). The answer aggregates over every test method in that class and over every invocation of the target function `marshmallow.utils.from_timestamp` (defined in `src/marshmallow/utils.py`). Note that `from_timestamp_ms` is a different function and is NOT part of the target.\n\nFor each exception type, how many times was an exception of that type OBSERVED in a `from_timestamp` frame across the whole run?\n\nObservation rule: an exception is observed in a `from_timestamp` frame each time it is either (a) raised by code executing directly in that frame (a `raise` statement in `from_timestamp`, including a new exception raised inside one of its `except` handlers, or an error raised by a C-implemented builtin/type called directly from that frame, e.g. `float(...)` or `datetime.fromtimestamp(...)`), or (b) propagated into that frame from a Python-level callee (for example a user-defined or stdlib `__float__` method invoked by `float(value)`). This is exactly the moments at which Python's `sys.settrace` would report an `exception` event for that frame. Each such moment counts once. An exception that is caught by an `except` handler inside `from_timestamp` still counts once (it was observed before being handled), and if the handler raises a NEW exception, that new exception counts as a separate observation. A single exception object that propagates out of `from_timestamp` is counted only once for that frame (leaving the frame does not count again). Exceptions that are raised and fully handled inside a callee (never reaching `from_timestamp`) do NOT count. Exceptions caught by the test code after they leave `from_timestamp` are not observed again in the target frame.\n\nCounts are totals over ALL invocations and ALL test methods: the same type observed in five different invocations contributes five.\n\nNaming: use bare `type(exc).__name__` for built-in exception types (e.g. `KeyError`, never `builtins.KeyError`) and `module.QualName` for all other exception types (e.g. `json.decoder.JSONDecodeError`). Report the concrete type of the exception object, not a base class and not an alias spelling.\n\nAnswer format: a JSON object with a single key `exception_type_counts`, whose value is a list of objects `{\"count\": <int>, \"exception_type\": <str>}`. Include every type that was observed at least once (no zero counts). Sort the list by `exception_type` ascending (plain code-point string order); since each type appears exactly once, no tie-break is needed.",
+  "question_kind": "M5_Exceptions",
+  "template_answer": {
+    "exception_type_counts": [
+      {
+        "count": "int",
+        "exception_type": "str"
+      }
+    ]
+  }
+}

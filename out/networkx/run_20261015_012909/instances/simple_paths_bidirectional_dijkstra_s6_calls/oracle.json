@@ -1,0 +1,304 @@
+{
+  "question_kind": "S6_InterProceduralCFG",
+  "question": "Test: `networkx_qa/simple_paths_bidirectional_dijkstra_s6_calls/files/testcase.py`, class `TestBidirectionalDijkstraFiltered`, method `test_filtered_bidirectional_searches` (pytest id `networkx_qa/simple_paths_bidirectional_dijkstra_s6_calls/files/testcase.py::TestBidirectionalDijkstraFiltered::test_filtered_bidirectional_searches`). The test is the only test method in the file.\n\nTarget function: `networkx.algorithms.simple_paths._bidirectional_dijkstra` (file `networkx/algorithms/simple_paths.py`), which the test calls directly.\n\nNumber the invocations of `_bidirectional_dijkstra` 1, 2, 3, ... in chronological order of their Python `call` events (function entry) during the test run. Consider ONLY invocation number 2.\n\nTracked functions: exactly the functions defined (at any nesting level) inside `_bidirectional_dijkstra`, i.e.\n  - `networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter`\n  - `networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate`\n  - `networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter`\n  - `networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate`\n  - `networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter`\n  - `networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate`\n(The target contains two separate `def filter_iter` blocks with the same qualname; both are written with the same name above and are not distinguished.)\n\nReport the chronological sequence of Python `call` events of tracked functions that occur while invocation 2 of the target is on the call stack (between its entry and its return/exception exit), including nested/transitive calls (e.g. one tracked generator starting another), not only calls made directly from the target's own frame. Counting rules:\n  - `filter_iter`, `filter_pred_iter`, `filter_succ_iter` are ordinary functions: every call is one element.\n  - The `iterate` functions are generator functions. Calling `iterate(v)` merely creates a generator object and is NOT counted. A generator contributes exactly ONE element, at the moment its body first starts executing (the first `next()` on it). Later resumptions after a `yield`, and any `close()`/`throw()`, are NOT counted.\n  - Repeated calls are listed every time (no deduplication). Calls to any other function (graph methods such as `G.successors`/`G.predecessors`, the weight function, `heappush`/`heappop`, builtins, functions in other modules) and the target itself are excluded.\n\nAnswer format: JSON object `{\"function_call_order\": [{\"file\": str, \"func\": str}, ...]}`, one element per counted call in chronological order, where `file` is the repo-relative path `networkx/algorithms/simple_paths.py` and `func` is the dotted `module.qualname` of the called function using Python's `__qualname__` including `<locals>` components \u2014 e.g. a nested function `helper` inside `pkg.mod.outer` is written `pkg.mod.outer.<locals>.helper`.",
+  "template_answer": {
+    "function_call_order": [
+      {
+        "file": "str",
+        "func": "str"
+      }
+    ]
+  },
+  "oracle_answer": {
+    "function_call_order": [
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_pred_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_succ_iter.<locals>.iterate"
+      },
+      {
+        "file": "networkx/algorithms/simple_paths.py",
+        "func": "networkx.algorithms.simple_paths._bidirectional_dijkstra.<locals>.filter_iter.<locals>.iterate"
+      }
+    ]
+  }
+}

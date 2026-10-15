@@ -1,0 +1,54 @@
+{
+  "oracle_answer": {
+    "invariant_report": [
+      {
+        "held_always": false,
+        "observations": 134,
+        "predicate": "info == ''",
+        "violations": 27
+      },
+      {
+        "held_always": false,
+        "observations": 0,
+        "predicate": "is_syntax_error",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 152,
+        "predicate": "len(rows) < 2",
+        "violations": 7
+      },
+      {
+        "held_always": true,
+        "observations": 134,
+        "predicate": "len(rows) < 3",
+        "violations": 0
+      },
+      {
+        "held_always": false,
+        "observations": 13,
+        "predicate": "not is_syntax_error",
+        "violations": 1
+      },
+      {
+        "held_always": false,
+        "observations": 31,
+        "predicate": "not mark_library",
+        "violations": 5
+      }
+    ]
+  },
+  "question": "Run the whole test class `RenderTracebackScenarios` in `werkzeug_qa/tbtools_render_traceback_html_m7_invariants/files/testcase.py` with pytest (all of its test methods, e.g. pytest id `werkzeug_qa/tbtools_render_traceback_html_m7_invariants/files/testcase.py::RenderTracebackScenarios::test_plain_recursion`); the answer aggregates over ALL test methods of the class. Consider every invocation of the method `DebugTraceback.render_traceback_html` defined in `src/werkzeug/debug/tbtools.py` (qualname `werkzeug.debug.tbtools.DebugTraceback.render_traceback_html`, lines 272-322; it is reached indirectly when `DebuggedApplication` renders its error page). An invocation is one call of that method (not of nested comprehension frames or of callees such as `DebugFrameSummary.render_html`). An 'observation at line N' happens every time line N of that file is about to execute in the frame of `render_traceback_html` (a Python 'line' event for line N, i.e. before the statement on line N runs). For the `for` statements on lines 282 and 288 this includes every evaluation of the loop header: once per loop iteration plus the final evaluation that finds the iterable exhausted. At each observation, a predicate is evaluated on the current values of the method's local variables at that moment (so a variable assigned on line N itself still holds its previous value; e.g. at line 291 `info` already holds the value computed on line 290 for the current frame, while at lines 288 and 289 `rows` holds only the rows appended by line 293 so far). Predicates are evaluated with ordinary Python semantics on the real runtime objects. The candidate predicates, each with its single observation line, are: `info == ''` observed at line 291; `is_syntax_error` observed at line 303; `len(rows) < 2` observed at line 288; `len(rows) < 3` observed at line 289; `not is_syntax_error` observed at line 312; `not mark_library` observed at line 282. For each predicate report: `predicate` = the predicate text exactly as written above inside the backticks (a JSON string, no backticks); `observations` = total number of observations of its line summed over all invocations in all test methods; `violations` = how many of those observations had the predicate evaluate to false; `held_always` = true iff `violations` is 0 AND `observations` is at least 1 (a predicate whose line is never reached is reported with `observations: 0`, `violations: 0`, `held_always: false`). Return a JSON object `{\"invariant_report\": [...]}` with exactly one entry per candidate predicate (six entries), each having keys `held_always` (JSON boolean), `observations` (int), `predicate` (str), `violations` (int), sorted by `predicate` ascending using plain Python string comparison (code-point order); predicate texts are unique so no tie-break is needed.",
+  "question_kind": "M7_Invariants",
+  "template_answer": {
+    "invariant_report": [
+      {
+        "held_always": "bool",
+        "observations": "int",
+        "predicate": "str",
+        "violations": "int"
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "oracle_answer": {
+    "observed_state": [
+      {
+        "value": "21",
+        "variable": "deser_val"
+      },
+      {
+        "value": "defaultdict(<class 'dict'>, {'19.0': {'key': ['Not a valid integer.']}, '058': {'value': ['Not a valid integer.']}})",
+        "variable": "errors"
+      },
+      {
+        "value": "'0014'",
+        "variable": "key"
+      },
+      {
+        "value": "{'67': 67, '058': 58, '0014': 14, '029': 29}",
+        "variable": "keys"
+      },
+      {
+        "value": "{67: 42, 14: 21}",
+        "variable": "result"
+      },
+      {
+        "value": "21.5",
+        "variable": "val"
+      }
+    ]
+  },
+  "question": "Test: `marshmallow_qa/fields_deserialize_s3_state/files/testcase.py::MappingLoadTest::test_load_bucket_ledger` (test class `MappingLoadTest`, single test method `test_load_bucket_ledger`).\nTarget function: `marshmallow.fields.Mapping._deserialize` defined in `src/marshmallow/fields.py` (reached indirectly here through `fields.Dict` values nested inside a `fields.List` of a schema being loaded).\n\nConsider every execution of the statement on line 1723 of `src/marshmallow/fields.py` (`result[keys[key]] = deser_val`, inside the `else:` clause of the try statement in the value-deserialization loop), counted chronologically across ALL invocations of `Mapping._deserialize` during the whole test run (the counter is NOT reset per invocation; counting is 1-based). Line numbers are absolute and 1-based in the file as it exists in the repository.\n\nObservation point: immediately after line 1723 has finished executing for the 11th time during the test run (i.e. the state of that same frame right before its next line executes).\n\nAt that observation point, report the values of these local variables of that `Mapping._deserialize` frame: `deser_val`, `errors`, `key`, `keys`, `result`, `val`.\n\nAnswer format: {\"observed_state\": [{\"value\": <str>, \"variable\": <str>}, ...]} with exactly one entry per variable listed above, sorted by `variable` name in ascending lexicographic (ASCII) order. `variable` is the bare local variable name. `value` is the Python `repr()` of the variable's value at that moment, given as a string; for containers it is the `repr` of the whole container (dicts in insertion order; a `collections.defaultdict` uses its standard repr, e.g. `defaultdict(<class 'list'>, {'a': [1]})`), so strings keep their quotes (e.g. `'abc'`), and Python spellings like `None`, `True`, `1.0` are used inside the string.",
+  "question_kind": "S3_ProgramState",
+  "template_answer": {
+    "observed_state": [
+      {
+        "value": "str",
+        "variable": "str"
+      }
+    ]
+  }
+}
